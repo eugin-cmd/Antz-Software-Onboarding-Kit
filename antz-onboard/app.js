@@ -641,8 +641,8 @@
     paintBorder(el, st.p);
   }
 
-  /* 2.5px on desktop, 2px on phones */
-  const CARD_BORDER = { stroke: () => (narrow() ? 2 : 2.5), bleed: 1, feather: 64, isOn: null };
+  /* 2.9px on desktop, 2px on phones */
+  const CARD_BORDER = { stroke: () => (narrow() ? 2 : 2.9), bleed: 1, feather: 64, isOn: null };
   const CHIP_BORDER = { stroke: 1, feather: 28, over: true, drawMs: 900, undrawMs: 500 };
   let borderObserver = null;
   function sizeBorders() {
