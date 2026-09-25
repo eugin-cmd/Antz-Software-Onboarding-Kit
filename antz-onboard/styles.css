@@ -332,12 +332,14 @@ button { font: inherit; color: inherit; }
 }
 .mcard-face {
   position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; text-align: left; padding: 0; cursor: pointer;
-  background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+  background: #fff; border: 0; border-radius: 18px; overflow: hidden;
   box-shadow: 0 1px 2px rgba(14,23,21,.04);
   transition: transform .5s cubic-bezier(.22,.8,.24,1), box-shadow .5s cubic-bezier(.22,.8,.24,1);
 }
 .mcard-face:hover, .mcard-face:focus-visible { transform: translateY(-4px); box-shadow: 0 22px 44px -22px rgba(14,40,34,.38), 0 2px 6px rgba(14,23,21,.05); }
 .mcard-face:focus-visible { outline: none; }
+/* The resting 1px edge sits under the drawn border, so the drawn line covers it completely */
+.mcard-face::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; border: 1px solid var(--line); pointer-events: none; }
 
 /* Photo with the module icon */
 .mcard-thumb { position: relative; display: block; height: 176px; overflow: hidden; background: var(--teal-deep); }
@@ -398,11 +400,18 @@ button { font: inherit; color: inherit; }
 
 /* Detail panel: spans the whole row under the open card */
 .mpanel { grid-column: 1 / -1; background: var(--tint); border-radius: 22px; border: 1px solid var(--line); position: relative; scroll-margin-top: calc(var(--header-h) + 80px); }
-.mpanel.enter { animation: panelIn .32s var(--ease); }
-@keyframes panelIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+/* Radial blow-out: a circle grows from where the arrow meets the open card until it covers the panel */
+.mpanel.enter { animation: panelBlow .75s cubic-bezier(.65,0,.35,1) both; }
+@keyframes panelBlow {
+  from { clip-path: circle(0px at var(--notch-x, 50%) -14px); }
+  to   { clip-path: circle(var(--blow-r, 150%) at var(--notch-x, 50%) -14px); }
+}
 .mpanel.closing { pointer-events: none; }
-.mpanel.leave { animation: panelOut .28s cubic-bezier(.4,0,1,1) forwards; }
-@keyframes panelOut { to { opacity: 0; transform: translateY(-8px); } }
+.mpanel.leave { animation: panelShrink .45s cubic-bezier(.65,0,.35,1) forwards; }
+@keyframes panelShrink {
+  from { clip-path: circle(var(--blow-r, 150%) at var(--notch-x, 50%) -14px); }
+  to   { clip-path: circle(0px at var(--notch-x, 50%) -14px); }
+}
 .mpanel-inner { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; padding: 36px 40px; align-items: start; }
 .mpanel-inner.no-stage { grid-template-columns: 1fr; }
 .mpanel-close {
@@ -473,7 +482,7 @@ button { font: inherit; color: inherit; }
   .mgroup-head .count { display: none; }
   .mgroup-head h3 { font-size: 18px; }
 }
-@media (prefers-reduced-motion: reduce) { .mpanel.enter { animation: none; } .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg { transition: none !important; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .mpanel.enter, .mpanel.leave { animation: none; } .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg { transition: none !important; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
 
 .module-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-content: start; }
 .module-card {

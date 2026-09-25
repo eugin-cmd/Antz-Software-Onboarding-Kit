@@ -399,11 +399,12 @@
       panel.removeAttribute('id');
       panel.classList.add('closing');
       animateBorder(panel);
-      setTimeout(() => {
-        panel.classList.add('leave');
-        panel.addEventListener('animationend', () => panel.remove(), { once: true });
-        setTimeout(() => panel.remove(), 400);
-      }, 480);
+      /* Shrink back into the card while the outline un-draws */
+      panel.classList.remove('enter');
+      void panel.offsetWidth;
+      panel.classList.add('leave');
+      panel.addEventListener('animationend', (e) => { if (e.target === panel) panel.remove(); });
+      setTimeout(() => panel.remove(), 600);
     } else if (panel) panel.remove();
     if (panelTeardown) panelTeardown();
     if (focusBack && card) card.querySelector('.mcard-face').focus();
@@ -461,7 +462,13 @@
     const PANEL_BORDER = { stroke: 2, feather: 64, over: true, noHover: true, drawMs: DRAW_MS, undrawMs: 550,
       isOn: () => panel.isConnected && !panel.classList.contains('closing'),
       path: (w, h, r, i) => panelPath(w, h, r, i, notchX()) };
-    const fitPanel = () => { panel.style.setProperty('--notch-x', `${notchX()}px`); fitBorder(panel, PANEL_BORDER); };
+    const fitPanel = () => {
+      const nx = notchX();
+      panel.style.setProperty('--notch-x', `${nx}px`);
+      /* Radius that reaches the panel's farthest corner from the blow-out point */
+      panel.style.setProperty('--blow-r', `${Math.ceil(Math.hypot(Math.max(nx, panel.offsetWidth - nx), panel.offsetHeight + 14)) + 4}px`);
+      fitBorder(panel, PANEL_BORDER);
+    };
     fitPanel();
     if (instant || reducedMotion()) { const st = borderState.get(panel); if (st) { st.p = st.target = 1; paintBorder(panel, 1); } }
     else animateBorder(panel);
@@ -586,11 +593,13 @@
     const svg = el.querySelector('.drawn-border');
     svg.setAttribute('width', w); svg.setAttribute('height', h);
     svg.style.left = svg.style.top = opts.over ? `${-bw}px` : '0px';
-    const d = opts.path ? opts.path(w, h, r, opts.stroke / 2) : borderPath(w, h, r, opts.stroke / 2);
+    /* bleed: widen the stroke past the clipped edge so no background shows at the rounded corners */
+    const sw = opts.stroke + (opts.bleed || 0), inset = opts.stroke / 2 - (opts.bleed || 0) / 2;
+    const d = opts.path ? opts.path(w, h, r, inset) : borderPath(w, h, r, inset);
     let st = borderState.get(el);
     if (!st) {
       svg.innerHTML = Array.from({ length: FEATHER_LAYERS }, (_, j) =>
-        `<path pathLength="1" stroke-width="${opts.stroke}" stroke-dasharray="0 2" stroke-opacity="${(1 / (FEATHER_LAYERS - j)).toFixed(4)}"/>`).join('');
+        `<path pathLength="1" stroke-width="${sw}" stroke-dasharray="0 2" stroke-opacity="${(1 / (FEATHER_LAYERS - j)).toFixed(4)}"/>`).join('');
       st = { p: 0, target: 0, raf: 0, paths: [...svg.children], feather: opts.feather, drawMs: opts.drawMs || DRAW_MS, undrawMs: opts.undrawMs || UNDRAW_MS, isOn: opts.isOn };
       borderState.set(el, st);
       if (!opts.noHover) ['pointerenter', 'pointerleave', 'focus', 'blur'].forEach((ev) => el.addEventListener(ev, () => animateBorder(el)));
@@ -600,7 +609,7 @@
     paintBorder(el, st.p);
   }
 
-  const CARD_BORDER = { stroke: 4, feather: 64, isOn: null };
+  const CARD_BORDER = { stroke: 4, bleed: 1, feather: 64, isOn: null };
   const CHIP_BORDER = { stroke: 1, feather: 28, over: true, drawMs: 900, undrawMs: 500 };
   let borderObserver = null;
   function sizeBorders() {
