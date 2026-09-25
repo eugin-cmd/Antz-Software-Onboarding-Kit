@@ -345,8 +345,10 @@ button { font: inherit; color: inherit; }
 .mcard-thumb { position: relative; display: block; height: 176px; overflow: hidden; background: var(--teal-deep); }
 .mcard-bg {
   position: absolute; inset: 0; background-size: cover; background-repeat: no-repeat;
-  transform: scaleX(var(--flip, 1)) scale(1.02); transition: transform 1.4s cubic-bezier(.2,.7,.2,1);
+  transform: scaleX(var(--flip, 1)) scale(1.02); transition: transform 1.4s cubic-bezier(.2,.7,.2,1), filter .6s cubic-bezier(.65,0,.35,1);
 }
+/* Selected card: the photo softens behind the icon */
+.mcard.active .mcard-bg { filter: blur(3px); }
 .mcard-face:hover .mcard-bg, .mcard-face:focus-visible .mcard-bg, .mcard.active .mcard-bg { transform: scaleX(var(--flip, 1)) scale(1.09); }
 .mcard-thumb::after {
   content: ""; position: absolute; inset: 0;
@@ -355,9 +357,23 @@ button { font: inherit; color: inherit; }
 .mcard-icon {
   position: absolute; left: 18px; bottom: 16px; z-index: 1; width: 46px; height: 46px;
   filter: drop-shadow(0 4px 12px rgba(0,0,0,.45));
-  transition: transform .6s cubic-bezier(.22,.8,.24,1);
+  --icon: 46px; --icon-x: 18px; --icon-y: 16px;
+  transition: transform .6s cubic-bezier(.22,.8,.24,1), left .6s cubic-bezier(.65,0,.35,1), bottom .6s cubic-bezier(.65,0,.35,1);
 }
-.mcard-face:hover .mcard-icon, .mcard-face:focus-visible .mcard-icon, .mcard.active .mcard-icon { transform: translateY(-4px); }
+.mcard-face:hover .mcard-icon, .mcard-face:focus-visible .mcard-icon { transform: translateY(-4px); }
+/* Selected card: the icon eases to the centre of the photo, grows 25%, wobbles and settles */
+.mcard.active .mcard-icon {
+  left: calc(50% - var(--icon) / 2); bottom: calc(50% - var(--icon) / 2); transform: scale(1.25);
+  animation: iconSettle .7s cubic-bezier(.36,.07,.19,.97) .55s;
+}
+@keyframes iconSettle {
+  0%   { transform: scale(1.25) rotate(0); }
+  18%  { transform: scale(1.25) rotate(-9deg); }
+  36%  { transform: scale(1.25) rotate(7deg); }
+  54%  { transform: scale(1.25) rotate(-4deg); }
+  72%  { transform: scale(1.25) rotate(2deg); }
+  100% { transform: scale(1.25) rotate(0); }
+}
 .mcard-num {
   position: absolute; top: 12px; right: 16px; z-index: 1; font-size: 18px; font-weight: 700; letter-spacing: .04em;
   color: rgba(255,255,255,.9); font-variant-numeric: tabular-nums; text-shadow: 0 1px 6px rgba(0,0,0,.4);
@@ -463,7 +479,7 @@ button { font: inherit; color: inherit; }
   .modules-section { padding: 56px 0 40px; }
   .mgrid { --mgap: 12px; grid-template-columns: repeat(2, 1fr); }
   .mcard-thumb { height: 128px; }
-  .mcard-icon { width: 34px; height: 34px; left: 12px; bottom: 12px; }
+  .mcard-icon { --icon: 34px; width: 34px; height: 34px; left: 12px; bottom: 12px; }
   .mcard-num { top: 9px; right: 12px; font-size: 16.5px; }
   .mcard-body { padding: 12px 12px 12px; }
   .mcard-title { font-size: 15px; }
@@ -482,7 +498,7 @@ button { font: inherit; color: inherit; }
   .mgroup-head .count { display: none; }
   .mgroup-head h3 { font-size: 18px; }
 }
-@media (prefers-reduced-motion: reduce) { .mpanel.enter, .mpanel.leave { animation: none; } .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg { transition: none !important; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .mpanel.enter, .mpanel.leave { animation: none; } .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg { transition: none !important; } .mcard.active .mcard-icon { animation: none; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
 
 .module-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-content: start; }
 .module-card {
