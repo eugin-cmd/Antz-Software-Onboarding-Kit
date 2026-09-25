@@ -593,8 +593,9 @@
     const svg = el.querySelector('.drawn-border');
     svg.setAttribute('width', w); svg.setAttribute('height', h);
     svg.style.left = svg.style.top = opts.over ? `${-bw}px` : '0px';
-    /* bleed: widen the stroke past the clipped edge so no background shows at the rounded corners */
-    const sw = opts.stroke + (opts.bleed || 0), inset = opts.stroke / 2 - (opts.bleed || 0) / 2;
+    /* stroke may depend on screen size; bleed widens it past the clipped edge so no background shows at rounded corners */
+    const stroke = typeof opts.stroke === 'function' ? opts.stroke() : opts.stroke;
+    const sw = stroke + (opts.bleed || 0), inset = stroke / 2 - (opts.bleed || 0) / 2;
     const d = opts.path ? opts.path(w, h, r, inset) : borderPath(w, h, r, inset);
     let st = borderState.get(el);
     if (!st) {
@@ -604,19 +605,21 @@
       borderState.set(el, st);
       if (!opts.noHover) ['pointerenter', 'pointerleave', 'focus', 'blur'].forEach((ev) => el.addEventListener(ev, () => animateBorder(el)));
     }
-    st.paths.forEach((path) => path.setAttribute('d', d));
+    st.paths.forEach((path) => { path.setAttribute('d', d); path.setAttribute('stroke-width', sw); });
     st.len = st.paths[0].getTotalLength();
     paintBorder(el, st.p);
   }
 
-  const CARD_BORDER = { stroke: 4, bleed: 1, feather: 64, isOn: null };
+  /* 4px on desktop, 2px on phones */
+  const CARD_BORDER = { stroke: () => (narrow() ? 2 : 4), bleed: 1, feather: 64, isOn: null };
   const CHIP_BORDER = { stroke: 1, feather: 28, over: true, drawMs: 900, undrawMs: 500 };
   let borderObserver = null;
   function sizeBorders() {
     if (borderObserver) borderObserver.disconnect();
     const targets = [
       ...[...app.querySelectorAll('.mcard-face')].map((el) => [el, { ...CARD_BORDER,
-        isOn: () => el.matches(':hover') || el.matches(':focus-visible') || el.closest('.mcard').classList.contains('active') }]),
+        /* Touch screens have no hover: there the border draws when the card is tapped open */
+        isOn: () => (el.matches(':hover') && canHover()) || el.matches(':focus-visible') || el.closest('.mcard').classList.contains('active') }]),
       ...[...app.querySelectorAll('.mfilter')].map((el) => [el, { ...CHIP_BORDER,
         isOn: () => el.matches(':hover') || el.matches(':focus-visible') }])
     ];
