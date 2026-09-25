@@ -320,12 +320,32 @@
     </span>`;
   };
   /* Open-panel outline: same route as the cards, with the arrow folded into the top edge at cx */
-  const NOTCH_W = 13, NOTCH_H = 13;
+  /* Arrow size: 17px on desktop, 13px on phones where the gap to the card is smaller; 9px corner radius */
+  const NOTCH_R = 9;
+  const notchSize = () => (narrow() ? 13 : 17);
+  /* The arrow as path commands along the panel's top edge (y = T), with a 9px radius at the tip and at both joins */
+  const notchSegment = (cx, T) => {
+    const NOTCH_W = notchSize(), NOTCH_H = notchSize();
+    const pts = [[cx - NOTCH_W, T], [cx, T - NOTCH_H], [cx + NOTCH_W, T]];
+    const prevOf = [[cx - NOTCH_W - 100, T], pts[0], pts[1]], nextOf = [pts[1], pts[2], [cx + NOTCH_W + 100, T]];
+    const sweeps = [0, 1, 0];
+    return pts.map((P, k) => {
+      const a = [prevOf[k][0] - P[0], prevOf[k][1] - P[1]], b = [nextOf[k][0] - P[0], nextOf[k][1] - P[1]];
+      const la = Math.hypot(...a), lb = Math.hypot(...b);
+      const ua = [a[0] / la, a[1] / la], ub = [b[0] / lb, b[1] / lb];
+      const ang = Math.acos(Math.max(-1, Math.min(1, ua[0] * ub[0] + ua[1] * ub[1])));
+      const t = NOTCH_R / Math.tan(ang / 2);
+      const q0 = [P[0] + ua[0] * t, P[1] + ua[1] * t], q1 = [P[0] + ub[0] * t, P[1] + ub[1] * t];
+      return `L${q0[0].toFixed(2)},${q0[1].toFixed(2)} A${NOTCH_R},${NOTCH_R} 0 0 ${sweeps[k]} ${q1[0].toFixed(2)},${q1[1].toFixed(2)}`;
+    }).join(' ');
+  };
   const panelPath = (w, h, r, i, cx) => {
     const R = Math.max(r - i, 0), L = i, T = i, Rt = w - i, B = h - i;
     /* Starts at the top-left corner, so the draw begins on screen, next to the open card */
-    return `M${L},${T + R} A${R},${R} 0 0 1 ${L + R},${T} H${cx - NOTCH_W} L${cx},${T - NOTCH_H} L${cx + NOTCH_W},${T} H${Rt - R} A${R},${R} 0 0 1 ${Rt},${T + R} V${B - R} A${R},${R} 0 0 1 ${Rt - R},${B} H${L + R} A${R},${R} 0 0 1 ${L},${B - R} Z`;
+    return `M${L},${T + R} A${R},${R} 0 0 1 ${L + R},${T} ${notchSegment(cx, T)} H${Rt - R} A${R},${R} 0 0 1 ${Rt},${T + R} V${B - R} A${R},${R} 0 0 1 ${Rt - R},${B} H${L + R} A${R},${R} 0 0 1 ${L},${B - R} Z`;
   };
+  /* Filled arrow in the panel colour; reaches 3px below the edge to hide the panel's resting 1px border there */
+  const notchFill = (cx, T, NOTCH_W = notchSize()) => `M${cx - NOTCH_W - 12},${T + 3} L${cx - NOTCH_W - 12},${T} ${notchSegment(cx, T)} L${cx + NOTCH_W + 12},${T} L${cx + NOTCH_W + 12},${T + 3} Z`;
   /* Hover border: one path that starts at the bottom-left corner and closes there */
   const borderPath = (w, h, r, i = 2) => {
     const R = Math.max(r - i, 0), L = i, T = i, Rt = w - i, B = h - i;
@@ -468,6 +488,10 @@
       /* Radius that reaches the panel's farthest corner from the blow-out point */
       panel.style.setProperty('--blow-r', `${Math.ceil(Math.hypot(Math.max(nx, panel.offsetWidth - nx), panel.offsetHeight + 14)) + 4}px`);
       fitBorder(panel, PANEL_BORDER);
+      const svg = panel.querySelector(':scope > .drawn-border');
+      let fill = svg.querySelector('.notch-fill');
+      if (!fill) { fill = document.createElementNS('http://www.w3.org/2000/svg', 'path'); fill.setAttribute('class', 'notch-fill'); svg.prepend(fill); }
+      fill.setAttribute('d', notchFill(nx, 1));
     };
     fitPanel();
     if (instant || reducedMotion()) { const st = borderState.get(panel); if (st) { st.p = st.target = 1; paintBorder(panel, 1); } }

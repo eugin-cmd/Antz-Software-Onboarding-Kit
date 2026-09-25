@@ -407,12 +407,8 @@ button { font: inherit; color: inherit; }
 /* Cards and their open panels use a deeper tone of the area's panel colour instead of the brand gradient */
 .mpanel > .drawn-border path, .mcard-face > .drawn-border path { stroke: var(--tint-line); }
 .mcard.active .mcard-face { transform: none; box-shadow: 0 22px 44px -22px rgba(14,40,34,.38); }
-/* The panel's arrow: filled here in the panel colour; its outline is part of the panel's drawn border */
-.mpanel::before {
-  content: ""; position: absolute; z-index: 2; pointer-events: none;
-  left: calc(var(--notch-x, 50%) - 14px); top: -14px; width: 28px; height: 16px; background: var(--tint);
-  clip-path: polygon(50% 0, 100% 87.5%, 100% 100%, 0 100%, 0 87.5%);
-}
+/* The panel's arrow is drawn in its border SVG: a rounded fill (.notch-fill) plus the outline */
+.mpanel > .drawn-border .notch-fill { fill: var(--tint); stroke: none; }
 
 /* Detail panel: spans the whole row under the open card */
 .mpanel { grid-column: 1 / -1; background: var(--tint); border-radius: 22px; border: 1px solid var(--line); position: relative; scroll-margin-top: calc(var(--header-h) + 80px); }
