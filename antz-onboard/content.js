@@ -1,0 +1,3965 @@
+window.ANTZ_CONTENT = {
+ "meta": {
+  "source": "Edition 01 · ANTZ Onboarding Training Kit.html",
+  "extracted": "2026-09-11",
+  "note": "Numbers and track grouping are Edition 01's own, taken from its printed index. D6 unresolved: the stated '32 modules / six tracks' does not reconcile with the index. Not renumbered here."
+ },
+ "tracks": [
+  {
+   "id": "foundations",
+   "label": "Foundations",
+   "count": 3,
+   "desc": "Why the kit exists, what the platform is, and how to get started.",
+   "grad": "green",
+   "glyph": "note"
+  },
+  {
+   "id": "records",
+   "label": "Records & Communication",
+   "count": 3,
+   "desc": "The lightest-weight, highest-frequency surfaces — notes, chat and user setup.",
+   "grad": "butter",
+   "glyph": "chat"
+  },
+  {
+   "id": "animal",
+   "label": "Animal Records & Movement",
+   "count": 7,
+   "desc": "Collection, housing and every movement an animal makes through the zoo.",
+   "grad": "coral",
+   "glyph": "pets"
+  },
+  {
+   "id": "medical",
+   "label": "Medical & Treatment",
+   "count": 9,
+   "desc": "Records, prescriptions, treatment and the hospital information system.",
+   "grad": "teal",
+   "glyph": "medical"
+  },
+  {
+   "id": "mortality",
+   "label": "Mortality & Lifecycle",
+   "count": 5,
+   "desc": "Mortality, necropsy and egg lifecycle management.",
+   "grad": "cyan",
+   "glyph": "egg"
+  },
+  {
+   "id": "operations",
+   "label": "Operations & Oversight",
+   "count": 10,
+   "desc": "Announcements, helpdesk, security, reporting and compliance.",
+   "grad": "green",
+   "glyph": "report"
+  }
+ ],
+ "modules": [
+  {
+   "id": "objective-of-this-kit",
+   "no": "01",
+   "page": 3,
+   "title": "Objective of this kit",
+   "track": "foundations",
+   "intro": "Onboarding has four jobs: get every team member confident in their day-to-day activities, get the platform adopted across roles, identify gaps so we can improve, and standardise how records are kept across sites.",
+   "grad": "green",
+   "glyph": "note",
+   "features": [
+    {
+     "title": "Skill development",
+     "desc": "Enhance staff knowledge and the practical skills needed for effective zoo operations, animal care, and confident use of the Antz platform.",
+     "shot": null,
+     "alt": "",
+     "icon": "note"
+    },
+    {
+     "title": "System adoption",
+     "desc": "Familiarize users with every app module and build confidence to perform the core actions like recording, reviewing and approving without supervision.",
+     "shot": null,
+     "alt": "",
+     "icon": "home"
+    },
+    {
+     "title": "Continuous improvement",
+     "desc": "Identify the gaps, clarify the doubts, and use feedback-driven learning to refine workflows and module behaviour over time.",
+     "shot": null,
+     "alt": "",
+     "icon": "manage"
+    },
+    {
+     "title": "Standardisation",
+     "desc": "Consistent protocols across teams and sites - same module behaviour for Requests, Mortality, Egg and Diet so every record reads the same way.",
+     "shot": null,
+     "alt": "",
+     "icon": "report"
+    }
+   ],
+   "shots": [],
+   "status": "complete"
+  },
+  {
+   "id": "what-is-antz-systems",
+   "no": null,
+   "page": 4,
+   "title": "What is Antz Systems?",
+   "track": "foundations",
+   "intro": "Antz is your all-in-one platform for animal records, daily operations, and team collaboration. It centralises data across sites and departments so every action stays documented, transparent, and traceable.",
+   "grad": "green",
+   "glyph": "note",
+   "features": [
+    {
+     "title": "Better records, better care",
+     "desc": "Every detail accurate, accessible, time-stamped, and tied to the right animal.",
+     "shot": null,
+     "alt": "",
+     "icon": "note"
+    },
+    {
+     "title": "Teamwork made simple",
+     "desc": "No gaps between vets, caretakers, and managers — everyone on the same record.",
+     "shot": null,
+     "alt": "",
+     "icon": "users"
+    },
+    {
+     "title": "Secure by design",
+     "desc": "Role-based access protects sensitive data and aligns rights with the org chart.",
+     "shot": null,
+     "alt": "",
+     "icon": "shield"
+    },
+    {
+     "title": "Decisions at your fingertips",
+     "desc": "Faster reporting and compliance-ready insights, without spreadsheets in the loop.",
+     "shot": null,
+     "alt": "",
+     "icon": "alert"
+    },
+    {
+     "title": "Paperless operations",
+     "desc": "Cut transcription errors and save time across every shift.",
+     "shot": null,
+     "alt": "",
+     "icon": "pets"
+    },
+    {
+     "title": "Real-time updates",
+     "desc": "Access the latest info anytime, anywhere — across phone, tablet and desktop.",
+     "shot": null,
+     "alt": "",
+     "icon": "home"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/app-welcome-c.jpg",
+     "alt": "Antz Systems app welcome screen: Good data + good insights = healthy animals.",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "getting-started",
+   "no": null,
+   "page": 5,
+   "title": "Getting Started",
+   "track": "foundations",
+   "intro": "The Getting Started guide introduces the purpose of the app and walks new users through the essential steps to set up their profile, explore key features, and navigate the platform effectively.",
+   "grad": "coral",
+   "glyph": "note",
+   "features": [
+    {
+     "title": "Access & Workspaces",
+     "desc": "Log in securely and access your designated work environment.",
+     "shot": "assets/shots/p5-home-screen.png",
+     "alt": "Antz Systems home screen: search bar, Pending Administration, This Month insights with Natality/Mortality, and an Announcement card",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "shield"
+    },
+    {
+     "title": "Navigation & Interface",
+     "desc": "Use the home feed for updates, quick navigation shortcuts, and the bottom panel for core tools.",
+     "shot": null,
+     "alt": "",
+     "icon": "manage"
+    },
+    {
+     "title": "Pending Necropsy / Administration / Allocation",
+     "desc": "Animals awaiting necropsy, administrative documentation, and subsequent allocation or disposal procedures before final closure of records.",
+     "shot": null,
+     "alt": "",
+     "icon": "report"
+    },
+    {
+     "title": "Master Setup & Modules",
+     "desc": "Configure master data, and explore modules like Medical Records, Housing, Egg, Diet and Animal Management.",
+     "shot": null,
+     "alt": "",
+     "icon": "manage"
+    },
+    {
+     "title": "Personalisation",
+     "desc": "Manage notes, update your profile, and adjust language preferences.",
+     "shot": null,
+     "alt": "",
+     "icon": "focus"
+    },
+    {
+     "title": "Permissions",
+     "desc": "Understand access levels required for secure operations.",
+     "shot": null,
+     "alt": "",
+     "icon": "shield"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p5-home-screen.png",
+     "alt": "Antz Systems home screen: search bar, Pending Administration, This Month insights with Natality/Mortality, and an Announcement card",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "notes-module",
+   "no": "04",
+   "page": 7,
+   "title": "Notes Module",
+   "track": "records",
+   "intro": "The Notes Module centralises logging of daily updates, observations, and incidents linked to animals, enclosures, and operations. It ensures structured, time-stamped entries; smooth team coordination; quick retrieval via filters and tags and supports consistent care, early issue detection, and compliance.",
+   "grad": "teal",
+   "glyph": "note",
+   "features": [
+    {
+     "title": "Add & view notes",
+     "desc": "Create new notes and access those by you or other authorised users.",
+     "shot": "assets/shots/p7-notes-1.jpg",
+     "alt": "New Notes form: note type, notes, notify members, entity, attachments, priority",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "eye"
+    },
+    {
+     "title": "Edit , Listen & delete",
+     "desc": "Modify, listen via audio or remove notes based on assigned permissions.",
+     "shot": "assets/shots/p7-notes-2.jpg",
+     "alt": "Note detail: Medical, Sick, Tiger AID 425990, with edit and bookmark",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "edit"
+    },
+    {
+     "title": "Priority",
+     "desc": "Set the urgency level so the right people see it first.",
+     "shot": "assets/shots/p7-notes-3.jpg",
+     "alt": "Note detail with priority flag at top right",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "priority"
+    },
+    {
+     "title": "Note type & linking",
+     "desc": "Categorise, link to animals, enclosures or sections, and attach documents.",
+     "shot": "assets/shots/p7-notes-4.jpg",
+     "alt": "Note detail with linked animal entity card, Tiger AID 425990",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "link"
+    },
+    {
+     "title": "Visibility",
+     "desc": "Notes appear automatically on the relevant animal, site, or section pages.",
+     "shot": "assets/shots/p7-notes-5.jpg",
+     "alt": "Site page Notes tab: Hygiene note showing on Central Reserve Kingdom",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "eye"
+    },
+    {
+     "title": "Notifications & collaboration",
+     "desc": "Notify tagged members; likes and comments keep it focused.",
+     "shot": "assets/shots/p7-notes-7.jpg",
+     "alt": "Note with thumbs up, tagged member Dr. Cloomy Fernandes, 1 comment",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "announce"
+    },
+    {
+     "title": "Filters & search",
+     "desc": "Filter by keywords, tags, creator, or linked entity.",
+     "shot": "assets/shots/p7-notes-6.jpg",
+     "alt": "Notes list with My Notes / All Notes tabs and Filters",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "filter"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p7-notes-1.jpg",
+     "alt": "New Notes form: note type, notes, notify members, entity, attachments, priority",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p7-notes-2.jpg",
+     "alt": "Note detail: Medical, Sick, Tiger AID 425990, with edit and bookmark",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p7-notes-3.jpg",
+     "alt": "Note detail with priority flag at top right",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p7-notes-4.jpg",
+     "alt": "Note detail with linked animal entity card, Tiger AID 425990",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p7-notes-5.jpg",
+     "alt": "Site page Notes tab: Hygiene note showing on Central Reserve Kingdom",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p7-notes-6.jpg",
+     "alt": "Notes list with My Notes / All Notes tabs and Filters",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p7-notes-7.jpg",
+     "alt": "Note with thumbs up, tagged member Dr. Cloomy Fernandes, 1 comment",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "chat-module",
+   "no": "05",
+   "page": 8,
+   "title": "Chat Module",
+   "track": "records",
+   "intro": "The Chat Module is an in-app communication channel offering one-on-one and group messaging, media sharing, and real-time notifications keeping all work conversations, updates, and coordination securely inside the platform rather than scattered across personal phones and email.",
+   "grad": "butter",
+   "glyph": "chat",
+   "features": [],
+   "shots": [
+    {
+     "src": "assets/shots/p8-chat.png",
+     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "needs-content"
+  },
+  {
+   "id": "user-management",
+   "no": "06",
+   "page": 9,
+   "title": "User Management",
+   "track": "records",
+   "intro": "The User Module enables secure, centralised management of accounts, roles, and permissions. It streamlines user onboarding, ensures data security, and aligns access rights with organisational roles while maintaining detailed activity logs for accountability.",
+   "grad": "cyan",
+   "glyph": "users",
+   "features": [
+    {
+     "title": "Profile creation & management",
+     "desc": "Manage name, contact, staff ID, DOB, blood group.",
+     "shot": "assets/shots/p9-user-1.jpg",
+     "alt": "Add User Basic Info form: name, username, email, password, mobile, staff ID",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "approve"
+    },
+    {
+     "title": "Roles & permissions",
+     "desc": "Assign roles and manage module-level access rights.",
+     "shot": "assets/shots/p9-user-2.jpg",
+     "alt": "Edit Permissions: Veterinarian role with module-level access checkboxes",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "users"
+    },
+    {
+     "title": "Access control",
+     "desc": "Restrict by site/section, activate accounts, auto-timeout.",
+     "shot": "assets/shots/p9-user-3.jpg",
+     "alt": "User profile with Deactivate, Reset Password, Reset Passcode menu",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "shield"
+    },
+    {
+     "title": "Login & recovery",
+     "desc": "Secure login with OTP recovery via SMS or WhatsApp.",
+     "shot": "assets/shots/p9-user-4.jpg",
+     "alt": "Reset Password / Forgot Password screen with username or email field",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Activity tracking",
+     "desc": "View last login, device details, and deactivate devices.",
+     "shot": "assets/shots/p9-user-5.jpg",
+     "alt": "User profile Journal tab: activity log with last active time",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Additional info",
+     "desc": "Record education, work history, and upload ID proofs.",
+     "shot": "assets/shots/p9-user-6.jpg",
+     "alt": "User profile Id Proofs tab: Aadhaar card with attachment",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "tag"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p9-user-1.jpg",
+     "alt": "Add User Basic Info form: name, username, email, password, mobile, staff ID",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p9-user-2.jpg",
+     "alt": "Edit Permissions: Veterinarian role with module-level access checkboxes",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p9-user-3.jpg",
+     "alt": "User profile with Deactivate, Reset Password, Reset Passcode menu",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p9-user-4.jpg",
+     "alt": "Reset Password / Forgot Password screen with username or email field",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p9-user-5.jpg",
+     "alt": "User profile Journal tab: activity log with last active time",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p9-user-6.jpg",
+     "alt": "User profile Id Proofs tab: Aadhaar card with attachment",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "collection",
+   "no": "07",
+   "page": 11,
+   "title": "Collection",
+   "track": "animal",
+   "intro": "The Collection Module is designed to manage and document every aspect of an institution's animal collection serving as the central hub for recording species, tracking individual animals, and maintaining accurate taxonomic histories.",
+   "grad": "green",
+   "glyph": "pets",
+   "features": [
+    {
+     "title": "Species overview",
+     "desc": "Taxonomy, population by gender, accession/birth counts, with search.",
+     "shot": "assets/shots/p11-col-1.jpg",
+     "alt": "Tiger species detail with population, sites, sections, enclosures",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "report"
+    },
+    {
+     "title": "Species management",
+     "desc": "Counts, morphs, medical, diet, mortality, and necropsy status.",
+     "shot": "assets/shots/p11-col-2.jpg",
+     "alt": "Tiger species detail with population, sites, sections, enclosures",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "species"
+    },
+    {
+     "title": "Add batch assessment",
+     "desc": "Group data input with sequential navigation and filters.",
+     "shot": "assets/shots/p11-col-3.jpg",
+     "alt": "Species Assessment list with body condition per animal",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "add"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p11-col-1.jpg",
+     "alt": "Tiger species detail with population, sites, sections, enclosures",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p11-col-2.jpg",
+     "alt": "Tiger species detail with population, sites, sections, enclosures",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p11-col-3.jpg",
+     "alt": "Species Assessment list with body condition per animal",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "housing",
+   "no": "08",
+   "page": 12,
+   "title": "Housing",
+   "track": "animal",
+   "intro": "The Housing Module manages animal habitats across sites, sections, and enclosures — enabling easy navigation, organisation, and tracking for efficient zoo operations. Three nested levels: Site → Section → Enclosure, each with permission-based.",
+   "grad": "coral",
+   "glyph": "home",
+   "features": [
+    {
+     "title": "Site administration",
+     "desc": "Add or edit sites with role-based permissions for secure, structured access.",
+     "shot": "assets/shots/img-housing-c.jpg",
+     "alt": "Site detail: Wildlife Zoological Park with species/animal/section counts and enclosure list",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "home"
+    },
+    {
+     "title": "Section administration",
+     "desc": "Add or edit sections within the zoo, with permission-based controls for safe administration.",
+     "shot": "assets/shots/img-housing-2.jpg",
+     "alt": "Section detail: Animal Kingdom with species/animal/enclosure counts and enclosure list",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Enclosure administration",
+     "desc": "Add or edit enclosures and monitor each for efficient animal and data oversight.",
+     "shot": "assets/shots/img-housing-3.jpg",
+     "alt": "Enclosure list: Gentle Giants, Herbivores, The Tiger Trail with animal counts",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "focus"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/img-housing-c.jpg",
+     "alt": "Site detail: Wildlife Zoological Park with species/animal/section counts and enclosure list",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/img-housing-2.jpg",
+     "alt": "Section detail: Animal Kingdom with species/animal/enclosure counts and enclosure list",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/img-housing-3.jpg",
+     "alt": "Enclosure list: Gentle Giants, Herbivores, The Tiger Trail with animal counts",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "animal-management",
+   "no": "09",
+   "page": 13,
+   "title": "Animal Management",
+   "track": "animal",
+   "intro": "The Animals Module brings all animal records together in one place — active, transferred, missing or deleted — with profiles, accession workflows, and an easy tab-based layout.",
+   "grad": "teal",
+   "glyph": "medical",
+   "features": [
+    {
+     "title": "Search Animals",
+     "desc": "Add new animals via guided workflows linked to housing, diet, medical.",
+     "shot": "assets/shots/p13-animals.jpg",
+     "alt": "Animals list with counts: All Animals 2828, Transferred 11, Deleted 27, Missing/Escaped 8",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "tag"
+    },
+    {
+     "title": "Recently added",
+     "desc": "Newly added animals in the system, at the top of the feed.",
+     "shot": "assets/shots/p13-animals-3.jpg",
+     "alt": "Recently Added list: Slow Loris, African Bush Elephant, Tiger, Saltwater Crocodile, Southern Cassowary",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "batch"
+    },
+    {
+     "title": "All animals",
+     "desc": "The complete database — searchable, filterable, exportable.",
+     "shot": "assets/shots/p13-animals-1.jpg",
+     "alt": "All Animals list: European Rabbit, Southern Cassowary, Common Hippopotamus, Tiger, Asian Elephant",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "batch"
+    },
+    {
+     "title": "Transferred",
+     "desc": "Animals moved between sites or enclosures, with full provenance.",
+     "shot": "assets/shots/p13-animals-2.jpg",
+     "alt": "Transferred Animals list: Tiger, Lion, Slow Loris, American Black Bear, Lion",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "transfer"
+    },
+    {
+     "title": "Deleted",
+     "desc": "Records of removed animals, retained for audit and reversibility.",
+     "shot": "assets/shots/p13-animals-5.jpg",
+     "alt": "Deleted Animals list",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "alert"
+    },
+    {
+     "title": "Missing / escaped",
+     "desc": "Animals flagged as missing or escaped, linked to the incident report.",
+     "shot": "assets/shots/p13-animals-4.jpg",
+     "alt": "Missing/Escaped Animals list: American Black Bear, Southern Cassowary, Saltwater Crocodile, Common Hippopotamus, Tiger",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "tag"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p13-animals.jpg",
+     "alt": "Animals list with counts: All Animals 2828, Transferred 11, Deleted 27, Missing/Escaped 8",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p13-animals-1.jpg",
+     "alt": "All Animals list: European Rabbit, Southern Cassowary, Common Hippopotamus, Tiger, Asian Elephant",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p13-animals-2.jpg",
+     "alt": "Transferred Animals list: Tiger, Lion, Slow Loris, American Black Bear, Lion",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p13-animals-3.jpg",
+     "alt": "Recently Added list: Slow Loris, African Bush Elephant, Tiger, Saltwater Crocodile, Southern Cassowary",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p13-animals-4.jpg",
+     "alt": "Missing/Escaped Animals list: American Black Bear, Southern Cassowary, Saltwater Crocodile, Common Hippopotamus, Tiger",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p13-animals-5.jpg",
+     "alt": "Deleted Animals list",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "tags-hub",
+   "no": "10",
+   "page": 14,
+   "title": "Tags Hub",
+   "track": "animal",
+   "intro": "The Tags Hub Module helps you organize and categorize different entities (sites, sections, enclosures, animals) in the ANTZ platform using customizable labels based on their current status, purpose, or any custom classification.",
+   "grad": "butter",
+   "glyph": "tag",
+   "features": [
+    {
+     "title": "Tag types — Public, Private, System",
+     "desc": "Organize and categorize entities using Public, Private, and System-defined tags.",
+     "shot": "assets/shots/p14-tags-hub.png",
+     "alt": "My Tags Hub: search, Total/System/Public/Private tag counts, and Public and Private tag chips",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "tag"
+    },
+    {
+     "title": "Search & filters",
+     "desc": "Quickly find tags using search and filter options.",
+     "shot": "assets/shots/p14-tags-hub.png",
+     "alt": "My Tags Hub: search, Total/System/Public/Private tag counts, and Public and Private tag chips",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Create tags",
+     "desc": "Create new Public or Private tags based on your requirements.",
+     "shot": "assets/shots/p14-create-tag.png",
+     "alt": "Create New Tag: Tag Name, Tag Category, Roles to Notify, Notes, and Create Tag button",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "add"
+    },
+    {
+     "title": "Edit & delete tags",
+     "desc": "Modify the name, color, or visibility of Private tags, or permanently remove tags no longer needed.",
+     "shot": "assets/shots/p14-tag-details.png",
+     "alt": "Tag Details sheet: category, type, created by, notes, tagged entities, with Edit and Delete actions",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "edit"
+    },
+    {
+     "title": "Assign Public & Private tags",
+     "desc": "Apply tags to Sites, Sections, Enclosures, or Animals for easy organization.",
+     "shot": "assets/shots/p14-assign-tag.png",
+     "alt": "Add Public Tag sheet on a Site: search and select a tag chip to add, with Cancel and Add Tag",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "approve"
+    },
+    {
+     "title": "Remove assigned tags",
+     "desc": "Remove tags from Sites, Sections, Enclosures, or Animals whenever required.",
+     "shot": "assets/shots/p14-remove-tag.png",
+     "alt": "Remove Tag confirmation: Are you sure you want to remove these tags from this site? Cancel or Remove",
+     "device": "prefr",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Visibility",
+     "desc": "Control whether Private tags remain personal or are visible to all users.",
+     "shot": "assets/shots/p14-visibility.png",
+     "alt": "Tag Details for a Private tag: Tag Type Private (Visible to All) with a Make this tag visible to all toggle",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "eye"
+    },
+    {
+     "title": "Tagged entities",
+     "desc": "View all Sites, Sections, Enclosures, Species and Animals associated with a selected tag.",
+     "shot": "assets/shots/p14-tagged-entities.png",
+     "alt": "Tagged entities for Enclosure Maintenance: Animals / Sections / Site tabs, Site (1) showing Bangalore site",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "manage"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p14-tags-hub.png",
+     "alt": "My Tags Hub: search, Total/System/Public/Private tag counts, and Public and Private tag chips",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p14-create-tag.png",
+     "alt": "Create New Tag: Tag Name, Tag Category, Roles to Notify, Notes, and Create Tag button",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p14-tag-details.png",
+     "alt": "Tag Details sheet: category, type, created by, notes, tagged entities, with Edit and Delete actions",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p14-assign-tag.png",
+     "alt": "Add Public Tag sheet on a Site: search and select a tag chip to add, with Cancel and Add Tag",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p14-remove-tag.png",
+     "alt": "Remove Tag confirmation: Are you sure you want to remove these tags from this site? Cancel or Remove",
+     "device": "prefr",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p14-tagged-entities.png",
+     "alt": "Tagged entities for Enclosure Maintenance: Animals / Sections / Site tabs, Site (1) showing Bangalore site",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p14-visibility.png",
+     "alt": "Tag Details for a Private tag: Tag Type Private (Visible to All) with a Make this tag visible to all toggle",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "animal-transfer",
+   "no": "11",
+   "page": 15,
+   "title": "Animal Transfer",
+   "track": "animal",
+   "intro": "Records and manages all animal movements within and outside the organisation — tracking requests, approvals, and allocations for secure, well-documented relocation.",
+   "grad": "cyan",
+   "glyph": "transfer",
+   "features": [
+    {
+     "title": "Transfer types",
+     "desc": "In-house, inter-site, and external transfers.",
+     "shot": "assets/shots/p14-transfer-1.jpg",
+     "alt": "Choose transfer type dialog",
+     "device": "prefr",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "transfer"
+    },
+    {
+     "title": "Approval",
+     "desc": "Authorisation from designated site authorities.",
+     "shot": "assets/shots/p14-transfer-2.jpg",
+     "alt": "Inter-site transfer awaiting approval",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "approve"
+    },
+    {
+     "title": "Cancel / reject",
+     "desc": "Cancel or reject requests and reinitiate as needed.",
+     "shot": "assets/shots/p14-transfer-3.jpg",
+     "alt": "Cancel transfer option",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "alert"
+    },
+    {
+     "title": "Security check-in / out",
+     "desc": "Controlled check-in/out for inter-site & external moves.",
+     "shot": "assets/shots/p14-security.jpg",
+     "alt": "Security clearance and checkout for transfer",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "shield"
+    },
+    {
+     "title": "Allocation",
+     "desc": "On arrival, allocate to enclosure and notify staff.",
+     "shot": "assets/shots/p14-transfer-4.jpg",
+     "alt": "Approved transfer, allocate enclosures",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "transfer"
+    },
+    {
+     "title": "Transfer log",
+     "desc": "Full status history with timestamps and users.",
+     "shot": "assets/shots/p14-transfer-5.jpg",
+     "alt": "Transfer status timeline, transfer completed",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "manage"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p14-transfer-1.jpg",
+     "alt": "Choose transfer type dialog",
+     "device": "prefr",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p14-transfer-2.jpg",
+     "alt": "Inter-site transfer awaiting approval",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p14-transfer-3.jpg",
+     "alt": "Cancel transfer option",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p14-security.jpg",
+     "alt": "Security clearance and checkout for transfer",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p14-transfer-4.jpg",
+     "alt": "Approved transfer, allocate enclosures",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p14-transfer-5.jpg",
+     "alt": "Transfer status timeline, transfer completed",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "approvals",
+   "no": "12",
+   "page": 16,
+   "title": "Approvals",
+   "track": "animal",
+   "intro": "Manages and tracks animal transfer requests, providing visibility into pending, approved, and rejected requests. It streamlines the review process, ensures proper authorisation, and maintains a transparent record of transfer decisions for accountability and compliance.",
+   "grad": "green",
+   "glyph": "approve",
+   "features": [
+    {
+     "title": "Track status",
+     "desc": "Awaiting Approval, Approved, Rejected, Allow Exit/Entry, Allocated.",
+     "shot": "assets/shots/p15-approval-1.jpg",
+     "alt": "Transfer Approvals list with status badges",
+     "device": "prefr",
+     "size": [
+      500,
+      1035
+     ],
+     "icon": "transfer"
+    },
+    {
+     "title": "Review request",
+     "desc": "View complete details before approving.",
+     "shot": "assets/shots/p15-review.jpg",
+     "alt": "Transfer request details for review",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "tag"
+    },
+    {
+     "title": "Approve / reject",
+     "desc": "Authorise or decline with proper justification.",
+     "shot": "assets/shots/p15-approval-2.jpg",
+     "alt": "Transfer request detail with Approve and Reject",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "approve"
+    },
+    {
+     "title": "Reset approval",
+     "desc": "Reopen or update a previously approved request.",
+     "shot": "assets/shots/p15-approval-4.jpg",
+     "alt": "Approved transfer with Reset Approval option",
+     "device": "prefr",
+     "size": [
+      500,
+      1035
+     ],
+     "icon": "approve"
+    },
+    {
+     "title": "Cancel transfer",
+     "desc": "Cancel before or after approval, with reason logged.",
+     "shot": "assets/shots/p15-approval-3.jpg",
+     "alt": "Request detail with Cancel Transfer option",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "alert"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p15-approval-1.jpg",
+     "alt": "Transfer Approvals list with status badges",
+     "device": "prefr",
+     "size": [
+      500,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p15-review.jpg",
+     "alt": "Transfer request details for review",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p15-approval-2.jpg",
+     "alt": "Transfer request detail with Approve and Reject",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p15-approval-4.jpg",
+     "alt": "Approved transfer with Reset Approval option",
+     "device": "prefr",
+     "size": [
+      500,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p15-approval-3.jpg",
+     "alt": "Request detail with Cancel Transfer option",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "missing-escaped-animal",
+   "no": "13",
+   "page": 17,
+   "title": "Missing / Escaped Animal",
+   "track": "animal",
+   "intro": "Enables quick reporting, tracking, and resolution of missing or escaped animals — with time-stamped entries linked to their profiles for accountability and a coordinated response across security, vets and management.",
+   "grad": "coral",
+   "glyph": "alert",
+   "features": [
+    {
+     "title": "Incident reporting & attachments",
+     "desc": "Log details, actions, and upload images or video.",
+     "shot": "assets/shots/p16-missing-1.jpg",
+     "alt": "Report escaped/missing animals form",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "report"
+    },
+    {
+     "title": "Edit report",
+     "desc": "Update or modify incident reports as it evolves.",
+     "shot": "assets/shots/p16-missing-2.jpg",
+     "alt": "Incident timeline, animal missing",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "edit"
+    },
+    {
+     "title": "Recovery reporting",
+     "desc": "Record recovery details and flag corrections.",
+     "shot": "assets/shots/p16-found-form.jpg",
+     "alt": "Report found animal form",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "transfer"
+    },
+    {
+     "title": "Event logging & traceability",
+     "desc": "Record every action in order on the animal's timeline.",
+     "shot": "assets/shots/p16-missing-3.jpg",
+     "alt": "Misreport missing option menu",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Visibility",
+     "desc": "Flagged as missing on the profile; quick QR updates.",
+     "shot": "assets/shots/p16-missing-5.jpg",
+     "alt": "Animal profile with missing badge and QR",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "eye"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p16-missing-1.jpg",
+     "alt": "Report escaped/missing animals form",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p16-missing-2.jpg",
+     "alt": "Incident timeline, animal missing",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p16-found-form.jpg",
+     "alt": "Report found animal form",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p16-missing-3.jpg",
+     "alt": "Misreport missing option menu",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p16-missing-5.jpg",
+     "alt": "Animal profile with missing badge and QR",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "medical-records",
+   "no": "14",
+   "page": 19,
+   "title": "Medical Records",
+   "track": "medical",
+   "intro": "The Medical Module helps record, track, and manage animal health details — including diagnoses, prescriptions, and treatments. It supports timely care, organised medical histories, and coordination between veterinary teams for better animal welfare.",
+   "grad": "teal",
+   "glyph": "medical",
+   "features": [
+    {
+     "title": "Record creation",
+     "desc": "Multiple workflows to add single, batch, group, scheduled (vaccination, deworming, supplement) or direct (administer, prescription, vaccination, deworming, supplement) records — with exact date and time logging and lab requests.",
+     "shot": "assets/shots/p18-create.png",
+     "alt": "Record creation menu: Single, Group, Batch medical record, Pool Lab Request, Direct Administer, Prescription, Vaccination, Deworming, Supplements",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "note"
+    },
+    {
+     "title": "Record overview",
+     "desc": "A quick summary showing doctor details and animal profile for easy reference.",
+     "shot": "assets/shots/p18-overview.png",
+     "alt": "Medical record overview MED-09501: doctor, animal profile, case type and symptoms",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "report"
+    },
+    {
+     "title": "Bookmark, Edit, delete, download",
+     "desc": "Modify or remove records; downloaded reports are emailed to the registered address.",
+     "shot": "assets/shots/p18-edit.png",
+     "alt": "Medical record MED-08805 with bookmark, edit and more-options icons",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "edit"
+    },
+    {
+     "title": "Medical journal timeline",
+     "desc": "Chronological log of all add and edit actions with full traceability.",
+     "shot": "assets/shots/p18-journal.png",
+     "alt": "Medical Journal: chronological log of medical record actions with timestamps",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Reassign records",
+     "desc": "Doctors with edit permissions can reassign records originally created by another vet to yourself.",
+     "shot": "assets/shots/p18-reassign.png",
+     "alt": "Reassign confirmation: Do you want to reassign this medical record to yourself? Yes / No",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "edit"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p18-create.png",
+     "alt": "Record creation menu: Single, Group, Batch medical record, Pool Lab Request, Direct Administer, Prescription, Vaccination, Deworming, Supplements",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p18-overview.png",
+     "alt": "Medical record overview MED-09501: doctor, animal profile, case type and symptoms",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p18-edit.png",
+     "alt": "Medical record MED-08805 with bookmark, edit and more-options icons",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p18-journal.png",
+     "alt": "Medical Journal: chronological log of medical record actions with timestamps",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p18-reassign.png",
+     "alt": "Reassign confirmation: Do you want to reassign this medical record to yourself? Yes / No",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "symptoms-clinical-assessment-prescription",
+   "no": "14",
+   "page": 20,
+   "title": "Symptoms, Clinical Assessment & Prescription",
+   "track": "medical",
+   "intro": "The Symptoms, Clinical Assessment & Prescription feature provides insights into recorded symptoms, diagnoses, and prescribed treatments helping users monitor health trends and support informed clinical decision-making.",
+   "grad": "butter",
+   "glyph": "note",
+   "features": [
+    {
+     "title": "Symptom trends",
+     "desc": "Analyse the most commonly recorded symptoms across species and track symptom occurrence over time.",
+     "shot": "assets/shots/p19-symptoms.png",
+     "alt": "Symptoms analytics: 7 species, 7 by symptoms, ranked list led by Abnormal droppings, Abnormal posture, Abnormal shedding",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "report"
+    },
+    {
+     "title": "Clinical assessment insights",
+     "desc": "Monitor clinical assessments performed across animals and identify the most frequently recorded diagnoses or conditions.",
+     "shot": "assets/shots/p19-clinical.png",
+     "alt": "Clinical Assessment analytics: 20 species, 35 assessments, led by Liver Disease, Dental Caries, Gastrointestinal Problems",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "medical"
+    },
+    {
+     "title": "Prescription analytics",
+     "desc": "View commonly prescribed medications and treatment patterns across species and cases.",
+     "shot": "assets/shots/p19-prescriptions.png",
+     "alt": "Prescriptions analytics: 7 species, 7 prescriptions, led by Aculife, Fluvac Innovator, Dolo 650",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "medicine"
+    },
+    {
+     "title": "Filters & search",
+     "desc": "Refine data by date range, site, species, and other relevant criteria.",
+     "shot": "assets/shots/p19-filter.png",
+     "alt": "Filter By date range: Today, Yesterday, Last 7 Days, This Month, Last 3 Months, Last 6 Months, All Time Data",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "filter"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p19-symptoms.png",
+     "alt": "Symptoms analytics: 7 species, 7 by symptoms, ranked list led by Abnormal droppings, Abnormal posture, Abnormal shedding",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p19-clinical.png",
+     "alt": "Clinical Assessment analytics: 20 species, 35 assessments, led by Liver Disease, Dental Caries, Gastrointestinal Problems",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p19-prescriptions.png",
+     "alt": "Prescriptions analytics: 7 species, 7 prescriptions, led by Aculife, Fluvac Innovator, Dolo 650",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p19-filter.png",
+     "alt": "Filter By date range: Today, Yesterday, Last 7 Days, This Month, Last 3 Months, Last 6 Months, All Time Data",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "administer-medicine",
+   "no": "15",
+   "page": 21,
+   "title": "Administer Medicine",
+   "track": "medical",
+   "intro": "The Administer Module complements Medical Records by translating prescriptions into actionable treatment workflows — enabling real-time care delivery for individual or batch animals, in the field or in the hospital.",
+   "grad": "cyan",
+   "glyph": "medicine",
+   "features": [
+    {
+     "title": "Quick entry",
+     "desc": "Create a direct administer record for a chosen date without writing a full medical record.",
+     "shot": "assets/shots/p20-administer.png",
+     "alt": "Administer screen: date strip, Animal / Group Records tabs, Administered / Skipped / Stopped / Pending status tiles, with the quick-entry plus button highlighted",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "add"
+    },
+    {
+     "title": "Search & filters",
+     "desc": "Find records fast and narrow the list by date, entity, Species, Control Substance.",
+     "shot": "assets/shots/p20-search.png",
+     "alt": "Administer screen with Search, Filters, month picker, and All Records dropdown highlighted",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Status tracking",
+     "desc": "View treatments by date across four tabs — Pending, Administered, Skipped, Stopped.",
+     "shot": "assets/shots/p20-status.png",
+     "alt": "Administer screen with Administered, Skipped, Stopped, Pending status tabs highlighted",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Bulk actions",
+     "desc": "Select multiple records to Administer or Skip medicines in one go.",
+     "shot": "assets/shots/p20-bulk-hl.png",
+     "alt": "Administer screen with Select all and Administer button highlighted after selecting records",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "vaccine"
+    },
+    {
+     "title": "Prescription details",
+     "desc": "See full info — dosage, batch number, linked animal — at the point of delivery.",
+     "shot": "assets/shots/p20-rx.png",
+     "alt": "Prescription screen with times, frequency, duration, delivery route highlighted",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "medicine"
+    },
+    {
+     "title": "Single dose entry",
+     "desc": "Record individual doses with time, batch number, and notes.",
+     "shot": "assets/shots/p20-dose.png",
+     "alt": "Administer screen with a single dose group card and its checkbox highlighted",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "vaccine"
+    },
+    {
+     "title": "Home screen overview",
+     "desc": "See the count of pending treatments right on the home screen for faster action.",
+     "shot": "assets/shots/p20-home.png",
+     "alt": "App home screen: Key Insights, and a Pending Administration card showing 1028 pending processes",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "manage"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p20-administer.png",
+     "alt": "Administer screen: date strip, Animal / Group Records tabs, Administered / Skipped / Stopped / Pending status tiles, with the quick-entry plus button highlighted",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p20-bulk.png",
+     "alt": "Administer bulk actions: Select all, a selected animal record, and Skipped / Administer buttons",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p20-prescription.png",
+     "alt": "Prescription details: Case ID, times, frequency, duration, delivery route, linked animal, and dose schedule",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p20-home.png",
+     "alt": "App home screen: Key Insights, and a Pending Administration card showing 1028 pending processes",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p20-search.png",
+     "alt": "Administer screen with Search, Filters, month picker, and All Records dropdown highlighted",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p20-status.png",
+     "alt": "Administer screen with Administered, Skipped, Stopped, Pending status tabs highlighted",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p20-bulk-hl.png",
+     "alt": "Administer screen with Select all and Administer button highlighted after selecting records",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p20-rx.png",
+     "alt": "Prescription screen with times, frequency, duration, delivery route highlighted",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p20-dose.png",
+     "alt": "Administer screen with a single dose group card and its checkbox highlighted",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "vaccination",
+   "no": "16",
+   "page": 22,
+   "title": "Vaccination",
+   "track": "medical",
+   "intro": "The Vaccination Module manages the complete vaccination lifecycle for animals from scheduling and direct administration to tracking upcoming, pending, skipped, and completed vaccinations. It ensures timely treatment, accurate dosage recording, and full traceability for disease prevention and clinical compliance.",
+   "grad": "green",
+   "glyph": "vaccine",
+   "features": [
+    {
+     "title": "Status-based views",
+     "desc": "Vaccinations organised into Upcoming, Pending, Skipped, and Completed for easy monitoring.",
+     "shot": "assets/shots/p21-status.png",
+     "alt": "Vaccination menu: Upcoming, Pending, Completed, Skipped, Stopped Vaccine, Direct Administer, Schedule Vaccination",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Vaccination management",
+     "desc": "Schedule a vaccination or directly record an administered vaccine with defined dates and medicine details.",
+     "shot": "assets/shots/p21-schedule.png",
+     "alt": "Schedule Vaccination with selected animals, prescription and clinical notes",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "vaccine"
+    },
+    {
+     "title": "Administration recording",
+     "desc": "Captures dosage, batch number, delivery route, notes, and optional follow-up.",
+     "shot": "assets/shots/p21-completed.png",
+     "alt": "Completed Vaccination details with case ID and batch number",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "vaccine"
+    },
+    {
+     "title": "Pending & upcoming",
+     "desc": "Displays all scheduled vaccinations by date and site to prevent missed treatments.",
+     "shot": "assets/shots/p21-pending.png",
+     "alt": "Pending Vaccination grouped by species",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Skip & stop",
+     "desc": "Postpone or stop vaccinations with mandatory reasons and follow-up dates.",
+     "shot": "assets/shots/p21-administer.png",
+     "alt": "Pending Vaccination details with Administer and Skipped actions",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "alert"
+    },
+    {
+     "title": "Animal-centric access",
+     "desc": "Vaccination records can be viewed from Animal, Housing or Medical Records contexts.",
+     "shot": "assets/shots/p21-animal.png",
+     "alt": "Animal profile Medical tab showing Vaccination pending, upcoming and completed",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "tag"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p21-status.png",
+     "alt": "Vaccination menu: Upcoming, Pending, Completed, Skipped, Stopped Vaccine, Direct Administer, Schedule Vaccination",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p21-pending.png",
+     "alt": "Pending Vaccination grouped by species",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p21-administer.png",
+     "alt": "Pending Vaccination details with Administer and Skipped actions",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p21-completed.png",
+     "alt": "Completed Vaccination details with case ID and batch number",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p21-schedule.png",
+     "alt": "Schedule Vaccination with selected animals, prescription and clinical notes",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p21-animal.png",
+     "alt": "Animal profile Medical tab showing Vaccination pending, upcoming and completed",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "deworming",
+   "no": "17",
+   "page": 23,
+   "title": "Deworming",
+   "track": "medical",
+   "intro": "The Deworming Module supports systematic recording and monitoring of parasite-control treatments — ensuring timely administration, proper documentation, and clear tracking of every deworming activity for each animal.",
+   "grad": "coral",
+   "glyph": "medicine",
+   "features": [
+    {
+     "title": "Status-based views",
+     "desc": "Deworming organised into Upcoming, Pending, Skipped, and Completed for easy monitoring.",
+     "shot": "assets/shots/p22-menu.png",
+     "alt": "Deworming menu: Upcoming, Pending, Completed, Skipped, Stopped Deworming, Direct Administer, Schedule Deworming",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Deworming management",
+     "desc": "Schedule a course or directly record administered medicine with defined dates and details.",
+     "shot": "assets/shots/p22-direct.png",
+     "alt": "Direct Deworming with selected animal, prescription and clinical notes",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "medicine"
+    },
+    {
+     "title": "Administration recording",
+     "desc": "Captures dosage, batch number, delivery route, notes, and optional follow-up.",
+     "shot": "assets/shots/p22-medicine.png",
+     "alt": "Add Medicine: dose type, dosage quantity, delivery route, follow-up and batch number",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "vaccine"
+    },
+    {
+     "title": "Pending & upcoming",
+     "desc": "View all scheduled deworming by date and site, surfaced to prevent missed treatments.",
+     "shot": "assets/shots/p22-pending.png",
+     "alt": "Pending Deworming grouped by species",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Skip & stop",
+     "desc": "Postpone or stop with mandatory reasons and follow-up dates.",
+     "shot": "assets/shots/p22-skip.png",
+     "alt": "Skip Deworming: reschedule or stop with reason and adverse-effects question",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "alert"
+    },
+    {
+     "title": "Animal-centric access",
+     "desc": "Viewable from Animal, Housing, or Medical Records contexts.",
+     "shot": "assets/shots/p22-animal.png",
+     "alt": "Animal profile Medical tab showing Deworming pending, upcoming and completed",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "tag"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p22-menu.png",
+     "alt": "Deworming menu: Upcoming, Pending, Completed, Skipped, Stopped Deworming, Direct Administer, Schedule Deworming",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p22-direct.png",
+     "alt": "Direct Deworming with selected animal, prescription and clinical notes",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p22-medicine.png",
+     "alt": "Add Medicine: dose type, dosage quantity, delivery route, follow-up and batch number",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p22-pending.png",
+     "alt": "Pending Deworming grouped by species",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p22-skip.png",
+     "alt": "Skip Deworming: reschedule or stop with reason and adverse-effects question",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p22-animal.png",
+     "alt": "Animal profile Medical tab showing Deworming pending, upcoming and completed",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "supplements",
+   "no": "18",
+   "page": 24,
+   "title": "Supplements",
+   "track": "medical",
+   "intro": "The Supplement Module supports systematic recording and monitoring of nutritional and dietary supplement programmes — ensuring timely administration, proper documentation, and clear tracking of every supplement given to each animal.",
+   "grad": "teal",
+   "glyph": "medicine",
+   "features": [
+    {
+     "title": "Status-based views",
+     "desc": "Supplements organised into Upcoming, Pending, Skipped, and Completed.",
+     "shot": "assets/shots/p23-menu.png",
+     "alt": "Supplements menu: Upcoming, Pending, Completed, Skipped, Stopped Supplements, Direct Administer, Schedule Supplements",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Supplement management",
+     "desc": "Schedule or directly record administered supplements with defined dates and details.",
+     "shot": "assets/shots/p23-direct.png",
+     "alt": "Direct Supplements with selected animal, prescription and clinical notes",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "medicine"
+    },
+    {
+     "title": "Administration recording",
+     "desc": "Captures dosage, batch number, delivery route, notes, and optional follow-up.",
+     "shot": "assets/shots/p23-medicine.png",
+     "alt": "Add Supplements: dose type, dosage quantity, delivery route, follow-up and batch number",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "vaccine"
+    },
+    {
+     "title": "Pending & upcoming",
+     "desc": "All scheduled supplements by date and site, to prevent missed administration.",
+     "shot": "assets/shots/p23-pending.png",
+     "alt": "Pending Supplements grouped by species",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Skip & stop",
+     "desc": "Postpone or stop with mandatory reasons and follow-up dates.",
+     "shot": "assets/shots/p23-skip.png",
+     "alt": "Skip Supplements: reschedule or stop with reason and follow-up date",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "alert"
+    },
+    {
+     "title": "Animal-centric access",
+     "desc": "Records viewable from Animal, Housing, or Medical Records contexts.",
+     "shot": "assets/shots/p23-animal.png",
+     "alt": "Animal profile Medical tab showing Supplements pending, upcoming and completed",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "tag"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p23-menu.png",
+     "alt": "Supplements menu: Upcoming, Pending, Completed, Skipped, Stopped Supplements, Direct Administer, Schedule Supplements",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p23-direct.png",
+     "alt": "Direct Supplements with selected animal, prescription and clinical notes",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p23-medicine.png",
+     "alt": "Add Supplements: dose type, dosage quantity, delivery route, follow-up and batch number",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p23-pending.png",
+     "alt": "Pending Supplements grouped by species",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p23-skip.png",
+     "alt": "Skip Supplements: reschedule or stop with reason and follow-up date",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p23-animal.png",
+     "alt": "Animal profile Medical tab showing Supplements pending, upcoming and completed",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "hospital-information-management-system-app",
+   "no": "19",
+   "page": 25,
+   "title": "Hospital Information Management System (App)",
+   "track": "medical",
+   "intro": "On the app, staff raise animal transfers to the hospital and move patients securely — with medical ID, visit type, purpose, attachments, and security-based check-in and check-out at site and hospital.",
+   "grad": "butter",
+   "glyph": "note",
+   "features": [
+    {
+     "title": "Transfer requests",
+     "desc": "Raise animal transfers from enclosure to hospital with medical ID, visit type, purpose, and attachments.",
+     "shot": "assets/shots/p24-hospitalize.png",
+     "alt": "Hospitalize animal form: selected animal, Medical ID (Create new), Hospital and Visit type fields, Submit",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "transfer"
+    },
+    {
+     "title": "Transfer status",
+     "desc": "Track each transfer through its stages — Pending, In Transit, Accepted.",
+     "shot": "assets/shots/p24-security.png",
+     "alt": "Transfer HT29-00038: route, initiator, selected animal, status Transfer Completed and Security Checkout button",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "transfer"
+    },
+    {
+     "title": "Security check-in / out",
+     "desc": "Controlled patient movement with security-based check-in and check-out at site and hospital.",
+     "shot": "assets/shots/p24-security.png",
+     "alt": "Transfer HT29-00038: route, initiator, selected animal, status Transfer Completed and Security Checkout button",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "shield"
+    },
+    {
+     "title": "View discharge reports",
+     "desc": "Access discharge summaries and hospitalisation history directly from the app.",
+     "shot": "assets/shots/p24-hospitalize.png",
+     "alt": "Hospitalize animal form: selected animal, Medical ID (Create new), Hospital and Visit type fields, Submit",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "report"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p24-hospitalize.png",
+     "alt": "Hospitalize animal form: selected animal, Medical ID (Create new), Hospital and Visit type fields, Submit",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p24-security.png",
+     "alt": "Transfer HT29-00038: route, initiator, selected animal, status Transfer Completed and Security Checkout button",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "hospital-information-management-system-web",
+   "no": "19",
+   "page": 26,
+   "title": "Hospital Information Management System (Web)",
+   "track": "medical",
+   "intro": "On the web console, clinical teams admit and triage incoming patients, monitor inpatients and outpatients, record treatments, and discharge animals — with full medical traceability and downloadable reports.",
+   "grad": "cyan",
+   "glyph": "note",
+   "features": [
+    {
+     "title": "Admission & triage",
+     "desc": "Admit or reject animal cases with doctor, room, and bed allocation based on treatment requirements.",
+     "shot": "assets/shots/p24-admission.png",
+     "alt": "Patient Admission Form: selected animal, purpose of visit, treatment type OPD / Inpatient, health status, Reject and Admit",
+     "device": "tablet",
+     "size": [
+      1620,
+      2160
+     ],
+     "icon": "medical"
+    },
+    {
+     "title": "Inpatient / outpatient monitoring",
+     "desc": "Configure and record scheduled vitals and observations with editable timelines.",
+     "shot": "assets/shots/p24-incoming.png",
+     "alt": "Incoming Patient list: Pending and Rejected tabs with animals and purpose of visit",
+     "device": "tablet",
+     "size": [
+      1620,
+      2160
+     ],
+     "icon": "medical"
+    },
+    {
+     "title": "Clinical & treatment records",
+     "desc": "Maintain symptoms, clinical notes, prescriptions, anaesthesia, surgery, and other treatments in one place.",
+     "shot": "assets/shots/p24-record.png",
+     "alt": "Inpatient record MED29-17409: admission details and Symptoms / Clinical Assessment / Prescription tabs",
+     "device": "tablet",
+     "size": [
+      1620,
+      2160
+     ],
+     "icon": "shield"
+    },
+    {
+     "title": "Discharge",
+     "desc": "Discharge animals back to enclosure or record mortality with necropsy request and attachments.",
+     "shot": "assets/shots/p24-discharge.png",
+     "alt": "Discharge tab: reason of admission, discharge type Mortality / Transfer to Enclosure, Discharge Animal",
+     "device": "tablet",
+     "size": [
+      1620,
+      2160
+     ],
+     "icon": "medical"
+    },
+    {
+     "title": "Downloadable reports",
+     "desc": "Access discharge summaries, current hospitalisation details, and prior visit history.",
+     "shot": "assets/shots/p24-discharged-list.png",
+     "alt": "Discharged patients list with duration, visit type, chief veterinarian and download action",
+     "device": "tablet",
+     "size": [
+      1620,
+      2160
+     ],
+     "icon": "report"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p24-admission.png",
+     "alt": "Patient Admission Form: selected animal, purpose of visit, treatment type OPD / Inpatient, health status, Reject and Admit",
+     "device": "tablet",
+     "size": [
+      1620,
+      2160
+     ]
+    },
+    {
+     "src": "assets/shots/p24-incoming.png",
+     "alt": "Incoming Patient list: Pending and Rejected tabs with animals and purpose of visit",
+     "device": "tablet",
+     "size": [
+      1620,
+      2160
+     ]
+    },
+    {
+     "src": "assets/shots/p24-record.png",
+     "alt": "Inpatient record MED29-17409: admission details and Symptoms / Clinical Assessment / Prescription tabs",
+     "device": "tablet",
+     "size": [
+      1620,
+      2160
+     ]
+    },
+    {
+     "src": "assets/shots/p24-discharge.png",
+     "alt": "Discharge tab: reason of admission, discharge type Mortality / Transfer to Enclosure, Discharge Animal",
+     "device": "tablet",
+     "size": [
+      1620,
+      2160
+     ]
+    },
+    {
+     "src": "assets/shots/p24-discharged-list.png",
+     "alt": "Discharged patients list with duration, visit type, chief veterinarian and download action",
+     "device": "tablet",
+     "size": [
+      1620,
+      2160
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "focus-hub",
+   "no": "20",
+   "page": 27,
+   "title": "Focus Hub",
+   "track": "medical",
+   "intro": "The Focus Hub is user-specific, surfacing only the items each user has marked as favourites or bookmarks. It puts favourite animals and enclosures, bookmarked notes, medical records, and lab requests in one place for quick access.",
+   "grad": "green",
+   "glyph": "focus",
+   "features": [],
+   "shots": [
+    {
+     "src": "assets/shots/p25-folders.jpg",
+     "alt": "Focus Hub folders: Under Treatment, Quarantined, Pending Vaccination",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p25-favourites.jpg",
+     "alt": "Focus Hub favourite animals list",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p25-bookmarks.jpg",
+     "alt": "Focus Hub bookmarked medical records",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    }
+   ],
+   "status": "needs-content"
+  },
+  {
+   "id": "mortality",
+   "no": "21",
+   "page": 29,
+   "title": "Mortality",
+   "track": "mortality",
+   "intro": "The Mortality Module lets you quickly and accurately record animal deaths, manage necropsy details, and store evidence in one place. It improves transparency, speeds up decision-making, ensures compliance, and supports better monitoring of animal welfare.",
+   "grad": "coral",
+   "glyph": "alert",
+   "features": [
+    {
+     "title": "Mortality dashboard",
+     "desc": "Totals for deaths, affected species, and causes.",
+     "shot": "assets/shots/p27-mortality-1.jpg",
+     "alt": "Mortality dashboard: 2 animals, 2 species, 2 reasons",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "medical"
+    },
+    {
+     "title": "Multi-view listings",
+     "desc": "Records by animal, species, or cause, linked to profiles.",
+     "shot": "assets/shots/p27-mortality-2.jpg",
+     "alt": "Mortality records listed by animal",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Advanced search & filters",
+     "desc": "Search by species, cause, location, date, or keyword.",
+     "shot": "assets/shots/p27-mortality-3.jpg",
+     "alt": "Mortality search and filters",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Deceased animal records",
+     "desc": "Full death detail — cause, ID, enclosure, site, sex.",
+     "shot": "assets/shots/p27-mortality-4.jpg",
+     "alt": "Deceased animal record detail",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "medical"
+    },
+    {
+     "title": "Edit records",
+     "desc": "Edit mortality reports after entry to keep them accurate.",
+     "shot": "assets/shots/p27-mortality-5.jpg",
+     "alt": "Mortality report detail with edit option",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "note"
+    },
+    {
+     "title": "Revoke records",
+     "desc": "Revoke incorrect records to restore active status.",
+     "shot": "assets/shots/p27-mortality-6.jpg",
+     "alt": "Mortality report with Revoke Mortality option",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Carcass transfer",
+     "desc": "View and track carcass movement between locations.",
+     "shot": "assets/shots/p27-carcass.jpg",
+     "alt": "Carcass Transfers list: pending, in transit, completed",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "transfer"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p27-mortality-1.jpg",
+     "alt": "Mortality dashboard: 2 animals, 2 species, 2 reasons",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p27-mortality-2.jpg",
+     "alt": "Mortality records listed by animal",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p27-mortality-3.jpg",
+     "alt": "Mortality search and filters",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p27-mortality-4.jpg",
+     "alt": "Deceased animal record detail",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p27-mortality-4.jpg",
+     "alt": "Mortality record card — edit and revoke",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p27-mortality-5.jpg",
+     "alt": "Mortality report detail with edit option",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p27-mortality-6.jpg",
+     "alt": "Mortality report with Revoke Mortality option",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p27-carcass.jpg",
+     "alt": "Carcass Transfers list: pending, in transit, completed",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "necropsy",
+   "no": "22",
+   "page": 30,
+   "title": "Necropsy",
+   "track": "mortality",
+   "intro": "The Necropsy Module documents post-mortem examinations with detailed observations, organ-specific findings, and medical conclusions. It supports accurate cause-of-death analysis, standardises reporting, ensures timely carcass handling, and meets legal, audit and veterinary standards.",
+   "grad": "teal",
+   "glyph": "medical",
+   "features": [
+    {
+     "title": "Search & filters",
+     "desc": "Search by animal/species; filter by site, date, priority.",
+     "shot": "assets/shots/p28-necropsy.jpg",
+     "alt": "Necropsy list: Incoming, Pending, Draft, Completed with request cards",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Status tracking",
+     "desc": "Monitor transfer stages — Incoming, Pending, Draft, and Completed.",
+     "shot": "assets/shots/p28-necropsy-7.jpg",
+     "alt": "Necropsy list with Incoming, Pending, Draft, Completed status tabs",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Animal card & request info",
+     "desc": "AID, species, location, cause, requester, priority.",
+     "shot": "assets/shots/p28-necropsy-2.jpg",
+     "alt": "Necropsy by-animals list with request card detail",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "tag"
+    },
+    {
+     "title": "Carcass transfer",
+     "desc": "View transfer requests — Pending Acceptance, Received.",
+     "shot": "assets/shots/p28-necropsy-3.jpg",
+     "alt": "Carcass Transfers list: Pending Acceptance, Received",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "transfer"
+    },
+    {
+     "title": "Detailed request view",
+     "desc": "View the full necropsy request with animal and mortality details(cause, carcass condition, notes), update records, save as draft, or submit once finalized",
+     "shot": "assets/shots/p28-necropsy-4.jpg",
+     "alt": "Necropsy Request detail: mortality report, cause, carcass condition, status",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "eye"
+    },
+    {
+     "title": "Download report",
+     "desc": "Export reports or drafts as PDFs for records/offline.",
+     "shot": "assets/shots/p28-necropsy-5.jpg",
+     "alt": "Necropsy report NPS29-00034 with download — carcass suitability and details",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "report"
+    },
+    {
+     "title": "Timeline",
+     "desc": "Every action tracked with user and timestamp.",
+     "shot": "assets/shots/p28-necropsy-6.jpg",
+     "alt": "Necropsy History timeline: Necropsy completed by Mayur Bendre",
+     "device": "prefr",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "manage"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p28-necropsy.jpg",
+     "alt": "Necropsy list: Incoming, Pending, Draft, Completed with request cards",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p28-necropsy-2.jpg",
+     "alt": "Necropsy by-animals list with request card detail",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p28-necropsy-3.jpg",
+     "alt": "Carcass Transfers list: Pending Acceptance, Received",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p28-necropsy-4.jpg",
+     "alt": "Necropsy Request detail: mortality report, cause, carcass condition, status",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p28-necropsy-5.jpg",
+     "alt": "Necropsy report NPS29-00034 with download — carcass suitability and details",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p28-necropsy-6.jpg",
+     "alt": "Necropsy History timeline: Necropsy completed by Mayur Bendre",
+     "device": "prefr",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p28-necropsy-7.jpg",
+     "alt": "Necropsy list with Incoming, Pending, Draft, Completed status tabs",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "fetal-death",
+   "no": "23",
+   "page": 31,
+   "title": "Fetal Death",
+   "track": "mortality",
+   "intro": "The Fetal Death Module records and manages fetal-death incidents within enclosures — capturing cause, timing, and related animal details. It supports veterinary care, reproductive-health monitoring, trend analysis and improved population management.",
+   "grad": "butter",
+   "glyph": "alert",
+   "features": [
+    {
+     "title": "Add fetal-death record",
+     "desc": "Log new incidents — cause, timing, parentage, animal info.",
+     "shot": "assets/shots/p29-fetal-1.jpg",
+     "alt": "Add Fetal Death form with enclosure, species, parent",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "egg"
+    },
+    {
+     "title": "Search & filters",
+     "desc": "Search by keyword; filter by site, date,  still Birth or Abortion, species or gender.",
+     "shot": "assets/shots/p29-fetal-2.jpg",
+     "alt": "Fetal Death list with search and filter",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "View deceased records",
+     "desc": "Full detail — days since death, cause, ID, enclosure, site, sex.",
+     "shot": "assets/shots/p29-fetal-3.jpg",
+     "alt": "Fetal Death records list, Still Birth tab",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "medical"
+    },
+    {
+     "title": "Animal card display",
+     "desc": "FID, species, discovery, parents, site, sex, reporter.",
+     "shot": "assets/shots/p29-fetal-4.jpg",
+     "alt": "Fetus Death Summary detail card",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "eye"
+    },
+    {
+     "title": "Edit record",
+     "desc": "Modify an existing entry from the summary, with audit trail.",
+     "shot": "assets/shots/p29-fetal-6.jpg",
+     "alt": "Fetus Death Summary with edit pencil",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "edit"
+    },
+    {
+     "title": "Delete record",
+     "desc": "Remove an entry when required, with full audit trail.",
+     "shot": "assets/shots/p29-fetal-5.jpg",
+     "alt": "Fetus Death Summary with Delete Fetal Death option",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "alert"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p29-fetal-1.jpg",
+     "alt": "Add Fetal Death form with enclosure, species, parent",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p29-fetal-2.jpg",
+     "alt": "Fetal Death list with search and filter",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p29-fetal-3.jpg",
+     "alt": "Fetal Death records list, Still Birth tab",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p29-fetal-4.jpg",
+     "alt": "Fetus Death Summary detail card",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p29-fetal-5.jpg",
+     "alt": "Fetus Death Summary with Delete Fetal Death option",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p29-fetal-6.jpg",
+     "alt": "Fetus Death Summary with edit pencil",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "egg-management-app",
+   "no": "24",
+   "page": 32,
+   "title": "Egg Management — App",
+   "track": "mortality",
+   "intro": "The Egg Module tracks the full lifecycle of eggs — from laying to hatching or nursery transfer — ensuring accurate records, real-time updates, and complete traceability for better coordination and accountability across nest, nursery and hatchery teams.",
+   "grad": "cyan",
+   "glyph": "egg",
+   "features": [
+    {
+     "title": "Egg dashboard",
+     "desc": "Live counts — in nests, moved to nursery, marked for discard.",
+     "shot": "assets/shots/p30-egg-1.jpg",
+     "alt": "Egg Collection dashboard: 66 in nest, 76 to nursery, 35 to discard",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "egg"
+    },
+    {
+     "title": "Egg entry (nest / nursery)",
+     "desc": "Add eggs with parents, condition, dates, species, notes, attachments.",
+     "shot": "assets/shots/p30-egg-2.jpg",
+     "alt": "Add eggs form with enclosure, parentage, egg location",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "egg"
+    },
+    {
+     "title": "Lifecycle tracking",
+     "desc": "Status, weight, and the full Egg Journey Timeline.",
+     "shot": "assets/shots/p30-egg-3.jpg",
+     "alt": "Egg Journey timeline: hatched, natural incubation",
+     "device": "prefr",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Natural incubation",
+     "desc": "Eggs incubated in nests — ID, collection date, condition.",
+     "shot": "assets/shots/p30-egg-4.jpg",
+     "alt": "Eggs in nest list with peacock hind entries",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "egg"
+    },
+    {
+     "title": "Artificial incubation",
+     "desc": "Nursery eggs — evaluate, move to incubate, discard, or hatch.",
+     "shot": "assets/shots/p30-egg-5.jpg",
+     "alt": "Eggs to nursery list",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "egg"
+    },
+    {
+     "title": "Egg transfers",
+     "desc": "Track site, stage, hatch date, species, ID, and sex.",
+     "shot": "assets/shots/p30-egg-6.jpg",
+     "alt": "Eggs transferred — batch transfer requests",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "transfer"
+    },
+    {
+     "title": "Egg discard",
+     "desc": "Discard non-viable eggs with logged reason and audit trail.",
+     "shot": "assets/shots/p30-egg-7.jpg",
+     "alt": "Eggs to be discarded list",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "alert"
+    },
+    {
+     "title": "Create animal ID",
+     "desc": "Generate a record for hatched eggs, linked to species and parents.",
+     "shot": "assets/shots/p30-egg-8.jpg",
+     "alt": "Eggs hatched — Create Animal ID",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "add"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p30-egg-1.jpg",
+     "alt": "Egg Collection dashboard: 66 in nest, 76 to nursery, 35 to discard",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p30-egg-2.jpg",
+     "alt": "Add eggs form with enclosure, parentage, egg location",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p30-egg-3.jpg",
+     "alt": "Egg Journey timeline: hatched, natural incubation",
+     "device": "prefr",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p30-egg-4.jpg",
+     "alt": "Eggs in nest list with peacock hind entries",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p30-egg-5.jpg",
+     "alt": "Eggs to nursery list",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p30-egg-6.jpg",
+     "alt": "Eggs transferred — batch transfer requests",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p30-egg-7.jpg",
+     "alt": "Eggs to be discarded list",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p30-egg-8.jpg",
+     "alt": "Eggs hatched — Create Animal ID",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "egg-management-web",
+   "no": "25",
+   "page": 33,
+   "title": "Egg Management — Web",
+   "track": "mortality",
+   "intro": "The web companion to Egg Management — used by supervisors and nursery leads to configure incubators, run reports, and track eggs across every lifecycle stage. Full traceability, filterable views, and exportable reports for compliance and review.",
+   "grad": "green",
+   "glyph": "egg",
+   "features": [
+    {
+     "title": "Nursery & incubator configuration",
+     "desc": "Set up nurseries linked to sites, create rooms, manage incubators.",
+     "shot": "assets/shots/p31-web-nursery.jpg",
+     "alt": "Nursery list with rooms, incubators, and sites",
+     "device": "web",
+     "size": [
+      882,
+      401
+     ],
+     "icon": "egg"
+    },
+    {
+     "title": "Reporting, filters & data access",
+     "desc": "Filter by site, species, date, or stage; export reports.",
+     "shot": "assets/shots/p31-web-stats.jpg",
+     "alt": "Eggs Stats by species table",
+     "device": "web",
+     "size": [
+      886,
+      656
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Egg list",
+     "desc": "Status-based tabs — Received, Incubation, Hatched, Discarded, All.",
+     "shot": "assets/shots/p31-web-egglist.jpg",
+     "alt": "Egg List with Received, Incubation, Hatched tabs",
+     "device": "web",
+     "size": [
+      877,
+      476
+     ],
+     "icon": "egg"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p31-web-nursery.jpg",
+     "alt": "Nursery list with rooms, incubators, and sites",
+     "device": "web",
+     "size": [
+      882,
+      401
+     ]
+    },
+    {
+     "src": "assets/shots/p31-web-stats.jpg",
+     "alt": "Eggs Stats by species table",
+     "device": "web",
+     "size": [
+      886,
+      656
+     ]
+    },
+    {
+     "src": "assets/shots/p31-web-egglist.jpg",
+     "alt": "Egg List with Received, Incubation, Hatched tabs",
+     "device": "web",
+     "size": [
+      877,
+      476
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "announcement",
+   "no": "26",
+   "page": 35,
+   "title": "Announcement",
+   "track": "operations",
+   "intro": "The Announcement Module is the centralised tool for sharing important updates and general notices across teams and locations. It supports targeted communication, scheduling, and interactive engagement — making sure the right message reaches the right people at the right time.",
+   "grad": "coral",
+   "glyph": "announce",
+   "features": [
+    {
+     "title": "Types of announcements",
+     "desc": "General and Important, each with its own visibility rules.",
+     "shot": "assets/shots/p33-announce-1.jpg",
+     "alt": "Announcements list with All and Created by me tabs, Important and Announcement cards",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "announce"
+    },
+    {
+     "title": "Unified listing",
+     "desc": "All announcements in one view — yours separated from others'.",
+     "shot": "assets/shots/p33-announce-2.jpg",
+     "alt": "Announcement detail: Every Move Counts with attached image",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "manage"
+    },
+    {
+     "title": "Create announcements",
+     "desc": "Set type, title, visibility; post or schedule; preview & attach.",
+     "shot": "assets/shots/p33-announce-3.jpg",
+     "alt": "Announcement detail: Every necropsy counts, with create button",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "edit"
+    },
+    {
+     "title": "Post-publish actions",
+     "desc": "Edit, cancel, or delete announcements. Notifications and the homepage keep them visible to the right people.",
+     "shot": "assets/shots/p33-announce-4.jpg",
+     "alt": "General Announcement detail with Edit, Cancel, Delete menu open",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "manage"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p33-announce-1.jpg",
+     "alt": "Announcements list with All and Created by me tabs, Important and Announcement cards",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p33-announce-2.jpg",
+     "alt": "Announcement detail: Every Move Counts with attached image",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p33-announce-3.jpg",
+     "alt": "Announcement detail: Every necropsy counts, with create button",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p33-announce-4.jpg",
+     "alt": "General Announcement detail with Edit, Cancel, Delete menu open",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "helpdesk-module",
+   "no": "27",
+   "page": 36,
+   "title": "Helpdesk Module",
+   "track": "operations",
+   "intro": "The Request Module helps zoo staff raise and track requests for resources, maintenance, or services ensuring accountability, faster resolution, and better coordination across departments. Replaces email and paper request slips with a single, auditable trail.",
+   "grad": "teal",
+   "glyph": "help",
+   "features": [
+    {
+     "title": "View requests by status",
+     "desc": "Pending, Approved, Rejected, Cancelled, In-Progress, Completed.",
+     "shot": "assets/shots/p34-help-1.jpg",
+     "alt": "Help Desk list with Pending Approval, Approved, Rejected, Cancelled tabs",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "help"
+    },
+    {
+     "title": "Request management",
+     "desc": "Raise, edit, cancel, or reject requests with priorities.",
+     "shot": "assets/shots/p34-help-2.jpg",
+     "alt": "Carpentry request detail with vendor and cost estimate",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "help"
+    },
+    {
+     "title": "Cost management",
+     "desc": "Add, edit, duplicate, or delete cost estimates per item.",
+     "shot": "assets/shots/p34-help-3.jpg",
+     "alt": "Costing Breakup: Roofing and Wood line items",
+     "device": "prefr",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "help"
+    },
+    {
+     "title": "Fulfilment & reversion",
+     "desc": "Mark requests fulfilled or revert them to in-progress.",
+     "shot": "assets/shots/p34-help-4.jpg",
+     "alt": "Request Completed with Move Back To In-Progress",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "help"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p34-help-1.jpg",
+     "alt": "Help Desk list with Pending Approval, Approved, Rejected, Cancelled tabs",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p34-help-2.jpg",
+     "alt": "Carpentry request detail with vendor and cost estimate",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p34-help-3.jpg",
+     "alt": "Costing Breakup: Roofing and Wood line items",
+     "device": "prefr",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p34-help-4.jpg",
+     "alt": "Request Completed with Move Back To In-Progress",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "security",
+   "no": "28",
+   "page": 37,
+   "title": "Security",
+   "track": "operations",
+   "intro": "The Security Module manages site-specific permissions and oversees egg transfer and discard processes and any animal or hospital transfer to ensure controlled movement and full accountability for who handled what, and when.",
+   "grad": "butter",
+   "glyph": "shield",
+   "features": [
+    {
+     "title": "Filter functionality",
+     "desc": "Filter records by status — Show All, Checkout Pending, or Security Checkout Cleared — for focused review.",
+     "shot": "assets/shots/p35-security-1.jpg",
+     "alt": "Filter By dialog: Show All, Checkout Pending, Security Checkout Cleared",
+     "device": "prefr",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Check-in & check-out",
+     "desc": "Authorised security completes check-in and check-out for egg, animal, and hospital transfers.",
+     "shot": "assets/shots/p35-security-2.jpg",
+     "alt": "Transfer INT-02997 with Security Checkout button",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ],
+     "icon": "shield"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p35-security-1.jpg",
+     "alt": "Filter By dialog: Show All, Checkout Pending, Security Checkout Cleared",
+     "device": "prefr",
+     "size": [
+      600,
+      1298
+     ]
+    },
+    {
+     "src": "assets/shots/p35-security-2.jpg",
+     "alt": "Transfer INT-02997 with Security Checkout button",
+     "device": "phone",
+     "size": [
+      600,
+      1298
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "reports-app",
+   "no": "29",
+   "page": 38,
+   "title": "Reports - App",
+   "track": "operations",
+   "intro": "The Reports Module presents categorised data on key animal events, organised under specific headings for quick insights and analysis on the go.",
+   "grad": "cyan",
+   "glyph": "report",
+   "features": [
+    {
+     "title": "Filters",
+     "desc": "Refine reports by date, site, or species.",
+     "shot": "assets/shots/p36-app-keyinsights.png",
+     "alt": "Key Insights report: Day/Week/Month filter, date, Natality, and species breakdown",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Statistics",
+     "desc": "Date-based filtering and category-wise stats — Natality, Mortality, New Arrivals, Inter-site Transfers (In/Out), External, In-house Transfers, and Food Wastage.",
+     "shot": "assets/shots/p36-app-categories.png",
+     "alt": "Statistics category picker: Natality, Mortality, New arrivals, Inter-site transfers, External transfer",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ],
+     "icon": "report"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p36-app-keyinsights.png",
+     "alt": "Key Insights report: Day/Week/Month filter, date, Natality, and species breakdown",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    },
+    {
+     "src": "assets/shots/p36-app-categories.png",
+     "alt": "Statistics category picker: Natality, Mortality, New arrivals, Inter-site transfers, External transfer",
+     "device": "phone",
+     "size": [
+      1170,
+      2532
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "reports-web",
+   "no": "29",
+   "page": 39,
+   "title": "Reports (Web)",
+   "track": "operations",
+   "intro": "The web companion generates easy-to-read, downloadable reports on animal data and activities — covering births, deaths, transfers, and assessments — drawn from the same records as the app.",
+   "grad": "green",
+   "glyph": "report",
+   "features": [
+    {
+     "title": "Filters & search",
+     "desc": "Refine reports by date, site, or species.",
+     "shot": "assets/shots/p37-web-species.png",
+     "alt": "Species General Report: Download report, Select Site and Show/Hide filters, and a table of species with Male, Female, Undetermined and Indeterminate counts",
+     "device": "web",
+     "size": [
+      1897,
+      846
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Downloadable reports",
+     "desc": "Generate, view, and download Species, Daily, Animal List, Animal Assessment, Animal Keeper, User, Observation, Keeper Diary, Biologist Diary, and Enclosure Count reports for compliance and offline access.",
+     "shot": "assets/shots/p37-web-species.png",
+     "alt": "Species General Report: Download report, Select Site and Show/Hide filters, and a table of species with Male, Female, Undetermined and Indeterminate counts",
+     "device": "web",
+     "size": [
+      1897,
+      846
+     ],
+     "icon": "report"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p37-web-species.png",
+     "alt": "Species General Report: Download report, Select Site and Show/Hide filters, and a table of species with Male, Female, Undetermined and Indeterminate counts",
+     "device": "web",
+     "size": [
+      1897,
+      846
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "lab",
+   "no": "30",
+   "page": 40,
+   "title": "Lab",
+   "track": "operations",
+   "intro": "The Lab Module centralises diagnostic test records and results, streamlines workflows between vets and labs, supports early disease detection and treatment, and maintains a secure digital repository for biosecurity, audits, and analytics.",
+   "grad": "coral",
+   "glyph": "lab",
+   "features": [
+    {
+     "title": "Request listing & filtering",
+     "desc": "View and filter lab requests by lab, search, or status — Pending, In Progress, Completed — with colour-coded icons.",
+     "shot": "assets/shots/img-lab-c.jpg",
+     "alt": "A scientist working with a microscope.",
+     "device": "prefr",
+     "size": [
+      1280,
+      720
+     ],
+     "icon": "filter"
+    },
+    {
+     "title": "Detailed request view",
+     "desc": "See requester, animal, site and linked medical record; update status in real time with automatic sync across modules.",
+     "shot": null,
+     "alt": "",
+     "icon": "eye"
+    },
+    {
+     "title": "Location & access control",
+     "desc": "Tag labs by location; manage who can configure or view lab data.",
+     "shot": null,
+     "alt": "",
+     "icon": "shield"
+    },
+    {
+     "title": "Site-level test mapping",
+     "desc": "Assign labs for specific diagnostic tests directly from the site's Config tab.",
+     "shot": null,
+     "alt": "",
+     "icon": "lab"
+    },
+    {
+     "title": "Individual & bulk assignment",
+     "desc": "Map labs per test, or assign all tests to a default lab in one click.",
+     "shot": null,
+     "alt": "",
+     "icon": "tag"
+    },
+    {
+     "title": "Test & sample management",
+     "desc": "Create and manage lab tests, sub-tests, and sample types (serum, CSF, etc.) and map them to the right labs.",
+     "shot": null,
+     "alt": "",
+     "icon": "lab"
+    },
+    {
+     "title": "Update lab status",
+     "desc": "Track through Awaiting Sample → Sample Received / Rejected / Clotted / Haemolysed / Insufficient → In Progress → Completed (Positive / Negative / Detected / Undetected / Inconclusive).",
+     "shot": null,
+     "alt": "",
+     "icon": "lab"
+    },
+    {
+     "title": "Lab reassignment",
+     "desc": "Move tests to alternate labs when needed, without disrupting workflow.",
+     "shot": null,
+     "alt": "",
+     "icon": "lab"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/img-lab-c.jpg",
+     "alt": "A scientist working with a microscope.",
+     "device": "prefr",
+     "size": [
+      1280,
+      720
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "diet",
+   "no": "31",
+   "page": 41,
+   "title": "Diet",
+   "track": "operations",
+   "intro": "The Diet Module is a centralised platform for efficient planning and management of animal diets. It enables nutrition teams to build structured diet plans using configurable components — ingredients, feed types, recipes, and combos — and schedule meals by time, day, or life stage.",
+   "grad": "teal",
+   "glyph": "diet",
+   "features": [
+    {
+     "title": "Diet configuration",
+     "desc": "Create diets using feed types, items, recipes and mixes; schedule meals by time, day or life stage; assign by species or individual animal; activate, clone or assign diets; attach references.",
+     "shot": "assets/shots/img-diet-new-c.jpg",
+     "alt": "A spread of fresh fruit prepared as animal feed.",
+     "device": "prefr",
+     "size": [
+      1280,
+      853
+     ],
+     "icon": "diet"
+    },
+    {
+     "title": "Preparation types & cut size",
+     "desc": "Create and manage preparation methods for items, recipes and combos — to ensure nutrition and texture consistency.",
+     "shot": null,
+     "alt": "",
+     "icon": "diet"
+    },
+    {
+     "title": "Feed types",
+     "desc": "Centralised list of feed categories, searchable, for consistent diet planning.",
+     "shot": null,
+     "alt": "",
+     "icon": "diet"
+    },
+    {
+     "title": "Items",
+     "desc": "Add, edit and delete dietary components with detailed descriptions and images.",
+     "shot": null,
+     "alt": "",
+     "icon": "tag"
+    },
+    {
+     "title": "Recipes & mix",
+     "desc": "Multi-ingredient recipes and mixes — recipes by specific quantities, mixes by item percentage — with reusable components and full activity logs.",
+     "shot": null,
+     "alt": "",
+     "icon": "diet"
+    },
+    {
+     "title": "Meal groups",
+     "desc": "Group enclosures for coordinated feeding schedules and diet assignments, with filters by site, section and species.",
+     "shot": null,
+     "alt": "",
+     "icon": "diet"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/img-diet-new-c.jpg",
+     "alt": "A spread of fresh fruit prepared as animal feed.",
+     "device": "prefr",
+     "size": [
+      1280,
+      853
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "pharmacy-app",
+   "no": "33",
+   "page": 42,
+   "title": "Pharmacy (App)",
+   "track": "operations",
+   "intro": "Enables fast, accurate, and traceable dispensing of medical products directly to authorised doctors — ensuring timely fulfilment and automatic inventory updates.",
+   "grad": "butter",
+   "glyph": "medicine",
+   "features": [
+    {
+     "title": "In-app requesting",
+     "desc": "Allows users to request products from the pharmacy directly through the app.",
+     "shot": "assets/shots/p42-dispense-list.png",
+     "alt": "Dispense list: 11 dispenses with request IDs, pharmacy, date, requester, medicine and total quantity, and New Dispense button",
+     "device": "phone",
+     "size": [
+      592,
+      1376
+     ],
+     "icon": "add"
+    },
+    {
+     "title": "In-app dispensing",
+     "desc": "Allows stores to dispense products from the pharmacy directly through the app.",
+     "shot": "assets/shots/p42-dispense-detail.png",
+     "alt": "Dispense DIS279 detail: Local Pharmacy, dispensed to Antz Admin, one medicine Crocin with total quantity 100",
+     "device": "phone",
+     "size": [
+      592,
+      1376
+     ],
+     "icon": "medicine"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/p42-dispense-list.png",
+     "alt": "Dispense list: 11 dispenses with request IDs, pharmacy, date, requester, medicine and total quantity, and New Dispense button",
+     "device": "phone",
+     "size": [
+      592,
+      1376
+     ]
+    },
+    {
+     "src": "assets/shots/p42-dispense-detail.png",
+     "alt": "Dispense DIS279 detail: Local Pharmacy, dispensed to Antz Admin, one medicine Crocin with total quantity 100",
+     "device": "phone",
+     "size": [
+      592,
+      1376
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "pharmacy-web",
+   "no": "33",
+   "page": 43,
+   "title": "Pharmacy (Web)",
+   "track": "operations",
+   "intro": "Enables fast, accurate, and traceable dispensing of medical products directly to authorised doctors — ensuring timely fulfilment and automatic inventory updates from prescription through to the shelf, with batch-level visibility and expiry tracking throughout.",
+   "grad": "cyan",
+   "glyph": "medicine",
+   "features": [
+    {
+     "title": "Dashboard",
+     "desc": "Real-time insights on stock issues, shipments, purchases, requests, usage, expiries and fast-moving products — with visual trends for quick action.",
+     "shot": "assets/shots/img-pharmacy-c.jpg",
+     "alt": "A pharmacist organising medicine shelves.",
+     "device": "prefr",
+     "size": [
+      1280,
+      574
+     ],
+     "icon": "report"
+    },
+    {
+     "title": "Smart search & filters",
+     "desc": "Quickly find records by Request ID, doctor name, or pharmacy.",
+     "shot": null,
+     "alt": "",
+     "icon": "filter"
+    },
+    {
+     "title": "Masters(racks & shelves)",
+     "desc": "Organise storage by rack/shelf counts for quick access and updates, with customisable data (packaging, UOM, salts, drivers, manufacturers).",
+     "shot": null,
+     "alt": "",
+     "icon": "manage"
+    },
+    {
+     "title": "Stock report management",
+     "desc": "Batch-wise stock with value and expiry; flag low/expired items; monitor upcoming expiries; manage escrow with dispute resolution.",
+     "shot": null,
+     "alt": "",
+     "icon": "medicine"
+    },
+    {
+     "title": "Product & inventory management",
+     "desc": "Create products, track inventory and expiry, log purchases/dispatches, maintain a unified ledger, handle substitutes/variants.",
+     "shot": null,
+     "alt": "",
+     "icon": "medicine"
+    },
+    {
+     "title": "Dispense management",
+     "desc": "Doctors can prescribe and dispense, or collect medicines directly from the pharmacy — all logged.",
+     "shot": null,
+     "alt": "",
+     "icon": "medicine"
+    },
+    {
+     "title": "Shipment management",
+     "desc": "Track incoming and outgoing medicine shipments and fulfil them in-app.",
+     "shot": null,
+     "alt": "",
+     "icon": "transfer"
+    },
+    {
+     "title": "Stock adjustment & reports",
+     "desc": "Record stock changes (missing, broken, expired); keep audit history; manage supplier returns; download consumption, return, purchase and dispensing reports for finance and demand.",
+     "shot": null,
+     "alt": "",
+     "icon": "medicine"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/img-pharmacy-c.jpg",
+     "alt": "A pharmacist organising medicine shelves.",
+     "device": "prefr",
+     "size": [
+      1280,
+      574
+     ]
+    }
+   ],
+   "status": "complete"
+  },
+  {
+   "id": "compliance",
+   "no": "33",
+   "page": 44,
+   "title": "Compliance",
+   "track": "operations",
+   "intro": "The Compliance Module provides an organisation-level view of animal management across multiple shelters, trusts and foundations on the App, and lets users access Export, Import, Shipment and Species records — keeping every regulatory artefact in one trusted, downloadable place.",
+   "grad": "green",
+   "glyph": "approve",
+   "features": [
+    {
+     "title": "Organisation overview",
+     "desc": "All registered organisations in the system, in one view.",
+     "shot": "assets/shots/img-beyond-c.jpg",
+     "alt": "A conservation site with multiple facilities.",
+     "device": "web",
+     "size": [
+      1280,
+      698
+     ],
+     "icon": "focus"
+    },
+    {
+     "title": "Species & animal counts",
+     "desc": "Number of species and total animals belonging to each organisation.",
+     "shot": null,
+     "alt": "",
+     "icon": "report"
+    },
+    {
+     "title": "Site coverage",
+     "desc": "Number of sites managing animals under each organisation.",
+     "shot": null,
+     "alt": "",
+     "icon": "report"
+    },
+    {
+     "title": "Transparency & accountability",
+     "desc": "Accurate reporting and visibility into animal populations across organisations.",
+     "shot": null,
+     "alt": "",
+     "icon": "users"
+    },
+    {
+     "title": "Filters & download",
+     "desc": "Filter and download documents based on a selected date range.",
+     "shot": null,
+     "alt": "",
+     "icon": "filter"
+    },
+    {
+     "title": "Export & import",
+     "desc": "Record and edit permit forms for animals being exported to or imported from another country or facility.",
+     "shot": null,
+     "alt": "",
+     "icon": "species"
+    },
+    {
+     "title": "Shipment",
+     "desc": "Track shipment details — transport method, shipment date, containers, logistics.",
+     "shot": null,
+     "alt": "",
+     "icon": "transfer"
+    },
+    {
+     "title": "Species",
+     "desc": "View and download information about the species involved in the transaction (birds, mammals, reptiles).",
+     "shot": null,
+     "alt": "",
+     "icon": "species"
+    },
+    {
+     "title": "Master configuration",
+     "desc": "Set up document types and maintain lists of importers and exporters for export/import records.",
+     "shot": null,
+     "alt": "",
+     "icon": "manage"
+    }
+   ],
+   "shots": [
+    {
+     "src": "assets/shots/img-beyond-c.jpg",
+     "alt": "A conservation site with multiple facilities.",
+     "device": "web",
+     "size": [
+      1280,
+      698
+     ]
+    }
+   ],
+   "status": "complete"
+  }
+ ]
+};

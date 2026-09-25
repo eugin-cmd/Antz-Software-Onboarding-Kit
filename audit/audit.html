@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Antz Onboarding Kit · Usability Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #37BD69; --green-text: #27864B; --green-tint: #E8F6EE;
+  --teal: #1F515B; --teal-deep: #173E46; --mint: #DDEBE9;
+  --ink: #0E1715; --text: #2B3833; --muted: #55635D; --line: #E1E8E5; --soft: #F5F8F7;
+  --high: #B42318; --high-bg: #FDECEA; --med: #9A5B00; --med-bg: #FFF4E0; --low: #3B5B66; --low-bg: #E7EFF1;
+}
+@page { size: A4; margin: 16mm 15mm 18mm;
+  @bottom-left { content: "Antz Onboarding Kit · Usability Audit"; font: 500 8pt Inter, sans-serif; color: #7A8684; }
+  @bottom-right { content: counter(page); font: 600 8pt Inter, sans-serif; color: #7A8684; } }
+@page :first { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 9.6pt; line-height: 1.5; color: var(--text); }
+h1, h2, h3, h4 { color: var(--ink); margin: 0; line-height: 1.2; letter-spacing: -.01em; }
+p { margin: 0 0 6pt; }
+img { max-width: 100%; display: block; }
+.break { break-before: page; }
+.keep { break-inside: avoid; }
+.sev { display: grid; grid-template-columns: 24mm 1fr; gap: 3mm; align-items: start; padding: 2mm 0; border-bottom: 1px solid var(--line); font-size: 8.8pt; }
+.sev .pill { justify-self: start; }
+.strengths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm 5mm; font-size: 8.6pt; }
+.strengths > div { border-top: 2px solid var(--green); padding-top: 2mm; }
+.strengths b { display: block; color: var(--ink); margin-bottom: .6mm; }
+.props { row-gap: 4mm; }
+.tight .prop p { font-size: 8.7pt; margin-bottom: 1.2mm; }
+.tight .prop .why { font-size: 8pt; }
+.tight .lede { margin-bottom: 5mm; }
+.tight h3.group { margin-top: 6mm; }
+.tight td { padding: 1.6mm 2.5mm; }
+
+/* Cover */
+.cover { position: relative; width: 210mm; height: 297mm; color: #fff; overflow: hidden; background: var(--teal-deep); }
+.cover .photo { position: absolute; inset: 0; background: url(img/cover.jpg) 68% 30% / cover; }
+.cover .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,30,26,.25) 0%, rgba(10,30,26,.45) 45%, rgba(10,30,26,.94) 78%); }
+.cover .inner { position: absolute; left: 18mm; right: 18mm; bottom: 22mm; }
+.cover .logo { position: absolute; top: 16mm; left: 18mm; width: 44mm; }
+.cover .kicker { font-size: 9pt; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #9FE3B9; margin-bottom: 6mm; }
+.cover h1 { color: #fff; font-size: 38pt; font-weight: 600; letter-spacing: -.02em; line-height: 1.05; }
+.cover .sub { font-size: 13pt; color: rgba(255,255,255,.88); margin-top: 6mm; max-width: 140mm; }
+.cover .meta { display: flex; gap: 12mm; margin-top: 14mm; padding-top: 6mm; border-top: 1px solid rgba(255,255,255,.25); font-size: 8.5pt; color: rgba(255,255,255,.8); }
+.cover .meta b { display: block; color: #fff; font-weight: 600; font-size: 9.5pt; }
+
+/* Section heads */
+.eyebrow { font-size: 8pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green-text); margin-bottom: 3mm; }
+.sec-title { font-size: 22pt; font-weight: 600; margin-bottom: 4mm; }
+.lede { font-size: 11pt; color: var(--muted); margin-bottom: 7mm; max-width: 165mm; }
+h3.group { font-size: 13pt; margin: 8mm 0 4mm; padding-bottom: 2mm; border-bottom: 2px solid var(--ink); }
+
+/* Summary */
+.verdict { background: var(--teal); color: #fff; border-radius: 4mm; padding: 7mm 8mm; margin-bottom: 7mm; }
+.verdict h2 { color: #fff; font-size: 14pt; margin-bottom: 2.5mm; }
+.verdict p { color: rgba(255,255,255,.9); font-size: 10.2pt; margin: 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm; }
+.card { border: 1px solid var(--line); border-radius: 3mm; padding: 5mm 5.5mm; break-inside: avoid; }
+.card h4 { font-size: 10.5pt; margin-bottom: 3mm; }
+.score { display: grid; grid-template-columns: 38mm 1fr 10mm; align-items: center; gap: 3mm; margin: 2.2mm 0; font-size: 9pt; }
+.bar { height: 2.4mm; border-radius: 2mm; background: var(--soft); overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: 2mm; }
+.score b { text-align: right; color: var(--ink); }
+ol.top { margin: 0; padding-left: 5mm; }
+ol.top li { margin: 0 0 2.4mm; padding-left: 1mm; }
+ol.top li b { color: var(--ink); }
+.counts { display: flex; gap: 3mm; margin-top: 5mm; }
+.count { flex: 1; border-radius: 3mm; padding: 3.5mm 4mm; }
+.count b { display: block; font-size: 18pt; line-height: 1; margin-bottom: 1mm; }
+.count.h { background: var(--high-bg); color: var(--high); }
+.count.m { background: var(--med-bg); color: var(--med); }
+.count.l { background: var(--low-bg); color: var(--low); }
+.small { font-size: 8.4pt; color: var(--muted); }
+
+ul.clean { margin: 0; padding-left: 4.5mm; }
+ul.clean li { margin-bottom: 1.8mm; }
+.ticks li::marker { color: var(--green); }
+
+/* Findings */
+.finding { break-inside: avoid; border: 1px solid var(--line); border-radius: 3mm; margin-bottom: 5mm; overflow: hidden; }
+.f-head { display: flex; align-items: center; gap: 3mm; padding: 3.2mm 5mm; background: var(--soft); border-bottom: 1px solid var(--line); }
+.f-id { font-weight: 700; font-size: 8.5pt; color: var(--muted); min-width: 8mm; }
+.f-head h4 { font-size: 10.5pt; flex: 1; }
+.pill { font-size: 7.4pt; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 1mm 2.6mm; border-radius: 10mm; white-space: nowrap; }
+.pill.h { background: var(--high-bg); color: var(--high); }
+.pill.m { background: var(--med-bg); color: var(--med); }
+.pill.l { background: var(--low-bg); color: var(--low); }
+.f-body { padding: 4mm 5mm 4.5mm; display: grid; grid-template-columns: 1fr; gap: 4mm; }
+.f-body.with-img { grid-template-columns: 74mm 1fr; }
+.f-body.wide-img { grid-template-columns: 1fr; }
+.f-img img { border-radius: 2mm; border: 1px solid var(--line); }
+.f-img .cap { font-size: 7.6pt; color: var(--muted); margin-top: 1.5mm; }
+.f-text dl { margin: 0; display: grid; grid-template-columns: 22mm 1fr; gap: 1.6mm 3mm; }
+.f-text dt { font-size: 7.6pt; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: .6mm; }
+.f-text dd { margin: 0; }
+.f-text dd.fix { color: var(--ink); }
+.effort { display: inline-block; font-size: 7.6pt; font-weight: 600; color: var(--teal); background: var(--mint); border-radius: 1.5mm; padding: .4mm 2mm; }
+
+/* Proposals */
+.props { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.prop { border-left: 3px solid var(--green); padding: 1mm 0 1mm 4.5mm; break-inside: avoid; }
+.prop h4 { font-size: 10.5pt; margin-bottom: 1.8mm; }
+.prop p { font-size: 9.2pt; }
+.prop .why { font-size: 8.4pt; color: var(--muted); }
+
+table { width: 100%; border-collapse: collapse; font-size: 8.8pt; break-inside: avoid; }
+th { text-align: left; font-size: 7.6pt; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 700; padding: 2mm 2.5mm; border-bottom: 1.5px solid var(--ink); }
+td { padding: 2.2mm 2.5mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+.sw { display: inline-block; width: 4mm; height: 4mm; border-radius: 1mm; vertical-align: -0.8mm; margin-right: 1.5mm; border: 1px solid rgba(0,0,0,.08); }
+.fail { color: var(--high); font-weight: 600; }
+.pass { color: var(--green-text); font-weight: 600; }
+
+.road { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.road .col { border-radius: 3mm; padding: 5mm; break-inside: avoid; }
+.road .now { background: var(--green-tint); }
+.road .next { background: var(--soft); }
+.road .later { background: var(--mint); }
+.road h4 { font-size: 11pt; margin-bottom: 1mm; }
+.road .when { font-size: 8pt; color: var(--muted); margin-bottom: 3mm; }
+.road ul { margin: 0; padding-left: 4mm; font-size: 8.8pt; }
+.road li { margin-bottom: 1.8mm; }
+.road li span { color: var(--muted); }
+
+.task { display: grid; grid-template-columns: 7mm 1fr 44mm; gap: 3mm; padding: 2.4mm 0; border-bottom: 1px solid var(--line); font-size: 9pt; }
+.task .n { font-weight: 700; color: var(--green-text); }
+.task .m { color: var(--muted); font-size: 8.4pt; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="cover">
+  <div class="photo"></div><div class="shade"></div>
+  <img class="logo" src="img/logo-horizontal-reversed.svg" alt="Antz Systems">
+  <div class="inner">
+    <div class="kicker">Usability audit</div>
+    <h1>Antz Onboarding Kit<br>Web edition v0.1</h1>
+    <p class="sub">What works, what gets in a prospect's way, and how to make the kit more intuitive and more beautiful.</p>
+    <div class="meta">
+      <div><b>Date</b>24 September 2026</div>
+      <div><b>Scope</b>Home page, 32 module pages, search</div>
+      <div><b>Audience</b>Prospective clients</div>
+      <div><b>Findings</b>19 (5 high)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="break">
+  <div class="eyebrow">Summary</div>
+  <h2 class="sec-title">The foundation is right. The next step is where it falls down.</h2>
+
+  <div class="verdict">
+    <h2>Verdict</h2>
+    <p>The kit already does the hard part. It turns a 46-slide training deck into a short home page with real product screens one click away. A prospect can see what Antz is within seconds. The problems start when they try to go deeper or take the next step. On a phone, the product tour gives no visible feedback. Four modules show stock photos dressed up as app screens. One module shows the wrong module's screen. The only way to get in touch is an email link. The brand green also fails contrast on every primary button. All of the high-severity issues can be fixed in days, not weeks.</p>
+  </div>
+
+  <div class="two">
+    <div class="card">
+      <h4>Scorecard</h4>
+      <div class="score"><span>First impression</span><div class="bar"><i style="width:80%;background:var(--green)"></i></div><b>4/5</b></div>
+      <div class="score"><span>Finding a module</span><div class="bar"><i style="width:60%;background:#E3A008"></i></div><b>3/5</b></div>
+      <div class="score"><span>Understanding a module (desktop)</span><div class="bar"><i style="width:70%;background:var(--green)"></i></div><b>3.5/5</b></div>
+      <div class="score"><span>Understanding a module (mobile)</span><div class="bar"><i style="width:40%;background:var(--high)"></i></div><b>2/5</b></div>
+      <div class="score"><span>Taking the next step</span><div class="bar"><i style="width:40%;background:var(--high)"></i></div><b>2/5</b></div>
+      <div class="score"><span>Accessibility</span><div class="bar"><i style="width:40%;background:var(--high)"></i></div><b>2/5</b></div>
+      <div class="score"><span>Visual consistency</span><div class="bar"><i style="width:65%;background:#E3A008"></i></div><b>3/5</b></div>
+      <p class="small" style="margin-top:3mm">Expert judgement against Nielsen's 10 heuristics and WCAG 2.2 AA. Not measured with users. See Scope and method.</p>
+    </div>
+    <div class="card">
+      <h4>Fix these five first</h4>
+      <ol class="top">
+        <li><b>Show the screen next to the tapped feature on mobile.</b> Today it changes out of view. (F1)</li>
+        <li><b>Stop presenting stock photos as product screens</b> on Lab, Diet, Pharmacy · Web and Compliance. (F2)</li>
+        <li><b>Replace the Deworming screenshot,</b> which shows the Vaccination screen. (F5)</li>
+        <li><b>Darken the action green to <code>#27864B</code></b>, or use dark text on the brand green. White on <code>#37BD69</code> is 2.43:1. (F15)</li>
+        <li><b>Give "Book a walkthrough" a real destination:</b> a short form or scheduler, not just an email link. (F12)</li>
+      </ol>
+      <div class="counts">
+        <div class="count h"><b>5</b>High</div>
+        <div class="count m"><b>10</b>Medium</div>
+        <div class="count l"><b>4</b>Low</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="break">
+  <div class="eyebrow">Strengths</div>
+  <h2 class="sec-title" style="font-size:16pt">What already works (keep it)</h2>
+  <div class="strengths">
+    <div><b>Short home page.</b> Seven sections instead of 46 slides. A prospect sees the platform, one workflow and the areas of work without scrolling through a manual.</div>
+    <div><b>Real product, click-driven.</b> Each feature shows its actual screen, on the device it runs on. That matches the earlier research ruling that the tour should be click-driven, not scroll-driven.</div>
+    <div><b>Search in the hero,</b> with live results across modules and features. The rotating placeholder shows the range of what's there.</div>
+    <div><b>One source of content.</b> Every page renders from <code>content.json</code>, so a fact is fixed in one place. This was the root cause named in <code>framing.md</code>.</div>
+    <div><b>Honest content.</b> Unfinished modules are hidden, no unreliable total is printed, and the Housing hierarchy error is corrected.</div>
+    <div><b>Responsive, with reduced motion respected.</b> It works at 390, 1024 and 1440px. The parallax and animations switch off for visitors who have reduced motion turned on.</div>
+  </div>
+</section>
+
+<!-- ============ METHOD ============ -->
+<section style="margin-top:9mm">
+  <div class="eyebrow">Scope and method</div>
+  <h2 class="sec-title" style="font-size:16pt">How this audit was done</h2>
+  <p class="lede">A heuristic review of the kit as built, from the point of view of a prospect: a curator, vet lead or director who has never used Antz and has five minutes.</p>
+
+  <div class="two">
+    <div class="card">
+      <h4>What was reviewed</h4>
+      <ul class="clean">
+        <li>Home page: hero, search, Why Antz, featured workflow, Explore, Getting started, call to action, FAQ, footer</li>
+        <li>All 32 visible module pages, content checked against <code>content.json</code></li>
+        <li>Search: queries, empty state, keyboard control</li>
+        <li>Viewports: 1440px desktop, 1024px tablet, 390px phone (Chrome 153)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Checks performed</h4>
+      <ul class="clean">
+        <li>Nielsen's 10 usability heuristics, applied to five prospect journeys</li>
+        <li>WCAG 2.2 AA: contrast calculated for every text and background pair in the style sheet; keyboard paths; semantics</li>
+        <li>Content audit: missing or mismatched screenshots, duplicate modules, copy length and pattern</li>
+        <li>Asset weight on disk</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="two" style="margin-top:6mm">
+    <div>
+      <h3 class="group" style="margin-top:0">Severity</h3>
+      <div class="sev"><span class="pill h">High · 5</span><span>Misleads a prospect, blocks a core task, or fails WCAG AA on the main path. Fix before sharing.</span></div>
+      <div class="sev"><span class="pill m">Medium · 10</span><span>Slows people down, causes doubt, or weakens the case for Antz.</span></div>
+      <div class="sev"><span class="pill l">Low · 4</span><span>Polish and consistency.</span></div>
+    </div>
+    <div>
+      <h3 class="group" style="margin-top:0">Limits</h3>
+      <ul class="clean">
+        <li>No sessions with real prospects yet. Scores are an expert estimate. A five-task test plan in the Roadmap section will confirm them.</li>
+        <li>Screen readers were not tested live. Semantic issues were found by reading the code.</li>
+        <li>Page speed was estimated from file sizes, not measured on a hosted build.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINDINGS ============ -->
+<section class="break">
+  <div class="eyebrow">Findings</div>
+  <h2 class="sec-title">19 findings, by prospect journey</h2>
+
+  <div class="keep"><h3 class="group">1 · Understanding a module</h3>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F1</span><h4>On mobile, tapping a feature changes a screen that is out of view</h4><span class="pill h">High</span></div>
+    <div class="f-body with-img">
+      <div class="f-img"><img src="img/c-mobile-mod.jpg" alt=""><div class="cap">Left: the screen sits above the list. Right: after tapping step 4, only its caption is visible.</div></div>
+      <div class="f-text"><dl>
+        <dt>Seen</dt><dd>At phone width the device preview sits above the feature list. Once a visitor scrolls down to the features, tapping one updates a screen they can no longer see. The step highlights, but nothing visible happens.</dd>
+        <dt>Why</dt><dd>The core interaction of the kit gives no feedback on the device most prospects will open a shared link on (visibility of system status).</dd>
+        <dt>Fix</dt><dd class="fix">At 900px and below, show the screenshot inline under the selected step, as an accordion. Alternatively, use a small sticky preview that stays on screen while scrolling.</dd>
+        <dt>Effort</dt><dd><span class="effort">Half a day</span></dd>
+      </dl></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F2</span><h4>Four modules show a stock photo inside a phone frame, as if it were the app</h4><span class="pill h">High</span></div>
+    <div class="f-body with-img">
+      <div class="f-img"><img src="img/c-lab.jpg" alt=""><div class="cap">Lab: a stock lab photo cropped into the phone, used for all 8 features.</div></div>
+      <div class="f-text"><dl>
+        <dt>Seen</dt><dd>Lab (8 features), Diet (6), Pharmacy · Web (8) and Compliance (9) each have one image, and it's a stock photo. The page shows it in a phone frame for every feature.</dd>
+        <dt>Why</dt><dd>A prospect reads the frame as "this is the product". It looks broken at best and misleading at worst, in the modules that matter most to vets and compliance leads.</dd>
+        <dt>Fix</dt><dd class="fix">When a module has no real screens, drop the device and show the features as cards with the photo as a header. Mark these modules <code>needs-capture</code> and commission the screens.</dd>
+        <dt>Effort</dt><dd><span class="effort">2 hours</span> plus capture time</dd>
+      </dl></div>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F3</span><h4>The featured workflow opens on a dimmed screen</h4><span class="pill m">Medium</span></div>
+    <div class="f-body with-img">
+      <div class="f-img"><img src="img/c-spot.jpg" alt=""></div>
+      <div class="f-text"><dl>
+        <dt>Seen</dt><dd>The first Animal Transfer screen shows a modal over a grey scrim, so the page's main product image looks disabled.</dd>
+        <dt>Why</dt><dd>This is the only product image a visitor sees without clicking. It should be the most confident screen in the kit.</dd>
+        <dt>Fix</dt><dd class="fix">Default to a clean, busy screen, such as the approval view (<code>p14-transfer-2.jpg</code>). Let the dimmed modal appear only on step 1.</dd>
+        <dt>Effort</dt><dd><span class="effort">15 minutes</span></dd>
+      </dl></div>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F4</span><h4>Feature descriptions stay hidden until each step is clicked</h4><span class="pill l">Low</span></div>
+    <div class="f-body"><div class="f-text"><dl>
+      <dt>Seen</dt><dd>Only the selected step shows its description, so scanning a nine-feature module like Compliance takes nine clicks.</dd>
+      <dt>Fix</dt><dd class="fix">Keep the progressive disclosure, but add a one-line summary per step, or a "Show all" toggle for people who prefer to read than click.</dd>
+      <dt>Effort</dt><dd><span class="effort">1 hour</span></dd>
+    </dl></div></div>
+  </div>
+
+  <div class="keep"><h3 class="group">2 · Finding the right module</h3>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F5</span><h4>Three treatment modules are near copies, and Deworming shows the Vaccination screen</h4><span class="pill h">High</span></div>
+    <div class="f-body wide-img">
+      <div class="f-img"><img src="img/c-dup.jpg" alt=""><div class="cap">Vaccination (left) and Deworming (right). The Deworming phone is titled "Vaccination" and lists "Stopped Vaccine" and "Schedule Vaccination".</div></div>
+      <div class="f-text"><dl>
+        <dt>Seen</dt><dd>Vaccination, Deworming and Supplements share the same six features and layout. The Deworming screenshot belongs to Vaccination. Four App/Web pairs (HIMS, Egg, Reports, Pharmacy) also appear as separate modules.</dd>
+        <dt>Why</dt><dd>Repeats make the catalogue feel padded and leave people thinking "haven't I seen this?". The wrong screenshot is a factual error a vet will spot straight away.</dd>
+        <dt>Fix</dt><dd class="fix">Replace the Deworming capture now. Merge the three into one "Scheduled treatments" module with a type switch, and merge each App/Web pair into one module with an App | Web toggle. That takes the catalogue from 32 to about 24 modules, in line with <code>IA-MAPPING.md</code>.</dd>
+        <dt>Effort</dt><dd><span class="effort">1 day</span> (content and a small UI toggle)</dd>
+      </dl></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F6</span><h4>The area tabs hide most of the catalogue, and Records looks empty</h4><span class="pill m">Medium</span></div>
+    <div class="f-body with-img">
+      <div class="f-img"><img src="img/c-explore.jpg" alt=""></div>
+      <div class="f-text"><dl>
+        <dt>Seen</dt><dd>Only one area is visible at a time, and it opens on the thinnest one: Records, with two cards and a large empty space. Its description mentions "chat", but Chat is hidden. The selected area isn't in the URL, so it can't be shared.</dd>
+        <dt>Why</dt><dd>The first impression of the catalogue is "small". Recognition beats recall: prospects can't compare areas they can't see.</dd>
+        <dt>Fix</dt><dd class="fix">Open on the richest area (Animal Records & Movement) or on an "All" view. Put the area in the URL (<code>#/area/medical</code>). Generate each area's description from the modules actually shown.</dd>
+        <dt>Effort</dt><dd><span class="effort">3 hours</span></dd>
+      </dl></div>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F7</span><h4>Card copy was written for training, not for a first look</h4><span class="pill m">Medium</span></div>
+    <div class="f-body"><div class="f-text"><dl>
+      <dt>Seen</dt><dd>28 of 37 intros start with "The … Module". Cards cut them off after two lines, so they read like "The Notes Module centralises logging of daily updates, observations, and incident…". The median intro is 32 words.</dd>
+      <dt>Why</dt><dd>Low information scent. The first words, which carry the most weight, are spent on the module's name, which the card title already shows.</dd>
+      <dt>Fix</dt><dd class="fix">Add a <code>tagline</code> field of 12 words or fewer, outcome first. For example: "Every observation logged, linked to the animal, visible to the right team". Keep the long intro for the module page.</dd>
+      <dt>Effort</dt><dd><span class="effort">Half a day</span> (copywriting)</dd>
+    </dl></div></div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F8</span><h4>Search is only on the home page, and going back loses your place</h4><span class="pill m">Medium</span></div>
+    <div class="f-body"><div class="f-text"><dl>
+      <dt>Seen</dt><dd>Module pages have no search. Pressing Back from a module returns to the top of the home page, not to the Explore section the visitor came from.</dd>
+      <dt>Why</dt><dd>Browsing becomes a loop of scroll, click, back, scroll again (user control and freedom).</dd>
+      <dt>Fix</dt><dd class="fix">Add a compact search to the header on every page, opened with <code>/</code> or <code>⌘K</code>. Save and restore the scroll position and area tab when going back to the home page.</dd>
+      <dt>Effort</dt><dd><span class="effort">Half a day</span></dd>
+    </dl></div></div>
+  </div>
+
+  <div class="keep"><h3 class="group">3 · First impression</h3>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F9</span><h4>The headline competes with the tiger's face</h4><span class="pill m">Medium</span></div>
+    <div class="f-body with-img">
+      <div class="f-img"><img src="img/c-hero.jpg" alt=""></div>
+      <div class="f-text"><dl>
+        <dt>Seen</dt><dd>With the text centred, the headline sits across the tiger's eye and muzzle. Readability depends on a strong dark overlay that also dulls the photo.</dd>
+        <dt>Why</dt><dd>Two focal points in the same spot. The hero loses both its impact and its clarity.</dd>
+        <dt>Fix</dt><dd class="fix">Keep the centred layout, but either crop the photo so the face sits above the headline, or choose an image with open space in the centre. A split layout was tried earlier and kept the face clear.</dd>
+        <dt>Effort</dt><dd><span class="effort">1 hour</span></dd>
+      </dl></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F10</span><h4>On a phone, the hero fills the whole first screen</h4><span class="pill m">Medium</span></div>
+    <div class="f-body with-img">
+      <div class="f-img" style="max-width:48mm"><img src="img/c-mobile-hero.jpg" alt=""></div>
+      <div class="f-text"><dl>
+        <dt>Seen</dt><dd>At 390px, the photo, headline, search and five stacked chips take up about 840px. Nothing on the first screen shows there is more below. The chips are 32px tall, under the 44px touch target that Apple and Google recommend.</dd>
+        <dt>Fix</dt><dd class="fix">On phones, show the area chips as one horizontal scrolling row, make them 40 to 44px tall, and shorten the hero so the top of "Why Antz" peeks in. Add a sticky "Book a walkthrough" bar after the first scroll.</dd>
+        <dt>Effort</dt><dd><span class="effort">2 hours</span></dd>
+      </dl></div>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F11</span><h4>The rotating placeholder never stops, and it can't be acted on</h4><span class="pill m">Medium</span></div>
+    <div class="f-body"><div class="f-text"><dl>
+      <dt>Seen</dt><dd>The suggestion changes every 2.4 seconds for as long as the page is open. Pressing Enter on "Search Housing" does nothing, because the field is actually empty.</dd>
+      <dt>Why</dt><dd>WCAG 2.2.2 asks that moving content lasting more than 5 seconds can be paused. Visitors also expect a suggestion to work.</dd>
+      <dt>Fix</dt><dd class="fix">Pause on hover and after three full cycles. Slow it to about 3.5 seconds. On focus, pressing Enter or Tab fills in the current suggestion and searches for it.</dd>
+      <dt>Effort</dt><dd><span class="effort">1 hour</span></dd>
+    </dl></div></div>
+  </div>
+
+  <div class="keep"><h3 class="group">4 · Taking the next step</h3>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F12</span><h4>"Book a walkthrough" is only an email link</h4><span class="pill h">High</span></div>
+    <div class="f-body"><div class="f-text"><dl>
+      <dt>Seen</dt><dd>All three calls to action open <code>mailto:hello@antz.systems</code>. On a work laptop with no mail app set up, or on a shared device, the click does nothing, and there is no confirmation either way.</dd>
+      <dt>Why</dt><dd>This is the kit's single goal, and its most likely point of failure.</dd>
+      <dt>Fix</dt><dd class="fix">Link to a short form (name, organisation, number of sites, preferred time) or to a scheduling page. Show a confirmation state. Keep the email address visible, with a copy button, as a fallback.</dd>
+      <dt>Effort</dt><dd><span class="effort">Half a day</span> plus a form endpoint</dd>
+    </dl></div></div>
+  </div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F13</span><h4>There is no proof for the claims</h4><span class="pill m">Medium</span></div>
+    <div class="f-body"><div class="f-text"><dl>
+      <dt>Seen</dt><dd>"Why Antz" lists six benefits ("Secure by design", "Real-time updates") with no numbers, customers, quotes or certifications behind them.</dd>
+      <dt>Why</dt><dd>A prospect is looking for reasons to believe. Unbacked benefit cards read like marketing and are easy to skip.</dd>
+      <dt>Fix</dt><dd class="fix">Reduce the six cards to three, each backed by one fact and one product crop. Add a strip with the number of sites, animals and species currently managed on Antz, and one short customer quote. This needs figures from Antz; nothing should be invented.</dd>
+      <dt>Effort</dt><dd><span class="effort">1 day</span> once content exists</dd>
+    </dl></div></div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F14</span><h4>The FAQ misses the questions buyers ask first</h4><span class="pill l">Low</span></div>
+    <div class="f-body"><div class="f-text"><dl>
+      <dt>Seen</dt><dd>The five FAQs cover what Antz is, devices, roles, sites and how to start. They don't cover pricing, time to go live, moving existing records into Antz, training, offline use, or where data is hosted.</dd>
+      <dt>Fix</dt><dd class="fix">Collect the top ten questions from the sales team and add answers they approve. Group them into Product, Setup and Security.</dd>
+      <dt>Effort</dt><dd><span class="effort">2 hours</span> once answers exist</dd>
+    </dl></div></div>
+  </div>
+
+  <div class="keep"><h3 class="group">5 · Accessibility</h3>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F15</span><h4>The brand green fails contrast on buttons and small text</h4><span class="pill h">High</span></div>
+    <div class="f-body with-img">
+      <div class="f-img" style="max-width:52mm"><img src="img/c-btn.jpg" alt=""><div class="cap">White on #37BD69: 2.43:1</div></div>
+      <div class="f-text"><dl>
+        <dt>Seen</dt><dd>White on <code>#37BD69</code> is 2.43:1, against a 4.5:1 minimum. This covers every "Book a walkthrough" button, the step numbers and the module icons. The darker green <code>#2A9D55</code>, used for eyebrows, links and "N features", is 3.47:1. The light grey <code>#7A8684</code> is 3.77:1. Full table in the Appendix.</dd>
+        <dt>Fix</dt><dd class="fix">Add an action token <code>--green-action: #27864B</code> (4.57:1) for button fills and green text, and keep <code>#37BD69</code> for large shapes and accents. Or keep the brand green on buttons with dark text <code>#0E1715</code> (7.5:1). Change the light grey to <code>#65716D</code> (5.08:1).</dd>
+        <dt>Effort</dt><dd><span class="effort">1 hour</span> (tokens only)</dd>
+      </dl></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F16</span><h4>Screen readers aren't told when the page changes, and search lacks the right roles</h4><span class="pill m">Medium</span></div>
+    <div class="f-body"><div class="f-text"><dl>
+      <dt>Seen</dt><dd>Moving between the home page and a module page swaps the content but doesn't move focus or announce the new page. The search box has no <code>combobox</code> role or <code>aria-activedescendant</code>, so arrowing through results is silent. The feature steps use <code>role="tab"</code> with no matching tab panels.</dd>
+      <dt>Fix</dt><dd class="fix">After each route change, move focus to the page's heading. Follow the ARIA 1.2 combobox pattern for search. Mark the steps as a listbox, or as buttons with <code>aria-pressed</code>.</dd>
+      <dt>Effort</dt><dd><span class="effort">Half a day</span></dd>
+    </dl></div></div>
+  </div>
+
+  <div class="keep"><h3 class="group">6 · Speed and consistency</h3>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F17</span><h4>Screenshots are heavy</h4><span class="pill m">Medium</span></div>
+    <div class="f-body"><div class="f-text"><dl>
+      <dt>Seen</dt><dd>148 screenshots add up to 39 MB. The largest PNGs are 1.9 MB (<code>p22-animal.png</code>) and 1.6 MB. The hero JPEG is 0.7 MB. Images are lazy-loaded, but a module page on mobile data still takes seconds per screen.</dd>
+      <dt>Fix</dt><dd class="fix">Convert to WebP or AVIF at two sizes with <code>srcset</code>, aiming for 150 KB or less per screen and 250 KB or less for the hero. Preload the next step's screen when a step is hovered or tapped.</dd>
+      <dt>Effort</dt><dd><span class="effort">2 hours</span> (script)</dd>
+    </dl></div></div>
+  </div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F18</span><h4>Names and labels speak to staff, not prospects</h4><span class="pill l">Low</span></div>
+    <div class="f-body"><div class="f-text"><dl>
+      <dt>Seen</dt><dd>The header reads "Antz | Onboarding", but a prospect isn't onboarding yet. Module names mix styles ("Notes Module", "Housing", "Reports · App") and include a 45-character "Hospital Information Management System · App". Spelling mixes UK and US English (organisation, Familiarize).</dd>
+      <dt>Fix</dt><dd class="fix">Rename the header label to "Product tour". Drop "Module" from names and shorten HIMS to "Hospital". Standardise on UK English.</dd>
+      <dt>Effort</dt><dd><span class="effort">1 hour</span></dd>
+    </dl></div></div>
+  </div>
+
+  <div class="finding">
+    <div class="f-head"><span class="f-id">F19</span><h4>Icons mix two styles</h4><span class="pill l">Low</span></div>
+    <div class="f-body"><div class="f-text"><dl>
+      <dt>Seen</dt><dd>The icon set mixes outlined icons (add, edit, filter) with filled ones (notes, tags, report). At 15px, the Operations chip icon reads as a plain square.</dd>
+      <dt>Fix</dt><dd class="fix">Move to one family. The Figma file already uses Material Symbols (<code>search_FILL0_wght400</code>), so Material Symbols Rounded at weight 400 matches the product.</dd>
+      <dt>Effort</dt><dd><span class="effort">3 hours</span></dd>
+    </dl></div></div>
+  </div>
+</section>
+
+<!-- ============ INTUITIVE ============ -->
+<section class="break tight">
+  <div class="eyebrow">Recommendations</div>
+  <h2 class="sec-title">Making it more intuitive</h2>
+  <p class="lede">Prospects don't think in modules. They think about their job and their problems. These six changes move the kit from "here's everything we have" to "here's how Antz helps you".</p>
+  <div class="props">
+    <div class="prop">
+      <h4>1. Start with "Who are you?"</h4>
+      <p>Below the hero, add four role cards: Curator, Veterinarian, Keeper, Director. Each opens a short path of three to five modules that matter to that role, with a line on why.</p>
+      <p class="why">Cuts 32 choices down to four. Needs a role-to-module mapping from the product team.</p>
+    </div>
+    <div class="prop">
+      <h4>2. Tell stories, not lists</h4>
+      <p>Replace the single featured workflow with two or three short scenarios that cross modules: "Moving an animal between sites" (Transfer → Approvals → Security → Housing), "An animal falls ill", "An egg hatches".</p>
+      <p class="why"><code>IA-MAPPING.md</code> §05 confirms the screens for the transfer scenario already exist.</p>
+    </div>
+    <div class="prop">
+      <h4>3. A five-minute guided tour</h4>
+      <p>Offer a "Take the tour" button that walks through five screens with Next and Back, a progress bar ("3 of 5") and a finish screen that leads to booking.</p>
+      <p class="why">Gives a clear start, middle and end. Visitors can still leave the tour and explore freely.</p>
+    </div>
+    <div class="prop">
+      <h4>4. Search everywhere, and forgiving</h4>
+      <p>Put search in the header with <code>⌘K</code>. Add synonyms (HIMS → hospital, "medicine" → Administer, "death" → Mortality) and show recent searches.</p>
+      <p class="why">Prospects use their own words, not Antz's module names.</p>
+    </div>
+    <div class="prop">
+      <h4>5. One module, both surfaces</h4>
+      <p>Merge each App/Web pair and the three treatment modules. On a module page, an App | Web toggle switches the device frame and screens.</p>
+      <p class="why">Fewer, richer modules. Shows the two-surface story visually instead of repeating it.</p>
+    </div>
+    <div class="prop">
+      <h4>6. Remember and resume</h4>
+      <p>Keep the visitor's place when they go back. Mark modules they've already viewed with a small tick, and offer "Continue where you left off" on return visits (stored in the browser only).</p>
+      <p class="why">Lowers the effort of long evaluations that happen over several visits.</p>
+    </div>
+  </div>
+
+  <div class="keep"><h3 class="group">Proposed home page order</h3>
+  <table>
+    <tr><th style="width:8mm">#</th><th style="width:42mm">Section</th><th>Job</th><th style="width:40mm">Change from today</th></tr>
+    <tr><td>1</td><td>Hero + search</td><td>What Antz is, in one line; search for your own problem</td><td>Crop fix, acts on suggestions</td></tr>
+    <tr><td>2</td><td>Proof strip</td><td>Sites, animals and species on Antz; one quote</td><td class="pass">New</td></tr>
+    <tr><td>3</td><td>Who are you?</td><td>Four role paths</td><td class="pass">New</td></tr>
+    <tr><td>4</td><td>Scenarios</td><td>Two or three cross-module stories with real screens</td><td>Replaces the single spotlight</td></tr>
+    <tr><td>5</td><td>All modules</td><td>Catalogue with an All view, taglines and thumbnails</td><td>Opens on All, about 24 modules</td></tr>
+    <tr><td>6</td><td>Getting started + call to action</td><td>First day, then book with a real form</td><td>Form replaces the email link</td></tr>
+    <tr><td>7</td><td>FAQ</td><td>Pricing, setup, security</td><td>Answers from the sales team</td></tr>
+  </table></div>
+</section>
+
+<!-- ============ BEAUTIFUL ============ -->
+<section class="break">
+  <div class="eyebrow">Recommendations</div>
+  <h2 class="sec-title">Making it more beautiful</h2>
+  <p class="lede">The Figma "Help &amp; Support" frame sets a strong direction: wildlife photography, white space, and the product on organic shapes. These changes push further in that direction and make it consistent.</p>
+  <div class="props">
+    <div class="prop">
+      <h4>Put the product in the hero</h4>
+      <p>Float one real Antz phone screen beside the headline, on an organic blob like the Task Management frame in Figma. Photography brings the emotion; the screen proves the product.</p>
+    </div>
+    <div class="prop">
+      <h4>A deliberate colour system</h4>
+      <p>Three greens with set jobs: <b>Brand</b> <code>#37BD69</code> for shapes and accents, <b>Action</b> <code>#27864B</code> for buttons and links, <b>Tint</b> <code>#E8F6EE</code> for backgrounds. Deep teal <code>#1F515B</code> is for dark sections only.</p>
+    </div>
+    <div class="prop">
+      <h4>Screens as thumbnails on cards</h4>
+      <p>Module cards currently show an icon and cut-off text. A cropped strip of the module's real screen at the top of each card gives instant recognition and variety.</p>
+    </div>
+    <div class="prop">
+      <h4>Direct the photography</h4>
+      <p>Pick one mood: natural light, green-leaning, the subject looking into the page, and space for text. Apply the same colour grade to every photo. Swap the chick used for "Mortality" for something calmer.</p>
+    </div>
+    <div class="prop">
+      <h4>A tighter type scale</h4>
+      <p>Six sizes: 56 / 40 / 28 / 20 / 16 / 14. Two weights: 600 for headings, 400 for body. Tabular numbers for counts. Sentence case for chips, which reads faster than spaced capitals.</p>
+    </div>
+    <div class="prop">
+      <h4>Rhythm and motion</h4>
+      <p>Alternate white, soft and dark sections. Use the fern-texture band from Figma for one dark "scenario" section. Keep motion to 140, 240 and 320ms on one easing curve, as in <code>design-direction.md</code>.</p>
+    </div>
+  </div>
+
+  <h3 class="group">Colour tokens: today and proposed</h3>
+  <table>
+    <tr><th>Use</th><th>Today</th><th>Contrast</th><th>Proposed</th><th>Contrast</th></tr>
+    <tr><td>Primary button (white text)</td><td><span class="sw" style="background:#37BD69"></span>#37BD69</td><td class="fail">2.43:1</td><td><span class="sw" style="background:#27864B"></span>#27864B</td><td class="pass">4.57:1</td></tr>
+    <tr><td>Green text: eyebrows, links, meta</td><td><span class="sw" style="background:#2A9D55"></span>#2A9D55</td><td class="fail">3.47:1</td><td><span class="sw" style="background:#27864B"></span>#27864B</td><td class="pass">4.57:1</td></tr>
+    <tr><td>Secondary grey text</td><td><span class="sw" style="background:#7A8684"></span>#7A8684</td><td class="fail">3.77:1</td><td><span class="sw" style="background:#65716D"></span>#65716D</td><td class="pass">5.08:1</td></tr>
+    <tr><td>Alternative: brand button, dark text</td><td colspan="2">n/a</td><td><span class="sw" style="background:#37BD69"></span>#0E1715 on #37BD69</td><td class="pass">7.50:1</td></tr>
+  </table>
+</section>
+
+<!-- ============ ROADMAP ============ -->
+<section class="break">
+  <div class="eyebrow">Plan</div>
+  <h2 class="sec-title">Roadmap and how to validate it</h2>
+  <div class="road">
+    <div class="col now"><h4>Now</h4><div class="when">About 2 days · before sharing with prospects</div>
+      <ul>
+        <li>Inline screen on mobile <span>F1</span></li>
+        <li>Card layout for modules without screens <span>F2</span></li>
+        <li>Replace the Deworming screen <span>F5</span></li>
+        <li>Contrast tokens <span>F15</span></li>
+        <li>Real booking form <span>F12</span></li>
+        <li>Clean spotlight screen <span>F3</span></li>
+        <li>Pause and act on the rotating search <span>F11</span></li>
+      </ul></div>
+    <div class="col next"><h4>Next</h4><div class="when">1 to 2 weeks</div>
+      <ul>
+        <li>Merge duplicate modules <span>F5</span></li>
+        <li>Taglines of 12 words or fewer <span>F7</span></li>
+        <li>Header search and restored scroll position <span>F8</span></li>
+        <li>"All" view and area URLs <span>F6</span></li>
+        <li>Mobile hero and chips <span>F10</span></li>
+        <li>ARIA and focus fixes <span>F16</span></li>
+        <li>Image optimisation <span>F17</span></li>
+        <li>Names, labels, icons <span>F18 F19</span></li>
+      </ul></div>
+    <div class="col later"><h4>Later</h4><div class="when">Needs content from Antz</div>
+      <ul>
+        <li>Role-based paths</li>
+        <li>Cross-module scenarios</li>
+        <li>Guided five-minute tour</li>
+        <li>Proof strip and customer quote <span>F13</span></li>
+        <li>Buyer FAQ <span>F14</span></li>
+        <li>Product-in-hero art direction</li>
+      </ul></div>
+  </div>
+
+  <h3 class="group">Five-task test with prospects</h3>
+  <p>Run with five people who match the audience: curators, vet leads, operations managers. Sessions last 20 minutes, remote, thinking aloud. Run it after the "Now" fixes.</p>
+  <div class="task"><span class="n">1</span><span>"You manage three sites. Find out whether Antz can handle moving an animal between them."</span><span class="m">Measures: scenario findability, time</span></div>
+  <div class="task"><span class="n">2</span><span>"Find where you would record a vaccination and see what the screen looks like."</span><span class="m">Measures: search, module tour on mobile</span></div>
+  <div class="task"><span class="n">3</span><span>"What would your vets use Antz for every day?"</span><span class="m">Measures: role relevance, copy clarity</span></div>
+  <div class="task"><span class="n">4</span><span>"Is there anything here that makes you trust or doubt Antz?"</span><span class="m">Measures: credibility, proof gaps</span></div>
+  <div class="task"><span class="n">5</span><span>"Arrange a demo for your team."</span><span class="m">Measures: conversion path success</span></div>
+  <p class="small" style="margin-top:3mm">Track success rate per task, time on task, and a single ease rating (1 to 7) after each task. Five users typically surface most of the serious usability problems.</p>
+</section>
+
+<!-- ============ APPENDIX ============ -->
+<section class="break">
+  <div class="eyebrow">Appendix</div>
+  <h2 class="sec-title">Contrast and content checks</h2>
+  <table>
+    <tr><th>Pair (text on background)</th><th>Where it's used</th><th>Ratio</th><th>AA (normal text)</th></tr>
+    <tr><td>#FFFFFF on #37BD69</td><td>Primary buttons, step numbers, module icon tiles</td><td>2.43:1</td><td class="fail">Fail</td></tr>
+    <tr><td>#FFFFFF on #2A9D55</td><td>Button hover</td><td>3.47:1</td><td class="fail">Fail</td></tr>
+    <tr><td>#2A9D55 on #FFFFFF</td><td>Eyebrows, "See in detail", "N features"</td><td>3.47:1</td><td class="fail">Fail</td></tr>
+    <tr><td>#2A9D55 on #F5F8F7</td><td>Same, on soft sections</td><td>3.25:1</td><td class="fail">Fail</td></tr>
+    <tr><td>#2A9D55 on #E8F6EE</td><td>Icons in tinted tiles (3:1 needed for icons)</td><td>3.11:1</td><td class="pass">Pass (graphics)</td></tr>
+    <tr><td>#7A8684 on #FFFFFF</td><td>Breadcrumb, search result meta, placeholder</td><td>3.77:1</td><td class="fail">Fail</td></tr>
+    <tr><td>#44544A on #FFFFFF</td><td>Body and secondary copy</td><td>8.04:1</td><td class="pass">Pass</td></tr>
+    <tr><td>#1F515B on #DDEBE9</td><td>"Featured workflow" tag</td><td>7.18:1</td><td class="pass">Pass</td></tr>
+    <tr><td>#FFFFFF on #1F515B</td><td>Footer</td><td>8.80:1</td><td class="pass">Pass</td></tr>
+    <tr><td>#9FE3B9 on #1F515B</td><td>Footer hover, area counts</td><td>5.93:1</td><td class="pass">Pass</td></tr>
+  </table>
+
+  <h3 class="group">Content inventory</h3>
+  <table>
+    <tr><th>Check</th><th>Result</th></tr>
+    <tr><td>Visible modules</td><td>32 of 37 in the source (3 Foundations used on the home page, 2 <code>needs-content</code> hidden)</td></tr>
+    <tr><td>Modules with a real screen for every feature</td><td>28 of 32</td></tr>
+    <tr><td>Modules using a stock photo as their only "screen"</td><td>4: Lab, Diet, Pharmacy · Web, Compliance</td></tr>
+    <tr><td>Wrong screenshot</td><td>Deworming shows the Vaccination screen</td></tr>
+    <tr><td>Near-duplicate modules</td><td>Vaccination, Deworming, Supplements; 4 App/Web pairs</td></tr>
+    <tr><td>Intros starting "The … Module"</td><td>28 of 37 · median length 32 words, longest 44</td></tr>
+    <tr><td>Screenshot weight</td><td>148 files, 39 MB · largest 1.9 MB</td></tr>
+  </table>
+  <p class="small" style="margin-top:6mm">Contrast ratios calculated with the WCAG 2.x relative luminance formula. Screenshots taken with Chrome 153 on 24 September 2026 from <code>antz-onboard/</code>.</p>
+</section>
+
+</body>
+</html>

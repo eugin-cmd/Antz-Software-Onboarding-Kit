@@ -1,0 +1,11 @@
+# Only the website and the evaluation reports are tracked
+/*
+!/.gitignore
+!/README.md
+!/antz-onboard/
+!/audit/
+
+.DS_Store
+.claude/
+__pycache__/
+*.pyc
