@@ -265,11 +265,11 @@ button { font: inherit; color: inherit; }
 
 /* ---------- Module cards (under the hero) ---------- */
 /* Area tints: bg for thumbnails and panels, ink for small accents */
-.tint-butter { --tint: #FBF3DC; --tint-ink: #7A5B0B; --tint-line: #C49424; }
-.tint-coral  { --tint: #FBE8E1; --tint-ink: #9A4027; --tint-line: #D2704F; }
-.tint-teal   { --tint: #DDF0EC; --tint-ink: #1D6A5E; --tint-line: #349E86; }
-.tint-sky    { --tint: #E0EEF4; --tint-ink: #285C70; --tint-line: #468DAE; }
-.tint-leaf   { --tint: #E4F4E9; --tint-ink: #27864B; --tint-line: #34A95E; }
+.tint-butter { --tint: #FBF3DC; --tint-ink: #7A5B0B; --tint-line: #C49424; --tint-comp: #ECE8FB; }
+.tint-coral  { --tint: #FBE8E1; --tint-ink: #9A4027; --tint-line: #D2704F; --tint-comp: #DDF2EF; }
+.tint-teal   { --tint: #DDF0EC; --tint-ink: #1D6A5E; --tint-line: #349E86; --tint-comp: #FCE8E1; }
+.tint-sky    { --tint: #E0EEF4; --tint-ink: #285C70; --tint-line: #468DAE; --tint-comp: #FCEFDD; }
+.tint-leaf   { --tint: #E4F4E9; --tint-ink: #27864B; --tint-line: #34A95E; --tint-comp: #F4E6F4; }
 
 .modules-section { padding: 80px 0 72px; background: linear-gradient(115deg, #EAFAF9 0%, #F3F4F1 50%, #FAEEEA 100%); }
 .modules-head { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 64px; align-items: end; margin-bottom: 28px; }
@@ -411,7 +411,12 @@ button { font: inherit; color: inherit; }
 .mpanel > .drawn-border .notch-fill { fill: var(--tint); stroke: none; }
 
 /* Detail panel: spans the whole row under the open card */
-.mpanel { grid-column: 1 / -1; background: var(--tint); border-radius: 22px; border: 1px solid var(--line); position: relative; scroll-margin-top: calc(var(--header-h) + 80px); }
+.mpanel { grid-column: 1 / -1;
+  /* The area colour holds across the top (where the arrow joins), then melts into a faint complementary hue */
+  background:
+    radial-gradient(120% 90% at 100% 100%, color-mix(in srgb, var(--tint-comp) 70%, transparent) 0%, transparent 60%),
+    linear-gradient(165deg, var(--tint) 0%, var(--tint) 30%, var(--tint-comp) 100%);
+  background-color: var(--tint); border-radius: 22px; border: 1px solid var(--line); position: relative; scroll-margin-top: calc(var(--header-h) + 80px); }
 /* Radial blow-out: a circle grows from where the arrow meets the open card until it covers the panel */
 .mpanel.enter { animation: panelBlow .75s cubic-bezier(.65,0,.35,1) both; }
 @keyframes panelBlow {
