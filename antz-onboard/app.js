@@ -449,7 +449,7 @@
             <span class="hint">${hasShots ? (canHover() ? 'Hover over a feature to preview its screen' : 'Tap a feature to preview its screen') : 'Screens for this module are coming soon'}</span>
           </div>
         </div>
-        ${hasShots ? '<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p></div>' : ''}
+        ${hasShots ? '<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p><p class="zoom-hint">Tap the screen to zoom</p></div>' : ''}
       </div>`;
 
     rowEnd(card).after(panel);
@@ -518,6 +518,7 @@
       });
     });
     panel.querySelector('.mpanel-close').addEventListener('click', () => closeCard(true, true));
+    if (stage) bindGalleryTrigger(stage, m, () => feats.findIndex((b) => b.getAttribute('aria-pressed') === 'true'));
     select(Math.min(feature, feats.length - 1));
 
     /* Keep the panel under the right row when the layout changes */
@@ -719,6 +720,7 @@
         }
       });
     });
+    if (stage) bindGalleryTrigger(stage, m, () => steps.findIndex((x) => x.getAttribute('aria-selected') === 'true'));
     show(Math.min(start, steps.length - 1));
   }
 
@@ -760,7 +762,7 @@
         ${hasShots ? `
           <div class="mod-body">
             <div>${stepsHTML(m, 'mod')}</div>
-            <div class="mod-stage"><div id="mod-device"></div><p class="caption" id="mod-caption"></p></div>
+            <div class="mod-stage"><div id="mod-device"></div><p class="caption" id="mod-caption"></p><p class="zoom-hint">Tap the screen to zoom</p></div>
           </div>` : `
           <div class="feature-cards">
             ${m.features.map((f) => `<article class="value-card"><div class="ic">${icon(f.icon)}</div><h3>${esc(f.title)}</h3><p>${esc(tidy(f.desc))}</p></article>`).join('')}
@@ -884,6 +886,164 @@
         rot.classList.remove('enter');
       }, 260);
     }, 2400);
+  }
+
+  /* ---------- Screenshot gallery (phones only) ----------
+     Tap a device screen to open every screen of that module full-screen:
+     swipe between screens, pinch or double-tap to zoom, drag to pan, swipe down or ✕ to close. */
+  const ZOOM_MAX = 4, ZOOM_TAP = 2.5;
+  function gallerySlides(m) {
+    const seen = new Map();
+    const slides = [];
+    m.features.forEach((f, i) => {
+      const src = f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src);
+      if (!src) return;
+      if (!seen.has(src)) { seen.set(src, slides.length); slides.push({ src, title: tidyTitle(f.title), desc: tidy(f.desc), alt: shotFor(m, src).alt || f.title }); }
+    });
+    const featureToSlide = m.features.map((f, i) => seen.get(f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src)) ?? 0);
+    return { slides, featureToSlide };
+  }
+  function bindGalleryTrigger(stage, m, currentFeature) {
+    stage.addEventListener('click', (e) => {
+      if (!narrow() || !e.target.closest('.device')) return;
+      const { slides, featureToSlide } = gallerySlides(m);
+      if (slides.length) openGallery(m, slides, featureToSlide[Math.max(0, currentFeature())] || 0, e.target.closest('.device'));
+    });
+  }
+
+  function openGallery(m, slides, start, returnFocusTo) {
+    const g = document.createElement('div');
+    g.className = 'gallery';
+    g.setAttribute('role', 'dialog'); g.setAttribute('aria-modal', 'true'); g.setAttribute('aria-label', `${m.title} screens`);
+    g.innerHTML = `
+      <div class="g-top">
+        <span class="g-count" aria-live="polite"></span>
+        <span class="g-title">${esc(m.title)}</span>
+        <button class="g-close" type="button" aria-label="Close gallery">${CLOSE_SVG}</button>
+      </div>
+      <div class="g-stage"><div class="g-track"><img class="g-img" alt="" draggable="false"></div></div>
+      <div class="g-info"><b class="g-ft"></b><p class="g-fd"></p></div>
+      <div class="g-dots">${slides.map((_, i) => `<button type="button" aria-label="Screen ${i + 1}" data-i="${i}"></button>`).join('')}</div>
+      <p class="g-hint">Pinch or double-tap to zoom · Swipe to browse</p>`;
+    document.body.append(g);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const stageEl = g.querySelector('.g-stage'), track = g.querySelector('.g-track'), img = g.querySelector('.g-img');
+    const dots = [...g.querySelectorAll('.g-dots button')];
+    let idx = start, scale = 1, tx = 0, ty = 0, baseW = 0, baseH = 0;
+    const apply = (anim) => {
+      img.style.transition = anim ? 'transform .28s cubic-bezier(.22,.8,.24,1)' : 'none';
+      img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+    };
+    const clampPan = () => {
+      const r = stageEl.getBoundingClientRect();
+      const mx = Math.max(0, (baseW * scale - r.width) / 2), my = Math.max(0, (baseH * scale - r.height) / 2);
+      tx = Math.max(-mx, Math.min(mx, tx)); ty = Math.max(-my, Math.min(my, ty));
+    };
+    const measure = () => { const s = scale; img.style.transform = 'none'; const b = img.getBoundingClientRect(); baseW = b.width; baseH = b.height; img.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`; };
+    const resetZoom = (anim) => { scale = 1; tx = 0; ty = 0; apply(anim); g.classList.remove('zoomed'); };
+    const go = (i, dir = 0) => {
+      idx = (i + slides.length) % slides.length;
+      const sl = slides[idx];
+      resetZoom(false);
+      track.style.transition = 'none';
+      track.style.transform = dir ? `translateX(${dir * 40}px)` : 'none';
+      track.style.opacity = dir ? '0' : '1';
+      img.src = sl.src; img.alt = sl.alt;
+      g.querySelector('.g-count').textContent = `${idx + 1} / ${slides.length}`;
+      g.querySelector('.g-ft').textContent = sl.title;
+      g.querySelector('.g-fd').textContent = sl.desc;
+      dots.forEach((d, j) => d.setAttribute('aria-current', String(j === idx)));
+      requestAnimationFrame(() => {
+        track.style.transition = 'transform .32s cubic-bezier(.22,.8,.24,1), opacity .25s ease';
+        track.style.transform = 'none'; track.style.opacity = '1';
+      });
+      [idx + 1, idx - 1].forEach((j) => { const n = slides[(j + slides.length) % slides.length]; if (n) new Image().src = n.src; });
+    };
+    img.addEventListener('load', measure);
+
+    /* Gestures */
+    const pts = new Map();
+    let pinch = null, drag = null, lastTap = 0;
+    const toStage = (x, y) => { const r = stageEl.getBoundingClientRect(); return { x: x - r.left - r.width / 2, y: y - r.top - r.height / 2 }; };
+    stageEl.addEventListener('pointerdown', (e) => {
+      stageEl.setPointerCapture(e.pointerId);
+      pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pts.size === 2) {
+        const [a, b] = [...pts.values()];
+        const mid = toStage((a.x + b.x) / 2, (a.y + b.y) / 2);
+        pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), s: scale, u: { x: (mid.x - tx) / scale, y: (mid.y - ty) / scale } };
+        drag = null;
+      } else if (pts.size === 1) {
+        drag = { x: e.clientX, y: e.clientY, tx, ty, t: Date.now(), moved: false };
+      }
+    });
+    stageEl.addEventListener('pointermove', (e) => {
+      if (!pts.has(e.pointerId)) return;
+      pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pinch && pts.size >= 2) {
+        const [a, b] = [...pts.values()];
+        const mid = toStage((a.x + b.x) / 2, (a.y + b.y) / 2);
+        scale = Math.max(1, Math.min(ZOOM_MAX, pinch.s * Math.hypot(a.x - b.x, a.y - b.y) / pinch.d));
+        tx = mid.x - pinch.u.x * scale; ty = mid.y - pinch.u.y * scale;
+        clampPan(); apply(false); g.classList.toggle('zoomed', scale > 1.01);
+      } else if (drag) {
+        const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+        if (Math.abs(dx) + Math.abs(dy) > 6) drag.moved = true;
+        if (scale > 1.01) { tx = drag.tx + dx; ty = drag.ty + dy; clampPan(); apply(false); }
+        else if (Math.abs(dy) > Math.abs(dx) && dy > 0) { track.style.transition = 'none'; track.style.transform = `translateY(${dy}px)`; track.style.opacity = String(Math.max(.3, 1 - dy / 400)); }
+        else { track.style.transition = 'none'; track.style.transform = `translateX(${dx}px)`; }
+      }
+    });
+    const end = (e) => {
+      if (!pts.has(e.pointerId)) return;
+      pts.delete(e.pointerId);
+      if (pinch) {
+        if (pts.size < 2) { pinch = null; if (scale < 1.05) resetZoom(true); const p = [...pts.values()][0]; if (p) drag = { x: p.x, y: p.y, tx, ty, t: Date.now(), moved: true }; }
+        return;
+      }
+      if (!drag) return;
+      const dx = e.clientX - drag.x, dy = e.clientY - drag.y, quick = Date.now() - drag.t < 280;
+      const d = drag; drag = null;
+      if (!d.moved && quick) {
+        /* Tap: a second tap within 300ms toggles zoom at that point */
+        const now = Date.now();
+        if (now - lastTap < 300) {
+          lastTap = 0;
+          if (scale > 1.01) resetZoom(true);
+          else { const p = toStage(e.clientX, e.clientY); scale = ZOOM_TAP; tx = -p.x * (scale - 1); ty = -p.y * (scale - 1); clampPan(); apply(true); g.classList.add('zoomed'); }
+        } else lastTap = now;
+        return;
+      }
+      if (scale > 1.01) return;
+      track.style.transition = 'transform .28s cubic-bezier(.22,.8,.24,1), opacity .2s ease';
+      if (dy > 110 && Math.abs(dy) > Math.abs(dx)) return close();
+      if (dx < -60 && slides.length > 1) return go(idx + 1, 1);
+      if (dx > 60 && slides.length > 1) return go(idx - 1, -1);
+      track.style.transform = 'none'; track.style.opacity = '1';
+    };
+    stageEl.addEventListener('pointerup', end);
+    stageEl.addEventListener('pointercancel', end);
+
+    const onKey = (e) => {
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') go(idx + 1, 1);
+      if (e.key === 'ArrowLeft') go(idx - 1, -1);
+    };
+    document.addEventListener('keydown', onKey);
+    dots.forEach((d) => d.addEventListener('click', () => go(+d.dataset.i, +d.dataset.i > idx ? 1 : -1)));
+    function close() {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+      g.classList.add('out');
+      setTimeout(() => g.remove(), 220);
+      if (returnFocusTo && returnFocusTo.focus) returnFocusTo.focus({ preventScroll: true });
+    }
+    g.querySelector('.g-close').addEventListener('click', close);
+    go(start);
+    requestAnimationFrame(() => g.classList.add('in'));
+    g.querySelector('.g-close').focus({ preventScroll: true });
   }
 
   /* ---------- Routing, scrolling, reveal ---------- */
