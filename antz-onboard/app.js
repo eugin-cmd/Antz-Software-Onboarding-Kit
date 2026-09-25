@@ -501,7 +501,7 @@
       if (narrow()) {
         const row = feats[i].parentElement;
         if (stage.parentElement !== row) {
-          row.append(stage);
+          keepInPlace(row, () => row.append(stage));
           const dev = holder.firstElementChild;
           if (dev) { dev.classList.remove('rise'); void dev.offsetWidth; dev.classList.add('rise'); }
         }
@@ -699,24 +699,48 @@
         </li>`).join('')}
     </ol>`;
   }
+  /* Keep an element's position on screen steady while content above it changes */
+  const keepInPlace = (el, change) => {
+    const before = el.getBoundingClientRect().top;
+    change();
+    const diff = el.getBoundingClientRect().top - before;
+    if (Math.abs(diff) > 1) window.scrollBy(0, diff);
+  };
+
   function bindSteps(m, key, stage, start = 0, caption) {
     const steps = [...app.querySelectorAll(`.step[data-key="${key}"]`)];
-    const show = (i) => {
+    /* On phones the device (with its frame and caption) moves under the selected step */
+    const wrap = stage && (stage.closest('.mod-stage') || stage.closest('.stage'));
+    const home = wrap && { parent: wrap.parentElement, next: wrap.nextSibling };
+    const place = (i) => {
+      if (!wrap) return;
+      if (narrow()) { if (wrap.parentElement !== steps[i]) steps[i].append(wrap); }
+      else if (wrap.parentElement !== home.parent) home.parent.insertBefore(wrap, home.next);
+    };
+    let current = -1;
+    const show = (i, fromUser) => {
       steps.forEach((s, j) => { s.setAttribute('aria-selected', String(i === j)); s.tabIndex = i === j ? 0 : -1; });
       const f = m.features[i];
       const src = f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src);
       if (stage) stage.innerHTML = src ? deviceHTML(shotFor(m, src)) : '';
       if (caption) caption.textContent = f.title;
+      if (fromUser && narrow()) keepInPlace(steps[i], () => place(i)); else place(i);
+      current = i;
     };
+    if (wrap) {
+      let t;
+      window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { if (wrap.isConnected && current >= 0) place(current); }, 150); });
+    }
     hoverSelect(steps, () => steps.findIndex((x) => x.getAttribute('aria-selected') === 'true'), show);
     steps.forEach((s, i) => {
-      s.addEventListener('click', () => show(i));
+      /* Taps on the device inside the step open the gallery instead of re-selecting */
+      s.addEventListener('click', (e) => { if (wrap && wrap.contains(e.target)) return; if (i !== current) show(i, true); });
       s.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i); }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i, true); }
         if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
           e.preventDefault();
           const n = (i + (e.key === 'ArrowDown' ? 1 : -1) + steps.length) % steps.length;
-          steps[n].focus(); show(n);
+          steps[n].focus(); show(n, true);
         }
       });
     });
