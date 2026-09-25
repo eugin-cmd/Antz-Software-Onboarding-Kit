@@ -265,11 +265,11 @@ button { font: inherit; color: inherit; }
 
 /* ---------- Module cards (under the hero) ---------- */
 /* Area tints: bg for thumbnails and panels, ink for small accents */
-.tint-butter { --tint: #FBF3DC; --tint-ink: #7A5B0B; --tint-line: #C49424; --tint-comp: #ECE8FB; }
-.tint-coral  { --tint: #FBE8E1; --tint-ink: #9A4027; --tint-line: #D2704F; --tint-comp: #DDF2EF; }
-.tint-teal   { --tint: #DDF0EC; --tint-ink: #1D6A5E; --tint-line: #349E86; --tint-comp: #FCE8E1; }
-.tint-sky    { --tint: #E0EEF4; --tint-ink: #285C70; --tint-line: #468DAE; --tint-comp: #FCEFDD; }
-.tint-leaf   { --tint: #E4F4E9; --tint-ink: #27864B; --tint-line: #34A95E; --tint-comp: #F4E6F4; }
+.tint-butter { --tint: #FBF3DC; --tint-ink: #7A5B0B; --tint-line: #C49424; --tint-comp: #ECE8FB; --line-grad: url(#line-butter); }
+.tint-coral  { --tint: #FBE8E1; --tint-ink: #9A4027; --tint-line: #D2704F; --tint-comp: #DDF2EF; --line-grad: url(#line-coral); }
+.tint-teal   { --tint: #DDF0EC; --tint-ink: #1D6A5E; --tint-line: #349E86; --tint-comp: #FCE8E1; --line-grad: url(#line-teal); }
+.tint-sky    { --tint: #E0EEF4; --tint-ink: #285C70; --tint-line: #468DAE; --tint-comp: #FCEFDD; --line-grad: url(#line-sky); }
+.tint-leaf   { --tint: #E4F4E9; --tint-ink: #27864B; --tint-line: #34A95E; --tint-comp: #F4E6F4; --line-grad: url(#line-leaf); }
 
 .modules-section { padding: 80px 0 72px; background: linear-gradient(115deg, #EAFAF9 0%, #F3F4F1 50%, #FAEEEA 100%); }
 .modules-head { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 64px; align-items: end; margin-bottom: 28px; }
@@ -405,7 +405,7 @@ button { font: inherit; color: inherit; }
   fill: none; stroke: url(#mcard-grad); stroke-linecap: butt; stroke-linejoin: round;
 }
 /* Cards and their open panels use a deeper tone of the area's panel colour instead of the brand gradient */
-.mpanel > .drawn-border path, .mcard-face > .drawn-border path { stroke: var(--tint-line); }
+.mpanel > .drawn-border path, .mcard-face > .drawn-border path { stroke: var(--line-grad, var(--tint-line)); }
 .mcard.active .mcard-face { transform: none; box-shadow: 0 22px 44px -22px rgba(14,40,34,.38); }
 /* The panel's arrow is drawn in its border SVG: a rounded fill (.notch-fill) plus the outline */
 .mpanel > .drawn-border .notch-fill { fill: var(--tint); stroke: none; }

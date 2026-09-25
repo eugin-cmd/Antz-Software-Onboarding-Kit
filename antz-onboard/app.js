@@ -263,6 +263,11 @@
 
   /* ---------- Module cards: grouped by area, open in place ---------- */
   const AREA_TINT = { records: 'butter', animal: 'coral', medical: 'teal', mortality: 'sky', operations: 'leaf' };
+  /* Outline gradients: the area's line colour, melting into a deeper tone of its complementary hue (matches the panel backgrounds) */
+  const OUTLINE_GRADS = {
+    butter: ['#C49424', '#8C80D6'], coral: ['#D2704F', '#3AA89E'], teal: ['#349E86', '#DE876A'],
+    sky: ['#468DAE', '#D6964A'], leaf: ['#34A95E', '#AE78BE']
+  };
   /* One short line per card, derived from the intro until real taglines exist */
   const summary = (m) => {
     let t = m.raw
@@ -357,6 +362,7 @@
     return `
       <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
         <linearGradient id="mcard-grad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#37BD69"/><stop offset="1" stop-color="#00D6C9"/></linearGradient>
+        ${Object.entries(OUTLINE_GRADS).map(([k, [a, b]]) => `<linearGradient id="line-${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset=".3" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>`).join('')}
       </defs></svg>
       <div class="mfilters" role="toolbar" aria-label="Filter modules by area">
         <button class="mfilter" type="button" data-area="all" aria-pressed="true">All <span>${total}</span><svg class="drawn-border" aria-hidden="true"></svg></button>
