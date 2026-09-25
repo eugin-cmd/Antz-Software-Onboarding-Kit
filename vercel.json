@@ -1,0 +1,12 @@
+{
+  "cleanUrls": false,
+  "rewrites": [
+    { "source": "/audit/:path*", "destination": "/audit/:path*" },
+    { "source": "/antz-onboard/:path*", "destination": "/antz-onboard/:path*" },
+    { "source": "/", "destination": "/antz-onboard/index.html" },
+    { "source": "/:path*", "destination": "/antz-onboard/:path*" }
+  ],
+  "headers": [
+    { "source": "/(.*)\\.(js|css)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }] }
+  ]
+}

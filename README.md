@@ -2,6 +2,8 @@
 
 A web-based, responsive onboarding tour of the Antz platform for prospective clients, built from the original slide-style training kit.
 
+Live site: https://antz-software-onboarding-kit.vercel.app/ (deployed by Vercel from `main`; `vercel.json` serves `antz-onboard/` at the root).
+
 ## What's here
 
 | Folder | Contents |
