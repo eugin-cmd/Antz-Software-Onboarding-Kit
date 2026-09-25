@@ -388,8 +388,8 @@ button { font: inherit; color: inherit; }
      Dash lengths and offsets are animated from app.js (feathered ends). */
   fill: none; stroke: url(#mcard-grad); stroke-linecap: butt; stroke-linejoin: round;
 }
-/* The open panel's outline uses a deeper tone of its own background instead of the brand gradient */
-.mpanel > .drawn-border path { stroke: var(--tint-line); }
+/* Cards and their open panels use a deeper tone of the area's panel colour instead of the brand gradient */
+.mpanel > .drawn-border path, .mcard-face > .drawn-border path { stroke: var(--tint-line); }
 .mcard.active .mcard-face { transform: none; box-shadow: 0 22px 44px -22px rgba(14,40,34,.38); }
 /* The panel's arrow: filled here in the panel colour; its outline is part of the panel's drawn border */
 .mpanel::before {
