@@ -168,7 +168,17 @@ button { font: inherit; color: inherit; }
   transition: background .14s var(--ease);
 }
 .chip:hover { background: rgba(255,255,255,.26); }
-.chip svg { width: 15px; height: 15px; }
+.chip svg:not(.drawn-border) { width: 15px; height: 15px; }
+/* Banner chips on hover: rise off the photo and settle, with the drawn gradient border (no selected state) */
+.chip {
+  position: relative; box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1), background .14s var(--ease);
+}
+.chip:hover {
+  transform: translateY(-3px); box-shadow: 0 12px 22px -12px rgba(0,0,0,.55);
+  transition: transform .55s cubic-bezier(.34,1.56,.64,1), box-shadow .55s cubic-bezier(.22,.8,.24,1), background .14s var(--ease);
+}
+.chip:active { transform: translateY(-1px); transition-duration: .12s; }
 
 .hero-meta { margin-top: 36px; font-size: 14px; color: rgba(255,255,255,.75); }
 @media (max-width: 640px) {
@@ -509,7 +519,7 @@ button { font: inherit; color: inherit; }
   .mgroup-head .count { display: none; }
   .mgroup-head h3 { font-size: 18px; }
 }
-@media (prefers-reduced-motion: reduce) { .mpanel.enter, .mpanel.leave { animation: none; } .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg { transition: none !important; } .mcard.active .mcard-icon { animation: none; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .mpanel.enter, .mpanel.leave { animation: none; } .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg, .chip { transition: none !important; } .chip:hover { transform: none; } .mcard.active .mcard-icon { animation: none; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
 
 .module-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-content: start; }
 .module-card {
