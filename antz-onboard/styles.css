@@ -274,13 +274,14 @@ button { font: inherit; color: inherit; }
 .modules-section { padding: 80px 0 72px; background: linear-gradient(115deg, #EAFAF9 0%, #F3F4F1 50%, #FAEEEA 100%); }
 .modules-head { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 64px; align-items: end; margin-bottom: 28px; }
 .modules-head .section-lede { margin: 0; justify-self: end; max-width: 460px; }
-/* "Explore the modules": bolder, with a diagonal green-to-deep-teal gradient fill */
-.modules-head .section-title {
-  font-weight: 700; letter-spacing: -.02em; width: fit-content;
+/* Main titles: extra-bold with a diagonal green-to-deep-teal gradient fill (titles on photos stay white) */
+.section-title, .spotlight h2, .mod-head h1 {
+  font-weight: 800; letter-spacing: -.025em; width: fit-content;
   background: linear-gradient(135deg, #37BD69 0%, #1F415B 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #1F415B;
   padding-bottom: .06em;
 }
+.section-head.center .section-title { margin-left: auto; margin-right: auto; }
 
 .mfilters {
   position: sticky; top: calc(var(--header-h) + env(safe-area-inset-top, 0px)); z-index: 5; display: flex; flex-wrap: wrap; gap: 8px; scrollbar-width: none;
