@@ -121,7 +121,7 @@
             <div class="search-results" id="q-results" role="listbox"></div>
           </div>
           <div class="hero-chips">
-            ${areas.map((a) => `<button class="chip" type="button" data-area="${a.id}">${icon(a.glyph)}${esc(a.label)}</button>`).join('')}
+            ${areas.map((a) => `<button class="chip" type="button" data-area="${a.id}">${icon(a.glyph)}${esc(a.label)}<svg class="drawn-border" aria-hidden="true"></svg></button>`).join('')}
           </div>
           <p class="hero-meta">${areas.length} areas of work · Mobile and web</p>
         </div>
@@ -651,7 +651,7 @@
       ...[...app.querySelectorAll('.mcard-face')].map((el) => [el, { ...CARD_BORDER,
         /* Touch screens have no hover: there the border draws when the card is tapped open */
         isOn: () => (el.matches(':hover') && canHover()) || el.matches(':focus-visible') || el.closest('.mcard').classList.contains('active') }]),
-      ...[...app.querySelectorAll('.mfilter')].map((el) => [el, { ...CHIP_BORDER,
+      ...[...app.querySelectorAll('.mfilter, .hero-chips .chip')].map((el) => [el, { ...CHIP_BORDER,
         isOn: () => el.matches(':hover') || el.matches(':focus-visible') }])
     ];
     const optsOf = new Map(targets);
