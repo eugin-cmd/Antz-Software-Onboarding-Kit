@@ -400,10 +400,11 @@
   function filterArea(id) {
     app.querySelectorAll('.mfilter').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.area === id)));
     app.querySelectorAll('.mgroup').forEach((g) => { g.hidden = id !== 'all' && g.dataset.area !== id; });
+    /* Replay the entrance for groups on screen; groups off screen (e.g. filtered from the banner) reveal when scrolled to */
     if (DEAL_ENABLED && !reducedMotion()) app.querySelectorAll('.mgroup:not([hidden])').forEach((g) => {
-      if (dealObserver) dealObserver.unobserve(g);
       const r = g.getBoundingClientRect();
-      if (r.top < innerHeight && r.bottom > 0) dealGroup(g);
+      if (r.top < innerHeight && r.bottom > 0) { if (dealObserver) dealObserver.unobserve(g); dealGroup(g); }
+      else if (dealObserver && g.querySelector('.mcard.pending')) dealObserver.observe(g);
     });
     const openCard = openCardId && app.querySelector(`.mcard[data-id="${openCardId}"]`);
     if (openCard && openCard.closest('.mgroup').hidden) closeCard();
