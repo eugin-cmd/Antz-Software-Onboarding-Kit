@@ -319,7 +319,7 @@ button { font: inherit; color: inherit; }
 /* Selected fill: a wash that sweeps in from the left on click, and drains back to the left when deselected */
 .mfilter::before {
   content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: inherit;
-  background: linear-gradient(135deg, #37BD69 0%, #1F415B 100%); /* same diagonal gradient as the main titles */
+  background: linear-gradient(40deg, #37BD69 0%, #1F415B 100%); /* title colours, at a 40deg angle */
   clip-path: inset(0 100% 0 0 round 999px);
   transition: clip-path .5s cubic-bezier(.65,0,.35,1);
 }
