@@ -318,7 +318,8 @@ button { font: inherit; color: inherit; }
 .mfilter { position: relative; isolation: isolate; }
 /* Selected fill: a wash that sweeps in from the left on click, and drains back to the left when deselected */
 .mfilter::before {
-  content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: inherit; background: var(--teal);
+  content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: inherit;
+  background: linear-gradient(135deg, #37BD69 0%, #1F415B 100%); /* same diagonal gradient as the main titles */
   clip-path: inset(0 100% 0 0 round 999px);
   transition: clip-path .5s cubic-bezier(.65,0,.35,1);
 }
@@ -329,7 +330,7 @@ button { font: inherit; color: inherit; }
 /* Text turns light as the wash passes under it */
 .mfilter[aria-pressed="true"] { color: #fff; transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1), color .3s var(--ease) .18s; }
 .mfilter[aria-pressed="true"]:hover { transition: transform .55s cubic-bezier(.34,1.56,.64,1), box-shadow .55s cubic-bezier(.22,.8,.24,1), color .3s var(--ease) .18s; }
-.mfilter[aria-pressed="true"] svg:not(.drawn-border), .mfilter[aria-pressed="true"] span { color: #BFEBD0; transition: color .3s var(--ease) .18s; }
+.mfilter[aria-pressed="true"] svg:not(.drawn-border), .mfilter[aria-pressed="true"] span { color: #E4F8EC; transition: color .3s var(--ease) .18s; }
 
 .mgroup { margin-bottom: 48px; }
 .mgroup[hidden] { display: none; }
