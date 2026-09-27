@@ -407,8 +407,8 @@ button { font: inherit; color: inherit; }
 }
 
 .mcard-num {
-  position: absolute; top: 12px; right: 16px; z-index: 1; font-size: 18px; font-weight: 700; letter-spacing: .04em;
-  color: rgba(255,255,255,.9); font-variant-numeric: tabular-nums; text-shadow: 0 1px 6px rgba(0,0,0,.4);
+  position: absolute; top: 10px; right: 14px; z-index: 1; font-size: 27px; font-weight: 700; letter-spacing: .02em; line-height: 1;
+  color: rgba(255,255,255,.95); font-variant-numeric: tabular-nums;
 }
 
 .mcard-body { display: flex; flex-direction: column; gap: 5px; padding: 16px 15px 18px; flex: 1; }
@@ -531,7 +531,7 @@ button { font: inherit; color: inherit; }
   .mgrid { --mgap: 12px; grid-template-columns: repeat(2, 1fr); }
   .mcard-thumb { height: 118px; margin: 10px 10px 0; border-radius: 9px; }
   .mcard-icon { --icon: 34px; width: 34px; height: 34px; left: 12px; bottom: 12px; }
-  .mcard-num { top: 9px; right: 12px; font-size: 16.5px; }
+  .mcard-num { top: 8px; right: 10px; font-size: 25px; }
   .mcard-body { padding: 12px 10px 12px; }
   .mcard-title { font-size: 15px; }
   .mcard-sum { font-size: 13px; }
