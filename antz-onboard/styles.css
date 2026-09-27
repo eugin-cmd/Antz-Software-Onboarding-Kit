@@ -484,6 +484,7 @@ button { font: inherit; color: inherit; }
 .mpanel-stage .device-phone, .mpanel-stage .device-framed { width: min(250px, calc((100vh - var(--pin-top) - 64px) * 9 / 19.2)); }
 .mpanel-stage .device-tablet { width: min(380px, 100%); }
 .mpanel-stage .cap { margin-top: 14px; font-size: 13.5px; color: var(--muted); text-align: center; }
+
 /* Device rises from below, overshoots a touch, and settles */
 .mpanel-stage .device.rise { animation: deviceRise .95s cubic-bezier(.22,.8,.24,1) both; }
 @keyframes deviceRise {
@@ -671,3 +672,14 @@ button { font: inherit; color: inherit; }
   html { scroll-behavior: auto; }
   * { animation: none !important; }
 }
+
+/* Feature label under the device: an elevated glass box */
+.mpanel-stage .cap, .mod-stage .caption {
+  display: inline-block; max-width: 300px; margin: 18px auto 0; padding: 9px 16px; border-radius: 12px;
+  font-size: 13.5px; font-weight: 600; line-height: 1.35; color: var(--ink); text-align: center;
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,.75);
+  box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 12px 28px -12px rgba(14,40,34,.35), 0 2px 6px rgba(14,40,34,.06);
+}
+.mpanel-stage .cap:empty, .mod-stage .caption:empty { display: none; }
