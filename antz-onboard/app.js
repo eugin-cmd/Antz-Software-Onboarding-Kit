@@ -683,7 +683,19 @@
     });
   }
 
+  /* Publish the sticky filter bar's height so pinned content can sit below it */
+  let filtersObserver = null;
+  function trackFilterBar() {
+    const bar = app.querySelector('.mfilters');
+    if (!bar) return;
+    const set = () => document.documentElement.style.setProperty('--mfilters-h', `${Math.ceil(bar.getBoundingClientRect().height)}px`);
+    set();
+    if (filtersObserver) filtersObserver.disconnect();
+    if ('ResizeObserver' in window) { filtersObserver = new ResizeObserver(set); filtersObserver.observe(bar); }
+  }
+
   function bindModules() {
+    trackFilterBar();
     sizeBorders();
     setupDealing(!!openCardId);
     app.querySelectorAll('.mfilter').forEach((b) => b.addEventListener('click', () => filterArea(b.dataset.area)));
