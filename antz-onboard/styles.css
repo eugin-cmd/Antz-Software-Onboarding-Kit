@@ -276,11 +276,11 @@ button { font: inherit; color: inherit; }
 
 /* ---------- Module cards (under the hero) ---------- */
 /* Area tints: bg for thumbnails and panels, ink for small accents */
-.tint-butter { --tint: #FBF3DC; --tint-ink: #7A5B0B; --tint-line: #C49424; --tint-comp: #ECE8FB; --line-grad: url(#line-butter); }
-.tint-coral  { --tint: #FBE8E1; --tint-ink: #9A4027; --tint-line: #D2704F; --tint-comp: #DDF2EF; --line-grad: url(#line-coral); }
-.tint-teal   { --tint: #DDF0EC; --tint-ink: #1D6A5E; --tint-line: #349E86; --tint-comp: #FCE8E1; --line-grad: url(#line-teal); }
-.tint-sky    { --tint: #E0EEF4; --tint-ink: #285C70; --tint-line: #468DAE; --tint-comp: #FCEFDD; --line-grad: url(#line-sky); }
-.tint-leaf   { --tint: #E4F4E9; --tint-ink: #27864B; --tint-line: #34A95E; --tint-comp: #F4E6F4; --line-grad: url(#line-leaf); }
+.tint-butter { --tint: #FBF3DC; --tint-ink: #7A5B0B; --tint-line: #C49424; --tint-comp: #ECE8FB; --line-grad: url(#line-butter); --tint-line2: #8C80D6; }
+.tint-coral  { --tint: #FBE8E1; --tint-ink: #9A4027; --tint-line: #D2704F; --tint-comp: #DDF2EF; --line-grad: url(#line-coral); --tint-line2: #3AA89E; }
+.tint-teal   { --tint: #DDF0EC; --tint-ink: #1D6A5E; --tint-line: #349E86; --tint-comp: #FCE8E1; --line-grad: url(#line-teal); --tint-line2: #DE876A; }
+.tint-sky    { --tint: #E0EEF4; --tint-ink: #285C70; --tint-line: #468DAE; --tint-comp: #FCEFDD; --line-grad: url(#line-sky); --tint-line2: #D6964A; }
+.tint-leaf   { --tint: #E4F4E9; --tint-ink: #27864B; --tint-line: #34A95E; --tint-comp: #F4E6F4; --line-grad: url(#line-leaf); --tint-line2: #AE78BE; }
 
 .modules-section { padding: 80px 0 72px; background: linear-gradient(115deg, #EAFAF9 0%, #F3F4F1 50%, #FAEEEA 100%); }
 .modules-head { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 64px; align-items: end; margin-bottom: 28px; }
@@ -385,16 +385,19 @@ button { font: inherit; color: inherit; }
 /* Selected card: the icon eases to the centre of the photo, grows 25%, wobbles and settles */
 .mcard.active .mcard-icon {
   left: calc(50% - var(--icon) / 2); bottom: calc(50% - var(--icon) / 2); transform: scale(1.25);
-  animation: iconSettle .7s cubic-bezier(.36,.07,.19,.97) .55s;
+  animation: iconSettle .95s linear .55s;
 }
+/* Elastic settle: squeeze a little, then spring back like rubber to the enlarged size */
 @keyframes iconSettle {
-  0%   { transform: scale(1.25) rotate(0); }
-  18%  { transform: scale(1.25) rotate(-9deg); }
-  36%  { transform: scale(1.25) rotate(7deg); }
-  54%  { transform: scale(1.25) rotate(-4deg); }
-  72%  { transform: scale(1.25) rotate(2deg); }
-  100% { transform: scale(1.25) rotate(0); }
+  0%   { transform: scale(1.25); animation-timing-function: cubic-bezier(.4,0,.6,1); }
+  22%  { transform: scale(1.02); animation-timing-function: cubic-bezier(.2,.8,.3,1); }
+  48%  { transform: scale(1.38); animation-timing-function: cubic-bezier(.4,0,.6,1); }
+  64%  { transform: scale(1.18); animation-timing-function: cubic-bezier(.4,0,.6,1); }
+  78%  { transform: scale(1.29); animation-timing-function: cubic-bezier(.4,0,.6,1); }
+  90%  { transform: scale(1.235); animation-timing-function: cubic-bezier(.4,0,.6,1); }
+  100% { transform: scale(1.25); }
 }
+
 .mcard-num {
   position: absolute; top: 12px; right: 16px; z-index: 1; font-size: 18px; font-weight: 700; letter-spacing: .04em;
   color: rgba(255,255,255,.9); font-variant-numeric: tabular-nums; text-shadow: 0 1px 6px rgba(0,0,0,.4);
@@ -466,8 +469,13 @@ button { font: inherit; color: inherit; }
 .mfeat-row:hover { background: rgba(255,255,255,.85); }
 .mfeat-row.on { background: #fff; border-color: var(--outline); box-shadow: var(--shadow-sm); }
 .mfeat { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; text-align: left; padding: 12px 8px 12px 14px; background: none; border: 0; cursor: pointer; width: 100%; }
-.mfeat .n { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 12.5px; font-weight: 600; background: #fff; color: var(--tint-ink); border: 1px solid var(--line); }
-.mfeat-row.on .mfeat .n { background: var(--teal); color: #fff; border-color: var(--teal); }
+.mfeat .n {
+  /* Selected number takes the panel outline's gradient (per area) */
+  --num-grad: linear-gradient(135deg, var(--tint-line) 0%, var(--tint-line) 25%, var(--tint-line2) 100%);
+  width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 12.5px; font-weight: 600;
+  background: #fff; color: var(--tint-ink); border: 1px solid var(--line);
+}
+.mfeat-row.on .mfeat .n { background: var(--num-grad); border-color: transparent; color: #fff; font-weight: 700; box-shadow: 0 4px 10px -4px color-mix(in srgb, var(--tint-line) 70%, transparent); }
 .mfeat .t b { display: block; font-size: 15px; font-weight: 600; color: var(--ink); margin-top: 2px; }
 .mfeat .t small { display: none; font-size: 14px; color: var(--muted); margin-top: 3px; line-height: 1.45; }
 .mfeat-row.on .mfeat .t small { display: block; }
