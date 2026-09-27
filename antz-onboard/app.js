@@ -38,20 +38,8 @@
   const tidyTitle = (s) => String(s ?? '').replace(/\s*—\s*|\s+-\s+/g, ' · ').replace(/\s*\((App|Web)\)/, ' · $1');
   /* icons.js declares a top-level const, so it is a global binding, not a window property */
   const ICON_SET = typeof ICONS !== 'undefined' ? ICONS : {};
-  /* Mouse and trackpad users preview features on hover; touch users tap */
+  /* True for mouse and trackpad pointers (used for hover-only effects) */
   const canHover = () => matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const HOVER_DELAY = 120;
-  function hoverSelect(items, current, select) {
-    let t;
-    items.forEach((el, i) => {
-      el.addEventListener('pointerenter', (e) => {
-        if (e.pointerType !== 'mouse' || !canHover()) return;
-        clearTimeout(t);
-        t = setTimeout(() => { if (current() !== i) select(i); }, HOVER_DELAY);
-      });
-      el.addEventListener('pointerleave', () => clearTimeout(t));
-    });
-  }
   const icon = (name) => ICON_SET[name] || ICON_SET.note || '';
   const SEARCH_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>';
   const CLOSE_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
@@ -473,7 +461,7 @@
           </ol>
           <div class="mpanel-actions">
             <a class="btn btn-primary" href="#/m/${m.id}">Open the full tour</a>
-            <span class="hint">${hasShots ? (canHover() ? 'Hover over a feature to preview its screen' : 'Tap a feature to preview its screen') : 'Screens for this module are coming soon'}</span>
+            <span class="hint">${hasShots ? (canHover() ? 'Click a feature to preview its screen' : 'Tap a feature to preview its screen') : 'Screens for this module are coming soon'}</span>
           </div>
         </div>
         ${hasShots ? '<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p><p class="zoom-hint">Tap the screen to zoom</p></div>' : ''}
@@ -538,7 +526,6 @@
         }
       } else if (stage.parentElement !== panel.querySelector('.mpanel-inner')) panel.querySelector('.mpanel-inner').append(stage);
     };
-    hoverSelect(feats.map((b) => b.parentElement), () => feats.findIndex((b) => b.getAttribute('aria-pressed') === 'true'), select);
     feats.forEach((b, i) => {
       b.addEventListener('click', () => select(i));
       b.addEventListener('keydown', (e) => {
@@ -762,7 +749,6 @@
       let t;
       window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { if (wrap.isConnected && current >= 0) place(current); }, 150); });
     }
-    hoverSelect(steps, () => steps.findIndex((x) => x.getAttribute('aria-selected') === 'true'), show);
     steps.forEach((s, i) => {
       /* Taps on the device inside the step open the gallery instead of re-selecting */
       s.addEventListener('click', (e) => { if (wrap && wrap.contains(e.target)) return; if (i !== current) show(i, true); });
@@ -806,7 +792,7 @@
               <div class="mod-facts">
                 <span class="fact">${esc(area.label)}</span>
                 <span class="fact">${m.features.length} features</span>
-                ${hasShots ? `<span class="fact">${canHover() ? 'Hover over' : 'Tap'} a feature to see the screen</span>` : ''}
+                ${hasShots ? `<span class="fact">${canHover() ? 'Click' : 'Tap'} a feature to see the screen</span>` : ''}
               </div>
             </div>
           </div>
