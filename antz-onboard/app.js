@@ -447,7 +447,7 @@
         <button class="mpanel-close" type="button" aria-label="Close ${esc(m.title)}">${CLOSE_SVG}</button>
         <div class="mpanel-info">
           <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${numberOf[m.id]}</span>
-          <h3>${esc(m.title)}</h3>
+          <h3 class="mpanel-title"><span class="mpanel-icon"><img src="assets/icons/${iconOf(m)}_icon.svg" alt=""></span>${esc(m.title)}</h3>
           <p class="mpanel-intro">${esc(m.intro)}</p>
           <ol class="mfeats" aria-label="Features">
             ${m.features.map((f, i) => `
