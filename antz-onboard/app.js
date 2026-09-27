@@ -496,7 +496,7 @@
 
     const stage = panel.querySelector('.mpanel-stage');
     const feats = [...panel.querySelectorAll('.mfeat')];
-    const select = (i) => {
+    const select = (i, fromUser) => {
       feats.forEach((b, j) => { b.setAttribute('aria-pressed', String(i === j)); b.parentElement.classList.toggle('on', i === j); });
       if (!stage) return;
       const f = m.features[i];
@@ -524,15 +524,38 @@
           const dev = holder.firstElementChild;
           if (dev) { dev.classList.remove('rise'); void dev.offsetWidth; dev.classList.add('rise'); }
         }
-      } else if (stage.parentElement !== panel.querySelector('.mpanel-inner')) panel.querySelector('.mpanel-inner').append(stage);
+      } else {
+        if (stage.parentElement !== panel.querySelector('.mpanel-inner')) panel.querySelector('.mpanel-inner').append(stage);
+        alignStage(i, fromUser);
+      }
+    };
+    /* Desktop: the device glides down beside the selected feature (the panel grows if needed),
+       then the page scrolls just enough to show the whole device below the pinned bars */
+    const alignStage = (i, fromUser) => {
+      const info = panel.querySelector('.mpanel-info'), row = feats[i].parentElement;
+      const rowY = row.getBoundingClientRect().top - info.getBoundingClientRect().top;
+      const y = Math.max(0, Math.round(rowY + row.offsetHeight / 2 - stage.offsetHeight / 2));
+      stage.style.setProperty('--stage-y', `${y}px`);
+      if (!fromUser) return;
+      clearTimeout(alignStage.t);
+      alignStage.t = setTimeout(() => {
+        const dev = stage.querySelector('.device');
+        if (!dev || !panel.isConnected) return;
+        const d = dev.getBoundingClientRect();
+        const topLimit = document.querySelector('.site-header').offsetHeight + (app.querySelector('.mfilters')?.offsetHeight || 0) + 16;
+        let by = 0;
+        if (d.bottom > innerHeight - 16) by = d.bottom - innerHeight + 24;
+        if (d.top - by < topLimit) by = d.top - topLimit;
+        if (Math.abs(by) > 2) window.scrollBy({ top: by, behavior: reducedMotion() ? 'auto' : 'smooth' });
+      }, reducedMotion() ? 0 : 520);
     };
     feats.forEach((b, i) => {
-      b.addEventListener('click', () => select(i));
+      b.addEventListener('click', () => select(i, true));
       b.addEventListener('keydown', (e) => {
         if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
         e.preventDefault();
         const n = (i + (e.key === 'ArrowDown' ? 1 : -1) + feats.length) % feats.length;
-        feats[n].focus(); select(n);
+        feats[n].focus(); select(n, true);
       });
     });
     panel.querySelector('.mpanel-close').addEventListener('click', () => closeCard(true, true));

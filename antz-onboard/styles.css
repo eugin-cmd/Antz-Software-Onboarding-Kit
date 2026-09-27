@@ -477,8 +477,9 @@ button { font: inherit; color: inherit; }
 .mfeat-row:hover .mfeat-go, .mfeat-go:focus-visible { opacity: 1; }
 .mpanel-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
 .mpanel-actions .hint { font-size: 13.5px; color: var(--muted-2); }
-/* Pinned below the header AND the sticky filter bar (its height is measured in app.js as --mfilters-h) */
-.mpanel-stage { --pin-top: calc(var(--header-h) + var(--mfilters-h, 64px) + 16px); position: sticky; top: var(--pin-top); display: grid; justify-items: center; }
+/* Desktop: the device sits beside the selected feature (offset set in app.js) and glides between features.
+   --pin-top is the space taken by the header and the sticky filter bar (measured as --mfilters-h). */
+.mpanel-stage { --pin-top: calc(var(--header-h) + var(--mfilters-h, 64px) + 16px); position: relative; margin-top: var(--stage-y, 0px); transition: margin-top .5s cubic-bezier(.65,0,.35,1); display: grid; justify-items: center; }
 /* Shrink the phone on short screens so the whole device fits below the pinned bars */
 .mpanel-stage .device-phone, .mpanel-stage .device-framed { width: min(250px, calc((100vh - var(--pin-top) - 64px) * 9 / 19.2)); }
 .mpanel-stage .device-tablet { width: min(380px, 100%); }
@@ -491,7 +492,7 @@ button { font: inherit; color: inherit; }
   72%  { transform: translateY(-6px); }
   100% { opacity: 1; transform: translateY(0); }
 }
-.mfeat-row > .mpanel-stage { grid-column: 1 / -1; position: static; padding: 4px 0 18px; }
+.mfeat-row > .mpanel-stage { grid-column: 1 / -1; position: static; margin-top: 0; transition: none; padding: 4px 0 18px; }
 
 @media (max-width: 1000px) {
   .modules-head { grid-template-columns: 1fr; }
@@ -522,7 +523,7 @@ button { font: inherit; color: inherit; }
   .mgroup-head .count { display: none; }
   .mgroup-head h3 { font-size: 18px; }
 }
-@media (prefers-reduced-motion: reduce) { .mpanel.enter, .mpanel.leave { animation: none; } .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg, .chip { transition: none !important; } .chip:hover { transform: none; } .mcard.active .mcard-icon { animation: none; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .mpanel-stage { transition: none; } .mpanel.enter, .mpanel.leave { animation: none; } .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg, .chip { transition: none !important; } .chip:hover { transform: none; } .mcard.active .mcard-icon { animation: none; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
 
 .module-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-content: start; }
 .module-card {
