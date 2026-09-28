@@ -701,7 +701,7 @@
      gradient fill sweeping in when selected. mark = false renders none selected, so the fill can sweep in after. */
   const PIN_CHEVRON = '<svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
   const subTabsHTML = (cur, mark = true) => areaById[cur.track].modules.map((x) => `
-    <a class="msubtab mfilter" href="#/m/${x.id}"${mark && x === cur ? ' aria-current="page"' : ''}><span class="n">${numberOf[x.id]}</span>${esc(x.title)}<svg class="drawn-border" aria-hidden="true"></svg></a>`).join('');
+    <a class="msubtab mfilter" href="#/m/${x.id}"${mark && x === cur ? ' aria-current="page"' : ''}><span class="ic" style="--ic:url('assets/icons/${iconOf(x)}_icon.svg')" aria-hidden="true"></span>${esc(x.title)}<svg class="drawn-border" aria-hidden="true"></svg></a>`).join('');
   const markSubTab = (sub, cur) => sub.querySelectorAll('.msubtab').forEach((x) => {
     if (x.getAttribute('href') === `#/m/${cur.id}`) x.setAttribute('aria-current', 'page'); else x.removeAttribute('aria-current');
   });
@@ -716,7 +716,7 @@
           <span class="mtab-text"><b>${esc(a.label)}</b><small>${a.modules.length} modules</small></span>
         </a>`;
       }).join('')}
-        <span class="mtab-ind" aria-hidden="true"></span>
+        <span class="mtab-ind" aria-hidden="true"><i class="mtab-bar"></i></span>
       </div>
       <div class="msubtabs" data-area="${cur.track}">${subTabsHTML(cur)}</div>
       <div class="mpin" inert>
@@ -759,7 +759,9 @@
     const ind = nav.querySelector('.mtab-ind'), tab = nav.querySelector('.mtab[aria-current]');
     if (!ind || !tab) return;
     ind.classList.toggle('still', !animate);
-    ind.style.setProperty('--edge', getComputedStyle(tab).getPropertyValue('--edge'));
+    const cs = getComputedStyle(tab);
+    ind.style.setProperty('--edge', cs.getPropertyValue('--edge'));
+    ind.style.setProperty('--bar', cs.getPropertyValue('--tint-line'));
     ind.style.width = `${tab.offsetWidth}px`;
     ind.style.height = `${tab.offsetHeight}px`;
     ind.style.transform = `translate(${tab.offsetLeft}px, ${tab.offsetTop}px)`;
