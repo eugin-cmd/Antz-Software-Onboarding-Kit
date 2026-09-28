@@ -168,6 +168,8 @@
     }
   };
 
+  /* The kit page shown last, so moving between kit pages can play the chip fill sweep like the home chips */
+  let lastKit = null;
   function renderKit(id) {
     const k = KIT_PAGES.find((x) => x.id === id);
     if (!k) { location.hash = '#/'; return; }
@@ -183,15 +185,26 @@
         <small>Next</small>
         <b>Explore the modules →</b>
       </a>` : '<span></span>');
+    /* Coming from another kit page: start with that page's chip filled, then hand the fill over,
+       so it drains from the old chip and sweeps into the new one */
+    const from = KIT_PAGES.find((x) => x.id === lastKit);
+    const sweep = !!from && from !== k && !reducedMotion();
+    lastKit = k.id;
     app.innerHTML = `
       <div class="kitpage${/section-soft/.test(KIT_SECTIONS[k.id]()) ? ' soft' : ''}">
         <nav class="container kit-tabs" aria-label="Start here">
-          ${KIT_PAGES.map((x, j) => `<a class="msubtab mfilter" href="#/kit/${x.id}"${x === k ? ' aria-current="page"' : ''}><span class="n">0${j + 1}</span>${esc(title(x))}<svg class="drawn-border" aria-hidden="true"></svg></a>`).join('')}
+          ${KIT_PAGES.map((x, j) => `<a class="msubtab mfilter kit-tab" href="#/kit/${x.id}"${x === (sweep ? from : k) ? ' aria-current="page"' : ''}><span class="n">0${j + 1}</span>${esc(title(x))}<svg class="drawn-border" aria-hidden="true"></svg></a>`).join('')}
         </nav>
         ${KIT_SECTIONS[k.id]()}
         <div class="container"><nav class="mpager" aria-label="Previous and next page">${link(prev, 'prev')}${link(next, 'next')}</nav></div>
       </div>`;
     sizeBorders();
+    if (sweep) {
+      const tabs = [...app.querySelectorAll('.kit-tab')];
+      requestAnimationFrame(() => requestAnimationFrame(() => tabs.forEach((t, j) => {
+        if (KIT_PAGES[j] === k) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current');
+      })));
+    }
     document.title = `${title(k)} · Antz Onboarding`;
   }
 
@@ -877,13 +890,15 @@
         <b>${dir === 'prev' ? '← ' : ''}${esc(x.title)}${dir === 'next' ? ' →' : ''}</b>
       </a>` : '<span></span>';
     const hasShots = m.features.some((f) => f.shot) || m.shots.length > 0;
+    /* One of the module's own screens, tilted and faded, washes the empty right side on wide screens */
+    const washSrc = (m.features.find((f) => f.shot) || {}).shot || (m.shots[0] && m.shots[0].src) || '';
 
     const html = `
       <section class="mpage tint-${tint}">
         <div class="container">
           ${moduleTabsHTML(m)}
           <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${numberOf[m.id]}</span>
-            <span class="mwash" aria-hidden="true"><i style="--ic:url('assets/icons/${iconOf(m)}_icon.svg')"></i></span>
+            ${washSrc ? `<span class="mwash" aria-hidden="true"><img src="${washSrc}" alt="" loading="lazy" decoding="async"></span>` : ''}
           <div class="mpanel-inner${hasShots ? '' : ' no-stage'}">
             <div class="mpanel-info">
               <h1 class="mpanel-title"><span class="mpanel-icon"><img src="assets/icons/${iconOf(m)}_icon.svg" alt=""></span>${esc(m.title)}</h1>
@@ -1315,11 +1330,12 @@
       if (onHome) homeY = window.scrollY;
       onHome = false;
       if (parallaxOff) parallaxOff();
-      if (name === 'kit') renderKit(id); else renderModule(id, Number(f) || 0, f !== undefined && f !== '');
+      if (name === 'kit') renderKit(id); else { lastKit = null; renderModule(id, Number(f) || 0, f !== undefined && f !== ''); }
       window.scrollTo(0, 0);
     } else {
       document.title = 'Antz Onboarding';
       const cameBack = !onHome && !goTop && !pendingScroll && homeY;
+      lastKit = null;
       renderHome(cameBack);
       onHome = true;
       if (pendingScroll) { const sid = pendingScroll; requestAnimationFrame(() => scrollToId(sid)); pendingScroll = null; }
