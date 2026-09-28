@@ -405,6 +405,33 @@ button { font: inherit; color: inherit; }
 .kit-tabs .kit-tab[aria-current] { color: #fff; }
 .kitpage .kit-section:first-of-type, .kitpage > .section { padding-top: 48px; }
 .kitpage .mpager { border-top-color: var(--line); margin: 0 0 96px; }
+/* Kit page content eases in, rises past its place a touch and settles (the banner's heroRise), top to bottom.
+   Each part waits hidden until it scrolls into view (observeReveal adds .in). */
+.kitpage .kit-media.reveal, .kitpage .kit-copy.reveal > *, .kitpage .kit-card, .kitpage .kit-list li,
+.kitpage .section-head.reveal > *, .kitpage .timeline li.reveal { --rise-delay: 0ms; }
+.kitpage .kit-media.reveal:not(.in), .kitpage .kit-copy.reveal:not(.in) > *,
+.kitpage .section-head.reveal:not(.in) > *, .kitpage .timeline li.reveal:not(.in) { opacity: 0; }
+.kitpage .kit-media.reveal.in, .kitpage .kit-copy.reveal.in > *, .kitpage .kit-copy.reveal.in .kit-card,
+.kitpage .kit-copy.reveal.in .kit-list li, .kitpage .section-head.reveal.in > *, .kitpage .timeline li.reveal.in {
+  animation: heroRise 1s cubic-bezier(.33,0,.2,1) var(--rise-delay) backwards;
+}
+.kitpage .kit-media.reveal { --rise-delay: 60ms; }
+.kitpage .kit-copy.reveal > :nth-child(1) { --rise-delay: 120ms; }
+.kitpage .kit-copy.reveal > :nth-child(2) { --rise-delay: 220ms; }
+.kitpage .kit-copy.reveal > :nth-child(3) { --rise-delay: 320ms; }
+.kitpage .kit-copy.reveal > :nth-child(4) { --rise-delay: 420ms; }
+.kitpage .kit-copy.reveal > :nth-child(n+5) { --rise-delay: 480ms; }
+/* Cards and list rows inside the copy follow one after another */
+.kitpage .kit-copy.reveal.in .kit-cards, .kitpage .kit-copy.reveal.in .kit-list { animation: none; }
+.kitpage .kit-card:nth-child(1), .kitpage .kit-list li:nth-child(1) { --rise-delay: 500ms; }
+.kitpage .kit-card:nth-child(2), .kitpage .kit-list li:nth-child(2) { --rise-delay: 580ms; }
+.kitpage .kit-card:nth-child(3), .kitpage .kit-list li:nth-child(3) { --rise-delay: 660ms; }
+.kitpage .kit-card:nth-child(4), .kitpage .kit-list li:nth-child(4) { --rise-delay: 740ms; }
+.kitpage .kit-card:nth-child(n+5), .kitpage .kit-list li:nth-child(n+5) { --rise-delay: 820ms; }
+.kitpage .section-head.reveal > :nth-child(2) { --rise-delay: 100ms; }
+.kitpage .timeline li.reveal:nth-child(2) { --rise-delay: 100ms; }
+.kitpage .timeline li.reveal:nth-child(3) { --rise-delay: 200ms; }
+.kitpage .timeline li.reveal:nth-child(4) { --rise-delay: 300ms; }
 @media (max-width: 640px) { .kit-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 calc(var(--gutter) * -1); padding: 2px var(--gutter) 6px; } .kitpage .mpager { margin-bottom: 64px; } }
 
 /* ---------- Module cards (under the hero) ---------- */
