@@ -774,6 +774,46 @@ a.mcard-face { text-decoration: none; color: inherit; }
 @property --tint-line2 { syntax: '<color>'; inherits: true; initial-value: transparent; }
 @property --edge { syntax: '<color>'; inherits: true; initial-value: transparent; }
 .mpage { transition: --tint .6s ease, --tint-comp .6s ease, --tint-ink .6s ease, --tint-line .6s ease, --tint-line2 .6s ease; }
+/* Pinned bar under the header: current area pill + module chips, shown once the full tabs scroll away */
+.mpin {
+  position: fixed; left: 0; right: 0; top: var(--header-h); z-index: 40;
+  background: rgba(255,255,255,.8); backdrop-filter: saturate(1.6) blur(18px); -webkit-backdrop-filter: saturate(1.6) blur(18px);
+  border-bottom: 1px solid rgba(14,23,21,.07); box-shadow: 0 10px 24px -20px rgba(14,40,34,.45);
+  transform: translateY(-10px); opacity: 0; visibility: hidden;
+  transition: transform .3s var(--ease), opacity .22s ease, visibility 0s linear .3s;
+}
+.mpin.on { transform: none; opacity: 1; visibility: visible; transition: transform .45s cubic-bezier(.22,.8,.24,1), opacity .3s ease, visibility 0s; }
+.mpin-row { display: flex; align-items: center; gap: 12px; height: 58px; }
+.mpin-area { position: relative; flex: none; }
+.mpin-areabtn {
+  display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--tint-line) 45%, #fff); background: #fff; font-size: 13.5px; color: var(--ink);
+  transition: box-shadow .2s ease;
+}
+.mpin-areabtn:hover { box-shadow: 0 6px 14px -8px rgba(14,40,34,.35); }
+.mpin-areabtn b { font-weight: 600; white-space: nowrap; }
+.mpin-areabtn .chev { color: var(--muted-2); transition: transform .2s var(--ease); }
+.mpin-areabtn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+.mpin .dot { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--tint-line); }
+.mpin-menu {
+  position: absolute; top: calc(100% + 8px); left: 0; min-width: 270px; padding: 6px; z-index: 1;
+  background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-lg);
+  animation: pinMenu .2s var(--ease);
+}
+@keyframes pinMenu { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.mpin-menu a { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 9px; text-decoration: none; font-size: 14px; color: var(--text); }
+.mpin-menu a small { margin-left: auto; font-size: 12px; font-weight: 600; color: var(--muted-2); }
+.mpin-menu a:hover { background: var(--tint); color: var(--ink); }
+.mpin-menu a[aria-current] { background: var(--tint); color: var(--ink); font-weight: 600; }
+.mpin .mpin-chips { flex: 1; min-width: 0; margin: 0; padding: 8px 0 10px; }
+.mpin .msubtab { height: 32px; padding: 0 12px; font-size: 13px; }
+@media (max-width: 560px) {
+  .mpin-row { gap: 8px; height: 54px; }
+  .mpin-areabtn { padding: 0 10px; }
+  .mpin-areabtn b { max-width: 104px; overflow: hidden; text-overflow: ellipsis; }
+  .mpin .mpin-chips { margin-right: calc(var(--gutter) * -1); padding-right: var(--gutter); }
+}
+@media (prefers-reduced-motion: reduce) { .mpin, .mpin.on { transition: none; } .mpin-menu { animation: none; } }
 @media (prefers-reduced-motion: reduce) { .mtab-ind, .mpage, .mtab { transition: none; } .msubtabs.swap .msubtab, .mpage .swap-in { animation: none; } }
 
 /* Narrower screens: the area row scrolls sideways too; both rows run edge to edge */

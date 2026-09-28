@@ -699,6 +699,7 @@
   }));
   /* Module chips look and behave like the home page's filter chips (.mfilter): rise and drawn border on hover,
      gradient fill sweeping in when selected. mark = false renders none selected, so the fill can sweep in after. */
+  const PIN_CHEVRON = '<svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
   const subTabsHTML = (cur, mark = true) => areaById[cur.track].modules.map((x) => `
     <a class="msubtab mfilter" href="#/m/${x.id}"${mark && x === cur ? ' aria-current="page"' : ''}><span class="n">${numberOf[x.id]}</span>${esc(x.title)}<svg class="drawn-border" aria-hidden="true"></svg></a>`).join('');
   const markSubTab = (sub, cur) => sub.querySelectorAll('.msubtab').forEach((x) => {
@@ -718,6 +719,17 @@
         <span class="mtab-ind" aria-hidden="true"></span>
       </div>
       <div class="msubtabs" data-area="${cur.track}">${subTabsHTML(cur)}</div>
+      <div class="mpin" inert>
+        <div class="container mpin-row">
+          <div class="mpin-area">
+            <button class="mpin-areabtn" type="button" aria-haspopup="true" aria-expanded="false"><span class="dot"></span><b></b>${PIN_CHEVRON}</button>
+            <div class="mpin-menu" hidden>${areas.map((a) => `
+              <a class="tint-${AREA_TINT[a.id]}" href="#/m/${a.modules[0].id}" data-area="${a.id}"><span class="dot"></span>${esc(a.label)}<small>${a.modules.length}</small></a>`).join('')}
+            </div>
+          </div>
+          <div class="msubtabs mpin-chips"></div>
+        </div>
+      </div>
     </nav>`;
 
   /* Tab rows that scroll sideways fade the edge where more tabs are hidden, and a mouse wheel scrolls them */
@@ -738,7 +750,8 @@
   const centreTab = (row, smooth) => {
     const cur = row.querySelector('[aria-current]');
     if (!cur || row.scrollWidth <= row.clientWidth) { row._edges(); return; }
-    row.scrollTo({ left: cur.offsetLeft - (row.clientWidth - cur.offsetWidth) / 2, behavior: smooth && !reducedMotion() ? 'smooth' : 'auto' });
+    const off = cur.getBoundingClientRect().left - row.getBoundingClientRect().left + row.scrollLeft;
+    row.scrollTo({ left: off - (row.clientWidth - cur.offsetWidth) / 2, behavior: smooth && !reducedMotion() ? 'smooth' : 'auto' });
     row._edges();
   };
   /* The selected-tab outline is one element that glides and resizes between tabs, taking on each area's colour */
@@ -759,29 +772,73 @@
       t.setAttribute('href', `#/m/${here ? cur.id : a.modules[0].id}`);
       if (here) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current');
     });
-    const sub = nav.querySelector('.msubtabs');
     const sweep = animate && !reducedMotion();
-    if (sub.dataset.area !== cur.track) {
-      sub.dataset.area = cur.track;
-      sub.innerHTML = subTabsHTML(cur, !sweep);
-      sub.scrollLeft = 0;
-      /* New area: its chips fade up, then the current one fills */
-      if (sweep) {
-        sub.classList.remove('swap'); void sub.offsetWidth; sub.classList.add('swap');
-        setTimeout(() => { if (sub.isConnected) markSubTab(sub, cur); }, 220);
-      }
-    } else markSubTab(sub, cur);
+    const full = nav.querySelector(':scope > .msubtabs');
+    const pin = nav.querySelector('.mpin'), pinChips = pin.querySelector('.mpin-chips');
+    [full, pinChips].forEach((sub) => {
+      if (sub.dataset.area !== cur.track) {
+        sub.dataset.area = cur.track;
+        sub.innerHTML = subTabsHTML(cur, !sweep);
+        sub.scrollLeft = 0;
+        /* New area: its chips fade up, then the current one fills */
+        if (sweep) {
+          sub.classList.remove('swap'); void sub.offsetWidth; sub.classList.add('swap');
+          setTimeout(() => { if (sub.isConnected) markSubTab(sub, cur); }, 220);
+        }
+      } else markSubTab(sub, cur);
+    });
+    pin.querySelector('.mpin-areabtn b').textContent = areaById[cur.track].label;
+    pin.querySelectorAll('.mpin-menu a').forEach((a) => {
+      const here = a.dataset.area === cur.track;
+      a.setAttribute('href', `#/m/${here ? cur.id : areaById[a.dataset.area].modules[0].id}`);
+      if (here) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
     sizeBorders();
-    const rows = [nav.querySelector('.mtabs-areas'), sub];
+    const rows = [nav.querySelector('.mtabs-areas'), full];
     if (!nav._bound) {
       nav._bound = true;
-      rows.forEach(bindTabRow);
+      [...rows, pinChips].forEach(bindTabRow);
       /* Web fonts or a new width can change tab sizes: follow without animating */
       if ('ResizeObserver' in window) new ResizeObserver(() => { placeIndicator(nav, false); rows.forEach((r) => r._edges()); }).observe(nav);
+      bindPin(nav, full, pin, pinChips);
     }
     placeIndicator(nav, animate);
     rows.forEach((r) => centreTab(r, animate));
+    if (pin.classList.contains('on')) centreTab(pinChips, animate);
   }
+
+  /* Pinned bar: once the module chips scroll up under the header, a slim copy (area pill + module chips)
+     slides in below it; the area pill opens a small menu for switching area */
+  function bindPin(nav, full, pin, pinChips) {
+    const btn = pin.querySelector('.mpin-areabtn'), menu = pin.querySelector('.mpin-menu');
+    const setMenu = (open) => { menu.hidden = !open; btn.setAttribute('aria-expanded', String(open)); };
+    btn.addEventListener('click', () => setMenu(menu.hidden));
+    menu.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+    pin.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) { setMenu(false); btn.focus(); } });
+    pin.addEventListener('focusout', (e) => { if (!pin.querySelector('.mpin-area').contains(e.relatedTarget)) setMenu(false); });
+    pin._closeMenu = () => setMenu(false);
+    if (!('IntersectionObserver' in window)) return;
+    const top = () => document.querySelector('.site-header').offsetHeight;
+    let io;
+    const watch = () => {
+      if (io) io.disconnect();
+      io = new IntersectionObserver(([en]) => {
+        const show = !en.isIntersecting && en.boundingClientRect.top < top();
+        if (show === pin.classList.contains('on')) return;
+        pin.classList.toggle('on', show);
+        pin.inert = !show;
+        if (show) centreTab(pinChips, false); else setMenu(false);
+      }, { rootMargin: `-${top()}px 0px 0px 0px` });
+      io.observe(full);
+    };
+    watch();
+    window.addEventListener('resize', () => { if (nav.isConnected) watch(); });
+  }
+  /* A click anywhere else closes an open area menu */
+  document.addEventListener('click', (e) => {
+    const pin = document.querySelector('.mpin');
+    if (pin && pin._closeMenu && !e.target.closest('.mpin-area')) pin._closeMenu();
+  });
 
   function renderModule(id, featureIndex) {
     const m = byId[id];
