@@ -369,8 +369,8 @@
     });
   }
 
-  /* Module page: pick a feature to see its screen. On desktop the device glides beside the selected
-     feature; on phones it moves under it. The choice is kept in the URL so the link can be shared. */
+  /* Module page: pick a feature to see its screen. On desktop the device stays beside the title;
+     on phones it moves under the selected feature. The choice is kept in the URL so the link can be shared. */
   function bindFeatures(root, m, start = 0) {
     const inner = root.querySelector('.mpanel-inner');
     const stage = root.querySelector('.mpanel-stage');
@@ -405,30 +405,7 @@
           const dev = holder.firstElementChild;
           if (dev) { dev.classList.remove('rise'); void dev.offsetWidth; dev.classList.add('rise'); }
         }
-      } else {
-        if (stage.parentElement !== inner) inner.append(stage);
-        alignStage(i, fromUser);
-      }
-    };
-    /* Desktop: the device glides down beside the selected feature,
-       then the page scrolls just enough to show the whole device below the header */
-    const alignStage = (i, fromUser) => {
-      const info = root.querySelector('.mpanel-info'), row = feats[i].parentElement;
-      const rowY = row.getBoundingClientRect().top - info.getBoundingClientRect().top;
-      const y = Math.max(0, Math.round(rowY + row.offsetHeight / 2 - stage.offsetHeight / 2));
-      stage.style.setProperty('--stage-y', `${y}px`);
-      if (!fromUser) return;
-      clearTimeout(alignStage.t);
-      alignStage.t = setTimeout(() => {
-        const dev = stage.querySelector('.device');
-        if (!dev || !root.isConnected) return;
-        const d = dev.getBoundingClientRect();
-        const topLimit = document.querySelector('.site-header').offsetHeight + 16;
-        let by = 0;
-        if (d.bottom > innerHeight - 16) by = d.bottom - innerHeight + 24;
-        if (d.top - by < topLimit) by = d.top - topLimit;
-        if (Math.abs(by) > 2) window.scrollBy({ top: by, behavior: reducedMotion() ? 'auto' : 'smooth' });
-      }, reducedMotion() ? 0 : 520);
+      } else if (stage.parentElement !== inner) inner.append(stage);
     };
     feats.forEach((b, i) => {
       b.addEventListener('click', () => select(i, true));
@@ -667,9 +644,9 @@
             <a href="#/" data-scroll="index">${esc(area.label)}</a><span>›</span>
             <span aria-current="page">${esc(m.title)}</span>
           </nav>
+          <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${numberOf[m.id]}</span>
           <div class="mpanel-inner${hasShots ? '' : ' no-stage'}">
             <div class="mpanel-info">
-              <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${numberOf[m.id]}</span>
               <h1 class="mpanel-title"><span class="mpanel-icon"><img src="assets/icons/${iconOf(m)}_icon.svg" alt=""></span>${esc(m.title)}</h1>
               <p class="mpanel-intro">${esc(m.intro)}</p>
               <ol class="mfeats" aria-label="Features">

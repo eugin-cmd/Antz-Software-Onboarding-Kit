@@ -490,9 +490,9 @@ a.mcard-face { text-decoration: none; color: inherit; }
 /* Module page layout (in the style of the old open-card panel): feature list beside the device */
 .mpanel-inner { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: start; }
 .mpanel-inner.no-stage { grid-template-columns: 1fr; }
-.mpanel-area { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--tint-ink); }
+.mpanel-area { display: flex; margin-bottom: 12px; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--tint-ink); }
 .mpanel-area svg { width: 15px; height: 15px; }
-.mpanel-info .mpanel-title { font-size: clamp(30px, 4vw, 44px); margin: 10px 0 12px; }
+.mpanel-info .mpanel-title { font-size: clamp(30px, 4vw, 44px); margin: 0 0 12px; }
 /* Module icon before the panel title, on a badge in the area's gradient */
 .mpanel-title { display: flex; align-items: center; gap: 14px; }
 .mpanel-icon {
@@ -520,11 +520,9 @@ a.mcard-face { text-decoration: none; color: inherit; }
 .mpanel-hint { font-size: 13.5px; color: var(--muted-2); }
 /* Without screens there is nothing to select, so every description shows */
 .no-stage .mfeat .t small { display: block; }
-/* Desktop: the device sits beside the selected feature (offset set in app.js) and glides between features.
-   --pin-top is the space taken by the header and the sticky filter bar (measured as --mfilters-h). */
-.mpanel-stage { --pin-top: calc(var(--header-h) + var(--mfilters-h, 64px) + 16px); position: relative; margin-top: var(--stage-y, 0px); transition: margin-top .5s cubic-bezier(.65,0,.35,1); display: grid; justify-items: center; }
-/* Shrink the phone on short screens so the whole device fits below the pinned bars */
-.mpanel-stage .device-phone, .mpanel-stage .device-framed { width: min(250px, calc((100vh - var(--pin-top) - 64px) * 9 / 19.2)); }
+/* The device sits in its own column, top-aligned with the title */
+.mpanel-stage { position: relative; display: grid; justify-items: center; }
+.mpanel-stage .device-phone, .mpanel-stage .device-framed { width: 260px; }
 .mpanel-stage .device-tablet { width: min(380px, 100%); }
 .mpanel-stage .cap { margin-top: 14px; font-size: 13.5px; color: var(--muted); text-align: center; }
 
@@ -536,7 +534,7 @@ a.mcard-face { text-decoration: none; color: inherit; }
   72%  { transform: translateY(-6px); }
   100% { opacity: 1; transform: translateY(0); }
 }
-.mfeat-row > .mpanel-stage { grid-column: 1 / -1; position: static; margin-top: 0; transition: none; padding: 4px 0 18px; }
+.mfeat-row > .mpanel-stage { grid-column: 1 / -1; position: static; padding: 4px 0 18px; }
 
 @media (max-width: 1000px) {
   .modules-head { grid-template-columns: 1fr; }
@@ -564,7 +562,7 @@ a.mcard-face { text-decoration: none; color: inherit; }
   .mgroup-head .count { display: none; }
   .mgroup-head h3 { font-size: 18px; }
 }
-@media (prefers-reduced-motion: reduce) { .mpanel-stage { transition: none; } .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg, .chip { transition: none !important; } .chip:hover { transform: none; } .mcard.active .mcard-icon { animation: none; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg, .chip { transition: none !important; } .chip:hover { transform: none; } .mcard.active .mcard-icon { animation: none; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
 
 
 /* ---------- First day timeline ---------- */
