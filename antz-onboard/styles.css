@@ -329,6 +329,79 @@ button { font: inherit; color: inherit; }
 @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (max-width: 560px) { .device-phone { width: 218px; } .device-framed { width: 232px; } }
 
+/* ---------- "Start here" cards (under the hero), each opening its own page ---------- */
+.bento-section { padding: 64px 0 16px; }
+.bento { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+.bento-card {
+  position: relative; display: flex; align-items: center; min-height: 300px; padding: 44px 48px; border-radius: 24px; overflow: hidden;
+  text-decoration: none; color: var(--text); isolation: isolate; box-shadow: 0 1px 2px rgba(14,23,21,.04);
+  transition: transform .5s cubic-bezier(.22,.8,.24,1), box-shadow .5s cubic-bezier(.22,.8,.24,1);
+}
+.bento-card:hover, .bento-card:focus-visible { transform: translateY(-4px); box-shadow: 0 26px 50px -24px rgba(14,40,34,.42), 0 2px 6px rgba(14,23,21,.05); }
+.bento-copy { position: relative; z-index: 1; display: flex; flex-direction: column; max-width: 540px; }
+.bento-card .eyebrow { margin-bottom: 10px; }
+.bento-title { font-size: clamp(28px, 3vw, 40px); font-weight: 800; letter-spacing: -.025em; line-height: 1.12; color: var(--ink); }
+.bento-text { margin-top: 14px; font-size: 16.5px; line-height: 1.6; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.bento-more { margin-top: 20px; display: inline-flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 600; color: var(--green-strong); }
+.bento-more svg { transition: transform .3s var(--ease); }
+.bento-card:hover .bento-more svg { transform: translate(2px, -2px); }
+/* The section's photo fills the card's right side and melts into the card colour */
+.bento-media {
+  position: absolute; top: 0; right: 0; bottom: 0; width: 48%; z-index: 0; background: center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 42%); mask-image: linear-gradient(90deg, transparent 0%, #000 42%);
+  transition: transform .8s cubic-bezier(.22,.8,.24,1);
+}
+.bento-card:hover .bento-media { transform: scale(1.04); }
+
+/* Objective: full width, deep brand green */
+.bento-objective { grid-column: 1 / -1; min-height: 320px; background: linear-gradient(115deg, #1F5A34 0%, #2A7444 48%, #2F6F6E 100%); }
+.bento-objective .bento-media { width: 52%; opacity: .92; }
+.bento-objective .eyebrow { color: #FFB39F; }
+.bento-objective .bento-title { color: #fff; }
+.bento-objective .bento-text { color: rgba(255,255,255,.86); }
+.bento-objective .bento-more { color: #8FE3AE; }
+/* The platform: soft mint */
+.bento-platform { background: linear-gradient(135deg, #EEF6F7 0%, #DDF0E6 100%); }
+.bento-platform .bento-copy { max-width: 56%; }
+/* Getting started: soft grey, with the app's home screen rising from the corner */
+.bento-getting-started { align-items: flex-start; background: linear-gradient(160deg, #F3F5F4 0%, #E7EEEB 100%); }
+.bento-getting-started .bento-copy { max-width: 62%; }
+.bento-phone { position: absolute; right: -28px; bottom: -150px; width: 176px; z-index: 0; transform: rotate(-8deg); transition: transform .6s cubic-bezier(.22,.8,.24,1); }
+.bento-phone .device-phone, .bento-phone .device-framed { width: 176px; }
+.bento-card:hover .bento-phone { transform: rotate(-5deg) translateY(-14px); }
+.bento-platform .bento-title, .bento-getting-started .bento-title {
+  width: fit-content; background: linear-gradient(135deg, #37BD69 0%, #1F415B 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+@media (max-width: 1000px) {
+  .bento-card { padding: 36px; }
+  .bento-getting-started .bento-copy { max-width: 70%; }
+}
+@media (max-width: 760px) {
+  .bento-section { padding: 40px 0 8px; }
+  .bento { grid-template-columns: 1fr; gap: 14px; }
+  .bento-card { flex-direction: column; align-items: stretch; min-height: 0; padding: 28px 24px 0; border-radius: 20px; }
+  .bento-copy, .bento-platform .bento-copy { max-width: none; padding-bottom: 24px; }
+  .bento-text { font-size: 15.5px; }
+  /* Photos sit under the text on phones, fading in from the top */
+  .bento-media, .bento-objective .bento-media { position: relative; width: auto; height: 170px; margin: 0 -24px; flex: none;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 45%); mask-image: linear-gradient(180deg, transparent 0%, #000 45%); }
+  .bento-getting-started { min-height: 290px; }
+  .bento-getting-started .bento-copy { max-width: 62%; }
+  .bento-phone { right: -24px; bottom: -120px; width: 150px; }
+  .bento-phone .device-phone, .bento-phone .device-framed { width: 150px; }
+}
+@media (prefers-reduced-motion: reduce) { .bento-card, .bento-media, .bento-phone { transition: none; } .bento-card:hover { transform: none; } }
+
+/* Kit pages: tabs to move between the three, then the section as it was on the home page */
+.kitpage { padding-top: calc(var(--header-h) + 24px); }
+/* Pages whose section has the soft grey background carry it up behind the tabs too */
+.kitpage.soft { background: var(--surface-soft); }
+.kit-tabs { display: flex; flex-wrap: wrap; gap: 8px; --tint-line: var(--green); }
+.kitpage .kit-section:first-of-type, .kitpage > .section { padding-top: 48px; }
+.kitpage .mpager { border-top-color: var(--line); margin: 0 0 96px; }
+@media (max-width: 640px) { .kit-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 calc(var(--gutter) * -1); padding: 2px var(--gutter) 6px; } .kitpage .mpager { margin-bottom: 64px; } }
+
 /* ---------- Module cards (under the hero) ---------- */
 /* Area tints: bg for thumbnails and panels, ink for small accents */
 .tint-butter { --tint: #FBF3DC; --tint-ink: #7A5B0B; --tint-line: #C49424; --tint-comp: #ECE8FB; --line-grad: url(#line-butter); --tint-line2: #8C80D6; }

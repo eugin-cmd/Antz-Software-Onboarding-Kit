@@ -70,19 +70,133 @@
   };
 
   /* ---------- Home ---------- */
+  /* ---------- Kit pages: the three "start here" sections, each on its own page ---------- */
+  /* Content from content.json (Edition 01, pages 3 to 5) */
+  const kitScreen = (m) => (m.shots[0] ? deviceHTML({ ...m.shots[0], device: m.shots[0].device || 'phone' }) : '');
+  const KIT_PAGES = [
+    { id: 'objective', module: 'objective-of-this-kit', eyebrow: 'Start here', more: 'Read the objective', photo: 'objective', pos: '50% 35%' },
+    { id: 'platform', module: 'what-is-antz-systems', eyebrow: 'The platform', more: 'Learn about Antz', photo: 'platform', pos: '72% 50%' },
+    { id: 'getting-started', module: 'getting-started', eyebrow: 'Onboarding flow', more: 'Start the guide' }
+  ];
+  const KIT_SECTIONS = {
+    objective: () => {
+      const objective = byId['objective-of-this-kit'];
+      return `
+      <section class="section kit-section" id="objective">
+        <div class="container kit-split kit-photo-left">
+          <figure class="kit-media kit-photo reveal">
+            <img src="${PHOTOS.objective}" alt="A keeper feeding a small animal in its enclosure" loading="lazy">
+          </figure>
+          <div class="kit-copy reveal">
+            <span class="eyebrow">Why we run this training</span>
+            <h2 class="section-title">Objective of this kit</h2>
+            <p class="section-lede">${esc(objective.intro)}</p>
+            <div class="kit-cards two">
+              ${objective.features.map((f) => `
+                <article class="kit-card">
+                  <span class="ic">${icon(f.icon)}</span>
+                  <h3>${esc(f.title)}</h3>
+                  <p>${esc(tidy(f.desc))}</p>
+                </article>`).join('')}
+            </div>
+          </div>
+        </div>
+      </section>
+`;
+    },
+    platform: () => {
+      const about = byId['what-is-antz-systems'];
+      return `
+      <section class="section section-soft kit-section" id="why">
+        <div class="container kit-split">
+          <div class="kit-copy reveal">
+            <span class="eyebrow">The platform</span>
+            <h2 class="section-title">What is Antz Systems?</h2>
+            <p class="section-lede">${esc(about.intro)}</p>
+            <h3 class="kit-label">Why use this app</h3>
+            <div class="kit-cards two compact">
+              ${about.features.map((f) => `
+                <article class="kit-card">
+                  <span class="ic">${icon(f.icon)}</span>
+                  <h3>${esc(f.title)}</h3>
+                  <p>${esc(tidy(f.desc))}</p>
+                </article>`).join('')}
+            </div>
+          </div>
+          <figure class="kit-media kit-photo reveal">
+            <img src="${PHOTOS.platform}" alt="A hand holding a phone showing the Antz Systems app" loading="lazy" style="object-position: 72% 50%">
+          </figure>
+        </div>
+      </section>
+`;
+    },
+    'getting-started': () => {
+      const start = byId['getting-started'];
+      const firstDay = [
+        ['Sign in to your workspace', start.features[0].desc, 'signin'],
+        ['Find your way around', start.features[1].desc, 'compass'],
+        ['Set up your master data', start.features[3].desc, 'database'],
+        ['Give everyone the right access', 'Create roles that match your organisation and switch permissions on module by module, so each person sees what their work needs.', 'access']
+      ];
+      return `
+      <section class="section section-soft kit-section" id="first-day">
+        <div class="container kit-split">
+          <div class="kit-media kit-device reveal">${kitScreen(start)}</div>
+          <div class="kit-copy reveal">
+            <span class="eyebrow">Module 03 · Onboarding flow</span>
+            <h2 class="section-title">Getting Started</h2>
+            <p class="section-lede">${esc(start.intro)}</p>
+            <h3 class="kit-label">Features</h3>
+            <ul class="kit-list">
+              ${start.features.map((f) => `
+                <li><span class="ic">${icon(f.icon)}</span><span><b>${esc(f.title)}</b>${esc(tidy(f.desc))}</span></li>`).join('')}
+            </ul>
+          </div>
+        </div>
+        <div class="container first-day">
+          <div class="section-head reveal">
+            <h3 class="section-title first-day-title">What your first day on Antz looks like</h3>
+            <p class="section-lede">Four steps take your team from first login to everyday use.</p>
+          </div>
+          <ol class="timeline">
+            ${firstDay.map(([t, d, ic], i) => `
+              <li class="reveal"><span class="dot">${icon(ic)}</span><div><h3><span class="step-n">${i + 1}.</span> ${esc(t)}</h3><p>${esc(tidy(d))}</p></div></li>`).join('')}
+          </ol>
+        </div>
+      </section>
+`;
+    }
+  };
+
+  function renderKit(id) {
+    const k = KIT_PAGES.find((x) => x.id === id);
+    if (!k) { location.hash = '#/'; return; }
+    const i = KIT_PAGES.indexOf(k);
+    const next = KIT_PAGES[i + 1] || null, prev = KIT_PAGES[i - 1] || null;
+    const title = (x) => byId[x.module].title;
+    const link = (x, dir) => x ? `
+      <a class="mpager-link ${dir}" href="#/kit/${x.id}">
+        <small>${dir === 'prev' ? 'Previous' : 'Next'}</small>
+        <b>${dir === 'prev' ? '← ' : ''}${esc(title(x))}${dir === 'next' ? ' →' : ''}</b>
+      </a>` : (dir === 'next' ? `
+      <a class="mpager-link next" href="#/" data-scroll="index">
+        <small>Next</small>
+        <b>Explore the modules →</b>
+      </a>` : '<span></span>');
+    app.innerHTML = `
+      <div class="kitpage${/section-soft/.test(KIT_SECTIONS[k.id]()) ? ' soft' : ''}">
+        <nav class="container kit-tabs" aria-label="Start here">
+          ${KIT_PAGES.map((x, j) => `<a class="msubtab" href="#/kit/${x.id}"${x === k ? ' aria-current="page"' : ''}><span class="n">0${j + 1}</span>${esc(title(x))}</a>`).join('')}
+        </nav>
+        ${KIT_SECTIONS[k.id]()}
+        <div class="container"><nav class="mpager" aria-label="Previous and next page">${link(prev, 'prev')}${link(next, 'next')}</nav></div>
+      </div>`;
+    document.title = `${title(k)} · Antz Onboarding`;
+  }
+
   function renderHome(returning) {
     const about = byId['what-is-antz-systems'];
-    const start = byId['getting-started'];
     const spot = byId[SPOTLIGHT_ID];
-    const objective = byId['objective-of-this-kit'];
-    const firstDay = [
-      ['Sign in to your workspace', start.features[0].desc, 'signin'],
-      ['Find your way around', start.features[1].desc, 'compass'],
-      ['Set up your master data', start.features[3].desc, 'database'],
-      ['Give everyone the right access', 'Create roles that match your organisation and switch permissions on module by module, so each person sees what their work needs.', 'access']
-    ];
-    /* Kit sections: content from content.json (Edition 01, pages 3 to 5) */
-    const kitScreen = (m) => (m.shots[0] ? deviceHTML({ ...m.shots[0], device: m.shots[0].device || 'phone' }) : '');
     const faqs = [
       ['What is Antz?', about.intro],
       ['Does it work on phones and computers?', 'Yes. The mobile app covers work on the ground, such as notes, treatments, transfers and egg records. The web app covers desk work, such as the hospital system, nursery set-up, reports and pharmacy stock. Updates appear in real time on phone, tablet and desktop.'],
@@ -114,6 +228,26 @@
         </div>
       </section>
 
+      <section class="bento-section" aria-label="Start here">
+        <div class="container bento">
+          ${KIT_PAGES.map((k) => {
+            const m = byId[k.module];
+            return `
+            <a class="bento-card bento-${k.id} reveal" href="#/kit/${k.id}">
+              <span class="bento-copy">
+                <span class="eyebrow">${esc(k.eyebrow)}</span>
+                <span class="bento-title">${esc(m.title)}</span>
+                <span class="bento-text">${esc(m.intro)}</span>
+                <span class="bento-more">${esc(k.more)} ${ARROW}</span>
+              </span>
+              ${k.id === 'getting-started'
+                ? `<span class="bento-phone" aria-hidden="true">${kitScreen(m)}</span>`
+                : `<span class="bento-media" style="background-image:url('${PHOTOS[k.photo]}')${k.pos ? `;background-position:${k.pos}` : ''}" aria-hidden="true"></span>`}
+            </a>`;
+          }).join('')}
+        </div>
+      </section>
+
       <section class="section modules-section" id="index">
         <div class="container">
           <div class="modules-head reveal">
@@ -124,49 +258,6 @@
             <p class="section-lede">Tap any card to see what the module does and preview its screens, right here.</p>
           </div>
           ${modulesHTML()}
-        </div>
-      </section>
-
-      <section class="section kit-section" id="objective">
-        <div class="container kit-split kit-photo-left">
-          <figure class="kit-media kit-photo reveal">
-            <img src="${PHOTOS.objective}" alt="A keeper feeding a small animal in its enclosure" loading="lazy">
-          </figure>
-          <div class="kit-copy reveal">
-            <span class="eyebrow">Why we run this training</span>
-            <h2 class="section-title">Objective of this kit</h2>
-            <p class="section-lede">${esc(objective.intro)}</p>
-            <div class="kit-cards two">
-              ${objective.features.map((f) => `
-                <article class="kit-card">
-                  <span class="ic">${icon(f.icon)}</span>
-                  <h3>${esc(f.title)}</h3>
-                  <p>${esc(tidy(f.desc))}</p>
-                </article>`).join('')}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-soft kit-section" id="why">
-        <div class="container kit-split">
-          <div class="kit-copy reveal">
-            <span class="eyebrow">The platform</span>
-            <h2 class="section-title">What is Antz Systems?</h2>
-            <p class="section-lede">${esc(about.intro)}</p>
-            <h3 class="kit-label">Why use this app</h3>
-            <div class="kit-cards two compact">
-              ${about.features.map((f) => `
-                <article class="kit-card">
-                  <span class="ic">${icon(f.icon)}</span>
-                  <h3>${esc(f.title)}</h3>
-                  <p>${esc(tidy(f.desc))}</p>
-                </article>`).join('')}
-            </div>
-          </div>
-          <figure class="kit-media kit-photo reveal">
-            <img src="${PHOTOS.platform}" alt="A hand holding a phone showing the Antz Systems app" loading="lazy" style="object-position: 72% 50%">
-          </figure>
         </div>
       </section>
 
@@ -186,32 +277,6 @@
         </div>
       </section>
 
-
-      <section class="section section-soft kit-section" id="first-day">
-        <div class="container kit-split">
-          <div class="kit-media kit-device reveal">${kitScreen(start)}</div>
-          <div class="kit-copy reveal">
-            <span class="eyebrow">Module 03 · Onboarding flow</span>
-            <h2 class="section-title">Getting Started</h2>
-            <p class="section-lede">${esc(start.intro)}</p>
-            <h3 class="kit-label">Features</h3>
-            <ul class="kit-list">
-              ${start.features.map((f) => `
-                <li><span class="ic">${icon(f.icon)}</span><span><b>${esc(f.title)}</b>${esc(tidy(f.desc))}</span></li>`).join('')}
-            </ul>
-          </div>
-        </div>
-        <div class="container first-day">
-          <div class="section-head reveal">
-            <h3 class="section-title first-day-title">What your first day on Antz looks like</h3>
-            <p class="section-lede">Four steps take your team from first login to everyday use.</p>
-          </div>
-          <ol class="timeline">
-            ${firstDay.map(([t, d, ic], i) => `
-              <li class="reveal"><span class="dot">${icon(ic)}</span><div><h3><span class="step-n">${i + 1}.</span> ${esc(t)}</h3><p>${esc(tidy(d))}</p></div></li>`).join('')}
-          </ol>
-        </div>
-      </section>
 
       <section class="cta">
         <div class="cta-bg" style="background-image:url('${PHOTOS.cta}')"></div>
@@ -994,11 +1059,11 @@
     const [, name, id, f] = location.hash.split('/');
     closeNav();
     if (pageTeardown) pageTeardown();
-    if (name === 'm' && id) {
+    if ((name === 'm' || name === 'kit') && id) {
       if (onHome) homeY = window.scrollY;
       onHome = false;
       if (parallaxOff) parallaxOff();
-      renderModule(id, Number(f) || 0);
+      if (name === 'kit') renderKit(id); else renderModule(id, Number(f) || 0);
       window.scrollTo(0, 0);
     } else {
       document.title = 'Antz Onboarding';
