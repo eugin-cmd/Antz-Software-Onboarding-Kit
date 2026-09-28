@@ -77,10 +77,10 @@
     const spot = byId[SPOTLIGHT_ID];
     const objective = byId['objective-of-this-kit'];
     const firstDay = [
-      ['Sign in to your workspace', start.features[0].desc],
-      ['Find your way around', start.features[1].desc],
-      ['Set up your master data', start.features[3].desc],
-      ['Give everyone the right access', 'Create roles that match your organisation and switch permissions on module by module, so each person sees what their work needs.']
+      ['Sign in to your workspace', start.features[0].desc, 'signin'],
+      ['Find your way around', start.features[1].desc, 'compass'],
+      ['Set up your master data', start.features[3].desc, 'database'],
+      ['Give everyone the right access', 'Create roles that match your organisation and switch permissions on module by module, so each person sees what their work needs.', 'access']
     ];
     /* Kit sections: content from content.json (Edition 01, pages 3 to 5) */
     const kitScreen = (m) => (m.shots[0] ? deviceHTML({ ...m.shots[0], device: m.shots[0].device || 'phone' }) : '');
@@ -208,8 +208,8 @@
             <p class="section-lede">Four steps take your team from first login to everyday use.</p>
           </div>
           <ol class="timeline">
-            ${firstDay.map(([t, d], i) => `
-              <li class="reveal"><span class="dot">${i + 1}</span><div><h3>${esc(t)}</h3><p>${esc(tidy(d))}</p></div></li>`).join('')}
+            ${firstDay.map(([t, d, ic], i) => `
+              <li class="reveal"><span class="dot">${icon(ic)}<span class="dot-n" aria-label="Step ${i + 1}">${i + 1}</span></span><div><h3>${esc(t)}</h3><p>${esc(tidy(d))}</p></div></li>`).join('')}
           </ol>
         </div>
       </section>

@@ -615,15 +615,19 @@ button { font: inherit; color: inherit; }
 .first-day-title { font-size: clamp(24px, 3vw, 32px); }
 @media (max-width: 640px) { .first-day { margin-top: 56px; } .first-day::before { margin-bottom: 44px; } }
 .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; list-style: none; margin: 0; padding: 0; position: relative; }
-.timeline::before { content: ""; position: absolute; top: 22px; left: 22px; right: 22px; height: 2px; background: var(--outline); z-index: 0; }
+.timeline::before { content: ""; position: absolute; top: 26px; left: 26px; right: 26px; height: 2px; background: var(--outline); z-index: 0; }
 .timeline li { position: relative; z-index: 1; }
-.timeline .dot { width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: #fff; display: grid; place-items: center; font-weight: 600; margin-bottom: 20px; box-shadow: 0 0 0 6px var(--surface-soft); }
+.timeline .dot { position: relative; width: 52px; height: 52px; border-radius: 50%; background: var(--green); color: #fff; display: grid; place-items: center; margin-bottom: 20px; box-shadow: 0 0 0 6px var(--surface-soft); }
+.timeline .dot svg { width: 24px; height: 24px; }
+/* Step number rides on the icon circle */
+.timeline .dot-n { position: absolute; top: -4px; right: -6px; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 999px; display: grid; place-items: center;
+  background: #fff; color: var(--green-strong); font-size: 12px; font-weight: 700; line-height: 1; box-shadow: 0 0 0 2px var(--surface-soft), 0 1px 3px rgba(14,23,21,.18); }
 .timeline h3 { font-size: 18px; margin-bottom: 8px; }
 .timeline p { color: var(--muted); font-size: 15px; }
 @media (max-width: 900px) {
   .timeline { grid-template-columns: 1fr; gap: 28px; }
-  .timeline::before { top: 22px; bottom: 22px; left: 21px; right: auto; width: 2px; height: auto; }
-  .timeline li { display: grid; grid-template-columns: 44px 1fr; gap: 18px; }
+  .timeline::before { top: 26px; bottom: 26px; left: 25px; right: auto; width: 2px; height: auto; }
+  .timeline li { display: grid; grid-template-columns: 52px 1fr; gap: 18px; }
   .timeline .dot { margin: 0; }
 }
 
