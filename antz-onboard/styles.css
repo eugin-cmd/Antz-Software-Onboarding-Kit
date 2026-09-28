@@ -576,9 +576,16 @@ a.mcard-face { text-decoration: none; color: inherit; }
 @media (max-width: 760px) { .mpanel-icon { width: 40px; height: 40px; border-radius: 12px; } .mpanel-icon img { width: 25px; height: 25px; } .mpanel-title { gap: 12px; } }
 .mpanel-intro { color: var(--muted); font-size: 17px; max-width: 640px; margin-bottom: 26px; }
 .mfeats { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 6px; }
-.mfeat-row { display: grid; grid-template-columns: 1fr; align-items: start; background: rgba(255,255,255,.55); border-radius: 12px; border: 1px solid transparent; transition: background .14s, border-color .14s; }
+.mfeat-row { position: relative; display: grid; grid-template-columns: 1fr; align-items: start; background: rgba(255,255,255,.55); border-radius: 12px; border: 1px solid transparent;
+  box-shadow: 0 1px 2px rgba(14,23,21,.04);
+  transition: background .14s, border-color .14s, transform .5s cubic-bezier(.22,.8,.24,1), box-shadow .5s cubic-bezier(.22,.8,.24,1); }
+/* Hover like the home module cards: lift with a soft shadow while the outline draws round, in the area colour */
+@media (hover: hover) and (pointer: fine) {
+  .mfeat-row:hover { z-index: 1; transform: translateY(-4px); box-shadow: 0 22px 44px -22px rgba(14,40,34,.38), 0 2px 6px rgba(14,23,21,.05); }
+}
+.mfeat-row > .drawn-border path { stroke: var(--tint-line); }
 .mfeat-row:hover { background: rgba(255,255,255,.85); }
-.mfeat-row.on { background: #fff; border-color: var(--outline); box-shadow: var(--shadow-sm); }
+.mfeat-row.on { background: #fff; border-color: var(--outline); }
 .mfeat { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; text-align: left; padding: 12px 8px 12px 14px; background: none; border: 0; cursor: pointer; width: 100%; }
 .mfeat .n {
   /* Selected number takes the panel outline's gradient (per area) */
@@ -827,6 +834,7 @@ a.mcard-face { text-decoration: none; color: inherit; }
   .mpin-areabtn b { max-width: 104px; overflow: hidden; text-overflow: ellipsis; }
   .mpin .mpin-chips { margin-right: calc(var(--gutter) * -1); padding-right: var(--gutter); }
 }
+@media (prefers-reduced-motion: reduce) { .mfeat-row, .mfeat-row:hover { transition: none; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .mpin, .mpin.on { transition: none; } .mpin-menu { animation: none; } }
 @media (prefers-reduced-motion: reduce) { .mtab-ind, .mpage, .mtab { transition: none; } .msubtabs.swap .msubtab, .mpage .swap-in { animation: none; } }
 

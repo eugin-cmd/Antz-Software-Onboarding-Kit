@@ -554,7 +554,7 @@
         `<path pathLength="1" stroke-width="${sw}" stroke-dasharray="0 2" stroke-opacity="${(1 / (FEATHER_LAYERS - j)).toFixed(4)}"/>`).join('');
       st = { p: 0, target: 0, raf: 0, paths: [...svg.children], feather: opts.feather, drawMs: opts.drawMs || DRAW_MS, undrawMs: opts.undrawMs || UNDRAW_MS, isOn: opts.isOn };
       borderState.set(el, st);
-      if (!opts.noHover) ['pointerenter', 'pointerleave', 'focus', 'blur'].forEach((ev) => el.addEventListener(ev, () => animateBorder(el)));
+      if (!opts.noHover) ['pointerenter', 'pointerleave', 'focus', 'blur', 'focusin', 'focusout'].forEach((ev) => el.addEventListener(ev, () => animateBorder(el)));
     }
     st.paths.forEach((path) => { path.setAttribute('d', d); path.setAttribute('stroke-width', sw); });
     st.len = st.paths[0].getTotalLength();
@@ -570,6 +570,10 @@
     const targets = [
       ...[...app.querySelectorAll('.mcard-face')].map((el) => [el, { ...CARD_BORDER,
         isOn: () => (el.matches(':hover') && canHover()) || el.matches(':focus-visible') }]),
+      /* Feature rows on module pages draw the same border as the home cards, in the area colour */
+      ...[...app.querySelectorAll('.mfeat-row')].map((el) => [el, { ...CARD_BORDER, stroke: 1, bleed: 0, over: true,
+        /* Hover, or keyboard focus on its button (a mouse click leaves focus behind, which must not keep it drawn) */
+        isOn: () => (el.matches(':hover') && canHover()) || !!el.querySelector(':focus-visible') }]),
       ...[...app.querySelectorAll('.mfilter, .hero-chips .chip')].map((el) => [el, { ...CHIP_BORDER,
         isOn: () => el.matches(':hover') || el.matches(':focus-visible') }])
     ];
@@ -873,6 +877,7 @@
                       <span class="n">${i + 1}</span>
                       <span class="t"><b>${esc(tidyTitle(f.title))}</b><small>${esc(tidy(f.desc))}</small></span>
                     </button>
+                    <svg class="drawn-border" aria-hidden="true"></svg>
                   </li>`).join('')}
               </ol>
               <p class="mpanel-hint">${hasShots ? (canHover() ? 'Click a feature to preview its screen' : 'Tap a feature to preview its screen') : 'Screens for this module are coming soon'}</p>
