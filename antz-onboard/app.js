@@ -186,11 +186,12 @@
     app.innerHTML = `
       <div class="kitpage${/section-soft/.test(KIT_SECTIONS[k.id]()) ? ' soft' : ''}">
         <nav class="container kit-tabs" aria-label="Start here">
-          ${KIT_PAGES.map((x, j) => `<a class="msubtab" href="#/kit/${x.id}"${x === k ? ' aria-current="page"' : ''}><span class="n">0${j + 1}</span>${esc(title(x))}</a>`).join('')}
+          ${KIT_PAGES.map((x, j) => `<a class="msubtab mfilter" href="#/kit/${x.id}"${x === k ? ' aria-current="page"' : ''}><span class="n">0${j + 1}</span>${esc(title(x))}<svg class="drawn-border" aria-hidden="true"></svg></a>`).join('')}
         </nav>
         ${KIT_SECTIONS[k.id]()}
         <div class="container"><nav class="mpager" aria-label="Previous and next page">${link(prev, 'prev')}${link(next, 'next')}</nav></div>
       </div>`;
+    sizeBorders();
     document.title = `${title(k)} · Antz Onboarding`;
   }
 
@@ -400,7 +401,6 @@
     const total = areas.reduce((t, a) => t + a.modules.length, 0);
     return `
       <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-        <linearGradient id="mcard-grad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#37BD69"/><stop offset="1" stop-color="#00D6C9"/></linearGradient>
         ${Object.entries(OUTLINE_GRADS).map(([k, [a, b]]) => `<linearGradient id="line-${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset=".3" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>`).join('')}
       </defs></svg>
       <div class="mfilters" role="toolbar" aria-label="Filter modules by area">
@@ -697,44 +697,91 @@
     const rep = a.modules.find((x) => CARD_PHOTOS.has(x.id)) || a.modules[0];
     return [a.id, { url: `assets/cards/${rep.id}.jpg`, pos: CARD_PHOTO_POS[rep.id] || '50% 50%', icon: iconOf(rep) }];
   }));
-  const moduleTabsHTML = (cur) => {
-    const area = areaById[cur.track];
-    return `
-      <nav class="mtabs" aria-label="Module areas and modules">
-        <div class="mtabs-areas">${areas.map((a) => {
-          const ph = areaPhoto[a.id];
-          const here = a.id === cur.track;
-          return `
-          <a class="mtab tint-${AREA_TINT[a.id]}" href="#/m/${here ? cur.id : a.modules[0].id}"${here ? ' aria-current="true"' : ''}>
-            <span class="mtab-thumb" style="background-image:url('${ph.url}');background-position:${ph.pos}"><img src="assets/icons/${ph.icon}_icon.svg" alt=""></span>
-            <span class="mtab-text"><b>${esc(a.label)}</b><small>${a.modules.length} modules</small></span>
-          </a>`;
-        }).join('')}
-        </div>
-        <div class="msubtabs">${area.modules.map((x) => `
-          <a class="msubtab" href="#/m/${x.id}"${x === cur ? ' aria-current="page"' : ''}><span class="n">${numberOf[x.id]}</span>${esc(x.title)}</a>`).join('')}
-        </div>
-      </nav>`;
-  };
-  /* Tab rows that scroll sideways: start with the current tab centred (without moving the page),
-     fade the edge where more tabs are hidden, and let a mouse wheel scroll the row */
+  /* Module chips look and behave like the home page's filter chips (.mfilter): rise and drawn border on hover,
+     gradient fill sweeping in when selected. mark = false renders none selected, so the fill can sweep in after. */
+  const subTabsHTML = (cur, mark = true) => areaById[cur.track].modules.map((x) => `
+    <a class="msubtab mfilter" href="#/m/${x.id}"${mark && x === cur ? ' aria-current="page"' : ''}><span class="n">${numberOf[x.id]}</span>${esc(x.title)}<svg class="drawn-border" aria-hidden="true"></svg></a>`).join('');
+  const markSubTab = (sub, cur) => sub.querySelectorAll('.msubtab').forEach((x) => {
+    if (x.getAttribute('href') === `#/m/${cur.id}`) x.setAttribute('aria-current', 'page'); else x.removeAttribute('aria-current');
+  });
+  const moduleTabsHTML = (cur) => `
+    <nav class="mtabs" aria-label="Module areas and modules">
+      <div class="mtabs-areas">${areas.map((a) => {
+        const ph = areaPhoto[a.id];
+        const here = a.id === cur.track;
+        return `
+        <a class="mtab tint-${AREA_TINT[a.id]}" href="#/m/${here ? cur.id : a.modules[0].id}"${here ? ' aria-current="true"' : ''}>
+          <span class="mtab-thumb" style="background-image:url('${ph.url}');background-position:${ph.pos}"><img src="assets/icons/${ph.icon}_icon.svg" alt=""></span>
+          <span class="mtab-text"><b>${esc(a.label)}</b><small>${a.modules.length} modules</small></span>
+        </a>`;
+      }).join('')}
+        <span class="mtab-ind" aria-hidden="true"></span>
+      </div>
+      <div class="msubtabs" data-area="${cur.track}">${subTabsHTML(cur)}</div>
+    </nav>`;
+
+  /* Tab rows that scroll sideways fade the edge where more tabs are hidden, and a mouse wheel scrolls them */
   const bindTabRow = (row) => {
-    if (!row) return;
-    const cur = row.querySelector('[aria-current]');
-    if (cur && row.scrollWidth > row.clientWidth) row.scrollLeft = cur.offsetLeft - row.offsetLeft - (row.clientWidth - cur.offsetWidth) / 2;
     const edges = () => {
       row.classList.toggle('more-l', row.scrollLeft > 2);
       row.classList.toggle('more-r', row.scrollLeft < row.scrollWidth - row.clientWidth - 2);
     };
-    edges();
     row.addEventListener('scroll', edges, { passive: true });
     row.addEventListener('wheel', (e) => {
       if (row.scrollWidth <= row.clientWidth || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       e.preventDefault();
       row.scrollLeft += e.deltaY;
     }, { passive: false });
-    return edges;
+    row._edges = edges;
   };
+  /* Bring a row's current tab to the middle (sideways only, so the page itself never moves) */
+  const centreTab = (row, smooth) => {
+    const cur = row.querySelector('[aria-current]');
+    if (!cur || row.scrollWidth <= row.clientWidth) { row._edges(); return; }
+    row.scrollTo({ left: cur.offsetLeft - (row.clientWidth - cur.offsetWidth) / 2, behavior: smooth && !reducedMotion() ? 'smooth' : 'auto' });
+    row._edges();
+  };
+  /* The selected-tab outline is one element that glides and resizes between tabs, taking on each area's colour */
+  const placeIndicator = (nav, animate) => {
+    const ind = nav.querySelector('.mtab-ind'), tab = nav.querySelector('.mtab[aria-current]');
+    if (!ind || !tab) return;
+    ind.classList.toggle('still', !animate);
+    ind.style.setProperty('--edge', getComputedStyle(tab).getPropertyValue('--edge'));
+    ind.style.width = `${tab.offsetWidth}px`;
+    ind.style.height = `${tab.offsetHeight}px`;
+    ind.style.transform = `translate(${tab.offsetLeft}px, ${tab.offsetTop}px)`;
+    if (!animate) { void ind.offsetWidth; ind.classList.remove('still'); }
+  };
+  /* Point the (kept) tab bar at the current module; animate says whether things glide or snap */
+  function syncTabs(nav, cur, animate) {
+    nav.querySelectorAll('.mtab').forEach((t, i) => {
+      const a = areas[i], here = a.id === cur.track;
+      t.setAttribute('href', `#/m/${here ? cur.id : a.modules[0].id}`);
+      if (here) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current');
+    });
+    const sub = nav.querySelector('.msubtabs');
+    const sweep = animate && !reducedMotion();
+    if (sub.dataset.area !== cur.track) {
+      sub.dataset.area = cur.track;
+      sub.innerHTML = subTabsHTML(cur, !sweep);
+      sub.scrollLeft = 0;
+      /* New area: its chips fade up, then the current one fills */
+      if (sweep) {
+        sub.classList.remove('swap'); void sub.offsetWidth; sub.classList.add('swap');
+        setTimeout(() => { if (sub.isConnected) markSubTab(sub, cur); }, 220);
+      }
+    } else markSubTab(sub, cur);
+    sizeBorders();
+    const rows = [nav.querySelector('.mtabs-areas'), sub];
+    if (!nav._bound) {
+      nav._bound = true;
+      rows.forEach(bindTabRow);
+      /* Web fonts or a new width can change tab sizes: follow without animating */
+      if ('ResizeObserver' in window) new ResizeObserver(() => { placeIndicator(nav, false); rows.forEach((r) => r._edges()); }).observe(nav);
+    }
+    placeIndicator(nav, animate);
+    rows.forEach((r) => centreTab(r, animate));
+  }
 
   function renderModule(id, featureIndex) {
     const m = byId[id];
@@ -751,7 +798,7 @@
       </a>` : '<span></span>';
     const hasShots = m.features.some((f) => f.shot) || m.shots.length > 0;
 
-    app.innerHTML = `
+    const html = `
       <section class="mpage tint-${tint}">
         <div class="container">
           ${moduleTabsHTML(m)}
@@ -777,12 +824,28 @@
         </div>
       </section>`;
 
+    /* Coming from another module page: keep the live page and its tab bar, so the selected tab glides
+       to its new place and the area colours blend; only the content under the tabs is replaced */
+    const page = app.querySelector('.mpage');
+    const kept = page && page.querySelector('.mtabs');
+    if (kept) {
+      const tpl = document.createElement('template');
+      tpl.innerHTML = html;
+      const next = tpl.content.querySelector('.mpage');
+      const box = page.querySelector(':scope > .container');
+      page.className = next.className;
+      [...box.children].forEach((c) => { if (c !== kept) c.remove(); });
+      [...next.querySelector(':scope > .container').children].forEach((c) => {
+        if (c.classList.contains('mtabs')) return;
+        if (!reducedMotion()) c.classList.add('swap-in');
+        box.append(c);
+      });
+      syncTabs(kept, m, true);
+    } else {
+      app.innerHTML = html;
+      syncTabs(app.querySelector('.mtabs'), m, false);
+    }
     bindFeatures(app.querySelector('.mpage'), m, featureIndex || 0);
-    const rowEdges = [...app.querySelectorAll('.mtabs-areas, .msubtabs')].map(bindTabRow);
-    const onTabResize = () => rowEdges.forEach((f) => f && f());
-    window.addEventListener('resize', onTabResize);
-    const featuresOff = pageTeardown;
-    pageTeardown = () => { if (featuresOff) featuresOff(); window.removeEventListener('resize', onTabResize); pageTeardown = null; };
     document.title = `${m.title} · Antz Onboarding`;
   }
 
