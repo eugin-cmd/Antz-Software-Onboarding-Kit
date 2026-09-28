@@ -436,15 +436,29 @@
 
   /* Module page: pick a feature to see its screen. On desktop the device stays beside the title;
      on phones it moves under the selected feature. The choice is kept in the URL so the link can be shared. */
-  function bindFeatures(root, m, start = 0) {
+  function bindFeatures(root, m, start = 0, openNow = false) {
     const inner = root.querySelector('.mpanel-inner');
     const stage = root.querySelector('.mpanel-stage');
     const feats = [...root.querySelectorAll('.mfeat')];
     const current = () => feats.findIndex((b) => b.getAttribute('aria-pressed') === 'true');
+    const mark = (i) => feats.forEach((b, j) => { b.setAttribute('aria-pressed', String(i === j)); b.parentElement.classList.toggle('on', i === j); });
+    /* Desktop and laptop: a feature's screen opens in a window with arrows either side */
+    /* The window grows out from the feature's open icon (or the row itself) */
+    const originOf = (i) => {
+      const el = feats[i].querySelector('.mfeat-open') || feats[i];
+      const r = el.getBoundingClientRect();
+      return r.width ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : null;
+    };
+    const openWindow = (i) => openFeatureWindow(m, i, {
+      origin: originOf(i),
+      step: (j) => { mark(j); history.replaceState(null, '', `#/m/${m.id}/${j}`); },
+      close: (j) => { history.replaceState(null, '', `#/m/${m.id}`); feats[j].focus({ preventScroll: true }); }
+    });
     const select = (i, fromUser) => {
-      feats.forEach((b, j) => { b.setAttribute('aria-pressed', String(i === j)); b.parentElement.classList.toggle('on', i === j); });
+      mark(i);
       if (fromUser) history.replaceState(null, '', `#/m/${m.id}/${i}`);
       if (!stage) return;
+      if (fromUser && !narrow()) { openWindow(i); return; }
       const f = m.features[i];
       const src = f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src);
       const holder = stage.querySelector('.mpanel-device');
@@ -478,11 +492,14 @@
         if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
         e.preventDefault();
         const n = (i + (e.key === 'ArrowDown' ? 1 : -1) + feats.length) % feats.length;
-        feats[n].focus(); select(n, true);
+        /* Arrow keys move through the list; on desktop Enter opens the window */
+        feats[n].focus(); if (narrow()) select(n, true); else mark(n);
       });
     });
     if (stage) bindGalleryTrigger(stage, m, current);
     select(Math.min(start, feats.length - 1));
+    /* A link to a feature (#/m/<id>/<n>) opens its window straight away on desktop */
+    if (openNow && stage && !narrow()) openWindow(Math.min(start, feats.length - 1));
 
     /* Re-place the device when the layout changes */
     let t;
@@ -846,7 +863,7 @@
     if (pin && pin._closeMenu && !e.target.closest('.mpin-area')) pin._closeMenu();
   });
 
-  function renderModule(id, featureIndex) {
+  function renderModule(id, featureIndex, openFeature = false) {
     const m = byId[id];
     if (!m || !visible.includes(m)) { location.hash = '#/'; return; }
     const area = areaById[m.track];
@@ -866,6 +883,7 @@
         <div class="container">
           ${moduleTabsHTML(m)}
           <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${numberOf[m.id]}</span>
+            <span class="mwash" aria-hidden="true"><i style="--ic:url('assets/icons/${iconOf(m)}_icon.svg')"></i></span>
           <div class="mpanel-inner${hasShots ? '' : ' no-stage'}">
             <div class="mpanel-info">
               <h1 class="mpanel-title"><span class="mpanel-icon"><img src="assets/icons/${iconOf(m)}_icon.svg" alt=""></span>${esc(m.title)}</h1>
@@ -874,13 +892,14 @@
                 ${m.features.map((f, i) => `
                   <li class="mfeat-row">
                     <button class="mfeat" type="button" data-i="${i}" aria-pressed="false">
-                      <span class="n">${i + 1}</span>
+                      <span class="n" aria-hidden="true">${icon(f.icon)}</span>
                       <span class="t"><b>${esc(tidyTitle(f.title))}</b><small>${esc(tidy(f.desc))}</small></span>
+                      ${hasShots ? `<span class="mfeat-open" aria-hidden="true">${EXPAND_SVG}</span>` : ''}
                     </button>
                     <svg class="drawn-border" aria-hidden="true"></svg>
                   </li>`).join('')}
               </ol>
-              <p class="mpanel-hint">${hasShots ? (canHover() ? 'Click a feature to preview its screen' : 'Tap a feature to preview its screen') : 'Screens for this module are coming soon'}</p>
+              <p class="mpanel-hint">${hasShots ? (narrow() ? 'Tap a feature to preview its screen' : 'Click a feature to open its screen') : 'Screens for this module are coming soon'}</p>
             </div>
             ${hasShots ? '<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p><p class="zoom-hint">Tap the screen to zoom</p></div>' : ''}
           </div>
@@ -909,7 +928,7 @@
       app.innerHTML = html;
       syncTabs(app.querySelector('.mtabs'), m, false);
     }
-    bindFeatures(app.querySelector('.mpage'), m, featureIndex || 0);
+    bindFeatures(app.querySelector('.mpage'), m, featureIndex || 0, openFeature);
     document.title = `${m.title} · Antz Onboarding`;
   }
 
@@ -1021,6 +1040,111 @@
      Tap a device screen to open every screen of that module full-screen:
      swipe between screens, pinch or double-tap to zoom, drag to pan, swipe down or ✕ to close. */
   const ZOOM_MAX = 4, ZOOM_TAP = 2.5;
+  /* ---------- Feature window (desktop and laptop) ----------
+     One feature at a time: its screen beside its title and description, with arrows either side
+     stepping through the module's features. Left/right keys step, Esc or a click outside closes. */
+  const EXPAND_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>';
+  const CHEV_L = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
+  const CHEV_R = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+  let closeFeatureWindow = null;
+  function openFeatureWindow(m, start, { step, close, origin } = {}) {
+    if (closeFeatureWindow) closeFeatureWindow(true);
+    const area = areaById[m.track];
+    const n = m.features.length;
+    const shotOf = (i) => {
+      const f = m.features[i];
+      const src = f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src);
+      return src ? shotFor(m, src) : null;
+    };
+    const w = document.createElement('div');
+    w.className = `fwin tint-${AREA_TINT[m.track]}`;
+    w.innerHTML = `
+      <div class="fwin-backdrop" data-close></div>
+      <button class="fwin-arrow prev" type="button" aria-label="Previous feature">${CHEV_L}</button>
+      <div class="fwin-card" role="dialog" aria-modal="true" aria-labelledby="fwin-title">
+        <button class="fwin-close" type="button" data-close aria-label="Close">${CLOSE_SVG}</button>
+        <div class="fwin-stage"><div class="fwin-device"></div></div>
+        <div class="fwin-info">
+          <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${esc(m.title)}</span>
+          <div class="fwin-text">
+            <div class="fwin-head"><span class="fwin-ic" aria-hidden="true"></span><p class="fwin-count" aria-live="polite"></p></div>
+            <h2 class="fwin-title" id="fwin-title"></h2><p class="fwin-desc"></p>
+          </div>
+          <div class="fwin-dots">${m.features.map((f, i) => `<button type="button" data-i="${i}" aria-label="${esc(tidyTitle(f.title))}"></button>`).join('')}</div>
+        </div>
+      </div>
+      <button class="fwin-arrow next" type="button" aria-label="Next feature">${CHEV_R}</button>`;
+    document.body.append(w);
+    document.body.classList.add('fwin-open');
+    const dev = w.querySelector('.fwin-device'), text = w.querySelector('.fwin-text');
+    const prev = w.querySelector('.fwin-arrow.prev'), next = w.querySelector('.fwin-arrow.next');
+    const dots = [...w.querySelectorAll('.fwin-dots button')];
+    let idx = -1;
+    const go = (i, dir = 0) => {
+      if (i < 0 || i >= n || i === idx) return;
+      idx = i;
+      const f = m.features[i], shot = shotOf(i);
+      w.querySelector('.fwin-count').textContent = `Feature ${i + 1} of ${n}`;
+      w.querySelector('.fwin-ic').innerHTML = icon(f.icon);
+      w.querySelector('.fwin-title').textContent = tidyTitle(f.title);
+      w.querySelector('.fwin-desc').textContent = tidy(f.desc);
+      dev.innerHTML = shot ? deviceHTML(shot) : '<p class="fwin-empty">Screen coming soon</p>';
+      /* The screen slides in from the side being moved to; the text fades up */
+      [dev, text].forEach((el) => { el.classList.remove('in-l', 'in-r', 'in-up'); void el.offsetWidth; });
+      dev.classList.add(dir > 0 ? 'in-r' : dir < 0 ? 'in-l' : 'in-up');
+      text.classList.add('in-up');
+      const had = document.activeElement;
+      prev.disabled = i === 0; next.disabled = i === n - 1;
+      /* An arrow that just became disabled drops focus; hand it to the other arrow */
+      if (had && had.disabled) (had === next ? prev : next).focus({ preventScroll: true });
+      dots.forEach((d, j) => d.setAttribute('aria-current', String(j === i)));
+      [i - 1, i + 1].forEach((j) => { const s2 = j >= 0 && j < n && shotOf(j); if (s2) new Image().src = s2.src; });
+      if (step) step(i);
+    };
+    const onKey = (e) => {
+      if (e.key === 'Escape') { e.preventDefault(); shut(); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1, 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1, -1); }
+      else if (e.key === 'Tab') {
+        /* Keep focus inside the window */
+        const f = [...w.querySelectorAll('button:not([disabled])')];
+        const a = f[0], z = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+        else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+      }
+    };
+    const shut = (instant) => {
+      document.removeEventListener('keydown', onKey);
+      document.body.classList.remove('fwin-open');
+      closeFeatureWindow = null;
+      if (instant || reducedMotion()) w.remove();
+      else { w.classList.remove('in'); w.classList.add('out'); setTimeout(() => w.remove(), 460); }
+      if (!instant && close) close(idx);
+    };
+    closeFeatureWindow = shut;
+    document.addEventListener('keydown', onKey);
+    prev.addEventListener('click', () => go(idx - 1, -1));
+    next.addEventListener('click', () => go(idx + 1, 1));
+    dots.forEach((d) => d.addEventListener('click', () => go(+d.dataset.i, +d.dataset.i > idx ? 1 : -1)));
+    w.addEventListener('click', (e) => { if (e.target.closest('[data-close]')) shut(); });
+    go(start);
+    /* Radial opening: a circle grows from the clicked feature until it covers the whole card */
+    const card = w.querySelector('.fwin-card');
+    const cr = card.getBoundingClientRect();
+    const o = origin || { x: cr.left + cr.width / 2, y: cr.top + cr.height / 2 };
+    const ox = o.x - cr.left, oy = o.y - cr.top;
+    const r = Math.ceil(Math.max(Math.hypot(ox, oy), Math.hypot(cr.width - ox, oy), Math.hypot(ox, cr.height - oy), Math.hypot(cr.width - ox, cr.height - oy)));
+    /* Place the starting point without animating to it, so the circle really starts at the feature */
+    card.style.transition = 'none';
+    card.style.setProperty('--ox', `${Math.round(ox)}px`);
+    card.style.setProperty('--oy', `${Math.round(oy)}px`);
+    card.style.setProperty('--r', `${r}px`);
+    void card.offsetWidth;
+    card.style.transition = '';
+    requestAnimationFrame(() => w.classList.add('in'));
+    w.querySelector('.fwin-close').focus({ preventScroll: true });
+  }
+
   function gallerySlides(m) {
     const seen = new Map();
     const slides = [];
@@ -1185,12 +1309,13 @@
   function route() {
     const [, name, id, f] = location.hash.split('/');
     closeNav();
+    if (closeFeatureWindow) closeFeatureWindow(true);
     if (pageTeardown) pageTeardown();
     if ((name === 'm' || name === 'kit') && id) {
       if (onHome) homeY = window.scrollY;
       onHome = false;
       if (parallaxOff) parallaxOff();
-      if (name === 'kit') renderKit(id); else renderModule(id, Number(f) || 0);
+      if (name === 'kit') renderKit(id); else renderModule(id, Number(f) || 0, f !== undefined && f !== '');
       window.scrollTo(0, 0);
     } else {
       document.title = 'Antz Onboarding';

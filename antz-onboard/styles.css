@@ -594,6 +594,10 @@ a.mcard-face { text-decoration: none; color: inherit; }
   background: #fff; color: var(--tint-ink); border: 1px solid var(--line);
 }
 .mfeat-row.on .mfeat .n { background: var(--num-grad); border-color: transparent; color: #fff; font-weight: 700; }
+/* Each feature's own icon sits in the circle (area colour; white on the gradient when selected) */
+.mfeat .n { width: 30px; height: 30px; transition: background .3s, color .3s, border-color .3s; }
+.mfeat .n svg { width: 15px; height: 15px; }
+.mfeat { grid-template-columns: 32px 1fr; }
 .mfeat .t b { display: block; font-size: 15px; font-weight: 600; color: var(--ink); margin-top: 2px; }
 .mfeat .t small { display: none; font-size: 14px; color: var(--muted); margin-top: 3px; line-height: 1.45; }
 .mfeat-row.on .mfeat .t small { display: block; }
@@ -835,6 +839,101 @@ a.mcard-face { text-decoration: none; color: inherit; }
   .mpin .mpin-chips { margin-right: calc(var(--gutter) * -1); padding-right: var(--gutter); }
 }
 @media (prefers-reduced-motion: reduce) { .mfeat-row, .mfeat-row:hover { transition: none; transform: none; } }
+/* Desktop and laptop: screens open in the feature window, so the page shows the full feature list */
+.mfeat-open { display: none; }
+@media (min-width: 761px) {
+  .mpage .mpanel-inner { grid-template-columns: minmax(0, 860px); }
+  .mpage .mpanel-stage { display: none; }
+  .mpage .mfeat .t small { display: block; }
+  .mpage .mfeat { grid-template-columns: 32px 1fr auto; }
+  .mfeat-open {
+    display: grid; place-items: center; align-self: center; width: 34px; height: 34px; border-radius: 50%;
+    color: var(--muted-2); transition: background .2s, color .2s;
+  }
+  .mfeat-row:hover .mfeat-open { background: var(--tint); color: var(--tint-ink); }
+}
+
+/* Desktop: the module's own icon as a large, faint illustration washing the empty right side */
+.mwash { display: none; }
+@media (min-width: 1100px) {
+  .mpage > .container { position: relative; }
+  .mpage .mpanel-inner, .mpage .mpager { position: relative; z-index: 1; }
+  .mwash {
+    display: block; position: absolute; z-index: 0; pointer-events: none;
+    right: -90px; top: 230px; width: 520px; height: 520px; border-radius: 50%;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--tint-line) 16%, transparent), transparent);
+  }
+  .mwash i {
+    position: absolute; inset: 80px; background-color: var(--tint-line); opacity: .11;
+    -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat;
+  }
+}
+@media (min-width: 1100px) and (prefers-reduced-motion: no-preference) {
+  .mwash i { animation: washIn 1.1s cubic-bezier(.22,.8,.24,1) both; }
+  @keyframes washIn { from { opacity: 0; transform: scale(.94) translateY(12px); } to { opacity: .11; transform: none; } }
+}
+
+/* Feature window */
+body.fwin-open { overflow: hidden; }
+.fwin { position: fixed; inset: 0; z-index: 70; display: flex; align-items: center; justify-content: center; gap: 22px; padding: 24px; }
+.fwin-backdrop { opacity: 0; transition: opacity .35s ease; }
+.fwin.in .fwin-backdrop { opacity: 1; }
+.fwin-backdrop { position: absolute; inset: 0; background: rgba(10,30,26,.5); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.fwin-card {
+  position: relative; display: grid; grid-template-columns: minmax(0, 56fr) minmax(0, 44fr); width: min(1000px, calc(100vw - 200px)); max-height: calc(100vh - 48px);
+  border-radius: 24px; overflow: hidden; background: #fff; box-shadow: 0 40px 90px -30px rgba(0,0,0,.5);
+  /* Radial opening from the clicked feature (--ox/--oy/--r set in app.js): slow start, smooth finish */
+  clip-path: circle(0px at var(--ox, 50%) var(--oy, 50%));
+  transition: clip-path .4s cubic-bezier(.5,0,.75,0);
+}
+.fwin.in .fwin-card { clip-path: circle(var(--r, 150%) at var(--ox, 50%) var(--oy, 50%)); transition: clip-path .7s cubic-bezier(.55,0,.25,1); }
+.fwin-stage {
+  order: 2; display: grid; place-items: center; padding: 36px 24px; min-height: 0; overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 100% 100%, color-mix(in srgb, var(--tint-comp) 70%, transparent) 0%, transparent 60%),
+    linear-gradient(165deg, var(--tint) 0%, var(--tint) 30%, var(--tint-comp) 100%);
+}
+.fwin-device { display: grid; place-items: center; }
+.fwin-device .device-phone, .fwin-device .device-framed { width: min(300px, calc((100vh - 140px) * 9 / 19.2)); }
+.fwin-device .device-tablet, .fwin-device .device-web { width: min(400px, 100%); }
+.fwin-empty { color: var(--muted); font-size: 15px; }
+.fwin-info { display: flex; flex-direction: column; padding: 56px 44px 40px 52px; min-height: 0; overflow-y: auto; }
+.fwin-head { display: flex; align-items: center; gap: 12px; margin: 22px 0 14px; }
+.fwin-ic {
+  flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: #fff;
+  background: linear-gradient(135deg, var(--tint-line) 0%, var(--tint-line) 25%, var(--tint-line2) 100%);
+}
+.fwin-ic svg { width: 22px; height: 22px; }
+.fwin-count { font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--muted-2); }
+.fwin-title { font-size: clamp(26px, 2.6vw, 34px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; color: var(--ink); }
+.fwin-desc { margin-top: 14px; font-size: 17px; line-height: 1.6; color: var(--muted); }
+.fwin-dots { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 32px; }
+.fwin-dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 5px; cursor: pointer; background: color-mix(in srgb, var(--tint-line) 30%, #fff); transition: width .3s cubic-bezier(.22,.8,.24,1), background .3s; }
+.fwin-dots button[aria-current="true"] { width: 26px; background: var(--tint-line); }
+.fwin-close {
+  position: absolute; top: 16px; right: 16px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer;
+  background: var(--surface-soft); color: var(--ink); display: grid; place-items: center; transition: transform .2s, background .2s;
+}
+.fwin-close:hover { transform: rotate(90deg); background: var(--line); }
+.fwin-arrow {
+  position: relative; z-index: 1; flex: none; width: 56px; height: 56px; border-radius: 50%; border: 0; cursor: pointer;
+  background: #fff; color: var(--ink); display: grid; place-items: center; box-shadow: 0 12px 30px -12px rgba(0,0,0,.45);
+  opacity: 0; transition: transform .45s cubic-bezier(.34,1.56,.64,1), opacity .25s ease, background .2s, color .2s;
+}
+/* Arrows appear once the card has opened, and go first when it closes */
+.fwin.in .fwin-arrow { opacity: 1; transition: transform .45s cubic-bezier(.34,1.56,.64,1), opacity .35s ease .45s, background .2s, color .2s; }
+.fwin.in .fwin-arrow:disabled { opacity: .35; }
+.fwin-arrow:hover:not(:disabled) { transform: scale(1.08); background: var(--tint-line); color: #fff; }
+.fwin-arrow:disabled { cursor: default; }
+/* The screen slides in from the side being moved to; first view and text fade up */
+.fwin-device.in-r { animation: fwinR .5s cubic-bezier(.22,.8,.24,1) both; }
+.fwin-device.in-l { animation: fwinL .5s cubic-bezier(.22,.8,.24,1) both; }
+.fwin-device.in-up, .fwin-text.in-up { animation: fwinUp .5s cubic-bezier(.22,.8,.24,1) both; }
+@keyframes fwinR { from { opacity: 0; transform: translateX(46px); } to { opacity: 1; transform: none; } }
+@keyframes fwinL { from { opacity: 0; transform: translateX(-46px); } to { opacity: 1; transform: none; } }
+@keyframes fwinUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (max-width: 1000px) { .fwin-card { width: calc(100vw - 160px); } .fwin-info { padding: 52px 32px 32px; } .fwin { gap: 14px; } }
+@media (prefers-reduced-motion: reduce) { .fwin, .fwin-card, .fwin.in .fwin-card, .fwin-arrow, .fwin.in .fwin-arrow, .fwin-backdrop { transition: none; } .fwin-device, .fwin-text { animation: none !important; } }
 @media (prefers-reduced-motion: reduce) { .mpin, .mpin.on { transition: none; } .mpin-menu { animation: none; } }
 @media (prefers-reduced-motion: reduce) { .mtab-ind, .mpage, .mtab { transition: none; } .msubtabs.swap .msubtab, .mpage .swap-in { animation: none; } }
 
