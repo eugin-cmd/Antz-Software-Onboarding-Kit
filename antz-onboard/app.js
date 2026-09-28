@@ -58,7 +58,6 @@
     .map((t) => ({ ...t, desc: tidy(t.desc), modules: visible.filter((m) => m.track === t.id), ...AREA_LOOK[t.id] }))
     .filter((a) => a.modules.length);
   const areaById = Object.fromEntries(areas.map((a) => [a.id, a]));
-  const moduleIcon = (m) => icon(AREA_LOOK[m.track] && m.glyph === 'note' ? AREA_LOOK[m.track].glyph : m.glyph);
 
   const shotFor = (m, src) => m.shots.find((s) => s.src === src) || { src, device: 'phone', alt: '' };
   const deviceHTML = (shot) => {
@@ -71,7 +70,7 @@
   };
 
   /* ---------- Home ---------- */
-  function renderHome() {
+  function renderHome(returning) {
     const about = byId['what-is-antz-systems'];
     const start = byId['getting-started'];
     const spot = byId[SPOTLIGHT_ID];
@@ -243,7 +242,7 @@
 
     bindParallax();
     bindSteps(spot, 'spot', document.getElementById('spot-device'));
-    bindModules();
+    bindModules(!!returning);
     bindSearch();
     app.querySelectorAll('.chip[data-area]').forEach((c) =>
       c.addEventListener('click', () => { filterArea(c.dataset.area); scrollToId('index'); }));
@@ -312,38 +311,25 @@
       <span class="mcard-num">${numberOf[m.id]}</span>
     </span>`;
   };
-  /* Open-panel outline: same route as the cards, with the arrow folded into the top edge at cx */
-  /* Arrow size: 17px on desktop, 13px on phones where the gap to the card is smaller; 9px corner radius */
-  const NOTCH_R = 9;
-  const notchSize = () => (narrow() ? 13 : 17);
-  /* The arrow as path commands along the panel's top edge (y = T), with a 9px radius at the tip and at both joins */
-  const notchSegment = (cx, T) => {
-    const NOTCH_W = notchSize(), NOTCH_H = notchSize();
-    const pts = [[cx - NOTCH_W, T], [cx, T - NOTCH_H], [cx + NOTCH_W, T]];
-    const prevOf = [[cx - NOTCH_W - 100, T], pts[0], pts[1]], nextOf = [pts[1], pts[2], [cx + NOTCH_W + 100, T]];
-    const sweeps = [0, 1, 0];
-    return pts.map((P, k) => {
-      const a = [prevOf[k][0] - P[0], prevOf[k][1] - P[1]], b = [nextOf[k][0] - P[0], nextOf[k][1] - P[1]];
-      const la = Math.hypot(...a), lb = Math.hypot(...b);
-      const ua = [a[0] / la, a[1] / la], ub = [b[0] / lb, b[1] / lb];
-      const ang = Math.acos(Math.max(-1, Math.min(1, ua[0] * ub[0] + ua[1] * ub[1])));
-      const t = NOTCH_R / Math.tan(ang / 2);
-      const q0 = [P[0] + ua[0] * t, P[1] + ua[1] * t], q1 = [P[0] + ub[0] * t, P[1] + ub[1] * t];
-      return `L${q0[0].toFixed(2)},${q0[1].toFixed(2)} A${NOTCH_R},${NOTCH_R} 0 0 ${sweeps[k]} ${q1[0].toFixed(2)},${q1[1].toFixed(2)}`;
-    }).join(' ');
-  };
-  const panelPath = (w, h, r, i, cx) => {
-    const R = Math.max(r - i, 0), L = i, T = i, Rt = w - i, B = h - i;
-    /* Starts at the top-left corner, so the draw begins on screen, next to the open card */
-    return `M${L},${T + R} A${R},${R} 0 0 1 ${L + R},${T} ${notchSegment(cx, T)} H${Rt - R} A${R},${R} 0 0 1 ${Rt},${T + R} V${B - R} A${R},${R} 0 0 1 ${Rt - R},${B} H${L + R} A${R},${R} 0 0 1 ${L},${B - R} Z`;
-  };
-  /* Filled arrow in the panel colour; reaches 3px below the edge to hide the panel's resting 1px border there */
-  const notchFill = (cx, T, NOTCH_W = notchSize()) => `M${cx - NOTCH_W - 12},${T + 3} L${cx - NOTCH_W - 12},${T} ${notchSegment(cx, T)} L${cx + NOTCH_W + 12},${T} L${cx + NOTCH_W + 12},${T + 3} Z`;
   /* Hover border: one path that starts at the bottom-left corner and closes there */
   const borderPath = (w, h, r, i = 2) => {
     const R = Math.max(r - i, 0), L = i, T = i, Rt = w - i, B = h - i;
     return `M${L},${B - R} V${T + R} A${R},${R} 0 0 1 ${L + R},${T} H${Rt - R} A${R},${R} 0 0 1 ${Rt},${T + R} V${B - R} A${R},${R} 0 0 1 ${Rt - R},${B} H${L + R} A${R},${R} 0 0 1 ${L},${B - R} Z`;
   };
+
+  /* Module card: a link to the module's own page */
+  const mcardHTML = (m) => `
+    <article class="mcard" data-id="${m.id}">
+      <a class="mcard-face" href="#/m/${m.id}">
+        ${thumbHTML(m)}
+        <span class="mcard-body">
+          <span class="mcard-title">${esc(m.title)}</span>
+          <span class="mcard-sum">${esc(summary(m))}</span>
+          <span class="mcard-foot"><span>${m.features.length} features</span><span class="mcard-plus" aria-hidden="true"></span></span>
+        </span>
+        <svg class="drawn-border" aria-hidden="true"></svg>
+      </a>
+    </article>`;
 
   function modulesHTML() {
     const total = areas.reduce((t, a) => t + a.modules.length, 0);
@@ -364,25 +350,12 @@
               <h3 id="mg-${a.id}">${esc(a.label)}</h3>
               <span class="count">${a.modules.length} modules</span>
             </header>
-            <div class="mgrid">${a.modules.map((m) => `
-              <article class="mcard" data-id="${m.id}">
-                <button class="mcard-face" type="button" aria-expanded="false" aria-controls="mpanel">
-                  ${thumbHTML(m)}
-                  <span class="mcard-body">
-                    <span class="mcard-title">${esc(m.title)}</span>
-                    <span class="mcard-sum">${esc(summary(m))}</span>
-                    <span class="mcard-foot"><span>${m.features.length} features</span><span class="mcard-plus" aria-hidden="true"></span></span>
-                  </span>
-                  <svg class="drawn-border" aria-hidden="true"></svg>
-                </button>
-              </article>`).join('')}
-            </div>
+            <div class="mgrid">${a.modules.map(mcardHTML).join('')}</div>
           </section>`).join('')}
       </div>`;
   }
 
-  let openCardId = null;
-  let panelTeardown = null;
+  let pageTeardown = null;
   const narrow = () => matchMedia('(max-width: 760px)').matches;
 
   function filterArea(id) {
@@ -394,122 +367,30 @@
       if (r.top < innerHeight && r.bottom > 0) { if (dealObserver) dealObserver.unobserve(g); dealGroup(g); }
       else if (dealObserver && g.querySelector('.mcard.pending')) dealObserver.observe(g);
     });
-    const openCard = openCardId && app.querySelector(`.mcard[data-id="${openCardId}"]`);
-    if (openCard && openCard.closest('.mgroup').hidden) closeCard();
   }
 
-  /* The panel sits after the last card on the clicked card's row, so nothing jumps */
-  function rowEnd(card) {
-    const cards = [...card.parentElement.querySelectorAll(':scope > .mcard')];
-    const top = card.offsetTop;
-    return cards.filter((c) => c.offsetTop === top).pop() || card;
-  }
-
-  /* animate: the panel's border un-draws, then the panel folds away. Switching cards closes instantly. */
-  function closeCard(focusBack, animate = false) {
-    const panel = document.getElementById('mpanel');
-    const card = openCardId && app.querySelector(`.mcard[data-id="${openCardId}"]`);
-    if (card) { card.classList.remove('active'); card.querySelector('.mcard-face').setAttribute('aria-expanded', 'false'); refreshBorder(card); }
-    if (panel && animate && !reducedMotion()) {
-      panel.removeAttribute('id');
-      panel.classList.add('closing');
-      animateBorder(panel);
-      /* Shrink back into the card while the outline un-draws */
-      panel.classList.remove('enter');
-      void panel.offsetWidth;
-      panel.classList.add('leave');
-      panel.addEventListener('animationend', (e) => { if (e.target === panel) panel.remove(); });
-      setTimeout(() => panel.remove(), 600);
-    } else if (panel) panel.remove();
-    if (panelTeardown) panelTeardown();
-    if (focusBack && card) card.querySelector('.mcard-face').focus();
-    openCardId = null;
-  }
-
-  function openCard(card, { instant = false, feature = 0 } = {}) {
-    const m = byId[card.dataset.id];
-    const area = areaById[m.track];
-    if (openCardId) closeCard();
-    openCardId = m.id;
-    card.classList.add('active');
-    card.querySelector('.mcard-face').setAttribute('aria-expanded', 'true');
-    refreshBorder(card);
-
-    const panel = document.createElement('div');
-    panel.className = `mpanel tint-${AREA_TINT[m.track]}${instant ? '' : ' enter'}`;
-    panel.id = 'mpanel';
-    panel.setAttribute('role', 'region');
-    panel.setAttribute('aria-label', `${m.title} details`);
-    const hasShots = m.features.some((f) => f.shot);
-    panel.innerHTML = `
-      <svg class="drawn-border" aria-hidden="true"></svg>
-      <div class="mpanel-inner${hasShots ? '' : ' no-stage'}">
-        <button class="mpanel-close" type="button" aria-label="Close ${esc(m.title)}">${CLOSE_SVG}</button>
-        <div class="mpanel-info">
-          <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${numberOf[m.id]}</span>
-          <h3 class="mpanel-title"><span class="mpanel-icon"><img src="assets/icons/${iconOf(m)}_icon.svg" alt=""></span>${esc(m.title)}</h3>
-          <p class="mpanel-intro">${esc(m.intro)}</p>
-          <ol class="mfeats" aria-label="Features">
-            ${m.features.map((f, i) => `
-              <li class="mfeat-row">
-                <button class="mfeat" type="button" data-i="${i}" aria-pressed="false">
-                  <span class="n">${i + 1}</span>
-                  <span class="t"><b>${esc(tidyTitle(f.title))}</b><small>${esc(tidy(f.desc))}</small></span>
-                </button>
-                <a class="mfeat-go" href="#/m/${m.id}/${i}" aria-label="Open ${esc(tidyTitle(f.title))} in the full tour">${ARROW}</a>
-              </li>`).join('')}
-          </ol>
-          <div class="mpanel-actions">
-            <a class="btn btn-primary" href="#/m/${m.id}">Open the full tour</a>
-            <span class="hint">${hasShots ? (canHover() ? 'Click a feature to preview its screen' : 'Tap a feature to preview its screen') : 'Screens for this module are coming soon'}</span>
-          </div>
-        </div>
-        ${hasShots ? '<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p><p class="zoom-hint">Tap the screen to zoom</p></div>' : ''}
-      </div>`;
-
-    rowEnd(card).after(panel);
-
-    /* 2px drawn outline around the panel and its arrow, pointing at the open card */
-    const notchX = () => {
-      const pr = panel.getBoundingClientRect(), cr = card.getBoundingClientRect();
-      return Math.round(Math.max(48, Math.min(pr.width - 48, cr.left + cr.width / 2 - pr.left)));
-    };
-    const PANEL_BORDER = { stroke: 2, feather: 64, over: true, noHover: true, drawMs: DRAW_MS, undrawMs: 550,
-      isOn: () => panel.isConnected && !panel.classList.contains('closing'),
-      path: (w, h, r, i) => panelPath(w, h, r, i, notchX()) };
-    const fitPanel = () => {
-      const nx = notchX();
-      panel.style.setProperty('--notch-x', `${nx}px`);
-      /* Radius that reaches the panel's farthest corner from the blow-out point */
-      panel.style.setProperty('--blow-r', `${Math.ceil(Math.hypot(Math.max(nx, panel.offsetWidth - nx), panel.offsetHeight + 14)) + 4}px`);
-      fitBorder(panel, PANEL_BORDER);
-      const svg = panel.querySelector(':scope > .drawn-border');
-      let fill = svg.querySelector('.notch-fill');
-      if (!fill) { fill = document.createElementNS('http://www.w3.org/2000/svg', 'path'); fill.setAttribute('class', 'notch-fill'); svg.prepend(fill); }
-      fill.setAttribute('d', notchFill(nx, 1));
-    };
-    fitPanel();
-    if (instant || reducedMotion()) { const st = borderState.get(panel); if (st) { st.p = st.target = 1; paintBorder(panel, 1); } }
-    else animateBorder(panel);
-    const panelRO = 'ResizeObserver' in window ? new ResizeObserver(fitPanel) : null;
-    if (panelRO) panelRO.observe(panel);
-
-    const stage = panel.querySelector('.mpanel-stage');
-    const feats = [...panel.querySelectorAll('.mfeat')];
+  /* Module page: pick a feature to see its screen. On desktop the device glides beside the selected
+     feature; on phones it moves under it. The choice is kept in the URL so the link can be shared. */
+  function bindFeatures(root, m, start = 0) {
+    const inner = root.querySelector('.mpanel-inner');
+    const stage = root.querySelector('.mpanel-stage');
+    const feats = [...root.querySelectorAll('.mfeat')];
+    const current = () => feats.findIndex((b) => b.getAttribute('aria-pressed') === 'true');
     const select = (i, fromUser) => {
       feats.forEach((b, j) => { b.setAttribute('aria-pressed', String(i === j)); b.parentElement.classList.toggle('on', i === j); });
+      if (fromUser) history.replaceState(null, '', `#/m/${m.id}/${i}`);
       if (!stage) return;
       const f = m.features[i];
       const src = f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src);
       const holder = stage.querySelector('.mpanel-device');
       const shot = src ? shotFor(m, src) : null;
-      const current = holder.firstElementChild;
+      const cur = holder.firstElementChild;
       const kind = shot ? deviceHTML(shot).match(/class="device ([\w-]+)/)[1] : '';
-      if (current && shot && current.classList.contains(kind)) {
+      if (cur && shot && cur.classList.contains(kind)) {
         /* Same device: swap the screen and replay the rise, so every feature selection feels the same */
-        const img = current.querySelector('img');
+        const img = cur.querySelector('img');
         img.src = shot.src; img.alt = shot.alt || '';
-        current.classList.remove('rise'); void current.offsetWidth; current.classList.add('rise');
+        cur.classList.remove('rise'); void cur.offsetWidth; cur.classList.add('rise');
       } else {
         /* First view (or a different device): the device rises from below and settles */
         holder.innerHTML = shot ? deviceHTML(shot) : '';
@@ -525,14 +406,14 @@
           if (dev) { dev.classList.remove('rise'); void dev.offsetWidth; dev.classList.add('rise'); }
         }
       } else {
-        if (stage.parentElement !== panel.querySelector('.mpanel-inner')) panel.querySelector('.mpanel-inner').append(stage);
+        if (stage.parentElement !== inner) inner.append(stage);
         alignStage(i, fromUser);
       }
     };
-    /* Desktop: the device glides down beside the selected feature (the panel grows if needed),
-       then the page scrolls just enough to show the whole device below the pinned bars */
+    /* Desktop: the device glides down beside the selected feature,
+       then the page scrolls just enough to show the whole device below the header */
     const alignStage = (i, fromUser) => {
-      const info = panel.querySelector('.mpanel-info'), row = feats[i].parentElement;
+      const info = root.querySelector('.mpanel-info'), row = feats[i].parentElement;
       const rowY = row.getBoundingClientRect().top - info.getBoundingClientRect().top;
       const y = Math.max(0, Math.round(rowY + row.offsetHeight / 2 - stage.offsetHeight / 2));
       stage.style.setProperty('--stage-y', `${y}px`);
@@ -540,9 +421,9 @@
       clearTimeout(alignStage.t);
       alignStage.t = setTimeout(() => {
         const dev = stage.querySelector('.device');
-        if (!dev || !panel.isConnected) return;
+        if (!dev || !root.isConnected) return;
         const d = dev.getBoundingClientRect();
-        const topLimit = document.querySelector('.site-header').offsetHeight + (app.querySelector('.mfilters')?.offsetHeight || 0) + 16;
+        const topLimit = document.querySelector('.site-header').offsetHeight + 16;
         let by = 0;
         if (d.bottom > innerHeight - 16) by = d.bottom - innerHeight + 24;
         if (d.top - by < topLimit) by = d.top - topLimit;
@@ -558,28 +439,14 @@
         feats[n].focus(); select(n, true);
       });
     });
-    panel.querySelector('.mpanel-close').addEventListener('click', () => closeCard(true, true));
-    if (stage) bindGalleryTrigger(stage, m, () => feats.findIndex((b) => b.getAttribute('aria-pressed') === 'true'));
-    select(Math.min(feature, feats.length - 1));
+    if (stage) bindGalleryTrigger(stage, m, current);
+    select(Math.min(start, feats.length - 1));
 
-    /* Keep the panel under the right row when the layout changes */
+    /* Re-place the device when the layout changes */
     let t;
-    const onResize = () => { clearTimeout(t); t = setTimeout(() => { rowEnd(card).after(panel); select(feats.findIndex((b) => b.getAttribute('aria-pressed') === 'true')); fitPanel(); }, 120); };
-    const onKey = (e) => { if (e.key === 'Escape') closeCard(true, true); };
+    const onResize = () => { clearTimeout(t); t = setTimeout(() => select(current()), 120); };
     window.addEventListener('resize', onResize);
-    document.addEventListener('keydown', onKey);
-    panelTeardown = () => { window.removeEventListener('resize', onResize); document.removeEventListener('keydown', onKey); if (panelRO) panelRO.disconnect(); panelTeardown = null; };
-
-    if (!instant) {
-      requestAnimationFrame(() => {
-        const header = document.querySelector('.site-header').offsetHeight;
-        const cardTop = card.getBoundingClientRect().top - header - 16;
-        const overflow = panel.getBoundingClientRect().bottom - innerHeight + 24;
-        /* Scroll just enough to show the panel, but never push the card off the top */
-        const by = cardTop < 0 ? cardTop : Math.min(Math.max(overflow, 0), cardTop);
-        if (by) window.scrollBy({ top: by, behavior: 'smooth' });
-      });
-    }
+    pageTeardown = () => { window.removeEventListener('resize', onResize); pageTeardown = null; };
   }
 
   /* Drawn border with feathered ends, shared by module cards and filter chips.
@@ -660,8 +527,7 @@
     if (borderObserver) borderObserver.disconnect();
     const targets = [
       ...[...app.querySelectorAll('.mcard-face')].map((el) => [el, { ...CARD_BORDER,
-        /* Touch screens have no hover: there the border draws when the card is tapped open */
-        isOn: () => (el.matches(':hover') && canHover()) || el.matches(':focus-visible') || el.closest('.mcard').classList.contains('active') }]),
+        isOn: () => (el.matches(':hover') && canHover()) || el.matches(':focus-visible') }]),
       ...[...app.querySelectorAll('.mfilter, .hero-chips .chip')].map((el) => [el, { ...CHIP_BORDER,
         isOn: () => el.matches(':hover') || el.matches(':focus-visible') }])
     ];
@@ -672,8 +538,7 @@
       targets.forEach(([el]) => borderObserver.observe(el));
     }
   }
-  const refreshBorder = (card) => card && animateBorder(card.querySelector('.mcard-face'));
-
+  
   /* Card entrance, played once per area as it first scrolls into view.
      Cards in a group below the fold wait (hidden) until the group scrolls into view. */
   /* Soft rise: each card fades up 12px, staggered left to right */
@@ -717,30 +582,12 @@
     if ('ResizeObserver' in window) { filtersObserver = new ResizeObserver(set); filtersObserver.observe(bar); }
   }
 
-  function bindModules() {
+  function bindModules(returning) {
     trackFilterBar();
     sizeBorders();
-    setupDealing(!!openCardId);
+    setupDealing(returning);
     app.querySelectorAll('.mfilter').forEach((b) => b.addEventListener('click', () => filterArea(b.dataset.area)));
-    app.querySelectorAll('.mcard-face').forEach((face) => face.addEventListener('click', () => {
-      const card = face.closest('.mcard');
-      if (openCardId === card.dataset.id) closeCard(false, true); else openCard(card);
-    }));
-    /* Coming back from a module page: reopen the card the visitor had open */
-    const again = openCardId && app.querySelector(`.mcard[data-id="${openCardId}"]`);
-    openCardId = null;
-    if (again) openCard(again, { instant: true });
   }
-
-  const cardHTML = (m) => `
-    <a class="module-card" href="#/m/${m.id}">
-      <span class="ic">${moduleIcon(m)}</span>
-      <span>
-        <h4>${esc(m.title)}</h4>
-        <p>${esc(m.intro)}</p>
-        <span class="meta">${m.features.length} features</span>
-      </span>
-    </a>`;
 
   /* ---------- Click-driven feature steps with a device preview ---------- */
   function stepsHTML(m, key) {
@@ -805,50 +652,47 @@
     const m = byId[id];
     if (!m || !visible.includes(m)) { location.hash = '#/'; return; }
     const area = areaById[m.track];
+    const tint = AREA_TINT[m.track];
     const siblings = area.modules;
     const idx = siblings.indexOf(m);
     const prev = siblings[idx - 1], next = siblings[idx + 1];
-    const hasShots = m.features.some((f) => f.shot) || m.shots.length;
-    const others = siblings.filter((s) => s !== m).slice(0, 3);
+    const hasShots = m.features.some((f) => f.shot) || m.shots.length > 0;
+    const others = siblings.filter((s) => s !== m);
 
     app.innerHTML = `
-      <section class="mod-hero">
+      <section class="mpage tint-${tint}">
         <div class="container">
           <nav class="crumbs" aria-label="Breadcrumb">
             <a href="#/">Home</a><span>›</span>
             <a href="#/" data-scroll="index">${esc(area.label)}</a><span>›</span>
             <span aria-current="page">${esc(m.title)}</span>
           </nav>
-          <div class="mod-head">
-            <span class="ic">${moduleIcon(m)}</span>
-            <div>
-              <h1>${esc(m.title)}</h1>
-              <p class="mod-intro">${esc(m.intro)}</p>
-              <div class="mod-facts">
-                <span class="fact">${esc(area.label)}</span>
-                <span class="fact">${m.features.length} features</span>
-                ${hasShots ? `<span class="fact">${canHover() ? 'Click' : 'Tap'} a feature to see the screen</span>` : ''}
-              </div>
+          <div class="mpanel-inner${hasShots ? '' : ' no-stage'}">
+            <div class="mpanel-info">
+              <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${numberOf[m.id]}</span>
+              <h1 class="mpanel-title"><span class="mpanel-icon"><img src="assets/icons/${iconOf(m)}_icon.svg" alt=""></span>${esc(m.title)}</h1>
+              <p class="mpanel-intro">${esc(m.intro)}</p>
+              <ol class="mfeats" aria-label="Features">
+                ${m.features.map((f, i) => `
+                  <li class="mfeat-row">
+                    <button class="mfeat" type="button" data-i="${i}" aria-pressed="false">
+                      <span class="n">${i + 1}</span>
+                      <span class="t"><b>${esc(tidyTitle(f.title))}</b><small>${esc(tidy(f.desc))}</small></span>
+                    </button>
+                  </li>`).join('')}
+              </ol>
+              <p class="mpanel-hint">${hasShots ? (canHover() ? 'Click a feature to preview its screen' : 'Tap a feature to preview its screen') : 'Screens for this module are coming soon'}</p>
             </div>
+            ${hasShots ? '<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p><p class="zoom-hint">Tap the screen to zoom</p></div>' : ''}
           </div>
         </div>
       </section>
 
-      <div class="container">
-        ${hasShots ? `
-          <div class="mod-body">
-            <div>${stepsHTML(m, 'mod')}</div>
-            <div class="mod-stage"><div id="mod-device"></div><p class="caption" id="mod-caption"></p><p class="zoom-hint">Tap the screen to zoom</p></div>
-          </div>` : `
-          <div class="feature-cards">
-            ${m.features.map((f) => `<article class="value-card"><div class="ic">${icon(f.icon)}</div><h3>${esc(f.title)}</h3><p>${esc(tidy(f.desc))}</p></article>`).join('')}
-          </div>`}
-      </div>
-
-      <section class="mod-more section-soft">
+      <section class="mod-more">
         <div class="container">
-          <h2>More in ${esc(area.label)}</h2>
-          <div class="module-grid">${others.map(cardHTML).join('')}</div>
+          ${others.length ? `
+            <h2>More in ${esc(area.label)}</h2>
+            <div class="mgroup tint-${tint}"><div class="mgrid">${others.map(mcardHTML).join('')}</div></div>` : ''}
           <div class="mod-pager">
             ${prev ? `<a class="btn btn-ghost" href="#/m/${prev.id}">← ${esc(prev.title)}</a>` : '<span></span>'}
             ${next ? `<a class="btn btn-ghost" href="#/m/${next.id}">${esc(next.title)} →</a>` : `<a class="btn btn-primary" href="mailto:hello@antz.systems?subject=Antz%20walkthrough">Book a walkthrough</a>`}
@@ -856,7 +700,8 @@
         </div>
       </section>`;
 
-    if (hasShots) bindSteps(m, 'mod', document.getElementById('mod-device'), featureIndex || 0, document.getElementById('mod-caption'));
+    sizeBorders();
+    bindFeatures(app.querySelector('.mpage'), m, featureIndex || 0);
     document.title = `${m.title} · Antz Onboarding`;
   }
 
@@ -1132,18 +977,17 @@
   function route() {
     const [, name, id, f] = location.hash.split('/');
     closeNav();
+    if (pageTeardown) pageTeardown();
     if (name === 'm' && id) {
       if (onHome) homeY = window.scrollY;
       onHome = false;
       if (parallaxOff) parallaxOff();
-      if (panelTeardown) panelTeardown();
       renderModule(id, Number(f) || 0);
       window.scrollTo(0, 0);
     } else {
       document.title = 'Antz Onboarding';
       const cameBack = !onHome && !goTop && !pendingScroll && homeY;
-      if (!cameBack) openCardId = null;
-      renderHome();
+      renderHome(cameBack);
       onHome = true;
       if (pendingScroll) { const sid = pendingScroll; requestAnimationFrame(() => scrollToId(sid)); pendingScroll = null; }
       else if (cameBack) { document.querySelectorAll('.reveal').forEach((e) => e.classList.add('in')); window.scrollTo(0, homeY); }

@@ -341,7 +341,7 @@ button { font: inherit; color: inherit; }
 .modules-head { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 64px; align-items: end; margin-bottom: 28px; }
 .modules-head .section-lede { margin: 0; justify-self: end; max-width: 460px; }
 /* Main titles: extra-bold with a diagonal green-to-deep-teal gradient fill (titles on photos stay white) */
-.section-title, .spotlight h2, .mod-head h1 {
+.section-title, .spotlight h2 {
   font-weight: 800; letter-spacing: -.025em; width: fit-content;
   background: linear-gradient(135deg, #37BD69 0%, #1F415B 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #1F415B;
@@ -483,41 +483,16 @@ button { font: inherit; color: inherit; }
      Dash lengths and offsets are animated from app.js (feathered ends). */
   fill: none; stroke: url(#mcard-grad); stroke-linecap: butt; stroke-linejoin: round;
 }
-/* Cards and their open panels use a deeper tone of the area's panel colour instead of the brand gradient */
-.mpanel > .drawn-border path, .mcard-face > .drawn-border path { stroke: var(--line-grad, var(--tint-line)); }
-.mcard.active .mcard-face { transform: none; box-shadow: 0 22px 44px -22px rgba(14,40,34,.38); }
-/* The panel's arrow is drawn in its border SVG: a rounded fill (.notch-fill) plus the outline */
-.mpanel > .drawn-border .notch-fill { fill: var(--tint); stroke: none; }
+/* Cards use a deeper tone of the area's colour for their drawn border instead of the brand gradient */
+.mcard-face > .drawn-border path { stroke: var(--line-grad, var(--tint-line)); }
+a.mcard-face { text-decoration: none; color: inherit; }
 
-/* Detail panel: spans the whole row under the open card */
-.mpanel { grid-column: 1 / -1;
-  /* The area colour holds across the top (where the arrow joins), then melts into a faint complementary hue */
-  background:
-    radial-gradient(120% 90% at 100% 100%, color-mix(in srgb, var(--tint-comp) 70%, transparent) 0%, transparent 60%),
-    linear-gradient(165deg, var(--tint) 0%, var(--tint) 30%, var(--tint-comp) 100%);
-  background-color: var(--tint); border-radius: 22px; border: 1px solid var(--line); position: relative; scroll-margin-top: calc(var(--header-h) + var(--mfilters-h, 64px) + 16px); }
-/* Radial blow-out: a circle grows from where the arrow meets the open card until it covers the panel */
-.mpanel.enter { animation: panelBlow .75s cubic-bezier(.65,0,.35,1) both; }
-@keyframes panelBlow {
-  from { clip-path: circle(0px at var(--notch-x, 50%) -14px); }
-  to   { clip-path: circle(var(--blow-r, 150%) at var(--notch-x, 50%) -14px); }
-}
-.mpanel.closing { pointer-events: none; }
-.mpanel.leave { animation: panelShrink .45s cubic-bezier(.65,0,.35,1) forwards; }
-@keyframes panelShrink {
-  from { clip-path: circle(var(--blow-r, 150%) at var(--notch-x, 50%) -14px); }
-  to   { clip-path: circle(0px at var(--notch-x, 50%) -14px); }
-}
-.mpanel-inner { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; padding: 36px 40px; align-items: start; }
+/* Module page layout (in the style of the old open-card panel): feature list beside the device */
+.mpanel-inner { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: start; }
 .mpanel-inner.no-stage { grid-template-columns: 1fr; }
-.mpanel-close {
-  position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer;
-  background: #fff; color: var(--ink); display: grid; place-items: center; box-shadow: var(--shadow-sm); transition: transform .14s;
-}
-.mpanel-close:hover { transform: rotate(90deg); }
 .mpanel-area { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--tint-ink); }
 .mpanel-area svg { width: 15px; height: 15px; }
-.mpanel-info h3 { font-size: clamp(26px, 3vw, 34px); margin: 8px 0 10px; }
+.mpanel-info .mpanel-title { font-size: clamp(30px, 4vw, 44px); margin: 10px 0 12px; }
 /* Module icon before the panel title, on a badge in the area's gradient */
 .mpanel-title { display: flex; align-items: center; gap: 14px; }
 .mpanel-icon {
@@ -526,9 +501,9 @@ button { font: inherit; color: inherit; }
 }
 .mpanel-icon img { width: 30px; height: 30px; }
 @media (max-width: 760px) { .mpanel-icon { width: 40px; height: 40px; border-radius: 12px; } .mpanel-icon img { width: 25px; height: 25px; } .mpanel-title { gap: 12px; } }
-.mpanel-intro { color: var(--muted); font-size: 16px; max-width: 620px; margin-bottom: 22px; }
+.mpanel-intro { color: var(--muted); font-size: 17px; max-width: 640px; margin-bottom: 26px; }
 .mfeats { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 6px; }
-.mfeat-row { display: grid; grid-template-columns: 1fr auto; align-items: start; background: rgba(255,255,255,.55); border-radius: 12px; border: 1px solid transparent; transition: background .14s, border-color .14s; }
+.mfeat-row { display: grid; grid-template-columns: 1fr; align-items: start; background: rgba(255,255,255,.55); border-radius: 12px; border: 1px solid transparent; transition: background .14s, border-color .14s; }
 .mfeat-row:hover { background: rgba(255,255,255,.85); }
 .mfeat-row.on { background: #fff; border-color: var(--outline); box-shadow: var(--shadow-sm); }
 .mfeat { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; text-align: left; padding: 12px 8px 12px 14px; background: none; border: 0; cursor: pointer; width: 100%; }
@@ -542,12 +517,9 @@ button { font: inherit; color: inherit; }
 .mfeat .t b { display: block; font-size: 15px; font-weight: 600; color: var(--ink); margin-top: 2px; }
 .mfeat .t small { display: none; font-size: 14px; color: var(--muted); margin-top: 3px; line-height: 1.45; }
 .mfeat-row.on .mfeat .t small { display: block; }
-.mfeat-go { align-self: center; margin-right: 10px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; color: var(--muted-2); text-decoration: none; transition: background .14s, color .14s; }
-.mfeat-go:hover { background: var(--green-tint); color: var(--green-strong); }
-.mfeat-row:not(.on) .mfeat-go { opacity: 0; }
-.mfeat-row:hover .mfeat-go, .mfeat-go:focus-visible { opacity: 1; }
-.mpanel-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
-.mpanel-actions .hint { font-size: 13.5px; color: var(--muted-2); }
+.mpanel-hint { font-size: 13.5px; color: var(--muted-2); }
+/* Without screens there is nothing to select, so every description shows */
+.no-stage .mfeat .t small { display: block; }
 /* Desktop: the device sits beside the selected feature (offset set in app.js) and glides between features.
    --pin-top is the space taken by the header and the sticky filter bar (measured as --mfilters-h). */
 .mpanel-stage { --pin-top: calc(var(--header-h) + var(--mfilters-h, 64px) + 16px); position: relative; margin-top: var(--stage-y, 0px); transition: margin-top .5s cubic-bezier(.65,0,.35,1); display: grid; justify-items: center; }
@@ -569,7 +541,7 @@ button { font: inherit; color: inherit; }
 @media (max-width: 1000px) {
   .modules-head { grid-template-columns: 1fr; }
   .modules-head .section-lede { justify-self: start; }
-  .mpanel-inner { grid-template-columns: 1fr 260px; gap: 28px; padding: 28px; }
+  .mpanel-inner { grid-template-columns: 1fr 260px; gap: 28px; }
   .mpanel-stage .device-phone, .mpanel-stage .device-framed { width: 220px; }
 }
 @media (max-width: 760px) {
@@ -584,31 +556,16 @@ button { font: inherit; color: inherit; }
   .mcard-foot { font-size: 12px; padding-top: 8px; }
   .mcard-plus { width: 28px; height: 28px; }
   .mcard-face { border-radius: 14px; }
-  .mpanel-inner, .mpanel-inner.no-stage { grid-template-columns: 1fr; padding: 24px 18px 20px; gap: 0; }
-  .mpanel-info h3 { padding-right: 44px; }
+  .mpanel-inner, .mpanel-inner.no-stage { grid-template-columns: 1fr; gap: 0; }
   .mpanel-intro { font-size: 15px; }
-  .mfeat-row { grid-template-columns: 1fr auto; }
-  .mfeat-go { opacity: 1 !important; }
   .mpanel-stage .device-phone, .mpanel-stage .device-framed { width: 210px; }
   .mfilter { height: 38px; padding: 0 14px; font-size: 14px; }
   .mfilters { flex-wrap: nowrap; overflow-x: auto; margin-left: calc(var(--gutter) * -1); margin-right: calc(var(--gutter) * -1); padding-left: var(--gutter); padding-right: var(--gutter); }
   .mgroup-head .count { display: none; }
   .mgroup-head h3 { font-size: 18px; }
 }
-@media (prefers-reduced-motion: reduce) { .mpanel-stage { transition: none; } .mpanel.enter, .mpanel.leave { animation: none; } .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg, .chip { transition: none !important; } .chip:hover { transform: none; } .mcard.active .mcard-icon { animation: none; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .mpanel-stage { transition: none; } .mcard-face, .mcard-bg, .mcard-icon, .mcard-plus, .mfilter, .mfilter::before, .mfilter span, .mfilter svg, .chip { transition: none !important; } .chip:hover { transform: none; } .mcard.active .mcard-icon { animation: none; } .mcard.deal { animation: none; } .mcard.pending { opacity: 1; } .mpanel-stage .device.rise { animation: none; } .mfilter:hover { transform: none; } }
 
-.module-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-content: start; }
-.module-card {
-  display: flex; gap: 16px; padding: 20px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line);
-  text-decoration: none; transition: border-color .14s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease);
-}
-.module-card:hover { border-color: var(--green); box-shadow: var(--shadow); transform: translateY(-2px); }
-.module-card .ic { flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--green-tint); color: var(--green-strong); }
-.module-card .ic svg { width: 22px; height: 22px; }
-.module-card h4 { font-size: 17px; margin-bottom: 4px; }
-.module-card p { font-size: 14px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.module-card .meta { margin-top: 10px; font-size: 13px; color: var(--green-strong); font-weight: 500; }
-@media (max-width: 640px) { .module-grid { grid-template-columns: 1fr; gap: 12px; } .module-card { padding: 16px; } }
 
 /* ---------- First day timeline ---------- */
 .first-day { margin-top: 88px; }
@@ -658,35 +615,20 @@ button { font: inherit; color: inherit; }
 .faq .answer { padding: 0 0 24px; color: var(--muted); font-size: 16px; max-width: 700px; }
 
 /* ---------- Module page ---------- */
-.mod-hero { background: var(--surface-soft); border-bottom: 1px solid var(--line); padding: calc(40px + var(--header-h)) 0 44px; }
+/* Full-width band in the area's colour: the colour holds across the top, then melts into a faint complementary hue */
+.mpage { --mfilters-h: 0px; padding: calc(28px + var(--header-h)) 0 72px;
+  background:
+    radial-gradient(120% 90% at 100% 100%, color-mix(in srgb, var(--tint-comp) 70%, transparent) 0%, transparent 60%),
+    linear-gradient(165deg, var(--tint) 0%, var(--tint) 30%, var(--tint-comp) 100%);
+  background-color: var(--tint); border-bottom: 1px solid var(--line); }
+.mpage .crumbs { margin-bottom: 28px; }
 .crumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 14px; color: var(--muted-2); margin-bottom: 20px; }
 .crumbs a { color: var(--muted); text-decoration: none; }
 .crumbs a:hover { color: var(--green-strong); }
-.mod-head { display: flex; gap: 20px; align-items: flex-start; }
-.mod-head .ic { flex: none; width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; background: var(--green); color: #fff; }
-.mod-head .ic svg { width: 28px; height: 28px; }
-.mod-head h1 { font-size: clamp(30px, 4vw, 44px); }
-.mod-intro { font-size: 18px; color: var(--muted); margin-top: 12px; max-width: 760px; }
-.mod-facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-.fact { font-size: 13px; font-weight: 500; padding: 5px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--line); color: var(--muted); }
-.mod-body { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding: 56px 0 80px; align-items: start; }
-.mod-body .steps { margin: 0; }
-.mod-stage { position: sticky; top: calc(var(--header-h) + 24px); display: grid; place-items: center; padding: 32px; border-radius: var(--radius-lg); background: linear-gradient(160deg, var(--mint), var(--surface-soft)); min-height: 560px; }
-.mod-stage .caption { margin-top: 18px; font-size: 14px; color: var(--muted); text-align: center; max-width: 380px; }
-.feature-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 56px 0 80px; }
-.feature-cards .value-card h3 { font-size: 17px; }
-.mod-more { padding: 64px 0 96px; border-top: 1px solid var(--line); }
+.mod-more { padding: 64px 0 96px; }
 .mod-more h2 { font-size: 24px; margin-bottom: 24px; }
-.mod-more .module-grid { grid-template-columns: repeat(3, 1fr); }
 .mod-pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; flex-wrap: wrap; }
-@media (max-width: 900px) {
-  .mod-body { grid-template-columns: 1fr; gap: 32px; padding: 32px 0 56px; }
-  .mod-stage { position: relative; top: 0; min-height: 0; order: -1; padding: 28px 16px; }
-  .mod-more .module-grid { grid-template-columns: 1fr; }
-  .feature-cards { grid-template-columns: 1fr; padding: 32px 0 56px; }
-  .mod-head .ic { width: 48px; height: 48px; }
-  .mod-intro { font-size: 16px; }
-}
+@media (max-width: 760px) { .mpage { padding: calc(16px + var(--header-h)) 0 40px; } .mpage .crumbs { margin-bottom: 18px; } .mpanel-intro { font-size: 15px; } .mod-more { padding: 44px 0 64px; } }
 
 /* ---------- Phones: the device sits under the selected step ---------- */
 @media (max-width: 900px) {
