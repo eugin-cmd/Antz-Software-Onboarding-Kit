@@ -619,9 +619,7 @@ button { font: inherit; color: inherit; }
 .timeline li { position: relative; z-index: 1; }
 .timeline .dot { position: relative; width: 52px; height: 52px; border-radius: 50%; background: var(--green); color: #fff; display: grid; place-items: center; margin-bottom: 20px; box-shadow: 0 0 0 6px var(--surface-soft); }
 .timeline .dot svg { width: 24px; height: 24px; }
-/* Step number rides on the icon circle */
-.timeline .dot-n { position: absolute; top: -4px; right: -6px; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 999px; display: grid; place-items: center;
-  background: #fff; color: var(--green-strong); font-size: 12px; font-weight: 700; line-height: 1; box-shadow: 0 0 0 2px var(--surface-soft), 0 1px 3px rgba(14,23,21,.18); }
+.timeline .step-n { color: var(--green-strong); }
 .timeline h3 { font-size: 18px; margin-bottom: 8px; }
 .timeline p { color: var(--muted); font-size: 15px; }
 @media (max-width: 900px) {

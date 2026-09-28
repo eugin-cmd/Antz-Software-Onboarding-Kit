@@ -209,7 +209,7 @@
           </div>
           <ol class="timeline">
             ${firstDay.map(([t, d, ic], i) => `
-              <li class="reveal"><span class="dot">${icon(ic)}<span class="dot-n" aria-label="Step ${i + 1}">${i + 1}</span></span><div><h3>${esc(t)}</h3><p>${esc(tidy(d))}</p></div></li>`).join('')}
+              <li class="reveal"><span class="dot">${icon(ic)}</span><div><h3><span class="step-n">${i + 1}.</span> ${esc(t)}</h3><p>${esc(tidy(d))}</p></div></li>`).join('')}
           </ol>
         </div>
       </section>
