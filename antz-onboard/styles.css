@@ -330,7 +330,7 @@ button { font: inherit; color: inherit; }
 @media (max-width: 560px) { .device-phone { width: 218px; } .device-framed { width: 232px; } }
 
 /* ---------- "Start here" cards (under the hero), each opening its own page ---------- */
-.bento-section { padding: 64px 0 16px; }
+.bento-section { padding: 64px 0 88px; }
 .bento { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
 .bento-card {
   position: relative; display: flex; align-items: center; min-height: 300px; padding: 44px 48px; border-radius: 24px; overflow: hidden;
@@ -378,7 +378,7 @@ button { font: inherit; color: inherit; }
   .bento-getting-started .bento-copy { max-width: 70%; }
 }
 @media (max-width: 760px) {
-  .bento-section { padding: 40px 0 8px; }
+  .bento-section { padding: 40px 0 56px; }
   .bento { grid-template-columns: 1fr; gap: 14px; }
   .bento-card { flex-direction: column; align-items: stretch; min-height: 0; padding: 28px 24px 0; border-radius: 20px; }
   .bento-copy, .bento-platform .bento-copy { max-width: none; padding-bottom: 24px; }
