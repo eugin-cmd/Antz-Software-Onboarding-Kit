@@ -1150,6 +1150,7 @@
       else window.scrollTo(0, 0);
       goTop = false;
     }
+    syncHeader();
     observeReveal();
   }
   function observeReveal() {
@@ -1176,11 +1177,29 @@
 
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.getElementById('primary-nav');
-  function closeNav() { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+  function closeNav() { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); syncHeader(); }
   toggle.addEventListener('click', () => {
     const open = !nav.classList.contains('open');
     nav.classList.toggle('open', open); toggle.setAttribute('aria-expanded', String(open));
+    syncHeader();
   });
+
+  /* Transparent header: clear at the top, glass once scrolled, white while over the hero photo.
+     An open mobile menu always uses the light glass so its dropdown reads as one piece. */
+  const header = document.querySelector('.site-header');
+  function syncHeader() {
+    const hero = app.querySelector('.hero');
+    const menuOpen = nav.classList.contains('open');
+    const y = window.scrollY;
+    const overHero = !!hero && y < hero.offsetHeight - header.offsetHeight;
+    header.classList.toggle('scrolled', menuOpen || y > 4);
+    header.classList.toggle('menu-open', menuOpen);
+    header.classList.toggle('on-dark', overHero && !menuOpen);
+  }
+  let headerTick = false;
+  const onHeaderScroll = () => { if (!headerTick) { headerTick = true; requestAnimationFrame(() => { headerTick = false; syncHeader(); }); } };
+  window.addEventListener('scroll', onHeaderScroll, { passive: true });
+  window.addEventListener('resize', onHeaderScroll);
 
   window.addEventListener('hashchange', route);
   route();
