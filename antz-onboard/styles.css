@@ -214,6 +214,22 @@ button { font: inherit; color: inherit; }
 }
 .chip:active { transform: translateY(-1px); transition-duration: .12s; }
 
+/* Banner entrance: each item rises, overshoots a touch and settles, one after another.
+   Fill mode is backwards only, so once played the chips' hover lift still works. */
+.hero h1, .hero-sub, .hero-search, .hero-chips .chip, .hero-meta {
+  animation: heroRise 1s cubic-bezier(.33,0,.2,1) var(--rise-delay, 0ms) backwards;
+}
+.hero h1 { --rise-delay: 120ms; }
+.hero-sub { --rise-delay: 260ms; }
+.hero-search { --rise-delay: 400ms; }
+.hero-chips .chip { --rise-delay: calc(540ms + var(--i, 0) * 70ms); }
+.hero-meta { --rise-delay: 940ms; }
+@keyframes heroRise {
+  0%   { opacity: 0; transform: translateY(32px); }
+  60%  { opacity: 1; transform: translateY(-5px); }
+  80%  { transform: translateY(1.5px); }
+  100% { opacity: 1; transform: none; }
+}
 .hero-meta { margin-top: 36px; font-size: 14px; color: rgba(255,255,255,.75); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 14px; }
 .hero-meta > span:not(.hero-meta-sep) { display: inline-flex; align-items: center; gap: 8px; }
 .hero-meta svg { width: 18px; height: 18px; flex: none; color: #8FE3AE; }
