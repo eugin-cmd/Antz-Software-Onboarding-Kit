@@ -111,7 +111,7 @@
           <div class="hero-chips">
             ${areas.map((a) => `<button class="chip" type="button" data-area="${a.id}">${icon(a.glyph)}${esc(a.label)}<svg class="drawn-border" aria-hidden="true"></svg></button>`).join('')}
           </div>
-          <p class="hero-meta">${areas.length} areas of work · Mobile and web</p>
+          <p class="hero-meta"><span>${icon('areas')}${areas.length} areas of work</span><span class="hero-meta-sep" aria-hidden="true">·</span><span>${icon('devices')}Mobile and web</span></p>
         </div>
       </section>
 

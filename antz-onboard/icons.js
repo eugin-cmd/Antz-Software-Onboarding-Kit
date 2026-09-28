@@ -2,6 +2,8 @@
 const ICONS = {
   /* references the <symbol> in index.html — geometry is stored once, not per row */
   antzmark: '<svg viewBox="0 0 51.6065 55.9995" fill="currentColor"><use href="#antz-mark"/></svg>',
+  areas:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>',
+  devices:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 17H4a1.5 1.5 0 01-1.5-1.5v-9A1.5 1.5 0 014 5h13a1.5 1.5 0 011.5 1.5V9"/><path d="M7 20.5h7"/><rect x="16" y="11" width="6" height="9.5" rx="1.5"/><path d="M18.5 18.2h1"/></svg>',
   add:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>',
   edit:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10-10-4-4L4 16v4z"/><path d="M14 6l4 4"/></svg>',
   priority: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3L12 3z"/><path d="M12 9v4M12 16v.5"/></svg>',
