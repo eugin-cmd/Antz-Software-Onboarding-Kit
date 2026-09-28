@@ -313,19 +313,21 @@ button { font: inherit; color: inherit; }
 /* ---------- Device frames ---------- */
 .device { position: relative; z-index: 1; }
 .device img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.device-phone { width: 272px; aspect-ratio: 9 / 19.2; border-radius: 40px; padding: 9px; background: #10181a; box-shadow: var(--shadow-lg); }
-.device-phone .screen { width: 100%; height: 100%; border-radius: 32px; overflow: hidden; background: #fff; }
+/* Bare screens: no bezel, just rounded corners, a hairline edge and the lift shadow */
+.device-phone { width: 254px; aspect-ratio: 9 / 19.2; border-radius: 32px; box-shadow: var(--shadow-lg); }
+.device-phone .screen { position: relative; width: 100%; height: 100%; border-radius: 32px; overflow: hidden; background: #fff; }
+.device-phone .screen::after, .device-tablet .screen::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(14,23,21,.08); pointer-events: none; }
 .device-framed { width: 272px; filter: drop-shadow(0 30px 40px rgba(14,23,21,.3)); }
 .device-framed img { height: auto; border-radius: 34px; }
-.device-tablet { width: min(460px, 100%); aspect-ratio: 3 / 4; border-radius: 26px; padding: 12px; background: #10181a; box-shadow: var(--shadow-lg); }
-.device-tablet .screen { width: 100%; height: 100%; border-radius: 16px; overflow: hidden; background: #fff; }
+.device-tablet { width: min(436px, 100%); aspect-ratio: 3 / 4; border-radius: 18px; box-shadow: var(--shadow-lg); }
+.device-tablet .screen { position: relative; width: 100%; height: 100%; border-radius: 18px; overflow: hidden; background: #fff; }
 .device-web { width: min(620px, 100%); border-radius: 12px; overflow: hidden; background: #fff; box-shadow: var(--shadow-lg); border: 1px solid var(--line); }
 .device-web .bar { height: 30px; background: var(--surface-soft); border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 6px; padding: 0 12px; }
 .device-web .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--outline); }
 .device-web img { height: auto; }
 .screen img, .device-framed img, .device-web img { animation: fade .24s var(--ease); }
 @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-@media (max-width: 560px) { .device-phone, .device-framed { width: 232px; } }
+@media (max-width: 560px) { .device-phone { width: 218px; } .device-framed { width: 232px; } }
 
 /* ---------- Module cards (under the hero) ---------- */
 /* Area tints: bg for thumbnails and panels, ink for small accents */
