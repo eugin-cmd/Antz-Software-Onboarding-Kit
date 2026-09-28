@@ -625,25 +625,71 @@
   }
 
   /* ---------- Module page ---------- */
+  /* Module page tabs: one tab per area, each with a photo from one of its modules,
+     and under it one tab per module in the current area */
+  const allModules = areas.flatMap((a) => a.modules);
+  const areaPhoto = Object.fromEntries(areas.map((a) => {
+    const rep = a.modules.find((x) => CARD_PHOTOS.has(x.id)) || a.modules[0];
+    return [a.id, { url: `assets/cards/${rep.id}.jpg`, pos: CARD_PHOTO_POS[rep.id] || '50% 50%', icon: iconOf(rep) }];
+  }));
+  const moduleTabsHTML = (cur) => {
+    const area = areaById[cur.track];
+    return `
+      <nav class="mtabs" aria-label="Module areas and modules">
+        <div class="mtabs-areas">${areas.map((a) => {
+          const ph = areaPhoto[a.id];
+          const here = a.id === cur.track;
+          return `
+          <a class="mtab tint-${AREA_TINT[a.id]}" href="#/m/${here ? cur.id : a.modules[0].id}"${here ? ' aria-current="true"' : ''}>
+            <span class="mtab-thumb" style="background-image:url('${ph.url}');background-position:${ph.pos}"><img src="assets/icons/${ph.icon}_icon.svg" alt=""></span>
+            <span class="mtab-text"><b>${esc(a.label)}</b><small>${a.modules.length} modules</small></span>
+          </a>`;
+        }).join('')}
+        </div>
+        <div class="msubtabs">${area.modules.map((x) => `
+          <a class="msubtab" href="#/m/${x.id}"${x === cur ? ' aria-current="page"' : ''}><span class="n">${numberOf[x.id]}</span>${esc(x.title)}</a>`).join('')}
+        </div>
+      </nav>`;
+  };
+  /* Tab rows that scroll sideways: start with the current tab centred (without moving the page),
+     fade the edge where more tabs are hidden, and let a mouse wheel scroll the row */
+  const bindTabRow = (row) => {
+    if (!row) return;
+    const cur = row.querySelector('[aria-current]');
+    if (cur && row.scrollWidth > row.clientWidth) row.scrollLeft = cur.offsetLeft - row.offsetLeft - (row.clientWidth - cur.offsetWidth) / 2;
+    const edges = () => {
+      row.classList.toggle('more-l', row.scrollLeft > 2);
+      row.classList.toggle('more-r', row.scrollLeft < row.scrollWidth - row.clientWidth - 2);
+    };
+    edges();
+    row.addEventListener('scroll', edges, { passive: true });
+    row.addEventListener('wheel', (e) => {
+      if (row.scrollWidth <= row.clientWidth || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      row.scrollLeft += e.deltaY;
+    }, { passive: false });
+    return edges;
+  };
+
   function renderModule(id, featureIndex) {
     const m = byId[id];
     if (!m || !visible.includes(m)) { location.hash = '#/'; return; }
     const area = areaById[m.track];
     const tint = AREA_TINT[m.track];
-    const siblings = area.modules;
-    const idx = siblings.indexOf(m);
-    const prev = siblings[idx - 1], next = siblings[idx + 1];
+    /* Previous / next run through every module in order, crossing into the next area at the end of one */
+    const k = allModules.indexOf(m);
+    const prev = allModules[k - 1], next = allModules[k + 1];
+    const pagerLink = (x, dir) => x ? `
+      <a class="mpager-link ${dir}" href="#/m/${x.id}">
+        <small>${dir === 'prev' ? 'Previous' : 'Next'}${x.track !== m.track ? ` · ${esc(areaById[x.track].label)}` : ''}</small>
+        <b>${dir === 'prev' ? '← ' : ''}${esc(x.title)}${dir === 'next' ? ' →' : ''}</b>
+      </a>` : '<span></span>';
     const hasShots = m.features.some((f) => f.shot) || m.shots.length > 0;
-    const others = siblings.filter((s) => s !== m);
 
     app.innerHTML = `
       <section class="mpage tint-${tint}">
         <div class="container">
-          <nav class="crumbs" aria-label="Breadcrumb">
-            <a href="#/">Home</a><span>›</span>
-            <a href="#/" data-scroll="index">${esc(area.label)}</a><span>›</span>
-            <span aria-current="page">${esc(m.title)}</span>
-          </nav>
+          ${moduleTabsHTML(m)}
           <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${numberOf[m.id]}</span>
           <div class="mpanel-inner${hasShots ? '' : ' no-stage'}">
             <div class="mpanel-info">
@@ -662,23 +708,16 @@
             </div>
             ${hasShots ? '<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p><p class="zoom-hint">Tap the screen to zoom</p></div>' : ''}
           </div>
-        </div>
-      </section>
-
-      <section class="mod-more">
-        <div class="container">
-          ${others.length ? `
-            <h2>More in ${esc(area.label)}</h2>
-            <div class="mgroup tint-${tint}"><div class="mgrid">${others.map(mcardHTML).join('')}</div></div>` : ''}
-          <div class="mod-pager">
-            ${prev ? `<a class="btn btn-ghost" href="#/m/${prev.id}">← ${esc(prev.title)}</a>` : '<span></span>'}
-            ${next ? `<a class="btn btn-ghost" href="#/m/${next.id}">${esc(next.title)} →</a>` : `<a class="btn btn-primary" href="mailto:hello@antz.systems?subject=Antz%20walkthrough">Book a walkthrough</a>`}
-          </div>
+          <nav class="mpager" aria-label="Previous and next module">${pagerLink(prev, 'prev')}${pagerLink(next, 'next')}</nav>
         </div>
       </section>`;
 
-    sizeBorders();
     bindFeatures(app.querySelector('.mpage'), m, featureIndex || 0);
+    const rowEdges = [...app.querySelectorAll('.mtabs-areas, .msubtabs')].map(bindTabRow);
+    const onTabResize = () => rowEdges.forEach((f) => f && f());
+    window.addEventListener('resize', onTabResize);
+    const featuresOff = pageTeardown;
+    pageTeardown = () => { if (featuresOff) featuresOff(); window.removeEventListener('resize', onTabResize); pageTeardown = null; };
     document.title = `${m.title} · Antz Onboarding`;
   }
 
