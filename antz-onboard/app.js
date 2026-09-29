@@ -202,7 +202,7 @@
         if (KIT_PAGES[j] === k) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current');
       })));
     }
-    document.title = `${title(k)} · Antz Field Guide`;
+    document.title = `${title(k)} · Antz Onboarding Guide`;
   }
 
   function renderHome(returning) {
@@ -467,7 +467,8 @@
       const r = el.getBoundingClientRect();
       return r.width ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : null;
     };
-    const openWindow = (i) => openFeatureWindow(m, i, {
+    /* Desktop: the centred window with side arrows. Phones: the full-screen sheet. */
+    const openWindow = (i) => (narrow() ? openFeatureSheet : openFeatureWindow)(m, i, {
       origin: originOf(i),
       step: (j) => { mark(j); history.replaceState(null, '', `#/m/${m.id}/${j}`); },
       close: (j) => { history.replaceState(null, '', `#/m/${m.id}`); feats[j].focus({ preventScroll: true }); }
@@ -476,7 +477,7 @@
       mark(i);
       if (fromUser) history.replaceState(null, '', `#/m/${m.id}/${i}`);
       if (!stage) return;
-      if (fromUser && !narrow()) { openWindow(i); return; }
+      if (fromUser) { openWindow(i); return; }
       const f = m.features[i];
       const src = f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src);
       const holder = stage.querySelector('.mpanel-device');
@@ -511,13 +512,13 @@
         e.preventDefault();
         const n = (i + (e.key === 'ArrowDown' ? 1 : -1) + feats.length) % feats.length;
         /* Arrow keys move through the list; on desktop Enter opens the window */
-        feats[n].focus(); if (narrow()) select(n, true); else mark(n);
+        feats[n].focus(); mark(n);
       });
     });
     if (stage) bindGalleryTrigger(stage, m, current);
     select(Math.min(start, feats.length - 1));
     /* A link to a feature (#/m/<id>/<n>) opens its window straight away on desktop */
-    if (openNow && stage && !narrow()) openWindow(Math.min(start, feats.length - 1));
+    if (openNow && stage) openWindow(Math.min(start, feats.length - 1));
 
     /* Re-place the device when the layout changes */
     let t;
@@ -924,7 +925,7 @@
                     <svg class="drawn-border" aria-hidden="true"></svg>
                   </li>`).join('')}
               </ol>
-              <p class="mpanel-hint">${hasShots ? (narrow() ? 'Tap a feature to preview its screen' : 'Click a feature to open its screen') : 'Screens for this module are coming soon'}</p>
+              <p class="mpanel-hint">${hasShots ? (canHover() ? 'Click a feature to open its screen' : 'Tap a feature to open its screen') : 'Screens for this module are coming soon'}</p>
             </div>
             ${hasShots ? '<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p><p class="zoom-hint">Tap the screen to zoom</p></div>' : ''}
           </div>
@@ -954,7 +955,7 @@
       syncTabs(app.querySelector('.mtabs'), m, false);
     }
     bindFeatures(app.querySelector('.mpage'), m, featureIndex || 0, openFeature);
-    document.title = `${m.title} · Antz Field Guide`;
+    document.title = `${m.title} · Antz Onboarding Guide`;
   }
 
   /* ---------- Search ---------- */
@@ -1189,19 +1190,26 @@
     });
   }
 
-  function openGallery(m, slides, start, returnFocusTo) {
+  /* Full-screen screen viewer. With opts.sheet it is the phone version of the feature window: one slide per
+     feature with its icon and text, arrows as well as swipes, the area colours, and a radial opening. */
+  function openGallery(m, slides, start, returnFocusTo, opts = {}) {
+    const sheet = !!opts.sheet;
     const g = document.createElement('div');
-    g.className = 'gallery';
+    g.className = sheet ? `gallery sheet tint-${AREA_TINT[m.track]}` : 'gallery';
     g.setAttribute('role', 'dialog'); g.setAttribute('aria-modal', 'true'); g.setAttribute('aria-label', `${m.title} screens`);
     g.innerHTML = `
       <div class="g-top">
         <span class="g-count" aria-live="polite"></span>
-        <span class="g-title">${esc(m.title)}</span>
+        <span class="g-title">${sheet ? `${esc(areaById[m.track].label)} · ` : ''}${esc(m.title)}</span>
         <button class="g-close" type="button" aria-label="Close gallery">${CLOSE_SVG}</button>
       </div>
       <div class="g-stage"><div class="g-track"><img class="g-img" alt="" draggable="false"></div></div>
-      <div class="g-info"><b class="g-ft"></b><p class="g-fd"></p></div>
-      <div class="g-dots">${slides.map((_, i) => `<button type="button" aria-label="Screen ${i + 1}" data-i="${i}"></button>`).join('')}</div>
+      <div class="g-info"><div class="g-head"><span class="g-ic" aria-hidden="true"></span><span class="g-fcount"></span></div><b class="g-ft"></b><p class="g-fd"></p></div>
+      <div class="g-nav">
+        <button class="g-arrow g-prev" type="button" aria-label="Previous feature">${CHEV_L}</button>
+        <div class="g-dots">${slides.map((sl, i) => `<button type="button" aria-label="${esc(sl.title || `Screen ${i + 1}`)}" data-i="${i}"></button>`).join('')}</div>
+        <button class="g-arrow g-next" type="button" aria-label="Next feature">${CHEV_R}</button>
+      </div>
       <p class="g-hint">Pinch or double-tap to zoom · Swipe to browse</p>`;
     document.body.append(g);
     const prevOverflow = document.body.style.overflow;
@@ -1222,6 +1230,12 @@
     const measure = () => { const s = scale; img.style.transform = 'none'; const b = img.getBoundingClientRect(); baseW = b.width; baseH = b.height; img.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`; };
     const resetZoom = (anim) => { scale = 1; tx = 0; ty = 0; apply(anim); g.classList.remove('zoomed'); };
     const go = (i, dir = 0) => {
+      /* The feature sheet stops at the first and last feature; the plain gallery wraps round */
+      if (sheet && (i < 0 || i >= slides.length)) {
+        track.style.transition = 'transform .28s cubic-bezier(.22,.8,.24,1), opacity .2s ease';
+        track.style.transform = 'none'; track.style.opacity = '1';
+        return;
+      }
       idx = (i + slides.length) % slides.length;
       const sl = slides[idx];
       resetZoom(false);
@@ -1232,6 +1246,16 @@
       g.querySelector('.g-count').textContent = `${idx + 1} / ${slides.length}`;
       g.querySelector('.g-ft').textContent = sl.title;
       g.querySelector('.g-fd').textContent = sl.desc;
+      if (sheet) {
+        g.querySelector('.g-ic').innerHTML = icon(sl.icon);
+        g.querySelector('.g-fcount').textContent = `Feature ${idx + 1} of ${slides.length}`;
+        g.querySelector('.g-prev').disabled = idx === 0;
+        g.querySelector('.g-next').disabled = idx === slides.length - 1;
+        const info = g.querySelector('.g-info');
+        info.classList.remove('in-up'); void info.offsetWidth; info.classList.add('in-up');
+        fitSheet();
+        if (opts.step) opts.step(idx);
+      }
       dots.forEach((d, j) => d.setAttribute('aria-current', String(j === idx)));
       requestAnimationFrame(() => {
         track.style.transition = 'transform .32s cubic-bezier(.22,.8,.24,1), opacity .25s ease';
@@ -1240,6 +1264,12 @@
       [idx + 1, idx - 1].forEach((j) => { const n = slides[(j + slides.length) % slides.length]; if (n) new Image().src = n.src; });
     };
     img.addEventListener('load', measure);
+    /* Sheet: fit the screen inside the space its area actually has, with room above and below */
+    const fitSheet = () => {
+      if (!sheet) return;
+      requestAnimationFrame(() => { img.style.maxHeight = `${Math.max(160, stageEl.clientHeight - 18 - 34)}px`; });
+    };
+    if (sheet) window.addEventListener('resize', fitSheet);
 
     /* Gestures */
     const pts = new Map();
@@ -1311,17 +1341,39 @@
     };
     document.addEventListener('keydown', onKey);
     dots.forEach((d) => d.addEventListener('click', () => go(+d.dataset.i, +d.dataset.i > idx ? 1 : -1)));
+    g.querySelector('.g-prev').addEventListener('click', () => go(idx - 1, -1));
+    g.querySelector('.g-next').addEventListener('click', () => go(idx + 1, 1));
     function close() {
       document.removeEventListener('keydown', onKey);
       document.body.style.overflow = prevOverflow;
+      g.classList.remove('in');
       g.classList.add('out');
-      setTimeout(() => g.remove(), 220);
+      setTimeout(() => g.remove(), sheet ? 420 : 220);
+      if (opts.close) opts.close(idx);
       if (returnFocusTo && returnFocusTo.focus) returnFocusTo.focus({ preventScroll: true });
     }
     g.querySelector('.g-close').addEventListener('click', close);
     go(start);
+    if (sheet) {
+      /* Radial opening from the tapped feature, as on desktop */
+      const o = opts.origin || { x: innerWidth / 2, y: innerHeight / 2 };
+      const r = Math.ceil(Math.max(Math.hypot(o.x, o.y), Math.hypot(innerWidth - o.x, o.y), Math.hypot(o.x, innerHeight - o.y), Math.hypot(innerWidth - o.x, innerHeight - o.y)));
+      g.style.transition = 'none';
+      g.style.setProperty('--ox', `${Math.round(o.x)}px`); g.style.setProperty('--oy', `${Math.round(o.y)}px`); g.style.setProperty('--r', `${r}px`);
+      void g.offsetWidth;
+      g.style.transition = '';
+    }
     requestAnimationFrame(() => g.classList.add('in'));
     g.querySelector('.g-close').focus({ preventScroll: true });
+  }
+  /* Phones: a feature's screen and details open in the full-screen sheet */
+  function openFeatureSheet(m, start, { origin, step, close, returnFocusTo } = {}) {
+    const slides = m.features.map((f, i) => {
+      const src = f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src);
+      const shot = src ? shotFor(m, src) : null;
+      return { src: src || '', alt: (shot && shot.alt) || f.title, title: tidyTitle(f.title), desc: tidy(f.desc), icon: f.icon };
+    });
+    openGallery(m, slides, start, returnFocusTo, { sheet: true, origin, step, close });
   }
 
   /* ---------- Routing, scrolling, reveal ---------- */
@@ -1343,7 +1395,7 @@
       if (name === 'kit') renderKit(id); else { lastKit = null; renderModule(id, Number(f) || 0, f !== undefined && f !== ''); }
       window.scrollTo(0, 0);
     } else {
-      document.title = 'Antz Field Guide';
+      document.title = 'Antz Onboarding Guide';
       const cameBack = !onHome && !goTop && !pendingScroll && homeY;
       lastKit = null;
       renderHome(cameBack);
