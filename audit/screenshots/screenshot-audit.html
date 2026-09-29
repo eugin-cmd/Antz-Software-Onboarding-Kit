@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Antz Onboarding Guide · Screenshot Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root { --green:#37BD69; --green-text:#27864B; --green-tint:#E8F6EE; --teal:#1F515B; --teal-deep:#173E46; --mint:#DDEBE9;
+  --ink:#0E1715; --text:#2B3833; --muted:#55635D; --line:#E1E8E5; --soft:#F5F8F7;
+  --high:#B42318; --high-bg:#FDECEA; --med:#9A5B00; --med-bg:#FFF4E0; --low:#3B5B66; --low-bg:#E7EFF1; }
+@page { size: A4; margin: 16mm 15mm 18mm;
+  @bottom-left { content: "Antz Onboarding Guide · Screenshot Audit · 29 September 2026"; font: 500 8pt Inter, sans-serif; color: #7A8684; }
+  @bottom-right { content: counter(page) " / " counter(pages); font: 600 8pt Inter, sans-serif; color: #7A8684; } }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 9.6pt; line-height: 1.5; color: var(--text); }
+h1,h2,h3 { color: var(--ink); margin: 0; line-height: 1.2; letter-spacing: -.01em; }
+p { margin: 0 0 6pt; }
+img { display: block; max-width: 100%; }
+.break { break-before: page; } .keep { break-inside: avoid; }
+.head { border-bottom: 2px solid var(--green); padding-bottom: 5mm; margin-bottom: 6mm; }
+.kicker { font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #E0512F; margin-bottom: 2mm; }
+h1 { font-size: 24pt; font-weight: 800; letter-spacing: -.02em; }
+.sub { margin-top: 2mm; font-size: 10.5pt; color: var(--muted); max-width: 150mm; }
+.stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 3mm; margin: 0 0 7mm; }
+.stat { background: var(--soft); border: 1px solid var(--line); border-radius: 3mm; padding: 3.5mm 4mm; }
+.stat b { display: block; font-size: 20pt; font-weight: 800; color: var(--ink); line-height: 1.05; }
+.stat span { font-size: 8.2pt; color: var(--muted); }
+.stat.bad b { color: var(--high); }
+h2 { font-size: 13.5pt; font-weight: 700; margin: 6mm 0 2.5mm; display: flex; align-items: center; gap: 2.5mm; }
+h2 .n { flex: none; width: 6.5mm; height: 6.5mm; border-radius: 50%; background: var(--teal); color: #fff; font-size: 9pt; display: grid; place-items: center; }
+.pill { display: inline-block; font-size: 7.4pt; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: .6mm 2mm; border-radius: 1.2mm; }
+.pill.high { background: var(--high-bg); color: var(--high); } .pill.med { background: var(--med-bg); color: var(--med); } .pill.low { background: var(--low-bg); color: var(--low); }
+table { width: 100%; border-collapse: collapse; font-size: 8.8pt; }
+th { text-align: left; font-size: 7.6pt; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); border-bottom: 1.5px solid var(--ink); padding: 1.6mm 2.5mm; }
+td { border-bottom: 1px solid var(--line); padding: 1.8mm 2.5mm; vertical-align: top; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.note { font-size: 8.8pt; color: var(--muted); }
+.stock { display: grid; grid-template-columns: repeat(4,1fr); gap: 3mm; margin: 2mm 0 3mm; }
+.stock figure { margin: 0; } .stock img { width: 100%; height: 25mm; object-fit: cover; border-radius: 2mm; }
+.stock figcaption { font-size: 7.8pt; margin-top: 1.2mm; color: var(--muted); } .stock figcaption b { color: var(--ink); display: block; font-size: 8.4pt; }
+.dups { display: flex; gap: 3mm; align-items: flex-start; margin: 2mm 0 1mm; }
+.dups img { width: 16mm; border-radius: 2mm; border: 1px solid var(--line); }
+.dups .cap { font-size: 8.2pt; color: var(--muted); max-width: 90mm; padding-left: 2mm; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+ul { margin: 0; padding-left: 4.5mm; } li { margin: 0 0 1.2mm; }
+.callout { background: var(--green-tint); border-left: 3px solid var(--green); border-radius: 0 2mm 2mm 0; padding: 3mm 4mm; margin-top: 5mm; font-size: 9pt; }
+.callout b { color: var(--ink); }
+.check tr.grp td { background: var(--soft); font-weight: 700; color: var(--ink); font-size: 8.6pt; padding-top: 2.4mm; }
+.check tr.grp span { color: var(--muted); font-weight: 600; margin-left: 1.5mm; }
+.check td.why { color: var(--muted); font-size: 8.2pt; }
+.check td.box { width: 10mm; text-align: center; } .check td.box i { display: inline-block; width: 3.6mm; height: 3.6mm; border: 1.2px solid #9AA6A3; border-radius: .8mm; }
+.check tr { break-inside: avoid; }
+</style></head><body>
+
+<div class="head">
+  <div class="kicker">Content audit · Onboarding Guide</div>
+  <h1>App screenshot coverage</h1>
+  <p class="sub">Which modules have real screens from the Antz app, which use stand-ins, and exactly which screens still need to be captured. Checked against every feature in the site's content file and every image on disk, 29 September 2026.</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><b>37</b><span>modules in the content file</span></div>
+  <div class="stat bad"><b>4</b><span>web modules showing a stock photo instead of a screen</span></div>
+  <div class="stat bad"><b>8</b><span>features showing another feature’s screen (reused or duplicate file)</span></div>
+  <div class="stat"><b>44</b><span>screenshots to capture to complete the guide</span></div>
+</div>
+
+<h2><span class="n">1</span>Stand-ins: stock photos, not app screens <span class="pill high">High</span></h2>
+<p>These four web modules have one image each, and it is a stock photo. None of their other features has a screen. On the site, every one of their 31 features opens that same photo as if it were the app.</p>
+<div class="stock keep">
+  <figure><img src="img/stock-lab.jpg" alt=""><figcaption><b>Lab</b>Scientist at a microscope · 0 of 8 real</figcaption></figure>
+  <figure><img src="img/stock-diet.jpg" alt=""><figcaption><b>Diet</b>A pile of fruit · 0 of 6 real</figcaption></figure>
+  <figure><img src="img/stock-pharmacy.jpg" alt=""><figcaption><b>Pharmacy · Web</b>Pills in a trolley · 0 of 8 real</figcaption></figure>
+  <figure><img src="img/stock-compliance.jpg" alt=""><figcaption><b>Compliance</b>Vet with a tablet · 0 of 9 real</figcaption></figure>
+</div>
+<p class="note">Recommendation: remove the four photos until real screens exist, and show “Screens coming soon” instead.</p>
+
+<h2><span class="n">2</span>Modules missing most of their screens <span class="pill med">Medium</span></h2>
+<p><b>Getting Started</b> has a screen for 1 of its 6 features (the home screen). The other five have none. <b>Objective of this kit</b> and <b>What is Antz Systems?</b> have no screens, which is expected for introduction pages.</p>
+
+<div class="two keep">
+<div>
+<h2><span class="n">3</span>One image for different features <span class="pill med">Medium</span></h2>
+<p>Each feature describes something different but shows the same image.</p>
+<table>
+<tr><th>Module</th><th class="num">Features</th><th class="num">Images</th></tr>
+<tr><td>HIMS · App</td><td class="num">4</td><td class="num">2</td></tr>
+<tr><td>Reports · Web</td><td class="num">2</td><td class="num">1</td></tr>
+<tr><td>Tags Hub</td><td class="num">8</td><td class="num">7</td></tr>
+</table>
+</div>
+<div>
+<h2><span class="n">4</span>Duplicate files <span class="pill med">Medium</span></h2>
+<p>Byte-identical copies saved under different names, so features look like they have their own screen but do not.</p>
+<table>
+<tr><th>Module</th><th>Features showing one picture</th></tr>
+<tr><td>Necropsy</td><td>3 (Search &amp; filters, Status tracking, Animal card)</td></tr>
+<tr><td>Mortality</td><td>2 (Advanced search, Deceased records)</td></tr>
+<tr><td>Fetal Death</td><td>2 (Animal card display, Edit record)</td></tr>
+</table>
+</div>
+</div>
+<div class="dups keep"><img src="img/dup-necropsy-1.jpg" alt=""><img src="img/dup-necropsy-2.jpg" alt=""><img src="img/dup-necropsy-3.jpg" alt="">
+<p class="cap"><b>Necropsy:</b> three different features, one identical screen. The same pattern repeats in Mortality and Fetal Death.</p></div>
+
+<h2><span class="n">5</span>Not on the site yet <span class="pill low">Low</span></h2>
+<p><b>Chat</b> and <b>Focus Hub</b> are marked “needs content” and have no features or screens, so the site hides them. They need written content before screens are useful.</p>
+
+<h2>Mobile and web at a glance</h2>
+<table>
+<tr><th>Group</th><th class="num">Modules</th><th>Screens</th></tr>
+<tr><td>Mobile app modules</td><td class="num">22</td><td>Real phone screenshots throughout, apart from the reuse and duplicates in sections 3 and 4</td></tr>
+<tr><td>Web modules with real web screens</td><td class="num">3</td><td>Egg Management · Web, Reports · Web, HIMS · Web (HIMS uses iPad-sized captures of the web app)</td></tr>
+<tr><td>Web modules with no real screens</td><td class="num">4</td><td>Lab, Diet, Pharmacy · Web, Compliance (stock photos)</td></tr>
+<tr><td>Introduction pages</td><td class="num">3</td><td>Objective, What is Antz Systems?, Getting Started (1 screen)</td></tr>
+<tr><td>Hidden, need content</td><td class="num">2</td><td>Chat, Focus Hub</td></tr>
+</table>
+
+<div class="callout"><b>To complete the guide: 44 screenshots.</b> 31 for the four web modules, 5 for Getting Started and 8 to replace reused or duplicate images, plus written content for Chat and Focus Hub. The checklist that follows lists each one by module and feature.</div>
+
+<h2 class="break" style="margin-top:0">Capture checklist</h2>
+<table class="check">
+<tr><th>Module</th><th>Feature</th><th>Current state</th><th>Done</th></tr>
+<tr class="grp"><td colspan="4">Web modules with no real screens <span>31</span></td></tr><tr><td>Lab</td><td>Request listing &amp; filtering</td><td class="why">Stock photo now</td><td class="box"><i></i></td></tr><tr><td>Lab</td><td>Detailed request view</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Lab</td><td>Location &amp; access control</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Lab</td><td>Site-level test mapping</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Lab</td><td>Individual &amp; bulk assignment</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Lab</td><td>Test &amp; sample management</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Lab</td><td>Update lab status</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Lab</td><td>Lab reassignment</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Diet</td><td>Diet configuration</td><td class="why">Stock photo now</td><td class="box"><i></i></td></tr><tr><td>Diet</td><td>Preparation types &amp; cut size</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Diet</td><td>Feed types</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Diet</td><td>Items</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Diet</td><td>Recipes &amp; mix</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Diet</td><td>Meal groups</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Pharmacy · Web</td><td>Dashboard</td><td class="why">Stock photo now</td><td class="box"><i></i></td></tr><tr><td>Pharmacy · Web</td><td>Smart search &amp; filters</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Pharmacy · Web</td><td>Masters(racks &amp; shelves)</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Pharmacy · Web</td><td>Stock report management</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Pharmacy · Web</td><td>Product &amp; inventory management</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Pharmacy · Web</td><td>Dispense management</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Pharmacy · Web</td><td>Shipment management</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Pharmacy · Web</td><td>Stock adjustment &amp; reports</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Compliance</td><td>Organisation overview</td><td class="why">Stock photo now</td><td class="box"><i></i></td></tr><tr><td>Compliance</td><td>Species &amp; animal counts</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Compliance</td><td>Site coverage</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Compliance</td><td>Transparency &amp; accountability</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Compliance</td><td>Filters &amp; download</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Compliance</td><td>Export &amp; import</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Compliance</td><td>Shipment</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Compliance</td><td>Species</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Compliance</td><td>Master configuration</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr class="grp"><td colspan="4">Getting Started <span>5</span></td></tr><tr><td>Getting Started</td><td>Navigation &amp; Interface</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Getting Started</td><td>Pending Necropsy / Administration / Allocation</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Getting Started</td><td>Master Setup &amp; Modules</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Getting Started</td><td>Personalisation</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr><td>Getting Started</td><td>Permissions</td><td class="why">No screen</td><td class="box"><i></i></td></tr><tr class="grp"><td colspan="4">Replace reused or duplicate images <span>8</span></td></tr><tr><td>Hospital Information Management System · App</td><td>Security check-in / out</td><td class="why">Same image as “Transfer status”</td><td class="box"><i></i></td></tr><tr><td>Hospital Information Management System · App</td><td>View discharge reports</td><td class="why">Same image as “Transfer requests”</td><td class="box"><i></i></td></tr><tr><td>Necropsy</td><td>Status tracking</td><td class="why">Same image as “Search &amp; filters”</td><td class="box"><i></i></td></tr><tr><td>Necropsy</td><td>Animal card &amp; request info</td><td class="why">Same image as “Search &amp; filters”</td><td class="box"><i></i></td></tr><tr><td>Tags Hub</td><td>Search &amp; filters</td><td class="why">Same image as “Tag types · Public, Private, System”</td><td class="box"><i></i></td></tr><tr><td>Reports · Web</td><td>Downloadable reports</td><td class="why">Same image as “Filters &amp; search”</td><td class="box"><i></i></td></tr><tr><td>Mortality</td><td>Deceased animal records</td><td class="why">Same image as “Advanced search &amp; filters”</td><td class="box"><i></i></td></tr><tr><td>Fetal Death</td><td>Edit record</td><td class="why">Same image as “Animal card display”</td><td class="box"><i></i></td></tr>
+</table>
+</body></html>

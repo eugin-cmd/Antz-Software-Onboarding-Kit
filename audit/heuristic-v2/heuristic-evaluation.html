@@ -1,0 +1,252 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Antz Onboarding Guide · Heuristic Evaluation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #37BD69; --green-text: #27864B; --green-tint: #E8F6EE; --teal-grad: #00D6C9;
+  --teal: #1F515B; --teal-deep: #173E46; --mint: #DDEBE9;
+  --ink: #0E1715; --text: #2B3833; --muted: #55635D; --line: #E1E8E5; --soft: #F5F8F7;
+  --s4: #8E1B12; --s4-bg: #F9E1DE; --s3: #B42318; --s3-bg: #FDECEA; --s2: #9A5B00; --s2-bg: #FFF4E0; --s1: #3B5B66; --s1-bg: #E7EFF1;
+}
+@page { size: A4; margin: 16mm 15mm 18mm;
+  @bottom-left { content: "Antz Onboarding Guide · Heuristic Evaluation · 29 September 2026"; font: 500 8pt Inter, sans-serif; color: #7A8684; }
+  @bottom-right { content: counter(page); font: 600 8pt Inter, sans-serif; color: #7A8684; } }
+@page :first { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 9.5pt; line-height: 1.5; color: var(--text); }
+h1, h2, h3, h4 { color: var(--ink); margin: 0; line-height: 1.2; letter-spacing: -.01em; }
+p { margin: 0 0 6pt; }
+img { max-width: 100%; display: block; }
+code { font-size: 8.6pt; background: var(--soft); padding: 0 1.2mm; border-radius: 1mm; }
+.break { break-before: page; }
+.keep { break-inside: avoid; }
+
+.cover { position: relative; width: 210mm; height: 297mm; color: #fff; overflow: hidden; background: var(--teal-deep); }
+.cover .photo { position: absolute; inset: 0; background: url(img/cover.jpg) 68% 30% / cover; }
+.cover .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,30,26,.25) 0%, rgba(10,30,26,.45) 45%, rgba(10,30,26,.94) 78%); }
+.cover .logo { position: absolute; top: 16mm; left: 18mm; width: 44mm; }
+.cover .inner { position: absolute; left: 18mm; right: 18mm; bottom: 22mm; }
+.cover .kicker { font-size: 9pt; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #9FE3B9; margin-bottom: 6mm; }
+.cover h1 { color: #fff; font-size: 36pt; font-weight: 600; letter-spacing: -.02em; line-height: 1.06; }
+.cover .sub { font-size: 13pt; color: rgba(255,255,255,.88); margin-top: 6mm; max-width: 150mm; }
+.cover .meta { display: flex; gap: 11mm; margin-top: 14mm; padding-top: 6mm; border-top: 1px solid rgba(255,255,255,.25); font-size: 8.5pt; color: rgba(255,255,255,.8); }
+.cover .meta b { display: block; color: #fff; font-weight: 600; font-size: 9.5pt; }
+.cover .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2.2mm; background: linear-gradient(90deg, var(--green), var(--teal-grad)); }
+
+.eyebrow { font-size: 8pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green-text); margin-bottom: 3mm; }
+.sec-title { font-size: 21pt; font-weight: 600; margin-bottom: 4mm; }
+.lede { font-size: 10.8pt; color: var(--muted); margin-bottom: 6mm; max-width: 168mm; }
+h3.group { font-size: 12.5pt; margin: 7mm 0 3.5mm; padding-bottom: 2mm; border-bottom: 2px solid var(--ink); display: flex; align-items: baseline; gap: 3mm; }
+h3.group .hn { font-size: 9pt; font-weight: 700; color: var(--green-text); letter-spacing: .04em; }
+h3.group .q { margin-left: auto; font-size: 8.4pt; font-weight: 500; color: var(--muted); }
+
+.verdict { background: var(--teal); color: #fff; border-radius: 4mm; padding: 6.5mm 8mm; margin-bottom: 6mm; position: relative; overflow: hidden; }
+.verdict::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.2mm; background: linear-gradient(90deg, var(--green), var(--teal-grad)); }
+.verdict h2 { color: #fff; font-size: 13.5pt; margin-bottom: 2.5mm; }
+.verdict p { color: rgba(255,255,255,.92); font-size: 10pt; margin: 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.card { border: 1px solid var(--line); border-radius: 3mm; padding: 5mm 5.5mm; break-inside: avoid; }
+.card h4 { font-size: 10.5pt; margin-bottom: 3mm; }
+
+table { width: 100%; border-collapse: collapse; font-size: 8.7pt; }
+th { text-align: left; font-size: 7.4pt; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 700; padding: 1.8mm 2.2mm; border-bottom: 1.5px solid var(--ink); }
+td { padding: 2mm 2.2mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+td.num { text-align: center; font-variant-numeric: tabular-nums; font-weight: 600; }
+td.dim { color: #B8C2BE; font-weight: 500; }
+.hbar { height: 2.2mm; border-radius: 2mm; background: var(--soft); overflow: hidden; width: 22mm; }
+.sum { grid-template-columns: 1.08fr .92fr; }
+.sum td, .sum th { padding: 1.3mm 1.6mm; }
+.tight td { padding: 1.3mm 2mm; font-size: 8.2pt; }
+.hbar i { display: block; height: 100%; border-radius: 2mm; }
+
+.pill { font-size: 7.2pt; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: .9mm 2.4mm; border-radius: 10mm; white-space: nowrap; }
+.s4 { background: var(--s4-bg); color: var(--s4); } .s3 { background: var(--s3-bg); color: var(--s3); }
+.s2 { background: var(--s2-bg); color: var(--s2); } .s1 { background: var(--s1-bg); color: var(--s1); }
+.good { background: var(--green-tint); color: var(--green-text); }
+
+ol.top { margin: 0; padding-left: 5mm; } ol.top li { margin: 0 0 2.2mm; padding-left: 1mm; } ol.top b { color: var(--ink); }
+.counts { display: flex; gap: 3mm; margin-top: 4mm; }
+.count { flex: 1; border-radius: 3mm; padding: 3mm 3.5mm; font-size: 8.5pt; }
+.count b { display: block; font-size: 17pt; line-height: 1; margin-bottom: 1mm; }
+ul.clean { margin: 0; padding-left: 4.5mm; } ul.clean li { margin-bottom: 1.6mm; }
+.small { font-size: 8.3pt; color: var(--muted); }
+
+.strengths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm 5mm; font-size: 8.6pt; }
+.strengths > div { border-top: 2px solid var(--green); padding-top: 2mm; }
+.strengths b { display: block; color: var(--ink); margin-bottom: .6mm; }
+
+.finding { break-inside: avoid; border: 1px solid var(--line); border-radius: 3mm; margin-bottom: 4mm; overflow: hidden; }
+.f-head { display: flex; align-items: center; gap: 3mm; padding: 3mm 5mm; background: var(--soft); border-bottom: 1px solid var(--line); }
+.f-id { font-weight: 700; font-size: 8.4pt; color: var(--muted); min-width: 10mm; }
+.f-head h4 { font-size: 10.3pt; flex: 1; }
+.f-body { padding: 3.6mm 5mm 4mm; display: grid; grid-template-columns: 1fr; gap: 4mm; }
+.f-body.img { grid-template-columns: 72mm 1fr; }
+.f-body.img-sm { grid-template-columns: 40mm 1fr; }
+.f-body.wide { grid-template-columns: 1fr; }
+.f-img img { border-radius: 2mm; border: 1px solid var(--line); }
+.cap { font-size: 7.5pt; color: var(--muted); margin-top: 1.4mm; }
+dl { margin: 0; display: grid; grid-template-columns: 21mm 1fr; gap: 1.5mm 3mm; }
+dt { font-size: 7.4pt; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: .6mm; }
+dd { margin: 0; } dd.fix { color: var(--ink); }
+
+.props { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5mm; }
+.prop { border-left: 3px solid var(--green); padding: 1mm 0 1mm 4.5mm; break-inside: avoid; }
+.prop h4 { font-size: 10.3pt; margin-bottom: 1.6mm; }
+.prop p { font-size: 9pt; } .prop .why { font-size: 8.2pt; color: var(--muted); }
+
+.road { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.road .col { border-radius: 3mm; padding: 4.5mm; break-inside: avoid; }
+.road .now { background: var(--green-tint); } .road .next { background: var(--soft); } .road .later { background: var(--mint); }
+.road h4 { font-size: 11pt; margin-bottom: 1mm; } .road .when { font-size: 7.8pt; color: var(--muted); margin-bottom: 3mm; }
+.road ul { margin: 0; padding-left: 4mm; font-size: 8.7pt; } .road li { margin-bottom: 1.6mm; } .road li span { color: var(--muted); }
+.st-fixed { color: var(--green-text); font-weight: 600; } .st-part { color: var(--s2); font-weight: 600; } .st-open { color: var(--s3); font-weight: 600; }
+.sev { display: grid; grid-template-columns: 26mm 1fr; gap: 3mm; align-items: center; padding: 1.6mm 0; border-bottom: 1px solid var(--line); font-size: 8.6pt; }
+.sev .pill { justify-self: start; }
+h3.group { break-after: avoid; }
+.sum + h3.group { margin-top: 5mm; }
+.strengths { font-size: 8.1pt; gap: 2.6mm 4.5mm; line-height: 1.42; }
+.verdict { padding: 5.5mm 7mm; margin-bottom: 5mm; }
+.verdict p { font-size: 9.6pt; }
+.tight td { padding: 1.1mm 2mm; }
+</style>
+</head><body>
+
+<section class="cover">
+  <div class="photo"></div><div class="shade"></div>
+  <img class="logo" src="img/logo-horizontal-reversed.svg" alt="Antz Systems">
+  <div class="inner">
+    <div class="kicker">Heuristic evaluation</div>
+    <h1>Antz Onboarding Guide web experience</h1>
+    <p class="sub">The live guide, measured against Nielsen’s ten usability heuristics, with what to fix first. A follow-up to the 25 September evaluation.</p>
+    <div class="meta"><div><b>Date</b>29 September 2026</div><div><b>Build</b>Live, commit bab58d1</div><div><b>Audience</b>Staff who use Antz</div><div><b>Findings</b>16 (3 major)</div></div>
+  </div>
+  <div class="bar"></div>
+</section>
+
+<div class="eyebrow">Summary</div>
+<h2 class="sec-title">A clear, well-built guide, let down by missing screens</h2>
+<div class="verdict"><h2>Verdict</h2><p>Finding and reading a feature now works well. Area and module tabs, search from any page, a feature window on desktop and a full-screen sheet on phones make every task a few taps away. The biggest problems are about content, not behaviour. Four modules show stock photos as their screens, some icons are broken or repeated, and some copy still speaks to buyers. Two behaviour issues matter most: Back leaves the page instead of closing a screen, and key text is below WCAG contrast.</p></div>
+
+<div class="two sum">
+<div>
+<h3 class="group" style="margin-top:0">Findings by heuristic</h3>
+<table class="tight">
+<tr><th>Heuristic</th><th>3</th><th>2</th><th>1</th></tr>
+<tr><td>1 · Visibility</td><td class="num dim">0</td><td class="num">1</td><td class="num">1</td></tr>
+<tr><td>2 · Real-world match</td><td class="num">1</td><td class="num">2</td><td class="num">1</td></tr>
+<tr><td>3 · Control, freedom</td><td class="num">1</td><td class="num dim">0</td><td class="num dim">0</td></tr>
+<tr><td>4 · Consistency</td><td class="num">1</td><td class="num">2</td><td class="num dim">0</td></tr>
+<tr><td>5 · Error prevention</td><td class="num dim">0</td><td class="num">1</td><td class="num dim">0</td></tr>
+<tr><td>6 · Recognition</td><td class="num dim">0</td><td class="num dim">0</td><td class="num">1</td></tr>
+<tr><td>7 · Efficiency</td><td class="num dim">0</td><td class="num">1</td><td class="num dim">0</td></tr>
+<tr><td>8 · Minimalism</td><td class="num dim">0</td><td class="num dim">0</td><td class="num">1</td></tr>
+<tr><td>9 · Error recovery</td><td class="num dim">0</td><td class="num">1</td><td class="num dim">0</td></tr>
+<tr><td>10 · Help, docs</td><td class="num dim">0</td><td class="num">1</td><td class="num dim">0</td></tr>
+</table>
+<p class="small" style="margin-top:2mm">Columns count findings at each severity. No catastrophic (4) issues were found.</p>
+</div>
+<div>
+<h3 class="group" style="margin-top:0">Recommended first moves</h3>
+<ol class="top">
+<li><b>Stop showing stock photos as screens.</b> Show “Screens coming soon” until the 31 captures exist. (H2.1)</li>
+<li><b>Make Back close the window or sheet.</b> (H3.1)</li>
+<li><b>Fix contrast</b> on selected chips, orange labels and grey hints. (H4.1)</li>
+<li><b>Redraw the broken “report” icon</b> used by the Operations area and 14 features. (H2.2)</li>
+<li><b>Send module search results to the module page.</b> (H5.1)</li>
+</ol>
+<div class="counts"><div class="count s3"><b>3</b>Major (3)</div><div class="count s2"><b>9</b>Minor (2)</div><div class="count s1"><b>4</b>Cosmetic (1)</div></div>
+</div>
+</div>
+
+<h3 class="group">What is working well</h3>
+<div class="strengths">
+<div><b>Always know where you are.</b>Area tabs with photos, module chips in the area colour and a pinned bar on scroll keep area and module in view.</div>
+<div><b>Search from anywhere.</b>A menu icon, / or Ctrl/Cmd + K opens search on every page; results go straight to a feature’s screen.</div>
+<div><b>Screens that read well.</b>The desktop window and the phone sheet show a large screen beside its title and description, with arrows, swipe and dots.</div>
+<div><b>Shareable and reversible.</b>Every module and feature has its own link; Esc and click outside close; focus returns to the card.</div>
+<div><b>One colour system.</b>Each area’s colour carries through tabs, chips, cards, icons and the window, so modules are recognisable.</div>
+<div><b>Considerate motion.</b>Every effect switches off under reduced motion, and the menu stays readable over the photo and on light pages.</div>
+</div>
+
+<div class="break"></div>
+<div class="eyebrow">Method</div>
+<h2 class="sec-title">How the evaluation was done</h2>
+<p class="lede">An expert review of the live site at 1440px and 390px in Chrome, walking five everyday tasks for staff and checking each screen against Nielsen’s ten heuristics. Behaviour, contrast and page weight were measured in the browser.</p>
+<div class="two">
+<div class="card"><h4>Tasks walked</h4><ol class="top">
+<li>Find how to record a vaccination and see its screen.</li>
+<li>Switch from Housing to a module in Medical &amp; Treatment.</li>
+<li>From a module page, search for “deworm” and open it.</li>
+<li>As a new user, work through Getting Started.</li>
+<li>On a phone, open a feature, step to the next and go back.</li>
+</ol></div>
+<div class="card"><h4>Severity scale (Nielsen)</h4>
+<div class="sev"><span class="pill s4">4 Catastrophic</span><span>Must fix before release</span></div>
+<div class="sev"><span class="pill s3">3 Major</span><span>Important to fix, high priority</span></div>
+<div class="sev"><span class="pill s2">2 Minor</span><span>Fix, lower priority</span></div>
+<div class="sev"><span class="pill s1">1 Cosmetic</span><span>Fix if time allows</span></div>
+<h4 style="margin-top:4mm">Limits</h4><p class="small">One evaluator; a single reviewer typically finds about a third of problems, so a short test with staff should follow. Screen readers were not tested live. The audience is staff who already use Antz, not prospects.</p></div>
+</div>
+
+<h3 class="group">Progress since 25 September</h3>
+<table>
+<tr><th>Earlier finding</th><th>Now</th><th>Status</th></tr>
+<tr><td>Phone module pages changed a screen out of view</td><td>Features open in a full-screen sheet on phones</td><td class="st-fixed">Fixed</td></tr>
+<tr><td>Placeholder icons on module cards</td><td>Every module card has its own icon; some feature icons are still broken (H2.2)</td><td class="st-part">Partly fixed</td></tr>
+<tr><td>Kit sections spoke to trainees, not prospects</td><td>The audience is now staff, so training language fits</td><td class="st-fixed">Resolved</td></tr>
+<tr><td>Stock photos framed as screens</td><td>Still there, and now shown for every feature of four modules (H2.1)</td><td class="st-open">Open</td></tr>
+<tr><td>Booking depended on an email link</td><td>Booking buttons removed; not needed for staff</td><td class="st-fixed">Resolved</td></tr>
+<tr><td>Rotating search cue never pauses</td><td>Unchanged, and added to the header search (H1.2)</td><td class="st-open">Open</td></tr>
+<tr><td>No way to move between areas and modules</td><td>Area and module tabs, pinned bar, previous/next</td><td class="st-fixed">Fixed</td></tr>
+</table>
+
+<div class="break"></div>
+<div class="eyebrow">Findings</div>
+<h2 class="sec-title">16 findings across the ten heuristics</h2>
+<h3 class="group"><span class="hn">H1</span>Visibility of system status<span class="q">Does the guide show what is happening?</span></h3><div class="finding"><div class="f-head"><span class="f-id">H1.1</span><h4>A feature card looks selected before anything is chosen</h4><span class="pill s1">1 Cosmetic</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>On every module page the first card loads white, outlined and with a filled icon, the “selected” look, although nothing is open.</dd><dt>Why</dt><dd>It suggests the first feature is already showing, or has been read. On desktop and phones the screen only appears once a card is opened.</dd><dt>Fix</dt><dd class="fix">Load with no card selected; mark a card only while its window or sheet is open, or after it has been viewed.</dd></dl></div></div><div class="finding"><div class="f-head"><span class="f-id">H1.2</span><h4>The rotating search cue never pauses</h4><span class="pill s2">2 Minor</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>The banner search cycles “Search Notes Module… Note type &amp; linking…” every 2.4 seconds for as long as the page is open. The header search does the same while open. Enter on a cue does nothing because the box is empty.</dd><dt>Why</dt><dd>Endless motion next to the main entry point distracts people reading the hero, and fails WCAG 2.2.2 (pause, stop, hide).</dd><dt>Fix</dt><dd class="fix">Stop after three cycles and on hover or focus; let Tab or → accept the cue shown.</dd></dl></div></div><h3 class="group"><span class="hn">H2</span>Match between system and the real world<span class="q">Does it show and say what staff will meet in Antz?</span></h3><div class="finding"><div class="f-head"><span class="f-id">H2.1</span><h4>Four web modules show a stock photo as every screen</h4><span class="pill s3">3 Major</span></div>
+<div class="f-body img"><div class="f-img"><img src="img/lab.jpg" alt=""><p class="cap">Lab, feature 4 of 8: the stock photo stands in for the app.</p></div><dl><dt>Seen</dt><dd>Lab, Diet, Pharmacy · Web and Compliance have no captures. Every one of their 31 features opens the same stock photo inside the device frame: a scientist, a pile of fruit, pills in a trolley, a vet with a tablet.</dd><dt>Why</dt><dd>The guide’s job is to prepare staff for the real screens. A photo framed as the app teaches nothing and makes every other screen less trustworthy.</dd><dt>Fix</dt><dd class="fix">Until captures exist, drop the device and show “Screens coming soon” in the window. Capture the 31 screens listed in the screenshot audit.</dd></dl></div></div><div class="finding"><div class="f-head"><span class="f-id">H2.2</span><h4>Some icons are broken or say the wrong thing</h4><span class="pill s2">2 Minor</span></div>
+<div class="f-body img"><div class="f-img"><img src="img/squares.jpg" alt=""><p class="cap">Compliance: two solid squares, and a person for Export &amp; import.</p></div><dl><dt>Seen</dt><dd>The “report” icon draws as a solid green square: its bars are not cut out. It marks 14 features and the whole Operations &amp; Oversight area (chips, tabs, cards). Mortality &amp; Lifecycle’s area icon is a plain oval. 186 features share 30 icons, so neighbours repeat (“manage” 24×, “filter” 18×), and some mismatch: Export &amp; import shows a person.</dd><dt>Why</dt><dd>Icons are read before titles. A blank square reads as “missing”, and repeats make cards in a module hard to tell apart at a glance.</dd><dt>Fix</dt><dd class="fix">Redraw “report” with its bars cut out and give Mortality a clearer mark. Then give each feature an icon for its own action, starting with the most-used modules.</dd></dl></div></div><div class="finding"><div class="f-head"><span class="f-id">H2.3</span><h4>Some copy still speaks to buyers, not staff</h4><span class="pill s2">2 Minor</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>Banner: “Take a five-minute look at how Antz works”. Menu: “Why Antz”. FAQ heading “Questions teams ask first”, with questions such as “What is Antz?” and “We run more than one site. Does that work?”. The repo README calls the site the “prospect edition”.</dd><dt>Why</dt><dd>Staff already use Antz. Sales framing makes the guide feel like marketing and hides the everyday questions (“How do I reassign a record?”, “Why can’t I see a module?”).</dd><dt>Fix</dt><dd class="fix">Reword for users: “Find any task in Antz, with the real screens”. Rename “Why Antz” to “About Antz”; rewrite the FAQ around access, roles, sync and where to get help.</dd></dl></div></div><div class="finding"><div class="f-head"><span class="f-id">H2.4</span><h4>Labels follow the system, not the reader</h4><span class="pill s1">1 Cosmetic</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>Getting Started is labelled “Module 03 · Onboarding flow”, while card 03 is Collection. Names carry “Module” (“Notes Module”, “Helpdesk Module”); “Hospital Information Management System · App” overflows tabs and chips.</dd><dt>Why</dt><dd>Two “Module 03”s make numbers unreliable as a way to find things, and long names are cut off on phones.</dd><dt>Fix</dt><dd class="fix">Drop the number from the kit label; drop “Module” from names; shorten HIMS to “Hospital · App / Web”.</dd></dl></div></div><h3 class="group"><span class="hn">H3</span>User control and freedom<span class="q">Can people back out and find their way again?</span></h3><div class="finding"><div class="f-head"><span class="f-id">H3.1</span><h4>Back leaves the page instead of closing the window or sheet</h4><span class="pill s3">3 Major</span></div>
+<div class="f-body img-sm"><div class="f-img"><img src="img/m-sheet.jpg" alt=""><p class="cap">Phone sheet: fills the screen, so Back is the instinctive exit.</p></div><dl><dt>Seen</dt><dd>With a feature window (desktop) or the full-screen sheet (phones) open, the browser’s Back, or Android’s back gesture, skips the module page and returns to the previous page. Tested: Vaccination window open → Back → home page.</dd><dt>Why</dt><dd>On phones the sheet fills the screen, so Back is the natural way to close it. People lose their place and must find the module again.</dd><dt>Fix</dt><dd class="fix">Add a history entry when the window or sheet opens and close it on Back, so Back steps out one level, as on the phone gallery in most apps.</dd></dl></div></div><h3 class="group"><span class="hn">H4</span>Consistency and standards<span class="q">Do the same things look and work the same?</span></h3><div class="finding"><div class="f-head"><span class="f-id">H4.1</span><h4>Contrast falls below WCAG on key text</h4><span class="pill s3">3 Major</span></div>
+<div class="f-body img"><div class="f-img"><img src="img/chips.jpg" alt=""><p class="cap">Home chips: white text on the light gradient.</p></div><dl><dt>Seen</dt><dd>White text on the selected chip gradient measures 1.8:1 (teal end) to 2.4:1. Orange section labels measure 2.8:1. The grey hint and helper text measure 3.2:1 on the page tint and 3.8:1 on white. WCAG AA needs 4.5:1 for text this size.</dd><dt>Why</dt><dd>Selected state, section labels and hints are exactly what orients people. Low contrast hides them on bright screens and for anyone with low vision.</dd><dt>Fix</dt><dd class="fix">Use dark ink on the light chip gradient (about 9:1); darken the orange to #B8431F and the grey to #5E6B67.</dd></dl></div></div><div class="finding"><div class="f-head"><span class="f-id">H4.2</span><h4>The menu mixes places and jumps</h4><span class="pill s2">2 Minor</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>“Modules” and “FAQ” scroll the home page; “Why Antz” and “Getting started” open pages. “Why Antz” lands on a page titled “What is Antz Systems?”. The Objective page has no menu link.</dd><dt>Why</dt><dd>The same kind of control does two different things, and a label that does not match its page makes people doubt where they are.</dd><dt>Fix</dt><dd class="fix">Make every menu item a place: Start here (the three kit pages), Modules, FAQ. Match labels to page titles.</dd></dl></div></div><div class="finding"><div class="f-head"><span class="f-id">H4.3</span><h4>Three chip styles and two list styles</h4><span class="pill s2">2 Minor</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>Selected chips use a teal-to-green gradient on the home page and “start here” pages, but the area colour on module pages. Module pages list features as cards; the home Featured workflow still lists the same kind of features as rows.</dd><dt>Why</dt><dd>Similar controls that look different make people relearn them, and a design system is easier to extend when each pattern has one form.</dd><dt>Fix</dt><dd class="fix">Pick one selected-chip rule (area colour everywhere, brand gradient where there is no area). Use the card layout for the Featured workflow.</dd></dl></div></div><h3 class="group"><span class="hn">H5</span>Error prevention<span class="q">Does the guide stop people going the wrong way?</span></h3><div class="finding"><div class="f-head"><span class="f-id">H5.1</span><h4>A module search result opens a feature, not the module</h4><span class="pill s2">2 Minor</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>Searching “deworm” and choosing the module result “Deworming” opens the feature window at feature 1. The module page with all its features is behind a dimmed backdrop.</dd><dt>Why</dt><dd>People choosing a module expect its overview. Landing inside feature 1 hides the other features and needs an extra close.</dd><dt>Fix</dt><dd class="fix">Link module results to <code>#/m/&lt;id&gt;</code> and feature results to <code>#/m/&lt;id&gt;/&lt;n&gt;</code>.</dd></dl></div></div><h3 class="group"><span class="hn">H6</span>Recognition rather than recall<span class="q">Is everything needed visible when needed?</span></h3><div class="finding"><div class="f-head"><span class="f-id">H6.1</span><h4>Long area names are cut off on phones</h4><span class="pill s1">1 Cosmetic</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>In the pinned bar and area tabs, names shorten to “Operations &amp; …” and “Medical &amp; Tre…”, and the area pill is the only area cue once the page is scrolled.</dd><dt>Why</dt><dd>People have to remember which area they are in rather than read it.</dd><dt>Fix</dt><dd class="fix">Use short area names on phones (“Medical”, “Operations”, “Mortality”) and keep the colour dot.</dd></dl></div></div><h3 class="group"><span class="hn">H7</span>Flexibility and efficiency of use<span class="q">Does it serve both first-time and returning users?</span></h3><div class="finding"><div class="f-head"><span class="f-id">H7.1</span><h4>Screenshots are heavier than they need to be</h4><span class="pill s2">2 Minor</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>The screenshot folder is 39 MB; the largest single screen is 1.9 MB. The home page transfers 4.0 MB in 75 requests; a module page about 0.8 MB before any screen is opened, plus up to 1.9 MB per screen.</dd><dt>Why</dt><dd>Staff check the guide on phones, on site Wi-Fi or mobile data. Slow screens break the one-tap flow the design depends on.</dd><dt>Fix</dt><dd class="fix">Serve screens as WebP at display size (about 80–150 KB each) with a small preview first; expect around 90% less data.</dd></dl></div></div><h3 class="group"><span class="hn">H8</span>Aesthetic and minimalist design<span class="q">Is every element earning its place?</span></h3><div class="finding"><div class="f-head"><span class="f-id">H8.1</span><h4>Motion has grown into ten separate effects</h4><span class="pill s1">1 Cosmetic</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>Banner rise, chip fill sweep, drawn borders, card deal-in, tab glide, content swap, radial window, arrow loop, pager rise and kit rise. All respect reduced motion.</dd><dt>Why</dt><dd>For a reference people return to daily, repeated entrances slow reading. Each effect is pleasant; together they compete.</dd><dt>Fix</dt><dd class="fix">Keep motion on first entry and direct feedback (hover, open, switch); drop entrance replays on return visits and in the pinned bar.</dd></dl></div></div><h3 class="group"><span class="hn">H9</span>Help users recognise, diagnose and recover from errors<span class="q">What happens when something is missing?</span></h3><div class="finding"><div class="f-head"><span class="f-id">H9.1</span><h4>Broken or old links go home silently</h4><span class="pill s2">2 Minor</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>A link to an unknown module (for example <code>#/m/nope</code>) sends people to the home page with no message.</dd><dt>Why</dt><dd>Links shared in chat or bookmarked before a rename will break without explanation, and the person cannot tell whether the module exists.</dd><dt>Fix</dt><dd class="fix">Show a short “We couldn’t find that page” message with search and the module list, and keep redirects for renamed modules.</dd></dl></div></div><h3 class="group"><span class="hn">H10</span>Help and documentation<span class="q">Can people get help beyond the guide?</span></h3><div class="finding"><div class="f-head"><span class="f-id">H10.1</span><h4>The only route to help is an email address</h4><span class="pill s2">2 Minor</span></div>
+<div class="f-body"><dl><dt>Seen</dt><dd>The guide’s help section and FAQ point to hello@antz.systems. There is no path by role (keeper, vet, admin), no “what’s new”, and Getting Started has one screen for six features.</dd><dt>Why</dt><dd>New staff learn by role and task. Without a starting path for their role, they browse 32 modules to find the few they use.</dd><dt>Fix</dt><dd class="fix">Add “Start by role” paths on the home page, a “What’s new” list for releases, and complete the Getting Started screens.</dd></dl></div></div>
+
+<div class="break"></div>
+<div class="eyebrow">Next steps</div>
+<h2 class="sec-title">What to fix, in order</h2>
+<div class="road">
+<div class="col now"><h4>Now</h4><p class="when">This week, mostly small code changes</p><ul>
+<li>Hide stock photos; show “Screens coming soon” <span>H2.1</span></li>
+<li>Back closes the window or sheet <span>H3.1</span></li>
+<li>Contrast fixes <span>H4.1</span></li>
+<li>Redraw “report”, new Mortality mark <span>H2.2</span></li>
+<li>Module search results open the module <span>H5.1</span></li>
+</ul></div>
+<div class="col next"><h4>Next</h4><p class="when">Copy, navigation and polish</p><ul>
+<li>Staff-facing copy and FAQ <span>H2.3</span></li>
+<li>Menu as places: Start here, Modules, FAQ <span>H4.2</span></li>
+<li>One chip rule; cards on home <span>H4.3</span></li>
+<li>“Page not found” with search <span>H9.1</span></li>
+<li>Cue pauses; no preselected card <span>H1.1–2</span></li>
+</ul></div>
+<div class="col later"><h4>Later</h4><p class="when">Content and performance</p><ul>
+<li>Capture the 44 missing screens <span>H2.1</span></li>
+<li>WebP screens, previews first <span>H7.1</span></li>
+<li>Start-by-role paths, What’s new <span>H10.1</span></li>
+<li>Icons per feature; short names <span>H2.2, H2.4, H6.1</span></li>
+<li>Trim repeat animations <span>H8.1</span></li>
+</ul></div>
+</div>
+<div class="callout" style="margin-top:6mm;background:var(--green-tint);border-left:3px solid var(--green);border-radius:0 2mm 2mm 0;padding:3.5mm 4.5mm;font-size:9pt"><b>Validate.</b> After the “Now” fixes, ask five staff from different roles to complete the five tasks above on their own phones. Watch for where they hesitate; most remaining issues will show up in the first two tasks.</div>
+</body></html>
