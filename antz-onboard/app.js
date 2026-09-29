@@ -217,7 +217,7 @@
       ['Does it work on phones and computers?', 'Yes. The mobile app covers work on the ground, such as notes, treatments, transfers and egg records. The web app covers desk work, such as the hospital system, nursery set-up, reports and pharmacy stock. Updates appear in real time on phone, tablet and desktop.'],
       ['Can we control who sees what?', 'Yes. Access is role-based. You create the roles your organisation uses, for example Zoologist, and turn permissions on module by module.'],
       ['We run more than one site. Does that work?', 'Antz keeps data from every site and department in one place. Housing is organised by site, section and enclosure, and moves between sites go through approval and a security check-out.'],
-      ['How do we get started?', 'Book a walkthrough and we will show you Antz using examples from your own collection. Write to hello@antz.systems.']
+      ['How do we get started?', 'Start with the Getting Started guide, then open the modules your role uses. If something is unclear, write to hello@antz.systems.']
     ];
 
     app.innerHTML = `
@@ -297,13 +297,12 @@
         <div class="cta-bg" style="background-image:url('${PHOTOS.cta}')"></div>
         <div class="container">
           <div class="cta-inner reveal">
-            <h2>See Antz with your own collection</h2>
-            <p>A 30-minute walkthrough, built around the species, sites and teams you already manage.</p>
+            <h2>Stuck on a task?</h2>
+            <p>Every module has its features and real screens in this guide. Pick up where you left off, or ask us and we will help.</p>
             <div class="actions">
-              <a class="btn btn-primary" href="mailto:hello@antz.systems?subject=Antz%20walkthrough">Book a walkthrough</a>
-              <button class="btn btn-light" type="button" data-scroll="index">Back to the modules</button>
+              <button class="btn btn-primary" type="button" data-scroll="index">Back to the modules</button>
             </div>
-            <p class="or">Or write to <b>hello@antz.systems</b></p>
+            <p class="or">Questions? Write to <b>hello@antz.systems</b></p>
           </div>
         </div>
       </section>
