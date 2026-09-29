@@ -22,7 +22,16 @@
     /* The kit's slide-4 'welcome screen' is byte-identical to the Getting Started home screen, so the platform section uses this photo */
     platform: 'assets/photos/img-cta-new.jpg'
   };
-  const SPOTLIGHT_ID = 'animal-transfer';
+  /* Featured workflow: one everyday module, picked at random on each page load (kept while the visitor moves
+     around, so returning home does not swap it). `shot` is the feature whose screen is clearest as the picture
+     (no pop-up dimming it). Modules whose screens are stand-ins or dimmed are left out. */
+  const FEATURED = [
+    { id: 'animal-transfer', shot: 1 }, { id: 'medical-records', shot: 1 }, { id: 'vaccination', shot: 2 },
+    { id: 'housing', shot: 0 }, { id: 'animal-management', shot: 2 }, { id: 'mortality', shot: 1 },
+    { id: 'egg-management-app', shot: 0 }, { id: 'approvals', shot: 0 }, { id: 'missing-escaped-animal', shot: 0 },
+    { id: 'announcement', shot: 1 }, { id: 'tags-hub', shot: 0 }
+  ];
+  const FEATURE_PICK = FEATURED[Math.floor(Math.random() * FEATURED.length)];
   /* Screens that already carry a device frame in the image itself */
   const PREFRAMED = /img-housing|app-welcome|p5-home/;
 
@@ -207,10 +216,9 @@
 
   function renderHome(returning) {
     const about = byId['what-is-antz-systems'];
-    const spot = byId[SPOTLIGHT_ID];
+    const spot = byId[FEATURE_PICK.id];
     /* One of the workflow's screens, shown in full as a still, decorative picture beside the list */
-    /* The Approval screen: clear, without a pop-up dimming it */
-    const spotSrc = (spot.features[1] && spot.features[1].shot) || (spot.features.find((f) => f.shot) || {}).shot || (spot.shots[0] && spot.shots[0].src);
+    const spotSrc = (spot.features[FEATURE_PICK.shot] && spot.features[FEATURE_PICK.shot].shot) || (spot.features.find((f) => f.shot) || {}).shot || (spot.shots[0] && spot.shots[0].src);
     const spotShot = spotSrc ? shotFor(spot, spotSrc) : null;
     const faqs = [
       ['What is Antz?', about.intro],
@@ -285,8 +293,7 @@
             <div class="spot-feats tint-${AREA_TINT[spot.track]}">${featureListHTML(spot, true)}</div>
             <a class="link-arrow" href="#/m/${spot.id}">See ${esc(spot.title)} in detail ${ARROW}</a>
           </div>
-          <div class="stage" aria-hidden="true">
-            <div class="stage-blob" style="background-image:url('${PHOTOS.spotlight}')"></div>
+          <div class="stage tint-${AREA_TINT[spot.track]}" aria-hidden="true">
             <div class="stage-device">${spotShot ? deviceHTML(spotShot) : ''}</div>
           </div>
         </div>

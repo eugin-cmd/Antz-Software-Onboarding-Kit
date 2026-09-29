@@ -325,12 +325,16 @@ button { font: inherit; color: inherit; }
 .step h3 { font-size: 16px; font-weight: 600; margin-top: 5px; }
 .step p { font-size: 14px; color: var(--muted); margin-top: 4px; display: none; }
 .step[aria-selected="true"] p { display: block; }
-.stage { position: relative; display: grid; place-items: center; min-height: 600px; }
-.stage-blob { position: absolute; inset: 4% 6%; z-index: 0; border-radius: 58% 42% 55% 45% / 48% 60% 40% 52%; background: center / cover no-repeat; }
-.stage-blob::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(55,189,105,.18), rgba(31,81,91,.35)); }
+/* The workflow's screen on a box in its area's page gradient, rounded like the Getting Started panel */
+.stage {
+  position: relative; display: grid; place-items: center; min-height: 600px; padding: 40px 24px; border-radius: var(--radius-lg);
+  background:
+    radial-gradient(120% 90% at 100% 100%, color-mix(in srgb, var(--tint-comp) 70%, transparent) 0%, transparent 60%),
+    linear-gradient(165deg, var(--tint) 0%, var(--tint) 30%, var(--tint-comp) 100%);
+}
 @media (max-width: 900px) {
   .spotlight { grid-template-columns: 1fr; gap: 40px; }
-  .stage { min-height: 520px; order: -1; }
+  .stage { min-height: 520px; order: -1; padding: 28px 16px; }
 }
 
 /* ---------- Device frames ---------- */
