@@ -118,6 +118,15 @@ button { font: inherit; color: inherit; }
 .primary-nav a:not(.btn) { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--ink); transition: color .2s var(--ease); }
 .primary-nav a:not(.btn):hover { color: var(--green-strong); }
 .nav-toggle { display: none; background: none; border: 0; width: 44px; height: 44px; padding: 10px; cursor: pointer; }
+/* Search icon in the menu bar (after the links on desktop, before the menu button on phones) */
+.brand { margin-right: auto; }
+.nav-search {
+  flex: none; width: 42px; height: 42px; margin-left: -6px; border-radius: 50%; border: 0; background: transparent; cursor: pointer;
+  display: grid; place-items: center; color: var(--ink); transition: background .2s, color .3s var(--ease);
+}
+.nav-search:hover { background: rgba(14,23,21,.06); }
+.on-dark .nav-search { color: #fff; }
+.on-dark .nav-search:hover { background: rgba(255,255,255,.16); }
 .nav-toggle span { display: block; height: 2px; background: var(--ink); margin: 5px 0; border-radius: 2px; transition: transform .2s var(--ease), opacity .2s, background-color .3s var(--ease); }
 .on-dark .nav-toggle span { background: #fff; }
 @media (min-width: 901px) {
@@ -125,7 +134,8 @@ button { font: inherit; color: inherit; }
   .on-dark .primary-nav a:not(.btn):hover { color: #8FE3AE; }
 }
 @media (max-width: 900px) {
-  .nav-toggle { display: block; }
+  .nav-toggle { display: block; order: 3; margin-left: 2px; }
+  .nav-search { order: 2; margin-left: 0; }
   .primary-nav {
     position: absolute; top: var(--header-h); left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
@@ -139,7 +149,7 @@ button { font: inherit; color: inherit; }
   .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .brand-label { font-size: 16px; }
+  .brand-label { font-size: 16px; white-space: nowrap; }
   .brand img { height: 36px; }
 }
 
@@ -173,6 +183,8 @@ button { font: inherit; color: inherit; }
 .search-field svg { width: 24px; height: 24px; color: var(--muted); flex: none; }
 .search-field input { flex: 1; border: 0; outline: 0; font: inherit; font-size: 17px; color: var(--ink); background: transparent; min-width: 0; }
 .search-field input::placeholder { color: var(--muted-2); }
+/* Only the guide's own clear button, not the browser's */
+.search-field input::-webkit-search-cancel-button, .search-field input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; display: none; }
 .search-field { position: relative; }
 .ph {
   position: absolute; left: 58px; right: 64px; top: 50%; transform: translateY(-50%);
@@ -928,6 +940,23 @@ a.mcard-face { text-decoration: none; color: inherit; }
   .mpage .mfeat .n { width: 38px; height: 38px; }
   .mpage .mfeat-open { top: 12px; right: 12px; }
 }
+
+/* Header search panel */
+body.qs-open { overflow: hidden; }
+.qs { position: fixed; inset: 0; z-index: 80; display: flex; justify-content: center; align-items: flex-start; padding: 90px 20px 20px; }
+.qs[hidden] { display: none; }
+.qs-backdrop { position: absolute; inset: 0; background: rgba(10,30,26,.45); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transition: opacity .25s ease; }
+.qs.in .qs-backdrop { opacity: 1; }
+.qs-panel { position: relative; width: min(680px, 100%); opacity: 0; transform: translateY(-10px) scale(.98); transition: opacity .25s ease, transform .35s cubic-bezier(.22,.8,.24,1); }
+.qs.in .qs-panel { opacity: 1; transform: none; }
+.qs .search-field { height: 60px; }
+/* The rotating cue stops short of the clear and Esc buttons */
+.qs .ph { right: 130px; }
+.qs .search-results { position: relative; top: auto; margin-top: 10px; max-height: calc(100vh - 200px); }
+.qs-close { flex: none; border: 1px solid var(--line); background: var(--surface-soft); color: var(--muted); font: 600 11px Inter, sans-serif; letter-spacing: .04em; border-radius: 6px; padding: 4px 7px; cursor: pointer; }
+@media (max-width: 400px) { .brand { gap: 10px; } .brand img { height: 32px; } .brand-label { font-size: 14.5px; padding-left: 10px; } .nav-search { width: 38px; height: 38px; } }
+@media (max-width: 640px) { .qs { padding: 16px 12px; } .qs .search-field { height: 54px; } .qs .search-results { max-height: calc(100vh - 110px); } }
+@media (prefers-reduced-motion: reduce) { .qs-backdrop, .qs-panel { transition: none; } }
 
 /* Feature window */
 body.fwin-open { overflow: hidden; }

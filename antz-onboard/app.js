@@ -991,17 +991,19 @@
     { m, i: 0, title: m.title, text: m.intro, kind: 'Module' },
     ...m.features.map((f, i) => ({ m, i, title: f.title, text: f.desc, kind: m.title }))
   ]);
-  function bindSearch() {
-    const q = document.getElementById('q');
-    const box = document.getElementById('q-results');
-    const clear = app.querySelector('.search-clear');
+  /* One search box: an input, its results list and a clear button. `outside` is the element a click must
+     fall outside of to close the list (the hero), or null when the list always shows (the header panel). */
+  function searchBox(q, box, clear, outside) {
     let active = -1;
     const hl = (s, term) => esc(s).replace(new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'ig'), '<mark>$1</mark>');
-    const close = () => { box.classList.remove('show'); q.setAttribute('aria-expanded', 'false'); active = -1; };
+    const close = () => { if (outside) box.classList.remove('show'); q.setAttribute('aria-expanded', 'false'); active = -1; };
     const run = () => {
       const term = q.value.trim().toLowerCase();
       clear.classList.toggle('show', !!term);
-      if (term.length < 2) return close();
+      if (term.length < 2) {
+        if (!outside) box.innerHTML = '<div class="empty">Type at least two letters to search every module and feature.</div>';
+        return close();
+      }
       const hits = index
         .map((r) => {
           const t = r.title.toLowerCase(), x = r.text.toLowerCase();
@@ -1020,7 +1022,7 @@
     q.addEventListener('focus', run);
     q.addEventListener('keydown', (e) => {
       const items = [...box.querySelectorAll('a')];
-      if (e.key === 'Escape') return close();
+      if (e.key === 'Escape' && outside) return close();
       if (!items.length) return;
       if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
         e.preventDefault();
@@ -1030,9 +1032,68 @@
       if (e.key === 'Enter') { e.preventDefault(); (items[active] || items[0]).click(); }
     });
     clear.addEventListener('click', () => { q.value = ''; run(); q.focus(); });
-    rotatePlaceholder(q);
-    document.addEventListener('click', (e) => { if (!e.target.closest('.hero-search')) close(); });
+    if (outside) document.addEventListener('click', (e) => { if (!e.target.closest(outside)) close(); });
+    return run;
   }
+  function bindSearch() {
+    const q = document.getElementById('q');
+    searchBox(q, document.getElementById('q-results'), app.querySelector('.search-clear'), '.hero-search');
+    rotatePlaceholder(q);
+  }
+
+  /* Header search: the search icon in the menu bar opens a search panel on any page (also "/" or Ctrl/Cmd + K) */
+  const qs = document.createElement('div');
+  qs.className = 'qs';
+  qs.hidden = true;
+  qs.innerHTML = `
+    <div class="qs-backdrop" data-close></div>
+    <div class="qs-panel" role="dialog" aria-modal="true" aria-label="Search the guide">
+      <div class="search-field">
+        ${SEARCH_SVG}
+        <label class="sr-only" for="qs-input">Search modules and features</label>
+        <input id="qs-input" type="search" autocomplete="off" placeholder="" aria-controls="qs-results" aria-expanded="false">
+        <span class="ph" aria-hidden="true">Search <span class="ph-rot"></span></span>
+        <button class="search-clear" type="button" aria-label="Clear search">${CLOSE_SVG}</button>
+        <button class="qs-close" type="button" data-close>Esc</button>
+      </div>
+      <div class="search-results show" id="qs-results" role="listbox"></div>
+    </div>`;
+  document.body.append(qs);
+  const qsInput = qs.querySelector('#qs-input');
+  const qsRun = searchBox(qsInput, qs.querySelector('#qs-results'), qs.querySelector('.search-clear'), null);
+  rotatePlaceholder(qsInput, { keepOnFocus: true });
+  const searchBtn = document.querySelector('.nav-search');
+  let qsReturn = null;
+  const openSearch = () => {
+    if (!qs.hidden) return;
+    closeNav();
+    qsReturn = document.activeElement;
+    qs.hidden = false;
+    document.body.classList.add('qs-open');
+    requestAnimationFrame(() => qs.classList.add('in'));
+    qsInput.value = ''; qsRun(); qsInput.dispatchEvent(new Event('input'));
+    qsInput.focus();
+  };
+  const closeSearch = (restore = true) => {
+    if (qs.hidden) return;
+    qs.classList.remove('in');
+    qs.hidden = true;
+    document.body.classList.remove('qs-open');
+    if (restore && qsReturn && qsReturn.focus) qsReturn.focus({ preventScroll: true });
+  };
+  searchBtn.addEventListener('click', openSearch);
+  qs.addEventListener('click', (e) => {
+    if (e.target.closest('[data-close]')) closeSearch();
+    else if (e.target.closest('#qs-results a')) closeSearch(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    const typing = e.target.closest && e.target.closest('input, textarea, [contenteditable]');
+    if (e.key === 'Escape' && !qs.hidden) { e.preventDefault(); closeSearch(); }
+    else if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !typing)) {
+      if (document.querySelector('.fwin, .gallery')) return;
+      e.preventDefault(); openSearch();
+    }
+  });
 
   /* Hero parallax: the photo drifts slower than the page, content rides over it */
   let parallaxOff = null;
@@ -1059,10 +1120,10 @@
   }
 
   /* Rotating placeholder: every visible module, each followed by one of its tasks */
-  let phTimer = null;
-  function rotatePlaceholder(q) {
-    clearInterval(phTimer);
+  /* keepOnFocus: the cue keeps rotating while the (empty) box has focus, as in the header search panel */
+  function rotatePlaceholder(q, { keepOnFocus = false } = {}) {
     const field = q.closest('.search-field');
+    clearInterval(field._phTimer);
     const rot = field.querySelector('.ph-rot');
     const GENERIC = /filter|search|edit|delet|listing|overview|status|view/i;
     const names = visible.flatMap((m) => {
@@ -1072,10 +1133,11 @@
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let i = 0;
     rot.textContent = names[0];
-    const sync = () => field.classList.toggle('ph-hidden', !!q.value || document.activeElement === q);
+    const sync = () => field.classList.toggle('ph-hidden', !!q.value || (!keepOnFocus && document.activeElement === q));
     ['input', 'focus', 'blur'].forEach((ev) => q.addEventListener(ev, sync));
-    phTimer = setInterval(() => {
-      if (!document.body.contains(rot)) return clearInterval(phTimer);
+    sync();
+    field._phTimer = setInterval(() => {
+      if (!document.body.contains(rot)) return clearInterval(field._phTimer);
       if (field.classList.contains('ph-hidden')) return;
       i = (i + 1) % names.length;
       if (reduced) { rot.textContent = names[i]; return; }
