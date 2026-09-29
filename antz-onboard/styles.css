@@ -344,9 +344,10 @@ button { font: inherit; color: inherit; }
 /* Places with no area (start-here pages and cards) frame their screens in the brand green */
 .kitpage, .bento { --tint-line: #0B7A40; --tint-line2: #005A2C; }
 /* Screens without a frame of their own get the same green phone body as the framed captures:
-   a bright rim (#006D35) around a thin dark edge (#042814), about 2.2% of the width */
+   a coloured rim around a thin dark edge. The rim is a fixed 7px (10px on tablets): padding percentages
+   follow the surrounding box, which made frames thicker in wider panels */
 .device-phone {
-  width: 272px; aspect-ratio: 9 / 19.2; padding: 2.4%; border-radius: 15% / 7%;
+  width: 272px; aspect-ratio: 9 / 19.2; padding: 7px; border-radius: 15% / 7%;
   /* The area's own colours (as on its icon badges); pages without an area keep the brand green */
   background: linear-gradient(145deg, var(--tint-line, #0B7A40) 0%, var(--tint-line, #006D35) 40%, var(--tint-line2, #005A2C) 100%);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), inset 0 1px 1px rgba(255,255,255,.18), var(--shadow-lg);
@@ -356,7 +357,7 @@ button { font: inherit; color: inherit; }
 .device-framed { width: 272px; filter: drop-shadow(0 30px 40px rgba(14,23,21,.3)); }
 .device-framed img { height: auto; border-radius: 34px; }
 .device-tablet {
-  width: min(460px, 100%); aspect-ratio: 3 / 4; padding: 2.4%; border-radius: 28px;
+  width: min(460px, 100%); aspect-ratio: 3 / 4; padding: 10px; border-radius: 28px;
   /* The area's own colours (as on its icon badges); pages without an area keep the brand green */
   background: linear-gradient(145deg, var(--tint-line, #0B7A40) 0%, var(--tint-line, #006D35) 40%, var(--tint-line2, #005A2C) 100%);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), inset 0 1px 1px rgba(255,255,255,.18), var(--shadow-lg);
