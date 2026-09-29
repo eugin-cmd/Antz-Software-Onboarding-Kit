@@ -942,15 +942,12 @@
       label: `${dir === 'prev' ? 'Previous' : 'Next'}${x.track !== m.track ? ` · ${esc(areaById[x.track].label)}` : ''}`
     }) : '<span></span>';
     const hasShots = m.features.some((f) => f.shot) || m.shots.length > 0;
-    /* One of the module's own screens, tilted and faded, washes the empty right side on wide screens */
-    const washSrc = (m.features.find((f) => f.shot) || {}).shot || (m.shots[0] && m.shots[0].src) || '';
 
     const html = `
       <section class="mpage tint-${tint}">
         <div class="container">
           ${moduleTabsHTML(m)}
           <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${numberOf[m.id]}</span>
-            ${washSrc ? `<span class="mwash" aria-hidden="true"><img src="${washSrc}" alt="" loading="lazy" decoding="async"></span>` : ''}
           <div class="mpanel-inner${hasShots ? '' : ' no-stage'}">
             <div class="mpanel-info">
               <h1 class="mpanel-title"><span class="mpanel-icon"><img src="assets/icons/${iconOf(m)}_icon.svg" alt=""></span>${esc(m.title)}</h1>
