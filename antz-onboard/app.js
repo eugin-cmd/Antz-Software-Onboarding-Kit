@@ -176,15 +176,12 @@
     const i = KIT_PAGES.indexOf(k);
     const next = KIT_PAGES[i + 1] || null, prev = KIT_PAGES[i - 1] || null;
     const title = (x) => byId[x.module].title;
-    const link = (x, dir) => x ? `
-      <a class="mpager-link ${dir}" href="#/kit/${x.id}">
-        <small>${dir === 'prev' ? 'Previous' : 'Next'}</small>
-        <b>${dir === 'prev' ? '← ' : ''}${esc(title(x))}${dir === 'next' ? ' →' : ''}</b>
-      </a>` : (dir === 'next' ? `
-      <a class="mpager-link next" href="#/" data-scroll="index">
-        <small>Next</small>
-        <b>Explore the modules →</b>
-      </a>` : '<span></span>');
+    const kitPhoto = (x) => x.photo ? { url: PHOTOS[x.photo], pos: x.pos } : { url: (byId[x.module].shots[0] || {}).src || PHOTOS.hero, pos: '50% 12%' };
+    const link = (x, dir) => x
+      ? pagerHTML(dir, { href: `#/kit/${x.id}`, label: dir === 'prev' ? 'Previous' : 'Next', title: title(x), ...kitPhoto(x) })
+      : (dir === 'next'
+        ? pagerHTML('next', { href: '#/', attrs: ' data-scroll="index"', label: 'Next', title: 'Explore the modules', url: PHOTOS.hero, pos: '60% 30%' })
+        : '<span></span>');
     /* Coming from another kit page: start with that page's chip filled, then hand the fill over,
        so it drains from the old chip and sweeps into the new one */
     const from = KIT_PAGES.find((x) => x.id === lastKit);
@@ -205,7 +202,7 @@
         if (KIT_PAGES[j] === k) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current');
       })));
     }
-    document.title = `${title(k)} · Antz Onboarding`;
+    document.title = `${title(k)} · Antz Field Guide`;
   }
 
   function renderHome(returning) {
@@ -380,10 +377,18 @@
     'pharmacy-app', 'pharmacy-web', 'compliance']);
   const CARD_PHOTO_POS = { announcement: '50% 22%', 'user-management': '50% 40%', 'fetal-death': '50% 45%' };
   const photoIndex = Object.fromEntries(areas.flatMap((a) => a.modules).map((m, i) => [m.id, i]));
+  const photoOf = (m) => CARD_PHOTOS.has(m.id)
+    ? { url: `assets/cards/${m.id}.jpg`, pos: CARD_PHOTO_POS[m.id] || '50% 50%', flip: 1 }
+    : (({ src, pos, flip }) => ({ url: `assets/icon-bg/${src}.jpg`, pos, flip }))(PHOTO_VARIANTS[photoIndex[m.id] % PHOTO_VARIANTS.length]);
+  /* Previous / next link: a round thumbnail of that page with the arrow on it, then its label and title */
+  const pagerArrow = (dir) => (dir === "prev" ? CHEV_L : CHEV_R);
+  const pagerHTML = (dir, { href, label, title, url, pos = '50% 50%', attrs = '' }) => `
+    <a class="mpager-link ${dir}" href="${href}"${attrs}>
+      <span class="mpager-thumb" style="background-image:url('${url}');background-position:${pos}"><span class="mpager-arrow" aria-hidden="true">${pagerArrow(dir)}</span></span>
+      <span class="mpager-text"><small>${label}</small><b>${esc(title)}</b></span>
+    </a>`;
   const thumbHTML = (m) => {
-    const v = CARD_PHOTOS.has(m.id)
-      ? { url: `assets/cards/${m.id}.jpg`, pos: CARD_PHOTO_POS[m.id] || '50% 50%', flip: 1 }
-      : (({ src, pos, flip }) => ({ url: `assets/icon-bg/${src}.jpg`, pos, flip }))(PHOTO_VARIANTS[photoIndex[m.id] % PHOTO_VARIANTS.length]);
+    const v = photoOf(m);
     return `<span class="mcard-thumb">
       <span class="mcard-bg" style="background-image:url('${v.url}');background-position:${v.pos};--flip:${v.flip}"></span>
       <img class="mcard-icon" src="assets/icons/${iconOf(m)}_icon.svg" alt="">
@@ -604,6 +609,9 @@
       ...[...app.querySelectorAll('.mfeat-row')].map((el) => [el, { ...CARD_BORDER, stroke: 1, bleed: 0, over: true,
         /* Hover, or keyboard focus on its button (a mouse click leaves focus behind, which must not keep it drawn) */
         isOn: () => (el.matches(':hover') && canHover()) || !!el.querySelector(':focus-visible') }]),
+      /* Area tabs on module pages: the home chips' drawn border, in each area's colour (not on the selected tab) */
+      ...[...app.querySelectorAll('.mtab')].map((el) => [el, { ...CHIP_BORDER, feather: 40,
+        isOn: () => !el.hasAttribute('aria-current') && ((el.matches(':hover') && canHover()) || el.matches(':focus-visible')) }]),
       ...[...app.querySelectorAll('.mfilter, .hero-chips .chip')].map((el) => [el, { ...CHIP_BORDER,
         isOn: () => el.matches(':hover') || el.matches(':focus-visible') }])
     ];
@@ -748,6 +756,7 @@
         <a class="mtab tint-${AREA_TINT[a.id]}" href="#/m/${here ? cur.id : a.modules[0].id}"${here ? ' aria-current="true"' : ''}>
           <span class="mtab-thumb" style="background-image:url('${ph.url}');background-position:${ph.pos}"><img src="assets/icons/${ph.icon}_icon.svg" alt=""></span>
           <span class="mtab-text"><b>${esc(a.label)}</b><small>${a.modules.length} modules</small></span>
+          <svg class="drawn-border" aria-hidden="true"></svg>
         </a>`;
       }).join('')}
         <span class="mtab-ind" aria-hidden="true"><i class="mtab-bar"></i></span>
@@ -830,6 +839,8 @@
       if (here) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
     });
     sizeBorders();
+    /* A tab that just became selected drops its hover border; the one left behind can draw again */
+    nav.querySelectorAll('.mtab').forEach(animateBorder);
     const rows = [nav.querySelector('.mtabs-areas'), full];
     if (!nav._bound) {
       nav._bound = true;
@@ -884,11 +895,10 @@
     /* Previous / next run through every module in order, crossing into the next area at the end of one */
     const k = allModules.indexOf(m);
     const prev = allModules[k - 1], next = allModules[k + 1];
-    const pagerLink = (x, dir) => x ? `
-      <a class="mpager-link ${dir}" href="#/m/${x.id}">
-        <small>${dir === 'prev' ? 'Previous' : 'Next'}${x.track !== m.track ? ` · ${esc(areaById[x.track].label)}` : ''}</small>
-        <b>${dir === 'prev' ? '← ' : ''}${esc(x.title)}${dir === 'next' ? ' →' : ''}</b>
-      </a>` : '<span></span>';
+    const pagerLink = (x, dir) => x ? pagerHTML(dir, {
+      href: `#/m/${x.id}`, title: x.title, ...photoOf(x),
+      label: `${dir === 'prev' ? 'Previous' : 'Next'}${x.track !== m.track ? ` · ${esc(areaById[x.track].label)}` : ''}`
+    }) : '<span></span>';
     const hasShots = m.features.some((f) => f.shot) || m.shots.length > 0;
     /* One of the module's own screens, tilted and faded, washes the empty right side on wide screens */
     const washSrc = (m.features.find((f) => f.shot) || {}).shot || (m.shots[0] && m.shots[0].src) || '';
@@ -944,7 +954,7 @@
       syncTabs(app.querySelector('.mtabs'), m, false);
     }
     bindFeatures(app.querySelector('.mpage'), m, featureIndex || 0, openFeature);
-    document.title = `${m.title} · Antz Onboarding`;
+    document.title = `${m.title} · Antz Field Guide`;
   }
 
   /* ---------- Search ---------- */
@@ -1333,7 +1343,7 @@
       if (name === 'kit') renderKit(id); else { lastKit = null; renderModule(id, Number(f) || 0, f !== undefined && f !== ''); }
       window.scrollTo(0, 0);
     } else {
-      document.title = 'Antz Onboarding';
+      document.title = 'Antz Field Guide';
       const cameBack = !onHome && !goTop && !pendingScroll && homeY;
       lastKit = null;
       renderHome(cameBack);

@@ -104,8 +104,16 @@ button { font: inherit; color: inherit; }
 .brand .logo-light { position: absolute; top: 0; left: 0; opacity: 0; }
 .on-dark .brand .logo-light { opacity: 1; }
 .on-dark .brand .logo-dark { opacity: 0; }
-.brand-label { font-size: 19px; font-weight: 500; color: var(--ink); padding-left: 14px; border-left: 1px solid var(--outline); transition: color .3s var(--ease), border-color .3s var(--ease); }
-.on-dark .brand-label { color: #fff; border-left-color: rgba(255,255,255,.45); }
+.brand-label {
+  font-size: 19px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); padding-left: 14px; border-left: 1px solid var(--outline);
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+/* Over the dark hero photo: the Medical & Treatment page gradient (mint to blush) fills the letters */
+.on-dark .brand-label {
+  border-left-color: rgba(255,255,255,.45);
+  background: linear-gradient(100deg, #DDF0EC 0%, #DDF0EC 25%, #FCE8E1 100%) right / calc(100% - 14px) 100% no-repeat;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
 .primary-nav { display: flex; align-items: center; gap: 30px; }
 .primary-nav a:not(.btn) { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--ink); transition: color .2s var(--ease); }
 .primary-nav a:not(.btn):hover { color: var(--green-strong); }
@@ -404,7 +412,8 @@ button { font: inherit; color: inherit; }
 .kit-tabs .kit-tab > .drawn-border path { stroke: url(#mcard-grad); }
 .kit-tabs .kit-tab[aria-current] { color: #fff; }
 .kitpage .kit-section:first-of-type, .kitpage > .section { padding-top: 48px; }
-.kitpage .mpager { border-top-color: var(--line); margin: 0 0 96px; }
+.kitpage { padding-bottom: 88px; }
+.kitpage .mpager { border-top-color: var(--line); margin: 0; }
 /* Kit page content eases in, rises past its place a touch and settles (the banner's heroRise), top to bottom.
    Each part waits hidden until it scrolls into view (observeReveal adds .in). */
 .kitpage .kit-media.reveal, .kitpage .kit-copy.reveal > *, .kitpage .kit-card, .kitpage .kit-list li,
@@ -432,7 +441,7 @@ button { font: inherit; color: inherit; }
 .kitpage .timeline li.reveal:nth-child(2) { --rise-delay: 100ms; }
 .kitpage .timeline li.reveal:nth-child(3) { --rise-delay: 200ms; }
 .kitpage .timeline li.reveal:nth-child(4) { --rise-delay: 300ms; }
-@media (max-width: 640px) { .kit-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 calc(var(--gutter) * -1); padding: 2px var(--gutter) 6px; } .kitpage .mpager { margin-bottom: 64px; } }
+@media (max-width: 640px) { .kit-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 calc(var(--gutter) * -1); padding: 2px var(--gutter) 6px; } .kitpage { padding-bottom: 56px; } }
 
 /* ---------- Module cards (under the hero) ---------- */
 /* Area tints: bg for thumbnails and panels, ink for small accents */
@@ -742,9 +751,16 @@ a.mcard-face { text-decoration: none; color: inherit; }
   --edge: color-mix(in srgb, var(--tint-line) 45%, #fff);
   position: relative; display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px 10px 10px; border-radius: 10px; text-decoration: none;
   background: rgba(255,255,255,.7); border: 1px solid rgba(14,23,21,.06); color: var(--text);
-  transition: background .45s ease, border-color .45s ease, transform .35s cubic-bezier(.22,.8,.24,1);
+  box-shadow: 0 0 0 rgba(14,40,34,0);
+  /* Leaving: settle back down smoothly (as the home chips) */
+  transition: background .45s ease, border-color .45s ease, transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1);
 }
-.mtab:not([aria-current]):hover { background: #fff; transform: translateY(-2px); }
+.mtab:not([aria-current]):hover {
+  /* Hover like the home chips: rise off the surface, overshoot slightly, then settle, while the border draws in the area colour */
+  background: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px -10px rgba(14,40,34,.35), 0 2px 4px rgba(14,40,34,.06);
+  transition: background .45s ease, border-color .45s ease, transform .55s cubic-bezier(.34,1.56,.64,1), box-shadow .55s cubic-bezier(.22,.8,.24,1);
+}
+.mtab > .drawn-border path { stroke: var(--tint-line); }
 /* Tabs stop 10px above the bottom line; the selected outline curves down to it and runs beneath its neighbours */
 .mtab { margin-bottom: 10px; }
 /* Selected: the page colour shows through; its outline is drawn by .mtab-ind, which glides between tabs */
@@ -1000,15 +1016,33 @@ body.fwin-open { overflow: hidden; }
 
 /* Previous / next module, crossing areas */
 .mpager { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; padding-top: 28px; border-top: 1px solid color-mix(in srgb, var(--tint-line) 25%, transparent); }
-.mpager-link { display: grid; gap: 4px; padding: 14px 18px; border-radius: 14px; background: rgba(255,255,255,.6); border: 1px solid var(--line); text-decoration: none; transition: background .14s, border-color .14s; }
-.mpager-link:hover { background: #fff; border-color: var(--outline); }
-.mpager-link.next { text-align: right; }
+.mpager-link { display: flex; align-items: center; gap: 16px; padding: 6px 0; text-decoration: none; color: inherit; }
+.mpager-link.next { flex-direction: row-reverse; text-align: right; }
+.mpager-thumb {
+  position: relative; flex: none; width: 76px; height: 76px; border-radius: 50%; background: var(--teal-deep) center / cover no-repeat;
+  box-shadow: 0 2px 6px rgba(14,23,21,.12);
+  /* Leaving: settle back down smoothly */
+  transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1);
+}
+.mpager-thumb::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: rgba(10,30,26,.38); transition: background .3s ease; }
+.mpager-arrow { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; color: #fff; }
+.mpager-arrow svg { width: 26px; height: 26px; }
+/* Hover: the circle eases up, overshoots a touch and settles; the photo shows through a little more */
+.mpager-link:hover .mpager-thumb, .mpager-link:focus-visible .mpager-thumb {
+  transform: translateY(-6px); box-shadow: 0 18px 30px -12px rgba(14,40,34,.45), 0 3px 8px rgba(14,40,34,.1);
+  transition: transform .55s cubic-bezier(.34,1.56,.64,1), box-shadow .55s cubic-bezier(.22,.8,.24,1);
+}
+.mpager-link:hover .mpager-thumb::after { background: rgba(10,30,26,.22); }
+.mpager-text { display: grid; gap: 4px; min-width: 0; }
 .mpager-link small { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted-2); }
-.mpager-link b { font-size: 15px; font-weight: 600; color: var(--ink); }
+.mpager-link b { font-size: 16px; font-weight: 600; color: var(--ink); transition: color .2s; }
+.mpager-link:hover b { color: var(--tint-ink, var(--green-strong)); }
+@media (prefers-reduced-motion: reduce) { .mpager-thumb, .mpager-link:hover .mpager-thumb { transition: none; transform: none; } }
 
 @media (max-width: 560px) {
   .mpager { grid-template-columns: 1fr; gap: 10px; margin-top: 36px; }
-  .mpager-link.next { text-align: left; }
+  .mpager-link.next { flex-direction: row; text-align: left; }
+  .mpager-thumb { width: 60px; height: 60px; }
 }
 @media (max-width: 760px) { .mpage { padding: calc(16px + var(--header-h)) 0 40px; } .mpanel-intro { font-size: 15px; } }
 @media (prefers-reduced-motion: reduce) { .mtab, .mtab:hover { transition: none; transform: none; } }
