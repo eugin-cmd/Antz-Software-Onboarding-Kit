@@ -341,20 +341,30 @@ button { font: inherit; color: inherit; }
 .device { position: relative; z-index: 1; }
 .device img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 /* Bare screens: no bezel, just rounded corners, a hairline edge and the lift shadow */
-.device-phone { width: 254px; aspect-ratio: 9 / 19.2; border-radius: 32px; box-shadow: var(--shadow-lg); }
-.device-phone .screen { position: relative; width: 100%; height: 100%; border-radius: 32px; overflow: hidden; background: #fff; }
-.device-phone .screen::after, .device-tablet .screen::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(14,23,21,.08); pointer-events: none; }
+/* Screens without a frame of their own get the same green phone body as the framed captures:
+   a bright rim (#006D35) around a thin dark edge (#042814), about 2.2% of the width */
+.device-phone {
+  width: 272px; aspect-ratio: 9 / 19.2; padding: 2.4%; border-radius: 15% / 7%;
+  background: linear-gradient(145deg, #0B7A40 0%, #006D35 45%, #005A2C 100%);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), inset 0 1px 1px rgba(255,255,255,.18), var(--shadow-lg);
+}
+.device-phone .screen { position: relative; width: 100%; height: 100%; border-radius: 13.5% / 6.3%; overflow: hidden; background: #fff; box-shadow: 0 0 0 3px #042814; }
+
 .device-framed { width: 272px; filter: drop-shadow(0 30px 40px rgba(14,23,21,.3)); }
 .device-framed img { height: auto; border-radius: 34px; }
-.device-tablet { width: min(436px, 100%); aspect-ratio: 3 / 4; border-radius: 18px; box-shadow: var(--shadow-lg); }
-.device-tablet .screen { position: relative; width: 100%; height: 100%; border-radius: 18px; overflow: hidden; background: #fff; }
+.device-tablet {
+  width: min(460px, 100%); aspect-ratio: 3 / 4; padding: 2.4%; border-radius: 28px;
+  background: linear-gradient(145deg, #0B7A40 0%, #006D35 45%, #005A2C 100%);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), inset 0 1px 1px rgba(255,255,255,.18), var(--shadow-lg);
+}
+.device-tablet .screen { position: relative; width: 100%; height: 100%; border-radius: 18px; overflow: hidden; background: #fff; box-shadow: 0 0 0 3px #042814; }
 .device-web { width: min(620px, 100%); border-radius: 12px; overflow: hidden; background: #fff; box-shadow: var(--shadow-lg); border: 1px solid var(--line); }
 .device-web .bar { height: 30px; background: var(--surface-soft); border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 6px; padding: 0 12px; }
 .device-web .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--outline); }
 .device-web img { height: auto; }
 .screen img, .device-framed img, .device-web img { animation: fade .24s var(--ease); }
 @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-@media (max-width: 560px) { .device-phone { width: 218px; } .device-framed { width: 232px; } }
+@media (max-width: 560px) { .device-phone, .device-framed { width: 232px; } }
 
 /* ---------- "Start here" cards (under the hero), each opening its own page ---------- */
 .bento-section { padding: 64px 0 88px; }

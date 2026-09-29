@@ -33,7 +33,6 @@
   ];
   const FEATURE_PICK = FEATURED[Math.floor(Math.random() * FEATURED.length)];
   /* Screens that already carry a device frame in the image itself */
-  const PREFRAMED = /img-housing|app-welcome|p5-home/;
 
   /* Copy corrections for a client audience (see antz-learn/FINDINGS.md §1) */
   const OVERRIDES = {
@@ -74,7 +73,7 @@
     const img = `<img src="${esc(shot.src)}" alt="${esc(shot.alt)}" loading="lazy">`;
     if (shot.device === 'web') return `<div class="device device-web"><div class="bar"><i></i><i></i><i></i></div>${img}</div>`;
     if (shot.device === 'tablet') return `<div class="device device-tablet"><div class="screen">${img}</div></div>`;
-    if (PREFRAMED.test(shot.src)) return `<div class="device device-framed">${img}</div>`;
+    /* Every phone screen gets the same green frame, drawn in CSS (the frames once baked into some captures are cropped off) */
     return `<div class="device device-phone"><div class="screen">${img}</div></div>`;
   };
 
