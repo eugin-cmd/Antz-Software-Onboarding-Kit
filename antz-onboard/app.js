@@ -208,6 +208,10 @@
   function renderHome(returning) {
     const about = byId['what-is-antz-systems'];
     const spot = byId[SPOTLIGHT_ID];
+    /* One of the workflow's screens, shown in full as a still, decorative picture beside the list */
+    /* The Approval screen: clear, without a pop-up dimming it */
+    const spotSrc = (spot.features[1] && spot.features[1].shot) || (spot.features.find((f) => f.shot) || {}).shot || (spot.shots[0] && spot.shots[0].src);
+    const spotShot = spotSrc ? shotFor(spot, spotSrc) : null;
     const faqs = [
       ['What is Antz?', about.intro],
       ['Does it work on phones and computers?', 'Yes. The mobile app covers work on the ground, such as notes, treatments, transfers and egg records. The web app covers desk work, such as the hospital system, nursery set-up, reports and pharmacy stock. Updates appear in real time on phone, tablet and desktop.'],
@@ -278,12 +282,12 @@
             <span class="tag-new">Featured workflow</span>
             <h2>${esc(spot.title)}</h2>
             <p class="lede">${esc(spot.intro)}</p>
-            ${stepsHTML(spot, 'spot')}
+            <div class="spot-feats tint-${AREA_TINT[spot.track]}">${featureListHTML(spot, true)}</div>
             <a class="link-arrow" href="#/m/${spot.id}">See ${esc(spot.title)} in detail ${ARROW}</a>
           </div>
-          <div class="stage">
+          <div class="stage" aria-hidden="true">
             <div class="stage-blob" style="background-image:url('${PHOTOS.spotlight}')"></div>
-            <div class="stage-device" id="spot-device"></div>
+            <div class="stage-device">${spotShot ? deviceHTML(spotShot) : ''}</div>
           </div>
         </div>
       </section>
@@ -317,7 +321,7 @@
       </section>`;
 
     bindParallax();
-    bindSteps(spot, 'spot', document.getElementById('spot-device'));
+    bindSpotFeatures(app.querySelector('.spot-feats'), spot);
     bindModules(!!returning);
     bindSearch();
     app.querySelectorAll('.chip[data-area]').forEach((c) =>
@@ -409,7 +413,7 @@
         <span class="mcard-body">
           <span class="mcard-title">${esc(m.title)}</span>
           <span class="mcard-sum">${esc(summary(m))}</span>
-          <span class="mcard-foot"><span>${m.features.length} features</span><span class="mcard-plus" aria-hidden="true"></span></span>
+          <span class="mcard-foot"><span>${m.features.length} features</span><span class="mcard-plus" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
         </span>
         <svg class="drawn-border" aria-hidden="true"></svg>
       </a>
@@ -888,6 +892,44 @@
     if (pin && pin._closeMenu && !e.target.closest('.mpin-area')) pin._closeMenu();
   });
 
+  /* A module's features as a list: icon, title, description and an "open" mark. Used on module pages
+     and for the featured workflow on the home page. */
+  const featureListHTML = (m, hasShots) => `
+    <ol class="mfeats" aria-label="Features">
+      ${m.features.map((f, i) => `
+        <li class="mfeat-row">
+          <button class="mfeat" type="button" data-i="${i}" aria-pressed="false">
+            <span class="n" aria-hidden="true">${icon(f.icon)}</span>
+            <span class="t"><b>${esc(tidyTitle(f.title))}</b><small>${esc(tidy(f.desc))}</small></span>
+            ${hasShots ? `<span class="mfeat-open" aria-hidden="true">${EXPAND_SVG}</span>` : ''}
+          </button>
+          <svg class="drawn-border" aria-hidden="true"></svg>
+        </li>`).join('')}
+    </ol>`;
+
+  /* Home page featured workflow: its feature rows open the same window (desktop) or sheet (phones)
+     as a module page, without changing the address */
+  function bindSpotFeatures(root, m) {
+    const feats = [...root.querySelectorAll('.mfeat')];
+    const mark = (i) => feats.forEach((b, j) => { b.setAttribute('aria-pressed', String(i === j)); b.parentElement.classList.toggle('on', i === j); });
+    const originOf = (i) => { const r = (feats[i].querySelector('.mfeat-open') || feats[i]).getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; };
+    const open = (i) => (narrow() ? openFeatureSheet : openFeatureWindow)(m, i, {
+      origin: originOf(i),
+      step: (j) => mark(j),
+      close: (j) => feats[j].focus({ preventScroll: true })
+    });
+    feats.forEach((b, i) => {
+      b.addEventListener('click', () => { mark(i); open(i); });
+      b.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+        e.preventDefault();
+        const n = (i + (e.key === 'ArrowDown' ? 1 : -1) + feats.length) % feats.length;
+        feats[n].focus(); mark(n);
+      });
+    });
+    mark(0);
+  }
+
   function renderModule(id, featureIndex, openFeature = false) {
     const m = byId[id];
     if (!m || !visible.includes(m)) { location.hash = '#/'; return; }
@@ -914,17 +956,7 @@
             <div class="mpanel-info">
               <h1 class="mpanel-title"><span class="mpanel-icon"><img src="assets/icons/${iconOf(m)}_icon.svg" alt=""></span>${esc(m.title)}</h1>
               <p class="mpanel-intro">${esc(m.intro)}</p>
-              <ol class="mfeats" aria-label="Features">
-                ${m.features.map((f, i) => `
-                  <li class="mfeat-row">
-                    <button class="mfeat" type="button" data-i="${i}" aria-pressed="false">
-                      <span class="n" aria-hidden="true">${icon(f.icon)}</span>
-                      <span class="t"><b>${esc(tidyTitle(f.title))}</b><small>${esc(tidy(f.desc))}</small></span>
-                      ${hasShots ? `<span class="mfeat-open" aria-hidden="true">${EXPAND_SVG}</span>` : ''}
-                    </button>
-                    <svg class="drawn-border" aria-hidden="true"></svg>
-                  </li>`).join('')}
-              </ol>
+              ${featureListHTML(m, hasShots)}
               <p class="mpanel-hint">${hasShots ? (canHover() ? 'Click a feature to open its screen' : 'Tap a feature to open its screen') : 'Screens for this module are coming soon'}</p>
             </div>
             ${hasShots ? '<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p><p class="zoom-hint">Tap the screen to zoom</p></div>' : ''}
