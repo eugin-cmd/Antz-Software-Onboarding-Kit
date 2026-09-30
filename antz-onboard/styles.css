@@ -728,7 +728,7 @@ a.mcard-face { text-decoration: none; color: inherit; }
   width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 12.5px; font-weight: 600;
   background: #fff; color: var(--tint-ink); border: 1px solid var(--line);
 }
-.mfeat-row.on .mfeat .n { background: var(--num-grad); border-color: transparent; color: #fff; font-weight: 700; }
+.mfeat-row.on .mfeat .n { background: var(--num-grad); border-color: transparent; background-origin: border-box; color: #fff; font-weight: 700; }
 /* Each feature's own icon sits in the circle (area colour; white on the gradient when selected) */
 .mfeat .n { width: 30px; height: 30px; transition: background .3s, color .3s, border-color .3s; }
 .mfeat .n svg { width: 15px; height: 15px; }
@@ -910,7 +910,12 @@ a.mcard-face { text-decoration: none; color: inherit; }
     linear-gradient(to left, #000 calc(var(--tc) - 22px), transparent var(--tc));
   mask-composite: intersect, intersect, add;
 }
+.mtab-ind {
+  transition: transform .6s cubic-bezier(.65,0,.35,1), width .6s cubic-bezier(.65,0,.35,1), height .6s cubic-bezier(.65,0,.35,1), --edge .6s ease, --edge2 .6s ease;
+}
 .mtab-ind.still { transition: none; }
+/* Moving to another tab: the thin outline travels there, then the 4px top forms (sides rise, top closes to the middle) */
+.mtab-ind.glide .mtab-bar { animation: tabDraw .85s .55s both; }
 /* Draw-in, one smooth sequence: the fading lines at the bottom draw towards the corners, the sides rise,
    then the top closes from both corners and meets in the middle; the shadow follows once it is complete */
 .mtab-ind.draw { animation: tabDraw .85s both, tabShadow 1s ease both; }
@@ -1059,7 +1064,7 @@ a.mcard-face { text-decoration: none; color: inherit; }
 .mpage .mfeat-row:hover, .mpage .mfeat-row.on { background: linear-gradient(135deg, #fff 40%, var(--tint-soft2) 100%); }
 .mpage .mfeat { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; height: 100%; padding: 20px 20px 22px; }
 /* Every card icon sits on its area's page gradient (the colour holds, then melts into the complementary hue) */
-.mpage .mfeat .n, .mpage .mfeat-row.on .mfeat .n { width: 42px; height: 42px; border-radius: 12px; border-color: transparent; color: var(--tint-ink);
+.mpage .mfeat .n, .mpage .mfeat-row.on .mfeat .n { width: 42px; height: 42px; border-radius: 12px; border: 0; color: var(--tint-ink);
   /* A step stronger than the page behind it, so the tiles stand out on the washed cards */
   background: linear-gradient(135deg, color-mix(in srgb, var(--tint-line) 26%, var(--tint)) 0%, color-mix(in srgb, var(--tint-line2) 26%, var(--tint-comp)) 100%); }
 .mpage .mfeat .n svg { width: 20px; height: 20px; }

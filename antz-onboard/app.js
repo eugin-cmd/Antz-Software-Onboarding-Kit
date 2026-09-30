@@ -841,18 +841,35 @@
   const placeIndicator = (nav) => {
     const ind = nav.querySelector('.mtab-ind'), tab = nav.querySelector('.mtab[aria-current]');
     if (!ind || !tab) return;
-    const fresh = ind._tab !== tab;
+    const fresh = ind._tab !== tab, from = ind._tab;
     ind._tab = tab;
-    ind.classList.add('still');
+    /* Moving from another tab: the outline glides across, then its top bar forms. First view: it traces itself in. */
+    const glide = fresh && from && from.isConnected && !reducedMotion();
+    if (glide) {
+      ind.classList.remove('still', 'draw', 'glide'); void ind.offsetWidth;
+      const ts = getComputedStyle(tab);
+      ind.style.setProperty('--edge', ts.getPropertyValue('--edge'));
+      ind.style.setProperty('--edge2', ts.getPropertyValue('--edge2'));
+      ind.style.width = `${tab.offsetWidth}px`;
+      ind.style.height = `${tab.offsetHeight}px`;
+      ind.style.transform = `translate(${tab.offsetLeft}px, ${tab.offsetTop}px)`;
+      ind.classList.add('glide');
+      ind._gliding = performance.now() + 700;
+      return;
+    }
+    /* A resize while it is still travelling only retargets it; snapping would cut the glide short */
+    const moving = !fresh && performance.now() < (ind._gliding || 0);
+    if (!moving) ind.classList.add('still');
     const ts = getComputedStyle(tab);
     ind.style.setProperty('--edge', ts.getPropertyValue('--edge'));
     ind.style.setProperty('--edge2', ts.getPropertyValue('--edge2'));
     ind.style.width = `${tab.offsetWidth}px`;
     ind.style.height = `${tab.offsetHeight}px`;
     ind.style.transform = `translate(${tab.offsetLeft}px, ${tab.offsetTop}px)`;
+    if (moving) return;
     void ind.offsetWidth;
     ind.classList.remove('still');
-    if (fresh && !reducedMotion()) { ind.classList.remove('draw'); void ind.offsetWidth; ind.classList.add('draw'); }
+    if (fresh && !reducedMotion()) { ind.classList.remove('draw', 'glide'); void ind.offsetWidth; ind.classList.add('draw'); }
   };
   /* Point the (kept) tab bar at the current module; animate says whether things glide or snap */
   function syncTabs(nav, cur, animate) {
