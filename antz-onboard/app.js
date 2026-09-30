@@ -49,7 +49,6 @@
     ['tiger-face', '50%', '40%', '#C4692A'],
     ['pigeon', '55%', '30%', '#3B4FC4'],
     ['okapi', '55%', '40%', '#7A3A22'],
-    ['king-vulture', '55%', '40%', '#E0692A'],
     ['otter', '45%', '68%', '#7A6452'],
     ['giraffe', '45%', '68%', '#C8843A'],
     ['iguana', '55%', '45%', '#5E6B4A'],
@@ -85,7 +84,7 @@
     'zebra-stripes': ['l', 0.3], 'red-panda': ['l', 0.45, 0.45], 'forest-lizard': ['l', 0.4], 'bear': ['f', 0.55, 0.45],
     'flamingo': ['r', 0.72, 0.4], 'jaguar': ['f', 0.45, 0.5], 'starling': ['l', 0.3], 'alpaca': ['r', 0.62, 0.45],
     'python': ['f', 0.55], 'tiger-face': ['f', 0.5, 0.5], 'pigeon': ['r', 0.6, 0.4], 'okapi': ['l', 0.3],
-    'king-vulture': ['r', 0.55, 0.4], 'otter': ['l', 0.35, 0.65], 'giraffe': ['l', 0.4, 0.6], 'iguana': ['r', 0.6],
+    'otter': ['l', 0.35, 0.65], 'giraffe': ['l', 0.4, 0.6], 'iguana': ['r', 0.6],
     'fawn': ['f', 0.5, 0.45], 'heron': ['r', 0.65], 'baboon': ['f', 0.5, 0.5], 'chameleon-2': ['l', 0.35, 0.5],
     'impala': ['f', 0.4], 'art-tiger': ['f', 0.5], 'mouflon': ['r', 0.55, 0.45], 'langur-baby': ['f', 0.45, 0.45],
     'elks': ['f', 0.5], 'duck': ['f', 0.47, 0.22], 'tusks': ['f', 0.5], 'grey-wolf': ['f', 0.5, 0.3],
@@ -93,7 +92,7 @@
     'tiger-portrait': ['l', 0.3, 0.5], 'deer': ['r', 0.6, 0.45]
   };
   /* The photos that are close-ups of a face: only these go into the feature window */
-  const FACES = new Set(['lion', 'golden-pheasant', 'king-vulture', 'bald-eagle', 'tiger-face', 'fox', 'macaw', 'chameleon', 'jaguar', 'otter', 'fawn', 'alpaca', 'mouflon', 'giraffe', 'bear', 'baboon', 'red-panda', 'wolf', 'llama', 'lorikeet', 'pigeon', 'chameleon-2', 'deer', 'langur-baby', 'rhino', 'flamingo']);
+  const FACES = new Set(['lion', 'golden-pheasant', 'bald-eagle', 'tiger-face', 'fox', 'macaw', 'chameleon', 'jaguar', 'otter', 'fawn', 'alpaca', 'mouflon', 'giraffe', 'bear', 'baboon', 'red-panda', 'wolf', 'llama', 'lorikeet', 'pigeon', 'chameleon-2', 'deer', 'langur-baby', 'rhino', 'flamingo']);
   /* A different animal for each feature of a module: the face close-ups in an order of their own for that module (seeded by its id) */
   const animalsFor = (m) => {
     let h = 2166136261;
