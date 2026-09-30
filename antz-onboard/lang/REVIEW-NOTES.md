@@ -91,3 +91,31 @@ Points the translator flagged for a reviewer, by language:
 3. "Site" «kituo/vituo», "Section" «sehemu»; staff may prefer the English "site".
 4. Lab statuses "Haemolysed" and "Clotted" need a vet's check.
 5. Pharmacy "drivers" «madereva», "salts" «chumvi za dawa» (literal); "Escrow" left in English.
+
+## pl · Polish
+1. "Housing" «Pomieszczenia dla zwierząt», "enclosure" «wybieg» (usually outdoor; «zagroda» or «pomieszczenie» may fit some places).
+2. Egg "Nursery" «odchowalnia» (alternatives «odchowalnia piskląt», «wychowalnia»).
+3. "Security check-in / out" «Kontrola wjazdu / wyjazdu przez ochronę»: free rendering.
+4. "Pending Administration" as medicine («oczekujące podania leków»).
+5. search.cue and spot.link use a colon («Szukaj: {x}», «Szczegóły: {x}») to avoid case agreement; a little stiff.
+
+## lt · Lithuanian
+1. Housing «Laikymo vietos»; enclosure «aptvaras», mortality «gaištamumas», carcass «gaišena», necropsy «skrodimas», deworming «dehelmintizacija».
+2. "Administer" / "Pending Administration" as «skyrimas» (medicine); staff may expect «vaistų davimas / sušvirkštimas».
+3. Egg "Nursery" «inkubatorinė» (alternative «jauniklių auginykla»).
+4. Pharmacy "drivers" «vairuotojai»: source unclear.
+5. "Abnormal shedding" «nenormalus šėrimasis» (fur); «nėrimasis» if reptile skin shedding.
+
+## et · Estonian
+1. "Pending … Administration" as medicine («manustamine»).
+2. Egg "nursery" «kasvandus» (alternatives «poegade kasvatusruum», «haudejaam»).
+3. search.cue «Otsi: {x}» and gal.label «Ekraanivaated: {x}» use a colon to avoid case endings.
+4. "Masters (racks & shelves)" «Põhiandmed (riiulid ja riiulikohad)»; "drivers" «toimeained»: source unclear.
+5. "Reports - App" kept with a hyphen; the site shows it as " · App".
+
+## lv · Latvian
+1. "Carcass" «līķis» (e.g. «Līķu pārvietošana»); alternatives «dzīvnieka līķis», «kautķermenis».
+2. Egg "Nursery" «audzētava», "Housing" «izmitināšana»: check against Latvian zoo usage.
+3. "Site" «vieta» throughout; «objekts» or «teritorija» may be more idiomatic.
+4. "Pending Administration" «gaidošā ievadīšana» (medicine); could be misread as data entry.
+5. Pharmacy "escrow" «rezervētie krājumi (escrow)»: a guess.
