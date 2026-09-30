@@ -75,6 +75,62 @@
   /* Banner photos are WebP: 1920px wide for larger screens, 1400px for phones (where the photo is a band across the top) */
   const bannerSrc = (b) => `assets/photos/banner-${b.name}${matchMedia('(max-width: 760px)').matches ? '-sm' : ''}.webp`;
   const BANNER_EVERY = 9000;
+  /* The feature window's animal wash uses the same photos: which way each animal looks (r/l, or f for straight at the
+     camera) and where its face sits across and down the photo (0 to 1; given for the face close-ups).
+     Animals looking left are mirrored so every one looks into the panel. */
+  const FACING = {
+    'tiger-home': ['l', 0.55], 'macaw': ['r', 0.65, 0.4], 'wolf': ['f', 0.5, 0.45], 'chameleon': ['f', 0.55, 0.45],
+    'lion': ['r', 0.62, 0.33], 'lorikeet': ['r', 0.6, 0.4], 'rhino': ['l', 0.35, 0.42], 'golden-pheasant': ['r', 0.6, 0.45],
+    'koala': ['f', 0.6, 0.3], 'mambas': ['l', 0.45], 'fox': ['l', 0.35, 0.62], 'bald-eagle': ['l', 0.45, 0.45],
+    'zebra-stripes': ['l', 0.3], 'red-panda': ['l', 0.45, 0.45], 'forest-lizard': ['l', 0.4], 'bear': ['f', 0.55, 0.45],
+    'flamingo': ['r', 0.72, 0.4], 'jaguar': ['f', 0.45, 0.5], 'starling': ['l', 0.3], 'alpaca': ['r', 0.62, 0.45],
+    'python': ['f', 0.55], 'tiger-face': ['f', 0.5, 0.5], 'pigeon': ['r', 0.6, 0.4], 'okapi': ['l', 0.3],
+    'king-vulture': ['r', 0.55, 0.4], 'otter': ['l', 0.35, 0.65], 'giraffe': ['l', 0.4, 0.6], 'iguana': ['r', 0.6],
+    'fawn': ['f', 0.5, 0.45], 'heron': ['r', 0.65], 'baboon': ['f', 0.5, 0.5], 'chameleon-2': ['l', 0.35, 0.5],
+    'impala': ['f', 0.4], 'art-tiger': ['f', 0.5], 'mouflon': ['r', 0.55, 0.45], 'langur-baby': ['f', 0.45, 0.45],
+    'elks': ['f', 0.5], 'duck': ['f', 0.47, 0.22], 'tusks': ['f', 0.5], 'grey-wolf': ['f', 0.5, 0.3],
+    'stag': ['r', 0.55], 'koala-sleeping': ['r', 0.6], 'llama': ['f', 0.5, 0.35], 'zebras': ['f', 0.5],
+    'tiger-portrait': ['l', 0.3, 0.5], 'deer': ['r', 0.6, 0.45]
+  };
+  /* The photos that are close-ups of a face: only these go into the feature window */
+  const FACES = new Set(['lion', 'golden-pheasant', 'king-vulture', 'bald-eagle', 'tiger-face', 'fox', 'macaw', 'chameleon', 'jaguar', 'otter', 'fawn', 'alpaca', 'mouflon', 'giraffe', 'bear', 'baboon', 'red-panda', 'wolf', 'llama', 'lorikeet', 'pigeon', 'chameleon-2', 'deer', 'langur-baby', 'rhino', 'flamingo']);
+  /* A different animal for each feature of a module: the face close-ups in an order of their own for that module (seeded by its id) */
+  const animalsFor = (m) => {
+    let h = 2166136261;
+    for (const ch of m.id) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
+    const rnd = () => ((h = Math.imul(h ^ (h >>> 15), 2246822507) ^ Math.imul(h ^ (h >>> 13), 3266489909)) >>> 0) / 4294967296;
+    const list = BANNERS.filter((b) => FACES.has(b.name));
+    for (let i = list.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [list[i], list[j]] = [list[j], list[i]]; }
+    return list;
+  };
+  /* Put an animal into the feature window's wash: a band along the bottom (from just under the text, at most 340px tall),
+     the photo scaled to 1.38 times the band's height, placed so the face sits a quarter of the way in from the left and
+     just below the band's middle, looking into the panel. Positions are worked out from the photo's own size once it has loaded. */
+  const setAnimal = (el, b, textBottom) => {
+    const [look, fx, fy = .45] = FACING[b.name] || ['f', .5];
+    const flip = look === 'l';
+    const src = bannerSrc(b);
+    const img = new Image();
+    img.onload = () => {
+      if (!el.isConnected) return;
+      const P = el.clientWidth, h = el.clientHeight;
+      const top = Math.max(textBottom + 24, h - 340), H = h - top;
+      const bh = H * 1.38, bw = bh * (img.naturalWidth / img.naturalHeight);
+      /* In a mirrored band the photo's left edge ends up on the right, so the face is placed from the other side */
+      const want = flip ? P * .75 : P * .25;
+      const x = Math.min(0, Math.max(P - bw, want - fx * bw));
+      /* The face a little below the middle of the band */
+      const y = Math.min(0, Math.max(H - bh, H * .55 - fy * bh));
+      el.style.setProperty('--wash-top', `${Math.round(top)}px`);
+      el.style.setProperty('--area-photo', `url('${src}')`);
+      el.style.setProperty('--area-photo-size', `${Math.round(bw)}px ${Math.round(bh)}px`);
+      el.style.setProperty('--area-photo-pos', `${Math.round(x)}px ${Math.round(y)}px`);
+      el.style.setProperty('--area-flip', flip ? '-1' : '1');
+      el.style.setProperty('--area-fade', flip ? 'to left' : 'to right');
+      el.classList.remove('animal-in'); void el.offsetWidth; el.classList.add('animal-in');
+    };
+    img.src = src;
+  };
   /* Banner rotation runs on one clock for the whole visit (kept in sessionStorage, so reloads carry on too):
      every 9 s is the next photo's turn, whether or not the home page is showing. Coming back to the home page
      shows the photo whose turn it is and carries on from there, rather than starting again from the tiger. */
@@ -1370,6 +1426,7 @@
     const dev = w.querySelector('.fwin-device'), text = w.querySelector('.fwin-text');
     const prev = w.querySelector('.fwin-arrow.prev'), next = w.querySelector('.fwin-arrow.next');
     const dots = [...w.querySelectorAll('.fwin-dots button')];
+    const animals = animalsFor(m);
     let idx = -1;
     const go = (i, dir = 0) => {
       if (i < 0 || i >= n || i === idx) return;
@@ -1379,6 +1436,8 @@
       w.querySelector('.fwin-ic').innerHTML = icon(f.icon);
       w.querySelector('.fwin-title').textContent = tidyTitle(f.title);
       w.querySelector('.fwin-desc').textContent = tidy(f.desc);
+      /* The wash starts a little below the text, however long this feature's description is */
+      setAnimal(w.querySelector('.fwin-info'), animals[i % animals.length], text.offsetTop + text.offsetHeight);
       dev.innerHTML = shot ? deviceHTML(shot) : `<p class="fwin-empty">${esc(t('win.soon'))}</p>`;
       /* The screen slides in from the side being moved to; the text fades up */
       [dev, text].forEach((el) => { el.classList.remove('in-l', 'in-r', 'in-up'); void el.offsetWidth; });
@@ -1469,7 +1528,7 @@
         <span class="g-title">${sheet ? `${esc(areaById[m.track].label)} · ` : ''}${esc(m.title)}</span>
         <button class="g-close" type="button" aria-label="${esc(t('gal.close'))}">${CLOSE_SVG}</button>
       </div>
-      <div class="g-stage"><div class="g-track"><img class="g-img" alt="" draggable="false"></div></div>
+      <div class="g-stage"><div class="g-track"><span class="g-frame"><img class="g-img" alt="" draggable="false"></span></div></div>
       <div class="g-info"><div class="g-head"><span class="g-ic" aria-hidden="true"></span><span class="g-fcount"></span></div><b class="g-ft"></b><p class="g-fd"></p></div>
       <div class="g-nav">
         <button class="g-arrow g-prev" type="button" aria-label="${esc(t('win.prev'))}">${CHEV_L}</button>
@@ -1509,6 +1568,8 @@
       track.style.transform = dir ? `translateX(${dir * (RTL ? -40 : 40)}px)` : 'none';
       track.style.opacity = dir ? '0' : '1';
       img.src = sl.src; img.alt = sl.alt;
+      /* Phone and tablet screens sit in the area-coloured bezel (sheet only); web screens stay bare */
+      img.parentNode.classList.toggle('web', sl.device === 'web');
       g.querySelector('.g-count').textContent = `${idx + 1} / ${slides.length}`;
       g.querySelector('.g-ft').textContent = sl.title;
       g.querySelector('.g-fd').textContent = sl.desc;
@@ -1533,7 +1594,7 @@
     /* Sheet: fit the screen inside the space its area actually has, with room above and below */
     const fitSheet = () => {
       if (!sheet) return;
-      requestAnimationFrame(() => { img.style.maxHeight = `${Math.max(160, stageEl.clientHeight - 18 - 34)}px`; });
+      requestAnimationFrame(() => { img.style.maxHeight = `${Math.max(160, stageEl.clientHeight - 18 - 34 - 14)}px`; });
     };
     if (sheet) window.addEventListener('resize', fitSheet);
 
@@ -1638,7 +1699,7 @@
     const slides = m.features.map((f, i) => {
       const src = f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src);
       const shot = src ? shotFor(m, src) : null;
-      return { src: src || '', alt: (shot && shot.alt) || f.title, title: tidyTitle(f.title), desc: tidy(f.desc), icon: f.icon };
+      return { src: src || '', alt: (shot && shot.alt) || f.title, title: tidyTitle(f.title), desc: tidy(f.desc), icon: f.icon, device: shot && shot.device };
     });
     openGallery(m, slides, start, returnFocusTo, { sheet: true, origin, step, close });
   }
