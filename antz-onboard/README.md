@@ -47,7 +47,7 @@ After you edit `content.json`, regenerate `content.js`:
 
 ## Languages
 
-The guide is available in 13 languages; English is the default. Visitors choose one from the globe menu in
+The guide is available in 17 languages; English is the default. Visitors choose one from the globe menu in
 the header. The choice is remembered, and `?lang=fr` in a link opens that language directly. Arabic reads
 right to left. The app screenshots stay in English (they show the app as it is), so translated module pages
 also give the module's English name ("In the app: …") and search matches English terms as well.

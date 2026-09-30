@@ -5,8 +5,11 @@
 !/vercel.json
 !/antz-onboard/
 !/audit/
+!/.claude/
+/.claude/*
+!/.claude/skills/
+!/.claude/agents/
 
 .DS_Store
-.claude/
 __pycache__/
 *.pyc
