@@ -769,7 +769,7 @@
           <svg class="drawn-border" aria-hidden="true"></svg>
         </a>`;
       }).join('')}
-        <span class="mtab-ind" aria-hidden="true"><i class="mtab-bar"></i></span>
+        <span class="mtab-ind" aria-hidden="true"><i class="mtab-line"></i><i class="mtab-bar"></i></span>
       </div>
       <div class="msubtabs" data-area="${cur.track}">${subTabsHTML(cur)}</div>
       <div class="mpin" inert>
@@ -808,17 +808,21 @@
     row._edges();
   };
   /* The selected-tab outline is one element that glides and resizes between tabs, taking on each area's colour */
-  const placeIndicator = (nav, animate) => {
+  /* The selected-tab outline: when a different tab becomes active (or on first view) it moves there and
+     traces itself in, from the bottom curves up both sides to meet across the top. Resizes just follow. */
+  const placeIndicator = (nav) => {
     const ind = nav.querySelector('.mtab-ind'), tab = nav.querySelector('.mtab[aria-current]');
     if (!ind || !tab) return;
-    ind.classList.toggle('still', !animate);
-    const cs = getComputedStyle(tab);
-    ind.style.setProperty('--edge', cs.getPropertyValue('--edge'));
-    ind.style.setProperty('--bar', cs.getPropertyValue('--tint-line'));
+    const fresh = ind._tab !== tab;
+    ind._tab = tab;
+    ind.classList.add('still');
+    ind.style.setProperty('--edge', getComputedStyle(tab).getPropertyValue('--edge'));
     ind.style.width = `${tab.offsetWidth}px`;
     ind.style.height = `${tab.offsetHeight}px`;
     ind.style.transform = `translate(${tab.offsetLeft}px, ${tab.offsetTop}px)`;
-    if (!animate) { void ind.offsetWidth; ind.classList.remove('still'); }
+    void ind.offsetWidth;
+    ind.classList.remove('still');
+    if (fresh && !reducedMotion()) { ind.classList.remove('draw'); void ind.offsetWidth; ind.classList.add('draw'); }
   };
   /* Point the (kept) tab bar at the current module; animate says whether things glide or snap */
   function syncTabs(nav, cur, animate) {
@@ -856,10 +860,10 @@
       nav._bound = true;
       [...rows, pinChips].forEach(bindTabRow);
       /* Web fonts or a new width can change tab sizes: follow without animating */
-      if ('ResizeObserver' in window) new ResizeObserver(() => { placeIndicator(nav, false); rows.forEach((r) => r._edges()); }).observe(nav);
+      if ('ResizeObserver' in window) new ResizeObserver(() => { placeIndicator(nav); rows.forEach((r) => r._edges()); }).observe(nav);
       bindPin(nav, full, pin, pinChips);
     }
-    placeIndicator(nav, animate);
+    placeIndicator(nav);
     rows.forEach((r) => centreTab(r, animate));
     if (pin.classList.contains('on')) centreTab(pinChips, animate);
   }
