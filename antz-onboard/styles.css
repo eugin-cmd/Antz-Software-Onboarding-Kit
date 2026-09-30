@@ -211,7 +211,14 @@ button { font: inherit; color: inherit; }
 /* ---------- Hero ---------- */
 .hero { position: relative; z-index: 2; color: #fff; isolation: isolate; }
 .hero-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: var(--teal-deep); }
-.hero-bg { position: absolute; inset: 0; background: var(--teal-deep) 70% 30% / cover no-repeat; will-change: transform; }
+.hero-slides { position: absolute; inset: 0; will-change: transform; }
+.hero-bg { position: absolute; inset: 0; background: var(--teal-deep) var(--x, 70%) var(--y, 30%) / cover no-repeat; }
+/* Banner change: the new photo fades in on top, easing out of a slight zoom; the old one fades out a moment later */
+.hero-bg.enter { animation: bannerIn 2.8s cubic-bezier(.45,0,.25,1) both; }
+.hero-bg.leave { animation: bannerOut 2.4s cubic-bezier(.45,0,.55,1) .6s both; }
+@keyframes bannerIn { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
+@keyframes bannerOut { from { opacity: 1; } to { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .hero-bg.enter { animation: bannerOut 1.2s ease reverse both; } .hero-bg.leave { animation: none; } }
 .hero-inner { will-change: opacity, transform; }
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
@@ -301,7 +308,7 @@ button { font: inherit; color: inherit; }
 .hero-meta-sep { opacity: .6; }
 @media (max-width: 640px) {
   .hero-inner { padding-top: 220px; padding-bottom: 48px; }
-  .hero-bg { background-position: 68% 0; background-size: auto 360px; background-color: #1b2a1f; }
+  .hero-bg { background-position: var(--x, 68%) 0; background-size: auto 360px; background-color: #1b2a1f; }
   .hero::after { background: linear-gradient(180deg, rgba(10,30,26,0) 0px, rgba(10,30,26,.1) 200px, rgba(18,34,26,1) 360px); }
   .search-field { height: 56px; }
   .search-field input { font-size: 16px; }
@@ -835,9 +842,17 @@ a.mcard-face { text-decoration: none; color: inherit; }
 /* ---------- Module page ---------- */
 /* Full-width band in the area's colour: the colour holds across the top, then melts into a faint complementary hue */
 .mpage { --mfilters-h: 0px; padding: calc(28px + var(--header-h)) 0 72px;
-  background:
-    linear-gradient(to bottom right, var(--tint) 0%, var(--tint-comp) 100%);
+  background: linear-gradient(var(--g-angle), var(--tint) 0%, var(--tint-comp) 100%);
   background-color: var(--tint); border-bottom: 1px solid var(--line); }
+/* Changing area: the gradient turns from its corner to the opposite one while the new colours blend in,
+   then carries on round and settles back where it rests */
+@property --g-angle { syntax: '<angle>'; inherits: false; initial-value: 135deg; }
+.mpage.area-swap { animation: areaSwap 1.9s both; }
+@keyframes areaSwap {
+  0%   { --g-angle: 135deg; animation-timing-function: cubic-bezier(.55,0,.45,1); }
+  50%  { --g-angle: 315deg; animation-timing-function: cubic-bezier(.3,0,.2,1); }
+  100% { --g-angle: 495deg; }
+}
 /* Tabs at the top of a module page: areas (each with a photo from one of its modules), then that area's modules */
 .mtabs { margin-bottom: 40px; }
 .mtabs-areas { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
@@ -845,7 +860,7 @@ a.mcard-face { text-decoration: none; color: inherit; }
   /* Outline colours: the area's two deep tones, lightened; the selected outline runs from one to the other */
   --edge: color-mix(in srgb, var(--tint-line) 55%, #fff); --edge2: color-mix(in srgb, var(--tint-line2) 55%, #fff);
   position: relative; display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px 10px 10px; border-radius: 10px; text-decoration: none;
-  background: rgba(255,255,255,.7); border: 1px solid rgba(14,23,21,.06); color: var(--text);
+  background: rgba(255,255,255,.7); border: 1px solid transparent; color: var(--text);
   box-shadow: 0 0 0 rgba(14,40,34,0);
   /* Leaving: settle back down smoothly (as the home chips) */
   transition: background .45s ease, border-color .45s ease, transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1);
@@ -999,7 +1014,7 @@ a.mcard-face { text-decoration: none; color: inherit; }
 @property --tint-line2 { syntax: '<color>'; inherits: true; initial-value: transparent; }
 @property --edge { syntax: '<color>'; inherits: true; initial-value: transparent; }
 @property --edge2 { syntax: '<color>'; inherits: true; initial-value: transparent; }
-.mpage { transition: --tint .6s ease, --tint-comp .6s ease, --tint-ink .6s ease, --tint-line .6s ease, --tint-line2 .6s ease; }
+.mpage { transition: --tint 1.1s cubic-bezier(.45,0,.25,1), --tint-comp 1.1s cubic-bezier(.45,0,.25,1), --tint-ink .6s ease, --tint-line .6s ease, --tint-line2 .6s ease; }
 /* Pinned bar under the header: current area pill + module chips, shown once the full tabs scroll away */
 .mpin {
   position: fixed; left: 0; right: 0; top: var(--header-h); z-index: 40;
@@ -1170,7 +1185,7 @@ body.fwin-open { overflow: hidden; }
 @media (max-width: 1000px) { .fwin-card { width: calc(100vw - 160px); } .fwin-info { padding: 52px 32px 32px; } .fwin { gap: 14px; } }
 @media (prefers-reduced-motion: reduce) { .fwin, .fwin-card, .fwin.in .fwin-card, .fwin-arrow, .fwin.in .fwin-arrow, .fwin-backdrop { transition: none; } .fwin-device, .fwin-text { animation: none !important; } }
 @media (prefers-reduced-motion: reduce) { .mpin, .mpin.on { transition: none; } .mpin-menu { animation: none; } }
-@media (prefers-reduced-motion: reduce) { .mtab-ind.draw { animation: none; } .mtab-ind, .mpage, .mtab { transition: none; } .msubtabs.swap .msubtab, .mpage .swap-in { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .mtab-ind.draw, .mpage.area-swap { animation: none; } .mtab-ind, .mpage, .mtab { transition: none; } .msubtabs.swap .msubtab, .mpage .swap-in { animation: none; } }
 
 /* Narrower screens: the area row scrolls sideways too; both rows run edge to edge */
 @media (max-width: 1100px) {

@@ -22,6 +22,30 @@
     mortality:  { photo: 'assets/photos/img-chick.jpg',      glyph: 'egg' },
     operations: { photo: 'assets/photos/img-operations.jpg', glyph: 'report' }
   };
+  /* Home banner photos, shown in turn (the tiger first); x/y is the part of each photo to keep in view */
+  const BANNERS = [
+    ['tiger.jpg', '70%', '30%'], ['banner-okapi.jpg', '55%', '40%'], ['banner-macaws.jpg', '35%', '40%'],
+    ['banner-rhino.jpg', '62%', '35%'], ['banner-lorikeet.jpg', '52%', '35%'], ['banner-zebras.jpg', '50%', '62%'],
+    ['banner-deer.jpg', '50%', '30%'], ['banner-baboon.jpg', '50%', '32%'], ['banner-starling.jpg', '30%', '32%'], ['banner-elephants.jpg', '55%', '45%'],
+    ['banner-koala.jpg', '50%', '45%'], ['banner-kiskadees.jpg', '60%', '30%'], ['banner-nyala.jpg', '58%', '50%'],
+    ['banner-tusks.jpg', '55%', '30%']
+  ].map(([f, x, y]) => ({ src: `assets/photos/${f}`, x, y }));
+  const BANNER_EVERY = 15000;
+  /* Banner rotation runs on one clock for the whole visit (kept in sessionStorage, so reloads carry on too):
+     every 15 s is the next photo's turn, whether or not the home page is showing. Coming back to the home page
+     shows the photo whose turn it is and carries on from there, rather than starting again from the tiger. */
+  let bannerStart = 0;
+  const bannerSlot = () => {
+    if (!bannerStart) {
+      try { bannerStart = Number(sessionStorage.getItem('antz-banner-start')) || 0; } catch (e) { /* storage blocked */ }
+      if (!bannerStart) {
+        bannerStart = Date.now();
+        try { sessionStorage.setItem('antz-banner-start', String(bannerStart)); } catch (e) { /* keep it in memory only */ }
+      }
+    }
+    return Math.floor((Date.now() - bannerStart) / BANNER_EVERY);
+  };
+  const bannerNow = () => BANNERS[bannerSlot() % BANNERS.length];
   const PHOTOS = {
     hero: 'assets/photos/tiger.jpg',
     spotlight: 'assets/photos/img-lemur.jpg',
@@ -254,7 +278,7 @@
 
     app.innerHTML = `
       <section class="hero">
-        <div class="hero-media"><div class="hero-bg" style="background-image:url('${PHOTOS.hero}')"></div></div>
+        <div class="hero-media"><div class="hero-slides">${((b) => `<div class="hero-bg" style="background-image:url('${b.src}');--x:${b.x};--y:${b.y}"></div>`)(bannerNow())}</div></div>
         <div class="container hero-inner">
           <h1>${esc(t('hero.title'))}</h1>
           <p class="hero-sub">${esc(t('hero.sub'))}</p>
@@ -1028,7 +1052,10 @@
       tpl.innerHTML = html;
       const next = tpl.content.querySelector('.mpage');
       const box = page.querySelector(':scope > .container');
+      const newArea = page.className.replace(/\s*area-swap/, '') !== next.className;
       page.className = next.className;
+      /* New area: the background gradient swings round to the new colours (restarted on every change) */
+      if (newArea && !reducedMotion()) { void page.offsetWidth; page.classList.add('area-swap'); }
       [...box.children].forEach((c) => { if (c !== kept) c.remove(); });
       [...next.querySelector(':scope > .container').children].forEach((c) => {
         if (c.classList.contains('mtabs')) return;
@@ -1159,9 +1186,11 @@
   function bindParallax() {
     if (parallaxOff) parallaxOff();
     const hero = app.querySelector('.hero');
-    const bg = hero && hero.querySelector('.hero-bg');
+    const bg = hero && hero.querySelector('.hero-slides');
     const inner = hero && hero.querySelector('.hero-inner');
-    if (!bg || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!bg) return;
+    const stopBanners = rotateBanners(bg);
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { parallaxOff = () => { stopBanners(); parallaxOff = null; }; return; }
     let ticking = false;
     const update = () => {
       ticking = false;
@@ -1174,8 +1203,46 @@
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
-    parallaxOff = () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); parallaxOff = null; };
+    parallaxOff = () => { stopBanners(); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); parallaxOff = null; };
     update();
+  }
+  /* At each turn the next photo (loaded first) fades in over the current one, settling from a slight zoom,
+     while the current one fades out behind it. Returns a stop function. */
+  function rotateBanners(box) {
+    let shown = bannerSlot() % BANNERS.length, timer = 0;
+    const schedule = () => {
+      const wait = BANNER_EVERY - ((Date.now() - bannerStart) % BANNER_EVERY);
+      timer = setTimeout(turn, wait + 30);
+    };
+    const turn = () => {
+      if (!box.isConnected) return;
+      schedule();
+      const i = bannerSlot() % BANNERS.length;
+      if (document.hidden || i === shown) return;
+      const b = BANNERS[i];
+      const img = new Image();
+      img.onload = () => {
+        if (!box.isConnected) return;
+        shown = i;
+        const old = box.querySelectorAll('.hero-bg');
+        const el = document.createElement('div');
+        el.className = 'hero-bg enter';
+        el.style.cssText = `background-image:url('${b.src}');--x:${b.x};--y:${b.y}`;
+        box.append(el);
+        old.forEach((o) => { o.classList.remove('enter'); o.classList.add('leave'); });
+        el.addEventListener('animationend', () => { old.forEach((o) => o.remove()); el.classList.remove('enter'); }, { once: true });
+      };
+      img.src = b.src;
+    };
+    /* Back on the home page with a photo not yet loaded: it fades in once it arrives, rather than popping in */
+    const first = box.querySelector('.hero-bg'), probe = new Image();
+    probe.src = BANNERS[shown].src;
+    if (first && !probe.complete) {
+      first.style.opacity = '0';
+      probe.onload = () => { first.style.opacity = ''; first.classList.add('enter'); first.addEventListener('animationend', () => first.classList.remove('enter'), { once: true }); };
+    }
+    schedule();
+    return () => clearTimeout(timer);
   }
 
   /* Rotating placeholder: every visible module, each followed by one of its tasks */
