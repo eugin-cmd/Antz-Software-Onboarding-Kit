@@ -1,0 +1,34 @@
+{
+  "m.necropsy.title": {
+    "verdict": "Minor difference",
+    "note": "'Necropsy' became 'Autopsy', a term zoo vets use less for animals."
+  },
+  "ui.search.none": {
+    "verdict": "Minor difference",
+    "note": "The suggested search word 'report' became 'overview'."
+  },
+  "m.housing.title": {
+    "verdict": "Minor difference",
+    "note": "'Housing' became 'Stabling', a term a zoo would not use; back-translator unsure."
+  },
+  "m.housing.intro": {
+    "verdict": "Minor difference",
+    "note": "'Animal habitats' became 'breeding facilities' and the module name became 'Stabling'."
+  },
+  "m.administer-medicine.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "'Tabs' became 'cards' and the back-translator was unsure of the wording."
+  },
+  "m.pharmacy-web.f3.title": {
+    "verdict": "Minor difference",
+    "note": "'Masters' became 'Code lists'; back-translator unsure."
+  },
+  "m.pharmacy-web.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "'Salts' became 'active substances' and 'drivers' became 'factors'; back-translator unsure."
+  },
+  "m.pharmacy-web.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "'Escrow' became 'custody'; back-translator unsure."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "m.necropsy.title": {
+    "verdict": "Minor difference",
+    "note": "'Necropsy' became 'Autopsy', a term zoo vets use less for animals."
+  },
+  "ui.faq.a4": {
+    "verdict": "Minor difference",
+    "note": "'Housing' became 'animal rooms'."
+  },
+  "m.housing.title": {
+    "verdict": "Minor difference",
+    "note": "'Housing' became 'Rooms for animals', narrower than habitats and enclosures."
+  },
+  "m.egg-management-app.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "Back-translator marked the 'Egg Journey Timeline' wording as unsure."
+  },
+  "m.administer-medicine.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "'Entity' became 'facility/object'; back-translator unsure."
+  },
+  "m.administer-medicine.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "The 'Stopped' status became 'Suspended', which suggests a temporary pause."
+  },
+  "m.getting-started.f3.title": {
+    "verdict": "Minor difference",
+    "note": "'Administration' was narrowed to 'medicine administrations'; back-translator unsure."
+  },
+  "m.pharmacy-web.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "'Salts' became 'active substances'; back-translator unsure."
+  },
+  "m.pharmacy-web.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "'Escrow' became 'deposit'; back-translator unsure."
+  },
+  "m.pharmacy-web.f8.desc": {
+    "verdict": "Minor difference",
+    "note": "'Audit history' became a general 'history of changes'."
+  }
+}

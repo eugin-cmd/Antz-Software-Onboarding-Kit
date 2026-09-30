@@ -1,0 +1,14 @@
+{
+  "m.fetal-death.f3.title": {
+    "verdict": "Minor difference",
+    "note": "\"Deceased records\" became \"dead records\" and was marked [?]."
+  },
+  "m.administer-medicine.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "The \"Stopped\" tab became \"held\", which suggests paused rather than stopped."
+  },
+  "m.pharmacy-web.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "The customisable data list was marked [?] by the back-translator."
+  }
+}

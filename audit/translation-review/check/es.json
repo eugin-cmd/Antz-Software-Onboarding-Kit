@@ -1,0 +1,14 @@
+{
+  "ui.faq.a4": {
+    "verdict": "Minor difference",
+    "note": "\"Security check-out\" came back as \"security exit [?]\", so the check step is unclear."
+  },
+  "m.necropsy.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "The word \"transfer\" was dropped from \"transfer stages\"."
+  },
+  "m.pharmacy-web.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Drivers\" came back as \"controllers [?]\", and \"salts\" became \"active ingredients\"."
+  }
+}

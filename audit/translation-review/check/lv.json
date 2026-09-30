@@ -1,0 +1,26 @@
+{
+ "ui.faq.a4": {
+  "verdict": "Minor difference",
+  "note": "Back-translator marked 'security check-out' as unsure."
+ },
+ "m.fetal-death.f1.desc": {
+  "verdict": "Minor difference",
+  "note": "'Parentage' became 'origin'."
+ },
+ "m.pharmacy-web.f3.desc": {
+  "verdict": "Minor difference",
+  "note": "Back-translator marked the customisable data list as unsure."
+ },
+ "m.pharmacy-web.f4.title": {
+  "verdict": "Minor difference",
+  "note": "Back-translation read «atskaišu» as write-offs; «atskaite» means report, so this is likely correct. Please confirm."
+ },
+ "m.pharmacy-web.f4.desc": {
+  "verdict": "Minor difference",
+  "note": "'Low/expired items' became 'low/depleted stock'; back-translator unsure."
+ },
+ "m.pharmacy-web.f8.desc": {
+  "verdict": "Minor difference",
+  "note": "Reports for 'demand' became reports for 'request planning'."
+ }
+}

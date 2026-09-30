@@ -1,0 +1,94 @@
+{
+  "ui.hero.sub": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"unit\"; check it matches the term used in the app."
+  },
+  "ui.day.4.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Role\" is rendered as \"profile\", which may be confused with the user's own profile."
+  },
+  "ui.faq.a3": {
+    "verdict": "Minor difference",
+    "note": "\"Role\" is rendered as \"profile\", which may be confused with the user's own profile."
+  },
+  "ui.faq.q4": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"unit\"; check it matches the term used in the app."
+  },
+  "ui.faq.a4": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"unit\" and \"section\" became \"sector\"."
+  },
+  "ui.faq.a5": {
+    "verdict": "Minor difference",
+    "note": "\"The modules your role uses\" became \"your profile uses\"."
+  },
+  "m.necropsy.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"unit\"; check it matches the term used in the app."
+  },
+  "m.necropsy.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "The word \"transfer\" was dropped from \"transfer stages\"."
+  },
+  "m.deworming.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Skipped\" status came back as \"Jumped\"; the label may read oddly as a status."
+  },
+  "m.housing.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Sites\" became \"units\" and \"sections\" became \"sectors\"."
+  },
+  "m.housing.f1.title": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"unit\"; check it matches the term used in the app."
+  },
+  "m.housing.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Sites\" became \"units\" and \"role-based\" became \"profile-based\"."
+  },
+  "m.housing.f2.title": {
+    "verdict": "Minor difference",
+    "note": "\"Section\" is rendered as \"sector\"; check it matches the term used in the app."
+  },
+  "m.housing.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Section\" is rendered as \"sector\"; check it matches the term used in the app."
+  },
+  "m.fetal-death.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"unit\"; check it matches the term used in the app."
+  },
+  "m.fetal-death.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"unit\"; check it matches the term used in the app."
+  },
+  "m.administer-medicine.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Entity\" was marked unclear [?] by the back-translator."
+  },
+  "m.administer-medicine.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Skipped\" came back as \"Jumped\" and \"Stopped\" as \"Interrupted\"."
+  },
+  "m.vaccination.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Skipped\" status came back as \"Jumped\"; the label may read oddly as a status."
+  },
+  "m.vaccination.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Skipped\" status came back as \"Jumped\"; the label may read oddly as a status."
+  },
+  "m.pharmacy-web.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Salts\" and \"drivers\" were both marked unclear [?]."
+  },
+  "m.pharmacy-web.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Escrow\" came back as \"items in custody [?]\"."
+  },
+  "m.pharmacy-web.f7.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Fulfil\" came back as \"write them off [?]\", which could suggest a different action."
+  }
+}

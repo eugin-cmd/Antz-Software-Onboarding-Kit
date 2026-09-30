@@ -1,0 +1,82 @@
+{
+ "ui.hero.sub": {
+  "verdict": "Minor difference",
+  "note": "\"Site\" became \"location\"."
+ },
+ "ui.faq.q4": {
+  "verdict": "Minor difference",
+  "note": "\"Site\" became \"location\"."
+ },
+ "ui.faq.a4": {
+  "verdict": "Minor difference",
+  "note": "\"Site\" became \"location\" and \"Housing\" became \"placement\"."
+ },
+ "m.necropsy.title": {
+  "verdict": "Minor difference",
+  "note": "\"Necropsy\" became \"Dissection\", a term a zoo would not use for the module."
+ },
+ "m.necropsy.f1.desc": {
+  "verdict": "Minor difference",
+  "note": "\"Site\" became \"location\"."
+ },
+ "m.necropsy.f2.desc": {
+  "verdict": "Minor difference",
+  "note": "\"Transfer\" was dropped from \"transfer stages\"."
+ },
+ "m.housing.title": {
+  "verdict": "Minor difference",
+  "note": "\"Housing\" became \"Placement\"."
+ },
+ "m.housing.intro": {
+  "verdict": "Minor difference",
+  "note": "\"Housing\" became \"Placement\" and \"site\" became \"location\"."
+ },
+ "m.housing.f1.title": {
+  "verdict": "Minor difference",
+  "note": "\"Site administration\" became \"Location management\"."
+ },
+ "m.housing.f1.desc": {
+  "verdict": "Minor difference",
+  "note": "\"Site\" became \"location\"."
+ },
+ "m.fetal-death.f2.desc": {
+  "verdict": "Minor difference",
+  "note": "\"Site\" became \"location\"."
+ },
+ "m.fetal-death.f3.desc": {
+  "verdict": "Minor difference",
+  "note": "\"Site\" became \"location\"."
+ },
+ "m.administer-medicine.f2.desc": {
+  "verdict": "Minor difference",
+  "note": "\"Entity\" became \"object\" and the back-translator marked it [?]."
+ },
+ "m.administer-medicine.f3.desc": {
+  "verdict": "Minor difference",
+  "note": "Fixed on 30 Sep: \"Stopped\" had been translated as «lõpetatud» (completed); now «peatatud». Please confirm."
+ },
+ "m.pharmacy-web.f3.title": {
+  "verdict": "Minor difference",
+  "note": "\"Racks & shelves\" became \"shelves and shelf spots\"."
+ },
+ "m.pharmacy-web.f3.desc": {
+  "verdict": "Minor difference",
+  "note": "\"Rack/shelf\" shifted to shelves/shelf spots and \"drivers\" became \"active substances\"."
+ },
+ "m.pharmacy-web.f4.desc": {
+  "verdict": "Minor difference",
+  "note": "\"Escrow\" became \"deposit\" and was marked [?]."
+ },
+ "m.pharmacy-web.f5.desc": {
+  "verdict": "Minor difference",
+  "note": "\"Dispatches\" became \"dispensing\"."
+ },
+ "m.getting-started.f3.title": {
+  "verdict": "Minor difference",
+  "note": "\"Necropsy\" became \"dissection\" and \"allocation\" became \"placement\"."
+ },
+ "m.getting-started.f4.desc": {
+  "verdict": "Minor difference",
+  "note": "The Housing module is named \"placement\"."
+ }
+}

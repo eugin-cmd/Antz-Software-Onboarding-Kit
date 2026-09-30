@@ -1,0 +1,82 @@
+{
+  "ui.hero.sub": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"location\"; check it matches the term used in the app."
+  },
+  "ui.faq.q4": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"location\"; check it matches the term used in the app."
+  },
+  "ui.faq.a4": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\", \"section\" became \"area\" and \"Housing\" became \"Keeping\"."
+  },
+  "m.necropsy.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"location\"; check it matches the term used in the app."
+  },
+  "m.necropsy.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "The word \"transfer\" was dropped from \"transfer stages\"."
+  },
+  "m.housing.title": {
+    "verdict": "Minor difference",
+    "note": "\"Housing\" is rendered as \"Keeping (of animals)\"; check it matches the module name in the app."
+  },
+  "m.housing.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Housing\" became \"Keeping\", \"sites\" became \"locations\" and \"sections\" became \"areas\"."
+  },
+  "m.housing.f1.title": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"location\"; check it matches the term used in the app."
+  },
+  "m.housing.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"location\"; check it matches the term used in the app."
+  },
+  "m.housing.f2.title": {
+    "verdict": "Minor difference",
+    "note": "\"Section\" is rendered as \"area\"; check it matches the term used in the app."
+  },
+  "m.housing.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Section\" is rendered as \"area\"; check it matches the term used in the app."
+  },
+  "m.fetal-death.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"location\"; check it matches the term used in the app."
+  },
+  "m.fetal-death.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" is rendered as \"location\"; check it matches the term used in the app."
+  },
+  "ui.lang.note": {
+    "verdict": "Minor difference",
+    "note": "\"Awaiting review\" shifted to \"is still being checked\", implying review is under way."
+  },
+  "m.administer-medicine.intro": {
+    "verdict": "Minor difference",
+    "note": "\"In the field\" came back as \"in the territory [?]\"."
+  },
+  "m.administer-medicine.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Entity\" came back as \"reference [?]\"."
+  },
+  "m.pharmacy-web.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Drivers\" marked [?] and \"salts\" became \"active ingredients\"."
+  },
+  "m.pharmacy-web.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Escrow\" came back as \"trust stocks [?]\" and dispute resolution as clarifying discrepancies."
+  },
+  "m.getting-started.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Navigate effectively\" shifted to \"move safely\"."
+  },
+  "m.getting-started.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Housing\" became \"Keeping\" and \"Diet\" became \"Feed\"; check module names match the app."
+  }
+}

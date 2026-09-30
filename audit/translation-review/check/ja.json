@@ -1,0 +1,22 @@
+{
+  "m.necropsy.title": {
+    "verdict": "Minor difference",
+    "note": "\"Necropsy\" rendered as \"autopsy\", a human-medicine term."
+  },
+  "m.necropsy.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "The word \"transfer\" was dropped from the stages description."
+  },
+  "m.fetal-death.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Parentage\" became \"parent-child relationships\" [?]."
+  },
+  "m.pharmacy-web.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Requests\" became \"billing\" [?]."
+  },
+  "m.pharmacy-web.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Value\" became \"amount\" and back-translator marked it uncertain [?]."
+  }
+}

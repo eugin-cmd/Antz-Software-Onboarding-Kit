@@ -1,0 +1,78 @@
+{
+  "ui.faq.a2": {
+    "verdict": "Minor difference",
+    "note": "\"Nursery set-up\" became \"setup of the incubation rooms\"."
+  },
+  "ui.faq.a4": {
+    "verdict": "Minor difference",
+    "note": "\"Housing\" became \"keeping of animals\" and \"security check-out\" became \"release by the security service\"."
+  },
+  "m.necropsy.title": {
+    "verdict": "Minor difference",
+    "note": "\"Necropsy\" became \"Autopsy\", a human-medicine term."
+  },
+  "m.necropsy.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Transfer\" was dropped from \"transfer stages\"."
+  },
+  "m.deworming.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Skipped\" became \"missed\", which implies an accidental omission."
+  },
+  "m.housing.title": {
+    "verdict": "Minor difference",
+    "note": "\"Housing\" became \"Keeping\" and the back-translator marked it [?]."
+  },
+  "m.housing.intro": {
+    "verdict": "Minor difference",
+    "note": "The module name \"Housing\" became \"Keeping\"."
+  },
+  "m.administer-medicine.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Entity\" became \"object\" and was marked [?]."
+  },
+  "m.administer-medicine.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "Tab names shifted: \"Skipped\" became \"Missed\" and \"Stopped\" became \"Discontinued\"."
+  },
+  "m.vaccination.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Skipped\" became \"missed\"."
+  },
+  "m.vaccination.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Skipped\" became \"missed\"."
+  },
+  "m.egg-management-app.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Nursery\" became \"incubation room\" and \"hatchery\" became \"brood\" teams."
+  },
+  "m.egg-management-app.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Nursery\" became \"incubation room\" and \"discard\" became \"culling\"."
+  },
+  "m.egg-management-app.f2.title": {
+    "verdict": "Minor difference",
+    "note": "\"Nursery\" became \"incubation room\"."
+  },
+  "m.pharmacy-web.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Salts\" was replaced by \"active substances\" and the item was marked [?]."
+  },
+  "m.pharmacy-web.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Escrow\" became \"depositing\" and was marked [?]."
+  },
+  "m.getting-started.f3.title": {
+    "verdict": "Minor difference",
+    "note": "\"Allocation\" became \"placement\"."
+  },
+  "m.getting-started.f4.title": {
+    "verdict": "Minor difference",
+    "note": "\"Master Setup\" became \"Main settings\"."
+  },
+  "m.getting-started.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "The Housing module is named \"Keeping\"."
+  }
+}

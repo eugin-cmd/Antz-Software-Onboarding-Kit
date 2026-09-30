@@ -1,0 +1,70 @@
+{
+  "ui.hero.sub": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "ui.faq.q4": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "ui.faq.a4": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "m.necropsy.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "m.necropsy.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Pending\" status became \"Delayed\"."
+  },
+  "m.deworming.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Pending\" status became \"Delayed\"."
+  },
+  "m.housing.title": {
+    "verdict": "Minor difference",
+    "note": "Module name \"Housing\" became \"Placement\"."
+  },
+  "m.housing.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Housing\" became \"Placement\" and \"sites\" became \"locations\"."
+  },
+  "m.housing.f1.title": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "m.housing.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "m.fetal-death.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "m.fetal-death.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "m.administer-medicine.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Pending\" tab became \"Delayed\"."
+  },
+  "m.vaccination.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Pending\" became \"delayed\"."
+  },
+  "m.vaccination.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Pending\" status became \"Delayed\"."
+  },
+  "m.pharmacy-web.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Salts\" and \"drivers\" rendered uncertainly [?]."
+  },
+  "m.getting-started.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "Module name \"Housing\" became \"Placement\"."
+  }
+}

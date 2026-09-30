@@ -1,0 +1,30 @@
+{
+  "m.necropsy.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "Back-translator marked \"stages of the transfer\" as unclear [?]."
+  },
+  "m.deworming.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Skipped\" status came back as \"Sautéed [?]\"; the label may be misread."
+  },
+  "m.administer-medicine.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Skipped\" came back as \"Sautéed [?]\" and \"Stopped\" was marked [?]."
+  },
+  "m.vaccination.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Skipped\" status came back as \"Sautéed [?]\"; the label may be misread."
+  },
+  "m.vaccination.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Skipped\" status came back as \"Sautéed [?]\"; the label may be misread."
+  },
+  "m.pharmacy-web.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Salts\" marked [?] and \"drivers\" became \"delivery people [?]\"."
+  },
+  "m.pharmacy-web.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Low\" stock became \"out-of-stock\", and \"escrow\" came back as \"sequestration [?]\"."
+  }
+}

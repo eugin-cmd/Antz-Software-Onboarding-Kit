@@ -1066,6 +1066,8 @@ body.qs-open { overflow: hidden; }
 @media (max-width: 560px) {
   .brand-label { white-space: normal; font-size: 13.5px; line-height: 1.15; max-height: 2.3em;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  /* Scripts with tall letters need more room between the two lines */
+  [lang="hi"] .brand-label { line-height: 1.4; max-height: 2.8em; font-size: 13px; }
   .nav-lang-code { display: none; }
   .header-row { gap: 2px; }
   .brand { gap: 10px; margin-inline-end: 8px; }

@@ -1,0 +1,66 @@
+{
+  "ui.hero.sub": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"venue\"."
+  },
+  "ui.faq.q4": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"venue\"."
+  },
+  "ui.faq.a4": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"venue\" and \"enclosure\" became \"exhibit area\"."
+  },
+  "m.necropsy.title": {
+    "verdict": "Minor difference",
+    "note": "\"Necropsy\" rendered as \"autopsy\", a human-medicine term."
+  },
+  "m.necropsy.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"venue\"."
+  },
+  "m.necropsy.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "Back-translator marked the status labels uncertain [?]."
+  },
+  "m.housing.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Sites\" became \"venues\" and \"enclosures\" became \"exhibit areas\"."
+  },
+  "m.housing.f1.title": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"venue\"."
+  },
+  "m.housing.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"venue\"."
+  },
+  "m.housing.f3.title": {
+    "verdict": "Minor difference",
+    "note": "\"Enclosure\" became \"exhibit area\"."
+  },
+  "m.housing.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Enclosures\" became \"exhibit areas\"."
+  },
+  "m.fetal-death.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Enclosures\" became \"exhibit areas\"."
+  },
+  "m.fetal-death.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"venue\"."
+  },
+  "m.fetal-death.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Days since death\" became \"days of death\" [?]; site/enclosure became venue/exhibit area."
+  },
+  "m.pharmacy-web.intro": {
+    "verdict": "Minor difference",
+    "note": "Back-translator marked it uncertain [?]; meaning otherwise kept."
+  },
+  "m.pharmacy-web.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Escrow\" became \"held-in-custody inventory\" [?]."
+  }
+}

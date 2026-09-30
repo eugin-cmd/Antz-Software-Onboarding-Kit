@@ -1,0 +1,86 @@
+{
+  "ui.hero.sub": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "ui.faq.a2": {
+    "verdict": "Minor difference",
+    "note": "\"Nursery set-up\" became \"incubator setup\"."
+  },
+  "ui.faq.q4": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "ui.faq.a4": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\" and \"section\" became \"department\"."
+  },
+  "m.necropsy.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "m.necropsy.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "The back-translator marked the stage list [?]."
+  },
+  "m.housing.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\" and \"section\" became \"department\"."
+  },
+  "m.housing.f1.title": {
+    "verdict": "Minor difference",
+    "note": "\"Site administration\" became \"Managing locations\"."
+  },
+  "m.housing.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "m.housing.f2.title": {
+    "verdict": "Minor difference",
+    "note": "\"Section\" became \"department\"."
+  },
+  "m.housing.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Sections\" became \"departments\"."
+  },
+  "m.fetal-death.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "m.fetal-death.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Site\" became \"location\"."
+  },
+  "m.egg-management-app.intro": {
+    "verdict": "Minor difference",
+    "note": "\"Nursery\" became \"incubator\"."
+  },
+  "m.egg-management-app.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Nursery\" became \"incubator\" and \"discard\" became \"culling\"."
+  },
+  "m.egg-management-app.f2.title": {
+    "verdict": "Minor difference",
+    "note": "\"Nursery\" became \"incubator\"."
+  },
+  "m.administer-medicine.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "The back-translator marked the filter list [?]."
+  },
+  "m.pharmacy-web.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Request ID\" became \"order identifier\"."
+  },
+  "m.pharmacy-web.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Drivers\" became \"engines\" and \"racks\" became \"stands\"; marked [?]."
+  },
+  "m.pharmacy-web.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "\"Escrow\" became \"guarantee/escrow\" and was marked [?]."
+  },
+  "m.getting-started.f3.title": {
+    "verdict": "Minor difference",
+    "note": "\"Pending\" attaches only to allocation and the title was marked [?]."
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "m.necropsy.title": {
+    "verdict": "Minor difference",
+    "note": "'Necropsy' became 'Autopsy', a term zoo vets use less for animals."
+  },
+  "ui.faq.a2": {
+    "verdict": "Minor difference",
+    "note": "'Nursery' became 'hatchery (incubator room)', a different area."
+  },
+  "ui.faq.a4": {
+    "verdict": "Minor difference",
+    "note": "Back-translator marked 'security check-out' as unsure."
+  },
+  "m.necropsy.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "Back-translator marked the stage list as unsure."
+  },
+  "m.housing.title": {
+    "verdict": "Minor difference",
+    "note": "'Housing' became 'Holding places', which suggests temporary holding."
+  },
+  "m.egg-management-app.intro": {
+    "verdict": "Minor difference",
+    "note": "'Nursery' became 'hatchery', so the nest, nursery and hatchery teams are muddled."
+  },
+  "m.egg-management-app.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "'Moved to nursery' became 'moved to the hatchery'."
+  },
+  "m.egg-management-app.f2.title": {
+    "verdict": "Minor difference",
+    "note": "'Nursery' became 'hatchery'."
+  },
+  "m.administer-medicine.f2.desc": {
+    "verdict": "Minor difference",
+    "note": "'Entity' became 'object'; back-translator unsure."
+  },
+  "m.administer-medicine.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "The 'Skipped' status became 'missed', which implies it was not intentional."
+  },
+  "m.deworming.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "The 'Skipped' status became 'missed', which implies it was not intentional."
+  },
+  "m.vaccination.f1.desc": {
+    "verdict": "Minor difference",
+    "note": "The 'Skipped' status became 'missed', which implies it was not intentional."
+  },
+  "m.pharmacy-web.f3.desc": {
+    "verdict": "Minor difference",
+    "note": "Back-translator marked the customisable data list as unsure."
+  },
+  "m.pharmacy-web.f4.desc": {
+    "verdict": "Minor difference",
+    "note": "'Escrow' became 'deposit'; back-translator unsure."
+  }
+}
