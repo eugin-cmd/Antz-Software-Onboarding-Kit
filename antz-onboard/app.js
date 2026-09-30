@@ -22,17 +22,61 @@
     mortality:  { photo: 'assets/photos/img-chick.jpg',      glyph: 'egg' },
     operations: { photo: 'assets/photos/img-operations.jpg', glyph: 'report' }
   };
-  /* Home banner photos, shown in turn (the tiger first); x/y is the part of each photo to keep in view */
+  /* Home banner photos, shown in turn (the tiger first); x/y is the part of each photo to keep in view,
+     c its key colour (the animal's own, not the background), which washes over the change to it */
   const BANNERS = [
-    ['tiger.jpg', '70%', '30%'], ['banner-okapi.jpg', '55%', '40%'], ['banner-macaws.jpg', '35%', '40%'],
-    ['banner-rhino.jpg', '62%', '35%'], ['banner-lorikeet.jpg', '52%', '35%'], ['banner-zebras.jpg', '50%', '62%'],
-    ['banner-deer.jpg', '50%', '30%'], ['banner-baboon.jpg', '50%', '32%'], ['banner-starling.jpg', '30%', '32%'], ['banner-elephants.jpg', '55%', '45%'],
-    ['banner-koala.jpg', '50%', '45%'], ['banner-kiskadees.jpg', '60%', '30%'], ['banner-nyala.jpg', '58%', '50%'],
-    ['banner-tusks.jpg', '55%', '30%']
-  ].map(([f, x, y]) => ({ src: `assets/photos/${f}`, x, y }));
-  const BANNER_EVERY = 15000;
+    ['tiger-home', '70%', '30%', '#C8702A'],
+    ['macaw', '45%', '35%', '#C8201E'],
+    ['wolf', '50%', '35%', '#7A7A74'],
+    ['chameleon', '60%', '40%', '#4E9A2E'],
+    ['lion', '65%', '58%', '#C77A34'],
+    ['lorikeet', '52%', '35%', '#2A4FB8'],
+    ['rhino', '60%', '40%', '#A8957A'],
+    ['golden-pheasant', '60%', '35%', '#E3A21A'],
+    ['koala', '50%', '30%', '#8C8F94'],
+    ['mambas', '50%', '50%', '#5BC22A'],
+    ['fox', '30%', '72%', '#D0743A'],
+    ['bald-eagle', '55%', '40%', '#D9A02A'],
+    ['zebra-stripes', '50%', '45%', '#6E6E6E'],
+    ['red-panda', '45%', '45%', '#B8482A'],
+    ['forest-lizard', '55%', '40%', '#C7A04A'],
+    ['bear', '55%', '40%', '#8E5A30'],
+    ['flamingo', '65%', '40%', '#E07A94'],
+    ['jaguar', '45%', '40%', '#B8863A'],
+    ['starling', '30%', '32%', '#1E7BB0'],
+    ['alpaca', '55%', '58%', '#CDB89A'],
+    ['python', '55%', '50%', '#5AA82A'],
+    ['tiger-face', '50%', '40%', '#C4692A'],
+    ['pigeon', '55%', '30%', '#3B4FC4'],
+    ['okapi', '55%', '40%', '#7A3A22'],
+    ['king-vulture', '55%', '40%', '#E0692A'],
+    ['otter', '45%', '68%', '#7A6452'],
+    ['giraffe', '45%', '68%', '#C8843A'],
+    ['iguana', '55%', '45%', '#5E6B4A'],
+    ['fawn', '55%', '40%', '#C87A40'],
+    ['heron', '60%', '22%', '#8A4A3A'],
+    ['baboon', '50%', '32%', '#C07468'],
+    ['chameleon-2', '40%', '45%', '#3E9A34'],
+    ['impala', '45%', '35%', '#C89A5A'],
+    ['art-tiger', '50%', '45%', '#2E5A2A'],
+    ['mouflon', '40%', '40%', '#7A4A2E'],
+    ['langur-baby', '50%', '35%', '#C9B89A'],
+    ['elks', '50%', '45%', '#7A4A30'],
+    ['duck', '45%', '22%', '#6E9A3A'],
+    ['tusks', '55%', '30%', '#8A7667'],
+    ['grey-wolf', '50%', '35%', '#8A7458'],
+    ['stag', '45%', '45%', '#8A6A48'],
+    ['koala-sleeping', '55%', '35%', '#8E9496'],
+    ['llama', '55%', '30%', '#7A5A44'],
+    ['zebras', '50%', '62%', '#6E7F9A'],
+    ['tiger-portrait', '35%', '40%', '#B86A2A'],
+    ['deer', '45%', '35%', '#9A7048']
+  ].map(([f, x, y, c]) => ({ name: f, x, y, c }));
+  /* Banner photos are WebP: 1920px wide for larger screens, 1400px for phones (where the photo is a band across the top) */
+  const bannerSrc = (b) => `assets/photos/banner-${b.name}${matchMedia('(max-width: 760px)').matches ? '-sm' : ''}.webp`;
+  const BANNER_EVERY = 9000;
   /* Banner rotation runs on one clock for the whole visit (kept in sessionStorage, so reloads carry on too):
-     every 15 s is the next photo's turn, whether or not the home page is showing. Coming back to the home page
+     every 9 s is the next photo's turn, whether or not the home page is showing. Coming back to the home page
      shows the photo whose turn it is and carries on from there, rather than starting again from the tiger. */
   let bannerStart = 0;
   const bannerSlot = () => {
@@ -278,7 +322,7 @@
 
     app.innerHTML = `
       <section class="hero">
-        <div class="hero-media"><div class="hero-slides">${((b) => `<div class="hero-bg" style="background-image:url('${b.src}');--x:${b.x};--y:${b.y}"></div>`)(bannerNow())}</div></div>
+        <div class="hero-media"><div class="hero-slides">${((b) => `<div class="hero-bg" style="background-image:url('${bannerSrc(b)}');--x:${b.x};--y:${b.y}"></div>`)(bannerNow())}</div></div>
         <div class="container hero-inner">
           <h1>${esc(t('hero.title'))}</h1>
           <p class="hero-sub">${esc(t('hero.sub'))}</p>
@@ -1206,8 +1250,9 @@
     parallaxOff = () => { stopBanners(); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); parallaxOff = null; };
     update();
   }
-  /* At each turn the next photo (loaded first) fades in over the current one, settling from a slight zoom,
-     while the current one fades out behind it. Returns a stop function. */
+  /* At each turn (next photo loaded first): the current photo blurs while a wash of the next photo's key colour
+     rises over it; the next photo then appears through the wash, still soft, and sharpens as the wash clears.
+     Returns a stop function. */
   function rotateBanners(box) {
     let shown = bannerSlot() % BANNERS.length, timer = 0;
     const schedule = () => {
@@ -1224,19 +1269,23 @@
       img.onload = () => {
         if (!box.isConnected) return;
         shown = i;
+        box.querySelectorAll('.hero-wash').forEach((w) => w.remove());
         const old = box.querySelectorAll('.hero-bg');
         const el = document.createElement('div');
-        el.className = 'hero-bg enter';
-        el.style.cssText = `background-image:url('${b.src}');--x:${b.x};--y:${b.y}`;
-        box.append(el);
-        old.forEach((o) => { o.classList.remove('enter'); o.classList.add('leave'); });
-        el.addEventListener('animationend', () => { old.forEach((o) => o.remove()); el.classList.remove('enter'); }, { once: true });
+        el.className = 'hero-bg morph';
+        el.style.cssText = `background-image:url('${bannerSrc(b)}');--x:${b.x};--y:${b.y}`;
+        const wash = document.createElement('div');
+        wash.className = 'hero-wash';
+        wash.style.setProperty('--wash', b.c);
+        box.append(el, wash);
+        old.forEach((o) => { o.classList.remove('enter', 'morph'); o.classList.add('blur-out'); });
+        el.addEventListener('animationend', () => { old.forEach((o) => o.remove()); wash.remove(); el.classList.remove('morph'); }, { once: true });
       };
-      img.src = b.src;
+      img.src = bannerSrc(b);
     };
     /* Back on the home page with a photo not yet loaded: it fades in once it arrives, rather than popping in */
     const first = box.querySelector('.hero-bg'), probe = new Image();
-    probe.src = BANNERS[shown].src;
+    probe.src = bannerSrc(BANNERS[shown]);
     if (first && !probe.complete) {
       first.style.opacity = '0';
       probe.onload = () => { first.style.opacity = ''; first.classList.add('enter'); first.addEventListener('animationend', () => first.classList.remove('enter'), { once: true }); };

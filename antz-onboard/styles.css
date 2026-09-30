@@ -105,14 +105,17 @@ button { font: inherit; color: inherit; }
 .brand .logo-light { position: absolute; top: 0; left: 0; opacity: 0; }
 .on-dark .brand .logo-light { opacity: 1; }
 .on-dark .brand .logo-dark { opacity: 0; }
-.brand-label {
-  font-size: 19px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); padding-left: 14px; border-left: 1px solid var(--outline);
-  transition: color .3s var(--ease), border-color .3s var(--ease);
+.brand-guide {
+  display: flex; align-items: center; gap: 9px; min-width: 0; padding-inline-start: 14px; border-inline-start: 1px solid var(--outline);
+  color: var(--ink); transition: color .3s var(--ease), border-color .3s var(--ease);
 }
+/* The guide's mark: a rounded square with an open doorway cut out of it, the door ajar (negative space), in one colour */
+.brand-door { flex: none; width: 28px; height: 28px; }
+.on-dark .brand-guide { color: #fff; border-inline-start-color: rgba(255,255,255,.45); }
+.brand-label { font-size: 19px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); transition: color .3s var(--ease); }
 /* Over the dark hero photo: the Medical & Treatment page gradient (mint to blush) fills the letters */
 .on-dark .brand-label {
-  border-inline-start-color: rgba(255,255,255,.45);
-  background: linear-gradient(100deg, #DDF0EC 0%, #DDF0EC 25%, #FCE8E1 100%) right / calc(100% - 14px) 100% no-repeat;
+  background: linear-gradient(100deg, #DDF0EC 0%, #DDF0EC 25%, #FCE8E1 100%) 0 0 / 100% 100% no-repeat;
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
 .primary-nav { display: flex; align-items: center; gap: 30px; }
@@ -126,6 +129,7 @@ button { font: inherit; color: inherit; }
 .brand { margin-inline-end: auto; min-width: 0; }
 /* Long translations of the label shorten with an ellipsis; the logo and the buttons never shrink */
 .brand-logo, .nav-toggle { flex: none; }
+.brand-guide { flex: 0 1 auto; }
 .brand-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 /* Language switcher: globe and code, opening a list of languages in their own names */
 .nav-lang { position: relative; flex: none; }
@@ -212,13 +216,52 @@ button { font: inherit; color: inherit; }
 .hero { position: relative; z-index: 2; color: #fff; isolation: isolate; }
 .hero-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: var(--teal-deep); }
 .hero-slides { position: absolute; inset: 0; will-change: transform; }
+/* A 40% black veil from the top of the banner, fading gradually away below the menu */
+.hero-media::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 300px; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.400) 0px,
+    rgba(0,0,0,0.343) 30px,
+    rgba(0,0,0,0.287) 60px,
+    rgba(0,0,0,0.231) 90px,
+    rgba(0,0,0,0.179) 120px,
+    rgba(0,0,0,0.130) 150px,
+    rgba(0,0,0,0.087) 180px,
+    rgba(0,0,0,0.051) 210px,
+    rgba(0,0,0,0.024) 240px,
+    rgba(0,0,0,0.006) 270px,
+    rgba(0,0,0,0.000) 300px);
+}
 .hero-bg { position: absolute; inset: 0; background: var(--teal-deep) var(--x, 70%) var(--y, 30%) / cover no-repeat; }
 /* Banner change: the new photo fades in on top, easing out of a slight zoom; the old one fades out a moment later */
 .hero-bg.enter { animation: bannerIn 2.8s cubic-bezier(.45,0,.25,1) both; }
 .hero-bg.leave { animation: bannerOut 2.4s cubic-bezier(.45,0,.55,1) .6s both; }
 @keyframes bannerIn { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
 @keyframes bannerOut { from { opacity: 1; } to { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .hero-bg.enter { animation: bannerOut 1.2s ease reverse both; } .hero-bg.leave { animation: none; } }
+/* Banner turn, in three overlapping movements (3.6 s):
+   1. the current photo softens into a blur, and a wash of the next photo's key colour rises over it;
+   2. the next photo fades in beneath the wash, just as blurred, from a slight zoom;
+   3. it sharpens and settles while the wash clears. */
+.hero-bg.blur-out { animation: bannerBlur 1.4s cubic-bezier(.45,0,.55,1) both; }
+.hero-bg.morph { animation: bannerMorph 3.6s both; }
+.hero-wash { position: absolute; inset: 0; background: var(--wash); pointer-events: none; animation: bannerWash 3.6s both; }
+@keyframes bannerBlur { from { filter: blur(0); transform: none; } to { filter: blur(18px); transform: scale(1.05); } }
+@keyframes bannerMorph {
+  0%, 30% { opacity: 0; filter: blur(18px); transform: scale(1.07); animation-timing-function: cubic-bezier(.45,0,.55,1); }
+  52%     { opacity: 1; filter: blur(18px); transform: scale(1.06); animation-timing-function: cubic-bezier(.3,0,.2,1); }
+  100%    { opacity: 1; filter: blur(0); transform: none; }
+}
+@keyframes bannerWash {
+  0%   { opacity: 0; animation-timing-function: cubic-bezier(.45,0,.55,1); }
+  36%  { opacity: .62; }
+  54%  { opacity: .55; animation-timing-function: cubic-bezier(.4,0,.2,1); }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg.enter, .hero-bg.morph { animation: bannerOut 1.2s ease reverse both; }
+  .hero-bg.leave, .hero-bg.blur-out { animation: none; }
+  .hero-wash { display: none; }
+}
 .hero-inner { will-change: opacity, transform; }
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
@@ -1116,11 +1159,14 @@ body.qs-open { overflow: hidden; }
   .header-row { gap: 2px; }
   .brand { gap: 10px; margin-inline-end: 8px; }
   .brand img { height: 32px; }
-  .brand-label { padding-inline-start: 10px; }
+  .brand-guide { padding-inline-start: 9px; gap: 6px; }
+  .brand-door { width: 21px; height: 21px; }
   .nav-lang-btn { width: 40px; padding: 0; justify-content: center; }
   .nav-search { width: 40px; height: 40px; }
 }
-@media (max-width: 400px) { .brand { gap: 10px; } .brand img { height: 32px; } .brand-label { font-size: 14.5px; padding-left: 10px; } .nav-search { width: 38px; height: 38px; } }
+/* The narrowest phones keep the room for the label: the door mark steps aside */
+@media (max-width: 380px) { .brand-door { display: none; } }
+@media (max-width: 400px) { .brand { gap: 10px; } .brand img { height: 32px; } .brand-label { font-size: 13px; } .brand-guide { padding-inline-start: 9px; } .nav-search { width: 38px; height: 38px; } }
 @media (max-width: 640px) { .qs { padding: 16px 12px; } .qs .search-field { height: 54px; } .qs .search-results { max-height: calc(100vh - 110px); } }
 @media (prefers-reduced-motion: reduce) { .qs-backdrop, .qs-panel { transition: none; } }
 
