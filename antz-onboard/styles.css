@@ -374,8 +374,7 @@ button { font: inherit; color: inherit; }
 .stage {
   position: relative; display: grid; place-items: center; min-height: 600px; padding: 40px 24px; border-radius: var(--radius-lg);
   background:
-    radial-gradient(120% 90% at 100% 100%, color-mix(in srgb, var(--tint-comp) 70%, transparent) 0%, transparent 60%),
-    linear-gradient(165deg, var(--tint) 0%, var(--tint) 30%, var(--tint-comp) 100%);
+    linear-gradient(to bottom right, var(--tint) 0%, var(--tint-comp) 100%);
 }
 @media (max-width: 900px) {
   .spotlight { grid-template-columns: 1fr; gap: 40px; }
@@ -523,12 +522,21 @@ button { font: inherit; color: inherit; }
 @media (max-width: 640px) { .kit-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 calc(var(--gutter) * -1); padding: 2px var(--gutter) 6px; } .kitpage { padding-bottom: 56px; } }
 
 /* ---------- Module cards (under the hero) ---------- */
-/* Area tints: bg for thumbnails and panels, ink for small accents */
-.tint-butter { --tint: #FBF3DC; --tint-ink: #7A5B0B; --tint-line: #C49424; --tint-comp: #ECE8FB; --line-grad: url(#line-butter); --tint-line2: #8C80D6; }
-.tint-coral  { --tint: #FBE8E1; --tint-ink: #9A4027; --tint-line: #D2704F; --tint-comp: #DDF2EF; --line-grad: url(#line-coral); --tint-line2: #3AA89E; }
-.tint-teal   { --tint: #DDF0EC; --tint-ink: #1D6A5E; --tint-line: #349E86; --tint-comp: #FCE8E1; --line-grad: url(#line-teal); --tint-line2: #DE876A; }
-.tint-sky    { --tint: #E0EEF4; --tint-ink: #285C70; --tint-line: #468DAE; --tint-comp: #FCEFDD; --line-grad: url(#line-sky); --tint-line2: #D6964A; }
-.tint-leaf   { --tint: #E4F4E9; --tint-ink: #27864B; --tint-line: #34A95E; --tint-comp: #F4E6F4; --line-grad: url(#line-leaf); --tint-line2: #AE78BE; }
+/* Area tints, from the area gradients (Figma, top-left to bottom-right):
+   --tint → --tint-comp is the area's page gradient at full strength (page bands, screen stages, icon tiles);
+   --tint-soft / --tint-soft2 are the same gradient washed towards white (cards, bars, hovers);
+   --tint-line → --tint-line2 are deeper tones of the same two hues (device bezels, icon badges, outlines, dots);
+   --tint-ink is text in the area colour. */
+.tint-records    { --tint: #BFF3D2; --tint-comp: #FFD3D3; --tint-line: #2FA864; --tint-line2: #E06C78; --tint-ink: #1D6B43; --line-grad: url(#line-records); }
+.tint-animal     { --tint: #FFF5BF; --tint-comp: #BFF5F2; --tint-line: #D39B10; --tint-line2: #17A8A0; --tint-ink: #6E5608; --line-grad: url(#line-animal); }
+.tint-medical    { --tint: #D3F3D7; --tint-comp: #FBF7D2; --tint-line: #4DB3A6; --tint-line2: #C8BC6A; --tint-ink: #2A6A62; --line-grad: url(#line-medical); }
+.tint-mortality  { --tint: #FFF5BF; --tint-comp: #FFD3D3; --tint-line: #D6920E; --tint-line2: #DD5F6B; --tint-ink: #8A4424; --line-grad: url(#line-mortality); }
+.tint-operations { --tint: #BFEBF5; --tint-comp: #F9CCD4; --tint-line: #2C94BC; --tint-line2: #DD647D; --tint-ink: #1E5D77; --line-grad: url(#line-operations); }
+[class*="tint-"] {
+  --tint-soft: color-mix(in srgb, var(--tint) 32%, #fff); --tint-soft2: color-mix(in srgb, var(--tint-comp) 32%, #fff);
+  --tint-grad: linear-gradient(135deg, var(--tint) 0%, var(--tint-comp) 100%);
+  --tint-grad-soft: linear-gradient(135deg, var(--tint-soft) 0%, var(--tint-soft2) 100%);
+}
 
 .modules-section { padding: 80px 0 72px; background: linear-gradient(115deg, #EAFAF9 0%, #F3F4F1 50%, #FAEEEA 100%); }
 .modules-head { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 64px; align-items: end; margin-bottom: 28px; }
@@ -583,7 +591,7 @@ button { font: inherit; color: inherit; }
 .mgroup { margin-bottom: 48px; }
 .mgroup[hidden] { display: none; }
 .mgroup-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
-.mgroup-head .ic { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--tint); color: var(--tint-ink); }
+.mgroup-head .ic { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--tint-grad); color: var(--tint-ink); }
 .mgroup-head .ic svg { width: 18px; height: 18px; }
 .mgroup-head h3 { font-size: 20px; }
 .mgroup-head .count { font-size: 14px; color: var(--muted-2); margin-left: 2px; }
@@ -651,6 +659,8 @@ button { font: inherit; color: inherit; }
   color: rgba(255,255,255,.95); font-variant-numeric: tabular-nums;
 }
 
+/* Card text on white that fades into a light wash of the area gradient */
+.mgroup .mcard-face { background: linear-gradient(180deg, #fff 45%, var(--tint-soft2) 100%); }
 .mcard-body { display: flex; flex-direction: column; gap: 5px; padding: 16px 15px 18px; flex: 1; }
 .mcard-title { font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.25; }
 .mcard-sum { font-size: 14px; color: var(--muted); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -826,14 +836,14 @@ a.mcard-face { text-decoration: none; color: inherit; }
 /* Full-width band in the area's colour: the colour holds across the top, then melts into a faint complementary hue */
 .mpage { --mfilters-h: 0px; padding: calc(28px + var(--header-h)) 0 72px;
   background:
-    radial-gradient(120% 90% at 100% 100%, color-mix(in srgb, var(--tint-comp) 70%, transparent) 0%, transparent 60%),
-    linear-gradient(165deg, var(--tint) 0%, var(--tint) 30%, var(--tint-comp) 100%);
+    linear-gradient(to bottom right, var(--tint) 0%, var(--tint-comp) 100%);
   background-color: var(--tint); border-bottom: 1px solid var(--line); }
 /* Tabs at the top of a module page: areas (each with a photo from one of its modules), then that area's modules */
 .mtabs { margin-bottom: 40px; }
 .mtabs-areas { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
 .mtab {
-  --edge: color-mix(in srgb, var(--tint-line) 45%, #fff);
+  /* Outline colours: the area's two deep tones, lightened; the selected outline runs from one to the other */
+  --edge: color-mix(in srgb, var(--tint-line) 55%, #fff); --edge2: color-mix(in srgb, var(--tint-line2) 55%, #fff);
   position: relative; display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px 10px 10px; border-radius: 10px; text-decoration: none;
   background: rgba(255,255,255,.7); border: 1px solid rgba(14,23,21,.06); color: var(--text);
   box-shadow: 0 0 0 rgba(14,40,34,0);
@@ -875,10 +885,18 @@ a.mcard-face { text-decoration: none; color: inherit; }
     linear-gradient(to left, #000 calc(var(--tc) - 22px), transparent var(--tc));
   mask-composite: intersect, add;
 }
-.mtab-line { border: 1px solid var(--edge); border-bottom: 0; }
+.mtab-line { border: 0; }
+/* The outline itself: a ring cut from the area gradient (left edge colour to right), so the draw-in reveals the gradient */
+.mtab-line::before, .mtab-bar::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px 1px 0;
+  background: linear-gradient(90deg, var(--edge) 0%, var(--edge) 20%, var(--edge2) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+.mtab-bar::before { padding: 4px 4px 0; }
 /* The 4px top tapers to 1px down the sides: an extra fading layer on top of the same reveal */
 .mtab-bar {
-  border: 4px solid var(--edge); border-bottom: 0;
+  border: 0;
   -webkit-mask-image:
     linear-gradient(180deg, #000 0%, #000 14%, transparent 85%),
     linear-gradient(to top, #000 calc(var(--t2) * (100% + 22px) - 22px), transparent calc(var(--t2) * (100% + 22px))),
@@ -917,8 +935,8 @@ a.mcard-face { text-decoration: none; color: inherit; }
 .mtab-ind::after {
   right: -49px;
   background:
-    radial-gradient(circle at 100% 0, transparent 8.6px, var(--edge) 9.2px, var(--edge) 9.8px, transparent 10.4px) left bottom / 10px 10px no-repeat,
-    linear-gradient(270deg, transparent, var(--edge)) right bottom / 40px 1px no-repeat;
+    radial-gradient(circle at 100% 0, transparent 8.6px, var(--edge2) 9.2px, var(--edge2) 9.8px, transparent 10.4px) left bottom / 10px 10px no-repeat,
+    linear-gradient(270deg, transparent, var(--edge2)) right bottom / 40px 1px no-repeat;
   -webkit-mask-image: linear-gradient(to left, #000 calc(var(--t1) * (100% + 16px) - 16px), transparent calc(var(--t1) * (100% + 16px)));
   mask-image: linear-gradient(to left, #000 calc(var(--t1) * (100% + 16px) - 16px), transparent calc(var(--t1) * (100% + 16px)));
 }
@@ -946,7 +964,7 @@ a.mcard-face { text-decoration: none; color: inherit; }
   background: rgba(255,255,255,.55); border-color: rgba(14,23,21,.08); font-size: 13.5px; font-weight: 500; color: var(--text);
 }
 .msubtab:hover { background: #fff; }
-.msubtab::before { background: var(--tint-line); }
+.msubtab::before { background: linear-gradient(135deg, var(--tint-line) 0%, var(--tint-line) 25%, var(--tint-line2) 100%); }
 .msubtab > .drawn-border path { stroke: var(--tint-line); }
 .msubtab .n { font-size: 11.5px; }
 /* Module icon in each chip: the white icon file used as a shape, filled with the area colour (white once selected) */
@@ -975,11 +993,14 @@ a.mcard-face { text-decoration: none; color: inherit; }
 @property --tint-line { syntax: '<color>'; inherits: true; initial-value: transparent; }
 @property --tint-line2 { syntax: '<color>'; inherits: true; initial-value: transparent; }
 @property --edge { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --edge2 { syntax: '<color>'; inherits: true; initial-value: transparent; }
 .mpage { transition: --tint .6s ease, --tint-comp .6s ease, --tint-ink .6s ease, --tint-line .6s ease, --tint-line2 .6s ease; }
 /* Pinned bar under the header: current area pill + module chips, shown once the full tabs scroll away */
 .mpin {
   position: fixed; left: 0; right: 0; top: var(--header-h); z-index: 40;
-  background: rgba(255,255,255,.8); backdrop-filter: saturate(1.6) blur(18px); -webkit-backdrop-filter: saturate(1.6) blur(18px);
+  /* Frosted, with a light trace of the area gradient */
+  background: linear-gradient(90deg, color-mix(in srgb, var(--tint-soft, #fff) 82%, transparent), color-mix(in srgb, var(--tint-soft2, #fff) 82%, transparent));
+  backdrop-filter: saturate(1.6) blur(18px); -webkit-backdrop-filter: saturate(1.6) blur(18px);
   border-bottom: 1px solid rgba(14,23,21,.07); box-shadow: 0 10px 24px -20px rgba(14,40,34,.45);
   transform: translateY(-10px); opacity: 0; visibility: hidden;
   transition: transform .3s var(--ease), opacity .22s ease, visibility 0s linear .3s;
@@ -1005,8 +1026,8 @@ a.mcard-face { text-decoration: none; color: inherit; }
 @keyframes pinMenu { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 .mpin-menu a { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 9px; text-decoration: none; font-size: 14px; color: var(--text); }
 .mpin-menu a small { margin-left: auto; font-size: 12px; font-weight: 600; color: var(--muted-2); }
-.mpin-menu a:hover { background: var(--tint); color: var(--ink); }
-.mpin-menu a[aria-current] { background: var(--tint); color: var(--ink); font-weight: 600; }
+.mpin-menu a:hover { background: var(--tint-grad-soft); color: var(--ink); }
+.mpin-menu a[aria-current] { background: var(--tint-grad); color: var(--ink); font-weight: 600; }
 .mpin .mpin-chips { flex: 1; min-width: 0; margin: 0; padding: 8px 0 10px; }
 .mpin .msubtab { height: 32px; padding: 0 12px; font-size: 13px; }
 @media (max-width: 560px) {
@@ -1025,19 +1046,22 @@ a.mcard-face { text-decoration: none; color: inherit; }
   display: grid; place-items: center; align-self: center; width: 34px; height: 34px; border-radius: 50%;
   color: var(--muted-2); transition: background .2s, color .2s;
 }
-.mfeat-row:hover .mfeat-open { background: var(--tint); color: var(--tint-ink); }
+.mfeat-row:hover .mfeat-open { background: var(--tint-grad); color: var(--tint-ink); }
 @media (max-width: 760px) { .mpage .mfeat, .spot-feats .mfeat { padding-right: 4px; } .mfeat-open { width: 30px; height: 30px; } }
 /* Module pages: features as a grid of cards (two across; one on phones) */
 .mpage .mfeats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 1100px) { .mpage .mfeats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; } }
 /* Keep the intro to a comfortable reading width now the cards span the page */
 .mpage .mpanel-intro { max-width: 760px; }
-.mpage .mfeat-row { align-items: stretch; border-radius: 16px; background: rgba(255,255,255,.72); border-color: rgba(14,23,21,.06); }
-.mpage .mfeat-row.on { background: #fff; }
+/* Cards: white washed with a faint trace of the area gradient; the hovered or open card goes almost white */
+.mpage .mfeat-row { align-items: stretch; border-radius: 16px; border: 0;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--tint-soft) 55%, rgba(255,255,255,.8)) 0%, color-mix(in srgb, var(--tint-soft2) 55%, rgba(255,255,255,.8)) 100%); }
+.mpage .mfeat-row:hover, .mpage .mfeat-row.on { background: linear-gradient(135deg, #fff 40%, var(--tint-soft2) 100%); }
 .mpage .mfeat { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; height: 100%; padding: 20px 20px 22px; }
 /* Every card icon sits on its area's page gradient (the colour holds, then melts into the complementary hue) */
 .mpage .mfeat .n, .mpage .mfeat-row.on .mfeat .n { width: 42px; height: 42px; border-radius: 12px; border-color: transparent; color: var(--tint-ink);
-  background: linear-gradient(135deg, var(--tint) 0%, var(--tint) 30%, var(--tint-comp) 100%); }
+  /* A step stronger than the page behind it, so the tiles stand out on the washed cards */
+  background: linear-gradient(135deg, color-mix(in srgb, var(--tint-line) 26%, var(--tint)) 0%, color-mix(in srgb, var(--tint-line2) 26%, var(--tint-comp)) 100%); }
 .mpage .mfeat .n svg { width: 20px; height: 20px; }
 .mpage .mfeat .t b { font-size: 16px; margin-top: 0; }
 .mpage .mfeat .t small { font-size: 14px; margin-top: 5px; }
@@ -1097,14 +1121,13 @@ body.fwin-open { overflow: hidden; }
 .fwin-stage {
   order: 2; display: grid; place-items: center; padding: 36px 24px; min-height: 0; overflow: hidden;
   background:
-    radial-gradient(120% 90% at 100% 100%, color-mix(in srgb, var(--tint-comp) 70%, transparent) 0%, transparent 60%),
-    linear-gradient(165deg, var(--tint) 0%, var(--tint) 30%, var(--tint-comp) 100%);
+    linear-gradient(to bottom right, var(--tint) 0%, var(--tint-comp) 100%);
 }
 .fwin-device { display: grid; place-items: center; }
 .fwin-device .device-phone, .fwin-device .device-framed { width: min(300px, calc((100vh - 140px) * 9 / 19.2)); }
 .fwin-device .device-tablet, .fwin-device .device-web { width: min(400px, 100%); }
 .fwin-empty { color: var(--muted); font-size: 15px; }
-.fwin-info { display: flex; flex-direction: column; padding: 56px 44px 40px 52px; min-height: 0; overflow-y: auto; }
+.fwin-info { background: linear-gradient(160deg, #fff 55%, var(--tint-soft2) 100%); display: flex; flex-direction: column; padding: 56px 44px 40px 52px; min-height: 0; overflow-y: auto; }
 .fwin-head { display: flex; align-items: center; gap: 12px; margin: 22px 0 14px; }
 .fwin-ic {
   flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: #fff;
@@ -1161,7 +1184,8 @@ body.fwin-open { overflow: hidden; }
   .mtab { width: auto; align-items: center; gap: 8px; padding: 5px 12px 5px 5px; border-radius: 999px; }
   .mtab { margin-bottom: 0; }
   .mtab-ind { border-radius: 999px; }
-  .mtab-line { border-radius: 999px; border-bottom: 1px solid var(--edge); }
+  .mtab-line { border-radius: 999px; }
+  .mtab-line::before { padding: 1px; }
   .mtab-ind::before, .mtab-ind::after, .mtab-bar { display: none; }
   .mtab-thumb { width: 30px; height: 30px; border-radius: 50%; }
   .mtab-thumb::after, .mtab-thumb img { display: none; }
@@ -1262,8 +1286,7 @@ body.fwin-open { overflow: hidden; }
 .gallery.sheet .g-close { background: var(--surface-soft); color: var(--ink); }
 .gallery.sheet .g-stage {
   background:
-    radial-gradient(120% 90% at 100% 100%, color-mix(in srgb, var(--tint-comp) 70%, transparent) 0%, transparent 60%),
-    linear-gradient(165deg, var(--tint) 0%, var(--tint) 30%, var(--tint-comp) 100%);
+    linear-gradient(to bottom right, var(--tint) 0%, var(--tint-comp) 100%);
 }
 .gallery.sheet .g-track { padding: 18px 24px 34px; align-items: start; }
 .gallery.sheet .g-img { border-radius: 22px; box-shadow: 0 24px 50px -24px rgba(14,40,34,.45); width: auto; max-width: 100%; }

@@ -37,7 +37,7 @@ const ICONS = {
   announce: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9.6h4l8-5.2v15.2l-8-5.2H3V9.6zm14.6 2.4c0-1.7-.8-3.2-2-4.1v8.2c1.2-.9 2-2.4 2-4.1zm1 -7.4A8.6 8.6 0 0122 12a8.6 8.6 0 01-3.4 7.4l-1.2-1.6A6.6 6.6 0 0020 12a6.6 6.6 0 00-2.6-5.8l1.2-1.6z"/></svg>',
   help:     '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2a9.8 9.8 0 100 19.6 9.8 9.8 0 000-19.6zm.1 15.4a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm2.3-6.4c-.7.7-1.2 1.2-1.2 2.2h-2.3c0-1.8.8-2.7 1.6-3.5.6-.6 1-1 1-1.7a1.5 1.5 0 00-3 0H8.2a3.8 3.8 0 117.6 0c0 1.3-.7 2-1.4 2.7z"/></svg>',
   shield:   '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l8 3.6v5.6c0 5-3.4 9.4-8 10.8-4.6-1.4-8-5.8-8-10.8V5.6L12 2zm0 4.6a2.6 2.6 0 00-2.6 2.6v1.2H8.6v5.4h6.8v-5.4h-.8V9.2A2.6 2.6 0 0012 6.6zm0 1.8c.5 0 .9.4.9.8v1.2h-1.8V9.2c0-.4.4-.8.9-.8z"/></svg>',
-  report:   '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16v18H4V3zm3 12h2.4v3H7v-3zm4.3-5h2.4v8h-2.4v-8zm4.3-3H18v11h-2.4V7z"/></svg>',
+  report:   '<svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M4 3h16v18H4V3zm3 12h2.4v3H7v-3zm4.3-5h2.4v8h-2.4v-8zm4.3-3H18v11h-2.4V7z"/></svg>',
   lab:      '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 2.4h5.2v2h-1v5.1l4.9 9.1a2 2 0 01-1.8 3H7.3a2 2 0 01-1.8-3l4.9-9.1V4.4h-1v-2zm2 2v5.6l-1.6 3h4.4l-1.6-3V4.4h-1.2z"/></svg>',
   diet:     '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.8 2.4v7.2a2.8 2.8 0 002 2.7V21.6h2V12.3a2.8 2.8 0 002-2.7V2.4h-1.6v6.4h-1.2V2.4H8.4v6.4H7.2V2.4H6.8zm10 0c-1.8 0-3.2 2.7-3.2 6 0 2.6.9 4.8 2.2 5.6v7.6h2V2.4h-1z"/></svg>'
 };

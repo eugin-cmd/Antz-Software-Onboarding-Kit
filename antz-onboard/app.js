@@ -359,11 +359,11 @@
   }
 
   /* ---------- Module cards: grouped by area, open in place ---------- */
-  const AREA_TINT = { records: 'butter', animal: 'coral', medical: 'teal', mortality: 'sky', operations: 'leaf' };
+  const AREA_TINT = { records: 'records', animal: 'animal', medical: 'medical', mortality: 'mortality', operations: 'operations' };
   /* Outline gradients: the area's line colour, melting into a deeper tone of its complementary hue (matches the panel backgrounds) */
   const OUTLINE_GRADS = {
-    butter: ['#C49424', '#8C80D6'], coral: ['#D2704F', '#3AA89E'], teal: ['#349E86', '#DE876A'],
-    sky: ['#468DAE', '#D6964A'], leaf: ['#34A95E', '#AE78BE']
+    records: ['#2FA864', '#E06C78'], animal: ['#D39B10', '#17A8A0'], medical: ['#4DB3A6', '#C8BC6A'],
+    mortality: ['#D6920E', '#DD5F6B'], operations: ['#2C94BC', '#DD647D']
   };
   /* One short line per card, derived from the intro until real taglines exist */
   const summary = (m) => {
@@ -844,7 +844,9 @@
     const fresh = ind._tab !== tab;
     ind._tab = tab;
     ind.classList.add('still');
-    ind.style.setProperty('--edge', getComputedStyle(tab).getPropertyValue('--edge'));
+    const ts = getComputedStyle(tab);
+    ind.style.setProperty('--edge', ts.getPropertyValue('--edge'));
+    ind.style.setProperty('--edge2', ts.getPropertyValue('--edge2'));
     ind.style.width = `${tab.offsetWidth}px`;
     ind.style.height = `${tab.offsetHeight}px`;
     ind.style.transform = `translate(${tab.offsetLeft}px, ${tab.offsetTop}px)`;
