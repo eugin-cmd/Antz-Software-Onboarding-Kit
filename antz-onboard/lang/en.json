@@ -1,0 +1,1308 @@
+{
+ "meta": {
+  "lang": "en",
+  "source": true
+ },
+ "ui": {
+  "brand.title": "Antz Onboarding Guide",
+  "brand.label": "Onboarding Guide",
+  "brand.home": "Antz Systems, home",
+  "meta.description": "A short, visual guide to the Antz platform for animal care teams.",
+  "nav.primary": "Primary",
+  "nav.menu": "Menu",
+  "nav.modules": "Modules",
+  "nav.why": "Why Antz",
+  "nav.start": "Getting started",
+  "nav.faq": "FAQ",
+  "nav.search": "Search the guide",
+  "nav.searchTip": "Search (Ctrl/Cmd + K)",
+  "footer.tagline": "Good data = good insights = healthy animals",
+  "footer.explore": "Explore",
+  "footer.talk": "Talk to us",
+  "footer.rights": "© 2026 Antz Systems. All rights reserved.",
+  "lang.label": "Language",
+  "lang.note": "This page was translated by machine and is awaiting review by a native speaker.",
+  "lang.english": "View in English",
+  "lang.dismiss": "Dismiss",
+  "lang.inApp": "In the app: {x}",
+  "hero.title": "One platform for every animal in your care",
+  "hero.sub": "Records, daily operations and teamwork across all your sites. Find any task in Antz, with the real screens.",
+  "hero.areas": "{n} areas of work",
+  "hero.devices": "Mobile and web",
+  "search.label": "Search modules and features",
+  "search.cue": "Search {x}",
+  "search.clear": "Clear search",
+  "search.short": "Type at least two letters to search every module and feature.",
+  "search.top": "Top results",
+  "search.none": "No matches for “{q}”. Try “animal”, “egg” or “report”.",
+  "start.label": "Start here",
+  "kit.objective.eyebrow": "Start here",
+  "kit.objective.more": "Read the objective",
+  "kit.objective.kicker": "Why we run this training",
+  "kit.objective.photo": "A keeper feeding a small animal in its enclosure",
+  "kit.platform.eyebrow": "The platform",
+  "kit.platform.more": "Learn about Antz",
+  "kit.platform.why": "Why use this app",
+  "kit.platform.photo": "A hand holding a phone showing the Antz Systems app",
+  "kit.start.eyebrow": "Onboarding flow",
+  "kit.start.more": "Start the guide",
+  "kit.start.features": "Features",
+  "day.title": "What your first day on Antz looks like",
+  "day.lede": "Four steps take your team from first login to everyday use.",
+  "day.1": "Sign in to your workspace",
+  "day.2": "Find your way around",
+  "day.3": "Set up your master data",
+  "day.4": "Give everyone the right access",
+  "day.4.desc": "Create roles that match your organisation and switch permissions on module by module, so each person sees what their work needs.",
+  "modules.eyebrow": "What’s inside",
+  "modules.title": "Explore the modules",
+  "modules.lede": "Tap any card to open its guide, with every feature and its screens.",
+  "modules.filter": "Filter modules by area",
+  "modules.all": "All",
+  "modules.count": "{n} modules",
+  "modules.features": "{n} features",
+  "spot.tag": "Featured workflow",
+  "spot.link": "See {x} in detail",
+  "cta.title": "Stuck on a task?",
+  "cta.text": "Every module has its features and real screens in this guide. Pick up where you left off, or ask us and we will help.",
+  "cta.back": "Back to the modules",
+  "cta.or": "Questions? Write to {email}",
+  "faq.eyebrow": "FAQ",
+  "faq.title": "Questions teams ask first",
+  "faq.q1": "What is Antz?",
+  "faq.q2": "Does it work on phones and computers?",
+  "faq.a2": "Yes. The mobile app covers work on the ground, such as notes, treatments, transfers and egg records. The web app covers desk work, such as the hospital system, nursery set-up, reports and pharmacy stock. Updates appear in real time on phone, tablet and desktop.",
+  "faq.q3": "Can we control who sees what?",
+  "faq.a3": "Yes. Access is role-based. You create the roles your organisation uses, for example Zoologist, and turn permissions on module by module.",
+  "faq.q4": "We run more than one site. Does that work?",
+  "faq.a4": "Antz keeps data from every site and department in one place. Housing is organised by site, section and enclosure, and moves between sites go through approval and a security check-out.",
+  "faq.q5": "How do we get started?",
+  "faq.a5": "Start with the Getting Started guide, then open the modules your role uses. If something is unclear, write to hello@antz.systems.",
+  "pager.prev": "Previous",
+  "pager.next": "Next",
+  "pager.modules": "Explore the modules",
+  "pager.pages": "Previous and next page",
+  "pager.moduleNav": "Previous and next module",
+  "mod.tabs": "Module areas and modules",
+  "mod.features": "Features",
+  "mod.hintClick": "Click a feature to open its screen",
+  "mod.hintTap": "Tap a feature to open its screen",
+  "mod.soon": "Screens for this module are coming soon",
+  "mod.zoom": "Tap the screen to zoom",
+  "win.prev": "Previous feature",
+  "win.next": "Next feature",
+  "win.close": "Close",
+  "win.count": "Feature {i} of {n}",
+  "win.soon": "Screen coming soon",
+  "gal.label": "{x} screens",
+  "gal.close": "Close gallery",
+  "gal.screen": "Screen {i}",
+  "gal.hint": "Pinch or double-tap to zoom · Swipe to browse"
+ },
+ "tracks": {
+  "records": {
+   "label": "Records & Communication",
+   "desc": "The lightest-weight, highest-frequency surfaces, notes, chat and user setup."
+  },
+  "animal": {
+   "label": "Animal Records & Movement",
+   "desc": "Collection, housing and every movement an animal makes through the zoo."
+  },
+  "medical": {
+   "label": "Medical & Treatment",
+   "desc": "Records, prescriptions, treatment and the hospital information system."
+  },
+  "mortality": {
+   "label": "Mortality & Lifecycle",
+   "desc": "Mortality, necropsy and egg lifecycle management."
+  },
+  "operations": {
+   "label": "Operations & Oversight",
+   "desc": "Announcements, helpdesk, security, reporting and compliance."
+  }
+ },
+ "modules": {
+  "objective-of-this-kit": {
+   "title": "Objective of this kit",
+   "intro": "Onboarding has four jobs: get every team member confident in their day-to-day activities, get the platform adopted across roles, identify gaps so we can improve, and standardise how records are kept across sites.",
+   "features": [
+    {
+     "title": "Skill development",
+     "desc": "Enhance staff knowledge and the practical skills needed for effective zoo operations, animal care, and confident use of the Antz platform.",
+     "alt": ""
+    },
+    {
+     "title": "System adoption",
+     "desc": "Familiarize users with every app module and build confidence to perform the core actions like recording, reviewing and approving without supervision.",
+     "alt": ""
+    },
+    {
+     "title": "Continuous improvement",
+     "desc": "Identify the gaps, clarify the doubts, and use feedback-driven learning to refine workflows and module behaviour over time.",
+     "alt": ""
+    },
+    {
+     "title": "Standardisation",
+     "desc": "Consistent protocols across teams and sites, same module behaviour for Requests, Mortality, Egg and Diet so every record reads the same way.",
+     "alt": ""
+    }
+   ]
+  },
+  "what-is-antz-systems": {
+   "title": "What is Antz Systems?",
+   "intro": "Antz is your all-in-one platform for animal records, daily operations, and team collaboration. It centralises data across sites and departments so every action stays documented, transparent, and traceable.",
+   "features": [
+    {
+     "title": "Better records, better care",
+     "desc": "Every detail accurate, accessible, time-stamped, and tied to the right animal.",
+     "alt": ""
+    },
+    {
+     "title": "Teamwork made simple",
+     "desc": "No gaps between vets, caretakers, and managers, everyone on the same record.",
+     "alt": ""
+    },
+    {
+     "title": "Secure by design",
+     "desc": "Role-based access protects sensitive data and aligns rights with the org chart.",
+     "alt": ""
+    },
+    {
+     "title": "Decisions at your fingertips",
+     "desc": "Faster reporting and compliance-ready insights, without spreadsheets in the loop.",
+     "alt": ""
+    },
+    {
+     "title": "Paperless operations",
+     "desc": "Cut transcription errors and save time across every shift.",
+     "alt": ""
+    },
+    {
+     "title": "Real-time updates",
+     "desc": "Access the latest info anytime, anywhere, across phone, tablet and desktop.",
+     "alt": ""
+    }
+   ],
+   "shots": {
+    "assets/shots/app-welcome-c.jpg": "Antz Systems app welcome screen: Good data + good insights = healthy animals."
+   }
+  },
+  "getting-started": {
+   "title": "Getting Started",
+   "intro": "The Getting Started guide introduces the purpose of the app and walks new users through the essential steps to set up their profile, explore key features, and navigate the platform effectively.",
+   "features": [
+    {
+     "title": "Access & Workspaces",
+     "desc": "Log in securely and access your designated work environment.",
+     "alt": "Antz Systems home screen: search bar, Pending Administration, This Month insights with Natality/Mortality, and an Announcement card"
+    },
+    {
+     "title": "Navigation & Interface",
+     "desc": "Use the home feed for updates, quick navigation shortcuts, and the bottom panel for core tools.",
+     "alt": ""
+    },
+    {
+     "title": "Pending Necropsy / Administration / Allocation",
+     "desc": "Animals awaiting necropsy, administrative documentation, and subsequent allocation or disposal procedures before final closure of records.",
+     "alt": ""
+    },
+    {
+     "title": "Master Setup & Modules",
+     "desc": "Configure master data, and explore modules like Medical Records, Housing, Egg, Diet and Animal Management.",
+     "alt": ""
+    },
+    {
+     "title": "Personalisation",
+     "desc": "Manage notes, update your profile, and adjust language preferences.",
+     "alt": ""
+    },
+    {
+     "title": "Permissions",
+     "desc": "Understand access levels required for secure operations.",
+     "alt": ""
+    }
+   ]
+  },
+  "notes-module": {
+   "title": "Notes Module",
+   "intro": "The Notes Module centralises logging of daily updates, observations, and incidents linked to animals, enclosures, and operations. It ensures structured, time-stamped entries; smooth team coordination; quick retrieval via filters and tags and supports consistent care, early issue detection, and compliance.",
+   "summary": "Centralises logging of daily updates, observations, and incidents linked to animals, enclosures, and operations",
+   "features": [
+    {
+     "title": "Add & view notes",
+     "desc": "Create new notes and access those by you or other authorised users.",
+     "alt": "New Notes form: note type, notes, notify members, entity, attachments, priority"
+    },
+    {
+     "title": "Edit , Listen & delete",
+     "desc": "Modify, listen via audio or remove notes based on assigned permissions.",
+     "alt": "Note detail: Medical, Sick, Tiger AID 425990, with edit and bookmark"
+    },
+    {
+     "title": "Priority",
+     "desc": "Set the urgency level so the right people see it first.",
+     "alt": "Note detail with priority flag at top right"
+    },
+    {
+     "title": "Note type & linking",
+     "desc": "Categorise, link to animals, enclosures or sections, and attach documents.",
+     "alt": "Note detail with linked animal entity card, Tiger AID 425990"
+    },
+    {
+     "title": "Visibility",
+     "desc": "Notes appear automatically on the relevant animal, site, or section pages.",
+     "alt": "Site page Notes tab: Hygiene note showing on Central Reserve Kingdom"
+    },
+    {
+     "title": "Notifications & collaboration",
+     "desc": "Notify tagged members; likes and comments keep it focused.",
+     "alt": "Note with thumbs up, tagged member Dr. Cloomy Fernandes, 1 comment"
+    },
+    {
+     "title": "Filters & search",
+     "desc": "Filter by keywords, tags, creator, or linked entity.",
+     "alt": "Notes list with My Notes / All Notes tabs and Filters"
+    }
+   ]
+  },
+  "user-management": {
+   "title": "User Management",
+   "intro": "The User Module enables secure, centralised management of accounts, roles, and permissions. It streamlines user onboarding, ensures data security, and aligns access rights with organisational roles while maintaining detailed activity logs for accountability.",
+   "summary": "Enables secure, centralised management of accounts, roles, and permissions",
+   "features": [
+    {
+     "title": "Profile creation & management",
+     "desc": "Manage name, contact, staff ID, DOB, blood group.",
+     "alt": "Add User Basic Info form: name, username, email, password, mobile, staff ID"
+    },
+    {
+     "title": "Roles & permissions",
+     "desc": "Assign roles and manage module-level access rights.",
+     "alt": "Edit Permissions: Veterinarian role with module-level access checkboxes"
+    },
+    {
+     "title": "Access control",
+     "desc": "Restrict by site/section, activate accounts, auto-timeout.",
+     "alt": "User profile with Deactivate, Reset Password, Reset Passcode menu"
+    },
+    {
+     "title": "Login & recovery",
+     "desc": "Secure login with OTP recovery via SMS or WhatsApp.",
+     "alt": "Reset Password / Forgot Password screen with username or email field"
+    },
+    {
+     "title": "Activity tracking",
+     "desc": "View last login, device details, and deactivate devices.",
+     "alt": "User profile Journal tab: activity log with last active time"
+    },
+    {
+     "title": "Additional info",
+     "desc": "Record education, work history, and upload ID proofs.",
+     "alt": "User profile Id Proofs tab: Aadhaar card with attachment"
+    }
+   ]
+  },
+  "collection": {
+   "title": "Collection",
+   "intro": "The Collection Module is designed to manage and document every aspect of an institution's animal collection serving as the central hub for recording species, tracking individual animals, and maintaining accurate taxonomic histories.",
+   "summary": "Manage and document every aspect of an institution's animal collection serving as the central hub for recording species, tracking individual animals, and maintaining accurate taxonomic histories",
+   "features": [
+    {
+     "title": "Species overview",
+     "desc": "Taxonomy, population by gender, accession/birth counts, with search.",
+     "alt": "Tiger species detail with population, sites, sections, enclosures"
+    },
+    {
+     "title": "Species management",
+     "desc": "Counts, morphs, medical, diet, mortality, and necropsy status.",
+     "alt": "Tiger species detail with population, sites, sections, enclosures"
+    },
+    {
+     "title": "Add batch assessment",
+     "desc": "Group data input with sequential navigation and filters.",
+     "alt": "Species Assessment list with body condition per animal"
+    }
+   ]
+  },
+  "housing": {
+   "title": "Housing",
+   "intro": "The Housing module organises animal habitats across your sites, sections and enclosures, so every animal has a known place and every change is tracked. Access at each level is permission-based.",
+   "summary": "Organises animal habitats across your sites, sections and enclosures, so every animal has a known place and every change is tracked",
+   "features": [
+    {
+     "title": "Site administration",
+     "desc": "Add or edit sites with role-based permissions for secure, structured access.",
+     "alt": "Site detail: Wildlife Zoological Park with species/animal/section counts and enclosure list"
+    },
+    {
+     "title": "Section administration",
+     "desc": "Add or edit sections within the zoo, with permission-based controls for safe administration.",
+     "alt": "Section detail: Animal Kingdom with species/animal/enclosure counts and enclosure list"
+    },
+    {
+     "title": "Enclosure administration",
+     "desc": "Add or edit enclosures and monitor each for efficient animal and data oversight.",
+     "alt": "Enclosure list: Gentle Giants, Herbivores, The Tiger Trail with animal counts"
+    }
+   ]
+  },
+  "animal-management": {
+   "title": "Animal Management",
+   "intro": "The Animals Module brings all animal records together in one place, active, transferred, missing or deleted, with profiles, accession workflows, and an easy tab-based layout.",
+   "summary": "Brings all animal records together in one place",
+   "features": [
+    {
+     "title": "Search Animals",
+     "desc": "Add new animals via guided workflows linked to housing, diet, medical.",
+     "alt": "Animals list with counts: All Animals 2828, Transferred 11, Deleted 27, Missing/Escaped 8"
+    },
+    {
+     "title": "Recently added",
+     "desc": "Newly added animals in the system, at the top of the feed.",
+     "alt": "Recently Added list: Slow Loris, African Bush Elephant, Tiger, Saltwater Crocodile, Southern Cassowary"
+    },
+    {
+     "title": "All animals",
+     "desc": "The complete database, searchable, filterable, exportable.",
+     "alt": "All Animals list: European Rabbit, Southern Cassowary, Common Hippopotamus, Tiger, Asian Elephant"
+    },
+    {
+     "title": "Transferred",
+     "desc": "Animals moved between sites or enclosures, with full provenance.",
+     "alt": "Transferred Animals list: Tiger, Lion, Slow Loris, American Black Bear, Lion"
+    },
+    {
+     "title": "Deleted",
+     "desc": "Records of removed animals, retained for audit and reversibility.",
+     "alt": "Deleted Animals list"
+    },
+    {
+     "title": "Missing / escaped",
+     "desc": "Animals flagged as missing or escaped, linked to the incident report.",
+     "alt": "Missing/Escaped Animals list: American Black Bear, Southern Cassowary, Saltwater Crocodile, Common Hippopotamus, Tiger"
+    }
+   ]
+  },
+  "tags-hub": {
+   "title": "Tags Hub",
+   "intro": "The Tags Hub Module helps you organize and categorize different entities (sites, sections, enclosures, animals) in the ANTZ platform using customizable labels based on their current status, purpose, or any custom classification.",
+   "summary": "Helps you organize and categorize different entities (sites, sections, enclosures, animals) in the ANTZ platform using customizable labels based on their current status, purpose, or any custom classification",
+   "features": [
+    {
+     "title": "Tag types — Public, Private, System",
+     "desc": "Organize and categorize entities using Public, Private, and System-defined tags.",
+     "alt": "My Tags Hub: search, Total/System/Public/Private tag counts, and Public and Private tag chips"
+    },
+    {
+     "title": "Search & filters",
+     "desc": "Quickly find tags using search and filter options.",
+     "alt": "My Tags Hub: search, Total/System/Public/Private tag counts, and Public and Private tag chips"
+    },
+    {
+     "title": "Create tags",
+     "desc": "Create new Public or Private tags based on your requirements.",
+     "alt": "Create New Tag: Tag Name, Tag Category, Roles to Notify, Notes, and Create Tag button"
+    },
+    {
+     "title": "Edit & delete tags",
+     "desc": "Modify the name, color, or visibility of Private tags, or permanently remove tags no longer needed.",
+     "alt": "Tag Details sheet: category, type, created by, notes, tagged entities, with Edit and Delete actions"
+    },
+    {
+     "title": "Assign Public & Private tags",
+     "desc": "Apply tags to Sites, Sections, Enclosures, or Animals for easy organization.",
+     "alt": "Add Public Tag sheet on a Site: search and select a tag chip to add, with Cancel and Add Tag"
+    },
+    {
+     "title": "Remove assigned tags",
+     "desc": "Remove tags from Sites, Sections, Enclosures, or Animals whenever required.",
+     "alt": "Remove Tag confirmation: Are you sure you want to remove these tags from this site? Cancel or Remove"
+    },
+    {
+     "title": "Visibility",
+     "desc": "Control whether Private tags remain personal or are visible to all users.",
+     "alt": "Tag Details for a Private tag: Tag Type Private (Visible to All) with a Make this tag visible to all toggle"
+    },
+    {
+     "title": "Tagged entities",
+     "desc": "View all Sites, Sections, Enclosures, Species and Animals associated with a selected tag.",
+     "alt": "Tagged entities for Enclosure Maintenance: Animals / Sections / Site tabs, Site (1) showing Bangalore site"
+    }
+   ]
+  },
+  "animal-transfer": {
+   "title": "Animal Transfer",
+   "intro": "Records and manages all animal movements within and outside the organisation, tracking requests, approvals, and allocations for secure, well-documented relocation.",
+   "summary": "Records and manages all animal movements within and outside the organisation",
+   "features": [
+    {
+     "title": "Transfer types",
+     "desc": "In-house, inter-site, and external transfers.",
+     "alt": "Choose transfer type dialog"
+    },
+    {
+     "title": "Approval",
+     "desc": "Authorisation from designated site authorities.",
+     "alt": "Inter-site transfer awaiting approval"
+    },
+    {
+     "title": "Cancel / reject",
+     "desc": "Cancel or reject requests and reinitiate as needed.",
+     "alt": "Cancel transfer option"
+    },
+    {
+     "title": "Security check-in / out",
+     "desc": "Controlled check-in/out for inter-site & external moves.",
+     "alt": "Security clearance and checkout for transfer"
+    },
+    {
+     "title": "Allocation",
+     "desc": "On arrival, allocate to enclosure and notify staff.",
+     "alt": "Approved transfer, allocate enclosures"
+    },
+    {
+     "title": "Transfer log",
+     "desc": "Full status history with timestamps and users.",
+     "alt": "Transfer status timeline, transfer completed"
+    }
+   ]
+  },
+  "approvals": {
+   "title": "Approvals",
+   "intro": "Manages and tracks animal transfer requests, providing visibility into pending, approved, and rejected requests. It streamlines the review process, ensures proper authorisation, and maintains a transparent record of transfer decisions for accountability and compliance.",
+   "summary": "Manages and tracks animal transfer requests, providing visibility into pending, approved, and rejected requests",
+   "features": [
+    {
+     "title": "Track status",
+     "desc": "Awaiting Approval, Approved, Rejected, Allow Exit/Entry, Allocated.",
+     "alt": "Transfer Approvals list with status badges"
+    },
+    {
+     "title": "Review request",
+     "desc": "View complete details before approving.",
+     "alt": "Transfer request details for review"
+    },
+    {
+     "title": "Approve / reject",
+     "desc": "Authorise or decline with proper justification.",
+     "alt": "Transfer request detail with Approve and Reject"
+    },
+    {
+     "title": "Reset approval",
+     "desc": "Reopen or update a previously approved request.",
+     "alt": "Approved transfer with Reset Approval option"
+    },
+    {
+     "title": "Cancel transfer",
+     "desc": "Cancel before or after approval, with reason logged.",
+     "alt": "Request detail with Cancel Transfer option"
+    }
+   ]
+  },
+  "missing-escaped-animal": {
+   "title": "Missing / Escaped Animal",
+   "intro": "Enables quick reporting, tracking, and resolution of missing or escaped animals, with time-stamped entries linked to their profiles for accountability and a coordinated response across security, vets and management.",
+   "summary": "Enables quick reporting, tracking, and resolution of missing or escaped animals",
+   "features": [
+    {
+     "title": "Incident reporting & attachments",
+     "desc": "Log details, actions, and upload images or video.",
+     "alt": "Report escaped/missing animals form"
+    },
+    {
+     "title": "Edit report",
+     "desc": "Update or modify incident reports as it evolves.",
+     "alt": "Incident timeline, animal missing"
+    },
+    {
+     "title": "Recovery reporting",
+     "desc": "Record recovery details and flag corrections.",
+     "alt": "Report found animal form"
+    },
+    {
+     "title": "Event logging & traceability",
+     "desc": "Record every action in order on the animal's timeline.",
+     "alt": "Misreport missing option menu"
+    },
+    {
+     "title": "Visibility",
+     "desc": "Flagged as missing on the profile; quick QR updates.",
+     "alt": "Animal profile with missing badge and QR"
+    }
+   ]
+  },
+  "medical-records": {
+   "title": "Medical Records",
+   "intro": "The Medical Module helps record, track, and manage animal health details, including diagnoses, prescriptions, and treatments. It supports timely care, organised medical histories, and coordination between veterinary teams for better animal welfare.",
+   "summary": "Helps record, track, and manage animal health details",
+   "features": [
+    {
+     "title": "Record creation",
+     "desc": "Multiple workflows to add single, batch, group, scheduled (vaccination, deworming, supplement) or direct (administer, prescription, vaccination, deworming, supplement) records, with exact date and time logging and lab requests.",
+     "alt": "Record creation menu: Single, Group, Batch medical record, Pool Lab Request, Direct Administer, Prescription, Vaccination, Deworming, Supplements"
+    },
+    {
+     "title": "Record overview",
+     "desc": "A quick summary showing doctor details and animal profile for easy reference.",
+     "alt": "Medical record overview MED-09501: doctor, animal profile, case type and symptoms"
+    },
+    {
+     "title": "Bookmark, Edit, delete, download",
+     "desc": "Modify or remove records; downloaded reports are emailed to the registered address.",
+     "alt": "Medical record MED-08805 with bookmark, edit and more-options icons"
+    },
+    {
+     "title": "Medical journal timeline",
+     "desc": "Chronological log of all add and edit actions with full traceability.",
+     "alt": "Medical Journal: chronological log of medical record actions with timestamps"
+    },
+    {
+     "title": "Reassign records",
+     "desc": "Doctors with edit permissions can reassign records originally created by another vet to yourself.",
+     "alt": "Reassign confirmation: Do you want to reassign this medical record to yourself? Yes / No"
+    }
+   ]
+  },
+  "symptoms-clinical-assessment-prescription": {
+   "title": "Symptoms, Clinical Assessment & Prescription",
+   "intro": "The Symptoms, Clinical Assessment & Prescription feature provides insights into recorded symptoms, diagnoses, and prescribed treatments helping users monitor health trends and support informed clinical decision-making.",
+   "summary": "Provides insights into recorded symptoms, diagnoses, and prescribed treatments helping users monitor health trends and support informed clinical decision-making",
+   "features": [
+    {
+     "title": "Symptom trends",
+     "desc": "Analyse the most commonly recorded symptoms across species and track symptom occurrence over time.",
+     "alt": "Symptoms analytics: 7 species, 7 by symptoms, ranked list led by Abnormal droppings, Abnormal posture, Abnormal shedding"
+    },
+    {
+     "title": "Clinical assessment insights",
+     "desc": "Monitor clinical assessments performed across animals and identify the most frequently recorded diagnoses or conditions.",
+     "alt": "Clinical Assessment analytics: 20 species, 35 assessments, led by Liver Disease, Dental Caries, Gastrointestinal Problems"
+    },
+    {
+     "title": "Prescription analytics",
+     "desc": "View commonly prescribed medications and treatment patterns across species and cases.",
+     "alt": "Prescriptions analytics: 7 species, 7 prescriptions, led by Aculife, Fluvac Innovator, Dolo 650"
+    },
+    {
+     "title": "Filters & search",
+     "desc": "Refine data by date range, site, species, and other relevant criteria.",
+     "alt": "Filter By date range: Today, Yesterday, Last 7 Days, This Month, Last 3 Months, Last 6 Months, All Time Data"
+    }
+   ]
+  },
+  "administer-medicine": {
+   "title": "Administer Medicine",
+   "intro": "The Administer Module complements Medical Records by translating prescriptions into actionable treatment workflows, enabling real-time care delivery for individual or batch animals, in the field or in the hospital.",
+   "summary": "Complements Medical Records by translating prescriptions into actionable treatment workflows",
+   "features": [
+    {
+     "title": "Quick entry",
+     "desc": "Create a direct administer record for a chosen date without writing a full medical record.",
+     "alt": "Administer screen: date strip, Animal / Group Records tabs, Administered / Skipped / Stopped / Pending status tiles, with the quick-entry plus button highlighted"
+    },
+    {
+     "title": "Search & filters",
+     "desc": "Find records fast and narrow the list by date, entity, Species, Control Substance.",
+     "alt": "Administer screen with Search, Filters, month picker, and All Records dropdown highlighted"
+    },
+    {
+     "title": "Status tracking",
+     "desc": "View treatments by date across four tabs, Pending, Administered, Skipped, Stopped.",
+     "alt": "Administer screen with Administered, Skipped, Stopped, Pending status tabs highlighted"
+    },
+    {
+     "title": "Bulk actions",
+     "desc": "Select multiple records to Administer or Skip medicines in one go.",
+     "alt": "Administer screen with Select all and Administer button highlighted after selecting records"
+    },
+    {
+     "title": "Prescription details",
+     "desc": "See full info, dosage, batch number, linked animal, at the point of delivery.",
+     "alt": "Prescription screen with times, frequency, duration, delivery route highlighted"
+    },
+    {
+     "title": "Single dose entry",
+     "desc": "Record individual doses with time, batch number, and notes.",
+     "alt": "Administer screen with a single dose group card and its checkbox highlighted"
+    },
+    {
+     "title": "Home screen overview",
+     "desc": "See the count of pending treatments right on the home screen for faster action.",
+     "alt": "App home screen: Key Insights, and a Pending Administration card showing 1028 pending processes"
+    }
+   ],
+   "shots": {
+    "assets/shots/p20-bulk.png": "Administer bulk actions: Select all, a selected animal record, and Skipped / Administer buttons",
+    "assets/shots/p20-prescription.png": "Prescription details: Case ID, times, frequency, duration, delivery route, linked animal, and dose schedule"
+   }
+  },
+  "vaccination": {
+   "title": "Vaccination",
+   "intro": "The Vaccination Module manages the complete vaccination lifecycle for animals from scheduling and direct administration to tracking upcoming, pending, skipped, and completed vaccinations. It ensures timely treatment, accurate dosage recording, and full traceability for disease prevention and clinical compliance.",
+   "summary": "Manages the complete vaccination lifecycle for animals from scheduling and direct administration to tracking upcoming, pending, skipped, and completed vaccinations",
+   "features": [
+    {
+     "title": "Status-based views",
+     "desc": "Vaccinations organised into Upcoming, Pending, Skipped, and Completed for easy monitoring.",
+     "alt": "Vaccination menu: Upcoming, Pending, Completed, Skipped, Stopped Vaccine, Direct Administer, Schedule Vaccination"
+    },
+    {
+     "title": "Vaccination management",
+     "desc": "Schedule a vaccination or directly record an administered vaccine with defined dates and medicine details.",
+     "alt": "Schedule Vaccination with selected animals, prescription and clinical notes"
+    },
+    {
+     "title": "Administration recording",
+     "desc": "Captures dosage, batch number, delivery route, notes, and optional follow-up.",
+     "alt": "Completed Vaccination details with case ID and batch number"
+    },
+    {
+     "title": "Pending & upcoming",
+     "desc": "Displays all scheduled vaccinations by date and site to prevent missed treatments.",
+     "alt": "Pending Vaccination grouped by species"
+    },
+    {
+     "title": "Skip & stop",
+     "desc": "Postpone or stop vaccinations with mandatory reasons and follow-up dates.",
+     "alt": "Pending Vaccination details with Administer and Skipped actions"
+    },
+    {
+     "title": "Animal-centric access",
+     "desc": "Vaccination records can be viewed from Animal, Housing or Medical Records contexts.",
+     "alt": "Animal profile Medical tab showing Vaccination pending, upcoming and completed"
+    }
+   ]
+  },
+  "deworming": {
+   "title": "Deworming",
+   "intro": "The Deworming Module supports systematic recording and monitoring of parasite-control treatments, ensuring timely administration, proper documentation, and clear tracking of every deworming activity for each animal.",
+   "summary": "Supports systematic recording and monitoring of parasite-control treatments",
+   "features": [
+    {
+     "title": "Status-based views",
+     "desc": "Deworming organised into Upcoming, Pending, Skipped, and Completed for easy monitoring.",
+     "alt": "Deworming menu: Upcoming, Pending, Completed, Skipped, Stopped Deworming, Direct Administer, Schedule Deworming"
+    },
+    {
+     "title": "Deworming management",
+     "desc": "Schedule a course or directly record administered medicine with defined dates and details.",
+     "alt": "Direct Deworming with selected animal, prescription and clinical notes"
+    },
+    {
+     "title": "Administration recording",
+     "desc": "Captures dosage, batch number, delivery route, notes, and optional follow-up.",
+     "alt": "Add Medicine: dose type, dosage quantity, delivery route, follow-up and batch number"
+    },
+    {
+     "title": "Pending & upcoming",
+     "desc": "View all scheduled deworming by date and site, surfaced to prevent missed treatments.",
+     "alt": "Pending Deworming grouped by species"
+    },
+    {
+     "title": "Skip & stop",
+     "desc": "Postpone or stop with mandatory reasons and follow-up dates.",
+     "alt": "Skip Deworming: reschedule or stop with reason and adverse-effects question"
+    },
+    {
+     "title": "Animal-centric access",
+     "desc": "Viewable from Animal, Housing, or Medical Records contexts.",
+     "alt": "Animal profile Medical tab showing Deworming pending, upcoming and completed"
+    }
+   ]
+  },
+  "supplements": {
+   "title": "Supplements",
+   "intro": "The Supplement Module supports systematic recording and monitoring of nutritional and dietary supplement programmes, ensuring timely administration, proper documentation, and clear tracking of every supplement given to each animal.",
+   "summary": "Supports systematic recording and monitoring of nutritional and dietary supplement programmes",
+   "features": [
+    {
+     "title": "Status-based views",
+     "desc": "Supplements organised into Upcoming, Pending, Skipped, and Completed.",
+     "alt": "Supplements menu: Upcoming, Pending, Completed, Skipped, Stopped Supplements, Direct Administer, Schedule Supplements"
+    },
+    {
+     "title": "Supplement management",
+     "desc": "Schedule or directly record administered supplements with defined dates and details.",
+     "alt": "Direct Supplements with selected animal, prescription and clinical notes"
+    },
+    {
+     "title": "Administration recording",
+     "desc": "Captures dosage, batch number, delivery route, notes, and optional follow-up.",
+     "alt": "Add Supplements: dose type, dosage quantity, delivery route, follow-up and batch number"
+    },
+    {
+     "title": "Pending & upcoming",
+     "desc": "All scheduled supplements by date and site, to prevent missed administration.",
+     "alt": "Pending Supplements grouped by species"
+    },
+    {
+     "title": "Skip & stop",
+     "desc": "Postpone or stop with mandatory reasons and follow-up dates.",
+     "alt": "Skip Supplements: reschedule or stop with reason and follow-up date"
+    },
+    {
+     "title": "Animal-centric access",
+     "desc": "Records viewable from Animal, Housing, or Medical Records contexts.",
+     "alt": "Animal profile Medical tab showing Supplements pending, upcoming and completed"
+    }
+   ]
+  },
+  "hospital-information-management-system-app": {
+   "title": "Hospital Information Management System (App)",
+   "intro": "On the app, staff raise animal transfers to the hospital and move patients securely, with medical ID, visit type, purpose, attachments, and security-based check-in and check-out at site and hospital.",
+   "summary": "Staff raise animal transfers to the hospital and move patients securely",
+   "features": [
+    {
+     "title": "Transfer requests",
+     "desc": "Raise animal transfers from enclosure to hospital with medical ID, visit type, purpose, and attachments.",
+     "alt": "Hospitalize animal form: selected animal, Medical ID (Create new), Hospital and Visit type fields, Submit"
+    },
+    {
+     "title": "Transfer status",
+     "desc": "Track each transfer through its stages, Pending, In Transit, Accepted.",
+     "alt": "Transfer HT29-00038: route, initiator, selected animal, status Transfer Completed and Security Checkout button"
+    },
+    {
+     "title": "Security check-in / out",
+     "desc": "Controlled patient movement with security-based check-in and check-out at site and hospital.",
+     "alt": "Transfer HT29-00038: route, initiator, selected animal, status Transfer Completed and Security Checkout button"
+    },
+    {
+     "title": "View discharge reports",
+     "desc": "Access discharge summaries and hospitalisation history directly from the app.",
+     "alt": "Hospitalize animal form: selected animal, Medical ID (Create new), Hospital and Visit type fields, Submit"
+    }
+   ]
+  },
+  "hospital-information-management-system-web": {
+   "title": "Hospital Information Management System (Web)",
+   "intro": "On the web console, clinical teams admit and triage incoming patients, monitor inpatients and outpatients, record treatments, and discharge animals, with full medical traceability and downloadable reports.",
+   "summary": "Clinical teams admit and triage incoming patients, monitor inpatients and outpatients, record treatments, and discharge animals",
+   "features": [
+    {
+     "title": "Admission & triage",
+     "desc": "Admit or reject animal cases with doctor, room, and bed allocation based on treatment requirements.",
+     "alt": "Patient Admission Form: selected animal, purpose of visit, treatment type OPD / Inpatient, health status, Reject and Admit"
+    },
+    {
+     "title": "Inpatient / outpatient monitoring",
+     "desc": "Configure and record scheduled vitals and observations with editable timelines.",
+     "alt": "Incoming Patient list: Pending and Rejected tabs with animals and purpose of visit"
+    },
+    {
+     "title": "Clinical & treatment records",
+     "desc": "Maintain symptoms, clinical notes, prescriptions, anaesthesia, surgery, and other treatments in one place.",
+     "alt": "Inpatient record MED29-17409: admission details and Symptoms / Clinical Assessment / Prescription tabs"
+    },
+    {
+     "title": "Discharge",
+     "desc": "Discharge animals back to enclosure or record mortality with necropsy request and attachments.",
+     "alt": "Discharge tab: reason of admission, discharge type Mortality / Transfer to Enclosure, Discharge Animal"
+    },
+    {
+     "title": "Downloadable reports",
+     "desc": "Access discharge summaries, current hospitalisation details, and prior visit history.",
+     "alt": "Discharged patients list with duration, visit type, chief veterinarian and download action"
+    }
+   ]
+  },
+  "mortality": {
+   "title": "Mortality",
+   "intro": "The Mortality Module lets you quickly and accurately record animal deaths, manage necropsy details, and store evidence in one place. It improves transparency, speeds up decision-making, ensures compliance, and supports better monitoring of animal welfare.",
+   "summary": "Lets you quickly and accurately record animal deaths, manage necropsy details, and store evidence in one place",
+   "features": [
+    {
+     "title": "Mortality dashboard",
+     "desc": "Totals for deaths, affected species, and causes.",
+     "alt": "Mortality dashboard: 2 animals, 2 species, 2 reasons"
+    },
+    {
+     "title": "Multi-view listings",
+     "desc": "Records by animal, species, or cause, linked to profiles.",
+     "alt": "Mortality records listed by animal"
+    },
+    {
+     "title": "Advanced search & filters",
+     "desc": "Search by species, cause, location, date, or keyword.",
+     "alt": "Mortality search and filters"
+    },
+    {
+     "title": "Deceased animal records",
+     "desc": "Full death detail, cause, ID, enclosure, site, sex.",
+     "alt": "Deceased animal record detail"
+    },
+    {
+     "title": "Edit records",
+     "desc": "Edit mortality reports after entry to keep them accurate.",
+     "alt": "Mortality report detail with edit option"
+    },
+    {
+     "title": "Revoke records",
+     "desc": "Revoke incorrect records to restore active status.",
+     "alt": "Mortality report with Revoke Mortality option"
+    },
+    {
+     "title": "Carcass transfer",
+     "desc": "View and track carcass movement between locations.",
+     "alt": "Carcass Transfers list: pending, in transit, completed"
+    }
+   ],
+   "shots": {
+    "assets/shots/p27-mortality-4.jpg": "Mortality record card — edit and revoke"
+   }
+  },
+  "necropsy": {
+   "title": "Necropsy",
+   "intro": "The Necropsy Module documents post-mortem examinations with detailed observations, organ-specific findings, and medical conclusions. It supports accurate cause-of-death analysis, standardises reporting, ensures timely carcass handling, and meets legal, audit and veterinary standards.",
+   "summary": "Documents post-mortem examinations with detailed observations, organ-specific findings, and medical conclusions",
+   "features": [
+    {
+     "title": "Search & filters",
+     "desc": "Search by animal/species; filter by site, date, priority.",
+     "alt": "Necropsy list: Incoming, Pending, Draft, Completed with request cards"
+    },
+    {
+     "title": "Status tracking",
+     "desc": "Monitor transfer stages, Incoming, Pending, Draft, and Completed.",
+     "alt": "Necropsy list with Incoming, Pending, Draft, Completed status tabs"
+    },
+    {
+     "title": "Animal card & request info",
+     "desc": "AID, species, location, cause, requester, priority.",
+     "alt": "Necropsy by-animals list with request card detail"
+    },
+    {
+     "title": "Carcass transfer",
+     "desc": "View transfer requests, Pending Acceptance, Received.",
+     "alt": "Carcass Transfers list: Pending Acceptance, Received"
+    },
+    {
+     "title": "Detailed request view",
+     "desc": "View the full necropsy request with animal and mortality details(cause, carcass condition, notes), update records, save as draft, or submit once finalized",
+     "alt": "Necropsy Request detail: mortality report, cause, carcass condition, status"
+    },
+    {
+     "title": "Download report",
+     "desc": "Export reports or drafts as PDFs for records/offline.",
+     "alt": "Necropsy report NPS29-00034 with download — carcass suitability and details"
+    },
+    {
+     "title": "Timeline",
+     "desc": "Every action tracked with user and timestamp.",
+     "alt": "Necropsy History timeline: Necropsy completed by Mayur Bendre"
+    }
+   ]
+  },
+  "fetal-death": {
+   "title": "Fetal Death",
+   "intro": "The Fetal Death Module records and manages fetal-death incidents within enclosures, capturing cause, timing, and related animal details. It supports veterinary care, reproductive-health monitoring, trend analysis and improved population management.",
+   "summary": "Records and manages fetal-death incidents within enclosures",
+   "features": [
+    {
+     "title": "Add fetal-death record",
+     "desc": "Log new incidents, cause, timing, parentage, animal info.",
+     "alt": "Add Fetal Death form with enclosure, species, parent"
+    },
+    {
+     "title": "Search & filters",
+     "desc": "Search by keyword; filter by site, date,  still Birth or Abortion, species or gender.",
+     "alt": "Fetal Death list with search and filter"
+    },
+    {
+     "title": "View deceased records",
+     "desc": "Full detail, days since death, cause, ID, enclosure, site, sex.",
+     "alt": "Fetal Death records list, Still Birth tab"
+    },
+    {
+     "title": "Animal card display",
+     "desc": "FID, species, discovery, parents, site, sex, reporter.",
+     "alt": "Fetus Death Summary detail card"
+    },
+    {
+     "title": "Edit record",
+     "desc": "Modify an existing entry from the summary, with audit trail.",
+     "alt": "Fetus Death Summary with edit pencil"
+    },
+    {
+     "title": "Delete record",
+     "desc": "Remove an entry when required, with full audit trail.",
+     "alt": "Fetus Death Summary with Delete Fetal Death option"
+    }
+   ]
+  },
+  "egg-management-app": {
+   "title": "Egg Management — App",
+   "intro": "The Egg Module tracks the full lifecycle of eggs, from laying to hatching or nursery transfer, ensuring accurate records, real-time updates, and complete traceability for better coordination and accountability across nest, nursery and hatchery teams.",
+   "summary": "Tracks the full lifecycle of eggs",
+   "features": [
+    {
+     "title": "Egg dashboard",
+     "desc": "Live counts, in nests, moved to nursery, marked for discard.",
+     "alt": "Egg Collection dashboard: 66 in nest, 76 to nursery, 35 to discard"
+    },
+    {
+     "title": "Egg entry (nest / nursery)",
+     "desc": "Add eggs with parents, condition, dates, species, notes, attachments.",
+     "alt": "Add eggs form with enclosure, parentage, egg location"
+    },
+    {
+     "title": "Lifecycle tracking",
+     "desc": "Status, weight, and the full Egg Journey Timeline.",
+     "alt": "Egg Journey timeline: hatched, natural incubation"
+    },
+    {
+     "title": "Natural incubation",
+     "desc": "Eggs incubated in nests, ID, collection date, condition.",
+     "alt": "Eggs in nest list with peacock hind entries"
+    },
+    {
+     "title": "Artificial incubation",
+     "desc": "Nursery eggs, evaluate, move to incubate, discard, or hatch.",
+     "alt": "Eggs to nursery list"
+    },
+    {
+     "title": "Egg transfers",
+     "desc": "Track site, stage, hatch date, species, ID, and sex.",
+     "alt": "Eggs transferred — batch transfer requests"
+    },
+    {
+     "title": "Egg discard",
+     "desc": "Discard non-viable eggs with logged reason and audit trail.",
+     "alt": "Eggs to be discarded list"
+    },
+    {
+     "title": "Create animal ID",
+     "desc": "Generate a record for hatched eggs, linked to species and parents.",
+     "alt": "Eggs hatched — Create Animal ID"
+    }
+   ]
+  },
+  "egg-management-web": {
+   "title": "Egg Management — Web",
+   "intro": "The web companion to Egg Management, used by supervisors and nursery leads to configure incubators, run reports, and track eggs across every lifecycle stage. Full traceability, filterable views, and exportable reports for compliance and review.",
+   "summary": "Used by supervisors and nursery leads to configure incubators, run reports, and track eggs across every lifecycle stage",
+   "features": [
+    {
+     "title": "Nursery & incubator configuration",
+     "desc": "Set up nurseries linked to sites, create rooms, manage incubators.",
+     "alt": "Nursery list with rooms, incubators, and sites"
+    },
+    {
+     "title": "Reporting, filters & data access",
+     "desc": "Filter by site, species, date, or stage; export reports.",
+     "alt": "Eggs Stats by species table"
+    },
+    {
+     "title": "Egg list",
+     "desc": "Status-based tabs, Received, Incubation, Hatched, Discarded, All.",
+     "alt": "Egg List with Received, Incubation, Hatched tabs"
+    }
+   ]
+  },
+  "announcement": {
+   "title": "Announcement",
+   "intro": "The Announcement Module is the centralised tool for sharing important updates and general notices across teams and locations. It supports targeted communication, scheduling, and interactive engagement, making sure the right message reaches the right people at the right time.",
+   "summary": "Centralised tool for sharing important updates and general notices across teams and locations",
+   "features": [
+    {
+     "title": "Types of announcements",
+     "desc": "General and Important, each with its own visibility rules.",
+     "alt": "Announcements list with All and Created by me tabs, Important and Announcement cards"
+    },
+    {
+     "title": "Unified listing",
+     "desc": "All announcements in one view, yours separated from others'.",
+     "alt": "Announcement detail: Every Move Counts with attached image"
+    },
+    {
+     "title": "Create announcements",
+     "desc": "Set type, title, visibility; post or schedule; preview & attach.",
+     "alt": "Announcement detail: Every necropsy counts, with create button"
+    },
+    {
+     "title": "Post-publish actions",
+     "desc": "Edit, cancel, or delete announcements. Notifications and the homepage keep them visible to the right people.",
+     "alt": "General Announcement detail with Edit, Cancel, Delete menu open"
+    }
+   ]
+  },
+  "helpdesk-module": {
+   "title": "Helpdesk Module",
+   "intro": "The Request Module helps zoo staff raise and track requests for resources, maintenance, or services ensuring accountability, faster resolution, and better coordination across departments. Replaces email and paper request slips with a single, auditable trail.",
+   "summary": "Helps zoo staff raise and track requests for resources, maintenance, or services ensuring accountability, faster resolution, and better coordination across departments",
+   "features": [
+    {
+     "title": "View requests by status",
+     "desc": "Pending, Approved, Rejected, Cancelled, In-Progress, Completed.",
+     "alt": "Help Desk list with Pending Approval, Approved, Rejected, Cancelled tabs"
+    },
+    {
+     "title": "Request management",
+     "desc": "Raise, edit, cancel, or reject requests with priorities.",
+     "alt": "Carpentry request detail with vendor and cost estimate"
+    },
+    {
+     "title": "Cost management",
+     "desc": "Add, edit, duplicate, or delete cost estimates per item.",
+     "alt": "Costing Breakup: Roofing and Wood line items"
+    },
+    {
+     "title": "Fulfilment & reversion",
+     "desc": "Mark requests fulfilled or revert them to in-progress.",
+     "alt": "Request Completed with Move Back To In-Progress"
+    }
+   ]
+  },
+  "security": {
+   "title": "Security",
+   "intro": "The Security Module manages site-specific permissions and oversees egg transfer and discard processes and any animal or hospital transfer to ensure controlled movement and full accountability for who handled what, and when.",
+   "summary": "Manages site-specific permissions and oversees egg transfer and discard processes and any animal or hospital transfer to ensure controlled movement and full accountability for who handled what, and when",
+   "features": [
+    {
+     "title": "Filter functionality",
+     "desc": "Filter records by status, Show All, Checkout Pending, or Security Checkout Cleared, for focused review.",
+     "alt": "Filter By dialog: Show All, Checkout Pending, Security Checkout Cleared"
+    },
+    {
+     "title": "Check-in & check-out",
+     "desc": "Authorised security completes check-in and check-out for egg, animal, and hospital transfers.",
+     "alt": "Transfer INT-02997 with Security Checkout button"
+    }
+   ]
+  },
+  "reports-app": {
+   "title": "Reports - App",
+   "intro": "The Reports Module presents categorised data on key animal events, organised under specific headings for quick insights and analysis on the go.",
+   "summary": "Presents categorised data on key animal events, organised under specific headings for quick insights and analysis on the go",
+   "features": [
+    {
+     "title": "Filters",
+     "desc": "Refine reports by date, site, or species.",
+     "alt": "Key Insights report: Day/Week/Month filter, date, Natality, and species breakdown"
+    },
+    {
+     "title": "Statistics",
+     "desc": "Date-based filtering and category-wise stats, Natality, Mortality, New Arrivals, Inter-site Transfers (In/Out), External, In-house Transfers, and Food Wastage.",
+     "alt": "Statistics category picker: Natality, Mortality, New arrivals, Inter-site transfers, External transfer"
+    }
+   ]
+  },
+  "reports-web": {
+   "title": "Reports (Web)",
+   "intro": "The web companion generates easy-to-read, downloadable reports on animal data and activities, covering births, deaths, transfers, and assessments, drawn from the same records as the app.",
+   "summary": "Generates easy-to-read, downloadable reports on animal data and activities",
+   "features": [
+    {
+     "title": "Filters & search",
+     "desc": "Refine reports by date, site, or species.",
+     "alt": "Species General Report: Download report, Select Site and Show/Hide filters, and a table of species with Male, Female, Undetermined and Indeterminate counts"
+    },
+    {
+     "title": "Downloadable reports",
+     "desc": "Generate, view, and download Species, Daily, Animal List, Animal Assessment, Animal Keeper, User, Observation, Keeper Diary, Biologist Diary, and Enclosure Count reports for compliance and offline access.",
+     "alt": "Species General Report: Download report, Select Site and Show/Hide filters, and a table of species with Male, Female, Undetermined and Indeterminate counts"
+    }
+   ]
+  },
+  "lab": {
+   "title": "Lab",
+   "intro": "The Lab Module centralises diagnostic test records and results, streamlines workflows between vets and labs, supports early disease detection and treatment, and maintains a secure digital repository for biosecurity, audits, and analytics.",
+   "summary": "Centralises diagnostic test records and results, streamlines workflows between vets and labs, supports early disease detection and treatment, and maintains a secure digital repository for biosecurity, audits, and analytics",
+   "features": [
+    {
+     "title": "Request listing & filtering",
+     "desc": "View and filter lab requests by lab, search, or status, Pending, In Progress, Completed, with colour-coded icons.",
+     "alt": "A scientist working with a microscope."
+    },
+    {
+     "title": "Detailed request view",
+     "desc": "See requester, animal, site and linked medical record; update status in real time with automatic sync across modules.",
+     "alt": ""
+    },
+    {
+     "title": "Location & access control",
+     "desc": "Tag labs by location; manage who can configure or view lab data.",
+     "alt": ""
+    },
+    {
+     "title": "Site-level test mapping",
+     "desc": "Assign labs for specific diagnostic tests directly from the site's Config tab.",
+     "alt": ""
+    },
+    {
+     "title": "Individual & bulk assignment",
+     "desc": "Map labs per test, or assign all tests to a default lab in one click.",
+     "alt": ""
+    },
+    {
+     "title": "Test & sample management",
+     "desc": "Create and manage lab tests, sub-tests, and sample types (serum, CSF, etc.) and map them to the right labs.",
+     "alt": ""
+    },
+    {
+     "title": "Update lab status",
+     "desc": "Track through Awaiting Sample → Sample Received / Rejected / Clotted / Haemolysed / Insufficient → In Progress → Completed (Positive / Negative / Detected / Undetected / Inconclusive).",
+     "alt": ""
+    },
+    {
+     "title": "Lab reassignment",
+     "desc": "Move tests to alternate labs when needed, without disrupting workflow.",
+     "alt": ""
+    }
+   ]
+  },
+  "diet": {
+   "title": "Diet",
+   "intro": "The Diet Module is a centralised platform for efficient planning and management of animal diets. It enables nutrition teams to build structured diet plans using configurable components, ingredients, feed types, recipes, and combos, and schedule meals by time, day, or life stage.",
+   "summary": "Centralised platform for efficient planning and management of animal diets",
+   "features": [
+    {
+     "title": "Diet configuration",
+     "desc": "Create diets using feed types, items, recipes and mixes; schedule meals by time, day or life stage; assign by species or individual animal; activate, clone or assign diets; attach references.",
+     "alt": "A spread of fresh fruit prepared as animal feed."
+    },
+    {
+     "title": "Preparation types & cut size",
+     "desc": "Create and manage preparation methods for items, recipes and combos, to ensure nutrition and texture consistency.",
+     "alt": ""
+    },
+    {
+     "title": "Feed types",
+     "desc": "Centralised list of feed categories, searchable, for consistent diet planning.",
+     "alt": ""
+    },
+    {
+     "title": "Items",
+     "desc": "Add, edit and delete dietary components with detailed descriptions and images.",
+     "alt": ""
+    },
+    {
+     "title": "Recipes & mix",
+     "desc": "Multi-ingredient recipes and mixes, recipes by specific quantities, mixes by item percentage, with reusable components and full activity logs.",
+     "alt": ""
+    },
+    {
+     "title": "Meal groups",
+     "desc": "Group enclosures for coordinated feeding schedules and diet assignments, with filters by site, section and species.",
+     "alt": ""
+    }
+   ]
+  },
+  "pharmacy-app": {
+   "title": "Pharmacy (App)",
+   "intro": "Enables fast, accurate, and traceable dispensing of medical products directly to authorised doctors, ensuring timely fulfilment and automatic inventory updates.",
+   "summary": "Enables fast, accurate, and traceable dispensing of medical products directly to authorised doctors",
+   "features": [
+    {
+     "title": "In-app requesting",
+     "desc": "Allows users to request products from the pharmacy directly through the app.",
+     "alt": "Dispense list: 11 dispenses with request IDs, pharmacy, date, requester, medicine and total quantity, and New Dispense button"
+    },
+    {
+     "title": "In-app dispensing",
+     "desc": "Allows stores to dispense products from the pharmacy directly through the app.",
+     "alt": "Dispense DIS279 detail: Local Pharmacy, dispensed to Antz Admin, one medicine Crocin with total quantity 100"
+    }
+   ]
+  },
+  "pharmacy-web": {
+   "title": "Pharmacy (Web)",
+   "intro": "Enables fast, accurate, and traceable dispensing of medical products directly to authorised doctors, ensuring timely fulfilment and automatic inventory updates from prescription through to the shelf, with batch-level visibility and expiry tracking throughout.",
+   "summary": "Enables fast, accurate, and traceable dispensing of medical products directly to authorised doctors",
+   "features": [
+    {
+     "title": "Dashboard",
+     "desc": "Real-time insights on stock issues, shipments, purchases, requests, usage, expiries and fast-moving products, with visual trends for quick action.",
+     "alt": "A pharmacist organising medicine shelves."
+    },
+    {
+     "title": "Smart search & filters",
+     "desc": "Quickly find records by Request ID, doctor name, or pharmacy.",
+     "alt": ""
+    },
+    {
+     "title": "Masters(racks & shelves)",
+     "desc": "Organise storage by rack/shelf counts for quick access and updates, with customisable data (packaging, UOM, salts, drivers, manufacturers).",
+     "alt": ""
+    },
+    {
+     "title": "Stock report management",
+     "desc": "Batch-wise stock with value and expiry; flag low/expired items; monitor upcoming expiries; manage escrow with dispute resolution.",
+     "alt": ""
+    },
+    {
+     "title": "Product & inventory management",
+     "desc": "Create products, track inventory and expiry, log purchases/dispatches, maintain a unified ledger, handle substitutes/variants.",
+     "alt": ""
+    },
+    {
+     "title": "Dispense management",
+     "desc": "Doctors can prescribe and dispense, or collect medicines directly from the pharmacy, all logged.",
+     "alt": ""
+    },
+    {
+     "title": "Shipment management",
+     "desc": "Track incoming and outgoing medicine shipments and fulfil them in-app.",
+     "alt": ""
+    },
+    {
+     "title": "Stock adjustment & reports",
+     "desc": "Record stock changes (missing, broken, expired); keep audit history; manage supplier returns; download consumption, return, purchase and dispensing reports for finance and demand.",
+     "alt": ""
+    }
+   ]
+  },
+  "compliance": {
+   "title": "Compliance",
+   "intro": "The Compliance Module provides an organisation-level view of animal management across multiple shelters, trusts and foundations on the App, and lets users access Export, Import, Shipment and Species records, keeping every regulatory artefact in one trusted, downloadable place.",
+   "summary": "Provides an organisation-level view of animal management across multiple shelters, trusts and foundations on the App, and lets users access Export, Import, Shipment and Species records",
+   "features": [
+    {
+     "title": "Organisation overview",
+     "desc": "All registered organisations in the system, in one view.",
+     "alt": "A conservation site with multiple facilities."
+    },
+    {
+     "title": "Species & animal counts",
+     "desc": "Number of species and total animals belonging to each organisation.",
+     "alt": ""
+    },
+    {
+     "title": "Site coverage",
+     "desc": "Number of sites managing animals under each organisation.",
+     "alt": ""
+    },
+    {
+     "title": "Transparency & accountability",
+     "desc": "Accurate reporting and visibility into animal populations across organisations.",
+     "alt": ""
+    },
+    {
+     "title": "Filters & download",
+     "desc": "Filter and download documents based on a selected date range.",
+     "alt": ""
+    },
+    {
+     "title": "Export & import",
+     "desc": "Record and edit permit forms for animals being exported to or imported from another country or facility.",
+     "alt": ""
+    },
+    {
+     "title": "Shipment",
+     "desc": "Track shipment details, transport method, shipment date, containers, logistics.",
+     "alt": ""
+    },
+    {
+     "title": "Species",
+     "desc": "View and download information about the species involved in the transaction (birds, mammals, reptiles).",
+     "alt": ""
+    },
+    {
+     "title": "Master configuration",
+     "desc": "Set up document types and maintain lists of importers and exporters for export/import records.",
+     "alt": ""
+    }
+   ]
+  }
+ }
+}

@@ -10,6 +10,8 @@ No build step is needed.
 | File | Role |
 |---|---|
 | `index.html` | Page shell: header, footer, script tags |
+| `i18n.js` | Language list, the English interface text, and the loader that picks the language |
+| `lang/` | Translations: `en.json` (source), `<code>.json` per language, generated `<code>.js`, `build.py`, `TRANSLATING.md`, `REVIEW-NOTES.md` |
 | `styles.css` | All styles. Tokens come from the Figma `MD3_Antz` variables |
 | `app.js` | Renders the home page and module pages from content, plus search and routing |
 | `content.json` | Module content, copied from `antz-learn/v-notion/content.json` |
@@ -42,3 +44,20 @@ After you edit `content.json`, regenerate `content.js`:
 - The Housing intro is rewritten so it no longer claims three levels
   (see `antz-learn/FINDINGS.md` §1).
 - No em-dashes in rendered copy. `app.js` rewrites them at render time.
+
+## Languages
+
+The guide is available in 13 languages; English is the default. Visitors choose one from the globe menu in
+the header. The choice is remembered, and `?lang=fr` in a link opens that language directly. Arabic reads
+right to left. The app screenshots stay in English (they show the app as it is), so translated module pages
+also give the module's English name ("In the app: …") and search matches English terms as well.
+
+Translations were made by machine (Claude) and are awaiting review; until a language is reviewed, its pages
+show a small note saying so. To work on translations:
+
+1. English text lives in `i18n.js` (interface) and `content.json` (modules). After changing either, run
+   `node lang/extract.js` to regenerate `lang/en.json`, then translate the new or changed strings.
+2. Edit `lang/<code>.json` (rules in `lang/TRANSLATING.md`; open questions per language in `lang/REVIEW-NOTES.md`).
+3. Run `python3 lang/build.py`. It checks every file against `en.json` (missing keys, placeholders) and
+   writes the `lang/<code>.js` files the site loads.
+4. When a native speaker has reviewed a language, set `"reviewed": true` in its `meta` and rebuild.

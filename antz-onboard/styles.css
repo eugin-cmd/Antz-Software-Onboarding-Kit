@@ -32,7 +32,8 @@
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Inter for Latin, Greek and Cyrillic; the Noto family for the chosen language covers other scripts (loaded by i18n.js) */
+  font-family: "Inter", "Noto Sans Arabic", "Noto Sans Devanagari", "Noto Sans SC", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.55;
   color: var(--text);
@@ -110,16 +111,58 @@ button { font: inherit; color: inherit; }
 }
 /* Over the dark hero photo: the Medical & Treatment page gradient (mint to blush) fills the letters */
 .on-dark .brand-label {
-  border-left-color: rgba(255,255,255,.45);
+  border-inline-start-color: rgba(255,255,255,.45);
   background: linear-gradient(100deg, #DDF0EC 0%, #DDF0EC 25%, #FCE8E1 100%) right / calc(100% - 14px) 100% no-repeat;
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
 .primary-nav { display: flex; align-items: center; gap: 30px; }
 .primary-nav a:not(.btn) { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--ink); transition: color .2s var(--ease); }
+/* Menu items never wrap; on smaller laptops they sit closer so longer translations still fit */
+.primary-nav a:not(.btn) { white-space: nowrap; }
+@media (min-width: 901px) and (max-width: 1200px) { .primary-nav { gap: 18px; } .primary-nav a:not(.btn) { font-size: 14px; } .brand-label { font-size: 17px; } }
 .primary-nav a:not(.btn):hover { color: var(--green-strong); }
 .nav-toggle { display: none; background: none; border: 0; width: 44px; height: 44px; padding: 10px; cursor: pointer; }
 /* Search icon in the menu bar (after the links on desktop, before the menu button on phones) */
-.brand { margin-right: auto; }
+.brand { margin-inline-end: auto; min-width: 0; }
+/* Long translations of the label shorten with an ellipsis; the logo and the buttons never shrink */
+.brand-logo, .nav-toggle { flex: none; }
+.brand-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Language switcher: globe and code, opening a list of languages in their own names */
+.nav-lang { position: relative; flex: none; }
+.nav-lang-btn {
+  display: inline-flex; align-items: center; gap: 5px; height: 38px; padding: 0 10px; border-radius: 999px; border: 0; cursor: pointer;
+  background: transparent; color: var(--ink); font: 600 12.5px Inter, sans-serif; letter-spacing: .04em; transition: background .2s, color .3s var(--ease);
+}
+.nav-lang-btn:hover, .nav-lang.open .nav-lang-btn { background: rgba(14,23,21,.06); }
+.on-dark .nav-lang-btn { color: #fff; }
+.on-dark .nav-lang-btn:hover, .on-dark .nav-lang.open .nav-lang-btn { background: rgba(255,255,255,.16); }
+.nav-lang-menu {
+  position: absolute; top: calc(100% + 8px); inset-inline-end: 0; z-index: 70; width: 250px; max-height: min(70vh, 560px); overflow-y: auto;
+  padding: 6px; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-lg); animation: pinMenu .2s var(--ease);
+}
+.nav-lang-menu button {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; padding: 9px 12px; border: 0; border-radius: 9px;
+  background: none; cursor: pointer; font-size: 14.5px; color: var(--text); text-align: start;
+}
+.nav-lang-menu button small { font: 600 11px Inter, sans-serif; letter-spacing: .06em; color: var(--muted-2); }
+.nav-lang-menu button:hover, .nav-lang-menu button:focus-visible { background: var(--surface-soft); color: var(--ink); outline: none; }
+.nav-lang-menu button[aria-checked="true"] { background: var(--green-tint); color: var(--ink); font-weight: 600; }
+.nav-lang-note { margin: 6px 6px 2px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 12px; line-height: 1.45; color: var(--muted); }
+/* Review note for machine translations */
+.lang-toast {
+  position: fixed; inset-inline-start: 16px; bottom: 16px; z-index: 65; display: flex; align-items: center; gap: 10px; max-width: min(460px, calc(100vw - 32px));
+  padding: 10px 10px 10px 16px; border-radius: 14px; background: var(--teal-deep); color: #fff; box-shadow: var(--shadow-lg);
+  font-size: 13px; line-height: 1.45; animation: pinMenu .3s var(--ease);
+}
+.lang-toast p { margin: 0; flex: 1; color: rgba(255,255,255,.9); }
+.lang-toast { transition: opacity .35s ease, transform .35s var(--ease); }
+.lang-toast.away { opacity: 0; transform: translateY(12px); pointer-events: none; }
+.lang-toast-en { flex: none; border: 1px solid rgba(255,255,255,.4); background: transparent; color: #fff; border-radius: 999px; padding: 5px 11px; font: 600 12px Inter, sans-serif; cursor: pointer; }
+.lang-toast-en:hover { background: rgba(255,255,255,.14); }
+.lang-toast-x { flex: none; width: 30px; height: 30px; border: 0; border-radius: 50%; background: transparent; color: rgba(255,255,255,.8); display: grid; place-items: center; cursor: pointer; }
+.lang-toast-x svg { width: 16px; height: 16px; }
+/* A translated module page names the module as it appears in the app */
+.mpanel-inapp { margin: -4px 0 12px; font-size: 13px; font-weight: 600; letter-spacing: .02em; color: var(--tint-ink); }
 .nav-search {
   flex: none; width: 42px; height: 42px; margin-left: -6px; border-radius: 50%; border: 0; background: transparent; cursor: pointer;
   display: grid; place-items: center; color: var(--ink); transition: background .2s, color .3s var(--ease);
@@ -134,8 +177,10 @@ button { font: inherit; color: inherit; }
   .on-dark .primary-nav a:not(.btn):hover { color: #8FE3AE; }
 }
 @media (max-width: 900px) {
-  .nav-toggle { display: block; order: 3; margin-left: 2px; }
-  .nav-search { order: 2; margin-left: 0; }
+  .nav-toggle { display: block; order: 3; margin-inline-start: 2px; }
+  .nav-search { order: 2; margin-inline-start: 0; }
+  .nav-lang { order: 1; }
+  .nav-lang-btn { padding: 0 8px; }
   .primary-nav {
     position: absolute; top: var(--header-h); left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
@@ -1017,6 +1062,18 @@ body.qs-open { overflow: hidden; }
 .qs .ph { right: 130px; }
 .qs .search-results { position: relative; top: auto; margin-top: 10px; max-height: calc(100vh - 200px); }
 .qs-close { flex: none; border: 1px solid var(--line); background: var(--surface-soft); color: var(--muted); font: 600 11px Inter, sans-serif; letter-spacing: .04em; border-radius: 6px; padding: 4px 7px; cursor: pointer; }
+/* Phones: the label may take two short lines, and the language button shows just the globe */
+@media (max-width: 560px) {
+  .brand-label { white-space: normal; font-size: 13.5px; line-height: 1.15; max-height: 2.3em;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .nav-lang-code { display: none; }
+  .header-row { gap: 2px; }
+  .brand { gap: 10px; margin-inline-end: 8px; }
+  .brand img { height: 32px; }
+  .brand-label { padding-inline-start: 10px; }
+  .nav-lang-btn { width: 40px; padding: 0; justify-content: center; }
+  .nav-search { width: 40px; height: 40px; }
+}
 @media (max-width: 400px) { .brand { gap: 10px; } .brand img { height: 32px; } .brand-label { font-size: 14.5px; padding-left: 10px; } .nav-search { width: 38px; height: 38px; } }
 @media (max-width: 640px) { .qs { padding: 16px 12px; } .qs .search-field { height: 54px; } .qs .search-results { max-height: calc(100vh - 110px); } }
 @media (prefers-reduced-motion: reduce) { .qs-backdrop, .qs-panel { transition: none; } }
@@ -1261,3 +1318,19 @@ body.fwin-open { overflow: hidden; }
   box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 12px 28px -12px rgba(14,40,34,.35), 0 2px 6px rgba(14,40,34,.06);
 }
 .mpanel-stage .cap:empty, .mod-stage .caption:empty { display: none; }
+
+/* ---------- Right-to-left (Arabic) ---------- */
+[lang="ar"] * { letter-spacing: 0 !important; }
+[dir="rtl"] .ph { left: 64px; right: 58px; }
+[dir="rtl"] .qs .ph { left: 130px; right: 58px; }
+[dir="rtl"] .mpager-arrow svg, [dir="rtl"] .fwin-arrow svg, [dir="rtl"] .g-arrow svg, [dir="rtl"] .mcard-plus svg,
+[dir="rtl"] .link-arrow svg, [dir="rtl"] .bento-more svg, [dir="rtl"] .mega-foot svg { transform: scaleX(-1); }
+[dir="rtl"] .mcard-face:hover .mcard-plus svg, [dir="rtl"] .mcard-face:focus-visible .mcard-plus svg { animation: none; }
+[dir="rtl"] .mpager-link.next { text-align: left; }
+[dir="rtl"] .mpin-menu { left: auto; right: 0; }
+[dir="rtl"] .bento-media { right: auto; left: 0; -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 42%); mask-image: linear-gradient(270deg, transparent 0%, #000 42%); }
+[dir="rtl"] .bento-phone { right: auto; left: -28px; transform: rotate(8deg); }
+[dir="rtl"] .mfeat-open { right: auto; left: 16px; }
+[dir="rtl"] .fwin-close { right: auto; left: 16px; }
+[dir="rtl"] .cta::after { background: linear-gradient(270deg, rgba(10,30,26,.82) 0%, rgba(10,30,26,.45) 60%, rgba(10,30,26,.2) 100%); }
+[dir="rtl"] .fwin-device.in-r { animation-name: fwinL; } [dir="rtl"] .fwin-device.in-l { animation-name: fwinR; }

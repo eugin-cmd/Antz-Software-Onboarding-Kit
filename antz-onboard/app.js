@@ -6,6 +6,14 @@
   const DATA = window.ANTZ_CONTENT;
   const app = document.getElementById('app');
 
+  /* ---------- Language (see i18n.js) ---------- */
+  const LANG = window.ANTZ_LANG || 'en';
+  const PACK = window.ANTZ_I18N || {};
+  const UI = window.ANTZ_UI_EN || {};
+  /* Interface text in the current language, falling back to English; {name} is filled from vars */
+  const t = (key, vars = {}) => String((PACK.ui && PACK.ui[key]) || UI[key] || key).replace(/\{(\w+)\}/g, (_, n) => (vars[n] ?? ''));
+  const RTL = document.documentElement.dir === 'rtl';
+
   /* ---------- Presentation config (not content) ---------- */
   const AREA_LOOK = {
     records:    { photo: 'assets/photos/img-tasks.jpg',      glyph: 'chat' },
@@ -52,18 +60,35 @@
   const SEARCH_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>';
   const CLOSE_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
   const ARROW = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+  /* The search cue ("Search {x}") with the rotating word where {x} sits in this language */
+  const cueHTML = () => {
+    const [before, after = ''] = t('search.cue', { x: '{x}' }).split('{x}');
+    return `<span class="ph" aria-hidden="true">${esc(before)}<span class="ph-rot"></span>${esc(after)}</span>`;
+  };
 
   /* ---------- Content model ---------- */
+  /* Each module in the current language: translated title, intro, summary, feature text and screen
+     descriptions laid over the English. enTitle keeps the name used in the app itself. */
   const modules = DATA.modules.map((m) => {
     const o = OVERRIDES[m.id] || {};
-    return { ...m, ...o, raw: o.intro || m.intro, title: tidyTitle(m.title), intro: tidy(o.intro || m.intro) };
+    const tr = (PACK.modules || {})[m.id] || {};
+    const features = m.features.map((f, i) => {
+      const tf = (tr.features || [])[i] || {};
+      return { ...f, enTitle: f.title, title: tf.title || f.title, desc: tf.desc || f.desc, alt: tf.alt || f.alt };
+    });
+    const shots = (m.shots || []).map((sh) => ({ ...sh, alt: (tr.shots || {})[sh.src] || sh.alt }));
+    return { ...m, ...o, features, shots, raw: o.intro || m.intro, enTitle: tidyTitle(m.title), sum: tr.summary,
+      title: tidyTitle(tr.title || m.title), intro: tidy(tr.intro || o.intro || m.intro) };
   });
   const byId = Object.fromEntries(modules.map((m) => [m.id, m]));
   /* Prospects only see finished modules; foundations feed the home page instead */
   const visible = modules.filter((m) => m.status === 'complete' && m.track !== 'foundations');
   const areas = DATA.tracks
     .filter((t) => AREA_LOOK[t.id])
-    .map((t) => ({ ...t, desc: tidy(t.desc), modules: visible.filter((m) => m.track === t.id), ...AREA_LOOK[t.id] }))
+    .map((a) => {
+      const tr = (PACK.tracks || {})[a.id] || {};
+      return { ...a, label: tr.label || a.label, desc: tidy(tr.desc || a.desc), modules: visible.filter((m) => m.track === a.id), ...AREA_LOOK[a.id] };
+    })
     .filter((a) => a.modules.length);
   const areaById = Object.fromEntries(areas.map((a) => [a.id, a]));
 
@@ -82,9 +107,9 @@
   /* Content from content.json (Edition 01, pages 3 to 5) */
   const kitScreen = (m) => (m.shots[0] ? deviceHTML({ ...m.shots[0], device: m.shots[0].device || 'phone' }) : '');
   const KIT_PAGES = [
-    { id: 'objective', module: 'objective-of-this-kit', eyebrow: 'Start here', more: 'Read the objective', photo: 'objective', pos: '50% 35%' },
-    { id: 'platform', module: 'what-is-antz-systems', eyebrow: 'The platform', more: 'Learn about Antz', photo: 'platform', pos: '72% 50%' },
-    { id: 'getting-started', module: 'getting-started', eyebrow: 'Onboarding flow', more: 'Start the guide' }
+    { id: 'objective', module: 'objective-of-this-kit', eyebrow: t('kit.objective.eyebrow'), more: t('kit.objective.more'), photo: 'objective', pos: '50% 35%' },
+    { id: 'platform', module: 'what-is-antz-systems', eyebrow: t('kit.platform.eyebrow'), more: t('kit.platform.more'), photo: 'platform', pos: '72% 50%' },
+    { id: 'getting-started', module: 'getting-started', eyebrow: t('kit.start.eyebrow'), more: t('kit.start.more') }
   ];
   const KIT_SECTIONS = {
     objective: () => {
@@ -93,11 +118,11 @@
       <section class="section kit-section" id="objective">
         <div class="container kit-split kit-photo-left">
           <figure class="kit-media kit-photo reveal">
-            <img src="${PHOTOS.objective}" alt="A keeper feeding a small animal in its enclosure" loading="lazy">
+            <img src="${PHOTOS.objective}" alt="${esc(t('kit.objective.photo'))}" loading="lazy">
           </figure>
           <div class="kit-copy reveal">
-            <span class="eyebrow">Why we run this training</span>
-            <h2 class="section-title">Objective of this kit</h2>
+            <span class="eyebrow">${esc(t('kit.objective.kicker'))}</span>
+            <h2 class="section-title">${esc(objective.title)}</h2>
             <p class="section-lede">${esc(objective.intro)}</p>
             <div class="kit-cards two">
               ${objective.features.map((f) => `
@@ -118,10 +143,10 @@
       <section class="section section-soft kit-section" id="why">
         <div class="container kit-split">
           <div class="kit-copy reveal">
-            <span class="eyebrow">The platform</span>
-            <h2 class="section-title">What is Antz Systems?</h2>
+            <span class="eyebrow">${esc(t('kit.platform.eyebrow'))}</span>
+            <h2 class="section-title">${esc(about.title)}</h2>
             <p class="section-lede">${esc(about.intro)}</p>
-            <h3 class="kit-label">Why use this app</h3>
+            <h3 class="kit-label">${esc(t('kit.platform.why'))}</h3>
             <div class="kit-cards two compact">
               ${about.features.map((f) => `
                 <article class="kit-card">
@@ -132,7 +157,7 @@
             </div>
           </div>
           <figure class="kit-media kit-photo reveal">
-            <img src="${PHOTOS.platform}" alt="A hand holding a phone showing the Antz Systems app" loading="lazy" style="object-position: 72% 50%">
+            <img src="${PHOTOS.platform}" alt="${esc(t('kit.platform.photo'))}" loading="lazy" style="object-position: 72% 50%">
           </figure>
         </div>
       </section>
@@ -141,20 +166,20 @@
     'getting-started': () => {
       const start = byId['getting-started'];
       const firstDay = [
-        ['Sign in to your workspace', start.features[0].desc, 'signin'],
-        ['Find your way around', start.features[1].desc, 'compass'],
-        ['Set up your master data', start.features[3].desc, 'database'],
-        ['Give everyone the right access', 'Create roles that match your organisation and switch permissions on module by module, so each person sees what their work needs.', 'access']
+        [t('day.1'), start.features[0].desc, 'signin'],
+        [t('day.2'), start.features[1].desc, 'compass'],
+        [t('day.3'), start.features[3].desc, 'database'],
+        [t('day.4'), t('day.4.desc'), 'access']
       ];
       return `
       <section class="section section-soft kit-section" id="first-day">
         <div class="container kit-split">
           <div class="kit-media kit-device reveal">${kitScreen(start)}</div>
           <div class="kit-copy reveal">
-            <span class="eyebrow">Module 03 · Onboarding flow</span>
-            <h2 class="section-title">Getting Started</h2>
+            <span class="eyebrow">${esc(t('kit.start.eyebrow'))}</span>
+            <h2 class="section-title">${esc(start.title)}</h2>
             <p class="section-lede">${esc(start.intro)}</p>
-            <h3 class="kit-label">Features</h3>
+            <h3 class="kit-label">${esc(t('kit.start.features'))}</h3>
             <ul class="kit-list">
               ${start.features.map((f) => `
                 <li><span class="ic">${icon(f.icon)}</span><span><b>${esc(f.title)}</b>${esc(tidy(f.desc))}</span></li>`).join('')}
@@ -163,8 +188,8 @@
         </div>
         <div class="container first-day">
           <div class="section-head reveal">
-            <h3 class="section-title first-day-title">What your first day on Antz looks like</h3>
-            <p class="section-lede">Four steps take your team from first login to everyday use.</p>
+            <h3 class="section-title first-day-title">${esc(t('day.title'))}</h3>
+            <p class="section-lede">${esc(t('day.lede'))}</p>
           </div>
           <ol class="timeline">
             ${firstDay.map(([t, d, ic], i) => `
@@ -186,9 +211,9 @@
     const title = (x) => byId[x.module].title;
     const kitPhoto = (x) => x.photo ? { url: PHOTOS[x.photo], pos: x.pos } : { url: (byId[x.module].shots[0] || {}).src || PHOTOS.hero, pos: '50% 12%' };
     const link = (x, dir) => x
-      ? pagerHTML(dir, { href: `#/kit/${x.id}`, label: dir === 'prev' ? 'Previous' : 'Next', title: title(x), ...kitPhoto(x) })
+      ? pagerHTML(dir, { href: `#/kit/${x.id}`, label: dir === 'prev' ? t('pager.prev') : t('pager.next'), title: title(x), ...kitPhoto(x) })
       : (dir === 'next'
-        ? pagerHTML('next', { href: '#/', attrs: ' data-scroll="index"', label: 'Next', title: 'Explore the modules', url: PHOTOS.hero, pos: '60% 30%' })
+        ? pagerHTML('next', { href: '#/', attrs: ' data-scroll="index"', label: t('pager.next'), title: t('pager.modules'), url: PHOTOS.hero, pos: '60% 30%' })
         : '<span></span>');
     /* Coming from another kit page: start with that page's chip filled, then hand the fill over,
        so it drains from the old chip and sweeps into the new one */
@@ -197,11 +222,11 @@
     lastKit = k.id;
     app.innerHTML = `
       <div class="kitpage${/section-soft/.test(KIT_SECTIONS[k.id]()) ? ' soft' : ''}">
-        <nav class="container kit-tabs" aria-label="Start here">
+        <nav class="container kit-tabs" aria-label="${esc(t('start.label'))}">
           ${KIT_PAGES.map((x, j) => `<a class="msubtab mfilter kit-tab" href="#/kit/${x.id}"${x === (sweep ? from : k) ? ' aria-current="page"' : ''}><span class="n">0${j + 1}</span>${esc(title(x))}<svg class="drawn-border" aria-hidden="true"></svg></a>`).join('')}
         </nav>
         ${KIT_SECTIONS[k.id]()}
-        <div class="container"><nav class="mpager" aria-label="Previous and next page">${link(prev, 'prev')}${link(next, 'next')}</nav></div>
+        <div class="container"><nav class="mpager" aria-label="${esc(t('pager.pages'))}">${link(prev, 'prev')}${link(next, 'next')}</nav></div>
       </div>`;
     sizeBorders();
     if (sweep) {
@@ -210,7 +235,7 @@
         if (KIT_PAGES[j] === k) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current');
       })));
     }
-    document.title = `${title(k)} · Antz Onboarding Guide`;
+    document.title = `${title(k)} · ${t('brand.title')}`;
   }
 
   function renderHome(returning) {
@@ -220,37 +245,37 @@
     const spotSrc = (spot.features[FEATURE_PICK.shot] && spot.features[FEATURE_PICK.shot].shot) || (spot.features.find((f) => f.shot) || {}).shot || (spot.shots[0] && spot.shots[0].src);
     const spotShot = spotSrc ? shotFor(spot, spotSrc) : null;
     const faqs = [
-      ['What is Antz?', about.intro],
-      ['Does it work on phones and computers?', 'Yes. The mobile app covers work on the ground, such as notes, treatments, transfers and egg records. The web app covers desk work, such as the hospital system, nursery set-up, reports and pharmacy stock. Updates appear in real time on phone, tablet and desktop.'],
-      ['Can we control who sees what?', 'Yes. Access is role-based. You create the roles your organisation uses, for example Zoologist, and turn permissions on module by module.'],
-      ['We run more than one site. Does that work?', 'Antz keeps data from every site and department in one place. Housing is organised by site, section and enclosure, and moves between sites go through approval and a security check-out.'],
-      ['How do we get started?', 'Start with the Getting Started guide, then open the modules your role uses. If something is unclear, write to hello@antz.systems.']
+      [t('faq.q1'), about.intro],
+      [t('faq.q2'), t('faq.a2')],
+      [t('faq.q3'), t('faq.a3')],
+      [t('faq.q4'), t('faq.a4')],
+      [t('faq.q5'), t('faq.a5')]
     ];
 
     app.innerHTML = `
       <section class="hero">
         <div class="hero-media"><div class="hero-bg" style="background-image:url('${PHOTOS.hero}')"></div></div>
         <div class="container hero-inner">
-          <h1>One platform for every animal in your care</h1>
-          <p class="hero-sub">Records, daily operations and teamwork across all your sites. Take a five-minute look at how Antz works.</p>
+          <h1>${esc(t('hero.title'))}</h1>
+          <p class="hero-sub">${esc(t('hero.sub'))}</p>
           <div class="hero-search" role="search">
             <label class="search-field">
               ${SEARCH_SVG}
-              <span class="sr-only">Search modules and features</span>
+              <span class="sr-only">${esc(t('search.label'))}</span>
               <input id="q" type="search" autocomplete="off" placeholder="" aria-controls="q-results" aria-expanded="false">
-              <span class="ph" aria-hidden="true">Search <span class="ph-rot"></span></span>
-              <button class="search-clear" type="button" aria-label="Clear search">${CLOSE_SVG}</button>
+              ${cueHTML()}
+              <button class="search-clear" type="button" aria-label="${esc(t('search.clear'))}">${CLOSE_SVG}</button>
             </label>
             <div class="search-results" id="q-results" role="listbox"></div>
           </div>
           <div class="hero-chips">
             ${areas.map((a, i) => `<button class="chip" type="button" data-area="${a.id}" style="--i:${i}">${icon(a.glyph)}${esc(a.label)}<svg class="drawn-border" aria-hidden="true"></svg></button>`).join('')}
           </div>
-          <p class="hero-meta"><span>${icon('areas')}${areas.length} areas of work</span><span class="hero-meta-sep" aria-hidden="true">·</span><span>${icon('devices')}Mobile and web</span></p>
+          <p class="hero-meta"><span>${icon('areas')}${esc(t('hero.areas', { n: areas.length }))}</span><span class="hero-meta-sep" aria-hidden="true">·</span><span>${icon('devices')}${esc(t('hero.devices'))}</span></p>
         </div>
       </section>
 
-      <section class="bento-section" aria-label="Start here">
+      <section class="bento-section" aria-label="${esc(t('start.label'))}">
         <div class="container bento">
           ${KIT_PAGES.map((k) => {
             const m = byId[k.module];
@@ -274,10 +299,10 @@
         <div class="container">
           <div class="modules-head reveal">
             <div>
-              <span class="eyebrow">What&rsquo;s Inside</span>
-              <h2 class="section-title">Explore the modules</h2>
+              <span class="eyebrow">${esc(t('modules.eyebrow'))}</span>
+              <h2 class="section-title">${esc(t('modules.title'))}</h2>
             </div>
-            <p class="section-lede">Tap any card to see what the module does and preview its screens, right here.</p>
+            <p class="section-lede">${esc(t('modules.lede'))}</p>
           </div>
           ${modulesHTML()}
         </div>
@@ -286,11 +311,11 @@
       <section class="section" id="spotlight">
         <div class="container spotlight">
           <div class="reveal">
-            <span class="tag-new">Featured workflow</span>
+            <span class="tag-new">${esc(t('spot.tag'))}</span>
             <h2>${esc(spot.title)}</h2>
             <p class="lede">${esc(spot.intro)}</p>
             <div class="spot-feats tint-${AREA_TINT[spot.track]}">${featureListHTML(spot, true)}</div>
-            <a class="link-arrow" href="#/m/${spot.id}">See ${esc(spot.title)} in detail ${ARROW}</a>
+            <a class="link-arrow" href="#/m/${spot.id}">${esc(t('spot.link', { x: spot.title }))} ${ARROW}</a>
           </div>
           <div class="stage tint-${AREA_TINT[spot.track]}" aria-hidden="true">
             <div class="stage-device">${spotShot ? deviceHTML(spotShot) : ''}</div>
@@ -303,12 +328,12 @@
         <div class="cta-bg" style="background-image:url('${PHOTOS.cta}')"></div>
         <div class="container">
           <div class="cta-inner reveal">
-            <h2>Stuck on a task?</h2>
-            <p>Every module has its features and real screens in this guide. Pick up where you left off, or ask us and we will help.</p>
+            <h2>${esc(t('cta.title'))}</h2>
+            <p>${esc(t('cta.text'))}</p>
             <div class="actions">
-              <button class="btn btn-primary" type="button" data-scroll="index">Back to the modules</button>
+              <button class="btn btn-primary" type="button" data-scroll="index">${esc(t('cta.back'))}</button>
             </div>
-            <p class="or">Questions? Write to <b>hello@antz.systems</b></p>
+            <p class="or">${esc(t('cta.or', { email: '\u0000' })).replace('\u0000', '<b>hello@antz.systems</b>')}</p>
           </div>
         </div>
       </section>
@@ -316,8 +341,8 @@
       <section class="section" id="faq">
         <div class="container">
           <div class="section-head center reveal">
-            <span class="eyebrow">FAQ</span>
-            <h2 class="section-title">Questions teams ask first</h2>
+            <span class="eyebrow">${esc(t('faq.eyebrow'))}</span>
+            <h2 class="section-title">${esc(t('faq.title'))}</h2>
           </div>
           <div class="faq">
             ${faqs.map(([q, a]) => `<details class="reveal"><summary>${esc(q)}</summary><p class="answer">${esc(a)}</p></details>`).join('')}
@@ -342,6 +367,7 @@
   };
   /* One short line per card, derived from the intro until real taglines exist */
   const summary = (m) => {
+    if (m.sum) return m.sum;
     let t = m.raw
       .replace(/^On the (app|web console),\s*/i, '')
       .replace(/^The web companion to [^—]+—\s*/, '')
@@ -418,7 +444,7 @@
         <span class="mcard-body">
           <span class="mcard-title">${esc(m.title)}</span>
           <span class="mcard-sum">${esc(summary(m))}</span>
-          <span class="mcard-foot"><span>${m.features.length} features</span><span class="mcard-plus" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+          <span class="mcard-foot"><span>${esc(t('modules.features', { n: m.features.length }))}</span><span class="mcard-plus" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
         </span>
         <svg class="drawn-border" aria-hidden="true"></svg>
       </a>
@@ -430,8 +456,8 @@
       <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
         ${Object.entries(OUTLINE_GRADS).map(([k, [a, b]]) => `<linearGradient id="line-${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset=".3" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>`).join('')}
       </defs></svg>
-      <div class="mfilters" role="toolbar" aria-label="Filter modules by area">
-        <button class="mfilter" type="button" data-area="all" aria-pressed="true">All <span>${total}</span><svg class="drawn-border" aria-hidden="true"></svg></button>
+      <div class="mfilters" role="toolbar" aria-label="${esc(t('modules.filter'))}">
+        <button class="mfilter" type="button" data-area="all" aria-pressed="true">${esc(t('modules.all'))} <span>${total}</span><svg class="drawn-border" aria-hidden="true"></svg></button>
         ${areas.map((a) => `<button class="mfilter" type="button" data-area="${a.id}" aria-pressed="false">${icon(a.glyph)}${esc(a.label)} <span>${a.modules.length}</span><svg class="drawn-border" aria-hidden="true"></svg></button>`).join('')}
       </div>
       <div class="mgroups">
@@ -440,7 +466,7 @@
             <header class="mgroup-head">
               <span class="ic">${icon(a.glyph)}</span>
               <h3 id="mg-${a.id}">${esc(a.label)}</h3>
-              <span class="count">${a.modules.length} modules</span>
+              <span class="count">${esc(t('modules.count', { n: a.modules.length }))}</span>
             </header>
             <div class="mgrid">${a.modules.map(mcardHTML).join('')}</div>
           </section>`).join('')}
@@ -758,14 +784,14 @@
     if (x.getAttribute('href') === `#/m/${cur.id}`) x.setAttribute('aria-current', 'page'); else x.removeAttribute('aria-current');
   });
   const moduleTabsHTML = (cur) => `
-    <nav class="mtabs" aria-label="Module areas and modules">
+    <nav class="mtabs" aria-label="${esc(t('mod.tabs'))}">
       <div class="mtabs-areas">${areas.map((a) => {
         const ph = areaPhoto[a.id];
         const here = a.id === cur.track;
         return `
         <a class="mtab tint-${AREA_TINT[a.id]}" href="#/m/${here ? cur.id : a.modules[0].id}"${here ? ' aria-current="true"' : ''}>
           <span class="mtab-thumb" style="background-image:url('${ph.url}');background-position:${ph.pos}"><img src="assets/icons/${ph.icon}_icon.svg" alt=""></span>
-          <span class="mtab-text"><b>${esc(a.label)}</b><small>${a.modules.length} modules</small></span>
+          <span class="mtab-text"><b>${esc(a.label)}</b><small>${esc(t('modules.count', { n: a.modules.length }))}</small></span>
           <svg class="drawn-border" aria-hidden="true"></svg>
         </a>`;
       }).join('')}
@@ -788,8 +814,10 @@
   /* Tab rows that scroll sideways fade the edge where more tabs are hidden, and a mouse wheel scrolls them */
   const bindTabRow = (row) => {
     const edges = () => {
-      row.classList.toggle('more-l', row.scrollLeft > 2);
-      row.classList.toggle('more-r', row.scrollLeft < row.scrollWidth - row.clientWidth - 2);
+      /* In right-to-left pages scrolling starts at the right edge and scrollLeft runs negative */
+      const max = row.scrollWidth - row.clientWidth, pos = RTL ? max + row.scrollLeft : row.scrollLeft;
+      row.classList.toggle('more-l', pos > 2);
+      row.classList.toggle('more-r', pos < max - 2);
     };
     row.addEventListener('scroll', edges, { passive: true });
     row.addEventListener('wheel', (e) => {
@@ -904,7 +932,7 @@
   /* A module's features as a list: icon, title, description and an "open" mark. Used on module pages
      and for the featured workflow on the home page. */
   const featureListHTML = (m, hasShots) => `
-    <ol class="mfeats" aria-label="Features">
+    <ol class="mfeats" aria-label="${esc(t('mod.features'))}">
       ${m.features.map((f, i) => `
         <li class="mfeat-row">
           <button class="mfeat" type="button" data-i="${i}" aria-pressed="false">
@@ -949,7 +977,7 @@
     const prev = allModules[k - 1], next = allModules[k + 1];
     const pagerLink = (x, dir) => x ? pagerHTML(dir, {
       href: `#/m/${x.id}`, title: x.title, ...photoOf(x),
-      label: `${dir === 'prev' ? 'Previous' : 'Next'}${x.track !== m.track ? ` · ${esc(areaById[x.track].label)}` : ''}`
+      label: `${dir === 'prev' ? t('pager.prev') : t('pager.next')}${x.track !== m.track ? ` · ${esc(areaById[x.track].label)}` : ''}`
     }) : '<span></span>';
     const hasShots = m.features.some((f) => f.shot) || m.shots.length > 0;
 
@@ -961,13 +989,14 @@
           <div class="mpanel-inner${hasShots ? '' : ' no-stage'}">
             <div class="mpanel-info">
               <h1 class="mpanel-title"><span class="mpanel-icon"><img src="assets/icons/${iconOf(m)}_icon.svg" alt=""></span>${esc(m.title)}</h1>
+              ${LANG !== 'en' && m.enTitle !== m.title ? `<p class="mpanel-inapp">${esc(t('lang.inApp', { x: m.enTitle }))}</p>` : ''}
               <p class="mpanel-intro">${esc(m.intro)}</p>
               ${featureListHTML(m, hasShots)}
-              <p class="mpanel-hint">${hasShots ? (canHover() ? 'Click a feature to open its screen' : 'Tap a feature to open its screen') : 'Screens for this module are coming soon'}</p>
+              <p class="mpanel-hint">${esc(hasShots ? (canHover() ? t('mod.hintClick') : t('mod.hintTap')) : t('mod.soon'))}</p>
             </div>
-            ${hasShots ? '<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p><p class="zoom-hint">Tap the screen to zoom</p></div>' : ''}
+            ${hasShots ? `<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p><p class="zoom-hint">${esc(t('mod.zoom'))}</p></div>` : ''}
           </div>
-          <nav class="mpager" aria-label="Previous and next module">${pagerLink(prev, 'prev')}${pagerLink(next, 'next')}</nav>
+          <nav class="mpager" aria-label="${esc(t('pager.moduleNav'))}">${pagerLink(prev, 'prev')}${pagerLink(next, 'next')}</nav>
         </div>
       </section>`;
 
@@ -993,13 +1022,13 @@
       syncTabs(app.querySelector('.mtabs'), m, false);
     }
     bindFeatures(app.querySelector('.mpage'), m, featureIndex || 0, openFeature);
-    document.title = `${m.title} · Antz Onboarding Guide`;
+    document.title = `${m.title} · ${t('brand.title')}`;
   }
 
   /* ---------- Search ---------- */
   const index = visible.flatMap((m) => [
-    { m, i: 0, title: m.title, text: m.intro, kind: 'Module' },
-    ...m.features.map((f, i) => ({ m, i, title: f.title, text: f.desc, kind: m.title }))
+    { m, i: 0, title: m.title, text: m.intro, en: `${m.enTitle} ${m.raw}`, kind: 'Module' },
+    ...m.features.map((f, i) => ({ m, i, title: f.title, text: f.desc, en: f.enTitle, kind: m.title }))
   ]);
   /* One search box: an input, its results list and a clear button. `outside` is the element a click must
      fall outside of to close the list (the hero), or null when the list always shows (the header panel). */
@@ -1011,21 +1040,22 @@
       const term = q.value.trim().toLowerCase();
       clear.classList.toggle('show', !!term);
       if (term.length < 2) {
-        if (!outside) box.innerHTML = '<div class="empty">Type at least two letters to search every module and feature.</div>';
+        if (!outside) box.innerHTML = `<div class="empty">${esc(t('search.short'))}</div>`;
         return close();
       }
       const hits = index
         .map((r) => {
-          const t = r.title.toLowerCase(), x = r.text.toLowerCase();
-          const score = t.startsWith(term) ? 3 : t.includes(term) ? 2 : x.includes(term) ? 1 : 0;
+          /* The English names from the app also match, so a term seen on screen always finds its feature */
+          const tl = r.title.toLowerCase(), x = r.text.toLowerCase(), en = (r.en || '').toLowerCase();
+          const score = tl.startsWith(term) ? 3 : tl.includes(term) ? 2 : x.includes(term) || en.includes(term) ? 1 : 0;
           return { ...r, score: score + (r.kind === 'Module' && score ? .5 : 0) };
         })
         .filter((r) => r.score)
         .sort((a, b) => b.score - a.score)
         .slice(0, 8);
-      box.innerHTML = (hits.length ? '<div class="sr-head">Top results</div>' : '') + (hits.length
+      box.innerHTML = (hits.length ? `<div class="sr-head">${esc(t('search.top'))}</div>` : '') + (hits.length
         ? hits.map((r) => `<a role="option" href="#/m/${r.m.id}/${r.i}"><div class="r-title">${hl(r.title, term)}</div><div class="r-meta">${esc(r.kind === 'Module' ? areaById[r.m.track].label : r.kind)}</div></a>`).join('')
-        : `<div class="empty">No matches for “${esc(q.value)}”. Try “animal”, “egg” or “report”.</div>`);
+        : `<div class="empty">${esc(t('search.none', { q: q.value }))}</div>`);
       box.classList.add('show'); q.setAttribute('aria-expanded', 'true'); active = -1;
     };
     q.addEventListener('input', run);
@@ -1057,13 +1087,13 @@
   qs.hidden = true;
   qs.innerHTML = `
     <div class="qs-backdrop" data-close></div>
-    <div class="qs-panel" role="dialog" aria-modal="true" aria-label="Search the guide">
+    <div class="qs-panel" role="dialog" aria-modal="true" aria-label="${esc(t('nav.search'))}">
       <div class="search-field">
         ${SEARCH_SVG}
-        <label class="sr-only" for="qs-input">Search modules and features</label>
+        <label class="sr-only" for="qs-input">${esc(t('search.label'))}</label>
         <input id="qs-input" type="search" autocomplete="off" placeholder="" aria-controls="qs-results" aria-expanded="false">
-        <span class="ph" aria-hidden="true">Search <span class="ph-rot"></span></span>
-        <button class="search-clear" type="button" aria-label="Clear search">${CLOSE_SVG}</button>
+        ${cueHTML()}
+        <button class="search-clear" type="button" aria-label="${esc(t('search.clear'))}">${CLOSE_SVG}</button>
         <button class="qs-close" type="button" data-close>Esc</button>
       </div>
       <div class="search-results show" id="qs-results" role="listbox"></div>
@@ -1186,9 +1216,9 @@
     w.className = `fwin tint-${AREA_TINT[m.track]}`;
     w.innerHTML = `
       <div class="fwin-backdrop" data-close></div>
-      <button class="fwin-arrow prev" type="button" aria-label="Previous feature">${CHEV_L}</button>
+      <button class="fwin-arrow prev" type="button" aria-label="${esc(t('win.prev'))}">${CHEV_L}</button>
       <div class="fwin-card" role="dialog" aria-modal="true" aria-labelledby="fwin-title">
-        <button class="fwin-close" type="button" data-close aria-label="Close">${CLOSE_SVG}</button>
+        <button class="fwin-close" type="button" data-close aria-label="${esc(t('win.close'))}">${CLOSE_SVG}</button>
         <div class="fwin-stage"><div class="fwin-device"></div></div>
         <div class="fwin-info">
           <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${esc(m.title)}</span>
@@ -1199,7 +1229,7 @@
           <div class="fwin-dots">${m.features.map((f, i) => `<button type="button" data-i="${i}" aria-label="${esc(tidyTitle(f.title))}"></button>`).join('')}</div>
         </div>
       </div>
-      <button class="fwin-arrow next" type="button" aria-label="Next feature">${CHEV_R}</button>`;
+      <button class="fwin-arrow next" type="button" aria-label="${esc(t('win.next'))}">${CHEV_R}</button>`;
     document.body.append(w);
     document.body.classList.add('fwin-open');
     const dev = w.querySelector('.fwin-device'), text = w.querySelector('.fwin-text');
@@ -1210,11 +1240,11 @@
       if (i < 0 || i >= n || i === idx) return;
       idx = i;
       const f = m.features[i], shot = shotOf(i);
-      w.querySelector('.fwin-count').textContent = `Feature ${i + 1} of ${n}`;
+      w.querySelector('.fwin-count').textContent = t('win.count', { i: i + 1, n });
       w.querySelector('.fwin-ic').innerHTML = icon(f.icon);
       w.querySelector('.fwin-title').textContent = tidyTitle(f.title);
       w.querySelector('.fwin-desc').textContent = tidy(f.desc);
-      dev.innerHTML = shot ? deviceHTML(shot) : '<p class="fwin-empty">Screen coming soon</p>';
+      dev.innerHTML = shot ? deviceHTML(shot) : `<p class="fwin-empty">${esc(t('win.soon'))}</p>`;
       /* The screen slides in from the side being moved to; the text fades up */
       [dev, text].forEach((el) => { el.classList.remove('in-l', 'in-r', 'in-up'); void el.offsetWidth; });
       dev.classList.add(dir > 0 ? 'in-r' : dir < 0 ? 'in-l' : 'in-up');
@@ -1229,8 +1259,9 @@
     };
     const onKey = (e) => {
       if (e.key === 'Escape') { e.preventDefault(); shut(); }
-      else if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1, 1); }
-      else if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1, -1); }
+      /* In right-to-left reading, the next feature is to the left */
+      else if (e.key === (RTL ? 'ArrowLeft' : 'ArrowRight')) { e.preventDefault(); go(idx + 1, 1); }
+      else if (e.key === (RTL ? 'ArrowRight' : 'ArrowLeft')) { e.preventDefault(); go(idx - 1, -1); }
       else if (e.key === 'Tab') {
         /* Keep focus inside the window */
         const f = [...w.querySelectorAll('button:not([disabled])')];
@@ -1296,21 +1327,21 @@
     const sheet = !!opts.sheet;
     const g = document.createElement('div');
     g.className = sheet ? `gallery sheet tint-${AREA_TINT[m.track]}` : 'gallery';
-    g.setAttribute('role', 'dialog'); g.setAttribute('aria-modal', 'true'); g.setAttribute('aria-label', `${m.title} screens`);
+    g.setAttribute('role', 'dialog'); g.setAttribute('aria-modal', 'true'); g.setAttribute('aria-label', t('gal.label', { x: m.title }));
     g.innerHTML = `
       <div class="g-top">
         <span class="g-count" aria-live="polite"></span>
         <span class="g-title">${sheet ? `${esc(areaById[m.track].label)} · ` : ''}${esc(m.title)}</span>
-        <button class="g-close" type="button" aria-label="Close gallery">${CLOSE_SVG}</button>
+        <button class="g-close" type="button" aria-label="${esc(t('gal.close'))}">${CLOSE_SVG}</button>
       </div>
       <div class="g-stage"><div class="g-track"><img class="g-img" alt="" draggable="false"></div></div>
       <div class="g-info"><div class="g-head"><span class="g-ic" aria-hidden="true"></span><span class="g-fcount"></span></div><b class="g-ft"></b><p class="g-fd"></p></div>
       <div class="g-nav">
-        <button class="g-arrow g-prev" type="button" aria-label="Previous feature">${CHEV_L}</button>
-        <div class="g-dots">${slides.map((sl, i) => `<button type="button" aria-label="${esc(sl.title || `Screen ${i + 1}`)}" data-i="${i}"></button>`).join('')}</div>
-        <button class="g-arrow g-next" type="button" aria-label="Next feature">${CHEV_R}</button>
+        <button class="g-arrow g-prev" type="button" aria-label="${esc(t('win.prev'))}">${CHEV_L}</button>
+        <div class="g-dots">${slides.map((sl, i) => `<button type="button" aria-label="${esc(sl.title || t('gal.screen', { i: i + 1 }))}" data-i="${i}"></button>`).join('')}</div>
+        <button class="g-arrow g-next" type="button" aria-label="${esc(t('win.next'))}">${CHEV_R}</button>
       </div>
-      <p class="g-hint">Pinch or double-tap to zoom · Swipe to browse</p>`;
+      <p class="g-hint">${esc(t('gal.hint'))}</p>`;
     document.body.append(g);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -1340,7 +1371,7 @@
       const sl = slides[idx];
       resetZoom(false);
       track.style.transition = 'none';
-      track.style.transform = dir ? `translateX(${dir * 40}px)` : 'none';
+      track.style.transform = dir ? `translateX(${dir * (RTL ? -40 : 40)}px)` : 'none';
       track.style.opacity = dir ? '0' : '1';
       img.src = sl.src; img.alt = sl.alt;
       g.querySelector('.g-count').textContent = `${idx + 1} / ${slides.length}`;
@@ -1348,7 +1379,7 @@
       g.querySelector('.g-fd').textContent = sl.desc;
       if (sheet) {
         g.querySelector('.g-ic').innerHTML = icon(sl.icon);
-        g.querySelector('.g-fcount').textContent = `Feature ${idx + 1} of ${slides.length}`;
+        g.querySelector('.g-fcount').textContent = t('win.count', { i: idx + 1, n: slides.length });
         g.querySelector('.g-prev').disabled = idx === 0;
         g.querySelector('.g-next').disabled = idx === slides.length - 1;
         const info = g.querySelector('.g-info');
@@ -1427,8 +1458,9 @@
       if (scale > 1.01) return;
       track.style.transition = 'transform .28s cubic-bezier(.22,.8,.24,1), opacity .2s ease';
       if (dy > 110 && Math.abs(dy) > Math.abs(dx)) return close();
-      if (dx < -60 && slides.length > 1) return go(idx + 1, 1);
-      if (dx > 60 && slides.length > 1) return go(idx - 1, -1);
+      const fwd = RTL ? -dx : dx;
+      if (fwd < -60 && slides.length > 1) return go(idx + 1, 1);
+      if (fwd > 60 && slides.length > 1) return go(idx - 1, -1);
       track.style.transform = 'none'; track.style.opacity = '1';
     };
     stageEl.addEventListener('pointerup', end);
@@ -1436,8 +1468,8 @@
 
     const onKey = (e) => {
       if (e.key === 'Escape') close();
-      if (e.key === 'ArrowRight') go(idx + 1, 1);
-      if (e.key === 'ArrowLeft') go(idx - 1, -1);
+      if (e.key === (RTL ? 'ArrowLeft' : 'ArrowRight')) go(idx + 1, 1);
+      if (e.key === (RTL ? 'ArrowRight' : 'ArrowLeft')) go(idx - 1, -1);
     };
     document.addEventListener('keydown', onKey);
     dots.forEach((d) => d.addEventListener('click', () => go(+d.dataset.i, +d.dataset.i > idx ? 1 : -1)));
@@ -1495,7 +1527,7 @@
       if (name === 'kit') renderKit(id); else { lastKit = null; renderModule(id, Number(f) || 0, f !== undefined && f !== ''); }
       window.scrollTo(0, 0);
     } else {
-      document.title = 'Antz Onboarding Guide';
+      document.title = t('brand.title');
       const cameBack = !onHome && !goTop && !pendingScroll && homeY;
       lastKit = null;
       renderHome(cameBack);
@@ -1529,6 +1561,59 @@
     if (document.getElementById(id)) { closeNav(); scrollToId(id); }
     else { pendingScroll = id; location.hash = '#/'; }
   });
+
+  /* ---------- Language: page shell text, the switcher and the review note ---------- */
+  document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-aria]').forEach((el) => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
+  document.querySelectorAll('[data-i18n-title]').forEach((el) => el.setAttribute('title', t(el.dataset.i18nTitle)));
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', t('meta.description'));
+  const LANGS = window.ANTZ_LANGS || [{ code: 'en', name: 'English' }];
+  /* Switching saves the choice and reloads at the same place; the page is then built in the new language */
+  const setLang = (code) => {
+    try { localStorage.setItem('antz-lang', code); } catch (e) { /* blocked: the URL still carries it */ }
+    const url = new URL(location.href);
+    url.searchParams.delete('lang');
+    if (code !== 'en') url.searchParams.set('lang', code);
+    /* Set the address, then reload: a change only after # would not reload the page by itself */
+    history.replaceState(null, '', url.toString());
+    location.reload();
+  };
+  const langBox = document.querySelector('.nav-lang');
+  if (langBox) {
+    const btn = langBox.querySelector('.nav-lang-btn'), menu = langBox.querySelector('.nav-lang-menu');
+    langBox.querySelector('.nav-lang-code').textContent = LANG.toUpperCase();
+    menu.innerHTML = LANGS.map((l) => `<button type="button" role="menuitemradio" aria-checked="${l.code === LANG}" data-lang="${l.code}"><span lang="${l.code}" dir="${l.dir || 'ltr'}">${esc(l.name)}</span><small>${l.code.toUpperCase()}</small></button>`).join('')
+      + (LANG !== 'en' ? `<p class="nav-lang-note">${esc(t('lang.note'))}</p>` : '');
+    const setMenu = (open) => { menu.hidden = !open; btn.setAttribute('aria-expanded', String(open)); langBox.classList.toggle('open', open); };
+    btn.addEventListener('click', (e) => { e.stopPropagation(); setMenu(menu.hidden); if (!menu.hidden) (menu.querySelector('[aria-checked="true"]') || menu.firstElementChild).focus(); });
+    menu.addEventListener('click', (e) => { const b = e.target.closest('[data-lang]'); if (b) { setMenu(false); if (b.dataset.lang !== LANG) setLang(b.dataset.lang); } });
+    menu.addEventListener('keydown', (e) => {
+      const items = [...menu.querySelectorAll('[data-lang]')], i = items.indexOf(document.activeElement);
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); items[(i + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length].focus(); }
+      if (e.key === 'Escape') { setMenu(false); btn.focus(); }
+    });
+    document.addEventListener('click', (e) => { if (!menu.hidden && !e.target.closest('.nav-lang')) setMenu(false); });
+  }
+  /* Machine translations say so until a native speaker has reviewed them (dismissed per language) */
+  const reviewed = !!(PACK.meta && PACK.meta.reviewed);
+  let noteGone = false;
+  try { noteGone = localStorage.getItem(`antz-lang-note-${LANG}`) === '1'; } catch (e) { /* ignore */ }
+  if (LANG !== 'en' && !reviewed && !noteGone) {
+    const note = document.createElement('div');
+    note.className = 'lang-toast';
+    note.setAttribute('role', 'status');
+    note.innerHTML = `<p>${esc(t('lang.note'))}</p><button type="button" class="lang-toast-en" lang="en">${esc(UI['lang.english'])}</button><button type="button" class="lang-toast-x" aria-label="${esc(t('lang.dismiss'))}">${CLOSE_SVG}</button>`;
+    document.body.append(note);
+    note.querySelector('.lang-toast-en').addEventListener('click', () => setLang('en'));
+    /* It steps aside once the reader starts scrolling, so it never covers what they are reading */
+    const onScrollNote = () => { if (window.scrollY > 240) { note.classList.add('away'); window.removeEventListener('scroll', onScrollNote); setTimeout(() => note.remove(), 400); } };
+    window.addEventListener('scroll', onScrollNote, { passive: true });
+    note.querySelector('.lang-toast-x').addEventListener('click', () => {
+      try { localStorage.setItem(`antz-lang-note-${LANG}`, '1'); } catch (e) { /* ignore */ }
+      note.remove();
+    });
+  }
 
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.getElementById('primary-nav');
