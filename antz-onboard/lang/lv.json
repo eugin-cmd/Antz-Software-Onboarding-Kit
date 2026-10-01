@@ -310,9 +310,9 @@
    "summary": "Pārvaldiet un dokumentējiet katru iestādes dzīvnieku kolekcijas aspektu, reģistrējot sugas, izsekojot atsevišķus dzīvniekus un uzturot precīzu taksonomisko vēsturi",
    "features": [
     {
-     "title": "Sugu pārskats",
+     "title": "Kolekcijas pārskats",
      "desc": "Taksonomija, populācija pēc dzimuma, ienākušo/dzimušo skaits, ar meklēšanu.",
-     "alt": "Tīģera sugas informācija ar populāciju, vietām, sekcijām, aplokiem"
+     "alt": "Kolekciju pārskats: sugu un populācijas rādītāji, uzņemšanas un dzimšanas, kā arī taksonomiskās klases ar skaitu"
     },
     {
      "title": "Sugu pārvaldība",
@@ -413,7 +413,7 @@
     {
      "title": "Publisko un privāto birku piešķiršana",
      "desc": "Piešķiriet birkas vietām, sekcijām, aplokiem vai dzīvniekiem ērtai sakārtošanai.",
-     "alt": "Publiskās birkas pievienošanas lapa vietai: meklējiet un izvēlieties birkas žetonu, ar pogām „Cancel” un „Add Tag”"
+     "alt": "Dzīvnieka profila cilne Birkas: publiskās un privātās birkas, Manas birkas un Citu birkas, kā arī poga + birkas pievienošanai"
     },
     {
      "title": "Piešķirto birku noņemšana",

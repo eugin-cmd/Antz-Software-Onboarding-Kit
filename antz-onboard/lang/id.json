@@ -310,9 +310,9 @@
    "summary": "Mengelola dan mendokumentasikan koleksi satwa lembaga: spesies, satwa individu, dan riwayat taksonomi",
    "features": [
     {
-     "title": "Ringkasan spesies",
+     "title": "Ringkasan koleksi",
      "desc": "Taksonomi, populasi berdasarkan jenis kelamin, jumlah akuisisi/kelahiran, dengan pencarian.",
-     "alt": "Detail spesies Tiger dengan populasi, lokasi, seksi, kandang"
+     "alt": "Ikhtisar Koleksi: insight spesies dan populasi, penerimaan dan kelahiran, serta kelas taksonomi beserta jumlahnya"
     },
     {
      "title": "Pengelolaan spesies",
@@ -413,7 +413,7 @@
     {
      "title": "Tetapkan tag Publik & Privat",
      "desc": "Terapkan tag pada Lokasi, Seksi, Kandang, atau Satwa agar mudah diatur.",
-     "alt": "Lembar Add Public Tag pada sebuah lokasi: cari dan pilih chip tag untuk ditambahkan, dengan Cancel dan Add Tag"
+     "alt": "Tab Tag di profil hewan: tag publik dan privat, dengan Tag Saya dan Tag dari Orang Lain, serta tombol + untuk menambahkan tag"
     },
     {
      "title": "Hapus tag yang ditetapkan",

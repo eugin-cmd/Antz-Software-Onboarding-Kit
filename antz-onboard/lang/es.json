@@ -310,9 +310,9 @@
    "summary": "Gestiona y documenta todos los aspectos de la colección animal de una institución: el eje central para registrar especies, seguir a cada animal y mantener historiales taxonómicos precisos",
    "features": [
     {
-     "title": "Resumen de especies",
+     "title": "Resumen de la colección",
      "desc": "Taxonomía, población por sexo, recuentos de altas y nacimientos, con búsqueda.",
-     "alt": "Detalle de la especie tigre con población, sedes, secciones y recintos"
+     "alt": "Vista general de Colecciones: datos de especies y población, ingresos y nacimientos, y clases taxonómicas con sus totales"
     },
     {
      "title": "Gestión de especies",
@@ -413,7 +413,7 @@
     {
      "title": "Asignar etiquetas públicas y privadas",
      "desc": "Aplique etiquetas a sedes, secciones, recintos o animales para organizarlos fácilmente.",
-     "alt": "Hoja Añadir etiqueta pública en una sede: buscar y seleccionar una etiqueta para añadirla, con Cancelar y Añadir etiqueta"
+     "alt": "Pestaña Etiquetas en el perfil de un animal: etiquetas públicas y privadas, con Mis etiquetas y Etiquetas de otros, y un botón + para añadir una etiqueta"
     },
     {
      "title": "Quitar etiquetas asignadas",

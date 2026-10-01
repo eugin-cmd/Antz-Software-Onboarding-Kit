@@ -310,9 +310,9 @@
    "summary": "Gérer et documenter tous les aspects de la collection animale d’un établissement : espèces, animaux individuels et historique taxonomique",
    "features": [
     {
-     "title": "Vue d’ensemble des espèces",
+     "title": "Vue d’ensemble de la collection",
      "desc": "Taxonomie, effectifs par sexe, nombre d’entrées/naissances, avec recherche.",
-     "alt": "Détail de l’espèce Tigre avec effectifs, sites, sections et enclos"
+     "alt": "Vue d’ensemble des Collections : indicateurs d’espèces et d’effectifs, entrées et naissances, et classes taxonomiques avec leurs effectifs"
     },
     {
      "title": "Gestion des espèces",
@@ -413,7 +413,7 @@
     {
      "title": "Attribuer des étiquettes publiques et privées",
      "desc": "Appliquez des étiquettes aux sites, sections, enclos ou animaux pour les organiser facilement.",
-     "alt": "Fenêtre Ajouter une étiquette publique sur un site : rechercher et sélectionner une pastille, avec Annuler et Ajouter l’étiquette"
+     "alt": "Onglet Étiquettes du profil d’un animal : étiquettes publiques et privées, avec Mes étiquettes et Étiquettes des autres, et un bouton + pour ajouter une étiquette"
     },
     {
      "title": "Retirer des étiquettes attribuées",

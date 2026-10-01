@@ -1702,17 +1702,26 @@
 
     const stageEl = g.querySelector('.g-stage'), track = g.querySelector('.g-track'), img = g.querySelector('.g-img');
     const dots = [...g.querySelectorAll('.g-dots button')];
-    let idx = start, scale = 1, tx = 0, ty = 0, baseW = 0, baseH = 0;
+    let idx = start, scale = 1, tx = 0, ty = 0, baseW = 0, baseH = 0, cx = 0, cy = 0;
+    /* What zooms: in the sheet the whole phone, bezel and all; in the plain gallery the bare screen */
+    const zt = sheet ? img.parentNode : img;
     const apply = (anim) => {
-      img.style.transition = anim ? 'transform .28s cubic-bezier(.22,.8,.24,1)' : 'none';
-      img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+      zt.style.transition = anim ? 'transform .28s cubic-bezier(.22,.8,.24,1)' : 'none';
+      zt.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
     };
+    /* Size and resting centre (from the stage centre) of the zoomed element; the sheet sits it near the top */
+    const measure = () => {
+      const b = zt.getBoundingClientRect(), r = stageEl.getBoundingClientRect();
+      baseW = b.width / scale; baseH = b.height / scale;
+      cx = b.left + b.width / 2 - tx - (r.left + r.width / 2); cy = b.top + b.height / 2 - ty - (r.top + r.height / 2);
+    };
+    /* Pan only as far as keeps the stage covered, and always allow the resting place */
     const clampPan = () => {
       const r = stageEl.getBoundingClientRect();
       const mx = Math.max(0, (baseW * scale - r.width) / 2), my = Math.max(0, (baseH * scale - r.height) / 2);
-      tx = Math.max(-mx, Math.min(mx, tx)); ty = Math.max(-my, Math.min(my, ty));
+      tx = Math.max(Math.min(0, -mx - cx), Math.min(Math.max(0, mx - cx), tx));
+      ty = Math.max(Math.min(0, -my - cy), Math.min(Math.max(0, my - cy), ty));
     };
-    const measure = () => { const s = scale; img.style.transform = 'none'; const b = img.getBoundingClientRect(); baseW = b.width; baseH = b.height; img.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`; };
     const resetZoom = (anim) => { scale = 1; tx = 0; ty = 0; apply(anim); g.classList.remove('zoomed'); };
     const go = (i, dir = 0) => {
       /* The feature sheet stops at the first and last feature; the plain gallery wraps round */
@@ -1768,7 +1777,8 @@
       if (pts.size === 2) {
         const [a, b] = [...pts.values()];
         const mid = toStage((a.x + b.x) / 2, (a.y + b.y) / 2);
-        pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), s: scale, u: { x: (mid.x - tx) / scale, y: (mid.y - ty) / scale } };
+        measure();
+        pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), s: scale, u: { x: (mid.x - cx - tx) / scale, y: (mid.y - cy - ty) / scale } };
         drag = null;
       } else if (pts.size === 1) {
         drag = { x: e.clientX, y: e.clientY, tx, ty, t: Date.now(), moved: false };
@@ -1781,7 +1791,7 @@
         const [a, b] = [...pts.values()];
         const mid = toStage((a.x + b.x) / 2, (a.y + b.y) / 2);
         scale = Math.max(1, Math.min(ZOOM_MAX, pinch.s * Math.hypot(a.x - b.x, a.y - b.y) / pinch.d));
-        tx = mid.x - pinch.u.x * scale; ty = mid.y - pinch.u.y * scale;
+        tx = mid.x - cx - pinch.u.x * scale; ty = mid.y - cy - pinch.u.y * scale;
         clampPan(); apply(false); g.classList.toggle('zoomed', scale > 1.01);
       } else if (drag) {
         const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
@@ -1807,7 +1817,7 @@
         if (now - lastTap < 300) {
           lastTap = 0;
           if (scale > 1.01) resetZoom(true);
-          else { const p = toStage(e.clientX, e.clientY); scale = ZOOM_TAP; tx = -p.x * (scale - 1); ty = -p.y * (scale - 1); clampPan(); apply(true); g.classList.add('zoomed'); }
+          else { measure(); const p = toStage(e.clientX, e.clientY); scale = ZOOM_TAP; tx = -(p.x - cx) * (scale - 1); ty = -(p.y - cy) * (scale - 1); clampPan(); apply(true); g.classList.add('zoomed'); }
         } else lastTap = now;
         return;
       }

@@ -16,10 +16,12 @@
   "nav.faq": "FAQ",
   "nav.search": "Search the guide",
   "nav.searchTip": "Search (Ctrl/Cmd + K)",
-  "footer.tagline": "Good data = good insights = healthy animals",
-  "footer.explore": "Explore",
-  "footer.talk": "Talk to us",
-  "footer.rights": "© 2026 Antz Systems. All rights reserved.",
+  "footer.ctaTitle": "See Antz in Action",
+  "footer.ctaSub": "We'll show you the platform running in a real zoo context - walking you through Antz Platform and EthoStudio, and how zoos around the world are putting behavioural data to work in daily animal care.",
+  "footer.demo": "Book a Demo",
+  "footer.rights": "© Copyright 2026 Antz Systems. All Rights Reserved.",
+  "footer.terms": "Terms of Use",
+  "footer.privacy": "Privacy Policy",
   "lang.label": "Language",
   "lang.note": "This page was translated by machine and is awaiting review by a native speaker.",
   "lang.english": "View in English",
@@ -47,6 +49,15 @@
   "kit.start.eyebrow": "Onboarding flow",
   "kit.start.more": "Start the guide",
   "kit.start.features": "Features",
+  "guide.more": "Know more",
+  "guide.moreNote": "Every screen, step by step",
+  "guide.jump": "In this guide",
+  "guide.screens": "{n} screens",
+  "guide.screen1": "1 screen",
+  "guide.view": "View screens",
+  "guide.preview": "Point at a surface to preview it · click to open",
+  "guide.qaHint": "Pick a shortcut to see its screen",
+  "guide.summary": "Summary",
   "day.title": "What your first day on Antz looks like",
   "day.lede": "Four steps take your team from first login to everyday use.",
   "day.1": "Sign in to your workspace",
@@ -308,9 +319,9 @@
    "summary": "Manage and document every aspect of an institution's animal collection serving as the central hub for recording species, tracking individual animals, and maintaining accurate taxonomic histories",
    "features": [
     {
-     "title": "Species overview",
+     "title": "Collection overview",
      "desc": "Taxonomy, population by gender, accession/birth counts, with search.",
-     "alt": "Tiger species detail with population, sites, sections, enclosures"
+     "alt": "Collections overview: species and population insights, accessions and births, and taxonomic classes with counts"
     },
     {
      "title": "Species management",
@@ -411,7 +422,7 @@
     {
      "title": "Assign Public & Private tags",
      "desc": "Apply tags to Sites, Sections, Enclosures, or Animals for easy organization.",
-     "alt": "Add Public Tag sheet on a Site: search and select a tag chip to add, with Cancel and Add Tag"
+     "alt": "Tags tab on an animal's profile: Public and Private Tags, with My Tags and Tags by Others, and a + button to add a tag"
     },
     {
      "title": "Remove assigned tags",

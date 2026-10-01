@@ -310,9 +310,9 @@
    "summary": "Visų institucijos gyvūnų kolekcijos aspektų valdymas ir dokumentavimas: rūšių registravimas, atskirų gyvūnų sekimas ir tiksli taksonominė istorija",
    "features": [
     {
-     "title": "Rūšių apžvalga",
+     "title": "Kolekcijos apžvalga",
      "desc": "Taksonomija, populiacija pagal lytį, įsigijimų ir gimimų skaičiai, su paieška.",
-     "alt": "Tigro rūšies informacija su populiacija, vietomis, sekcijomis ir aptvarais"
+     "alt": "Kolekcijų apžvalga: rūšių ir populiacijos rodikliai, priėmimai ir gimimai bei taksonominės klasės su skaičiais"
     },
     {
      "title": "Rūšių valdymas",
@@ -413,7 +413,7 @@
     {
      "title": "Viešųjų ir privačių žymų priskyrimas",
      "desc": "Priskirkite žymas vietoms, sekcijoms, aptvarams ar gyvūnams, kad būtų patogu tvarkyti.",
-     "alt": "Viešosios žymos pridėjimo lapas vietoje: ieškokite ir pasirinkite žymos lustą, su „Cancel“ ir „Add Tag“"
+     "alt": "Gyvūno profilio skirtukas Žymos: viešos ir privačios žymos, Mano žymos ir Kitų žymos bei mygtukas + žymai pridėti"
     },
     {
      "title": "Priskirtų žymų šalinimas",

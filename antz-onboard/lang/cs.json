@@ -310,9 +310,9 @@
    "summary": "Správa a dokumentace všech aspektů zvířecí kolekce instituce jako centrální místo pro evidenci druhů, sledování jednotlivých zvířat a vedení přesné taxonomické historie",
    "features": [
     {
-     "title": "Přehled druhů",
+     "title": "Přehled kolekce",
      "desc": "Taxonomie, početní stav podle pohlaví, počty přírůstků a narození, s vyhledáváním.",
-     "alt": "Detail druhu tygr s početním stavem, areály, sekcemi a výběhy"
+     "alt": "Přehled sbírek: údaje o druzích a populaci, přírůstky a narození a taxonomické třídy s počty"
     },
     {
      "title": "Správa druhů",
@@ -413,7 +413,7 @@
     {
      "title": "Přiřazení veřejných a soukromých štítků",
      "desc": "Přiřazujte štítky areálům, sekcím, výběhům nebo zvířatům pro snadnou orientaci.",
-     "alt": "Přidání veřejného štítku k areálu: vyhledání a výběr štítku, tlačítka Zrušit a Přidat štítek"
+     "alt": "Karta Štítky v profilu zvířete: veřejné a soukromé štítky, Moje štítky a Štítky od ostatních a tlačítko + pro přidání štítku"
     },
     {
      "title": "Odebrání přiřazených štítků",

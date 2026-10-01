@@ -571,10 +571,10 @@
    "glyph": "pets",
    "features": [
     {
-     "title": "Species overview",
+     "title": "Collection overview",
      "desc": "Taxonomy, population by gender, accession/birth counts, with search.",
      "shot": "assets/shots/p11-col-1.jpg",
-     "alt": "Tiger species detail with population, sites, sections, enclosures",
+     "alt": "Collections overview: species and population insights, accessions and births, and taxonomic classes with counts",
      "device": "prefr",
      "size": [
       502,
@@ -610,7 +610,7 @@
    "shots": [
     {
      "src": "assets/shots/p11-col-1.jpg",
-     "alt": "Tiger species detail with population, sites, sections, enclosures",
+     "alt": "Collections overview: species and population insights, accessions and births, and taxonomic classes with counts",
      "device": "prefr",
      "size": [
       502,
@@ -918,12 +918,12 @@
     {
      "title": "Assign Public & Private tags",
      "desc": "Apply tags to Sites, Sections, Enclosures, or Animals for easy organization.",
-     "shot": "assets/shots/p14-assign-tag.png",
-     "alt": "Add Public Tag sheet on a Site: search and select a tag chip to add, with Cancel and Add Tag",
+     "shot": "assets/shots/p14-assign-tag-entity.png",
+     "alt": "Tags tab on an animal's profile: Public and Private Tags, with My Tags and Tags by Others, and a + button to add a tag",
      "device": "phone",
      "size": [
-      1170,
-      2532
+      780,
+      1688
      ],
      "icon": "approve"
     },
@@ -993,12 +993,12 @@
      ]
     },
     {
-     "src": "assets/shots/p14-assign-tag.png",
-     "alt": "Add Public Tag sheet on a Site: search and select a tag chip to add, with Cancel and Add Tag",
+     "src": "assets/shots/p14-assign-tag-entity.png",
+     "alt": "Tags tab on an animal's profile: Public and Private Tags, with My Tags and Tags by Others, and a + button to add a tag",
      "device": "phone",
      "size": [
-      1170,
-      2532
+      780,
+      1688
      ]
     },
     {

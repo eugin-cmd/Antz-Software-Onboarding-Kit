@@ -310,9 +310,9 @@
    "summary": "Zarządzanie kolekcją zwierząt instytucji i jej dokumentowanie: rejestr gatunków, śledzenie osobników i dokładna historia taksonomiczna",
    "features": [
     {
-     "title": "Przegląd gatunku",
+     "title": "Przegląd kolekcji",
      "desc": "Taksonomia, liczebność według płci, liczba pozyskań i urodzeń, z wyszukiwaniem.",
-     "alt": "Szczegóły gatunku tygrys z liczebnością, lokalizacjami, sekcjami i wybiegami"
+     "alt": "Przegląd kolekcji: dane o gatunkach i populacji, przyjęcia i narodziny oraz klasy taksonomiczne z liczebnością"
     },
     {
      "title": "Zarządzanie gatunkiem",
@@ -413,7 +413,7 @@
     {
      "title": "Przypisywanie tagów publicznych i prywatnych",
      "desc": "Przypisywanie tagów do lokalizacji, sekcji, wybiegów lub zwierząt w celu łatwego porządkowania.",
-     "alt": "Panel dodawania tagu publicznego do lokalizacji: wyszukanie i wybór etykiety tagu, przyciski Anuluj i Dodaj tag"
+     "alt": "Karta Tagi w profilu zwierzęcia: tagi publiczne i prywatne, Moje tagi i Tagi innych oraz przycisk + do dodania tagu"
     },
     {
      "title": "Usuwanie przypisanych tagów",

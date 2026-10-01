@@ -310,9 +310,9 @@
    "summary": "Kusimamia na kuandika kila kipengele cha mkusanyiko wa wanyama wa taasisi, ikiwa kitovu kikuu cha kurekodi spishi, kufuatilia wanyama mmoja mmoja, na kutunza historia sahihi za kitaksonomia",
    "features": [
     {
-     "title": "Muhtasari wa spishi",
+     "title": "Muhtasari wa mkusanyiko",
      "desc": "Taksonomia, idadi kwa jinsia, idadi ya walioingizwa/waliozaliwa, pamoja na utafutaji.",
-     "alt": "Undani wa spishi ya Tiger pamoja na idadi, vituo, sehemu, vizimba"
+     "alt": "Muhtasari wa Mikusanyiko: takwimu za spishi na idadi ya wanyama, wanyama waliopokelewa na waliozaliwa, na madaraja ya kitaksonomia pamoja na idadi"
     },
     {
      "title": "Usimamizi wa spishi",
@@ -413,7 +413,7 @@
     {
      "title": "Weka lebo za Umma na Binafsi",
      "desc": "Weka lebo kwenye Vituo, Sehemu, Vizimba, au Wanyama kwa mpangilio rahisi.",
-     "alt": "Karatasi ya Add Public Tag kwenye Kituo: tafuta na chagua lebo ya kuongeza, pamoja na Cancel na Add Tag"
+     "alt": "Kichupo cha Lebo kwenye wasifu wa mnyama: lebo za umma na za faragha, pamoja na Lebo Zangu na Lebo za Wengine, na kitufe cha + cha kuongeza lebo"
     },
     {
      "title": "Ondoa lebo zilizowekwa",

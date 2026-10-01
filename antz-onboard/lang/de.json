@@ -310,9 +310,9 @@
    "summary": "Zentrale Stelle zur Erfassung von Arten, einzelnen Tieren und ihrer taxonomischen Historie",
    "features": [
     {
-     "title": "Artenübersicht",
+     "title": "Übersicht Tierbestand",
      "desc": "Taxonomie, Bestand nach Geschlecht, Zugangs- und Geburtenzahlen, mit Suche.",
-     "alt": "Artdetail Tiger mit Bestand, Standorten, Bereichen und Gehegen"
+     "alt": "Übersicht Sammlungen: Kennzahlen zu Arten und Bestand, Zugänge und Geburten sowie taxonomische Klassen mit Anzahl"
     },
     {
      "title": "Artenverwaltung",
@@ -413,7 +413,7 @@
     {
      "title": "Öffentliche & private Tags zuweisen",
      "desc": "Tags auf Standorte, Bereiche, Gehege oder Tiere anwenden, um sie einfach zu ordnen.",
-     "alt": "Dialog „Öffentlichen Tag hinzufügen“ bei einem Standort: Tag-Chip suchen und auswählen, mit Abbrechen und Tag hinzufügen"
+     "alt": "Registerkarte Tags im Tierprofil: öffentliche und private Tags, mit Meine Tags und Tags von anderen sowie einer +-Schaltfläche zum Hinzufügen"
     },
     {
      "title": "Zugewiesene Tags entfernen",

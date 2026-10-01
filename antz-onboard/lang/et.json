@@ -310,9 +310,9 @@
    "summary": "Asutuse loomakollektsiooni haldamine ja dokumenteerimine: liikide registreerimine, üksikloomade jälgimine ja täpne taksonoomiline ajalugu",
    "features": [
     {
-     "title": "Liikide ülevaade",
+     "title": "Kollektsiooni ülevaade",
      "desc": "Taksonoomia, arvukus soo järgi, juurdetulekute ja sündide arv ning otsing.",
-     "alt": "Tiigri liigi üksikasjad: arvukus, asukohad, sektsioonid, aedikud"
+     "alt": "Kollektsioonide ülevaade: liikide ja asurkonna näitajad, vastuvõtud ja sünnid ning taksonoomilised klassid koos arvudega"
     },
     {
      "title": "Liikide haldus",
@@ -413,7 +413,7 @@
     {
      "title": "Avalike ja privaatsete siltide määramine",
      "desc": "Lisage silte asukohtadele, sektsioonidele, aedikutele või loomadele, et neid oleks lihtne korraldada.",
-     "alt": "Avaliku sildi lisamise leht asukohal: otsige ja valige lisatav sildikiip, nupud „Tühista“ ja „Lisa silt“"
+     "alt": "Looma profiili vahekaart Sildid: avalikud ja privaatsed sildid, Minu sildid ja Teiste sildid ning nupp + sildi lisamiseks"
     },
     {
      "title": "Määratud siltide eemaldamine",
