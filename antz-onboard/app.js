@@ -1945,15 +1945,37 @@
     langBox.querySelector('.nav-lang-code').textContent = LANG.toUpperCase();
     menu.innerHTML = LANGS.map((l) => `<button type="button" role="menuitemradio" aria-checked="${l.code === LANG}" data-lang="${l.code}"><span lang="${l.code}" dir="${l.dir || 'ltr'}">${esc(l.name)}</span><small>${l.code.toUpperCase()}</small></button>`).join('')
       + (LANG !== 'en' ? `<p class="nav-lang-note">${esc(t('lang.note'))}</p>` : '');
-    const setMenu = (open) => { menu.hidden = !open; btn.setAttribute('aria-expanded', String(open)); langBox.classList.toggle('open', open); };
-    btn.addEventListener('click', (e) => { e.stopPropagation(); setMenu(menu.hidden); if (!menu.hidden) (menu.querySelector('[aria-checked="true"]') || menu.firstElementChild).focus(); });
+    /* Opening: unhide, centre the circle on the globe button, then let the class grow it (see .nav-lang-menu).
+       Closing: shrink it back, then hide once the circle has gone. */
+    let hideTimer = 0;
+    const setMenu = (open) => {
+      clearTimeout(hideTimer);
+      btn.setAttribute('aria-expanded', String(open));
+      if (open) {
+        menu.hidden = false;
+        const b = btn.getBoundingClientRect(), m = menu.getBoundingClientRect();
+        const ox = b.left + b.width / 2 - m.left, oy = b.top + b.height / 2 - m.top;
+        const far = Math.max(...[[0, 0], [m.width, 0], [0, m.height], [m.width, m.height]].map(([x, y]) => Math.hypot(x - ox, y - oy)));
+        menu.style.transition = 'none';   /* move the closed circle onto the button without animating it there */
+        menu.style.setProperty('--ox', `${ox.toFixed(1)}px`);
+        menu.style.setProperty('--oy', `${oy.toFixed(1)}px`);
+        menu.style.setProperty('--or', `${Math.ceil(far + 48)}px`);
+        void menu.offsetWidth;
+        menu.style.transition = '';
+        langBox.classList.add('open');
+      } else {
+        langBox.classList.remove('open');
+        hideTimer = setTimeout(() => { menu.hidden = true; }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 300);
+      }
+    };
+    btn.addEventListener('click', (e) => { e.stopPropagation(); setMenu(!langBox.classList.contains('open')); if (langBox.classList.contains('open')) (menu.querySelector('[aria-checked="true"]') || menu.firstElementChild).focus(); });
     menu.addEventListener('click', (e) => { const b = e.target.closest('[data-lang]'); if (b) { setMenu(false); if (b.dataset.lang !== LANG) setLang(b.dataset.lang); } });
     menu.addEventListener('keydown', (e) => {
       const items = [...menu.querySelectorAll('[data-lang]')], i = items.indexOf(document.activeElement);
       if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); items[(i + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length].focus(); }
       if (e.key === 'Escape') { setMenu(false); btn.focus(); }
     });
-    document.addEventListener('click', (e) => { if (!menu.hidden && !e.target.closest('.nav-lang')) setMenu(false); });
+    document.addEventListener('click', (e) => { if (langBox.classList.contains('open') && !e.target.closest('.nav-lang')) setMenu(false); });
   }
   /* Machine translations say so until a native speaker has reviewed them (dismissed per language) */
   const reviewed = !!(PACK.meta && PACK.meta.reviewed);
