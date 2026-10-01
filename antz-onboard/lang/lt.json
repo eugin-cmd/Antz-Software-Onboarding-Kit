@@ -267,6 +267,43 @@
     }
    ]
   },
+  "chat-module": {
+   "title": "Pokalbių modulis",
+   "intro": "Pokalbių modulis – į programėlę integruotas bendravimo kanalas, leidžiantis rašyti asmenines ir grupines žinutes, dalytis medija ir gauti pranešimus realiuoju laiku. Taip visi darbo pokalbiai, naujienos ir koordinavimas saugiai lieka platformoje, o ne išsibarsto asmeniniuose telefonuose ir el. pašte.",
+   "summary": "Asmeninės ir grupinės žinutės, dalijimasis medija ir pranešimai realiuoju laiku, saugiai platformoje",
+   "features": [
+    {
+     "title": "Asmeninės žinutės",
+     "desc": "Komandos nariai gali susirašinėti dviese, todėl bendrauti ir bendradarbiauti paprasta.",
+     "alt": "Antz Systems pokalbis: kraujo mėginio paėmimo koordinavimas – Dr. Neha ir biologas Mayur"
+    },
+    {
+     "title": "Grupinės žinutės",
+     "desc": "Sukurkite grupę bet kuriai komandai, pamainai ar užduočiai ir bendraukite vienoje vietoje.",
+     "alt": "Antz Systems pokalbis: kraujo mėginio paėmimo koordinavimas – Dr. Neha ir biologas Mayur"
+    },
+    {
+     "title": "Dalijimasis medija ir dokumentais",
+     "desc": "Siųskite nuotraukas, vaizdo įrašus, laboratorinių tyrimų ataskaitas ir PDF failus tiesiai pokalbyje – papildomų programėlių nereikia.",
+     "alt": "Antz Systems pokalbis: kraujo mėginio paėmimo koordinavimas – Dr. Neha ir biologas Mayur"
+    },
+    {
+     "title": "Pranešimai realiuoju laiku",
+     "desc": "Gaukite momentinius pranešimus apie svarbias naujienas tiesiai programėlėje.",
+     "alt": "Antz Systems pokalbis: kraujo mėginio paėmimo koordinavimas – Dr. Neha ir biologas Mayur"
+    },
+    {
+     "title": "Saugu ir audituojama",
+     "desc": "Visi pokalbiai lieka Antz sistemoje, o jų istorija saugoma.",
+     "alt": "Antz Systems pokalbis: kraujo mėginio paėmimo koordinavimas – Dr. Neha ir biologas Mayur"
+    },
+    {
+     "title": "Paieška ir filtrai",
+     "desc": "Ieškokite žinučių pagal raktažodį, siuntėją ar susietą objektą.",
+     "alt": "Antz Systems pokalbis: kraujo mėginio paėmimo koordinavimas – Dr. Neha ir biologas Mayur"
+    }
+   ]
+  },
   "user-management": {
    "title": "Naudotojų valdymas",
    "intro": "Naudotojų modulis leidžia saugiai ir centralizuotai valdyti paskyras, vaidmenis ir leidimus. Jis supaprastina naujų naudotojų įvedimą, užtikrina duomenų saugumą ir suderina prieigos teises su organizacijos vaidmenimis, kartu saugodamas išsamius veiklos žurnalus atskaitomybei.",
@@ -808,6 +845,28 @@
     }
    ]
   },
+  "focus-hub": {
+   "title": "Focus Hub",
+   "intro": "Focus Hub pritaikytas kiekvienam naudotojui: jame rodomi tik tie elementai, kuriuos naudotojas pažymėjo kaip mėgstamus arba įtraukė į žymeles. Mėgstami gyvūnai ir aptvarai bei į žymeles įtrauktos pastabos, medicininiai įrašai ir laboratorinės užklausos čia surinkti vienoje vietoje, kad juos rastumėte greitai.",
+   "summary": "Jūsų mėgstami gyvūnai ir aptvarai bei įrašai su žymelėmis vienoje vietoje, greitai pasiekiami",
+   "features": [
+    {
+     "title": "Aplankų valdymas",
+     "desc": "Kurkite, pervadinkite ir šalinkite aplankus, kad išsaugotus elementus sutvarkytumėte taip, kaip jums patogu dirbti.",
+     "alt": "„My Focus Hub“ skirtukas „Folders“ su aplankais „Animals“, „Injured“, „Birds“, „Lion“, „Critical“"
+    },
+    {
+     "title": "Mėgstami gyvūnai ir aptvarai",
+     "desc": "Vienu palietimu pažymėkite gyvūnus ir aptvarus kaip mėgstamus, peržiūrėkite juos arba pašalinkite iš mėgstamų („Favourites“).",
+     "alt": "„My Focus Hub“ skirtukas „Favourites“ su perjungikliu „Animals“ / „Enclosures“ ir mėgstamų gyvūnų kortelių sąrašu"
+    },
+    {
+     "title": "Įrašų žymelės",
+     "desc": "Įtraukite pastabas, medicininius įrašus ar laboratorines užklausas į žymeles arba jas pašalinkite, kad vėliau greitai rastumėte.",
+     "alt": "„My Focus Hub“ skirtukas „Bookmarks“ su filtrais „Notes“, „Medical Record“, „Lab Request“ ir į žymeles įtrauktų medicininių įrašų kortelėmis"
+    }
+   ]
+  },
   "mortality": {
    "title": "Gaištamumas",
    "intro": "Gaištamumo modulis leidžia greitai ir tiksliai registruoti gyvūnų gaišimą, tvarkyti skrodimo informaciją ir saugoti įrodymus vienoje vietoje. Jis didina skaidrumą, spartina sprendimų priėmimą, užtikrina atitiktį ir padeda geriau stebėti gyvūnų gerovę.",
@@ -903,32 +962,32 @@
     {
      "title": "Vaisiaus žūties įrašo pridėjimas",
      "desc": "Registruokite naujus atvejus: priežastį, laiką, tėvus, gyvūno informaciją.",
-     "alt": "Vaisiaus žūties pridėjimo forma su aptvaru, rūšimi, tėvu ar motina"
+     "alt": "Forma Pridėti vaisiaus žūtį su pasirinktu aptvaru, rūšimi/taksonomija ir tėvais"
     },
     {
      "title": "Paieška ir filtrai",
      "desc": "Ieškokite pagal raktinį žodį; filtruokite pagal vietą, datą, negyvagimį ar abortą, rūšį arba lytį.",
-     "alt": "Vaisiaus žūčių sąrašas su paieška ir filtru"
+     "alt": "Vaisiaus žūčių sąrašas su paryškintais filtrais Visos vietos ir Visi duomenys, skirtuku Negyvagimis ir paieškos juosta"
     },
     {
      "title": "Žuvusiųjų įrašų peržiūra",
      "desc": "Visa informacija: dienos nuo žūties, priežastis, ID, aptvaras, vieta, lytis.",
-     "alt": "Vaisiaus žūčių įrašų sąrašas, skirtukas „Still Birth“"
+     "alt": "Vaisiaus žūčių sąrašas su paryškinta pirmąja kortele"
     },
     {
      "title": "Gyvūno kortelės rodinys",
      "desc": "FID, rūšis, radimas, tėvai, vieta, lytis, pranešėjas.",
-     "alt": "Vaisiaus žūties suvestinės kortelė"
+     "alt": "Išsami kortelė Vaisiaus žūties suvestinė"
     },
     {
      "title": "Įrašo redagavimas",
      "desc": "Keiskite esamą įrašą iš suvestinės, su audito seka.",
-     "alt": "Vaisiaus žūties suvestinė su redagavimo pieštuku"
+     "alt": "Vaisiaus žūties suvestinė su paryškintu redagavimo pieštuku"
     },
     {
      "title": "Įrašo šalinimas",
      "desc": "Prireikus pašalinkite įrašą, išsaugant visą audito seką.",
-     "alt": "Vaisiaus žūties suvestinė su parinktimi „Delete Fetal Death“"
+     "alt": "Vaisiaus žūties suvestinė su paryškinta parinktimi Ištrinti vaisiaus žūtį"
     }
    ]
   },
@@ -940,7 +999,7 @@
     {
      "title": "Kiaušinių suvestinė",
      "desc": "Skaičiai realiuoju laiku: lizduose, perkelti į inkubatorinę, pažymėti išmesti.",
-     "alt": "Kiaušinių rinkimo suvestinė: 66 lizde, 76 į inkubatorinę, 35 išmesti"
+     "alt": "Kiaušinių rinkimo suvestinė: šiandien surinkti 6 kiaušiniai, 50 lizde, 21 į inkubatorių ir 5 išmesti, su sąrašu Kiaušiniai lizde"
     },
     {
      "title": "Kiaušinių įvedimas (lizdas / inkubatorinė)",
@@ -955,27 +1014,27 @@
     {
      "title": "Natūrali inkubacija",
      "desc": "Lizduose perimi kiaušiniai: ID, surinkimo data, būklė.",
-     "alt": "Kiaušinių lizde sąrašas su povų patelių įrašais"
+     "alt": "Kiaušinių rinkimo suvestinė: šiandien surinkti 6 kiaušiniai, 50 lizde, 21 į inkubatorių ir 5 išmesti, su sąrašu Kiaušiniai lizde"
     },
     {
      "title": "Dirbtinė inkubacija",
      "desc": "Inkubatorinės kiaušiniai: įvertinkite, perkelkite į inkubatorių, išmeskite ar pažymėkite išsiritusius.",
-     "alt": "Kiaušinių į inkubatorinę sąrašas"
+     "alt": "Sąrašas Kiaušiniai į inkubatorių: jūrinio krokodilo įrašai su žymimaisiais langeliais Pažymėti viską"
     },
     {
      "title": "Kiaušinių perkėlimai",
      "desc": "Sekite vietą, etapą, išsiritimo datą, rūšį, ID ir lytį.",
-     "alt": "Perkelti kiaušiniai – partijos perkėlimo užklausos"
+     "alt": "Perkelti kiaušiniai: grupiniai perkėlimo prašymai su būsenomis Atšaukta ir laukia"
     },
     {
      "title": "Kiaušinių išmetimas",
      "desc": "Išmeskite negyvybingus kiaušinius, užregistruodami priežastį, su audito seka.",
-     "alt": "Išmestinų kiaušinių sąrašas"
+     "alt": "Skirtukas Išmestini kiaušiniai: 36 išmestini kiaušiniai, kiekvienas su rūšimi, kiaušinio ID, data, priežastimi, pvz., Supuvęs, ir žymimuoju langeliu"
     },
     {
      "title": "Gyvūno ID sukūrimas",
      "desc": "Sukurkite įrašą išsiritusiems jaunikliams, susietą su rūšimi ir tėvais.",
-     "alt": "Išsiritę kiaušiniai – „Create Animal ID“"
+     "alt": "Skirtukas Išsiritę kiaušiniai: 4 išsiritę kiaušiniai, su Sukurti gyvūno ID prie jūrinio krokodilo kiaušinių ir hiacintinė ara, jau turinti ID 422163"
     }
    ]
   },
@@ -987,17 +1046,17 @@
     {
      "title": "Inkubatorinės ir inkubatorių konfigūravimas",
      "desc": "Nustatykite su vietomis susietas inkubatorines, kurkite patalpas, tvarkykite inkubatorius.",
-     "alt": "Inkubatorinių sąrašas su patalpomis, inkubatoriais ir vietomis"
+     "alt": "Inkubatorių patalpų sąrašas žiniatinklyje: patalpos su kambariais, inkubatoriais, vieta ir būsena Aktyvus, su paieška, vietos filtru ir Pridėti naują"
     },
     {
      "title": "Ataskaitos, filtrai ir prieiga prie duomenų",
      "desc": "Filtruokite pagal vietą, rūšį, datą ar etapą; eksportuokite ataskaitas.",
-     "alt": "Kiaušinių statistikos pagal rūšis lentelė"
+     "alt": "Kiaušinių statistikos suvestinė žiniatinklyje: kiaušiniai lizde, į inkubatorių, išsiritę, išmesti ir iš viso, su skirtukais Kiaušiniai pagal rūšis, vietas ir patalpas bei Atsisiųsti"
     },
     {
      "title": "Kiaušinių sąrašas",
      "desc": "Skirtukai pagal būseną: gauti, inkubuojami, išsiritę, išmesti, visi.",
-     "alt": "Kiaušinių sąrašas su skirtukais „Received“, „Incubation“, „Hatched“"
+     "alt": "Kiaušinių sąrašas žiniatinklyje: skirtukai Gauti, Inkubacija, Išsiritę, Išmestini, Išmesti ir Visi, su rūšimi, kiaušinio identifikatoriumi ir būkle"
     }
    ]
   },
@@ -1009,7 +1068,7 @@
     {
      "title": "Skelbimų tipai",
      "desc": "Bendrieji ir svarbūs, kiekvienas su savo matomumo taisyklėmis.",
-     "alt": "Skelbimų sąrašas su skirtukais „All“ ir „Created by me“, svarbių ir įprastų skelbimų kortelės"
+     "alt": "Forma Sukurti skelbimą su paryškintu tipo jungikliu Bendras ir Svarbus"
     },
     {
      "title": "Bendras sąrašas",
@@ -1019,7 +1078,7 @@
     {
      "title": "Skelbimų kūrimas",
      "desc": "Nustatykite tipą, pavadinimą, matomumą; paskelbkite ar suplanuokite; peržiūrėkite ir pridėkite priedus.",
-     "alt": "Skelbimo informacija: „Every necropsy counts“, su kūrimo mygtuku"
+     "alt": "Forma Sukurti skelbimą su tipu, informacija, matomumu ir planavimu"
     },
     {
      "title": "Veiksmai po paskelbimo",
@@ -1041,7 +1100,7 @@
     {
      "title": "Užklausų valdymas",
      "desc": "Pateikite, redaguokite, atšaukite ar atmeskite užklausas su prioritetais.",
-     "alt": "Staliaus darbų užklausos informacija su tiekėju ir sąmata"
+     "alt": "Dailidės darbų prašymas dėl medinių inkilų South Aviary Dome: tiekėjas, prašymo informacija, sąmata, faktinė kaina ir dabartinė būsena Vykdoma"
     },
     {
      "title": "Išlaidų valdymas",
@@ -1051,7 +1110,7 @@
     {
      "title": "Įvykdymas ir grąžinimas",
      "desc": "Pažymėkite užklausas kaip įvykdytas arba grąžinkite jas į vykdomų būseną.",
-     "alt": "Užbaigta užklausa su parinktimi „Move Back To In-Progress“"
+     "alt": "Prašymas REQ29-00172 dėl medinės tvoros remonto, atsakingo asmens pažymėtas kaip Prašymas įvykdytas, su Grąžinti į Vykdoma"
     }
    ]
   },
@@ -1097,12 +1156,12 @@
     {
      "title": "Filtrai ir paieška",
      "desc": "Tikslinkite ataskaitas pagal datą, vietą ar rūšį.",
-     "alt": "Bendroji rūšių ataskaita: „Download report“, vietos pasirinkimas ir filtrų rodymas / slėpimas bei rūšių lentelė su patinų, patelių, nenustatytos ir neapibrėžtos lyties skaičiais"
+     "alt": "Bendroji rūšių ataskaita su paryškintu filtru Pasirinkti vietą"
     },
     {
      "title": "Atsisiunčiamos ataskaitos",
      "desc": "Kurkite, peržiūrėkite ir atsisiųskite rūšių, dienos, gyvūnų sąrašo, gyvūnų vertinimo, gyvūnų prižiūrėtojų, naudotojų, stebėjimų, prižiūrėtojo dienoraščio, biologo dienoraščio ir aptvarų skaičiaus ataskaitas atitikčiai ir naudojimui neprisijungus.",
-     "alt": "Bendroji rūšių ataskaita: „Download report“, vietos pasirinkimas ir filtrų rodymas / slėpimas bei rūšių lentelė su patinų, patelių, nenustatytos ir neapibrėžtos lyties skaičiais"
+     "alt": "Bendroji rūšių ataskaita su paryškintu mygtuku Atsisiųsti ataskaitą"
     }
    ]
   },
@@ -1198,12 +1257,12 @@
     {
      "title": "Užklausos programėlėje",
      "desc": "Leidžia naudotojams užsisakyti produktų iš vaistinės tiesiai per programėlę.",
-     "alt": "Išdavimų sąrašas: 11 išdavimų su užklausų ID, vaistine, data, užklausos pateikėju, vaistu ir bendru kiekiu bei mygtukas „New Dispense“"
+     "alt": "Prašymų sąrašas: 11 prašymų su ID, vaistine, data, prašytoju ir prašomų prekių skaičiumi"
     },
     {
      "title": "Išdavimas programėlėje",
      "desc": "Leidžia sandėliams išduoti produktus iš vaistinės tiesiai per programėlę.",
-     "alt": "Išdavimo DIS279 informacija: Local Pharmacy, išduota Antz Admin, vienas vaistas Crocin, bendras kiekis 100"
+     "alt": "Išdavimų sąrašas: 14 išdavimų su ID, vaistine, data, gyvūnu, vaistais ir bendru kiekiu bei mygtuku Naujas išdavimas"
     }
    ]
   },
@@ -1214,43 +1273,58 @@
    "features": [
     {
      "title": "Suvestinė",
-     "desc": "Įžvalgos realiuoju laiku apie atsargų problemas, siuntas, pirkimus, užklausas, suvartojimą, galiojimo pabaigą ir greitai judančius produktus, su vaizdinėmis tendencijomis greitiems veiksmams.",
-     "alt": "Vaistininkas tvarko vaistų lentynas."
-    },
-    {
-     "title": "Išmanioji paieška ir filtrai",
-     "desc": "Greitai raskite įrašus pagal užklausos ID, gydytojo vardą ar vaistinę.",
-     "alt": ""
-    },
-    {
-     "title": "Pagrindiniai duomenys (stelažai ir lentynos)",
-     "desc": "Tvarkykite saugojimą pagal stelažų ir lentynų skaičių greitai prieigai ir atnaujinimams, su pritaikomais duomenimis (pakuotės, matavimo vienetai, druskos, vairuotojai, gamintojai).",
-     "alt": ""
+     "desc": "Greita atsargų, siuntų, pirkimų, užklausų ir produktų tendencijų apžvalga.",
+     "alt": "Vaistinės suvestinė: nebegaliojančių vaistų vertė, išsibaigę vaistai, iš viso užklausų, išsiųstų prekių vertė, siuntos, šiandienos užklausos ir išsiuntimų pagal mėnesius diagrama"
     },
     {
      "title": "Atsargų ataskaitų valdymas",
-     "desc": "Atsargos pagal serijas su verte ir galiojimo pabaiga; žymėkite mažų atsargų ar pasibaigusio galiojimo prekes; stebėkite artėjančias galiojimo pabaigas; tvarkykite depozitą su ginčų sprendimu.",
-     "alt": ""
+     "desc": "Bendras vaizdas: atsargos pagal serijas, mažų atsargų prekės, pasibaigusio ir besibaigiančio galiojimo produktai bei produktai depozite ar ginčo būsenos.",
+     "alt": "Atsargų ataskaita: produktų sąrašas pagal serijas su kiekiu sandėlyje, grynąja vieneto kaina ir verte"
     },
     {
-     "title": "Produktų ir atsargų valdymas",
-     "desc": "Kurkite produktus, sekite atsargas ir galiojimą, registruokite pirkimus ir išsiuntimus, tvarkykite bendrą registrą, valdykite pakaitalus ir variantus.",
-     "alt": ""
+     "title": "Produktų užklausų ir grąžinimų valdymas",
+     "desc": "Valdykite produktų užklausas, atskirų sandėlių poreikius, laukiančias prekes, tiesioginius išsiuntimus ir produktų grąžinimus vienoje centralizuotoje vietoje.",
+     "alt": "Produktų grąžinimo prašymų sąrašas su paieška, sandėlio ir dienų filtrais"
     },
     {
-     "title": "Išdavimo valdymas",
-     "desc": "Gydytojai gali išrašyti ir išduoti vaistus arba atsiimti juos tiesiai iš vaistinės – viskas registruojama.",
-     "alt": ""
+     "title": "Siuntos",
+     "desc": "Peržiūrėkite ir sekite gaunamus ir išsiunčiamus vaistinės atsargų judėjimus.",
+     "alt": "Išsiunčiamos siuntos: siuntos ID, tipas, gavėjas, transporto priemonė ir pristatymo atstovas"
     },
     {
-     "title": "Siuntų valdymas",
-     "desc": "Sekite gaunamas ir išsiunčiamas vaistų siuntas ir įvykdykite jas programėlėje.",
-     "alt": ""
+     "title": "Vaistų išdavimas",
+     "desc": "Valdykite ir sekite išrašytų vaistų išdavimą.",
+     "alt": "Išdavimų sąrašas: išdavimo ID, gyvūnų skaičius, data ir kas gavo"
     },
     {
-     "title": "Atsargų koregavimas ir ataskaitos",
-     "desc": "Registruokite atsargų pokyčius (trūkstamos, sugadintos, pasibaigusio galiojimo); saugokite audito istoriją; tvarkykite grąžinimus tiekėjams; atsisiųskite suvartojimo, grąžinimų, pirkimų ir išdavimo ataskaitas finansams ir poreikiui planuoti.",
-     "alt": ""
+     "title": "Produktų valdymas",
+     "desc": "Valdykite produktus, atsargas, pirkimus, išsiuntimus, atsargų operacijas, pakaitalus, variantus ir informacinius duomenis vienoje vietoje.",
+     "alt": "Produktų sąrašas: visi produktai su farmacine forma ir gamintoju"
+    },
+    {
+     "title": "Atsargų valdymas",
+     "desc": "Pridėkite, importuokite ir tikrinkite atsargas su tiekėjo, sąskaitos faktūros, serijos, galiojimo pabaigos, kainų ir kiekio duomenimis, tvarkydami išsamius pirkimų įrašus ir suvestines.",
+     "alt": "Atsargų sąrašas su importavimo ir atsargų pridėjimo mygtukais, tiekėjo filtru ir pirkimų įrašais"
+    },
+    {
+     "title": "Atsargų koregavimo valdymas",
+     "desc": "Valdykite atsargų koregavimus ir grąžinimus tiekėjams, kad atsargų duomenys būtų tikslūs, nuostoliai mažesni, o viskas visiškai atsekama.",
+     "alt": "Atsargų koregavimų sąrašas: trūkstamų / pasibaigusio galiojimo / sugadintų skirtukai su produktu, serijos numeriu, kiekiu, priežastimi ir galiojimo pabaiga"
+    },
+    {
+     "title": "Ataskaitų valdymas",
+     "desc": "Sekite ir analizuokite suvartojimą, grąžinimus, siuntas, išdavimą, pirkimus ir užklausas naudodami išsamias, filtruojamas ataskaitas, kad geriau matytumėte atsargas ir lengviau atliktumėte auditus.",
+     "alt": "Suvartojimo ataskaita su datų intervalu, paieška, atsisiuntimu ir produktų sąrašu"
+    },
+    {
+     "title": "Produktų grąžinimas tiekėjui",
+     "desc": "Grąžinkite tiekėjams nereikalingus, pasibaigusio galiojimo, sugadintus ar perteklinius produktus, sekdami kiekius, priežastis ir grąžinimo būseną.",
+     "alt": "Grąžinimų tiekėjui sąrašas su prašymo numeriu, tiekėju, bendru kiekiu ir nurašymo data"
+    },
+    {
+     "title": "Pagrindiniai duomenys / stelažai ir lentynos",
+     "desc": "Tvarkykite produktus pagal stelažus ir lentynas bei valdykite pritaikomus pagrindinius duomenis efektyviam saugojimui ir atsargų valdymui.",
+     "alt": "Atsargų vieta: pagrindinių duomenų stelažų ir lentynų nustatymai su produkto pavadinimu, stelažų skaičiumi ir lentynų skaičiumi"
     }
    ]
   },

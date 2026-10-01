@@ -267,6 +267,43 @@
     }
    ]
   },
+  "chat-module": {
+   "title": "Modul Obrolan",
+   "intro": "Modul Obrolan adalah saluran komunikasi di dalam aplikasi yang menyediakan pesan pribadi dan grup, berbagi media, serta notifikasi real-time, sehingga semua percakapan kerja, pembaruan, dan koordinasi tetap aman di dalam platform, tidak tersebar di ponsel pribadi dan email.",
+   "summary": "Pesan pribadi dan grup, berbagi media, dan notifikasi real-time, aman di dalam platform",
+   "features": [
+    {
+     "title": "Pesan pribadi (1-on-1)",
+     "desc": "Memungkinkan obrolan empat mata antaranggota tim untuk komunikasi dan kolaborasi yang lancar.",
+     "alt": "Utas obrolan Antz Systems: koordinasi pengambilan sampel darah antara Dr. Neha dan Ahli Biologi Mayur"
+    },
+    {
+     "title": "Pesan grup",
+     "desc": "Buat grup untuk tim, sif, atau tugas apa pun dan mengobrol di satu tempat.",
+     "alt": "Utas obrolan Antz Systems: koordinasi pengambilan sampel darah antara Dr. Neha dan Ahli Biologi Mayur"
+    },
+    {
+     "title": "Berbagi media & dokumen",
+     "desc": "Kirim foto, video, laporan laboratorium, dan PDF langsung di utas; tidak perlu aplikasi lain.",
+     "alt": "Utas obrolan Antz Systems: koordinasi pengambilan sampel darah antara Dr. Neha dan Ahli Biologi Mayur"
+    },
+    {
+     "title": "Notifikasi real-time",
+     "desc": "Terima notifikasi instan langsung di dalam aplikasi untuk pembaruan penting.",
+     "alt": "Utas obrolan Antz Systems: koordinasi pengambilan sampel darah antara Dr. Neha dan Ahli Biologi Mayur"
+    },
+    {
+     "title": "Aman & dapat diaudit",
+     "desc": "Semua percakapan tetap berada di dalam Antz, dengan riwayat yang tersimpan.",
+     "alt": "Utas obrolan Antz Systems: koordinasi pengambilan sampel darah antara Dr. Neha dan Ahli Biologi Mayur"
+    },
+    {
+     "title": "Pencarian & filter",
+     "desc": "Temukan pesan berdasarkan kata kunci, pengirim, atau entitas tertaut.",
+     "alt": "Utas obrolan Antz Systems: koordinasi pengambilan sampel darah antara Dr. Neha dan Ahli Biologi Mayur"
+    }
+   ]
+  },
   "user-management": {
    "title": "Manajemen Pengguna",
    "intro": "Modul Pengguna memungkinkan pengelolaan akun, peran, dan izin secara aman dan terpusat. Modul ini menyederhanakan orientasi pengguna, menjamin keamanan data, dan menyelaraskan hak akses dengan peran organisasi sambil menyimpan log aktivitas terperinci untuk akuntabilitas.",
@@ -808,6 +845,28 @@
     }
    ]
   },
+  "focus-hub": {
+   "title": "Pusat Fokus",
+   "intro": "Pusat Fokus (Focus Hub) bersifat khusus untuk setiap pengguna, hanya menampilkan item yang telah ditandai pengguna sebagai favorit atau penanda. Satwa dan kandang favorit, serta catatan, rekam medis, dan permintaan laboratorium yang ditandai, dikumpulkan di satu tempat agar mudah diakses.",
+   "summary": "Satwa dan kandang favorit serta catatan bertanda Anda, di satu tempat untuk akses cepat",
+   "features": [
+    {
+     "title": "Pengelolaan folder",
+     "desc": "Buat, ganti nama, dan hapus folder untuk mengatur item tersimpan sesuai cara kerja Anda.",
+     "alt": "Tab Folders di My Focus Hub dengan folder Animals, Injured, Birds, Lion, Critical"
+    },
+    {
+     "title": "Satwa & kandang favorit",
+     "desc": "Tandai, lihat, dan hapus satwa dan kandang dari Favorit Anda dengan satu ketukan.",
+     "alt": "Tab Favourites di My Focus Hub dengan sakelar Animals dan Enclosures, serta daftar kartu satwa favorit"
+    },
+    {
+     "title": "Tandai catatan",
+     "desc": "Tandai dan hapus tanda pada catatan, rekam medis, atau permintaan laboratorium agar mudah dirujuk nanti.",
+     "alt": "Tab Bookmarks di My Focus Hub dengan filter Notes, Medical Record, Lab Request dan kartu rekam medis yang ditandai"
+    }
+   ]
+  },
   "mortality": {
    "title": "Mortalitas",
    "intro": "Modul Mortalitas memungkinkan Anda mencatat kematian satwa dengan cepat dan akurat, mengelola detail nekropsi, dan menyimpan bukti di satu tempat. Modul ini meningkatkan transparansi, mempercepat pengambilan keputusan, memastikan kepatuhan, dan mendukung pemantauan kesejahteraan satwa yang lebih baik.",
@@ -903,32 +962,32 @@
     {
      "title": "Tambah catatan kematian janin",
      "desc": "Catat insiden baru, penyebab, waktu, induk, info satwa.",
-     "alt": "Formulir Add Fetal Death dengan kandang, spesies, induk"
+     "alt": "Formulir Tambah Kematian Janin dengan kandang, spesies/taksonomi, dan induk yang dipilih"
     },
     {
      "title": "Pencarian & filter",
      "desc": "Cari berdasarkan kata kunci; filter berdasarkan lokasi, tanggal, lahir mati atau keguguran, spesies, atau jenis kelamin.",
-     "alt": "Daftar Fetal Death dengan pencarian dan filter"
+     "alt": "Daftar kematian janin dengan filter Semua Lokasi dan Semua Data, tab Lahir Mati, dan bilah pencarian disorot"
     },
     {
      "title": "Lihat catatan kematian",
      "desc": "Detail lengkap, jumlah hari sejak kematian, penyebab, ID, kandang, lokasi, jenis kelamin.",
-     "alt": "Daftar catatan Fetal Death, tab Still Birth"
+     "alt": "Daftar kematian janin dengan kartu pertama disorot"
     },
     {
      "title": "Tampilan kartu satwa",
      "desc": "FID, spesies, penemuan, induk, lokasi, jenis kelamin, pelapor.",
-     "alt": "Kartu detail Fetus Death Summary"
+     "alt": "Kartu detail Ringkasan Kematian Janin"
     },
     {
      "title": "Edit catatan",
      "desc": "Ubah entri yang ada dari ringkasan, dengan jejak audit.",
-     "alt": "Fetus Death Summary dengan ikon pensil edit"
+     "alt": "Ringkasan kematian janin dengan pensil edit disorot"
     },
     {
      "title": "Hapus catatan",
      "desc": "Hapus entri bila diperlukan, dengan jejak audit lengkap.",
-     "alt": "Fetus Death Summary dengan opsi Delete Fetal Death"
+     "alt": "Ringkasan kematian janin dengan opsi Hapus Kematian Janin disorot"
     }
    ]
   },
@@ -940,7 +999,7 @@
     {
      "title": "Dasbor telur",
      "desc": "Jumlah langsung: di sarang, dipindahkan ke nursery, ditandai untuk dibuang.",
-     "alt": "Dasbor Egg Collection: 66 di sarang, 76 ke nursery, 35 untuk dibuang"
+     "alt": "Dasbor Pengumpulan Telur: 6 telur dikumpulkan hari ini, 50 di sarang, 21 ke nursery, dan 5 akan dibuang, dengan daftar Telur di sarang"
     },
     {
      "title": "Entri telur (sarang / nursery)",
@@ -955,27 +1014,27 @@
     {
      "title": "Inkubasi alami",
      "desc": "Telur yang dierami di sarang: ID, tanggal pengumpulan, kondisi.",
-     "alt": "Daftar telur di sarang dengan entri peacock hind"
+     "alt": "Dasbor Pengumpulan Telur: 6 telur dikumpulkan hari ini, 50 di sarang, 21 ke nursery, dan 5 akan dibuang, dengan daftar Telur di sarang"
     },
     {
      "title": "Inkubasi buatan",
      "desc": "Telur di nursery: evaluasi, pindahkan ke inkubator, buang, atau tetaskan.",
-     "alt": "Daftar telur ke nursery"
+     "alt": "Daftar Telur ke nursery: entri buaya muara dengan kotak centang Pilih semua"
     },
     {
      "title": "Pemindahan telur",
      "desc": "Lacak lokasi, tahap, tanggal menetas, spesies, ID, dan jenis kelamin.",
-     "alt": "Telur dipindahkan — permintaan pemindahan batch"
+     "alt": "Telur dipindahkan: permintaan pemindahan batch dengan status Dibatalkan dan tertunda"
     },
     {
      "title": "Pembuangan telur",
      "desc": "Buang telur yang tidak layak dengan alasan yang dicatat dan jejak audit.",
-     "alt": "Daftar telur yang akan dibuang"
+     "alt": "Tab Telur yang akan dibuang: 36 telur yang akan dibuang, masing-masing dengan spesies, ID telur, tanggal, alasan seperti Busuk, dan kotak centang"
     },
     {
      "title": "Buat ID satwa",
      "desc": "Buat catatan untuk telur yang menetas, terhubung dengan spesies dan induk.",
-     "alt": "Telur menetas — Create Animal ID"
+     "alt": "Tab Telur menetas: 4 telur menetas, dengan Buat ID Hewan pada telur buaya muara dan seekor makaw hyacinth yang sudah memiliki ID 422163"
     }
    ]
   },
@@ -987,17 +1046,17 @@
     {
      "title": "Konfigurasi nursery & inkubator",
      "desc": "Siapkan nursery yang terhubung ke lokasi, buat ruangan, kelola inkubator.",
-     "alt": "Daftar nursery dengan ruangan, inkubator, dan lokasi"
+     "alt": "Daftar nursery di web: nursery dengan ruangan, inkubator, lokasi, dan status Aktif, dengan pencarian, filter lokasi, dan Tambah Baru"
     },
     {
      "title": "Pelaporan, filter & akses data",
      "desc": "Filter berdasarkan lokasi, spesies, tanggal, atau tahap; ekspor laporan.",
-     "alt": "Tabel Eggs Stats berdasarkan spesies"
+     "alt": "Dasbor Statistik Telur di web: telur di sarang, ke nursery, menetas, dibuang, dan total, dengan tab Telur per Spesies, Lokasi, dan Nursery serta Unduh"
     },
     {
      "title": "Daftar telur",
      "desc": "Tab berbasis status: Diterima, Inkubasi, Menetas, Dibuang, Semua.",
-     "alt": "Egg List dengan tab Received, Incubation, Hatched"
+     "alt": "Daftar telur di web: tab Diterima, Inkubasi, Menetas, Akan Dibuang, Dibuang, dan Semua, dengan spesies, pengenal telur, dan kondisi"
     }
    ]
   },
@@ -1009,7 +1068,7 @@
     {
      "title": "Jenis pengumuman",
      "desc": "Umum dan Penting, masing-masing dengan aturan visibilitasnya sendiri.",
-     "alt": "Daftar pengumuman dengan tab All dan Created by me, kartu Important dan Announcement"
+     "alt": "Formulir Buat Pengumuman dengan pilihan jenis Umum dan Penting disorot"
     },
     {
      "title": "Daftar terpadu",
@@ -1019,7 +1078,7 @@
     {
      "title": "Buat pengumuman",
      "desc": "Tetapkan jenis, judul, visibilitas; terbitkan atau jadwalkan; pratinjau & lampirkan.",
-     "alt": "Detail pengumuman: Every necropsy counts, dengan tombol buat"
+     "alt": "Formulir Buat Pengumuman dengan jenis, detail, visibilitas, dan penjadwalan"
     },
     {
      "title": "Tindakan setelah diterbitkan",
@@ -1041,7 +1100,7 @@
     {
      "title": "Pengelolaan permintaan",
      "desc": "Ajukan, edit, batalkan, atau tolak permintaan dengan prioritas.",
-     "alt": "Detail permintaan pertukangan kayu dengan vendor dan estimasi biaya"
+     "alt": "Permintaan pertukangan kayu untuk kotak sarang kayu di South Aviary Dome: vendor, detail permintaan, perkiraan biaya, biaya aktual, dan status saat ini Sedang diproses"
     },
     {
      "title": "Pengelolaan biaya",
@@ -1051,7 +1110,7 @@
     {
      "title": "Pemenuhan & pengembalian status",
      "desc": "Tandai permintaan sebagai terpenuhi atau kembalikan ke status sedang diproses.",
-     "alt": "Request Completed dengan Move Back To In-Progress"
+     "alt": "Permintaan REQ29-00172 untuk perbaikan pagar kayu, ditandai Permintaan Selesai oleh pihak berwenang, dengan Kembalikan ke Sedang diproses"
     }
    ]
   },
@@ -1097,12 +1156,12 @@
     {
      "title": "Filter & pencarian",
      "desc": "Saring laporan berdasarkan tanggal, lokasi, atau spesies.",
-     "alt": "Species General Report: Download report, filter Select Site dan Show/Hide, serta tabel spesies dengan jumlah Male, Female, Undetermined, dan Indeterminate"
+     "alt": "Laporan Umum Spesies dengan filter Pilih Lokasi disorot"
     },
     {
      "title": "Laporan yang dapat diunduh",
      "desc": "Buat, lihat, dan unduh laporan Spesies, Harian, Daftar Satwa, Penilaian Satwa, Perawat Satwa, Pengguna, Pengamatan, Buku Harian Perawat Satwa, Buku Harian Ahli Biologi, dan Jumlah Kandang untuk kepatuhan dan akses luring.",
-     "alt": "Species General Report: Download report, filter Select Site dan Show/Hide, serta tabel spesies dengan jumlah Male, Female, Undetermined, dan Indeterminate"
+     "alt": "Laporan Umum Spesies dengan tombol Unduh laporan disorot"
     }
    ]
   },
@@ -1198,12 +1257,12 @@
     {
      "title": "Permintaan dalam aplikasi",
      "desc": "Memungkinkan pengguna meminta produk dari farmasi langsung melalui aplikasi.",
-     "alt": "Daftar Dispense: 11 penyerahan dengan ID permintaan, farmasi, tanggal, pemohon, obat, dan jumlah total, serta tombol New Dispense"
+     "alt": "Daftar permintaan: 11 permintaan dengan ID, apotek, tanggal, peminta, dan jumlah item yang diminta"
     },
     {
      "title": "Penyerahan dalam aplikasi",
      "desc": "Memungkinkan gudang menyerahkan produk dari farmasi langsung melalui aplikasi.",
-     "alt": "Detail Dispense DIS279: Local Pharmacy, diserahkan kepada Antz Admin, satu obat Crocin dengan jumlah total 100"
+     "alt": "Daftar pengeluaran obat: 14 pengeluaran dengan ID, apotek, tanggal, hewan, obat, dan jumlah total, serta tombol Pengeluaran Baru"
     }
    ]
   },
@@ -1214,43 +1273,58 @@
    "features": [
     {
      "title": "Dasbor",
-     "desc": "Wawasan real-time tentang masalah stok, pengiriman, pembelian, permintaan, penggunaan, kedaluwarsa, dan produk yang cepat laku, dengan tren visual untuk tindakan cepat.",
-     "alt": "Seorang apoteker menata rak obat."
-    },
-    {
-     "title": "Pencarian cerdas & filter",
-     "desc": "Temukan catatan dengan cepat berdasarkan ID Permintaan, nama dokter, atau farmasi.",
-     "alt": ""
-    },
-    {
-     "title": "Master (rak & ambalan)",
-     "desc": "Atur penyimpanan berdasarkan jumlah rak/ambalan untuk akses dan pembaruan cepat, dengan data yang dapat disesuaikan (kemasan, satuan ukur, zat aktif, penggerak, produsen).",
-     "alt": ""
+     "desc": "Dapatkan gambaran singkat tentang inventaris, pengiriman, pembelian, permintaan, dan tren produk.",
+     "alt": "Dasbor Farmasi: nilai obat kedaluwarsa, obat yang habis stok, total permintaan, nilai pengeluaran, pengiriman, permintaan hari ini, dan grafik pengeluaran per bulan"
     },
     {
      "title": "Pengelolaan laporan stok",
-     "desc": "Stok per batch dengan nilai dan kedaluwarsa; tandai item yang menipis/kedaluwarsa; pantau kedaluwarsa yang akan datang; kelola escrow dengan penyelesaian sengketa.",
-     "alt": ""
+     "desc": "Lihat ringkasan terpadu stok per batch, item dengan stok menipis, produk yang sudah dan akan kedaluwarsa, serta produk dalam escrow atau sengketa.",
+     "alt": "Laporan Stok: daftar produk per batch dengan jumlah di gudang, harga satuan bersih, dan nilai"
     },
     {
-     "title": "Pengelolaan produk & inventaris",
-     "desc": "Buat produk, lacak inventaris dan kedaluwarsa, catat pembelian/pengiriman, kelola buku besar terpadu, tangani pengganti/varian.",
-     "alt": ""
+     "title": "Pengelolaan permintaan & retur produk",
+     "desc": "Kelola permintaan produk, kebutuhan per gudang, item tertunda, pengeluaran langsung, dan retur produk dari satu tampilan terpusat.",
+     "alt": "Daftar Permintaan Retur Produk dengan pencarian serta filter gudang dan hari"
     },
     {
-     "title": "Pengelolaan penyerahan",
-     "desc": "Dokter dapat meresepkan dan menyerahkan obat, atau mengambil obat langsung dari farmasi, semuanya tercatat.",
-     "alt": ""
+     "title": "Pengiriman",
+     "desc": "Lihat dan lacak pergerakan stok farmasi yang masuk dan keluar.",
+     "alt": "Pengiriman Keluar: ID pengiriman, jenis, tujuan pengiriman, kendaraan, dan petugas pengantar"
     },
     {
-     "title": "Pengelolaan pengiriman",
-     "desc": "Lacak pengiriman obat masuk dan keluar serta penuhi langsung di aplikasi.",
-     "alt": ""
+     "title": "Penyerahan obat",
+     "desc": "Kelola dan lacak penyerahan obat yang diresepkan.",
+     "alt": "Daftar penyerahan: ID penyerahan, jumlah hewan, tanggal, dan penerima"
     },
     {
-     "title": "Penyesuaian stok & laporan",
-     "desc": "Catat perubahan stok (hilang, rusak, kedaluwarsa); simpan riwayat audit; kelola retur ke pemasok; unduh laporan konsumsi, retur, pembelian, dan penyerahan untuk keuangan dan perencanaan kebutuhan.",
-     "alt": ""
+     "title": "Pengelolaan produk",
+     "desc": "Kelola produk, inventaris, pembelian, pengeluaran, transaksi stok, pengganti, varian, dan informasi referensi di satu tempat.",
+     "alt": "Daftar Produk: semua produk beserta bentuk sediaan dan produsennya"
+    },
+    {
+     "title": "Pengelolaan inventaris",
+     "desc": "Tambahkan, impor, dan verifikasi inventaris beserta rincian pemasok, faktur, batch, kedaluwarsa, harga, dan jumlah, sekaligus menyimpan catatan dan ringkasan pembelian secara lengkap.",
+     "alt": "Daftar Inventaris dengan tombol Import dan Add Inventory, filter pemasok, dan catatan pembelian"
+    },
+    {
+     "title": "Pengelolaan penyesuaian stok",
+     "desc": "Kelola penyesuaian stok dan retur ke pemasok untuk menjaga keakuratan inventaris, mengurangi kerugian, dan memastikan ketertelusuran penuh.",
+     "alt": "Daftar Penyesuaian Stok: tab hilang/kedaluwarsa/rusak dengan produk, nomor batch, jumlah, alasan, dan tanggal kedaluwarsa"
+    },
+    {
+     "title": "Pengelolaan laporan",
+     "desc": "Lacak dan analisis konsumsi, retur, pengiriman, penyerahan, pembelian, dan permintaan dengan laporan terperinci yang dapat difilter untuk visibilitas inventaris dan audit yang lebih baik.",
+     "alt": "Laporan Konsumsi dengan rentang tanggal, pencarian, unduhan, dan daftar produk"
+    },
+    {
+     "title": "Retur produk ke pemasok",
+     "desc": "Kembalikan produk yang tidak diperlukan, kedaluwarsa, rusak, atau berlebih ke pemasok sambil melacak jumlah, alasan, dan status retur.",
+     "alt": "Daftar Retur ke Pemasok dengan nomor permintaan, pemasok, jumlah total, dan tanggal pemusnahan"
+    },
+    {
+     "title": "Pengelolaan master/rak & ambalan",
+     "desc": "Atur produk berdasarkan rak dan ambalan sambil mengelola data master yang dapat disesuaikan untuk penyimpanan dan pengelolaan inventaris yang efisien.",
+     "alt": "Lokasi Stok: konfigurasi rak dan ambalan di Master dengan nama produk, jumlah rak, dan jumlah ambalan"
     }
    ]
   },

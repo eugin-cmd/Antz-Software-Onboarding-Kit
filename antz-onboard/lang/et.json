@@ -267,6 +267,43 @@
     }
    ]
   },
+  "chat-module": {
+   "title": "Vestlusmoodul",
+   "intro": "Vestlusmoodul on rakendusesisene suhtluskanal, mis pakub individuaal- ja grupivestlusi, meedia jagamist ning reaalajas teavitusi. Nii püsivad kõik töövestlused, värskendused ja kooskõlastamine turvaliselt platvormil, mitte laiali isiklikes telefonides ja e-kirjades.",
+   "summary": "Individuaal- ja grupivestlused, meedia jagamine ja reaalajas teavitused, turvaliselt platvormil",
+   "features": [
+    {
+     "title": "Individuaalvestlused",
+     "desc": "Võimaldab meeskonnaliikmetel vestelda kahekesi, et suhtlus ja koostöö sujuksid.",
+     "alt": "Antz Systemsi vestluslõim: vereproovi võtmise kooskõlastamine Dr. Neha ja bioloog Mayuri vahel"
+    },
+    {
+     "title": "Grupivestlused",
+     "desc": "Looge rühm mis tahes meeskonna, vahetuse või ülesande jaoks ja vestelge ühes kohas.",
+     "alt": "Antz Systemsi vestluslõim: vereproovi võtmise kooskõlastamine Dr. Neha ja bioloog Mayuri vahel"
+    },
+    {
+     "title": "Meedia ja dokumentide jagamine",
+     "desc": "Saatke fotosid, videoid, laboriaruandeid ja PDF-faile otse vestluslõimes – väliseid rakendusi pole vaja.",
+     "alt": "Antz Systemsi vestluslõim: vereproovi võtmise kooskõlastamine Dr. Neha ja bioloog Mayuri vahel"
+    },
+    {
+     "title": "Reaalajas teavitused",
+     "desc": "Saage olulistest värskendustest kohe teavitus otse rakenduses.",
+     "alt": "Antz Systemsi vestluslõim: vereproovi võtmise kooskõlastamine Dr. Neha ja bioloog Mayuri vahel"
+    },
+    {
+     "title": "Turvaline ja auditeeritav",
+     "desc": "Kõik vestlused jäävad Antzi sisse ja nende ajalugu säilitatakse.",
+     "alt": "Antz Systemsi vestluslõim: vereproovi võtmise kooskõlastamine Dr. Neha ja bioloog Mayuri vahel"
+    },
+    {
+     "title": "Otsing ja filtrid",
+     "desc": "Leidke sõnumeid märksõna, saatja või seotud objekti järgi.",
+     "alt": "Antz Systemsi vestluslõim: vereproovi võtmise kooskõlastamine Dr. Neha ja bioloog Mayuri vahel"
+    }
+   ]
+  },
   "user-management": {
    "title": "Kasutajate haldus",
    "intro": "Kasutajate moodul võimaldab kontode, rollide ja õiguste turvalist ja keskset haldust. See lihtsustab kasutajate lisamist, tagab andmete turvalisuse ja viib juurdepääsuõigused kooskõlla organisatsiooni rollidega, säilitades vastutuse tagamiseks üksikasjaliku tegevuslogi.",
@@ -808,6 +845,28 @@
     }
    ]
   },
+  "focus-hub": {
+   "title": "Fookuskeskus",
+   "intro": "Fookuskeskus (Focus Hub) on kasutajapõhine: see näitab ainult neid üksusi, mille kasutaja on märkinud lemmikuks või lisanud järjehoidjatesse. Lemmikuks märgitud loomad ja aedikud ning järjehoidjatesse lisatud märkmed, tervisekirjed ja laboritaotlused on koondatud ühte kohta kiireks juurdepääsuks.",
+   "summary": "Teie lemmikuks märgitud loomad ja aedikud ning järjehoidjates kirjed ühes kohas kiireks juurdepääsuks",
+   "features": [
+    {
+     "title": "Kaustade haldus",
+     "desc": "Looge, nimetage ümber ja kustutage kaustu, et korraldada salvestatud üksusi täpselt oma töö järgi.",
+     "alt": "Minu fookuskeskuse kaustade vahekaart kaustadega Loomad, Vigastatud, Linnud, Lõvi, Kriitiline"
+    },
+    {
+     "title": "Lemmikuks märgitud loomad ja aedikud",
+     "desc": "Märkige loomi ja aedikuid lemmikuks, vaadake neid ja eemaldage need lemmikutest ühe puudutusega.",
+     "alt": "Minu fookuskeskuse lemmikute vahekaart loomade ja aedikute lülitiga ning lemmikuks märgitud loomade kaartide loend"
+    },
+    {
+     "title": "Kirjete lisamine järjehoidjatesse",
+     "desc": "Lisage märkmeid, tervisekirjeid või laboritaotlusi järjehoidjatesse ja eemaldage need sealt, et need hiljem kiiresti üles leida.",
+     "alt": "Minu fookuskeskuse järjehoidjate vahekaart filtritega märkmed, tervisekirje, laboritaotlus ning järjehoidjatesse lisatud tervisekirjete kaardid"
+    }
+   ]
+  },
   "mortality": {
    "title": "Suremus",
    "intro": "Suremuse moodul võimaldab loomade surmajuhtumeid kiiresti ja täpselt registreerida, hallata lahangu andmeid ja hoida tõendeid ühes kohas. See suurendab läbipaistvust, kiirendab otsuste tegemist, tagab nõuetele vastavuse ja toetab loomade heaolu paremat jälgimist.",
@@ -903,32 +962,32 @@
     {
      "title": "Loote surma kirje lisamine",
      "desc": "Sisestage uued juhtumid: põhjus, aeg, põlvnemine, looma andmed.",
-     "alt": "Loote surma lisamise vorm aediku, liigi ja vanemaga"
+     "alt": "Vorm Lisa loote surm valitud aediku, liigi/taksonoomia ja vanematega"
     },
     {
      "title": "Otsing ja filtrid",
      "desc": "Otsige märksõna järgi; filtreerige asukoha, kuupäeva, surnultsünni või abordi, liigi või soo järgi.",
-     "alt": "Loote surmade loend otsingu ja filtriga"
+     "alt": "Loote surmade loend esiletõstetud filtritega Kõik asukohad ja Kõik andmed, vahekaardiga Surnultsünd ja otsinguribaga"
     },
     {
      "title": "Surmajuhtumite kirjete vaatamine",
      "desc": "Täielikud andmed, surmast möödunud päevad, põhjus, ID, aedik, asukoht, sugu.",
-     "alt": "Loote surmade kirjete loend, surnultsündide vahekaart"
+     "alt": "Loote surmade loend esiletõstetud esimese kaardiga"
     },
     {
      "title": "Looma kaardi kuvamine",
      "desc": "FID, liik, leidmine, vanemad, asukoht, sugu, teataja.",
-     "alt": "Loote surma kokkuvõtte kaart"
+     "alt": "Üksikasjalik kaart Loote surma kokkuvõte"
     },
     {
      "title": "Kirje muutmine",
      "desc": "Muutke olemasolevat kirjet kokkuvõttest, auditijäljega.",
-     "alt": "Loote surma kokkuvõte muutmispliiatsiga"
+     "alt": "Loote surma kokkuvõte esiletõstetud muutmise pliiatsiga"
     },
     {
      "title": "Kirje kustutamine",
      "desc": "Eemaldage kirje vajaduse korral, täieliku auditijäljega.",
-     "alt": "Loote surma kokkuvõte valikuga „Kustuta loote surm“ (\"Delete Fetal Death\")"
+     "alt": "Loote surma kokkuvõte esiletõstetud valikuga Kustuta loote surm"
     }
    ]
   },
@@ -940,7 +999,7 @@
     {
      "title": "Munade töölaud",
      "desc": "Reaalajas arvud: pesas, kasvandusse viidud, hävitamiseks märgitud.",
-     "alt": "Munade kogumise töölaud: 66 pesas, 76 kasvandusse, 35 hävitamiseks"
+     "alt": "Munade kogumise ülevaade: täna kogutud 6 muna, 50 pesas, 21 kasvandusse ja 5 kõrvaldamiseks, koos loendiga Munad pesas"
     },
     {
      "title": "Munade sisestamine (pesa / kasvandus)",
@@ -955,27 +1014,27 @@
     {
      "title": "Looduslik haudumine",
      "desc": "Pesas hautavad munad: ID, kogumise kuupäev, seisund.",
-     "alt": "Pesas olevate munade loend emase paabulinnu kirjetega"
+     "alt": "Munade kogumise ülevaade: täna kogutud 6 muna, 50 pesas, 21 kasvandusse ja 5 kõrvaldamiseks, koos loendiga Munad pesas"
     },
     {
      "title": "Kunstlik haudumine",
      "desc": "Kasvanduse munad: hindamine, inkubaatorisse viimine, hävitamine või koorumine.",
-     "alt": "Kasvandusse viidud munade loend"
+     "alt": "Loend Munad kasvandusse: soolase vee krokodilli kirjed märkeruutudega Vali kõik"
     },
     {
      "title": "Munade üleviimine",
      "desc": "Jälgige asukohta, etappi, koorumise kuupäeva, liiki, ID-d ja sugu.",
-     "alt": "Üle viidud munad – partii üleviimistaotlused"
+     "alt": "Üle viidud munad: hulgiülekande taotlused olekutega Tühistatud ja ootel"
     },
     {
      "title": "Munade hävitamine",
      "desc": "Hävitage elujõuetud munad, põhjus ja auditijälg salvestatakse.",
-     "alt": "Hävitatavate munade loend"
+     "alt": "Vahekaart Kõrvaldatavad munad: 36 kõrvaldatavat muna, igaühel liik, muna ID, kuupäev, põhjus nagu Mädanenud ja märkeruut"
     },
     {
      "title": "Looma ID loomine",
      "desc": "Looge koorunud munale kirje, mis on seotud liigi ja vanematega.",
-     "alt": "Koorunud munad – looma ID loomine"
+     "alt": "Vahekaart Koorunud munad: 4 koorunud muna, soolase vee krokodilli munadel valik Loo looma ID ja hüatsintaara, kellel on juba ID 422163"
     }
    ]
   },
@@ -987,17 +1046,17 @@
     {
      "title": "Kasvanduse ja inkubaatorite seadistus",
      "desc": "Seadistage asukohtadega seotud kasvandused, looge ruume, hallake inkubaatoreid.",
-     "alt": "Kasvanduste loend ruumide, inkubaatorite ja asukohtadega"
+     "alt": "Kasvanduste loend veebis: kasvandused ruumide, inkubaatorite, asukoha ja olekuga Aktiivne, otsingu, asukohafiltri ja nupuga Lisa uus"
     },
     {
      "title": "Aruandlus, filtrid ja juurdepääs andmetele",
      "desc": "Filtreerige asukoha, liigi, kuupäeva või etapi järgi; eksportige aruandeid.",
-     "alt": "Munade statistika tabel liikide kaupa"
+     "alt": "Munade statistika ülevaade veebis: munad pesas, kasvandusse, koorunud, kõrvaldatud ja kokku, vahekaartidega Munad liikide, asukohtade ja kasvanduste kaupa ning Laadi alla"
     },
     {
      "title": "Munade loend",
      "desc": "Olekupõhised vahekaardid: vastu võetud, haudumisel, koorunud, hävitatud, kõik.",
-     "alt": "Munade loend vahekaartidega vastu võetud, haudumisel, koorunud"
+     "alt": "Munade loend veebis: vahekaardid Vastu võetud, Inkubeerimine, Koorunud, Kõrvaldatavad, Kõrvaldatud ja Kõik, koos liigi, muna tunnuse ja seisundiga"
     }
    ]
   },
@@ -1009,7 +1068,7 @@
     {
      "title": "Teadaannete tüübid",
      "desc": "Üldised ja olulised, kummalgi oma nähtavusreeglid.",
-     "alt": "Teadaannete loend vahekaartidega „Kõik“ ja „Minu loodud“, oluliste teadete ja teadaannete kaardid"
+     "alt": "Vorm Loo teadaanne esiletõstetud tüübivalikuga Üldine ja Oluline"
     },
     {
      "title": "Ühtne loend",
@@ -1019,7 +1078,7 @@
     {
      "title": "Teadaannete loomine",
      "desc": "Määrake tüüp, pealkiri ja nähtavus; avaldage kohe või ajastage; eelvaade ja manused.",
-     "alt": "Teadaande üksikasjad: Every necropsy counts, loomise nupuga"
+     "alt": "Vorm Loo teadaanne tüübi, üksikasjade, nähtavuse ja ajastamisega"
     },
     {
      "title": "Toimingud pärast avaldamist",
@@ -1041,7 +1100,7 @@
     {
      "title": "Taotluste haldus",
      "desc": "Esitage, muutke, tühistage või lükake tagasi prioriteetidega taotlusi.",
-     "alt": "Puusepatöö taotluse üksikasjad tarnija ja kulude hinnanguga"
+     "alt": "Puusepatöö taotlus puidust pesakastidele South Aviary Dome’is: tarnija, taotluse üksikasjad, kuluhinnang, tegelik kulu ja praegune olek Töös"
     },
     {
      "title": "Kulude haldus",
@@ -1051,7 +1110,7 @@
     {
      "title": "Täitmine ja tagasipööramine",
      "desc": "Märkige taotlused täidetuks või viige need tagasi olekusse „töös“.",
-     "alt": "Lõpetatud taotlus valikuga „Tagasi olekusse Töös“ (\"Move Back To In-Progress\")"
+     "alt": "Taotlus REQ29-00172 puitaia parandamiseks, mille vastutaja on märkinud olekusse Taotlus täidetud, koos valikuga Tagasi olekusse Töös"
     }
    ]
   },
@@ -1097,12 +1156,12 @@
     {
      "title": "Filtrid ja otsing",
      "desc": "Täpsustage aruandeid kuupäeva, asukoha või liigi järgi.",
-     "alt": "Liikide üldaruanne: aruande allalaadimine, asukoha valik ja filtrite kuvamine/peitmine ning liikide tabel isaste, emaste, määramata ja määramatu soo arvuga"
+     "alt": "Liikide üldaruanne esiletõstetud filtriga Vali asukoht"
     },
     {
      "title": "Allalaaditavad aruanded",
      "desc": "Koostage, vaadake ja laadige alla liikide, päeva-, loomade loendi, loomade hindamise, loomahoidjate, kasutajate, vaatluste, hoidjapäeviku, bioloogipäeviku ja aedikute loenduse aruandeid nõuetele vastavuse ja võrguühenduseta kasutamise jaoks.",
-     "alt": "Liikide üldaruanne: aruande allalaadimine, asukoha valik ja filtrite kuvamine/peitmine ning liikide tabel isaste, emaste, määramata ja määramatu soo arvuga"
+     "alt": "Liikide üldaruanne esiletõstetud nupuga Laadi aruanne alla"
     }
    ]
   },
@@ -1198,12 +1257,12 @@
     {
      "title": "Taotlemine rakenduses",
      "desc": "Kasutajad saavad tooteid apteegist taotleda otse rakenduse kaudu.",
-     "alt": "Väljastuste loend: 11 väljastust taotluse ID, apteegi, kuupäeva, taotleja, ravimi ja koguhulgaga ning nupp „Uus väljastus“"
+     "alt": "Taotluste loend: 11 taotlust ID, apteegi, kuupäeva, taotleja ja taotletud artiklite arvuga"
     },
     {
      "title": "Väljastamine rakenduses",
      "desc": "Ladu saab tooteid apteegist väljastada otse rakenduse kaudu.",
-     "alt": "Väljastuse DIS279 üksikasjad: Local Pharmacy, väljastatud kasutajale Antz Admin, üks ravim Crocin koguhulgaga 100"
+     "alt": "Väljastuste loend: 14 väljastust ID, apteegi, kuupäeva, looma, ravimite ja koguhulgaga ning nupuga Uus väljastus"
     }
    ]
   },
@@ -1214,43 +1273,58 @@
    "features": [
     {
      "title": "Töölaud",
-     "desc": "Reaalajas ülevaade laoprobleemidest, saadetistest, ostudest, taotlustest, kasutusest, aeguvatest ja kiiresti liikuvatest toodetest koos visuaalsete suundumustega kiireks tegutsemiseks.",
-     "alt": "Proviisor korrastab ravimiriiuleid."
-    },
-    {
-     "title": "Nutikas otsing ja filtrid",
-     "desc": "Leidke kirjed kiiresti taotluse ID, arsti nime või apteegi järgi.",
-     "alt": ""
-    },
-    {
-     "title": "Põhiandmed (riiulid ja riiulikohad)",
-     "desc": "Korraldage hoiustamine riiulite ja riiulikohtade arvu järgi kiireks juurdepääsuks ja uuendamiseks, kohandatavate andmetega (pakend, mõõtühik, soolad, toimeained, tootjad).",
-     "alt": ""
+     "desc": "Saage kiire ülevaade laovarudest, saadetistest, ostudest, taotlustest ja toodete suundumustest.",
+     "alt": "Apteegi töölaud: aegunud ravimite väärtus, laost otsa saanud ravimid, taotluste koguarv, lähetatud väärtus, saadetised, tänased taotlused ja kuupõhine lähetuste graafik"
     },
     {
      "title": "Laoaruannete haldus",
-     "desc": "Partiipõhine laoseis koos väärtuse ja aegumisega; märkige vähese varuga või aegunud tooted; jälgige eelseisvaid aegumisi; hallake deposiiti koos vaidluste lahendamisega.",
-     "alt": ""
+     "desc": "Saage koondülevaade partiipõhisest laoseisust, vähese varuga toodetest, aegunud ja aeguvatest toodetest ning deposiidis või vaidluses olevatest toodetest.",
+     "alt": "Laoaruanne: partiipõhine tooteloend laos oleva koguse, neto ühikuhinna ja väärtusega"
     },
     {
-     "title": "Toodete ja laovarude haldus",
-     "desc": "Looge tooteid, jälgige laovarusid ja aegumist, registreerige oste ja väljastusi, pidage ühtset pearaamatut, hallake asendustooteid ja variante.",
-     "alt": ""
+     "title": "Toodete taotluste ja tagastuste haldus",
+     "desc": "Hallake toodete taotlusi, ladude kaupa vajadusi, ootel artikleid, otselähetusi ja toodete tagastusi ühest kesksest vaatest.",
+     "alt": "Toodete tagastustaotluste loend otsingu ning lao- ja päevafiltritega"
     },
     {
-     "title": "Väljastamise haldus",
-     "desc": "Arstid saavad ravimeid välja kirjutada ja väljastada või need otse apteegist kätte saada, kõik logitakse.",
-     "alt": ""
+     "title": "Saadetised",
+     "desc": "Vaadake ja jälgige apteegi sissetulevaid ja väljaminevaid laoliikumisi.",
+     "alt": "Väljaminevad saadetised: saadetise ID, tüüp, saaja, sõiduk ja kättetoimetaja"
     },
     {
-     "title": "Saadetiste haldus",
-     "desc": "Jälgige sissetulevaid ja väljaminevaid ravimisaadetisi ja täitke need rakenduses.",
-     "alt": ""
+     "title": "Ravimite väljastamine",
+     "desc": "Hallake ja jälgige väljakirjutatud ravimite väljastamist.",
+     "alt": "Väljastuste loend: väljastuse ID, loomade arv, kuupäev ja vastuvõtja"
     },
     {
-     "title": "Laokorrektsioonid ja aruanded",
-     "desc": "Registreerige laoseisu muutused (puuduvad, purunenud, aegunud); säilitage auditi ajalugu; hallake tarnijale tagastusi; laadige alla tarbimise, tagastuste, ostude ja väljastuste aruanded rahanduse ja nõudluse planeerimiseks.",
-     "alt": ""
+     "title": "Toodete haldus",
+     "desc": "Hallake tooteid, laovarusid, oste, lähetusi, laotehinguid, asendustooteid, variante ja viiteandmeid ühes kohas.",
+     "alt": "Tooteloend: kõik tooted koos ravimvormi ja tootjaga"
+    },
+    {
+     "title": "Laovarude haldus",
+     "desc": "Lisage, importige ja kontrollige laovarusid koos tarnija, arve, partii, aegumise, hinna ja koguse andmetega ning pidage täielikku ostuarvestust ja kokkuvõtteid.",
+     "alt": "Laovarude loend nuppudega Impordi ja Lisa laovaru, tarnijafiltri ja ostukirjetega"
+    },
+    {
+     "title": "Laokorrektsioonide haldus",
+     "desc": "Hallake laokorrektsioone ja tarnijale tagastusi, et hoida laoseis täpne, vähendada kadusid ja tagada täielik jälgitavus.",
+     "alt": "Laokorrektsioonide loend: vahekaardid puuduv/aegunud/purunenud koos toote, partiinumbri, koguse, põhjuse ja aegumisega"
+    },
+    {
+     "title": "Aruannete haldus",
+     "desc": "Jälgige ja analüüsige tarbimist, tagastusi, saadetisi, väljastamist, oste ja taotlusi üksikasjalike, filtreeritavate aruannetega parema laoülevaate ja auditite jaoks.",
+     "alt": "Tarbimisaruanne kuupäevavahemiku, otsingu, allalaadimise ja tooteloendiga"
+    },
+    {
+     "title": "Toodete tagastamine tarnijale",
+     "desc": "Tagastage tarnijatele mittevajalikud, aegunud, kahjustatud või üleliigsed tooted, jälgides koguseid, põhjuseid ja tagastuse olekut.",
+     "alt": "Tarnijale tagastamiste loend taotluse numbri, tarnija, koguhulga ja mahakandmise kuupäevaga"
+    },
+    {
+     "title": "Põhiandmed / riiulite ja riiulikohtade haldus",
+     "desc": "Korraldage tooted riiulite ja riiulikohtade kaupa ning hallake kohandatavaid põhiandmeid tõhusaks hoiustamiseks ja laovarude haldamiseks.",
+     "alt": "Laoasukoht: põhiandmete riiulite ja riiulikohtade seadistus toote nime, riiulite arvu ja riiulikohtade arvuga"
     }
    ]
   },

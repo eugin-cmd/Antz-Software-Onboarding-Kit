@@ -267,6 +267,43 @@
     }
    ]
   },
+  "chat-module": {
+   "title": "Modul Chat",
+   "intro": "Modul Chat je komunikační kanál přímo v aplikaci, který nabízí soukromé i skupinové zprávy, sdílení médií a upozornění v reálném čase. Veškeré pracovní konverzace, novinky a koordinace tak zůstávají bezpečně uvnitř platformy a nejsou roztroušené po soukromých telefonech a e-mailech.",
+   "summary": "Soukromé i skupinové zprávy, sdílení médií a upozornění v reálném čase, bezpečně v platformě",
+   "features": [
+    {
+     "title": "Zprávy 1:1",
+     "desc": "Umožňuje soukromé chaty mezi dvěma členy týmu pro plynulou komunikaci a spolupráci.",
+     "alt": "Konverzace v chatu Antz Systems: koordinace odběru vzorku krve – Dr. Neha a biolog Mayur"
+    },
+    {
+     "title": "Skupinové zprávy",
+     "desc": "Vytvořte skupinu pro libovolný tým, směnu nebo úkol a komunikujte na jednom místě.",
+     "alt": "Konverzace v chatu Antz Systems: koordinace odběru vzorku krve – Dr. Neha a biolog Mayur"
+    },
+    {
+     "title": "Sdílení médií a dokumentů",
+     "desc": "Posílejte fotografie, videa, laboratorní zprávy a soubory PDF přímo v konverzaci; žádné externí aplikace nejsou potřeba.",
+     "alt": "Konverzace v chatu Antz Systems: koordinace odběru vzorku krve – Dr. Neha a biolog Mayur"
+    },
+    {
+     "title": "Upozornění v reálném čase",
+     "desc": "Dostávejte okamžitá upozornění na důležité novinky přímo v aplikaci.",
+     "alt": "Konverzace v chatu Antz Systems: koordinace odběru vzorku krve – Dr. Neha a biolog Mayur"
+    },
+    {
+     "title": "Bezpečné a auditovatelné",
+     "desc": "Všechny konverzace zůstávají v Antz a jejich historie se uchovává.",
+     "alt": "Konverzace v chatu Antz Systems: koordinace odběru vzorku krve – Dr. Neha a biolog Mayur"
+    },
+    {
+     "title": "Hledání a filtry",
+     "desc": "Vyhledávejte zprávy podle klíčového slova, odesílatele nebo propojené entity.",
+     "alt": "Konverzace v chatu Antz Systems: koordinace odběru vzorku krve – Dr. Neha a biolog Mayur"
+    }
+   ]
+  },
   "user-management": {
    "title": "Správa uživatelů",
    "intro": "Modul Uživatelé umožňuje bezpečnou centralizovanou správu účtů, rolí a oprávnění. Zjednodušuje zaškolování uživatelů, zajišťuje bezpečnost dat a sladí přístupová práva s rolemi v organizaci, přičemž vede podrobné záznamy o činnosti pro dohledatelnost odpovědnosti.",
@@ -808,6 +845,28 @@
     }
    ]
   },
+  "focus-hub": {
+   "title": "Focus Hub",
+   "intro": "Focus Hub je osobní pro každého uživatele a zobrazuje pouze položky, které si daný uživatel označil jako oblíbené nebo uložil do záložek. Na jednom místě tak máte rychle po ruce oblíbená zvířata a výběhy i poznámky, zdravotní záznamy a laboratorní žádanky uložené v záložkách.",
+   "summary": "Vaše oblíbená zvířata a výběhy a záznamy v záložkách na jednom místě pro rychlý přístup",
+   "features": [
+    {
+     "title": "Správa složek",
+     "desc": "Vytvářejte, přejmenovávejte a mažte složky a uspořádejte si uložené položky přesně podle toho, jak pracujete.",
+     "alt": "Karta Složky v sekci Můj Focus Hub se složkami Zvířata, Zranění, Ptáci, Lev, Kritické"
+    },
+    {
+     "title": "Oblíbená zvířata a výběhy",
+     "desc": "Jedním klepnutím označujte, prohlížejte a odebírejte zvířata a výběhy ve svých oblíbených.",
+     "alt": "Karta Oblíbené v sekci Můj Focus Hub s přepínačem Zvířata / Výběhy a seznamem karet oblíbených zvířat"
+    },
+    {
+     "title": "Záložky záznamů",
+     "desc": "Ukládejte do záložek a odebírejte poznámky, zdravotní záznamy nebo laboratorní žádanky, abyste je později rychle našli.",
+     "alt": "Karta Záložky v sekci Můj Focus Hub s filtry Poznámky, Zdravotní záznam, Laboratorní žádanka a kartami zdravotních záznamů v záložkách"
+    }
+   ]
+  },
   "mortality": {
    "title": "Úhyny",
    "intro": "Modul Úhyny umožňuje rychle a přesně zaznamenávat úhyny zvířat, spravovat údaje o pitvách a uchovávat doklady na jednom místě. Zvyšuje transparentnost, urychluje rozhodování, zajišťuje soulad s předpisy a podporuje lepší sledování welfare zvířat.",
@@ -903,32 +962,32 @@
     {
      "title": "Přidání záznamu o úhynu plodu",
      "desc": "Zaznamenejte nové případy, příčinu, načasování, rodiče a údaje o zvířeti.",
-     "alt": "Formulář přidání úhynu plodu s výběhem, druhem a rodičem"
+     "alt": "Formulář Přidat úhyn plodu s vybraným výběhem, druhem/taxonomií a rodiči"
     },
     {
      "title": "Hledání a filtry",
      "desc": "Hledejte podle klíčového slova; filtrujte podle areálu, data, mrtvě narozeného mláděte nebo potratu, druhu či pohlaví.",
-     "alt": "Seznam úhynů plodu s hledáním a filtrem"
+     "alt": "Seznam úhynů plodů se zvýrazněnými filtry Všechny lokality a Všechna data, kartou Mrtvě narozené a vyhledávacím polem"
     },
     {
      "title": "Zobrazení záznamů o úhynu",
      "desc": "Úplné údaje, počet dní od úhynu, příčina, ID, výběh, areál, pohlaví.",
-     "alt": "Seznam záznamů o úhynu plodu, karta Mrtvě narozená mláďata"
+     "alt": "Seznam úhynů plodů se zvýrazněnou první kartou"
     },
     {
      "title": "Zobrazení karty zvířete",
      "desc": "FID, druh, nález, rodiče, areál, pohlaví, oznamovatel.",
-     "alt": "Karta souhrnu úhynu plodu"
+     "alt": "Karta podrobností Souhrn úhynu plodu"
     },
     {
      "title": "Úprava záznamu",
      "desc": "Upravte existující záznam ze souhrnu, s auditní stopou.",
-     "alt": "Souhrn úhynu plodu s ikonou tužky pro úpravu"
+     "alt": "Souhrn úhynu plodu se zvýrazněnou tužkou pro úpravu"
     },
     {
      "title": "Smazání záznamu",
      "desc": "Odstraňte záznam, když je to potřeba, s úplnou auditní stopou.",
-     "alt": "Souhrn úhynu plodu s možností Smazat úhyn plodu"
+     "alt": "Souhrn úhynu plodu se zvýrazněnou volbou Smazat úhyn plodu"
     }
    ]
   },
@@ -940,7 +999,7 @@
     {
      "title": "Přehled vajec",
      "desc": "Aktuální počty: v hnízdech, přesunutá do odchovny, určená k vyřazení.",
-     "alt": "Přehled sběru vajec: 66 v hnízdě, 76 do odchovny, 35 k vyřazení"
+     "alt": "Přehled Sběr vajec: dnes sebráno 6 vajec, 50 v hnízdě, 21 do odchovny a 5 k vyřazení, se seznamem Vejce v hnízdě"
     },
     {
      "title": "Zadání vejce (hnízdo / odchovna)",
@@ -955,27 +1014,27 @@
     {
      "title": "Přirozená inkubace",
      "desc": "Vejce inkubovaná v hnízdech: ID, datum sběru, stav.",
-     "alt": "Seznam vajec v hnízdě se záznamy pávice"
+     "alt": "Přehled Sběr vajec: dnes sebráno 6 vajec, 50 v hnízdě, 21 do odchovny a 5 k vyřazení, se seznamem Vejce v hnízdě"
     },
     {
      "title": "Umělá inkubace",
      "desc": "Vejce v odchovně: posouzení, přesun do inkubátoru, vyřazení nebo vylíhnutí.",
-     "alt": "Seznam vajec do odchovny"
+     "alt": "Seznam Vejce do odchovny: záznamy krokodýla mořského se zaškrtávacími poli pro výběr všech"
     },
     {
      "title": "Přesuny vajec",
      "desc": "Sledujte areál, fázi, datum vylíhnutí, druh, ID a pohlaví.",
-     "alt": "Přesunutá vejce — žádosti o hromadný přesun"
+     "alt": "Převedená vejce: hromadné žádosti o převod se stavy Zrušeno a čeká"
     },
     {
      "title": "Vyřazení vajec",
      "desc": "Vyřaďte neživotaschopná vejce se zaznamenaným důvodem a auditní stopou.",
-     "alt": "Seznam vajec k vyřazení"
+     "alt": "Karta Vejce k vyřazení: 36 vajec k vyřazení, každé s druhem, ID vejce, datem, důvodem jako Zkažené a zaškrtávacím polem"
     },
     {
      "title": "Vytvoření ID zvířete",
      "desc": "Vytvořte záznam pro vylíhnutá vejce, propojený s druhem a rodiči.",
-     "alt": "Vylíhnutá vejce — vytvoření ID zvířete"
+     "alt": "Karta Vylíhnutá vejce: 4 vylíhnutá vejce, s možností Vytvořit ID zvířete u vajec krokodýla mořského a ara hyacintovým, který už má ID 422163"
     }
    ]
   },
@@ -987,17 +1046,17 @@
     {
      "title": "Nastavení odchoven a inkubátorů",
      "desc": "Zřiďte odchovny propojené s areály, vytvářejte místnosti a spravujte inkubátory.",
-     "alt": "Seznam odchoven s místnostmi, inkubátory a areály"
+     "alt": "Seznam odchoven na webu: odchovny s místnostmi, inkubátory, lokalitou a stavem Aktivní, s vyhledáváním, filtrem lokality a Přidat nové"
     },
     {
      "title": "Přehledy, filtry a přístup k datům",
      "desc": "Filtrujte podle areálu, druhu, data nebo fáze; exportujte přehledy.",
-     "alt": "Tabulka statistik vajec podle druhů"
+     "alt": "Přehled Statistiky vajec na webu: vejce v hnízdě, do odchovny, vylíhnutá, vyřazená a celkem, s kartami Vejce podle druhů, lokalit a odchoven a Stáhnout"
     },
     {
      "title": "Seznam vajec",
      "desc": "Karty podle stavu: přijato, inkubace, vylíhnuto, vyřazeno, vše.",
-     "alt": "Seznam vajec s kartami Přijato, Inkubace, Vylíhnuto"
+     "alt": "Seznam vajec na webu: karty Přijatá, Inkubace, Vylíhnutá, K vyřazení, Vyřazená a Vše, s druhem, identifikátorem vejce a stavem"
     }
    ]
   },
@@ -1009,7 +1068,7 @@
     {
      "title": "Typy oznámení",
      "desc": "Obecná a důležitá, každý typ s vlastními pravidly viditelnosti.",
-     "alt": "Seznam oznámení s kartami Vše a Vytvořeno mnou, karty důležitého oznámení a oznámení"
+     "alt": "Formulář Vytvořit oznámení se zvýrazněným přepínačem typu Obecné a Důležité"
     },
     {
      "title": "Jednotný seznam",
@@ -1019,7 +1078,7 @@
     {
      "title": "Vytvoření oznámení",
      "desc": "Nastavte typ, název a viditelnost; zveřejněte nebo naplánujte; náhled a přílohy.",
-     "alt": "Detail oznámení: Every necropsy counts, s tlačítkem vytvoření"
+     "alt": "Formulář Vytvořit oznámení s typem, podrobnostmi, viditelností a plánováním"
     },
     {
      "title": "Akce po zveřejnění",
@@ -1041,7 +1100,7 @@
     {
      "title": "Správa požadavků",
      "desc": "Zadávejte, upravujte, rušte nebo zamítejte požadavky s prioritami.",
-     "alt": "Detail požadavku na truhlářské práce s dodavatelem a odhadem nákladů"
+     "alt": "Truhlářský požadavek na dřevěné budky v South Aviary Dome: dodavatel, podrobnosti požadavku, odhad nákladů, skutečné náklady a aktuální stav Probíhá"
     },
     {
      "title": "Správa nákladů",
@@ -1051,7 +1110,7 @@
     {
      "title": "Vyřízení a vrácení",
      "desc": "Označte požadavky jako vyřízené nebo je vraťte do stavu Probíhá.",
-     "alt": "Dokončený požadavek s možností Vrátit do stavu Probíhá"
+     "alt": "Požadavek REQ29-00172 na opravu dřevěného plotu, označený odpovědnou osobou jako Požadavek dokončen, s možností Vrátit do stavu Probíhá"
     }
    ]
   },
@@ -1097,12 +1156,12 @@
     {
      "title": "Filtry a hledání",
      "desc": "Zužte přehledy podle data, areálu nebo druhu.",
-     "alt": "Obecný přehled druhů: stažení přehledu, výběr areálu a zobrazení/skrytí filtrů a tabulka druhů s počty samců, samic, neurčených a neurčitelných"
+     "alt": "Obecná zpráva o druzích se zvýrazněným filtrem Vybrat lokalitu"
     },
     {
      "title": "Stahovatelné přehledy",
      "desc": "Vytvářejte, zobrazujte a stahujte přehledy druhů, denní přehledy, seznamy zvířat, hodnocení zvířat, přehledy chovatelů, uživatelů, pozorování, deníky chovatelů, deníky biologů a počty ve výbězích pro soulad s předpisy a přístup offline.",
-     "alt": "Obecný přehled druhů: stažení přehledu, výběr areálu a zobrazení/skrytí filtrů a tabulka druhů s počty samců, samic, neurčených a neurčitelných"
+     "alt": "Obecná zpráva o druzích se zvýrazněným tlačítkem Stáhnout zprávu"
     }
    ]
   },
@@ -1198,12 +1257,12 @@
     {
      "title": "Žádanky v aplikaci",
      "desc": "Uživatelé mohou žádat o produkty z lékárny přímo v aplikaci.",
-     "alt": "Seznam výdejů: 11 výdejů s ID žádanek, lékárnou, datem, žadatelem, léčivem a celkovým množstvím a tlačítko Nový výdej"
+     "alt": "Seznam žádanek: 11 žádanek s ID, lékárnou, datem, žadatelem a počtem požadovaných položek"
     },
     {
      "title": "Výdej v aplikaci",
      "desc": "Sklady mohou vydávat produkty z lékárny přímo v aplikaci.",
-     "alt": "Detail výdeje DIS279: Local Pharmacy, vydáno uživateli Antz Admin, jedno léčivo Crocin v celkovém množství 100"
+     "alt": "Seznam výdejů: 14 výdejů s ID, lékárnou, datem, zvířetem, léky a celkovým množstvím a tlačítkem Nový výdej"
     }
    ]
   },
@@ -1214,43 +1273,58 @@
    "features": [
     {
      "title": "Přehled",
-     "desc": "Aktuální přehled problémů se zásobami, zásilek, nákupů, žádanek, spotřeby, exspirací a rychloobrátkových produktů s grafickými trendy pro rychlé jednání.",
-     "alt": "Farmaceut třídí léky v regálech."
-    },
-    {
-     "title": "Chytré hledání a filtry",
-     "desc": "Rychle najděte záznamy podle ID žádanky, jména lékaře nebo lékárny.",
-     "alt": ""
-    },
-    {
-     "title": "Číselníky (regály a police)",
-     "desc": "Uspořádejte skladování podle počtu regálů a polic pro rychlý přístup a aktualizace, s přizpůsobitelnými daty (balení, měrné jednotky, účinné látky, faktory, výrobci).",
-     "alt": ""
+     "desc": "Získejte rychlý přehled o zásobách, zásilkách, nákupech, žádankách a trendech produktů.",
+     "alt": "Přehled lékárny: hodnota prošlých léků, léky, které nejsou skladem, celkový počet žádanek, hodnota expedovaných položek, zásilky, dnešní žádanky a graf expedice po měsících"
     },
     {
      "title": "Správa přehledu zásob",
-     "desc": "Zásoby po šaržích s hodnotou a exspirací; označení nízkých zásob a prošlých položek; sledování blížících se exspirací; správa úschovy s řešením sporů.",
-     "alt": ""
+     "desc": "Souhrnný přehled zásob po šaržích, položek s nízkými zásobami, prošlých produktů a produktů s blížící se exspirací i produktů v úschově nebo ve sporu.",
+     "alt": "Přehled zásob: seznam produktů po šaržích s množstvím na skladě, čistou jednotkovou cenou a hodnotou"
     },
     {
-     "title": "Správa produktů a zásob",
-     "desc": "Vytvářejte produkty, sledujte zásoby a exspirace, zaznamenávejte nákupy a výdeje, veďte jednotnou evidenci a spravujte náhrady a varianty.",
-     "alt": ""
+     "title": "Správa žádanek a vratek produktů",
+     "desc": "Spravujte žádanky o produkty, požadavky jednotlivých skladů, nevyřízené položky, přímé expedice a vratky produktů z jednoho centrálního přehledu.",
+     "alt": "Seznam žádostí o vrácení produktů s vyhledáváním a filtry podle skladu a počtu dní"
     },
     {
-     "title": "Správa výdeje",
-     "desc": "Lékaři mohou předepisovat a vydávat nebo si léčiva vyzvednout přímo v lékárně, vše se zaznamenává.",
-     "alt": ""
+     "title": "Zásilky",
+     "desc": "Zobrazujte a sledujte příchozí a odchozí pohyby zásob lékárny.",
+     "alt": "Odchozí zásilky: ID zásilky, typ, příjemce, vozidlo a doručovatel"
     },
     {
-     "title": "Správa zásilek",
-     "desc": "Sledujte příchozí a odchozí zásilky léčiv a vyřizujte je v aplikaci.",
-     "alt": ""
+     "title": "Výdej léků",
+     "desc": "Spravujte a sledujte výdej předepsaných léků.",
+     "alt": "Seznam výdejů: ID výdeje, počet zvířat, datum a kdo převzal"
     },
     {
-     "title": "Úpravy zásob a přehledy",
-     "desc": "Zaznamenávejte změny zásob (chybějící, rozbité, prošlé); uchovávejte historii pro audit; spravujte vratky dodavatelům; stahujte přehledy spotřeby, vratek, nákupů a výdejů pro finanční oddělení a plánování poptávky.",
-     "alt": ""
+     "title": "Správa produktů",
+     "desc": "Spravujte produkty, zásoby, nákupy, expedice, skladové transakce, náhrady, varianty a referenční údaje na jednom místě.",
+     "alt": "Seznam produktů: všechny produkty s lékovou formou a výrobcem"
+    },
+    {
+     "title": "Správa skladových zásob",
+     "desc": "Přidávejte, importujte a ověřujte zásoby s údaji o dodavateli, faktuře, šarži, exspiraci, ceně a množství a veďte úplnou evidenci a souhrny nákupů.",
+     "alt": "Seznam zásob s tlačítky Importovat a Přidat zásoby, filtrem dodavatele a záznamy o nákupech"
+    },
+    {
+     "title": "Správa úprav zásob",
+     "desc": "Spravujte úpravy zásob a vratky dodavatelům, abyste udrželi přesné zásoby, snížili ztráty a zajistili úplnou dohledatelnost.",
+     "alt": "Seznam úprav zásob: karty chybějící/prošlé/rozbité s produktem, číslem šarže, množstvím, důvodem a exspirací"
+    },
+    {
+     "title": "Správa přehledů",
+     "desc": "Sledujte a analyzujte spotřebu, vratky, zásilky, výdej, nákupy a žádanky pomocí podrobných přehledů s filtry pro lepší přehled o zásobách a pro audity.",
+     "alt": "Přehled spotřeby s rozsahem dat, vyhledáváním, stažením a seznamem produktů"
+    },
+    {
+     "title": "Vrácení produktů dodavateli",
+     "desc": "Vracejte nepotřebné, prošlé, poškozené nebo přebytečné produkty dodavatelům a sledujte množství, důvody a stav vrácení.",
+     "alt": "Seznam vratek dodavatelům s číslem žádosti, dodavatelem, celkovým množstvím a datem vyřazení"
+    },
+    {
+     "title": "Číselníky / regály a police",
+     "desc": "Uspořádejte produkty podle regálů a polic a spravujte přizpůsobitelné číselníky pro efektivní skladování a správu zásob.",
+     "alt": "Umístění zásob: nastavení regálů a polic v číselnících s názvem produktu, počtem regálů a počtem polic"
     }
    ]
   },

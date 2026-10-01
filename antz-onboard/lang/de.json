@@ -267,6 +267,43 @@
     }
    ]
   },
+  "chat-module": {
+   "title": "Chat-Modul",
+   "intro": "Das Chat-Modul ist ein Kommunikationskanal direkt in der App mit Einzel- und Gruppennachrichten, dem Teilen von Medien und Echtzeit-Benachrichtigungen. So bleiben alle dienstlichen Gespräche, Updates und Absprachen sicher in der Plattform, statt über private Handys und E-Mails verstreut zu sein.",
+   "summary": "Einzel- und Gruppenchats, Medienaustausch und Echtzeit-Benachrichtigungen, sicher in der Plattform",
+   "features": [
+    {
+     "title": "Einzelchats",
+     "desc": "Ermöglicht Chats zwischen zwei Teammitgliedern für eine reibungslose Kommunikation und Zusammenarbeit.",
+     "alt": "Chatverlauf in Antz Systems: Abstimmung einer Blutprobenentnahme zwischen Dr. Neha und dem Biologen Mayur"
+    },
+    {
+     "title": "Gruppenchats",
+     "desc": "Eine Gruppe für ein Team, eine Schicht oder eine Aufgabe anlegen und an einem Ort chatten.",
+     "alt": "Chatverlauf in Antz Systems: Abstimmung einer Blutprobenentnahme zwischen Dr. Neha und dem Biologen Mayur"
+    },
+    {
+     "title": "Medien & Dokumente teilen",
+     "desc": "Fotos, Videos, Laborberichte und PDFs direkt im Verlauf senden, ohne externe Apps.",
+     "alt": "Chatverlauf in Antz Systems: Abstimmung einer Blutprobenentnahme zwischen Dr. Neha und dem Biologen Mayur"
+    },
+    {
+     "title": "Echtzeit-Benachrichtigungen",
+     "desc": "Sofortige Benachrichtigungen zu wichtigen Updates direkt in der App erhalten.",
+     "alt": "Chatverlauf in Antz Systems: Abstimmung einer Blutprobenentnahme zwischen Dr. Neha und dem Biologen Mayur"
+    },
+    {
+     "title": "Sicher & prüfbar",
+     "desc": "Alle Gespräche bleiben in Antz, der Verlauf wird aufbewahrt.",
+     "alt": "Chatverlauf in Antz Systems: Abstimmung einer Blutprobenentnahme zwischen Dr. Neha und dem Biologen Mayur"
+    },
+    {
+     "title": "Suche & Filter",
+     "desc": "Nachrichten nach Stichwort, Absender oder verknüpftem Bezug finden.",
+     "alt": "Chatverlauf in Antz Systems: Abstimmung einer Blutprobenentnahme zwischen Dr. Neha und dem Biologen Mayur"
+    }
+   ]
+  },
   "user-management": {
    "title": "Benutzerverwaltung",
    "intro": "Das Benutzermodul ermöglicht die sichere, zentrale Verwaltung von Konten, Rollen und Berechtigungen. Es vereinfacht das Onboarding neuer Nutzender, gewährleistet die Datensicherheit und richtet Zugriffsrechte an den Rollen in der Organisation aus. Detaillierte Aktivitätsprotokolle sorgen für Nachvollziehbarkeit.",
@@ -808,6 +845,28 @@
     }
    ]
   },
+  "focus-hub": {
+   "title": "Focus Hub",
+   "intro": "Der Focus Hub ist persönlich: Er zeigt nur die Einträge, die die jeweilige Person als Favorit markiert oder mit einem Lesezeichen versehen hat. Favorisierte Tiere und Gehege sowie Notizen, medizinische Akten und Laboraufträge mit Lesezeichen liegen so für den schnellen Zugriff an einem Ort.",
+   "summary": "Ihre favorisierten Tiere und Gehege und Akten mit Lesezeichen, an einem Ort für den schnellen Zugriff",
+   "features": [
+    {
+     "title": "Ordnerverwaltung",
+     "desc": "Ordner anlegen, umbenennen und löschen, um gespeicherte Einträge genau nach Ihrer Arbeitsweise zu ordnen.",
+     "alt": "Reiter „Ordner“ in „Mein Focus Hub“ mit den Ordnern Tiere, Verletzt, Vögel, Löwe und Kritisch"
+    },
+    {
+     "title": "Favorisierte Tiere & Gehege",
+     "desc": "Tiere und Gehege mit einem Tippen zu den Favoriten hinzufügen, ansehen und wieder entfernen.",
+     "alt": "Reiter „Favoriten“ in „Mein Focus Hub“ mit Umschalter Tiere/Gehege und einer Liste favorisierter Tierkarten"
+    },
+    {
+     "title": "Akten mit Lesezeichen",
+     "desc": "Notizen, medizinische Akten oder Laboraufträge mit einem Lesezeichen versehen oder es entfernen, um sie später schnell wiederzufinden.",
+     "alt": "Reiter „Lesezeichen“ in „Mein Focus Hub“ mit den Filtern Notizen, Medizinische Akte und Laborauftrag sowie Karten medizinischer Akten mit Lesezeichen"
+    }
+   ]
+  },
   "mortality": {
    "title": "Mortalität",
    "intro": "Mit dem Mortalitätsmodul erfassen Sie Todesfälle von Tieren schnell und genau, verwalten Nekropsiedaten und speichern Nachweise an einem Ort. Es verbessert die Transparenz, beschleunigt Entscheidungen, stellt die Einhaltung von Vorgaben sicher und unterstützt eine bessere Überwachung des Tierwohls.",
@@ -903,32 +962,32 @@
     {
      "title": "Eintrag zu fetalem Tod hinzufügen",
      "desc": "Neue Fälle mit Ursache, Zeitpunkt, Abstammung und Tierdaten erfassen.",
-     "alt": "Formular „Fetalen Tod hinzufügen“ mit Gehege, Art und Elterntier"
+     "alt": "Formular Fetaltod hinzufügen mit ausgewähltem Gehege, Art/Taxonomie und Abstammung"
     },
     {
      "title": "Suche & Filter",
      "desc": "Nach Stichwort suchen; nach Standort, Datum, Totgeburt oder Abort, Art oder Geschlecht filtern.",
-     "alt": "Liste „Fetaler Tod“ mit Suche und Filter"
+     "alt": "Fetaltod-Liste mit hervorgehobenen Filtern Alle Standorte und Alle Daten, Reiter Totgeburt und Suchleiste"
     },
     {
      "title": "Einträge zu Todesfällen ansehen",
      "desc": "Vollständige Angaben, Tage seit dem Tod, Ursache, ID, Gehege, Standort, Geschlecht.",
-     "alt": "Liste der Einträge zu fetalem Tod, Registerkarte „Totgeburt“"
+     "alt": "Fetaltod-Liste mit hervorgehobener erster Karte"
     },
     {
      "title": "Anzeige der Tierkarte",
      "desc": "FID, Art, Auffinden, Elterntiere, Standort, Geschlecht, meldende Person.",
-     "alt": "Detailkarte der Zusammenfassung zum fetalen Tod"
+     "alt": "Detailkarte Zusammenfassung Fetaltod"
     },
     {
      "title": "Eintrag bearbeiten",
      "desc": "Einen bestehenden Eintrag aus der Zusammenfassung heraus ändern, mit Prüfpfad.",
-     "alt": "Zusammenfassung zum fetalen Tod mit Bearbeitungsstift"
+     "alt": "Zusammenfassung Fetaltod mit hervorgehobenem Bearbeiten-Stift"
     },
     {
      "title": "Eintrag löschen",
      "desc": "Einen Eintrag bei Bedarf entfernen, mit vollständigem Prüfpfad.",
-     "alt": "Zusammenfassung zum fetalen Tod mit Option „Delete Fetal Death“"
+     "alt": "Zusammenfassung Fetaltod mit hervorgehobener Option Fetaltod löschen"
     }
    ]
   },
@@ -940,7 +999,7 @@
     {
      "title": "Eier-Dashboard",
      "desc": "Aktuelle Zahlen: im Nest, in die Aufzuchtstation gebracht, zum Verwerfen markiert.",
-     "alt": "Dashboard der Eiersammlung: 66 im Nest, 76 in die Aufzuchtstation, 35 zum Verwerfen"
+     "alt": "Dashboard Eiersammlung: heute 6 Eier gesammelt, 50 im Nest, 21 für die Aufzuchtstation und 5 zum Aussortieren, mit der Liste Eier im Nest"
     },
     {
      "title": "Eier erfassen (Nest / Aufzuchtstation)",
@@ -955,27 +1014,27 @@
     {
      "title": "Naturbrut",
      "desc": "Im Nest bebrütete Eier: ID, Sammeldatum, Zustand.",
-     "alt": "Liste der Eier im Nest mit Einträgen einer Pfauenhenne"
+     "alt": "Dashboard Eiersammlung: heute 6 Eier gesammelt, 50 im Nest, 21 für die Aufzuchtstation und 5 zum Aussortieren, mit der Liste Eier im Nest"
     },
     {
      "title": "Kunstbrut",
      "desc": "Eier in der Aufzuchtstation: beurteilen, in den Inkubator geben, verwerfen oder schlüpfen lassen.",
-     "alt": "Liste der Eier für die Aufzuchtstation"
+     "alt": "Liste Eier für die Aufzuchtstation: Einträge zum Leistenkrokodil mit Kontrollkästchen zum Auswählen aller"
     },
     {
      "title": "Eiertransfers",
      "desc": "Standort, Stadium, Schlupfdatum, Art, ID und Geschlecht verfolgen.",
-     "alt": "Übertragene Eier – Sammeltransferanfragen"
+     "alt": "Übertragene Eier: Sammeltransferanfragen mit den Status Storniert und ausstehend"
     },
     {
      "title": "Eier verwerfen",
      "desc": "Nicht entwicklungsfähige Eier mit protokolliertem Grund und Prüfpfad verwerfen.",
-     "alt": "Liste der zu verwerfenden Eier"
+     "alt": "Reiter Auszusortierende Eier: 36 Eier zum Aussortieren, jeweils mit Art, Ei-ID, Datum, Grund wie Faul und Kontrollkästchen"
     },
     {
      "title": "Tier-ID anlegen",
      "desc": "Für geschlüpfte Eier eine Akte anlegen, verknüpft mit Art und Elterntieren.",
-     "alt": "Geschlüpfte Eier – „Create Animal ID“"
+     "alt": "Reiter Geschlüpfte Eier: 4 geschlüpfte Eier, mit Tier-ID erstellen bei Leistenkrokodil-Eiern und einem Hyazinth-Ara, der bereits die ID 422163 hat"
     }
    ]
   },
@@ -987,17 +1046,17 @@
     {
      "title": "Einrichtung von Aufzuchtstation & Inkubator",
      "desc": "Aufzuchtstationen mit Standorten verknüpft einrichten, Räume anlegen und Inkubatoren verwalten.",
-     "alt": "Liste der Aufzuchtstationen mit Räumen, Inkubatoren und Standorten"
+     "alt": "Aufzuchtstationsliste im Web: Stationen mit Räumen, Inkubatoren, Standort und Status Aktiv, mit Suche, Standortfilter und Neu hinzufügen"
     },
     {
      "title": "Berichte, Filter & Datenzugriff",
      "desc": "Nach Standort, Art, Datum oder Stadium filtern; Berichte exportieren.",
-     "alt": "Tabelle der Eierstatistik nach Art"
+     "alt": "Dashboard Eierstatistik im Web: Eier im Nest, für die Aufzuchtstation, geschlüpft, aussortiert und gesamt, mit den Reitern Eier nach Art, Standort und Station sowie Herunterladen"
     },
     {
      "title": "Eierliste",
      "desc": "Registerkarten nach Status: Erhalten, Inkubation, Geschlüpft, Verworfen, Alle.",
-     "alt": "Eierliste mit den Registerkarten Erhalten, Inkubation, Geschlüpft"
+     "alt": "Eierliste im Web: Reiter Erhalten, Bebrütung, Geschlüpft, Auszusortieren, Aussortiert und Alle, mit Art, Ei-Kennung und Zustand"
     }
    ]
   },
@@ -1009,7 +1068,7 @@
     {
      "title": "Arten von Ankündigungen",
      "desc": "Allgemein und Wichtig, jeweils mit eigenen Sichtbarkeitsregeln.",
-     "alt": "Liste der Ankündigungen mit den Registerkarten Alle und Von mir erstellt, Karten „Wichtig“ und „Ankündigung“"
+     "alt": "Formular Ankündigung erstellen mit hervorgehobener Typauswahl Allgemein und Wichtig"
     },
     {
      "title": "Gemeinsame Übersicht",
@@ -1019,7 +1078,7 @@
     {
      "title": "Ankündigungen erstellen",
      "desc": "Typ, Titel und Sichtbarkeit festlegen; veröffentlichen oder planen; Vorschau & Anhänge.",
-     "alt": "Detail der Ankündigung „Every necropsy counts“ mit Schaltfläche zum Erstellen"
+     "alt": "Formular Ankündigung erstellen mit Typ, Details, Sichtbarkeit und Zeitplanung"
     },
     {
      "title": "Aktionen nach der Veröffentlichung",
@@ -1041,7 +1100,7 @@
     {
      "title": "Anfrageverwaltung",
      "desc": "Anfragen mit Prioritäten stellen, bearbeiten, stornieren oder ablehnen.",
-     "alt": "Detail einer Schreinerarbeiten-Anfrage mit Lieferant und Kostenschätzung"
+     "alt": "Schreinerei-Anfrage für Nistkästen aus Holz im South Aviary Dome: Lieferant, Anfragedetails, Kostenschätzung, tatsächliche Kosten und aktueller Status In Bearbeitung"
     },
     {
      "title": "Kostenverwaltung",
@@ -1051,7 +1110,7 @@
     {
      "title": "Erledigung & Rückstufung",
      "desc": "Anfragen als erledigt markieren oder wieder auf „In Bearbeitung“ setzen.",
-     "alt": "Abgeschlossene Anfrage mit „Move Back To In-Progress“"
+     "alt": "Anfrage REQ29-00172 zur Reparatur eines Holzzauns, von der zuständigen Stelle als Anfrage abgeschlossen markiert, mit Zurück auf In Bearbeitung"
     }
    ]
   },
@@ -1097,12 +1156,12 @@
     {
      "title": "Filter & Suche",
      "desc": "Berichte nach Datum, Standort oder Art eingrenzen.",
-     "alt": "Bericht „Species General Report“: Bericht herunterladen, Standort auswählen, Filter ein-/ausblenden und eine Tabelle der Arten mit Anzahl männlich, weiblich, unbestimmt und nicht bestimmbar"
+     "alt": "Allgemeiner Artenbericht mit hervorgehobenem Filter Standort auswählen"
     },
     {
      "title": "Herunterladbare Berichte",
      "desc": "Berichte zu Arten, Tagesberichte, Tierlisten, Tierbewertungen, Tierpfleger, Nutzende, Beobachtungen, Pflegertagebuch, Biologentagebuch und Gehegezählungen erstellen, ansehen und herunterladen – für Compliance und Offline-Zugriff.",
-     "alt": "Bericht „Species General Report“: Bericht herunterladen, Standort auswählen, Filter ein-/ausblenden und eine Tabelle der Arten mit Anzahl männlich, weiblich, unbestimmt und nicht bestimmbar"
+     "alt": "Allgemeiner Artenbericht mit hervorgehobener Schaltfläche Bericht herunterladen"
     }
    ]
   },
@@ -1198,12 +1257,12 @@
     {
      "title": "Anforderung in der App",
      "desc": "Nutzende können Produkte direkt über die App bei der Apotheke anfordern.",
-     "alt": "Ausgabeliste: 11 Ausgaben mit Anforderungs-IDs, Apotheke, Datum, anfordernder Person, Medikament und Gesamtmenge sowie Schaltfläche „New Dispense“"
+     "alt": "Anforderungsliste: 11 Anforderungen mit ID, Apotheke, Datum, anforderndem Benutzer und Anzahl der angeforderten Artikel"
     },
     {
      "title": "Ausgabe in der App",
      "desc": "Das Lager kann Produkte der Apotheke direkt über die App ausgeben.",
-     "alt": "Detail der Ausgabe DIS279: Local Pharmacy, ausgegeben an Antz Admin, ein Medikament Crocin mit Gesamtmenge 100"
+     "alt": "Abgabeliste: 14 Abgaben mit ID, Apotheke, Datum, Tier, Medikamenten und Gesamtmenge sowie der Schaltfläche Neue Abgabe"
     }
    ]
   },
@@ -1214,43 +1273,58 @@
    "features": [
     {
      "title": "Dashboard",
-     "desc": "Echtzeit-Einblicke in Bestandsprobleme, Lieferungen, Einkäufe, Anforderungen, Verbrauch, ablaufende Produkte und Schnelldreher, mit grafischen Trends für schnelles Handeln.",
-     "alt": "Eine Apothekerin ordnet Medikamentenregale."
-    },
-    {
-     "title": "Intelligente Suche & Filter",
-     "desc": "Einträge schnell nach Anforderungs-ID, Name des Tierarztes oder Apotheke finden.",
-     "alt": ""
-    },
-    {
-     "title": "Stammdaten (Regale & Fächer)",
-     "desc": "Lagerung nach Anzahl der Regale/Fächer ordnen für schnellen Zugriff und einfache Aktualisierung, mit anpassbaren Daten (Verpackung, Mengeneinheit, Wirkstoffe, Fahrer, Hersteller).",
-     "alt": ""
+     "desc": "Verschaffen Sie sich einen schnellen Überblick über Bestand, Lieferungen, Einkäufe, Anforderungen und Produkttrends.",
+     "alt": "Apotheken-Dashboard: Wert abgelaufener Medikamente, nicht vorrätige Medikamente, Anforderungen gesamt, Wert der Auslieferungen, Lieferungen, heutige Anforderungen und Monatsdiagramm der Auslieferungen"
     },
     {
      "title": "Verwaltung der Bestandsberichte",
-     "desc": "Bestand nach Chargen mit Wert und Verfallsdatum; niedrige oder abgelaufene Bestände kennzeichnen; bevorstehende Verfallsdaten überwachen; Treuhandbestände mit Klärung von Unstimmigkeiten verwalten.",
-     "alt": ""
+     "desc": "Erhalten Sie eine Gesamtansicht des Bestands nach Chargen, der Artikel mit niedrigem Bestand, der abgelaufenen und bald ablaufenden Produkte sowie der Produkte in Treuhand oder in Klärung.",
+     "alt": "Bestandsbericht: Produktliste nach Chargen mit Lagermenge, Netto-Stückpreis und Wert"
     },
     {
-     "title": "Produkt- & Bestandsverwaltung",
-     "desc": "Produkte anlegen, Bestand und Verfallsdaten verfolgen, Einkäufe/Auslieferungen erfassen, ein einheitliches Bestandsbuch führen, Ersatzprodukte/Varianten verwalten.",
-     "alt": ""
+     "title": "Verwaltung von Produktanforderungen & Rückgaben",
+     "desc": "Verwalten Sie Produktanforderungen, den Bedarf der einzelnen Lager, offene Artikel, Direktauslieferungen und Produktrückgaben in einer zentralen Ansicht.",
+     "alt": "Liste der Rückgabeanforderungen mit Suche sowie Filtern nach Lager und Tagen"
     },
     {
-     "title": "Ausgabeverwaltung",
-     "desc": "Tierärzte können verschreiben und ausgeben oder Medikamente direkt in der Apotheke abholen – alles protokolliert.",
-     "alt": ""
+     "title": "Lieferungen",
+     "desc": "Ein- und ausgehende Bestandsbewegungen der Apotheke anzeigen und verfolgen.",
+     "alt": "Ausgehende Lieferungen: Lieferungs-ID, Art, Empfänger, Fahrzeug und Zusteller"
     },
     {
-     "title": "Lieferungsverwaltung",
-     "desc": "Ein- und ausgehende Medikamentenlieferungen verfolgen und in der App abwickeln.",
-     "alt": ""
+     "title": "Medikamentenausgabe",
+     "desc": "Die Ausgabe verschriebener Medikamente verwalten und nachverfolgen.",
+     "alt": "Ausgabeliste: Ausgabe-ID, Anzahl der Tiere, Datum und Empfänger"
     },
     {
-     "title": "Bestandskorrektur & Berichte",
-     "desc": "Bestandsänderungen erfassen (fehlend, beschädigt, abgelaufen); Prüfhistorie führen; Rücksendungen an Lieferanten verwalten; Berichte zu Verbrauch, Rücksendungen, Einkauf und Ausgabe für Finanzen und Bedarfsplanung herunterladen.",
-     "alt": ""
+     "title": "Produktverwaltung",
+     "desc": "Produkte, Bestand, Einkäufe, Auslieferungen, Bestandsbuchungen, Ersatzprodukte, Varianten und Referenzinformationen an einem Ort verwalten.",
+     "alt": "Produktliste: alle Produkte mit Darreichungsform und Hersteller"
+    },
+    {
+     "title": "Bestandsverwaltung",
+     "desc": "Bestand mit Angaben zu Lieferant, Rechnung, Charge, Verfallsdatum, Preis und Menge erfassen, importieren und prüfen und dabei vollständige Einkaufsbelege und Übersichten führen.",
+     "alt": "Bestandsliste mit Importieren und Bestand hinzufügen, Lieferantenfilter und Einkaufsbelegen"
+    },
+    {
+     "title": "Verwaltung von Bestandskorrekturen",
+     "desc": "Bestandskorrekturen und Rücksendungen an Lieferanten verwalten, um den Bestand korrekt zu halten, Verluste zu verringern und eine lückenlose Rückverfolgbarkeit sicherzustellen.",
+     "alt": "Liste der Bestandskorrekturen: Reiter fehlend/abgelaufen/beschädigt mit Produkt, Chargennummer, Menge, Grund und Verfallsdatum"
+    },
+    {
+     "title": "Berichtsverwaltung",
+     "desc": "Verbrauch, Rücksendungen, Lieferungen, Ausgaben, Einkäufe und Anforderungen mit detaillierten, filterbaren Berichten verfolgen und auswerten, für mehr Transparenz im Bestand und für Prüfungen.",
+     "alt": "Verbrauchsbericht mit Zeitraum, Suche, Download und Produktliste"
+    },
+    {
+     "title": "Rücksendung an Lieferanten",
+     "desc": "Nicht benötigte, abgelaufene, beschädigte oder überzählige Produkte an Lieferanten zurücksenden und dabei Mengen, Gründe und Rücksendestatus verfolgen.",
+     "alt": "Liste der Rücksendungen an Lieferanten mit Anforderungsnummer, Lieferant, Gesamtmenge und Aussonderungsdatum"
+    },
+    {
+     "title": "Stammdaten-, Regal- & Fächerverwaltung",
+     "desc": "Produkte nach Regalen und Fächern ordnen und anpassbare Stammdaten pflegen, für eine effiziente Lagerung und Bestandsverwaltung.",
+     "alt": "Lagerort: Konfiguration der Regale und Fächer in den Stammdaten mit Produktname, Anzahl der Regale und Anzahl der Fächer"
     }
    ]
   },

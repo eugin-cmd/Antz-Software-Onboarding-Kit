@@ -267,6 +267,43 @@
     }
    ]
   },
+  "chat-module": {
+   "title": "Module Chat",
+   "intro": "Le module Chat est un canal de communication intégré à l’application : messagerie individuelle et de groupe, partage de médias et notifications en temps réel. Toutes les conversations de travail, mises à jour et la coordination restent ainsi en sécurité dans la plateforme, au lieu d’être dispersées entre téléphones personnels et e-mails.",
+   "summary": "Messagerie individuelle et de groupe, partage de médias et notifications en temps réel, en sécurité dans la plateforme",
+   "features": [
+    {
+     "title": "Messagerie individuelle",
+     "desc": "Permet des échanges en tête-à-tête entre membres de l’équipe pour une communication et une collaboration fluides.",
+     "alt": "Fil de discussion Antz Systems : coordination d’un prélèvement sanguin entre la docteure Neha et le biologiste Mayur"
+    },
+    {
+     "title": "Messagerie de groupe",
+     "desc": "Créez un groupe pour une équipe, un poste ou une tâche et échangez au même endroit.",
+     "alt": "Fil de discussion Antz Systems : coordination d’un prélèvement sanguin entre la docteure Neha et le biologiste Mayur"
+    },
+    {
+     "title": "Partage de médias et de documents",
+     "desc": "Envoyez photos, vidéos, rapports de laboratoire et PDF directement dans la conversation, sans application externe.",
+     "alt": "Fil de discussion Antz Systems : coordination d’un prélèvement sanguin entre la docteure Neha et le biologiste Mayur"
+    },
+    {
+     "title": "Notifications en temps réel",
+     "desc": "Recevez des notifications instantanées directement dans l’application pour les mises à jour importantes.",
+     "alt": "Fil de discussion Antz Systems : coordination d’un prélèvement sanguin entre la docteure Neha et le biologiste Mayur"
+    },
+    {
+     "title": "Sécurisé et traçable",
+     "desc": "Toutes les conversations restent dans Antz, avec un historique conservé.",
+     "alt": "Fil de discussion Antz Systems : coordination d’un prélèvement sanguin entre la docteure Neha et le biologiste Mayur"
+    },
+    {
+     "title": "Recherche et filtres",
+     "desc": "Retrouvez des messages par mot-clé, par expéditeur ou par entité liée.",
+     "alt": "Fil de discussion Antz Systems : coordination d’un prélèvement sanguin entre la docteure Neha et le biologiste Mayur"
+    }
+   ]
+  },
   "user-management": {
    "title": "Gestion des utilisateurs",
    "intro": "Le module Utilisateurs permet une gestion sécurisée et centralisée des comptes, des rôles et des autorisations. Il simplifie l’intégration des utilisateurs, garantit la sécurité des données et aligne les droits d’accès sur les rôles de l’organisation, tout en conservant des journaux d’activité détaillés pour la traçabilité.",
@@ -808,6 +845,28 @@
     }
    ]
   },
+  "focus-hub": {
+   "title": "Focus Hub",
+   "intro": "Le Focus Hub est propre à chaque utilisateur : il n’affiche que les éléments que celui-ci a ajoutés à ses favoris ou à ses signets. Il regroupe en un seul endroit les animaux et enclos favoris ainsi que les notes, dossiers médicaux et demandes d’analyses enregistrés en signet, pour un accès rapide.",
+   "summary": "Vos animaux et enclos favoris et vos dossiers en signet, réunis pour un accès rapide",
+   "features": [
+    {
+     "title": "Gestion des dossiers",
+     "desc": "Créez, renommez et supprimez des dossiers pour classer les éléments enregistrés selon votre façon de travailler.",
+     "alt": "Onglet Dossiers de Mon Focus Hub avec les dossiers Animaux, Blessés, Oiseaux, Lion et Critiques"
+    },
+    {
+     "title": "Animaux et enclos favoris",
+     "desc": "Ajoutez, consultez et retirez des animaux et des enclos de vos Favoris d’un simple geste.",
+     "alt": "Onglet Favoris de Mon Focus Hub avec le sélecteur Animaux/Enclos et une liste de fiches d’animaux favoris"
+    },
+    {
+     "title": "Signets sur les dossiers",
+     "desc": "Ajoutez ou retirez un signet sur des notes, des dossiers médicaux ou des demandes d’analyses pour les retrouver rapidement.",
+     "alt": "Onglet Signets de Mon Focus Hub avec les filtres Notes, Dossier médical et Demande d’analyses, et des fiches de dossiers médicaux en signet"
+    }
+   ]
+  },
   "mortality": {
    "title": "Mortalité",
    "intro": "Le module Mortalité vous permet d’enregistrer rapidement et précisément les décès d’animaux, de gérer les informations de nécropsie et de conserver les justificatifs en un seul endroit. Il améliore la transparence, accélère la prise de décision, garantit la conformité et contribue à un meilleur suivi du bien-être animal.",
@@ -903,32 +962,32 @@
     {
      "title": "Ajouter un cas de mort fœtale",
      "desc": "Consignez les nouveaux cas : cause, moment, filiation, informations sur l’animal.",
-     "alt": "Formulaire d’ajout de mort fœtale avec enclos, espèce, parent"
+     "alt": "Formulaire Ajouter une mort fœtale avec l’enclos, l’espèce/taxonomie et la filiation sélectionnés"
     },
     {
      "title": "Recherche et filtres",
      "desc": "Recherchez par mot-clé ; filtrez par site, date, mortinaissance ou avortement, espèce ou sexe.",
-     "alt": "Liste des morts fœtales avec recherche et filtre"
+     "alt": "Liste des morts fœtales avec les filtres Tous les sites et Toutes les données, l’onglet Mort-né et la barre de recherche mis en évidence"
     },
     {
      "title": "Consulter les dossiers des décès",
      "desc": "Détails complets, jours depuis le décès, cause, identifiant, enclos, site, sexe.",
-     "alt": "Liste des dossiers de mort fœtale, onglet Mortinaissance"
+     "alt": "Liste des morts fœtales avec la première fiche mise en évidence"
     },
     {
      "title": "Affichage de la carte de l’animal",
      "desc": "FID, espèce, découverte, parents, site, sexe, déclarant.",
-     "alt": "Carte de détail du résumé de mort fœtale"
+     "alt": "Fiche détaillée Résumé de la mort fœtale"
     },
     {
      "title": "Modifier le dossier",
      "desc": "Modifiez une entrée existante depuis le résumé, avec piste d’audit.",
-     "alt": "Résumé de mort fœtale avec le crayon de modification"
+     "alt": "Résumé de la mort fœtale avec le crayon de modification mis en évidence"
     },
     {
      "title": "Supprimer le dossier",
      "desc": "Supprimez une entrée si nécessaire, avec une piste d’audit complète.",
-     "alt": "Résumé de mort fœtale avec l’option Supprimer la mort fœtale"
+     "alt": "Résumé de la mort fœtale avec l’option Supprimer la mort fœtale mise en évidence"
     }
    ]
   },
@@ -940,7 +999,7 @@
     {
      "title": "Tableau de bord des œufs",
      "desc": "Totaux en direct : dans les nids, transférés en nurserie, marqués pour élimination.",
-     "alt": "Tableau de bord de collecte des œufs : 66 au nid, 76 vers la nurserie, 35 à éliminer"
+     "alt": "Tableau de bord Collecte des œufs : 6 œufs collectés aujourd’hui, 50 au nid, 21 vers la nurserie et 5 à écarter, avec la liste Œufs au nid"
     },
     {
      "title": "Saisie des œufs (nid / nurserie)",
@@ -955,27 +1014,27 @@
     {
      "title": "Incubation naturelle",
      "desc": "Œufs incubés au nid : identifiant, date de collecte, état.",
-     "alt": "Liste des œufs au nid avec des entrées de paonne"
+     "alt": "Tableau de bord Collecte des œufs : 6 œufs collectés aujourd’hui, 50 au nid, 21 vers la nurserie et 5 à écarter, avec la liste Œufs au nid"
     },
     {
      "title": "Incubation artificielle",
      "desc": "Œufs en nurserie : évaluer, mettre en incubation, éliminer ou faire éclore.",
-     "alt": "Liste des œufs vers la nurserie"
+     "alt": "Liste Œufs vers la nurserie : entrées de crocodile marin avec cases à cocher Tout sélectionner"
     },
     {
      "title": "Transferts d’œufs",
      "desc": "Suivez le site, le stade, la date d’éclosion, l’espèce, l’identifiant et le sexe.",
-     "alt": "Œufs transférés — demandes de transfert par lot"
+     "alt": "Œufs transférés : demandes de transfert par lot aux statuts Annulé et en attente"
     },
     {
      "title": "Élimination des œufs",
      "desc": "Éliminez les œufs non viables avec motif consigné et piste d’audit.",
-     "alt": "Liste des œufs à éliminer"
+     "alt": "Onglet Œufs à écarter : 36 œufs à écarter, chacun avec l’espèce, l’identifiant de l’œuf, la date, un motif comme Pourri et une case à cocher"
     },
     {
      "title": "Créer un identifiant d’animal",
      "desc": "Créez un dossier pour les œufs éclos, lié à l’espèce et aux parents.",
-     "alt": "Œufs éclos — Créer un identifiant d’animal"
+     "alt": "Onglet Œufs éclos : 4 œufs éclos, avec Créer un identifiant animal sur des œufs de crocodile marin et un ara hyacinthe déjà identifié 422163"
     }
    ]
   },
@@ -987,17 +1046,17 @@
     {
      "title": "Configuration des nurseries et des incubateurs",
      "desc": "Créez des nurseries liées aux sites, créez des salles, gérez les incubateurs.",
-     "alt": "Liste des nurseries avec salles, incubateurs et sites"
+     "alt": "Liste des nurseries sur le web : nurseries avec salles, incubateurs, site et statut Actif, avec recherche, filtre par site et Ajouter"
     },
     {
      "title": "Rapports, filtres et accès aux données",
      "desc": "Filtrez par site, espèce, date ou stade ; exportez des rapports.",
-     "alt": "Tableau des statistiques d’œufs par espèce"
+     "alt": "Tableau de bord Statistiques des œufs sur le web : œufs au nid, vers la nurserie, éclos, écartés et total, avec les onglets Œufs par espèce, site et nurserie et Télécharger"
     },
     {
      "title": "Liste des œufs",
      "desc": "Onglets par statut : Reçus, Incubation, Éclos, Éliminés, Tous.",
-     "alt": "Liste des œufs avec les onglets Reçus, Incubation, Éclos"
+     "alt": "Liste des œufs sur le web : onglets Reçus, Incubation, Éclos, À écarter, Écartés et Tous, avec espèce, identifiant de l’œuf et état"
     }
    ]
   },
@@ -1009,7 +1068,7 @@
     {
      "title": "Types d’annonces",
      "desc": "Générales et Importantes, chacune avec ses propres règles de visibilité.",
-     "alt": "Liste des annonces avec les onglets Toutes et Créées par moi, cartes Importante et Annonce"
+     "alt": "Formulaire Créer une annonce avec le sélecteur de type Générale et Importante mis en évidence"
     },
     {
      "title": "Liste unifiée",
@@ -1019,7 +1078,7 @@
     {
      "title": "Créer des annonces",
      "desc": "Définissez le type, le titre, la visibilité ; publiez ou planifiez ; prévisualisez et joignez des fichiers.",
-     "alt": "Détail d’une annonce : Every necropsy counts, avec le bouton de création"
+     "alt": "Formulaire Créer une annonce avec type, détails, visibilité et programmation"
     },
     {
      "title": "Actions après publication",
@@ -1041,7 +1100,7 @@
     {
      "title": "Gestion des demandes",
      "desc": "Créez, modifiez, annulez ou rejetez des demandes avec des priorités.",
-     "alt": "Détail d’une demande de menuiserie avec fournisseur et estimation des coûts"
+     "alt": "Demande de menuiserie pour des nichoirs en bois à South Aviary Dome : fournisseur, détails de la demande, coût estimé, coût réel et statut actuel En cours"
     },
     {
      "title": "Gestion des coûts",
@@ -1051,7 +1110,7 @@
     {
      "title": "Réalisation et retour en arrière",
      "desc": "Marquez les demandes comme réalisées ou repassez-les en cours.",
-     "alt": "Demande terminée avec Repasser en cours"
+     "alt": "Demande REQ29-00172 de réparation d’une clôture en bois, marquée Demande terminée par le responsable, avec Repasser en cours"
     }
    ]
   },
@@ -1097,12 +1156,12 @@
     {
      "title": "Filtres et recherche",
      "desc": "Affinez les rapports par date, site ou espèce.",
-     "alt": "Rapport général des espèces : Télécharger le rapport, Sélectionner le site et filtres Afficher/Masquer, et un tableau des espèces avec les effectifs mâles, femelles, non déterminés et indéterminés"
+     "alt": "Rapport général des espèces avec le filtre Sélectionner un site mis en évidence"
     },
     {
      "title": "Rapports téléchargeables",
      "desc": "Générez, consultez et téléchargez les rapports Espèces, Quotidien, Liste des animaux, Évaluation des animaux, Soigneur, Utilisateur, Observation, Journal du soigneur, Journal du biologiste et Effectifs par enclos, pour la conformité et la consultation hors ligne.",
-     "alt": "Rapport général des espèces : Télécharger le rapport, Sélectionner le site et filtres Afficher/Masquer, et un tableau des espèces avec les effectifs mâles, femelles, non déterminés et indéterminés"
+     "alt": "Rapport général des espèces avec le bouton Télécharger le rapport mis en évidence"
     }
    ]
   },
@@ -1198,12 +1257,12 @@
     {
      "title": "Demandes dans l’application",
      "desc": "Permet aux utilisateurs de demander des produits à la pharmacie directement depuis l’application.",
-     "alt": "Liste des délivrances : 11 délivrances avec numéros de demande, pharmacie, date, demandeur, médicament et quantité totale, et bouton Nouvelle délivrance"
+     "alt": "Liste des demandes : 11 demandes avec identifiant, pharmacie, date, demandeur et nombre d’articles demandés"
     },
     {
      "title": "Délivrance dans l’application",
      "desc": "Permet au magasin de délivrer des produits de la pharmacie directement depuis l’application.",
-     "alt": "Détail de la délivrance DIS279 : Local Pharmacy, délivrée à Antz Admin, un médicament Crocin avec une quantité totale de 100"
+     "alt": "Liste des délivrances : 14 délivrances avec identifiant, pharmacie, date, animal, médicaments et quantité totale, et le bouton Nouvelle délivrance"
     }
    ]
   },
@@ -1214,43 +1273,58 @@
    "features": [
     {
      "title": "Tableau de bord",
-     "desc": "Indicateurs en temps réel sur les problèmes de stock, les expéditions, les achats, les demandes, la consommation, les péremptions et les produits à forte rotation, avec des tendances visuelles pour agir vite.",
-     "alt": "Un pharmacien rangeant des étagères de médicaments."
-    },
-    {
-     "title": "Recherche intelligente et filtres",
-     "desc": "Trouvez rapidement des dossiers par numéro de demande, nom du vétérinaire ou pharmacie.",
-     "alt": ""
-    },
-    {
-     "title": "Données de référence (rayonnages et étagères)",
-     "desc": "Organisez le stockage par nombre de rayonnages/étagères pour un accès et des mises à jour rapides, avec des données personnalisables (conditionnement, unité de mesure, sels, livreurs, fabricants).",
-     "alt": ""
+     "desc": "Obtenez un aperçu rapide des stocks, des expéditions, des achats, des demandes et des tendances des produits.",
+     "alt": "Tableau de bord Pharmacie : valeur des médicaments périmés, médicaments en rupture de stock, total des demandes, valeur expédiée, expéditions, demandes du jour et graphique mensuel des expéditions"
     },
     {
      "title": "Gestion des rapports de stock",
-     "desc": "Stock par lot avec valeur et péremption ; signalez les articles en rupture ou périmés ; surveillez les péremptions à venir ; gérez le séquestre avec résolution des litiges.",
-     "alt": ""
+     "desc": "Obtenez une vue consolidée du stock par lot, des articles en stock faible, des produits périmés ou bientôt périmés, et des produits sous séquestre ou en litige.",
+     "alt": "Rapport de stock : liste des produits par lot avec quantité en magasin, prix unitaire net et valeur"
     },
     {
-     "title": "Gestion des produits et des stocks",
-     "desc": "Créez des produits, suivez les stocks et les péremptions, enregistrez les achats/expéditions, tenez un registre unifié, gérez les substituts/variantes.",
-     "alt": ""
+     "title": "Gestion des demandes et retours de produits",
+     "desc": "Gérez les demandes de produits, les besoins de chaque magasin, les articles en attente, les expéditions directes et les retours de produits depuis une vue centralisée.",
+     "alt": "Liste des demandes de retour de produits avec recherche et filtres par magasin et par nombre de jours"
     },
     {
-     "title": "Gestion des délivrances",
-     "desc": "Les vétérinaires peuvent prescrire et délivrer, ou récupérer des médicaments directement à la pharmacie, le tout enregistré.",
-     "alt": ""
+     "title": "Expéditions",
+     "desc": "Consultez et suivez les mouvements de stock entrants et sortants de la pharmacie.",
+     "alt": "Expéditions sortantes : identifiant de l’expédition, type, destinataire, véhicule et livreur"
     },
     {
-     "title": "Gestion des expéditions",
-     "desc": "Suivez les expéditions entrantes et sortantes de médicaments et traitez-les dans l’application.",
-     "alt": ""
+     "title": "Délivrance de médicaments",
+     "desc": "Gérez et suivez la délivrance des médicaments prescrits.",
+     "alt": "Liste des délivrances : identifiant de délivrance, nombre d’animaux, date et réceptionnaire"
     },
     {
-     "title": "Ajustements de stock et rapports",
-     "desc": "Enregistrez les variations de stock (manquants, cassés, périmés) ; conservez l’historique d’audit ; gérez les retours fournisseurs ; téléchargez les rapports de consommation, de retours, d’achats et de délivrance pour la comptabilité et la prévision de la demande.",
-     "alt": ""
+     "title": "Gestion des produits",
+     "desc": "Gérez les produits, les stocks, les achats, les expéditions, les mouvements de stock, les substituts, les variantes et les informations de référence, au même endroit.",
+     "alt": "Liste des produits : tous les produits avec leur présentation et leur fabricant"
+    },
+    {
+     "title": "Gestion des entrées en stock",
+     "desc": "Ajoutez, importez et vérifiez les entrées en stock avec fournisseur, facture, lot, péremption, prix et quantité, tout en conservant un historique complet des achats et leurs récapitulatifs.",
+     "alt": "Liste des stocks avec les boutons Importer et Ajouter du stock, filtre par fournisseur et historique des achats"
+    },
+    {
+     "title": "Gestion des ajustements de stock",
+     "desc": "Gérez les ajustements de stock et les retours fournisseurs pour garder un stock exact, réduire les pertes et assurer une traçabilité complète.",
+     "alt": "Liste des ajustements de stock : onglets manquants / périmés / cassés avec produit, numéro de lot, quantité, motif et date de péremption"
+    },
+    {
+     "title": "Gestion des rapports",
+     "desc": "Suivez et analysez la consommation, les retours, les expéditions, les délivrances, les achats et les demandes grâce à des rapports détaillés et filtrables, pour une meilleure visibilité des stocks et pour les audits.",
+     "alt": "Rapport de consommation avec période, recherche, téléchargement et liste des produits"
+    },
+    {
+     "title": "Retour de produits au fournisseur",
+     "desc": "Renvoyez aux fournisseurs les produits indésirables, périmés, endommagés ou excédentaires, en suivant les quantités, les motifs et le statut du retour.",
+     "alt": "Liste des retours fournisseurs avec numéro de demande, fournisseur, quantité totale et date de mise au rebut"
+    },
+    {
+     "title": "Gestion des données de référence, rayonnages et étagères",
+     "desc": "Organisez les produits par rayonnages et étagères et gérez des données de référence personnalisables pour un stockage et une gestion des stocks efficaces.",
+     "alt": "Emplacement du stock : configuration des rayonnages et étagères dans les données de référence, avec nom du produit, nombre de rayonnages et nombre d’étagères"
     }
    ]
   },

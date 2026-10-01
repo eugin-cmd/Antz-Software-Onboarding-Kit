@@ -267,6 +267,43 @@
     }
    ]
   },
+  "chat-module": {
+   "title": "Módulo de Chat",
+   "intro": "O Módulo de Chat é um canal de comunicação dentro do aplicativo, com mensagens individuais e em grupo, compartilhamento de mídia e notificações em tempo real. Assim, todas as conversas de trabalho, atualizações e a coordenação ficam protegidas dentro da plataforma, em vez de espalhadas por celulares pessoais e e-mails.",
+   "summary": "Mensagens individuais e em grupo, compartilhamento de mídia e notificações em tempo real, com segurança dentro da plataforma",
+   "features": [
+    {
+     "title": "Mensagens individuais",
+     "desc": "Permite conversas individuais entre membros da equipe para uma comunicação e colaboração fluidas.",
+     "alt": "Conversa no chat da Antz Systems: coordenação da coleta de amostras de sangue entre a Dra. Neha e o biólogo Mayur"
+    },
+    {
+     "title": "Mensagens em grupo",
+     "desc": "Crie um grupo para qualquer equipe, turno ou tarefa e converse em um só lugar.",
+     "alt": "Conversa no chat da Antz Systems: coordenação da coleta de amostras de sangue entre a Dra. Neha e o biólogo Mayur"
+    },
+    {
+     "title": "Compartilhamento de mídia e documentos",
+     "desc": "Envie fotos, vídeos, laudos de laboratório e PDFs na própria conversa, sem precisar de aplicativos externos.",
+     "alt": "Conversa no chat da Antz Systems: coordenação da coleta de amostras de sangue entre a Dra. Neha e o biólogo Mayur"
+    },
+    {
+     "title": "Notificações em tempo real",
+     "desc": "Receba notificações instantâneas diretamente no aplicativo sobre atualizações importantes.",
+     "alt": "Conversa no chat da Antz Systems: coordenação da coleta de amostras de sangue entre a Dra. Neha e o biólogo Mayur"
+    },
+    {
+     "title": "Seguro e auditável",
+     "desc": "Todas as conversas ficam dentro da Antz, com o histórico preservado.",
+     "alt": "Conversa no chat da Antz Systems: coordenação da coleta de amostras de sangue entre a Dra. Neha e o biólogo Mayur"
+    },
+    {
+     "title": "Pesquisa e filtros",
+     "desc": "Encontre mensagens por palavra-chave, remetente ou entidade vinculada.",
+     "alt": "Conversa no chat da Antz Systems: coordenação da coleta de amostras de sangue entre a Dra. Neha e o biólogo Mayur"
+    }
+   ]
+  },
   "user-management": {
    "title": "Gestão de Usuários",
    "intro": "O Módulo de Usuários permite a gestão segura e centralizada de contas, perfis e permissões. Ele agiliza a integração de usuários, garante a segurança dos dados e alinha os direitos de acesso aos cargos da organização, mantendo registros de atividade detalhados para fins de responsabilização.",
@@ -808,6 +845,28 @@
     }
    ]
   },
+  "focus-hub": {
+   "title": "Focus Hub",
+   "intro": "O Focus Hub é individual: mostra apenas os itens que cada usuário marcou como favoritos ou salvou nos marcadores. Ele reúne em um só lugar os animais e recintos favoritos e as notas, registros médicos e solicitações de exames marcados, para acesso rápido.",
+   "summary": "Seus animais e recintos favoritos e registros nos marcadores, em um só lugar para acesso rápido",
+   "features": [
+    {
+     "title": "Gerenciamento de pastas",
+     "desc": "Crie, renomeie e exclua pastas para organizar os itens salvos do jeito que você trabalha.",
+     "alt": "Aba Pastas do Meu Focus Hub com as pastas Animais, Feridos, Aves, Leão e Críticos"
+    },
+    {
+     "title": "Animais e recintos favoritos",
+     "desc": "Marque, veja e remova animais e recintos dos seus Favoritos com um só toque.",
+     "alt": "Aba Favoritos do Meu Focus Hub com o seletor Animais/Recintos e uma lista de cartões de animais favoritos"
+    },
+    {
+     "title": "Marcar registros",
+     "desc": "Adicione ou remova marcadores em notas, registros médicos ou solicitações de exames para consultá-los rapidamente depois.",
+     "alt": "Aba Marcadores do Meu Focus Hub com os filtros Notas, Registro médico e Solicitação de exame, e cartões de registros médicos marcados"
+    }
+   ]
+  },
   "mortality": {
    "title": "Mortalidade",
    "intro": "O Módulo de Mortalidade permite registrar óbitos de animais de forma rápida e precisa, gerenciar os dados da necropsia e armazenar as evidências em um só lugar. Ele aumenta a transparência, agiliza a tomada de decisões, garante a conformidade e contribui para um melhor acompanhamento do bem-estar animal.",
@@ -903,32 +962,32 @@
     {
      "title": "Adicionar registro de morte fetal",
      "desc": "Registre novas ocorrências: causa, momento, parentesco, dados do animal.",
-     "alt": "Formulário Adicionar morte fetal com recinto, espécie e progenitor"
+     "alt": "Formulário Adicionar morte fetal com o recinto, a espécie/taxonomia e a filiação selecionados"
     },
     {
      "title": "Pesquisa e filtros",
      "desc": "Pesquise por palavra-chave; filtre por unidade, data, natimorto ou aborto, espécie ou sexo.",
-     "alt": "Lista de mortes fetais com pesquisa e filtro"
+     "alt": "Lista de mortes fetais com os filtros Todos os locais e Todos os dados, o separador Nado-morto e a barra de pesquisa destacados"
     },
     {
      "title": "Ver registros de óbito",
      "desc": "Detalhes completos, dias desde o óbito, causa, ID, recinto, unidade, sexo.",
-     "alt": "Lista de registros de morte fetal, aba Natimorto"
+     "alt": "Lista de mortes fetais com o primeiro cartão destacado"
     },
     {
      "title": "Exibição do cartão do animal",
      "desc": "FID, espécie, descoberta, progenitores, unidade, sexo, responsável pelo registro.",
-     "alt": "Cartão de detalhes do resumo da morte fetal"
+     "alt": "Cartão de detalhe Resumo da morte fetal"
     },
     {
      "title": "Editar registro",
      "desc": "Modifique um registro existente a partir do resumo, com trilha de auditoria.",
-     "alt": "Resumo da morte fetal com o lápis de edição"
+     "alt": "Resumo da morte fetal com o lápis de edição destacado"
     },
     {
      "title": "Excluir registro",
      "desc": "Remova um registro quando necessário, com trilha de auditoria completa.",
-     "alt": "Resumo da morte fetal com a opção Excluir morte fetal"
+     "alt": "Resumo da morte fetal com a opção Eliminar morte fetal destacada"
     }
    ]
   },
@@ -940,7 +999,7 @@
     {
      "title": "Painel de ovos",
      "desc": "Contagens em tempo real: nos ninhos, enviados ao berçário, marcados para descarte.",
-     "alt": "Painel de coleta de ovos: 66 no ninho, 76 para o berçário, 35 para descarte"
+     "alt": "Painel de Recolha de ovos: 6 ovos recolhidos hoje, 50 no ninho, 21 para o berçário e 5 a descartar, com a lista Ovos no ninho"
     },
     {
      "title": "Registro de ovos (ninho / berçário)",
@@ -955,27 +1014,27 @@
     {
      "title": "Incubação natural",
      "desc": "Ovos incubados nos ninhos: ID, data de coleta, condição.",
-     "alt": "Lista de ovos no ninho com registros de pavoa"
+     "alt": "Painel de Recolha de ovos: 6 ovos recolhidos hoje, 50 no ninho, 21 para o berçário e 5 a descartar, com a lista Ovos no ninho"
     },
     {
      "title": "Incubação artificial",
      "desc": "Ovos no berçário: avaliar, levar para incubação, descartar ou registrar eclosão.",
-     "alt": "Lista de ovos para o berçário"
+     "alt": "Lista Ovos para o berçário: entradas de crocodilo-de-água-salgada com caixas para selecionar tudo"
     },
     {
      "title": "Transferências de ovos",
      "desc": "Acompanhe unidade, estágio, data de eclosão, espécie, ID e sexo.",
-     "alt": "Ovos transferidos — solicitações de transferência em lote"
+     "alt": "Ovos transferidos: pedidos de transferência em lote com estados Cancelado e pendente"
     },
     {
      "title": "Descarte de ovos",
      "desc": "Descarte ovos inviáveis com o motivo registrado e trilha de auditoria.",
-     "alt": "Lista de ovos a descartar"
+     "alt": "Separador Ovos a descartar: 36 ovos a descartar, cada um com espécie, ID do ovo, data, motivo como Podre e uma caixa de seleção"
     },
     {
      "title": "Criar ID do animal",
      "desc": "Gere um registro para os ovos eclodidos, vinculado à espécie e aos progenitores.",
-     "alt": "Ovos eclodidos — Criar ID do animal (“Create Animal ID”)"
+     "alt": "Separador Ovos eclodidos: 4 ovos eclodidos, com Criar ID do animal em ovos de crocodilo-de-água-salgada e uma arara-azul-grande já com o ID 422163"
     }
    ]
   },
@@ -987,17 +1046,17 @@
     {
      "title": "Configuração de berçários e incubadoras",
      "desc": "Configure berçários vinculados às unidades, crie salas e gerencie incubadoras.",
-     "alt": "Lista de berçários com salas, incubadoras e unidades"
+     "alt": "Lista de berçários na web: berçários com salas, incubadoras, local e estado Ativo, com pesquisa, filtro de local e Adicionar novo"
     },
     {
      "title": "Relatórios, filtros e acesso aos dados",
      "desc": "Filtre por unidade, espécie, data ou estágio; exporte relatórios.",
-     "alt": "Tabela de estatísticas de ovos por espécie"
+     "alt": "Painel Estatísticas de ovos na web: ovos no ninho, para o berçário, eclodidos, descartados e total, com os separadores Ovos por espécie, local e berçário e Transferir"
     },
     {
      "title": "Lista de ovos",
      "desc": "Abas por status: Recebidos, Em incubação, Eclodidos, Descartados, Todos.",
-     "alt": "Lista de ovos com as abas Recebidos, Em incubação, Eclodidos"
+     "alt": "Lista de ovos na web: separadores Recebidos, Incubação, Eclodidos, A descartar, Descartados e Todos, com espécie, identificador do ovo e estado"
     }
    ]
   },
@@ -1009,7 +1068,7 @@
     {
      "title": "Tipos de comunicado",
      "desc": "Geral e Importante, cada um com suas próprias regras de visibilidade.",
-     "alt": "Lista de comunicados com as abas Todos e Criados por mim, e cartões Importante e Comunicado"
+     "alt": "Formulário Criar aviso com o seletor de tipo Geral e Importante destacado"
     },
     {
      "title": "Listagem unificada",
@@ -1019,7 +1078,7 @@
     {
      "title": "Criar comunicados",
      "desc": "Defina tipo, título e visibilidade; publique ou agende; pré-visualize e anexe arquivos.",
-     "alt": "Detalhe do comunicado: Every necropsy counts, com o botão de criar"
+     "alt": "Formulário Criar aviso com tipo, detalhes, visibilidade e agendamento"
     },
     {
      "title": "Ações após a publicação",
@@ -1041,7 +1100,7 @@
     {
      "title": "Gestão de solicitações",
      "desc": "Abra, edite, cancele ou rejeite solicitações com prioridades.",
-     "alt": "Detalhe de solicitação de carpintaria com fornecedor e estimativa de custo"
+     "alt": "Pedido de carpintaria de caixas-ninho de madeira em South Aviary Dome: fornecedor, detalhes do pedido, custo estimado, custo real e estado atual Em andamento"
     },
     {
      "title": "Gestão de custos",
@@ -1051,7 +1110,7 @@
     {
      "title": "Atendimento e reversão",
      "desc": "Marque solicitações como atendidas ou devolva-as para Em andamento.",
-     "alt": "Solicitação concluída com a opção Voltar para Em andamento (“Move Back To In-Progress”)"
+     "alt": "Pedido REQ29-00172 de reparação de uma cerca de madeira, marcado como Pedido concluído pela autoridade, com Voltar para Em andamento"
     }
    ]
   },
@@ -1097,12 +1156,12 @@
     {
      "title": "Filtros e pesquisa",
      "desc": "Refine os relatórios por data, unidade ou espécie.",
-     "alt": "Relatório geral de espécies: Baixar relatório, Selecionar unidade e filtros Mostrar/Ocultar, e uma tabela de espécies com contagens de machos, fêmeas, não determinados e indeterminados"
+     "alt": "Relatório geral de espécies com o filtro Selecionar local destacado"
     },
     {
      "title": "Relatórios para download",
      "desc": "Gere, visualize e baixe os relatórios de Espécies, Diário, Lista de animais, Avaliação de animais, Tratador, Usuário, Observação, Diário do tratador, Diário do biólogo e Contagem por recinto, para conformidade e acesso offline.",
-     "alt": "Relatório geral de espécies: Baixar relatório, Selecionar unidade e filtros Mostrar/Ocultar, e uma tabela de espécies com contagens de machos, fêmeas, não determinados e indeterminados"
+     "alt": "Relatório geral de espécies com o botão Transferir relatório destacado"
     }
    ]
   },
@@ -1198,12 +1257,12 @@
     {
      "title": "Solicitação pelo aplicativo",
      "desc": "Permite que os usuários solicitem produtos à farmácia diretamente pelo aplicativo.",
-     "alt": "Lista de dispensações: 11 dispensações com IDs de solicitação, farmácia, data, solicitante, medicamento e quantidade total, e botão Nova dispensação (“New Dispense”)"
+     "alt": "Lista de pedidos: 11 pedidos com ID, farmácia, data, requerente e número de itens pedidos"
     },
     {
      "title": "Dispensação pelo aplicativo",
      "desc": "Permite que o almoxarifado dispense produtos da farmácia diretamente pelo aplicativo.",
-     "alt": "Detalhe da dispensação DIS279: Local Pharmacy, dispensado para Antz Admin, um medicamento Crocin com quantidade total 100"
+     "alt": "Lista de dispensas: 14 dispensas com ID, farmácia, data, animal, medicamentos e quantidade total, e o botão Nova dispensa"
     }
    ]
   },
@@ -1214,43 +1273,58 @@
    "features": [
     {
      "title": "Painel",
-     "desc": "Análises em tempo real sobre problemas de estoque, remessas, compras, solicitações, consumo, vencimentos e produtos de alto giro, com tendências visuais para agir rapidamente.",
-     "alt": "Um farmacêutico organizando as prateleiras de medicamentos."
-    },
-    {
-     "title": "Pesquisa inteligente e filtros",
-     "desc": "Encontre registros rapidamente por ID da solicitação, nome do médico ou farmácia.",
-     "alt": ""
-    },
-    {
-     "title": "Cadastros (estantes e prateleiras)",
-     "desc": "Organize o armazenamento por número de estantes/prateleiras para acesso e atualização rápidos, com dados personalizáveis (embalagem, unidade de medida, sais, drivers, fabricantes).",
-     "alt": ""
+     "desc": "Tenha uma visão rápida do estoque, das remessas, das compras, das solicitações e das tendências dos produtos.",
+     "alt": "Painel da Farmácia: valor dos medicamentos vencidos, medicamentos sem estoque, total de solicitações, valor expedido, remessas, solicitações de hoje e gráfico mensal de expedições"
     },
     {
      "title": "Gestão de relatórios de estoque",
-     "desc": "Estoque por lote com valor e validade; sinalize itens com estoque baixo ou vencidos; acompanhe os próximos vencimentos; gerencie itens em custódia com resolução de divergências.",
-     "alt": ""
+     "desc": "Tenha uma visão consolidada do estoque por lote, dos itens com estoque baixo, dos produtos vencidos e a vencer, e dos produtos em custódia ou em divergência.",
+     "alt": "Relatório de estoque: lista de produtos por lote com quantidade no almoxarifado, preço unitário líquido e valor"
     },
     {
-     "title": "Gestão de produtos e estoque",
-     "desc": "Crie produtos, acompanhe estoque e validade, registre compras/expedições, mantenha um livro-razão unificado e gerencie substitutos/variantes.",
-     "alt": ""
+     "title": "Gestão de solicitações e devoluções de produtos",
+     "desc": "Gerencie solicitações de produtos, necessidades de cada almoxarifado, itens pendentes, expedições diretas e devoluções de produtos em uma visão centralizada.",
+     "alt": "Lista de solicitações de devolução de produtos com pesquisa e filtros por almoxarifado e por dias"
     },
     {
-     "title": "Gestão de dispensações",
-     "desc": "Os médicos podem prescrever e dispensar, ou retirar medicamentos diretamente na farmácia, com tudo registrado.",
-     "alt": ""
+     "title": "Remessas",
+     "desc": "Veja e acompanhe as movimentações de estoque da farmácia, de entrada e de saída.",
+     "alt": "Remessas de saída: ID da remessa, tipo, destinatário, veículo e entregador"
     },
     {
-     "title": "Gestão de remessas",
-     "desc": "Acompanhe as remessas de medicamentos que chegam e que saem e dê baixa nelas pelo aplicativo.",
-     "alt": ""
+     "title": "Dispensar medicamentos",
+     "desc": "Gerencie e acompanhe a dispensação dos medicamentos prescritos.",
+     "alt": "Lista de dispensas: ID da dispensa, número de animais, data e recebido por"
     },
     {
-     "title": "Ajuste de estoque e relatórios",
-     "desc": "Registre alterações de estoque (extraviados, danificados, vencidos); mantenha o histórico de auditoria; gerencie devoluções a fornecedores; baixe relatórios de consumo, devolução, compra e dispensação para o financeiro e a previsão de demanda.",
-     "alt": ""
+     "title": "Gestão de produtos",
+     "desc": "Gerencie produtos, estoque, compras, expedições, movimentações de estoque, substitutos, variantes e informações de referência em um só lugar.",
+     "alt": "Lista de produtos: todos os produtos com apresentação e fabricante"
+    },
+    {
+     "title": "Gestão de entradas de estoque",
+     "desc": "Adicione, importe e confira entradas de estoque com dados de fornecedor, nota fiscal, lote, validade, preço e quantidade, mantendo registros e resumos completos das compras.",
+     "alt": "Lista de estoque com os botões Importar e Adicionar estoque, filtro por fornecedor e registros de compras"
+    },
+    {
+     "title": "Gestão de ajustes de estoque",
+     "desc": "Gerencie ajustes de estoque e devoluções a fornecedores para manter o estoque correto, reduzir perdas e garantir rastreabilidade completa.",
+     "alt": "Lista de ajustes de estoque: abas extraviados/vencidos/danificados com produto, número do lote, quantidade, motivo e validade"
+    },
+    {
+     "title": "Gestão de relatórios",
+     "desc": "Acompanhe e analise consumo, devoluções, remessas, dispensações, compras e solicitações com relatórios detalhados e filtráveis, para mais visibilidade do estoque e para auditorias.",
+     "alt": "Relatório de consumo com período, pesquisa, download e lista de produtos"
+    },
+    {
+     "title": "Devolver produtos ao fornecedor",
+     "desc": "Devolva aos fornecedores produtos indesejados, vencidos, danificados ou em excesso, acompanhando quantidades, motivos e status da devolução.",
+     "alt": "Lista de devoluções ao fornecedor com número da solicitação, fornecedor, quantidade total e data de descarte"
+    },
+    {
+     "title": "Gestão de cadastros, estantes e prateleiras",
+     "desc": "Organize os produtos por estantes e prateleiras e gerencie cadastros personalizáveis para um armazenamento e uma gestão de estoque eficientes.",
+     "alt": "Localização do estoque: configuração de estantes e prateleiras nos cadastros, com nome do produto, número de estantes e número de prateleiras"
     }
    ]
   },

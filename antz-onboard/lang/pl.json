@@ -267,6 +267,43 @@
     }
    ]
   },
+  "chat-module": {
+   "title": "Moduł Czat",
+   "intro": "Moduł Czat to kanał komunikacji wbudowany w aplikację, oferujący wiadomości indywidualne i grupowe, udostępnianie multimediów oraz powiadomienia w czasie rzeczywistym. Dzięki temu wszystkie rozmowy służbowe, aktualizacje i ustalenia pozostają bezpiecznie na platformie, zamiast być rozproszone po prywatnych telefonach i e-mailach.",
+   "summary": "Wiadomości indywidualne i grupowe, udostępnianie multimediów i powiadomienia w czasie rzeczywistym, bezpiecznie na platformie",
+   "features": [
+    {
+     "title": "Wiadomości 1:1",
+     "desc": "Rozmowy indywidualne między członkami zespołu, zapewniające sprawną komunikację i współpracę.",
+     "alt": "Wątek czatu Antz Systems: koordynacja pobrania próbki krwi – Dr. Neha i biolog Mayur"
+    },
+    {
+     "title": "Wiadomości grupowe",
+     "desc": "Tworzenie grupy dla dowolnego zespołu, zmiany lub zadania i rozmowa w jednym miejscu.",
+     "alt": "Wątek czatu Antz Systems: koordynacja pobrania próbki krwi – Dr. Neha i biolog Mayur"
+    },
+    {
+     "title": "Udostępnianie multimediów i dokumentów",
+     "desc": "Wysyłanie zdjęć, filmów, wyników badań laboratoryjnych i plików PDF bezpośrednio w wątku, bez zewnętrznych aplikacji.",
+     "alt": "Wątek czatu Antz Systems: koordynacja pobrania próbki krwi – Dr. Neha i biolog Mayur"
+    },
+    {
+     "title": "Powiadomienia w czasie rzeczywistym",
+     "desc": "Natychmiastowe powiadomienia o ważnych aktualizacjach bezpośrednio w aplikacji.",
+     "alt": "Wątek czatu Antz Systems: koordynacja pobrania próbki krwi – Dr. Neha i biolog Mayur"
+    },
+    {
+     "title": "Bezpieczeństwo i możliwość audytu",
+     "desc": "Wszystkie rozmowy pozostają w Antz, a ich historia jest przechowywana.",
+     "alt": "Wątek czatu Antz Systems: koordynacja pobrania próbki krwi – Dr. Neha i biolog Mayur"
+    },
+    {
+     "title": "Wyszukiwanie i filtry",
+     "desc": "Wyszukiwanie wiadomości według słowa kluczowego, nadawcy lub powiązanego obiektu.",
+     "alt": "Wątek czatu Antz Systems: koordynacja pobrania próbki krwi – Dr. Neha i biolog Mayur"
+    }
+   ]
+  },
   "user-management": {
    "title": "Zarządzanie użytkownikami",
    "intro": "Moduł Użytkownicy umożliwia bezpieczne, scentralizowane zarządzanie kontami, rolami i uprawnieniami. Usprawnia wdrażanie nowych użytkowników, zapewnia bezpieczeństwo danych i dopasowuje prawa dostępu do ról w organizacji, prowadząc szczegółowe dzienniki aktywności na potrzeby rozliczalności.",
@@ -808,6 +845,28 @@
     }
    ]
   },
+  "focus-hub": {
+   "title": "Focus Hub",
+   "intro": "Focus Hub jest indywidualny dla każdego użytkownika i pokazuje wyłącznie elementy, które dany użytkownik oznaczył jako ulubione lub dodał do zakładek. Gromadzi w jednym miejscu ulubione zwierzęta i wybiegi oraz dodane do zakładek notatki, wpisy medyczne i zlecenia laboratoryjne, zapewniając do nich szybki dostęp.",
+   "summary": "Ulubione zwierzęta i wybiegi oraz wpisy w zakładkach w jednym miejscu, pod ręką",
+   "features": [
+    {
+     "title": "Zarządzanie folderami",
+     "desc": "Tworzenie, zmiana nazwy i usuwanie folderów, aby porządkować zapisane elementy zgodnie z własnym sposobem pracy.",
+     "alt": "Karta „Foldery” (Folders) w My Focus Hub z folderami Animals, Injured, Birds, Lion, Critical"
+    },
+    {
+     "title": "Ulubione zwierzęta i wybiegi",
+     "desc": "Oznaczanie, przeglądanie i usuwanie zwierząt oraz wybiegów z ulubionych jednym dotknięciem.",
+     "alt": "Karta „Ulubione” (Favourites) w My Focus Hub z przełącznikiem Zwierzęta / Wybiegi i listą kart ulubionych zwierząt"
+    },
+    {
+     "title": "Zakładki do wpisów",
+     "desc": "Dodawanie do zakładek i usuwanie z nich notatek, wpisów medycznych lub zleceń laboratoryjnych, aby później szybko do nich wrócić.",
+     "alt": "Karta „Zakładki” (Bookmarks) w My Focus Hub z filtrami Notatki, Wpis medyczny, Zlecenie laboratoryjne i kartami wpisów medycznych dodanych do zakładek"
+    }
+   ]
+  },
   "mortality": {
    "title": "Śmiertelność",
    "intro": "Moduł Śmiertelność pozwala szybko i dokładnie rejestrować zgony zwierząt, zarządzać danymi sekcji zwłok i przechowywać dowody w jednym miejscu. Zwiększa przejrzystość, przyspiesza podejmowanie decyzji, zapewnia zgodność z przepisami i wspiera lepsze monitorowanie dobrostanu zwierząt.",
@@ -903,32 +962,32 @@
     {
      "title": "Dodawanie wpisu obumarcia płodu",
      "desc": "Rejestrowanie nowych przypadków: przyczyna, czas, rodzice, dane zwierzęcia.",
-     "alt": "Formularz dodawania obumarcia płodu z wybiegiem, gatunkiem i rodzicem"
+     "alt": "Formularz Dodaj śmierć płodu z wybranym wybiegiem, gatunkiem/taksonomią i rodzicami"
     },
     {
      "title": "Wyszukiwanie i filtry",
      "desc": "Wyszukiwanie według słowa kluczowego; filtrowanie według lokalizacji, daty, martwego urodzenia lub poronienia, gatunku albo płci.",
-     "alt": "Lista obumarć płodu z wyszukiwaniem i filtrem"
+     "alt": "Lista śmierci płodów z wyróżnionymi filtrami Wszystkie lokalizacje i Wszystkie dane, kartą Martwe urodzenie i paskiem wyszukiwania"
     },
     {
      "title": "Podgląd wpisów zgonów",
      "desc": "Pełne dane, liczba dni od zgonu, przyczyna, ID, wybieg, lokalizacja, płeć.",
-     "alt": "Lista wpisów obumarcia płodu, karta Martwe urodzenia"
+     "alt": "Lista śmierci płodów z wyróżnioną pierwszą kartą"
     },
     {
      "title": "Wyświetlanie karty zwierzęcia",
      "desc": "FID, gatunek, odnalezienie, rodzice, lokalizacja, płeć, zgłaszający.",
-     "alt": "Karta podsumowania obumarcia płodu"
+     "alt": "Karta szczegółów Podsumowanie śmierci płodu"
     },
     {
      "title": "Edycja wpisu",
      "desc": "Modyfikacja istniejącego wpisu z poziomu podsumowania, z zapisem w historii zmian.",
-     "alt": "Podsumowanie obumarcia płodu z ikoną ołówka do edycji"
+     "alt": "Podsumowanie śmierci płodu z wyróżnionym ołówkiem do edycji"
     },
     {
      "title": "Usuwanie wpisu",
      "desc": "Usunięcie wpisu w razie potrzeby, z pełnym zapisem w historii zmian.",
-     "alt": "Podsumowanie obumarcia płodu z opcją „Usuń obumarcie płodu” (Delete Fetal Death)"
+     "alt": "Podsumowanie śmierci płodu z wyróżnioną opcją Usuń śmierć płodu"
     }
    ]
   },
@@ -940,7 +999,7 @@
     {
      "title": "Panel jaj",
      "desc": "Bieżące liczby: jaja w gniazdach, przeniesione do odchowalni, przeznaczone do utylizacji.",
-     "alt": "Panel zbioru jaj: 66 w gnieździe, 76 do odchowalni, 35 do utylizacji"
+     "alt": "Pulpit Zbiór jaj: 6 jaj zebranych dziś, 50 w gnieździe, 21 do odchowalni i 5 do odrzucenia, z listą Jaja w gnieździe"
     },
     {
      "title": "Wprowadzanie jaj (gniazdo / odchowalnia)",
@@ -955,27 +1014,27 @@
     {
      "title": "Inkubacja naturalna",
      "desc": "Jaja wysiadywane w gniazdach: ID, data zebrania, stan.",
-     "alt": "Lista jaj w gnieździe z wpisami pawia"
+     "alt": "Pulpit Zbiór jaj: 6 jaj zebranych dziś, 50 w gnieździe, 21 do odchowalni i 5 do odrzucenia, z listą Jaja w gnieździe"
     },
     {
      "title": "Inkubacja sztuczna",
      "desc": "Jaja w odchowalni: ocena, przeniesienie do inkubacji, utylizacja lub wyklucie.",
-     "alt": "Lista jaj do odchowalni"
+     "alt": "Lista Jaja do odchowalni: wpisy krokodyla różańcowego z polami wyboru Zaznacz wszystko"
     },
     {
      "title": "Przeniesienia jaj",
      "desc": "Śledzenie lokalizacji, etapu, daty wyklucia, gatunku, ID i płci.",
-     "alt": "Przeniesione jaja — zbiorcze wnioski o przeniesienie"
+     "alt": "Przeniesione jaja: zbiorcze zgłoszenia przeniesienia ze statusami Anulowane i oczekujące"
     },
     {
      "title": "Utylizacja jaj",
      "desc": "Utylizacja jaj niezdolnych do rozwoju z zapisem przyczyny i historią zmian.",
-     "alt": "Lista jaj do utylizacji"
+     "alt": "Karta Jaja do odrzucenia: 36 jaj do odrzucenia, każde z gatunkiem, ID jaja, datą, powodem, np. Zepsute, i polem wyboru"
     },
     {
      "title": "Tworzenie ID zwierzęcia",
      "desc": "Generowanie wpisu dla wyklutych jaj, powiązanego z gatunkiem i rodzicami.",
-     "alt": "Wyklute jaja — „Utwórz ID zwierzęcia” (Create Animal ID)"
+     "alt": "Karta Wyklute jaja: 4 wyklute jaja, z opcją Utwórz ID zwierzęcia przy jajach krokodyla różańcowego i ara hiacyntowa, która ma już ID 422163"
     }
    ]
   },
@@ -987,17 +1046,17 @@
     {
      "title": "Konfiguracja odchowalni i inkubatorów",
      "desc": "Tworzenie odchowalni powiązanych z lokalizacjami, tworzenie pomieszczeń, zarządzanie inkubatorami.",
-     "alt": "Lista odchowalni z pomieszczeniami, inkubatorami i lokalizacjami"
+     "alt": "Lista odchowalni w sieci: odchowalnie z pomieszczeniami, inkubatorami, lokalizacją i statusem Aktywna, z wyszukiwaniem, filtrem lokalizacji i Dodaj nową"
     },
     {
      "title": "Raportowanie, filtry i dostęp do danych",
      "desc": "Filtrowanie według lokalizacji, gatunku, daty lub etapu; eksport raportów.",
-     "alt": "Tabela statystyk jaj według gatunku"
+     "alt": "Pulpit Statystyki jaj w sieci: jaja w gnieździe, do odchowalni, wyklute, odrzucone i łącznie, z kartami Jaja według gatunków, lokalizacji i odchowalni oraz Pobierz"
     },
     {
      "title": "Lista jaj",
      "desc": "Karty według statusu: Przyjęte, Inkubacja, Wyklute, Zutylizowane, Wszystkie.",
-     "alt": "Lista jaj z kartami Przyjęte, Inkubacja, Wyklute"
+     "alt": "Lista jaj w sieci: karty Przyjęte, Inkubacja, Wyklute, Do odrzucenia, Odrzucone i Wszystkie, z gatunkiem, identyfikatorem jaja i stanem"
     }
    ]
   },
@@ -1009,7 +1068,7 @@
     {
      "title": "Rodzaje ogłoszeń",
      "desc": "Ogólne i ważne, każde z własnymi zasadami widoczności.",
-     "alt": "Lista ogłoszeń z kartami Wszystkie i Utworzone przeze mnie oraz kartami ogłoszeń ważnych i zwykłych"
+     "alt": "Formularz Utwórz ogłoszenie z wyróżnionym przełącznikiem typu Ogólne i Ważne"
     },
     {
      "title": "Wspólna lista",
@@ -1019,7 +1078,7 @@
     {
      "title": "Tworzenie ogłoszeń",
      "desc": "Określenie rodzaju, tytułu i widoczności; publikacja od razu lub zaplanowana; podgląd i załączniki.",
-     "alt": "Szczegóły ogłoszenia: Every necropsy counts, z przyciskiem tworzenia"
+     "alt": "Formularz Utwórz ogłoszenie z typem, szczegółami, widocznością i planowaniem"
     },
     {
      "title": "Działania po publikacji",
@@ -1041,7 +1100,7 @@
     {
      "title": "Zarządzanie wnioskami",
      "desc": "Składanie, edycja, anulowanie lub odrzucanie wniosków z priorytetami.",
-     "alt": "Szczegóły wniosku stolarskiego z wykonawcą i kosztorysem"
+     "alt": "Zgłoszenie stolarskie dotyczące drewnianych budek lęgowych w South Aviary Dome: dostawca, szczegóły zgłoszenia, szacunkowy koszt, koszt rzeczywisty i bieżący status W toku"
     },
     {
      "title": "Zarządzanie kosztami",
@@ -1051,7 +1110,7 @@
     {
      "title": "Realizacja i cofnięcie",
      "desc": "Oznaczanie wniosków jako zrealizowanych lub przywracanie ich do statusu „W toku”.",
-     "alt": "Wniosek zakończony z opcją „Przywróć do W toku” (Move Back To In-Progress)"
+     "alt": "Zgłoszenie REQ29-00172 naprawy drewnianego ogrodzenia, oznaczone przez osobę zatwierdzającą jako Zgłoszenie zakończone, z opcją Przywróć do W toku"
     }
    ]
   },
@@ -1097,12 +1156,12 @@
     {
      "title": "Filtry i wyszukiwanie",
      "desc": "Zawężanie raportów według daty, lokalizacji lub gatunku.",
-     "alt": "Ogólny raport gatunków: pobieranie raportu, wybór lokalizacji, pokazywanie/ukrywanie filtrów oraz tabela gatunków z liczbą samców, samic, osobników o nieustalonej i nieokreślonej płci"
+     "alt": "Ogólny raport gatunków z wyróżnionym filtrem Wybierz lokalizację"
     },
     {
      "title": "Raporty do pobrania",
      "desc": "Generowanie, przeglądanie i pobieranie raportów: gatunki, dzienny, lista zwierząt, ocena zwierząt, opiekunowie zwierząt, użytkownicy, obserwacje, dziennik opiekuna, dziennik biologa i liczebność na wybiegach — na potrzeby zgodności z przepisami i dostępu offline.",
-     "alt": "Ogólny raport gatunków: pobieranie raportu, wybór lokalizacji, pokazywanie/ukrywanie filtrów oraz tabela gatunków z liczbą samców, samic, osobników o nieustalonej i nieokreślonej płci"
+     "alt": "Ogólny raport gatunków z wyróżnionym przyciskiem Pobierz raport"
     }
    ]
   },
@@ -1198,12 +1257,12 @@
     {
      "title": "Zamawianie w aplikacji",
      "desc": "Użytkownicy mogą zamawiać produkty z apteki bezpośrednio w aplikacji.",
-     "alt": "Lista wydań: 11 wydań z ID zamówień, apteką, datą, zamawiającym, lekiem i łączną ilością oraz przycisk „Nowe wydanie” (New Dispense)"
+     "alt": "Lista zapotrzebowań: 11 zapotrzebowań z ID, apteką, datą, zgłaszającym i liczbą zamówionych pozycji"
     },
     {
      "title": "Wydawanie w aplikacji",
      "desc": "Magazyny mogą wydawać produkty z apteki bezpośrednio w aplikacji.",
-     "alt": "Szczegóły wydania DIS279: Local Pharmacy, wydano dla Antz Admin, jeden lek Crocin o łącznej ilości 100"
+     "alt": "Lista wydań: 14 wydań z ID, apteką, datą, zwierzęciem, lekami i łączną ilością oraz przyciskiem Nowe wydanie"
     }
    ]
   },
@@ -1214,43 +1273,58 @@
    "features": [
     {
      "title": "Panel",
-     "desc": "Bieżące informacje o problemach z zapasami, dostawach, zakupach, zamówieniach, zużyciu, terminach ważności i szybko rotujących produktach, z wizualizacją trendów ułatwiającą szybkie działanie.",
-     "alt": "Farmaceuta porządkujący półki z lekami."
-    },
-    {
-     "title": "Inteligentne wyszukiwanie i filtry",
-     "desc": "Szybkie wyszukiwanie wpisów według ID zamówienia, nazwiska lekarza lub apteki.",
-     "alt": ""
-    },
-    {
-     "title": "Dane podstawowe (regały i półki)",
-     "desc": "Organizacja magazynu według liczby regałów i półek dla szybkiego dostępu i aktualizacji, z konfigurowalnymi danymi (opakowania, jednostki miary, substancje czynne, kierowcy, producenci).",
-     "alt": ""
+     "desc": "Szybki przegląd stanów magazynowych, dostaw, zakupów, zapotrzebowań i trendów produktów.",
+     "alt": "Panel apteki: wartość przeterminowanych leków, leki niedostępne w magazynie, łączna liczba zapotrzebowań, wartość wysyłek, dostawy, dzisiejsze zapotrzebowania i wykres wysyłek według miesięcy"
     },
     {
      "title": "Zarządzanie raportami stanów",
-     "desc": "Stany według serii z wartością i terminem ważności; oznaczanie pozycji o niskim stanie lub przeterminowanych; monitorowanie zbliżających się terminów ważności; zarządzanie depozytem z rozstrzyganiem sporów.",
-     "alt": ""
+     "desc": "Zbiorczy widok stanów według serii, pozycji o niskim stanie, produktów przeterminowanych i z kończącym się terminem ważności oraz produktów w depozycie lub objętych sporem.",
+     "alt": "Raport stanów: lista produktów według serii z ilością w magazynie, ceną jednostkową netto i wartością"
     },
     {
-     "title": "Zarządzanie produktami i magazynem",
-     "desc": "Tworzenie produktów, śledzenie stanów i terminów ważności, rejestrowanie zakupów i wysyłek, prowadzenie jednolitej księgi, obsługa zamienników i wariantów.",
-     "alt": ""
+     "title": "Zarządzanie zapotrzebowaniami i zwrotami produktów",
+     "desc": "Zarządzanie zapotrzebowaniami na produkty, potrzebami poszczególnych magazynów, oczekującymi pozycjami, bezpośrednimi wysyłkami i zwrotami produktów z jednego centralnego widoku.",
+     "alt": "Lista wniosków o zwrot produktów z wyszukiwaniem oraz filtrami magazynu i liczby dni"
     },
     {
-     "title": "Zarządzanie wydawaniem",
-     "desc": "Lekarze mogą przepisywać i wydawać leki lub odbierać je bezpośrednio z apteki — wszystko jest rejestrowane.",
-     "alt": ""
+     "title": "Dostawy",
+     "desc": "Przeglądanie i śledzenie przychodzących i wychodzących przesunięć zapasów apteki.",
+     "alt": "Dostawy wychodzące: ID dostawy, typ, odbiorca, pojazd i osoba doręczająca"
     },
     {
-     "title": "Zarządzanie dostawami",
-     "desc": "Śledzenie przychodzących i wychodzących dostaw leków oraz ich realizacja w aplikacji.",
-     "alt": ""
+     "title": "Wydawanie leków",
+     "desc": "Zarządzanie wydawaniem przepisanych leków i jego śledzenie.",
+     "alt": "Lista wydań: ID wydania, liczba zwierząt, data i osoba odbierająca"
     },
     {
-     "title": "Korekty stanów i raporty",
-     "desc": "Rejestrowanie zmian stanów (braki, uszkodzenia, przeterminowanie); prowadzenie historii zmian; obsługa zwrotów do dostawców; pobieranie raportów zużycia, zwrotów, zakupów i wydań na potrzeby finansów i planowania zapotrzebowania.",
-     "alt": ""
+     "title": "Zarządzanie produktami",
+     "desc": "Zarządzanie produktami, magazynem, zakupami, wysyłkami, transakcjami magazynowymi, zamiennikami, wariantami i informacjami referencyjnymi w jednym miejscu.",
+     "alt": "Lista produktów: wszystkie produkty z postacią i producentem"
+    },
+    {
+     "title": "Zarządzanie magazynem",
+     "desc": "Dodawanie, importowanie i weryfikacja zapasów z danymi dostawcy, faktury, serii, terminu ważności, cen i ilości, z pełną ewidencją i podsumowaniami zakupów.",
+     "alt": "Lista magazynowa z przyciskami Importuj i Dodaj zapasy, filtrem dostawcy i ewidencją zakupów"
+    },
+    {
+     "title": "Zarządzanie korektami stanów",
+     "desc": "Zarządzanie korektami stanów i zwrotami do dostawców w celu utrzymania dokładnych stanów magazynowych, ograniczenia strat i zapewnienia pełnej identyfikowalności.",
+     "alt": "Lista korekt stanów: zakładki braki/przeterminowane/uszkodzone z produktem, numerem serii, ilością, przyczyną i terminem ważności"
+    },
+    {
+     "title": "Zarządzanie raportami",
+     "desc": "Śledzenie i analiza zużycia, zwrotów, dostaw, wydawania, zakupów i zapotrzebowań za pomocą szczegółowych raportów z filtrami — dla lepszego wglądu w stany magazynowe i na potrzeby audytów.",
+     "alt": "Raport zużycia z zakresem dat, wyszukiwaniem, pobieraniem i listą produktów"
+    },
+    {
+     "title": "Zwrot produktów do dostawcy",
+     "desc": "Zwracanie niepotrzebnych, przeterminowanych, uszkodzonych lub nadmiarowych produktów dostawcom ze śledzeniem ilości, przyczyn i statusu zwrotu.",
+     "alt": "Lista zwrotów do dostawcy z numerem wniosku, dostawcą, łączną ilością i datą spisania"
+    },
+    {
+     "title": "Dane podstawowe / regały i półki",
+     "desc": "Organizacja produktów według regałów i półek oraz zarządzanie konfigurowalnymi danymi podstawowymi dla sprawnego przechowywania i zarządzania magazynem.",
+     "alt": "Lokalizacja zapasów: konfiguracja regałów i półek w danych podstawowych z nazwą produktu, liczbą regałów i liczbą półek"
     }
    ]
   },

@@ -267,6 +267,43 @@
     }
    ]
   },
+  "chat-module": {
+   "title": "Moduli ya Gumzo",
+   "intro": "Moduli ya Gumzo (Chat) ni njia ya mawasiliano ndani ya programu inayotoa ujumbe wa mtu kwa mtu na wa vikundi, kushiriki picha na faili, na arifa papo hapo, ikiweka mazungumzo yote ya kazi, masasisho na uratibu kwa usalama ndani ya jukwaa badala ya kutawanyika kwenye simu binafsi na barua pepe.",
+   "summary": "Ujumbe wa mtu kwa mtu na wa vikundi, kushiriki faili na arifa papo hapo, kwa usalama ndani ya jukwaa",
+   "features": [
+    {
+     "title": "Ujumbe wa mtu kwa mtu",
+     "desc": "Huwezesha gumzo la ana kwa ana kati ya wanatimu kwa mawasiliano na ushirikiano usio na vikwazo.",
+     "alt": "Mazungumzo ya gumzo ya Antz Systems: uratibu wa kuchukua sampuli ya damu kati ya Dkt. Neha na Mwanabiolojia Mayur"
+    },
+    {
+     "title": "Ujumbe wa kikundi",
+     "desc": "Unda kikundi kwa timu, zamu au kazi yoyote na zungumza mahali pamoja.",
+     "alt": "Mazungumzo ya gumzo ya Antz Systems: uratibu wa kuchukua sampuli ya damu kati ya Dkt. Neha na Mwanabiolojia Mayur"
+    },
+    {
+     "title": "Kushiriki picha, video na nyaraka",
+     "desc": "Tuma picha, video, ripoti za maabara na PDF ndani ya mazungumzo; hakuna haja ya programu nyingine.",
+     "alt": "Mazungumzo ya gumzo ya Antz Systems: uratibu wa kuchukua sampuli ya damu kati ya Dkt. Neha na Mwanabiolojia Mayur"
+    },
+    {
+     "title": "Arifa papo hapo",
+     "desc": "Pokea arifa za haraka moja kwa moja ndani ya programu kwa masasisho muhimu.",
+     "alt": "Mazungumzo ya gumzo ya Antz Systems: uratibu wa kuchukua sampuli ya damu kati ya Dkt. Neha na Mwanabiolojia Mayur"
+    },
+    {
+     "title": "Salama na yanayokaguliwa",
+     "desc": "Mazungumzo yote yanabaki ndani ya Antz, na historia yake huhifadhiwa.",
+     "alt": "Mazungumzo ya gumzo ya Antz Systems: uratibu wa kuchukua sampuli ya damu kati ya Dkt. Neha na Mwanabiolojia Mayur"
+    },
+    {
+     "title": "Kutafuta na vichujio",
+     "desc": "Tafuta ujumbe kwa neno muhimu, mtumaji, au kipengele kilichounganishwa.",
+     "alt": "Mazungumzo ya gumzo ya Antz Systems: uratibu wa kuchukua sampuli ya damu kati ya Dkt. Neha na Mwanabiolojia Mayur"
+    }
+   ]
+  },
   "user-management": {
    "title": "Usimamizi wa Watumiaji",
    "intro": "Moduli ya Watumiaji inawezesha usimamizi salama wa akaunti, majukumu na ruhusa mahali pamoja. Inarahisisha kuwaingiza watumiaji wapya, inahakikisha usalama wa data, na inaoanisha haki za ufikiaji na majukumu ya shirika huku ikihifadhi kumbukumbu za kina za shughuli kwa uwajibikaji.",
@@ -808,6 +845,28 @@
     }
    ]
   },
+  "focus-hub": {
+   "title": "Kitovu cha Lengo",
+   "intro": "Kitovu cha Lengo (Focus Hub) ni cha kila mtumiaji binafsi, kikionyesha tu vitu ambavyo mtumiaji huyo amevitia alama kama vipendwa au alamisho. Kinaweka wanyama na vizimba vipendwa, pamoja na maelezo, kumbukumbu za matibabu na maombi ya maabara yaliyoalamishwa, mahali pamoja ili kuvifikia haraka.",
+   "summary": "Wanyama na vizimba vyako vipendwa na kumbukumbu zilizoalamishwa, mahali pamoja kwa ufikiaji wa haraka",
+   "features": [
+    {
+     "title": "Usimamizi wa folda",
+     "desc": "Unda, badilisha jina na futa folda ili kupanga vitu vilivyohifadhiwa jinsi unavyofanya kazi.",
+     "alt": "Kichupo cha Folders katika My Focus Hub chenye folda Animals, Injured, Birds, Lion, Critical"
+    },
+    {
+     "title": "Wanyama na vizimba vipendwa",
+     "desc": "Weka, tazama na ondoa wanyama na vizimba kwenye Vipendwa vyako kwa mguso mmoja.",
+     "alt": "Kichupo cha Favourites katika My Focus Hub chenye kibadilishi cha Animals na Enclosures, na orodha ya kadi za wanyama vipendwa"
+    },
+    {
+     "title": "Alamisha kumbukumbu",
+     "desc": "Alamisha na ondoa alamisho kwenye maelezo, kumbukumbu za matibabu au maombi ya maabara ili kuyarejelea haraka baadaye.",
+     "alt": "Kichupo cha Bookmarks katika My Focus Hub chenye vichujio vya Notes, Medical Record, Lab Request na kadi za kumbukumbu za matibabu zilizoalamishwa"
+    }
+   ]
+  },
   "mortality": {
    "title": "Vifo",
    "intro": "Moduli ya Vifo inakuwezesha kurekodi vifo vya wanyama kwa haraka na kwa usahihi, kusimamia taarifa za uchunguzi wa mzoga, na kuhifadhi ushahidi mahali pamoja. Inaongeza uwazi, inaharakisha kufanya maamuzi, inahakikisha uzingatiaji wa kanuni, na inasaidia ufuatiliaji bora wa ustawi wa wanyama.",
@@ -903,32 +962,32 @@
     {
      "title": "Ongeza kumbukumbu ya kifo cha kijusi",
      "desc": "Rekodi matukio mapya, kisababishi, muda, wazazi, taarifa za mnyama.",
-     "alt": "Fomu ya Add Fetal Death pamoja na kizimba, spishi, mzazi"
+     "alt": "Fomu ya Ongeza kifo cha kijusi ikiwa na banda, spishi/taksonomia na wazazi waliochaguliwa"
     },
     {
      "title": "Utafutaji na vichujio",
      "desc": "Tafuta kwa neno muhimu; chuja kwa kituo, tarehe, kuzaliwa mfu au kuharibika kwa mimba, spishi au jinsia.",
-     "alt": "Orodha ya Fetal Death pamoja na utafutaji na kichujio"
+     "alt": "Orodha ya vifo vya vijusi ikiwa na vichujio vya Maeneo Yote na Data Zote, kichupo cha Kuzaliwa mfu na upau wa utafutaji vimeangaziwa"
     },
     {
      "title": "Tazama kumbukumbu za vifo",
      "desc": "Taarifa kamili, siku tangu kifo, kisababishi, namba ya utambulisho, kizimba, kituo, jinsia.",
-     "alt": "Orodha ya kumbukumbu za Fetal Death, kichupo cha Still Birth"
+     "alt": "Orodha ya vifo vya vijusi ikiwa na kadi ya kwanza imeangaziwa"
     },
     {
      "title": "Onyesho la kadi ya mnyama",
      "desc": "FID, spishi, ugunduzi, wazazi, kituo, jinsia, aliyeripoti.",
-     "alt": "Kadi ya undani ya Fetus Death Summary"
+     "alt": "Kadi ya maelezo ya Muhtasari wa kifo cha kijusi"
     },
     {
      "title": "Hariri kumbukumbu",
      "desc": "Rekebisha ingizo lililopo kutoka kwenye muhtasari, pamoja na kumbukumbu ya ukaguzi.",
-     "alt": "Fetus Death Summary pamoja na penseli ya kuhariri"
+     "alt": "Muhtasari wa kifo cha kijusi ukiwa na penseli ya kuhariri imeangaziwa"
     },
     {
      "title": "Futa kumbukumbu",
      "desc": "Ondoa ingizo inapohitajika, pamoja na kumbukumbu kamili ya ukaguzi.",
-     "alt": "Fetus Death Summary pamoja na chaguo la Delete Fetal Death"
+     "alt": "Muhtasari wa kifo cha kijusi ukiwa na chaguo la Futa kifo cha kijusi limeangaziwa"
     }
    ]
   },
@@ -940,7 +999,7 @@
     {
      "title": "Dashibodi ya mayai",
      "desc": "Idadi za papo hapo, yaliyo kwenye viota, yaliyohamishiwa kitaluni, yaliyowekwa alama ya kutupwa.",
-     "alt": "Dashibodi ya Egg Collection: 66 kwenye kiota, 76 kwenda kitaluni, 35 ya kutupwa"
+     "alt": "Dashibodi ya Ukusanyaji wa mayai: mayai 6 yamekusanywa leo, 50 kiotani, 21 kwenda kitalu na 5 ya kutupwa, pamoja na orodha ya Mayai kiotani"
     },
     {
      "title": "Uingizaji wa mayai (kiota / kitalu)",
@@ -955,27 +1014,27 @@
     {
      "title": "Uatamiaji wa asili",
      "desc": "Mayai yanayoatamiwa kwenye viota, namba ya utambulisho, tarehe ya kukusanywa, hali.",
-     "alt": "Orodha ya mayai kwenye kiota pamoja na maingizo ya peacock hind"
+     "alt": "Dashibodi ya Ukusanyaji wa mayai: mayai 6 yamekusanywa leo, 50 kiotani, 21 kwenda kitalu na 5 ya kutupwa, pamoja na orodha ya Mayai kiotani"
     },
     {
      "title": "Uatamiaji wa bandia",
      "desc": "Mayai ya kitaluni, tathmini, hamishia kwenye kiatamizi, tupa, au angua.",
-     "alt": "Orodha ya mayai kwenda kitaluni"
+     "alt": "Orodha ya Mayai kwenda kitalu: maingizo ya mamba wa maji ya chumvi yenye visanduku vya Chagua vyote"
     },
     {
      "title": "Uhamisho wa mayai",
      "desc": "Fuatilia kituo, hatua, tarehe ya kuanguliwa, spishi, namba ya utambulisho, na jinsia.",
-     "alt": "Mayai yaliyohamishwa — maombi ya uhamisho wa bechi"
+     "alt": "Mayai yaliyohamishwa: maombi ya uhamisho wa kundi yenye hali Imeghairiwa na inasubiri"
     },
     {
      "title": "Kutupa mayai",
      "desc": "Tupa mayai yasiyoweza kuanguliwa pamoja na sababu iliyorekodiwa na kumbukumbu ya ukaguzi.",
-     "alt": "Orodha ya mayai ya kutupwa"
+     "alt": "Kichupo cha Mayai ya kutupwa: mayai 36 ya kutupwa, kila moja na spishi, kitambulisho cha yai, tarehe, sababu kama Limeoza, na kisanduku cha kuteua"
     },
     {
      "title": "Unda namba ya utambulisho ya mnyama",
      "desc": "Tengeneza kumbukumbu ya mayai yaliyoanguliwa, iliyounganishwa na spishi na wazazi.",
-     "alt": "Mayai yaliyoanguliwa — Create Animal ID"
+     "alt": "Kichupo cha Mayai yaliyoanguliwa: mayai 4 yaliyoanguliwa, yenye Unda kitambulisho cha mnyama kwa mayai ya mamba wa maji ya chumvi, na kasuku Hyacinth Macaw mwenye kitambulisho 422163"
     }
    ]
   },
@@ -987,17 +1046,17 @@
     {
      "title": "Usanidi wa kitalu na viatamizi",
      "desc": "Weka vitalu vilivyounganishwa na vituo, unda vyumba, simamia viatamizi.",
-     "alt": "Orodha ya vitalu pamoja na vyumba, viatamizi, na vituo"
+     "alt": "Orodha ya vitalu kwenye wavuti: vitalu vyenye vyumba, viatamizi, eneo na hali Hai, pamoja na utafutaji, kichujio cha eneo na Ongeza mpya"
     },
     {
      "title": "Ripoti, vichujio na ufikiaji wa data",
      "desc": "Chuja kwa kituo, spishi, tarehe, au hatua; hamisha ripoti nje.",
-     "alt": "Jedwali la Eggs Stats kwa spishi"
+     "alt": "Dashibodi ya Takwimu za mayai kwenye wavuti: mayai kiotani, kwenda kitalu, yaliyoanguliwa, yaliyotupwa na jumla, pamoja na vichupo vya Mayai kwa spishi, maeneo na vitalu na Pakua"
     },
     {
      "title": "Orodha ya mayai",
      "desc": "Vichupo kwa hali, Yaliyopokelewa, Yanayoatamiwa, Yaliyoanguliwa, Yaliyotupwa, Yote.",
-     "alt": "Egg List pamoja na vichupo vya Received, Incubation, Hatched"
+     "alt": "Orodha ya mayai kwenye wavuti: vichupo vya Yaliyopokelewa, Uatamiaji, Yaliyoanguliwa, Ya kutupwa, Yaliyotupwa na Yote, pamoja na spishi, kitambulisho cha yai na hali"
     }
    ]
   },
@@ -1009,7 +1068,7 @@
     {
      "title": "Aina za matangazo",
      "desc": "Ya Jumla na Muhimu, kila moja likiwa na kanuni zake za mwonekano.",
-     "alt": "Orodha ya matangazo pamoja na vichupo vya All na Created by me, kadi za Important na Announcement"
+     "alt": "Fomu ya Unda tangazo ikiwa na kibadilishi cha aina Jumla na Muhimu kimeangaziwa"
     },
     {
      "title": "Orodha ya pamoja",
@@ -1019,7 +1078,7 @@
     {
      "title": "Unda matangazo",
      "desc": "Weka aina, kichwa, mwonekano; chapisha au panga ratiba; hakiki na ambatisha.",
-     "alt": "Undani wa tangazo: Every necropsy counts, pamoja na kitufe cha kuunda"
+     "alt": "Fomu ya Unda tangazo yenye aina, maelezo, wanaoweza kuona na upangaji wa muda"
     },
     {
      "title": "Vitendo baada ya kuchapisha",
@@ -1041,7 +1100,7 @@
     {
      "title": "Usimamizi wa maombi",
      "desc": "Anzisha, hariri, ghairi, au kataa maombi pamoja na vipaumbele.",
-     "alt": "Undani wa ombi la useremala pamoja na mzabuni na makadirio ya gharama"
+     "alt": "Ombi la useremala la masanduku ya viota vya mbao katika South Aviary Dome: muuzaji, maelezo ya ombi, makadirio ya gharama, gharama halisi na hali ya sasa Inaendelea"
     },
     {
      "title": "Usimamizi wa gharama",
@@ -1051,7 +1110,7 @@
     {
      "title": "Kukamilisha na kurejesha",
      "desc": "Weka alama kwamba maombi yamekamilika au yarudishe kwenye hali ya kuendelea.",
-     "alt": "Request Completed pamoja na Move Back To In-Progress"
+     "alt": "Ombi REQ29-00172 la kukarabati uzio wa mbao, lililowekwa alama Ombi limekamilika na mwenye mamlaka, pamoja na Rudisha kwenye Inaendelea"
     }
    ]
   },
@@ -1097,12 +1156,12 @@
     {
      "title": "Vichujio na utafutaji",
      "desc": "Chuja ripoti kwa tarehe, kituo, au spishi.",
-     "alt": "Species General Report: Download report, vichujio vya Select Site na Show/Hide, na jedwali la spishi pamoja na idadi ya Male, Female, Undetermined na Indeterminate"
+     "alt": "Ripoti ya jumla ya spishi ikiwa na kichujio cha Chagua eneo kimeangaziwa"
     },
     {
      "title": "Ripoti zinazoweza kupakuliwa",
      "desc": "Tengeneza, tazama, na pakua ripoti za Spishi, Kila Siku, Orodha ya Wanyama, Tathmini ya Wanyama, Mtunzaji wa Wanyama, Watumiaji, Uchunguzi, Shajara ya Mtunzaji, Shajara ya Mwanabiolojia, na Idadi kwa Kizimba kwa uzingatiaji wa kanuni na matumizi bila mtandao.",
-     "alt": "Species General Report: Download report, vichujio vya Select Site na Show/Hide, na jedwali la spishi pamoja na idadi ya Male, Female, Undetermined na Indeterminate"
+     "alt": "Ripoti ya jumla ya spishi ikiwa na kitufe cha Pakua ripoti kimeangaziwa"
     }
    ]
   },
@@ -1198,12 +1257,12 @@
     {
      "title": "Kuomba ndani ya programu",
      "desc": "Inawaruhusu watumiaji kuomba bidhaa kutoka duka la dawa moja kwa moja kupitia programu.",
-     "alt": "Orodha ya Dispense: utoaji 11 pamoja na request IDs, duka la dawa, tarehe, aliyeomba, dawa na jumla ya kiasi, na kitufe cha New Dispense"
+     "alt": "Orodha ya maombi: maombi 11 yenye kitambulisho, famasia, tarehe, mwombaji na idadi ya bidhaa zilizoombwa"
     },
     {
      "title": "Kutoa ndani ya programu",
      "desc": "Inawaruhusu stoo kutoa bidhaa kutoka duka la dawa moja kwa moja kupitia programu.",
-     "alt": "Undani wa Dispense DIS279: Local Pharmacy, imetolewa kwa Antz Admin, dawa moja Crocin yenye jumla ya kiasi 100"
+     "alt": "Orodha ya utoaji: utoaji 14 wenye kitambulisho, famasia, tarehe, mnyama, dawa na jumla ya kiasi, pamoja na kitufe cha Utoaji mpya"
     }
    ]
   },
@@ -1214,43 +1273,58 @@
    "features": [
     {
      "title": "Dashibodi",
-     "desc": "Maarifa ya papo hapo kuhusu matatizo ya akiba, mizigo, manunuzi, maombi, matumizi, bidhaa zinazoisha muda na zinazotoka haraka, pamoja na mienendo inayoonekana kwa hatua za haraka.",
-     "alt": "Mfamasia akipanga rafu za dawa."
-    },
-    {
-     "title": "Utafutaji mahiri na vichujio",
-     "desc": "Pata kumbukumbu haraka kwa Request ID, jina la daktari, au duka la dawa.",
-     "alt": ""
-    },
-    {
-     "title": "Data kuu (rafu na vishubaka)",
-     "desc": "Panga hifadhi kwa idadi ya rafu/vishubaka kwa ufikiaji na masasisho ya haraka, pamoja na data inayoweza kubinafsishwa (vifungashio, vipimo (UOM), chumvi za dawa, madereva, watengenezaji).",
-     "alt": ""
+     "desc": "Pata muhtasari wa haraka wa hesabu ya akiba, mizigo, manunuzi, maombi na mienendo ya bidhaa.",
+     "alt": "Dashibodi ya Duka la Dawa: thamani ya dawa zilizoisha muda, dawa zilizokwisha kwenye akiba, jumla ya maombi, thamani ya bidhaa zilizosafirishwa, mizigo, maombi ya leo, na chati ya usafirishaji kwa kila mwezi"
     },
     {
      "title": "Usimamizi wa ripoti za akiba",
-     "desc": "Akiba kwa kila bechi pamoja na thamani na tarehe ya kuisha muda; weka alama bidhaa zilizopungua/zilizoisha muda; fuatilia zinazokaribia kuisha muda; simamia escrow pamoja na utatuzi wa migogoro.",
-     "alt": ""
+     "desc": "Pata mwonekano mmoja wa akiba kwa kila bechi, bidhaa zilizopungua, bidhaa zilizoisha muda na zinazokaribia kuisha muda, pamoja na bidhaa zilizo kwenye escrow au zenye mgogoro.",
+     "alt": "Ripoti ya akiba: orodha ya bidhaa kwa kila bechi yenye kiasi kilichopo stoo, bei halisi kwa kila kipimo, na thamani"
     },
     {
-     "title": "Usimamizi wa bidhaa na hesabu ya akiba",
-     "desc": "Unda bidhaa, fuatilia akiba na tarehe za kuisha muda, rekodi manunuzi/usafirishaji, tunza leja moja ya pamoja, shughulikia mbadala/aina tofauti.",
-     "alt": ""
+     "title": "Usimamizi wa maombi na marejesho ya bidhaa",
+     "desc": "Simamia maombi ya bidhaa, mahitaji ya kila stoo, bidhaa zinazosubiri, usafirishaji wa moja kwa moja na marejesho ya bidhaa kutoka sehemu moja kuu.",
+     "alt": "Orodha ya maombi ya kurejesha bidhaa yenye utafutaji na vichujio vya stoo na siku"
     },
     {
-     "title": "Usimamizi wa utoaji dawa",
-     "desc": "Madaktari wanaweza kuagiza na kutoa dawa, au kuchukua dawa moja kwa moja kutoka duka la dawa, yote yakirekodiwa.",
-     "alt": ""
+     "title": "Mizigo",
+     "desc": "Tazama na ufuatilie uhamishaji wa akiba ya duka la dawa unaoingia na kutoka.",
+     "alt": "Mizigo inayotoka: kitambulisho cha mzigo, aina, aliyepelekewa, gari na mwakilishi wa usafirishaji"
     },
     {
-     "title": "Usimamizi wa mizigo",
-     "desc": "Fuatilia mizigo ya dawa inayoingia na kutoka na uikamilishe ndani ya programu.",
-     "alt": ""
+     "title": "Kutoa dawa",
+     "desc": "Simamia na ufuatilie utoaji wa dawa zilizoagizwa na daktari.",
+     "alt": "Orodha ya utoaji: kitambulisho cha utoaji, idadi ya wanyama, tarehe na aliyepokea"
     },
     {
-     "title": "Marekebisho ya akiba na ripoti",
-     "desc": "Rekodi mabadiliko ya akiba (zilizopotea, zilizovunjika, zilizoisha muda); tunza historia ya ukaguzi; simamia marejesho kwa wasambazaji; pakua ripoti za matumizi, marejesho, manunuzi na utoaji kwa ajili ya fedha na mahitaji.",
-     "alt": ""
+     "title": "Usimamizi wa bidhaa",
+     "desc": "Simamia bidhaa, hesabu ya akiba, manunuzi, usafirishaji, miamala ya akiba, mbadala, aina tofauti na taarifa za marejeleo, vyote mahali pamoja.",
+     "alt": "Orodha ya bidhaa: bidhaa zote pamoja na muundo wa dawa na mtengenezaji"
+    },
+    {
+     "title": "Usimamizi wa hesabu ya akiba",
+     "desc": "Ongeza, ingiza (import) na uhakiki hesabu ya akiba pamoja na maelezo ya msambazaji, ankara, bechi, tarehe ya kuisha muda, bei na kiasi, huku ukitunza kumbukumbu kamili za manunuzi na muhtasari wake.",
+     "alt": "Orodha ya hesabu ya akiba yenye vitufe vya Import na Add Inventory, kichujio cha msambazaji na kumbukumbu za manunuzi"
+    },
+    {
+     "title": "Usimamizi wa marekebisho ya akiba",
+     "desc": "Simamia marekebisho ya akiba na marejesho kwa wasambazaji ili kudumisha hesabu sahihi ya akiba, kupunguza hasara na kuhakikisha ufuatiliaji kamili.",
+     "alt": "Orodha ya marekebisho ya akiba: vichupo vya zilizopotea/zilizoisha muda/zilizovunjika vyenye bidhaa, namba ya bechi, kiasi, sababu na tarehe ya kuisha muda"
+    },
+    {
+     "title": "Usimamizi wa ripoti",
+     "desc": "Fuatilia na uchambue matumizi, marejesho, mizigo, utoaji wa dawa, manunuzi na maombi kwa ripoti za kina zinazoweza kuchujwa, kwa mwonekano bora wa hesabu ya akiba na ukaguzi.",
+     "alt": "Ripoti ya matumizi yenye kipindi cha tarehe, utafutaji, upakuaji na orodha ya bidhaa"
+    },
+    {
+     "title": "Kurejesha bidhaa kwa msambazaji",
+     "desc": "Rejesha kwa wasambazaji bidhaa zisizohitajika, zilizoisha muda, zilizoharibika au zilizozidi, huku ukifuatilia kiasi, sababu na hali ya marejesho.",
+     "alt": "Orodha ya marejesho kwa msambazaji yenye namba ya ombi, msambazaji, jumla ya kiasi na tarehe ya kutupwa"
+    },
+    {
+     "title": "Usimamizi wa data kuu/rafu na vishubaka",
+     "desc": "Panga bidhaa kwa rafu na vishubaka huku ukisimamia data kuu inayoweza kubinafsishwa kwa uhifadhi bora na usimamizi wa hesabu ya akiba.",
+     "alt": "Mahali pa akiba: mipangilio ya rafu na vishubaka katika data kuu yenye jina la bidhaa, idadi ya rafu na idadi ya vishubaka"
     }
    ]
   },

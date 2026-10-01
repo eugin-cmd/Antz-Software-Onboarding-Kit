@@ -267,6 +267,43 @@
     }
    ]
   },
+  "chat-module": {
+   "title": "Tērzēšanas modulis",
+   "intro": "Tērzēšanas modulis ir lietotnē iebūvēts saziņas kanāls, kas piedāvā individuālu un grupu ziņapmaiņu, multivides kopīgošanu un paziņojumus reāllaikā. Tādējādi visas darba sarunas, jaunumi un koordinācija droši paliek platformā, nevis ir izkaisīti pa personīgajiem tālruņiem un e-pastu.",
+   "summary": "Individuāla un grupu ziņapmaiņa, multivides kopīgošana un paziņojumi reāllaikā, droši platformā",
+   "features": [
+    {
+     "title": "Individuālās ziņas",
+     "desc": "Ļauj komandas locekļiem tērzēt divatā, lai saziņa un sadarbība noritētu raiti.",
+     "alt": "Antz Systems tērzēšanas pavediens: asins parauga ņemšanas koordinēšana – Dr. Neha un biologs Mayur"
+    },
+    {
+     "title": "Grupu ziņas",
+     "desc": "Izveidojiet grupu jebkurai komandai, maiņai vai uzdevumam un tērzējiet vienuviet.",
+     "alt": "Antz Systems tērzēšanas pavediens: asins parauga ņemšanas koordinēšana – Dr. Neha un biologs Mayur"
+    },
+    {
+     "title": "Multivides un dokumentu kopīgošana",
+     "desc": "Sūtiet fotoattēlus, video, laboratorijas pārskatus un PDF failus tieši sarunā; ārējas lietotnes nav vajadzīgas.",
+     "alt": "Antz Systems tērzēšanas pavediens: asins parauga ņemšanas koordinēšana – Dr. Neha un biologs Mayur"
+    },
+    {
+     "title": "Paziņojumi reāllaikā",
+     "desc": "Saņemiet tūlītējus paziņojumus par svarīgiem jaunumiem tieši lietotnē.",
+     "alt": "Antz Systems tērzēšanas pavediens: asins parauga ņemšanas koordinēšana – Dr. Neha un biologs Mayur"
+    },
+    {
+     "title": "Droši un auditējami",
+     "desc": "Visas sarunas paliek Antz, un to vēsture tiek saglabāta.",
+     "alt": "Antz Systems tērzēšanas pavediens: asins parauga ņemšanas koordinēšana – Dr. Neha un biologs Mayur"
+    },
+    {
+     "title": "Meklēšana un filtri",
+     "desc": "Atrodiet ziņas pēc atslēgvārda, sūtītāja vai saistītās vienības.",
+     "alt": "Antz Systems tērzēšanas pavediens: asins parauga ņemšanas koordinēšana – Dr. Neha un biologs Mayur"
+    }
+   ]
+  },
   "user-management": {
    "title": "Lietotāju pārvaldība",
    "intro": "Lietotāju modulis nodrošina drošu, centralizētu kontu, lomu un atļauju pārvaldību. Tas vienkāršo jaunu lietotāju pievienošanu, nodrošina datu drošību un saskaņo piekļuves tiesības ar organizācijas lomām, vienlaikus uzturot detalizētus darbību žurnālus pārskatatbildībai.",
@@ -808,6 +845,28 @@
     }
    ]
   },
+  "focus-hub": {
+   "title": "Focus Hub",
+   "intro": "Focus Hub ir pielāgots katram lietotājam: tajā redzami tikai tie vienumi, kurus lietotājs ir atzīmējis kā izlasi vai pievienojis grāmatzīmēm. Tas vienuviet apkopo izlases dzīvniekus un aplokus, kā arī grāmatzīmēm pievienotās piezīmes, medicīniskos ierakstus un laboratorijas pieprasījumus ātrai piekļuvei.",
+   "summary": "Jūsu izlases dzīvnieki un aploki un ieraksti grāmatzīmēs vienuviet ātrai piekļuvei",
+   "features": [
+    {
+     "title": "Mapju pārvaldība",
+     "desc": "Izveidojiet, pārdēvējiet un dzēsiet mapes, lai saglabātos vienumus sakārtotu tieši tā, kā jums ērti strādāt.",
+     "alt": "My Focus Hub cilne „Folders” ar mapēm „Animals”, „Injured”, „Birds”, „Lion”, „Critical”"
+    },
+    {
+     "title": "Izlases dzīvnieki un aploki",
+     "desc": "Ar vienu pieskārienu atzīmējiet, skatiet un noņemiet dzīvniekus un aplokus no savas izlases.",
+     "alt": "My Focus Hub cilne „Favourites” ar pārslēgu „Animals” / „Enclosures” un izlases dzīvnieku kartīšu sarakstu"
+    },
+    {
+     "title": "Ierakstu grāmatzīmes",
+     "desc": "Pievienojiet grāmatzīmēm vai noņemiet no tām piezīmes, medicīniskos ierakstus vai laboratorijas pieprasījumus, lai vēlāk tos ātri atrastu.",
+     "alt": "My Focus Hub cilne „Bookmarks” ar filtriem „Notes”, „Medical Record”, „Lab Request” un grāmatzīmēm pievienotu medicīnisko ierakstu kartītēm"
+    }
+   ]
+  },
   "mortality": {
    "title": "Mirstība",
    "intro": "Mirstības modulis ļauj ātri un precīzi reģistrēt dzīvnieku nāves gadījumus, pārvaldīt nekropsijas informāciju un glabāt pierādījumus vienuviet. Tas uzlabo pārredzamību, paātrina lēmumu pieņemšanu, nodrošina atbilstību un atbalsta labāku dzīvnieku labturības uzraudzību.",
@@ -903,32 +962,32 @@
     {
      "title": "Augļa nāves ieraksta pievienošana",
      "desc": "Reģistrējiet jaunus gadījumus, cēloni, laiku, izcelsmi, dzīvnieka informāciju.",
-     "alt": "Augļa nāves pievienošanas veidlapa ar aploku, sugu, vecāku"
+     "alt": "Veidlapa Pievienot augļa nāvi ar atlasītu aploku, sugu/taksonomiju un vecākiem"
     },
     {
      "title": "Meklēšana un filtri",
      "desc": "Meklējiet pēc atslēgvārda; filtrējiet pēc vietas, datuma, nedzīvi dzimuša augļa vai aborta, sugas vai dzimuma.",
-     "alt": "Augļa nāves saraksts ar meklēšanu un filtru"
+     "alt": "Augļa nāves saraksts ar izceltiem filtriem Visas vietas un Visi dati, cilni Nedzīvi dzimis un meklēšanas joslu"
     },
     {
      "title": "Mirušo ierakstu skatīšana",
      "desc": "Pilna informācija, dienas kopš nāves, cēlonis, ID, aploks, vieta, dzimums.",
-     "alt": "Augļa nāves ierakstu saraksts, cilne „Still Birth”"
+     "alt": "Augļa nāves saraksts ar izceltu pirmo kartīti"
     },
     {
      "title": "Dzīvnieka kartītes attēlojums",
      "desc": "FID, suga, atrašana, vecāki, vieta, dzimums, ziņotājs.",
-     "alt": "Augļa nāves kopsavilkuma kartīte"
+     "alt": "Detalizēta kartīte Augļa nāves kopsavilkums"
     },
     {
      "title": "Ieraksta rediģēšana",
      "desc": "Mainiet esošu ierakstu no kopsavilkuma ar audita pierakstu.",
-     "alt": "Augļa nāves kopsavilkums ar rediģēšanas zīmuli"
+     "alt": "Augļa nāves kopsavilkums ar izceltu rediģēšanas zīmuli"
     },
     {
      "title": "Ieraksta dzēšana",
      "desc": "Dzēsiet ierakstu, ja nepieciešams, ar pilnu audita pierakstu.",
-     "alt": "Augļa nāves kopsavilkums ar iespēju „Delete Fetal Death”"
+     "alt": "Augļa nāves kopsavilkums ar izceltu opciju Dzēst augļa nāvi"
     }
    ]
   },
@@ -940,7 +999,7 @@
     {
      "title": "Olu informācijas panelis",
      "desc": "Aktuālais skaits: ligzdās, nodotas audzētavā, atzīmētas iznīcināšanai.",
-     "alt": "Olu vākšanas informācijas panelis: 66 ligzdā, 76 audzētavā, 35 iznīcināšanai"
+     "alt": "Olu vākšanas pārskats: šodien savāktas 6 olas, 50 ligzdā, 21 uz audzētavu un 5 izbrāķējamas, ar sarakstu Olas ligzdā"
     },
     {
      "title": "Olu ievade (ligzda / audzētava)",
@@ -955,27 +1014,27 @@
     {
      "title": "Dabiskā inkubācija",
      "desc": "Ligzdās inkubētas olas, ID, savākšanas datums, stāvoklis.",
-     "alt": "Olu ligzdā saraksts ar pāvu mātīšu ierakstiem"
+     "alt": "Olu vākšanas pārskats: šodien savāktas 6 olas, 50 ligzdā, 21 uz audzētavu un 5 izbrāķējamas, ar sarakstu Olas ligzdā"
     },
     {
      "title": "Mākslīgā inkubācija",
      "desc": "Audzētavas olas: novērtēšana, pārvietošana inkubācijai, iznīcināšana vai izšķilšanās.",
-     "alt": "Audzētavai nodoto olu saraksts"
+     "alt": "Saraksts Olas uz audzētavu: sālsūdens krokodila ieraksti ar izvēles rūtiņām Atlasīt visu"
     },
     {
      "title": "Olu pārvietošana",
      "desc": "Izsekojiet vietu, posmu, izšķilšanās datumu, sugu, ID un dzimumu.",
-     "alt": "Pārvietotās olas — grupveida pārvietošanas pieprasījumi"
+     "alt": "Pārvietotās olas: grupas pārvietošanas pieprasījumi ar statusiem Atcelts un gaida"
     },
     {
      "title": "Olu iznīcināšana",
      "desc": "Iznīciniet nedzīvotspējīgas olas, reģistrējot iemeslu un audita pierakstu.",
-     "alt": "Iznīcināmo olu saraksts"
+     "alt": "Cilne Izbrāķējamās olas: 36 izbrāķējamas olas, katra ar sugu, olas ID, datumu, iemeslu, piemēram, Sapuvusi, un izvēles rūtiņu"
     },
     {
      "title": "Dzīvnieka ID izveide",
      "desc": "Izveidojiet ierakstu izšķīlušamies mazulim, sasaistītu ar sugu un vecākiem.",
-     "alt": "Izšķīlušās olas — „Create Animal ID”"
+     "alt": "Cilne Izšķīlušās olas: 4 izšķīlušās olas, ar Izveidot dzīvnieka ID pie sālsūdens krokodila olām un hiacinšu ara, kurai jau ir ID 422163"
     }
    ]
   },
@@ -987,17 +1046,17 @@
     {
      "title": "Audzētavu un inkubatoru konfigurācija",
      "desc": "Iestatiet ar vietām sasaistītas audzētavas, izveidojiet telpas, pārvaldiet inkubatorus.",
-     "alt": "Audzētavu saraksts ar telpām, inkubatoriem un vietām"
+     "alt": "Audzētavu saraksts tīmeklī: audzētavas ar telpām, inkubatoriem, vietu un statusu Aktīvs, ar meklēšanu, vietas filtru un Pievienot jaunu"
     },
     {
      "title": "Atskaites, filtri un piekļuve datiem",
      "desc": "Filtrējiet pēc vietas, sugas, datuma vai posma; eksportējiet atskaites.",
-     "alt": "Olu statistikas tabula pēc sugām"
+     "alt": "Olu statistikas pārskats tīmeklī: olas ligzdā, uz audzētavu, izšķīlušās, izbrāķētas un kopā, ar cilnēm Olas pa sugām, vietām un audzētavām un Lejupielādēt"
     },
     {
      "title": "Olu saraksts",
      "desc": "Cilnes pēc statusa: saņemtās, inkubācijā, izšķīlušās, iznīcinātās, visas.",
-     "alt": "Olu saraksts ar cilnēm Received, Incubation, Hatched"
+     "alt": "Olu saraksts tīmeklī: cilnes Saņemtās, Inkubācija, Izšķīlušās, Izbrāķējamās, Izbrāķētās un Visas, ar sugu, olas identifikatoru un stāvokli"
     }
    ]
   },
@@ -1009,7 +1068,7 @@
     {
      "title": "Paziņojumu veidi",
      "desc": "Vispārīgi un svarīgi, katram savi redzamības noteikumi.",
-     "alt": "Paziņojumu saraksts ar cilnēm „All” un „Created by me”, svarīgu paziņojumu un paziņojumu kartītes"
+     "alt": "Veidlapa Izveidot paziņojumu ar izceltu veida pārslēgu Vispārīgs un Svarīgs"
     },
     {
      "title": "Vienots saraksts",
@@ -1019,7 +1078,7 @@
     {
      "title": "Paziņojumu izveide",
      "desc": "Iestatiet veidu, virsrakstu, redzamību; publicējiet vai ieplānojiet; priekšskatiet un pievienojiet pielikumus.",
-     "alt": "Paziņojuma informācija: Every necropsy counts, ar izveides pogu"
+     "alt": "Veidlapa Izveidot paziņojumu ar veidu, informāciju, redzamību un plānošanu"
     },
     {
      "title": "Darbības pēc publicēšanas",
@@ -1041,7 +1100,7 @@
     {
      "title": "Pieprasījumu pārvaldība",
      "desc": "Iesniedziet, rediģējiet, atceliet vai noraidiet pieprasījumus ar prioritātēm.",
-     "alt": "Galdniecības pieprasījuma informācija ar piegādātāju un izmaksu tāmi"
+     "alt": "Galdniecības pieprasījums koka ligzdu būrīšiem South Aviary Dome: piegādātājs, pieprasījuma informācija, izmaksu tāme, faktiskās izmaksas un pašreizējais statuss Procesā"
     },
     {
      "title": "Izmaksu pārvaldība",
@@ -1051,7 +1110,7 @@
     {
      "title": "Izpilde un atgriešana",
      "desc": "Atzīmējiet pieprasījumus kā izpildītus vai atgrieziet tos statusā „procesā”.",
-     "alt": "Pabeigts pieprasījums ar iespēju „Move Back To In-Progress”"
+     "alt": "Pieprasījums REQ29-00172 koka žoga remontam, ko atbildīgā persona atzīmējusi kā Pieprasījums izpildīts, ar Atgriezt statusā Procesā"
     }
    ]
   },
@@ -1097,12 +1156,12 @@
     {
      "title": "Filtri un meklēšana",
      "desc": "Precizējiet atskaites pēc datuma, vietas vai sugas.",
-     "alt": "Sugu vispārējā atskaite: „Download report”, vietas izvēle un filtru rādīšana/slēpšana, kā arī sugu tabula ar tēviņu, mātīšu, nenoteiktā un neidentificējamā dzimuma skaitu"
+     "alt": "Vispārējā sugu atskaite ar izceltu filtru Atlasīt vietu"
     },
     {
      "title": "Lejupielādējamas atskaites",
      "desc": "Sagatavojiet, skatiet un lejupielādējiet sugu, dienas, dzīvnieku saraksta, dzīvnieku novērtējuma, dzīvnieku kopēju, lietotāju, novērojumu, kopēja dienasgrāmatas, biologa dienasgrāmatas un aploku skaita atskaites atbilstībai un lietošanai bezsaistē.",
-     "alt": "Sugu vispārējā atskaite: „Download report”, vietas izvēle un filtru rādīšana/slēpšana, kā arī sugu tabula ar tēviņu, mātīšu, nenoteiktā un neidentificējamā dzimuma skaitu"
+     "alt": "Vispārējā sugu atskaite ar izceltu pogu Lejupielādēt atskaiti"
     }
    ]
   },
@@ -1198,12 +1257,12 @@
     {
      "title": "Pieprasīšana lietotnē",
      "desc": "Ļauj lietotājiem pieprasīt produktus no aptiekas tieši lietotnē.",
-     "alt": "Izsniegšanas saraksts: 11 izsniegšanas ar pieprasījumu ID, aptieku, datumu, pieprasītāju, medikamentu un kopējo daudzumu, un poga „New Dispense”"
+     "alt": "Pieprasījumu saraksts: 11 pieprasījumi ar ID, aptieku, datumu, pieprasītāju un pieprasīto vienību skaitu"
     },
     {
      "title": "Izsniegšana lietotnē",
      "desc": "Ļauj noliktavām izsniegt produktus no aptiekas tieši lietotnē.",
-     "alt": "Izsniegšanas DIS279 informācija: Local Pharmacy, izsniegts Antz Admin, viens medikaments Crocin ar kopējo daudzumu 100"
+     "alt": "Izsniegšanu saraksts: 14 izsniegšanas ar ID, aptieku, datumu, dzīvnieku, zālēm un kopējo daudzumu, un poga Jauna izsniegšana"
     }
    ]
   },
@@ -1214,43 +1273,58 @@
    "features": [
     {
      "title": "Informācijas panelis",
-     "desc": "Reāllaika atziņas par krājumu problēmām, sūtījumiem, iepirkumiem, pieprasījumiem, patēriņu, derīguma termiņiem un pieprasītākajiem produktiem, ar vizuālām tendencēm ātrai rīcībai.",
-     "alt": "Farmaceits kārto medikamentu plauktus."
-    },
-    {
-     "title": "Viedā meklēšana un filtri",
-     "desc": "Ātri atrodiet ierakstus pēc pieprasījuma ID, ārsta vārda vai aptiekas.",
-     "alt": ""
-    },
-    {
-     "title": "Pamatdati (statnes un plaukti)",
-     "desc": "Sakārtojiet uzglabāšanu pēc statņu/plauktu skaita ātrai piekļuvei un atjauninājumiem, ar pielāgojamiem datiem (iepakojums, mērvienības, sāļi, vadītāji, ražotāji).",
-     "alt": ""
+     "desc": "Ātrs pārskats par krājumiem, sūtījumiem, iepirkumiem, pieprasījumiem un produktu tendencēm.",
+     "alt": "Aptiekas informācijas panelis: zāļu ar beigušos derīguma termiņu vērtība, krājumos neesošās zāles, kopējais pieprasījumu skaits, nosūtīto produktu vērtība, sūtījumi, šodienas pieprasījumi un nosūtījumu diagramma pa mēnešiem"
     },
     {
      "title": "Krājumu atskaišu pārvaldība",
-     "desc": "Krājumi pa sērijām ar vērtību un derīguma termiņu; atzīmējiet zemus/beigušos krājumus; uzraugiet tuvojošos derīguma termiņus; pārvaldiet rezervētos krājumus (escrow) ar strīdu risināšanu.",
-     "alt": ""
+     "desc": "Apkopots skats uz krājumiem pa sērijām, precēm ar zemiem krājumiem, produktiem ar beigušos vai tuvojošos derīguma termiņu un rezervētajiem (escrow) vai strīdus produktiem.",
+     "alt": "Krājumu atskaite: produktu saraksts pa sērijām ar daudzumu noliktavā, neto vienības cenu un vērtību"
     },
     {
-     "title": "Produktu un krājumu pārvaldība",
-     "desc": "Izveidojiet produktus, izsekojiet krājumus un derīguma termiņus, reģistrējiet iepirkumus/nosūtījumus, uzturiet vienotu virsgrāmatu, pārvaldiet aizstājējus/variantus.",
-     "alt": ""
+     "title": "Produktu pieprasījumu un atgriešanas pārvaldība",
+     "desc": "Pārvaldiet produktu pieprasījumus, atsevišķu noliktavu vajadzības, neizpildītās vienības, tiešos nosūtījumus un produktu atgriešanu vienuviet.",
+     "alt": "Produktu atgriešanas pieprasījumu saraksts ar meklēšanu, noliktavas un dienu filtriem"
     },
     {
-     "title": "Izsniegšanas pārvaldība",
-     "desc": "Ārsti var izrakstīt un izsniegt medikamentus vai saņemt tos tieši aptiekā, un viss tiek reģistrēts.",
-     "alt": ""
+     "title": "Sūtījumi",
+     "desc": "Skatiet un izsekojiet aptiekas krājumu ienākošās un izejošās kustības.",
+     "alt": "Izejošie sūtījumi: sūtījuma ID, veids, saņēmējs, transportlīdzeklis un piegādes pārstāvis"
     },
     {
-     "title": "Sūtījumu pārvaldība",
-     "desc": "Izsekojiet ienākošos un izejošos medikamentu sūtījumus un izpildiet tos lietotnē.",
-     "alt": ""
+     "title": "Medikamentu izsniegšana",
+     "desc": "Pārvaldiet un izsekojiet izrakstīto medikamentu izsniegšanu.",
+     "alt": "Izsniegšanu saraksts: izsniegšanas ID, dzīvnieku skaits, datums un saņēmējs"
     },
     {
-     "title": "Krājumu korekcija un atskaites",
-     "desc": "Reģistrējiet krājumu izmaiņas (trūkstoši, bojāti, beidzies derīguma termiņš); uzturiet audita vēsturi; pārvaldiet atgriešanu piegādātājiem; lejupielādējiet patēriņa, atgriešanas, iepirkumu un izsniegšanas atskaites finanšu un pieprasījuma plānošanai.",
-     "alt": ""
+     "title": "Produktu pārvaldība",
+     "desc": "Pārvaldiet produktus, krājumus, iepirkumus, nosūtījumus, krājumu darījumus, aizstājējus, variantus un uzziņu informāciju vienuviet.",
+     "alt": "Produktu saraksts: visi produkti ar zāļu formu un ražotāju"
+    },
+    {
+     "title": "Krājumu uzskaites pārvaldība",
+     "desc": "Pievienojiet, importējiet un pārbaudiet krājumus ar piegādātāja, rēķina, sērijas, derīguma termiņa, cenu un daudzuma datiem, uzturot pilnīgus iepirkumu ierakstus un kopsavilkumus.",
+     "alt": "Krājumu saraksts ar importēšanas un krājumu pievienošanas pogām, piegādātāja filtru un iepirkumu ierakstiem"
+    },
+    {
+     "title": "Krājumu korekciju pārvaldība",
+     "desc": "Pārvaldiet krājumu korekcijas un atgriešanu piegādātājiem, lai uzturētu precīzus krājumus, samazinātu zaudējumus un nodrošinātu pilnīgu izsekojamību.",
+     "alt": "Krājumu korekciju saraksts: cilnes trūkstoši/beidzies derīguma termiņš/bojāti ar produktu, sērijas numuru, daudzumu, iemeslu un derīguma termiņu"
+    },
+    {
+     "title": "Atskaišu pārvaldība",
+     "desc": "Izsekojiet un analizējiet patēriņu, atgriešanu, sūtījumus, izsniegšanu, iepirkumus un pieprasījumus ar detalizētām, filtrējamām atskaitēm labākai krājumu pārskatāmībai un auditiem.",
+     "alt": "Patēriņa atskaite ar datumu diapazonu, meklēšanu, lejupielādi un produktu sarakstu"
+    },
+    {
+     "title": "Produktu atgriešana piegādātājam",
+     "desc": "Atgrieziet piegādātājiem nevajadzīgus, bojātus, liekus produktus vai produktus ar beigušos derīguma termiņu, izsekojot daudzumus, iemeslus un atgriešanas statusu.",
+     "alt": "Atgriešanu piegādātājam saraksts ar pieprasījuma numuru, piegādātāju, kopējo daudzumu un norakstīšanas datumu"
+    },
+    {
+     "title": "Pamatdati / statnes un plaukti",
+     "desc": "Sakārtojiet produktus pa statnēm un plauktiem un pārvaldiet pielāgojamus pamatdatus efektīvai uzglabāšanai un krājumu pārvaldībai.",
+     "alt": "Krājumu atrašanās vieta: pamatdatu statņu un plauktu iestatījumi ar produkta nosaukumu, statņu skaitu un plauktu skaitu"
     }
    ]
   },

@@ -276,6 +276,43 @@
     }
    ]
   },
+  "chat-module": {
+   "title": "Chat Module",
+   "intro": "The Chat Module is an in-app communication channel offering one-on-one and group messaging, media sharing, and real-time notifications keeping all work conversations, updates, and coordination securely inside the platform rather than scattered across personal phones and email.",
+   "summary": "One-on-one and group messaging, media sharing and real-time notifications, kept securely inside the platform",
+   "features": [
+    {
+     "title": "1-on-1 messaging",
+     "desc": "Enables one-to-one chats between team members for seamless communication and collaboration.",
+     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur"
+    },
+    {
+     "title": "Group messaging",
+     "desc": "Create a group for any team, shift, or task and chat in one place.",
+     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur"
+    },
+    {
+     "title": "Media & document sharing",
+     "desc": "Send photos, videos, lab reports and PDFs in-thread; no external apps required.",
+     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur"
+    },
+    {
+     "title": "Real-time notifications",
+     "desc": "Receive instant notifications directly within the app for important updates.",
+     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur"
+    },
+    {
+     "title": "Secure & auditable",
+     "desc": "All conversations stay inside Antz, with a retained history.",
+     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur"
+    },
+    {
+     "title": "Search & filters",
+     "desc": "Find messages by keyword, sender, or linked entity.",
+     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur"
+    }
+   ]
+  },
   "user-management": {
    "title": "User Management",
    "intro": "The User Module enables secure, centralised management of accounts, roles, and permissions. It streamlines user onboarding, ensures data security, and aligns access rights with organisational roles while maintaining detailed activity logs for accountability.",
@@ -817,6 +854,28 @@
     }
    ]
   },
+  "focus-hub": {
+   "title": "Focus Hub",
+   "intro": "The Focus Hub is user-specific, surfacing only the items each user has marked as favourites or bookmarks. It puts favourite animals and enclosures, bookmarked notes, medical records, and lab requests in one place for quick access.",
+   "summary": "Your favourite animals and enclosures and bookmarked records, in one place for quick access",
+   "features": [
+    {
+     "title": "Folder management",
+     "desc": "Create, rename, and delete folders to organise saved items exactly the way you work.",
+     "alt": "My Focus Hub Folders tab with Animals, Injured, Birds, Lion, Critical folders"
+    },
+    {
+     "title": "Favourite animals & enclosures",
+     "desc": "Mark, view, and remove animals and enclosures from your Favourites in a single tap.",
+     "alt": "My Focus Hub Favourites tab with Animals and Enclosures toggle, list of favourite animal cards"
+    },
+    {
+     "title": "Bookmark records",
+     "desc": "Bookmark and remove notes, medical records, or lab requests for quick reference later.",
+     "alt": "My Focus Hub Bookmarks tab with Notes, Medical Record, Lab Request filters and bookmarked medical record cards"
+    }
+   ]
+  },
   "mortality": {
    "title": "Mortality",
    "intro": "The Mortality Module lets you quickly and accurately record animal deaths, manage necropsy details, and store evidence in one place. It improves transparency, speeds up decision-making, ensures compliance, and supports better monitoring of animal welfare.",
@@ -909,17 +968,17 @@
     {
      "title": "Add fetal-death record",
      "desc": "Log new incidents, cause, timing, parentage, animal info.",
-     "alt": "Add Fetal Death form with enclosure, species, parent"
+     "alt": "Add Fetal Death form with selected enclosure, species/taxonomy, and parentage"
     },
     {
      "title": "Search & filters",
      "desc": "Search by keyword; filter by site, date,  still Birth or Abortion, species or gender.",
-     "alt": "Fetal Death list with search and filter"
+     "alt": "Fetal Death list with All Sites and All Time Data filters, Still Birth tab, and search bar highlighted"
     },
     {
      "title": "View deceased records",
      "desc": "Full detail, days since death, cause, ID, enclosure, site, sex.",
-     "alt": "Fetal Death records list, Still Birth tab"
+     "alt": "Fetal Death list with first record card highlighted"
     },
     {
      "title": "Animal card display",
@@ -929,12 +988,12 @@
     {
      "title": "Edit record",
      "desc": "Modify an existing entry from the summary, with audit trail.",
-     "alt": "Fetus Death Summary with edit pencil"
+     "alt": "Fetus Death Summary with edit pencil highlighted"
     },
     {
      "title": "Delete record",
      "desc": "Remove an entry when required, with full audit trail.",
-     "alt": "Fetus Death Summary with Delete Fetal Death option"
+     "alt": "Fetus Death Summary with Delete Fetal Death option highlighted"
     }
    ]
   },
@@ -946,7 +1005,7 @@
     {
      "title": "Egg dashboard",
      "desc": "Live counts, in nests, moved to nursery, marked for discard.",
-     "alt": "Egg Collection dashboard: 66 in nest, 76 to nursery, 35 to discard"
+     "alt": "Egg Collection dashboard: today's collection of 6 eggs, 50 eggs in nest, 21 to nursery, 5 to be discarded, with the Eggs in nest list"
     },
     {
      "title": "Egg entry (nest / nursery)",
@@ -961,27 +1020,27 @@
     {
      "title": "Natural incubation",
      "desc": "Eggs incubated in nests, ID, collection date, condition.",
-     "alt": "Eggs in nest list with peacock hind entries"
+     "alt": "Egg Collection dashboard: today's collection of 6 eggs, 50 eggs in nest, 21 to nursery, 5 to be discarded, with the Eggs in nest list"
     },
     {
      "title": "Artificial incubation",
      "desc": "Nursery eggs, evaluate, move to incubate, discard, or hatch.",
-     "alt": "Eggs to nursery list"
+     "alt": "Eggs to nursery list: Saltwater Crocodile entries with select-all checkboxes"
     },
     {
      "title": "Egg transfers",
      "desc": "Track site, stage, hatch date, species, ID, and sex.",
-     "alt": "Eggs transferred — batch transfer requests"
+     "alt": "Eggs transferred: batch transfer requests with Canceled and pending statuses"
     },
     {
      "title": "Egg discard",
      "desc": "Discard non-viable eggs with logged reason and audit trail.",
-     "alt": "Eggs to be discarded list"
+     "alt": "Eggs to be discarded tab: 36 eggs to be discarded, each with species, egg ID, date, reason such as Rotten, and a checkbox"
     },
     {
      "title": "Create animal ID",
      "desc": "Generate a record for hatched eggs, linked to species and parents.",
-     "alt": "Eggs hatched — Create Animal ID"
+     "alt": "Eggs hatched tab: 4 hatched eggs, with Create Animal ID on Saltwater Crocodile eggs and a Hyacinth Macaw already given ID 422163"
     }
    ]
   },
@@ -993,17 +1052,17 @@
     {
      "title": "Nursery & incubator configuration",
      "desc": "Set up nurseries linked to sites, create rooms, manage incubators.",
-     "alt": "Nursery list with rooms, incubators, and sites"
+     "alt": "Nursery List on the web: nurseries with rooms, incubators, site and Active status, with search, site filter and Add New"
     },
     {
      "title": "Reporting, filters & data access",
      "desc": "Filter by site, species, date, or stage; export reports.",
-     "alt": "Eggs Stats by species table"
+     "alt": "Eggs Stats dashboard on the web: eggs in nest, to nursery, hatched, discarded and total, with Eggs by Species, Sites and Nurseries tabs and Download"
     },
     {
      "title": "Egg list",
      "desc": "Status-based tabs, Received, Incubation, Hatched, Discarded, All.",
-     "alt": "Egg List with Received, Incubation, Hatched tabs"
+     "alt": "Egg List on the web: Received, Incubation, Hatched, To Be Discarded, Discarded and All tabs, with species, egg identifier and condition"
     }
    ]
   },
@@ -1015,17 +1074,17 @@
     {
      "title": "Types of announcements",
      "desc": "General and Important, each with its own visibility rules.",
-     "alt": "Announcements list with All and Created by me tabs, Important and Announcement cards"
+     "alt": "Create Announcement form with General and Important type toggle highlighted"
     },
     {
      "title": "Unified listing",
-     "desc": "All announcements in one view, yours separated from others'.",
+     "desc": "All announcements in one view, yours separated from others.",
      "alt": "Announcement detail: Every Move Counts with attached image"
     },
     {
      "title": "Create announcements",
      "desc": "Set type, title, visibility; post or schedule; preview & attach.",
-     "alt": "Announcement detail: Every necropsy counts, with create button"
+     "alt": "Create Announcement form with type, details, visibility, and scheduling"
     },
     {
      "title": "Post-publish actions",
@@ -1047,7 +1106,7 @@
     {
      "title": "Request management",
      "desc": "Raise, edit, cancel, or reject requests with priorities.",
-     "alt": "Carpentry request detail with vendor and cost estimate"
+     "alt": "Carpentry request for wooden nest boxes at South Aviary Dome: vendor, request details, cost estimate, actual cost and current status In Progress"
     },
     {
      "title": "Cost management",
@@ -1057,7 +1116,7 @@
     {
      "title": "Fulfilment & reversion",
      "desc": "Mark requests fulfilled or revert them to in-progress.",
-     "alt": "Request Completed with Move Back To In-Progress"
+     "alt": "Request REQ29-00172 for wooden fence repair, marked Request Completed by the authority, with Move Back To In-Progress"
     }
    ]
   },
@@ -1103,12 +1162,12 @@
     {
      "title": "Filters & search",
      "desc": "Refine reports by date, site, or species.",
-     "alt": "Species General Report: Download report, Select Site and Show/Hide filters, and a table of species with Male, Female, Undetermined and Indeterminate counts"
+     "alt": "Species General Report with Select Site filter highlighted"
     },
     {
      "title": "Downloadable reports",
      "desc": "Generate, view, and download Species, Daily, Animal List, Animal Assessment, Animal Keeper, User, Observation, Keeper Diary, Biologist Diary, and Enclosure Count reports for compliance and offline access.",
-     "alt": "Species General Report: Download report, Select Site and Show/Hide filters, and a table of species with Male, Female, Undetermined and Indeterminate counts"
+     "alt": "Species General Report with Download report button highlighted"
     }
    ]
   },
@@ -1204,12 +1263,12 @@
     {
      "title": "In-app requesting",
      "desc": "Allows users to request products from the pharmacy directly through the app.",
-     "alt": "Dispense list: 11 dispenses with request IDs, pharmacy, date, requester, medicine and total quantity, and New Dispense button"
+     "alt": "Requests list: 11 requests with request IDs, pharmacy, date, requester and requested items count"
     },
     {
      "title": "In-app dispensing",
      "desc": "Allows stores to dispense products from the pharmacy directly through the app.",
-     "alt": "Dispense DIS279 detail: Local Pharmacy, dispensed to Antz Admin, one medicine Crocin with total quantity 100"
+     "alt": "Dispense list: 14 dispenses with request IDs, pharmacy, date, animal, medicines and total quantity, and New Dispense button"
     }
    ]
   },
@@ -1220,43 +1279,58 @@
    "features": [
     {
      "title": "Dashboard",
-     "desc": "Real-time insights on stock issues, shipments, purchases, requests, usage, expiries and fast-moving products, with visual trends for quick action.",
-     "alt": "A pharmacist organising medicine shelves."
+     "desc": "Get a quick overview of inventory, shipments, purchases, requests, and product trends.",
+     "alt": "Pharmacy Dashboard: expired medicine value, medicines out of stock, total requests, dispatched value, shipments, requests today, and month-wise dispatch chart"
     },
     {
-     "title": "Smart search & filters",
-     "desc": "Quickly find records by Request ID, doctor name, or pharmacy.",
-     "alt": ""
+     "title": "Stock Report Management",
+     "desc": "Get a consolidated view of batch-wise stock, low-stock items, expired and expiring products, and products in escrow or dispute.",
+     "alt": "Stock Report: batch-wise product list with quantity in store, net unit price, and value"
     },
     {
-     "title": "Masters(racks & shelves)",
-     "desc": "Organise storage by rack/shelf counts for quick access and updates, with customisable data (packaging, UOM, salts, drivers, manufacturers).",
-     "alt": ""
+     "title": "Product Request & Return Management",
+     "desc": "Manage product requests, store-wise requirements, pending items, direct dispatches, and product returns from a centralised view.",
+     "alt": "Product Return Request list with search, store and days filters"
     },
     {
-     "title": "Stock report management",
-     "desc": "Batch-wise stock with value and expiry; flag low/expired items; monitor upcoming expiries; manage escrow with dispute resolution.",
-     "alt": ""
+     "title": "Shipments",
+     "desc": "View and track incoming and outgoing pharmacy stock movements.",
+     "alt": "Outgoing Shipments: shipment ID, type, shipped to, vehicle, and delivery representative"
     },
     {
-     "title": "Product & inventory management",
-     "desc": "Create products, track inventory and expiry, log purchases/dispatches, maintain a unified ledger, handle substitutes/variants.",
-     "alt": ""
+     "title": "Dispense Medicine",
+     "desc": "Manage and track the dispensing of prescribed medicines.",
+     "alt": "Dispense list: dispense ID, animals count, date, and received by"
     },
     {
-     "title": "Dispense management",
-     "desc": "Doctors can prescribe and dispense, or collect medicines directly from the pharmacy, all logged.",
-     "alt": ""
+     "title": "Product Management",
+     "desc": "Manage products, inventory, purchases, dispatches, stock transactions, substitutes, variants, and reference information all in one place.",
+     "alt": "Product List: all products with presentation and manufacturer"
     },
     {
-     "title": "Shipment management",
-     "desc": "Track incoming and outgoing medicine shipments and fulfil them in-app.",
-     "alt": ""
+     "title": "Inventory Management",
+     "desc": "Add, import, and verify inventory with supplier, invoice, batch, expiry, pricing, and quantity details, while maintaining complete purchase records and summaries.",
+     "alt": "Inventory List with Import and Add Inventory, supplier filter, and purchase records"
     },
     {
-     "title": "Stock adjustment & reports",
-     "desc": "Record stock changes (missing, broken, expired); keep audit history; manage supplier returns; download consumption, return, purchase and dispensing reports for finance and demand.",
-     "alt": ""
+     "title": "Stock Adjustment Management",
+     "desc": "Manage stock adjustments and supplier returns to maintain accurate inventory, reduce losses, and ensure complete traceability.",
+     "alt": "Stock Adjustment List: missing/expiry/broken tabs with product, batch number, quantity, reason, and expiry"
+    },
+    {
+     "title": "Report Management",
+     "desc": "Track and analyze consumption, returns, shipments, dispensing, purchases, and requests with detailed, filterable reports for better inventory visibility and audits.",
+     "alt": "Consumption Report with date range, search, download, and product list"
+    },
+    {
+     "title": "Return Products to Supplier",
+     "desc": "Return unwanted, expired, damaged, or excess products to suppliers while tracking quantities, reasons, and return status.",
+     "alt": "Return to Supplier List with request number, supplier, total quantity and discarded date"
+    },
+    {
+     "title": "Master/Rack & Shelves Management",
+     "desc": "Organize products by racks and shelves while managing customizable master data for efficient storage and inventory management.",
+     "alt": "Stock Location: Masters racks and shelves configuration with product name, racks count, and shelves count"
     }
    ]
   },
