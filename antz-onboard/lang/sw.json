@@ -816,37 +816,37 @@
     {
      "title": "Dashibodi ya vifo",
      "desc": "Jumla ya vifo, spishi zilizoathirika, na visababishi.",
-     "alt": "Dashibodi ya vifo: wanyama 2, spishi 2, sababu 2"
+     "alt": "Dashibodi ya vifo: wanyama 49, spishi 16 na sababu 6, idadi zikiwa zimeangaziwa"
     },
     {
      "title": "Orodha za mitazamo mingi",
      "desc": "Kumbukumbu kwa mnyama, spishi, au kisababishi, zikiwa zimeunganishwa na wasifu.",
-     "alt": "Kumbukumbu za vifo zilizoorodheshwa kwa mnyama"
+     "alt": "Kumbukumbu za vifo kwa spishi, pamoja na idadi kwa jinsia"
     },
     {
      "title": "Utafutaji wa kina na vichujio",
      "desc": "Tafuta kwa spishi, kisababishi, mahali, tarehe, au neno muhimu.",
-     "alt": "Utafutaji na vichujio vya vifo"
+     "alt": "Dashibodi ya vifo ikiwa na Data Zote, Maeneo Yote, utafutaji na aikoni ya kichujio vimeangaziwa"
     },
     {
      "title": "Kumbukumbu za wanyama waliokufa",
      "desc": "Taarifa kamili za kifo, kisababishi, namba ya utambulisho, kizimba, kituo, jinsia.",
-     "alt": "Undani wa kumbukumbu ya mnyama aliyekufa"
+     "alt": "Dashibodi ya vifo ikiwa na kadi ya kwanza ya mnyama imeangaziwa"
     },
     {
      "title": "Hariri kumbukumbu",
      "desc": "Hariri ripoti za vifo baada ya kuingizwa ili ziendelee kuwa sahihi.",
-     "alt": "Undani wa ripoti ya kifo pamoja na chaguo la kuhariri"
+     "alt": "Ripoti ya kifo ikiwa na aikoni ya penseli ya kuhariri imeangaziwa"
     },
     {
      "title": "Batilisha kumbukumbu",
      "desc": "Batilisha kumbukumbu zisizo sahihi ili kurejesha hali ya kuwa hai.",
-     "alt": "Ripoti ya kifo pamoja na chaguo la Revoke Mortality"
+     "alt": "Ripoti ya kifo ikiwa na kitufe cha Batilisha kifo kimeangaziwa"
     },
     {
      "title": "Uhamisho wa mzoga",
      "desc": "Tazama na fuatilia uhamisho wa mizoga kati ya maeneo.",
-     "alt": "Orodha ya Carcass Transfers: inasubiri, njiani, imekamilika"
+     "alt": "Orodha ya uhamisho wa mizoga: 3 zinasubiri, 1 njiani, 8 zimekamilika"
     }
    ],
    "shots": {
@@ -861,37 +861,37 @@
     {
      "title": "Utafutaji na vichujio",
      "desc": "Tafuta kwa mnyama/spishi; chuja kwa kituo, tarehe, kipaumbele.",
-     "alt": "Orodha ya Necropsy: Incoming, Pending, Draft, Completed pamoja na kadi za maombi"
+     "alt": "Orodha ya uchunguzi wa maiti: Zinazoingia, Zinazosubiri, Rasimu, Zilizokamilika, vichupo vya Kwa Wanyama/Kwa Spishi na upau wa utafutaji vikiwa vimeangaziwa"
     },
     {
      "title": "Kufuatilia hali",
      "desc": "Fuatilia hatua za uhamisho, Zinazoingia, Zinazosubiri, Rasimu, na Zilizokamilika.",
-     "alt": "Orodha ya Necropsy pamoja na vichupo vya hali Incoming, Pending, Draft, Completed"
+     "alt": "Orodha ya uchunguzi wa maiti yenye vichupo vya hali Zinazoingia, Zinazosubiri, Rasimu, Zilizokamilika, Zinazosubiri imechaguliwa"
     },
     {
      "title": "Kadi ya mnyama na taarifa za ombi",
      "desc": "AID, spishi, mahali, kisababishi, aliyeomba, kipaumbele.",
-     "alt": "Orodha ya Necropsy kwa wanyama pamoja na undani wa kadi ya ombi"
+     "alt": "Orodha ya uchunguzi wa maiti ikiwa na kadi ya ombi la kwanza imeangaziwa"
     },
     {
      "title": "Uhamisho wa mzoga",
      "desc": "Tazama maombi ya uhamisho, Yanayosubiri Kupokelewa, Yaliyopokelewa.",
-     "alt": "Orodha ya Carcass Transfers: Pending Acceptance, Received"
+     "alt": "Uhamisho wa mizoga: vichupo vya Inasubiri kukubaliwa na Zilizopokelewa, pamoja na kadi za maombi"
     },
     {
      "title": "Mwonekano wa kina wa ombi",
      "desc": "Tazama ombi kamili la uchunguzi wa mzoga pamoja na taarifa za mnyama na kifo (kisababishi, hali ya mzoga, maelezo), sasisha kumbukumbu, hifadhi kama rasimu, au wasilisha ukishakamilisha",
-     "alt": "Undani wa Necropsy Request: ripoti ya kifo, kisababishi, hali ya mzoga, hali ya ombi"
+     "alt": "Maelezo ya ombi la uchunguzi wa maiti: ripoti ya kifo, chanzo kinachoshukiwa, hali ya mzoga na hali Inasubiri"
     },
     {
      "title": "Pakua ripoti",
      "desc": "Hamisha ripoti au rasimu kama PDF kwa kumbukumbu/matumizi bila mtandao.",
-     "alt": "Ripoti ya Necropsy NPS29-00034 pamoja na kupakua — ufaaji wa mzoga na taarifa"
+     "alt": "Ripoti ya uchunguzi wa maiti NPS29-00033 ikiwa na aikoni ya kupakua imeangaziwa, ufaafu wa mzoga na maelezo"
     },
     {
      "title": "Ratiba ya matukio",
      "desc": "Kila kitendo kinafuatiliwa pamoja na mtumiaji na muda.",
-     "alt": "Ratiba ya Necropsy History: Uchunguzi wa mzoga umekamilishwa na Mayur Bendre"
+     "alt": "Historia: Uchunguzi wa maiti umekamilika, Rasimu imetupwa, Imehifadhiwa kama rasimu, kila moja na mtumiaji na muda"
     }
    ]
   },

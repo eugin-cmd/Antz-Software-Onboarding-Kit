@@ -816,37 +816,37 @@
     {
      "title": "Gaištamumo suvestinė",
      "desc": "Bendri gaišimų, paveiktų rūšių ir priežasčių skaičiai.",
-     "alt": "Gaištamumo suvestinė: 2 gyvūnai, 2 rūšys, 2 priežastys"
+     "alt": "Mirtingumo suvestinė: 49 gyvūnai, 16 rūšių ir 6 priežastys, su paryškintais skaičiais"
     },
     {
      "title": "Sąrašai keliais rodiniais",
      "desc": "Įrašai pagal gyvūną, rūšį ar priežastį, susieti su profiliais.",
-     "alt": "Gaištamumo įrašai pagal gyvūnus"
+     "alt": "Mirtingumo įrašai pagal rūšis, su skaičiais pagal lytį"
     },
     {
      "title": "Išplėstinė paieška ir filtrai",
      "desc": "Ieškokite pagal rūšį, priežastį, vietą, datą ar raktinį žodį.",
-     "alt": "Gaištamumo paieška ir filtrai"
+     "alt": "Mirtingumo suvestinė su paryškintais laukais Visi duomenys, Visos vietos, paieška ir filtro piktograma"
     },
     {
      "title": "Nugaišusių gyvūnų įrašai",
      "desc": "Visa gaišimo informacija: priežastis, ID, aptvaras, vieta, lytis.",
-     "alt": "Nugaišusio gyvūno įrašo informacija"
+     "alt": "Mirtingumo suvestinė su paryškinta pirmąja gyvūno kortele"
     },
     {
      "title": "Įrašų redagavimas",
      "desc": "Redaguokite gaištamumo ataskaitas po įvedimo, kad jos būtų tikslios.",
-     "alt": "Gaištamumo ataskaitos informacija su redagavimo parinktimi"
+     "alt": "Mirtingumo ataskaita su paryškinta redagavimo pieštuko piktograma"
     },
     {
      "title": "Įrašų atšaukimas",
      "desc": "Atšaukite klaidingus įrašus, kad būtų atkurta aktyvi būsena.",
-     "alt": "Gaištamumo ataskaita su parinktimi „Revoke Mortality“"
+     "alt": "Mirtingumo ataskaita su paryškintu mygtuku Atšaukti mirtingumą"
     },
     {
      "title": "Gaišenų perkėlimas",
      "desc": "Peržiūrėkite ir sekite gaišenų judėjimą tarp vietų.",
-     "alt": "Gaišenų perkėlimų („Carcass Transfers“) sąrašas: laukiantys, vežami, baigti"
+     "alt": "Gaišenų perkėlimų sąrašas: 3 laukia, 1 kelyje, 8 baigti"
     }
    ],
    "shots": {
@@ -861,37 +861,37 @@
     {
      "title": "Paieška ir filtrai",
      "desc": "Ieškokite pagal gyvūną ar rūšį; filtruokite pagal vietą, datą, prioritetą.",
-     "alt": "Skrodimų sąrašas: „Incoming“, „Pending“, „Draft“, „Completed“ su užklausų kortelėmis"
+     "alt": "Skrodimų sąrašas: Gaunami, Laukiantys, Juodraštis, Baigti, su paryškintais skirtukais Pagal gyvūnus/Pagal rūšis ir paieškos juosta"
     },
     {
      "title": "Būsenos sekimas",
      "desc": "Stebėkite perkėlimo etapus: atvykstantys, laukiantys, juodraščiai ir baigti.",
-     "alt": "Skrodimų sąrašas su būsenų skirtukais „Incoming“, „Pending“, „Draft“, „Completed“"
+     "alt": "Skrodimų sąrašas su būsenų skirtukais Gaunami, Laukiantys, Juodraštis, Baigti, pasirinkta Laukiantys"
     },
     {
      "title": "Gyvūno kortelė ir užklausos informacija",
      "desc": "AID, rūšis, vieta, priežastis, užklausos pateikėjas, prioritetas.",
-     "alt": "Skrodimų sąrašas pagal gyvūnus su užklausos kortelės informacija"
+     "alt": "Skrodimų sąrašas su paryškinta pirmąja prašymo kortele"
     },
     {
      "title": "Gaišenų perkėlimas",
      "desc": "Peržiūrėkite perkėlimo užklausas: laukia priėmimo, gauta.",
-     "alt": "Gaišenų perkėlimų sąrašas: „Pending Acceptance“, „Received“"
+     "alt": "Gaišenų perkėlimai: skirtukai Laukia priėmimo ir Gauti, su prašymų kortelėmis"
     },
     {
      "title": "Išsamus užklausos rodinys",
      "desc": "Peržiūrėkite visą skrodimo užklausą su gyvūno ir gaišimo informacija (priežastis, gaišenos būklė, pastabos), atnaujinkite įrašus, išsaugokite juodraštį arba pateikite užbaigę.",
-     "alt": "Skrodimo užklausos informacija: gaištamumo ataskaita, priežastis, gaišenos būklė, būsena"
+     "alt": "Skrodimo prašymo informacija: mirtingumo ataskaita, įtariama priežastis, gaišenos būklė ir būsena Laukia"
     },
     {
      "title": "Ataskaitos atsisiuntimas",
      "desc": "Eksportuokite ataskaitas ar juodraščius PDF formatu įrašams ar naudojimui neprisijungus.",
-     "alt": "Skrodimo ataskaita NPS29-00034 su atsisiuntimu – gaišenos tinkamumas ir informacija"
+     "alt": "Skrodimo ataskaita NPS29-00033 su paryškinta atsisiuntimo piktograma, gaišenos tinkamumas ir informacija"
     },
     {
      "title": "Laiko juosta",
      "desc": "Kiekvienas veiksmas sekamas su naudotoju ir laiko žyma.",
-     "alt": "Skrodimo istorijos laiko juosta: skrodimą užbaigė Mayur Bendre"
+     "alt": "Istorija: Skrodimas baigtas, Juodraštis atmestas, Išsaugota kaip juodraštis, kiekvienas su naudotoju ir laiku"
     }
    ]
   },

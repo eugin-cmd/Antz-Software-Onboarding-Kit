@@ -2507,159 +2507,150 @@
     {
      "title": "Mortality dashboard",
      "desc": "Totals for deaths, affected species, and causes.",
-     "shot": "assets/shots/p27-mortality-1.jpg",
-     "alt": "Mortality dashboard: 2 animals, 2 species, 2 reasons",
-     "device": "phone",
+     "shot": "assets/shots/p27-mort-dashboard.png",
+     "alt": "Mortality dashboard: 49 animals, 16 species, 6 reasons with counts highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "medical"
     },
     {
      "title": "Multi-view listings",
      "desc": "Records by animal, species, or cause, linked to profiles.",
-     "shot": "assets/shots/p27-mortality-2.jpg",
-     "alt": "Mortality records listed by animal",
-     "device": "phone",
+     "shot": "assets/shots/p27-mort-species.png",
+     "alt": "Mortality records listed by species, with counts by sex",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "filter"
     },
     {
      "title": "Advanced search & filters",
      "desc": "Search by species, cause, location, date, or keyword.",
-     "shot": "assets/shots/p27-mortality-3.jpg",
-     "alt": "Mortality search and filters",
-     "device": "phone",
+     "shot": "assets/shots/p27-mort-filters.png",
+     "alt": "Mortality dashboard with All Time Data, All Sites, search, and filter icon highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "filter"
     },
     {
      "title": "Deceased animal records",
      "desc": "Full death detail — cause, ID, enclosure, site, sex.",
-     "shot": "assets/shots/p27-mortality-4.jpg",
-     "alt": "Deceased animal record detail",
-     "device": "phone",
+     "shot": "assets/shots/p27-mort-record.png",
+     "alt": "Mortality dashboard with first animal record card highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "medical"
     },
     {
      "title": "Edit records",
      "desc": "Edit mortality reports after entry to keep them accurate.",
-     "shot": "assets/shots/p27-mortality-5.jpg",
-     "alt": "Mortality report detail with edit option",
-     "device": "phone",
+     "shot": "assets/shots/p27-mort-edit.png",
+     "alt": "Mortality report with edit pencil icon highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "note"
     },
     {
      "title": "Revoke records",
      "desc": "Revoke incorrect records to restore active status.",
-     "shot": "assets/shots/p27-mortality-6.jpg",
-     "alt": "Mortality report with Revoke Mortality option",
-     "device": "phone",
+     "shot": "assets/shots/p27-mort-revoke.png",
+     "alt": "Mortality report with Revoke Mortality button highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "manage"
     },
     {
      "title": "Carcass transfer",
      "desc": "View and track carcass movement between locations.",
-     "shot": "assets/shots/p27-carcass.jpg",
-     "alt": "Carcass Transfers list: pending, in transit, completed",
-     "device": "phone",
+     "shot": "assets/shots/p27-mort-carcass.png",
+     "alt": "Carcass Transfers list: 3 pending, 1 in transit, 8 completed",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "transfer"
     }
    ],
    "shots": [
     {
-     "src": "assets/shots/p27-mortality-1.jpg",
-     "alt": "Mortality dashboard: 2 animals, 2 species, 2 reasons",
-     "device": "phone",
+     "src": "assets/shots/p27-mort-dashboard.png",
+     "alt": "Mortality dashboard: 49 animals, 16 species, 6 reasons with counts highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p27-mortality-2.jpg",
-     "alt": "Mortality records listed by animal",
-     "device": "phone",
+     "src": "assets/shots/p27-mort-species.png",
+     "alt": "Mortality records listed by species, with counts by sex",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p27-mortality-3.jpg",
-     "alt": "Mortality search and filters",
-     "device": "phone",
+     "src": "assets/shots/p27-mort-filters.png",
+     "alt": "Mortality dashboard with All Time Data, All Sites, search, and filter icon highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p27-mortality-4.jpg",
-     "alt": "Deceased animal record detail",
-     "device": "phone",
+     "src": "assets/shots/p27-mort-record.png",
+     "alt": "Mortality dashboard with first animal record card highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p27-mortality-4.jpg",
-     "alt": "Mortality record card — edit and revoke",
-     "device": "phone",
+     "src": "assets/shots/p27-mort-edit.png",
+     "alt": "Mortality report with edit pencil icon highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p27-mortality-5.jpg",
-     "alt": "Mortality report detail with edit option",
-     "device": "phone",
+     "src": "assets/shots/p27-mort-revoke.png",
+     "alt": "Mortality report with Revoke Mortality button highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p27-mortality-6.jpg",
-     "alt": "Mortality report with Revoke Mortality option",
-     "device": "phone",
+     "src": "assets/shots/p27-mort-carcass.png",
+     "alt": "Carcass Transfers list: 3 pending, 1 in transit, 8 completed",
+     "device": "prefr",
      "size": [
-      600,
-      1298
-     ]
-    },
-    {
-     "src": "assets/shots/p27-carcass.jpg",
-     "alt": "Carcass Transfers list: pending, in transit, completed",
-     "device": "phone",
-     "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     }
    ],
@@ -2678,150 +2669,150 @@
     {
      "title": "Search & filters",
      "desc": "Search by animal/species; filter by site, date, priority.",
-     "shot": "assets/shots/p28-necropsy.jpg",
-     "alt": "Necropsy list: Incoming, Pending, Draft, Completed with request cards",
-     "device": "phone",
+     "shot": "assets/shots/p28-necro-search.png",
+     "alt": "Necropsy list: Incoming, Pending, Draft, Completed with By Animals/By Species tabs and search bar highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "filter"
     },
     {
      "title": "Status tracking",
      "desc": "Monitor transfer stages — Incoming, Pending, Draft, and Completed.",
-     "shot": "assets/shots/p28-necropsy-7.jpg",
-     "alt": "Necropsy list with Incoming, Pending, Draft, Completed status tabs",
-     "device": "phone",
+     "shot": "assets/shots/p28-necro-status.png",
+     "alt": "Necropsy list with Incoming, Pending, Draft, Completed status tabs, Pending selected",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "manage"
     },
     {
      "title": "Animal card & request info",
      "desc": "AID, species, location, cause, requester, priority.",
-     "shot": "assets/shots/p28-necropsy-2.jpg",
-     "alt": "Necropsy by-animals list with request card detail",
-     "device": "phone",
+     "shot": "assets/shots/p28-necro-card.png",
+     "alt": "Necropsy list with first request card highlighted",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "tag"
     },
     {
      "title": "Carcass transfer",
      "desc": "View transfer requests — Pending Acceptance, Received.",
-     "shot": "assets/shots/p28-necropsy-3.jpg",
-     "alt": "Carcass Transfers list: Pending Acceptance, Received",
-     "device": "phone",
+     "shot": "assets/shots/p28-necro-carcass.png",
+     "alt": "Carcass Transfers: Pending Acceptance and Received tabs with transfer request cards",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "transfer"
     },
     {
      "title": "Detailed request view",
      "desc": "View the full necropsy request with animal and mortality details(cause, carcass condition, notes), update records, save as draft, or submit once finalized",
-     "shot": "assets/shots/p28-necropsy-4.jpg",
-     "alt": "Necropsy Request detail: mortality report, cause, carcass condition, status",
-     "device": "phone",
+     "shot": "assets/shots/p28-necro-request.png",
+     "alt": "Necropsy Request detail: mortality report, suspected cause, carcass condition, and status Pending",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "eye"
     },
     {
      "title": "Download report",
      "desc": "Export reports or drafts as PDFs for records/offline.",
-     "shot": "assets/shots/p28-necropsy-5.jpg",
-     "alt": "Necropsy report NPS29-00034 with download — carcass suitability and details",
-     "device": "phone",
+     "shot": "assets/shots/p28-necro-download.png",
+     "alt": "Necropsy report NPS29-00033 with download icon highlighted, carcass suitability and details",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "report"
     },
     {
      "title": "Timeline",
      "desc": "Every action tracked with user and timestamp.",
-     "shot": "assets/shots/p28-necropsy-6.jpg",
-     "alt": "Necropsy History timeline: Necropsy completed by Mayur Bendre",
+     "shot": "assets/shots/p28-necro-timeline.png",
+     "alt": "History timeline: Necropsy completed, Draft discarded, Saved as draft, each with user and timestamp",
      "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "manage"
     }
    ],
    "shots": [
     {
-     "src": "assets/shots/p28-necropsy.jpg",
-     "alt": "Necropsy list: Incoming, Pending, Draft, Completed with request cards",
-     "device": "phone",
-     "size": [
-      600,
-      1298
-     ]
-    },
-    {
-     "src": "assets/shots/p28-necropsy-2.jpg",
-     "alt": "Necropsy by-animals list with request card detail",
-     "device": "phone",
-     "size": [
-      600,
-      1298
-     ]
-    },
-    {
-     "src": "assets/shots/p28-necropsy-3.jpg",
-     "alt": "Carcass Transfers list: Pending Acceptance, Received",
-     "device": "phone",
-     "size": [
-      600,
-      1298
-     ]
-    },
-    {
-     "src": "assets/shots/p28-necropsy-4.jpg",
-     "alt": "Necropsy Request detail: mortality report, cause, carcass condition, status",
-     "device": "phone",
-     "size": [
-      600,
-      1298
-     ]
-    },
-    {
-     "src": "assets/shots/p28-necropsy-5.jpg",
-     "alt": "Necropsy report NPS29-00034 with download — carcass suitability and details",
-     "device": "phone",
-     "size": [
-      600,
-      1298
-     ]
-    },
-    {
-     "src": "assets/shots/p28-necropsy-6.jpg",
-     "alt": "Necropsy History timeline: Necropsy completed by Mayur Bendre",
+     "src": "assets/shots/p28-necro-search.png",
+     "alt": "Necropsy list: Incoming, Pending, Draft, Completed with By Animals/By Species tabs and search bar highlighted",
      "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p28-necropsy-7.jpg",
-     "alt": "Necropsy list with Incoming, Pending, Draft, Completed status tabs",
-     "device": "phone",
+     "src": "assets/shots/p28-necro-status.png",
+     "alt": "Necropsy list with Incoming, Pending, Draft, Completed status tabs, Pending selected",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p28-necro-card.png",
+     "alt": "Necropsy list with first request card highlighted",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p28-necro-carcass.png",
+     "alt": "Carcass Transfers: Pending Acceptance and Received tabs with transfer request cards",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p28-necro-request.png",
+     "alt": "Necropsy Request detail: mortality report, suspected cause, carcass condition, and status Pending",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p28-necro-download.png",
+     "alt": "Necropsy report NPS29-00033 with download icon highlighted, carcass suitability and details",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p28-necro-timeline.png",
+     "alt": "History timeline: Necropsy completed, Draft discarded, Saved as draft, each with user and timestamp",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
      ]
     }
    ],

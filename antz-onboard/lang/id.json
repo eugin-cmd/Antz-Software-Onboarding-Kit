@@ -816,37 +816,37 @@
     {
      "title": "Dasbor mortalitas",
      "desc": "Total kematian, spesies yang terdampak, dan penyebab.",
-     "alt": "Dasbor mortalitas: 2 satwa, 2 spesies, 2 penyebab"
+     "alt": "Dasbor kematian: 49 hewan, 16 spesies, dan 6 penyebab, dengan jumlah yang disorot"
     },
     {
      "title": "Daftar multi-tampilan",
      "desc": "Catatan berdasarkan satwa, spesies, atau penyebab, terhubung ke profil.",
-     "alt": "Catatan mortalitas yang dicantumkan berdasarkan satwa"
+     "alt": "Catatan kematian per spesies, dengan jumlah per jenis kelamin"
     },
     {
      "title": "Pencarian & filter lanjutan",
      "desc": "Cari berdasarkan spesies, penyebab, lokasi, tanggal, atau kata kunci.",
-     "alt": "Pencarian dan filter mortalitas"
+     "alt": "Dasbor kematian dengan Semua Data, Semua Lokasi, pencarian, dan ikon filter disorot"
     },
     {
      "title": "Catatan satwa mati",
      "desc": "Detail kematian lengkap, penyebab, ID, kandang, lokasi, jenis kelamin.",
-     "alt": "Detail catatan satwa mati"
+     "alt": "Dasbor kematian dengan kartu catatan hewan pertama disorot"
     },
     {
      "title": "Edit catatan",
      "desc": "Edit laporan mortalitas setelah dimasukkan agar tetap akurat.",
-     "alt": "Detail laporan mortalitas dengan opsi edit"
+     "alt": "Laporan kematian dengan ikon pensil edit disorot"
     },
     {
      "title": "Cabut catatan",
      "desc": "Cabut catatan yang keliru untuk mengembalikan status aktif.",
-     "alt": "Laporan mortalitas dengan opsi Revoke Mortality"
+     "alt": "Laporan kematian dengan tombol Cabut Kematian disorot"
     },
     {
      "title": "Pemindahan bangkai",
      "desc": "Lihat dan lacak pergerakan bangkai antarlokasi.",
-     "alt": "Daftar Carcass Transfers: tertunda, dalam perjalanan, selesai"
+     "alt": "Daftar pemindahan bangkai: 3 tertunda, 1 dalam perjalanan, 8 selesai"
     }
    ],
    "shots": {
@@ -861,37 +861,37 @@
     {
      "title": "Pencarian & filter",
      "desc": "Cari berdasarkan satwa/spesies; filter berdasarkan lokasi, tanggal, prioritas.",
-     "alt": "Daftar nekropsi: Incoming, Pending, Draft, Completed dengan kartu permintaan"
+     "alt": "Daftar nekropsi: Masuk, Tertunda, Draf, Selesai, dengan tab Per Hewan/Per Spesies dan bilah pencarian disorot"
     },
     {
      "title": "Pelacakan status",
      "desc": "Pantau tahapan pemindahan: Masuk, Tertunda, Draf, dan Selesai.",
-     "alt": "Daftar nekropsi dengan tab status Incoming, Pending, Draft, Completed"
+     "alt": "Daftar nekropsi dengan tab status Masuk, Tertunda, Draf, Selesai, Tertunda dipilih"
     },
     {
      "title": "Kartu satwa & info permintaan",
      "desc": "AID, spesies, lokasi, penyebab, pemohon, prioritas.",
-     "alt": "Daftar nekropsi per satwa dengan detail kartu permintaan"
+     "alt": "Daftar nekropsi dengan kartu permintaan pertama disorot"
     },
     {
      "title": "Pemindahan bangkai",
      "desc": "Lihat permintaan pemindahan: Menunggu Penerimaan, Diterima.",
-     "alt": "Daftar Carcass Transfers: Pending Acceptance, Received"
+     "alt": "Pemindahan bangkai: tab Menunggu Penerimaan dan Diterima, dengan kartu permintaan"
     },
     {
      "title": "Tampilan permintaan terperinci",
      "desc": "Lihat permintaan nekropsi lengkap dengan detail satwa dan mortalitas (penyebab, kondisi bangkai, catatan), perbarui catatan, simpan sebagai draf, atau kirim setelah final.",
-     "alt": "Detail Necropsy Request: laporan mortalitas, penyebab, kondisi bangkai, status"
+     "alt": "Detail permintaan nekropsi: laporan kematian, dugaan penyebab, kondisi bangkai, dan status Tertunda"
     },
     {
      "title": "Unduh laporan",
      "desc": "Ekspor laporan atau draf sebagai PDF untuk arsip/penggunaan luring.",
-     "alt": "Laporan nekropsi NPS29-00034 dengan unduhan — kelayakan bangkai dan detail"
+     "alt": "Laporan nekropsi NPS29-00033 dengan ikon unduh disorot, kelayakan bangkai dan detail"
     },
     {
      "title": "Linimasa",
      "desc": "Setiap tindakan dilacak beserta pengguna dan cap waktunya.",
-     "alt": "Linimasa Necropsy History: nekropsi diselesaikan oleh Mayur Bendre"
+     "alt": "Riwayat: Nekropsi selesai, Draf dibuang, Disimpan sebagai draf, masing-masing dengan pengguna dan waktu"
     }
    ]
   },

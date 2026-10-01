@@ -816,37 +816,37 @@
     {
      "title": "Tableau de bord de la mortalité",
      "desc": "Totaux des décès, des espèces concernées et des causes.",
-     "alt": "Tableau de bord de la mortalité : 2 animaux, 2 espèces, 2 causes"
+     "alt": "Tableau de bord de la mortalité : 49 animaux, 16 espèces et 6 causes, avec les totaux mis en évidence"
     },
     {
      "title": "Listes multi-vues",
      "desc": "Dossiers par animal, par espèce ou par cause, liés aux fiches.",
-     "alt": "Dossiers de mortalité listés par animal"
+     "alt": "Dossiers de mortalité par espèce, avec les effectifs par sexe"
     },
     {
      "title": "Recherche avancée et filtres",
      "desc": "Recherchez par espèce, cause, emplacement, date ou mot-clé.",
-     "alt": "Recherche et filtres de la mortalité"
+     "alt": "Tableau de bord de la mortalité avec Toutes les données, Tous les sites, la recherche et l’icône de filtre mis en évidence"
     },
     {
      "title": "Dossiers des animaux décédés",
      "desc": "Détails complets du décès : cause, identifiant, enclos, site, sexe.",
-     "alt": "Détail du dossier d’un animal décédé"
+     "alt": "Tableau de bord de la mortalité avec la première fiche animal mise en évidence"
     },
     {
      "title": "Modifier les dossiers",
      "desc": "Modifiez les rapports de mortalité après saisie pour qu’ils restent exacts.",
-     "alt": "Détail du rapport de mortalité avec l’option de modification"
+     "alt": "Rapport de mortalité avec l’icône crayon de modification mise en évidence"
     },
     {
      "title": "Révoquer des dossiers",
      "desc": "Révoquez les dossiers erronés pour rétablir le statut actif.",
-     "alt": "Rapport de mortalité avec l’option Révoquer la mortalité"
+     "alt": "Rapport de mortalité avec le bouton Révoquer la mortalité mis en évidence"
     },
     {
      "title": "Transfert de cadavres",
      "desc": "Consultez et suivez le déplacement des cadavres entre les emplacements.",
-     "alt": "Liste des transferts de cadavres : en attente, en transit, terminés"
+     "alt": "Liste des transferts de carcasses : 3 en attente, 1 en transit, 8 terminés"
     }
    ],
    "shots": {
@@ -861,37 +861,37 @@
     {
      "title": "Recherche et filtres",
      "desc": "Recherchez par animal/espèce ; filtrez par site, date, priorité.",
-     "alt": "Liste des nécropsies : Entrantes, En attente, Brouillon, Terminées avec les cartes de demande"
+     "alt": "Liste des nécropsies : Entrantes, En attente, Brouillon, Terminées, avec les onglets Par animal/Par espèce et la barre de recherche mis en évidence"
     },
     {
      "title": "Suivi des statuts",
      "desc": "Suivez les étapes du transfert : Entrantes, En attente, Brouillon et Terminées.",
-     "alt": "Liste des nécropsies avec les onglets de statut Entrantes, En attente, Brouillon, Terminées"
+     "alt": "Liste des nécropsies avec les onglets de statut Entrantes, En attente, Brouillon, Terminées, En attente sélectionné"
     },
     {
      "title": "Carte de l’animal et informations de la demande",
      "desc": "AID, espèce, emplacement, cause, demandeur, priorité.",
-     "alt": "Liste des nécropsies par animal avec le détail de la carte de demande"
+     "alt": "Liste des nécropsies avec la première fiche de demande mise en évidence"
     },
     {
      "title": "Transfert de cadavres",
      "desc": "Consultez les demandes de transfert : En attente d’acceptation, Reçus.",
-     "alt": "Liste des transferts de cadavres : En attente d’acceptation, Reçus"
+     "alt": "Transferts de carcasses : onglets En attente d’acceptation et Reçus, avec les fiches de demande"
     },
     {
      "title": "Vue détaillée de la demande",
      "desc": "Consultez la demande de nécropsie complète avec les détails de l’animal et du décès (cause, état du cadavre, notes), mettez à jour les dossiers, enregistrez un brouillon ou envoyez une fois finalisé.",
-     "alt": "Détail de la demande de nécropsie : rapport de mortalité, cause, état du cadavre, statut"
+     "alt": "Détail de la demande de nécropsie : rapport de mortalité, cause présumée, état de la carcasse et statut En attente"
     },
     {
      "title": "Télécharger le rapport",
      "desc": "Exportez les rapports ou brouillons en PDF pour l’archivage ou la consultation hors ligne.",
-     "alt": "Rapport de nécropsie NPS29-00034 avec téléchargement — aptitude du cadavre et détails"
+     "alt": "Rapport de nécropsie NPS29-00033 avec l’icône de téléchargement mise en évidence, aptitude de la carcasse et détails"
     },
     {
      "title": "Chronologie",
      "desc": "Chaque action est suivie avec l’utilisateur et l’horodatage.",
-     "alt": "Chronologie de l’historique de nécropsie : nécropsie terminée par Mayur Bendre"
+     "alt": "Historique : Nécropsie terminée, Brouillon supprimé, Enregistré comme brouillon, chacun avec utilisateur et horodatage"
     }
    ]
   },

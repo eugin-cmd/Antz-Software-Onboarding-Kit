@@ -816,37 +816,37 @@
     {
      "title": "Přehled úhynů",
      "desc": "Celkové počty úhynů, dotčených druhů a příčin.",
-     "alt": "Přehled úhynů: 2 zvířata, 2 druhy, 2 příčiny"
+     "alt": "Přehled úmrtnosti: 49 zvířat, 16 druhů a 6 příčin, se zvýrazněnými počty"
     },
     {
      "title": "Seznamy v několika zobrazeních",
      "desc": "Záznamy podle zvířete, druhu nebo příčiny, propojené s profily.",
-     "alt": "Záznamy o úhynech seřazené podle zvířat"
+     "alt": "Záznamy o úhynech podle druhu, s počty podle pohlaví"
     },
     {
      "title": "Rozšířené hledání a filtry",
      "desc": "Hledejte podle druhu, příčiny, místa, data nebo klíčového slova.",
-     "alt": "Hledání a filtry úhynů"
+     "alt": "Přehled úmrtnosti se zvýrazněnými poli Všechna data, Všechny lokality, vyhledáváním a ikonou filtru"
     },
     {
      "title": "Záznamy uhynulých zvířat",
      "desc": "Úplné údaje o úhynu, příčina, ID, výběh, areál, pohlaví.",
-     "alt": "Detail záznamu uhynulého zvířete"
+     "alt": "Přehled úmrtnosti se zvýrazněnou první kartou zvířete"
     },
     {
      "title": "Úprava záznamů",
      "desc": "Upravujte hlášení o úhynu i po zadání, aby zůstala přesná.",
-     "alt": "Detail hlášení o úhynu s možností úpravy"
+     "alt": "Zpráva o úhynu se zvýrazněnou ikonou tužky pro úpravu"
     },
     {
      "title": "Zrušení záznamů",
      "desc": "Zrušte chybné záznamy a obnovte aktivní stav.",
-     "alt": "Hlášení o úhynu s možností zrušení úhynu"
+     "alt": "Zpráva o úhynu se zvýrazněným tlačítkem Odvolat úhyn"
     },
     {
      "title": "Převoz kadáveru",
      "desc": "Zobrazte a sledujte převoz kadáverů mezi místy.",
-     "alt": "Seznam převozů kadáverů: čekající, na cestě, dokončené"
+     "alt": "Seznam převozů kadáverů: 3 čekající, 1 na cestě, 8 dokončených"
     }
    ],
    "shots": {
@@ -861,37 +861,37 @@
     {
      "title": "Hledání a filtry",
      "desc": "Hledejte podle zvířete/druhu; filtrujte podle areálu, data a priority.",
-     "alt": "Seznam pitev: příchozí, čekající, koncepty, dokončené s kartami žádostí"
+     "alt": "Seznam pitev: Příchozí, Čekající, Koncept, Dokončené, se zvýrazněnými kartami Podle zvířat/Podle druhů a vyhledávacím polem"
     },
     {
      "title": "Sledování stavu",
      "desc": "Sledujte fáze: příchozí, čekající, koncept a dokončeno.",
-     "alt": "Seznam pitev s kartami stavů Příchozí, Čekající, Koncept, Dokončeno"
+     "alt": "Seznam pitev se stavovými kartami Příchozí, Čekající, Koncept, Dokončené, vybrána karta Čekající"
     },
     {
      "title": "Karta zvířete a údaje o žádosti",
      "desc": "AID, druh, místo, příčina, žadatel, priorita.",
-     "alt": "Seznam pitev podle zvířat s detailem karty žádosti"
+     "alt": "Seznam pitev se zvýrazněnou první kartou žádosti"
     },
     {
      "title": "Převoz kadáveru",
      "desc": "Zobrazte žádosti o převoz: čeká na převzetí, přijato.",
-     "alt": "Seznam převozů kadáverů: čeká na převzetí, přijato"
+     "alt": "Převozy kadáverů: karty Čeká na přijetí a Přijaté, s kartami žádostí"
     },
     {
      "title": "Podrobné zobrazení žádosti",
      "desc": "Zobrazte úplnou žádost o pitvu s údaji o zvířeti a úhynu (příčina, stav kadáveru, poznámky), aktualizujte záznamy, uložte jako koncept nebo po dokončení odešlete.",
-     "alt": "Detail žádosti o pitvu: hlášení o úhynu, příčina, stav kadáveru, stav"
+     "alt": "Detail žádosti o pitvu: zpráva o úhynu, předpokládaná příčina, stav kadáveru a stav Čeká"
     },
     {
      "title": "Stažení zprávy",
      "desc": "Exportujte zprávy nebo koncepty jako PDF pro archiv či práci offline.",
-     "alt": "Pitevní zpráva NPS29-00034 se stažením — vhodnost kadáveru a podrobnosti"
+     "alt": "Pitevní zpráva NPS29-00033 se zvýrazněnou ikonou stažení, vhodnost kadáveru a podrobnosti"
     },
     {
      "title": "Časová osa",
      "desc": "Každý úkon je zaznamenán s uživatelem a časovým razítkem.",
-     "alt": "Časová osa historie pitvy: pitvu dokončil Mayur Bendre"
+     "alt": "Historie: Pitva dokončena, Koncept zahozen, Uloženo jako koncept, vždy s uživatelem a časem"
     }
    ]
   },

@@ -816,37 +816,37 @@
     {
      "title": "Panel śmiertelności",
      "desc": "Łączna liczba zgonów, gatunków, których dotyczą, i przyczyn.",
-     "alt": "Panel śmiertelności: 2 zwierzęta, 2 gatunki, 2 przyczyny"
+     "alt": "Pulpit śmiertelności: 49 zwierząt, 16 gatunków i 6 przyczyn, z wyróżnionymi liczbami"
     },
     {
      "title": "Listy w wielu widokach",
      "desc": "Wpisy według zwierzęcia, gatunku lub przyczyny, powiązane z profilami.",
-     "alt": "Wpisy zgonów według zwierzęcia"
+     "alt": "Wpisy o padnięciach według gatunku, z liczbą według płci"
     },
     {
      "title": "Zaawansowane wyszukiwanie i filtry",
      "desc": "Wyszukiwanie według gatunku, przyczyny, miejsca, daty lub słowa kluczowego.",
-     "alt": "Wyszukiwanie i filtry śmiertelności"
+     "alt": "Pulpit śmiertelności z wyróżnionymi polami Wszystkie dane, Wszystkie lokalizacje, wyszukiwaniem i ikoną filtra"
     },
     {
      "title": "Dokumentacja padłych zwierząt",
      "desc": "Pełne dane o zgonie: przyczyna, ID, wybieg, lokalizacja, płeć.",
-     "alt": "Szczegóły wpisu padłego zwierzęcia"
+     "alt": "Pulpit śmiertelności z wyróżnioną pierwszą kartą zwierzęcia"
     },
     {
      "title": "Edycja wpisów",
      "desc": "Edycja zgłoszeń zgonu po ich wprowadzeniu, aby zachować ich dokładność.",
-     "alt": "Szczegóły zgłoszenia zgonu z opcją edycji"
+     "alt": "Raport o padnięciu z wyróżnioną ikoną ołówka do edycji"
     },
     {
      "title": "Unieważnianie wpisów",
      "desc": "Unieważnianie błędnych wpisów w celu przywrócenia statusu aktywnego.",
-     "alt": "Zgłoszenie zgonu z opcją „Unieważnij zgon” (Revoke Mortality)"
+     "alt": "Raport o padnięciu z wyróżnionym przyciskiem Cofnij padnięcie"
     },
     {
      "title": "Przekazanie zwłok",
      "desc": "Podgląd i śledzenie przemieszczania zwłok między lokalizacjami.",
-     "alt": "Lista przekazań zwłok (Carcass Transfers): oczekujące, w transporcie, zakończone"
+     "alt": "Lista przeniesień zwłok: 3 oczekujące, 1 w drodze, 8 zakończonych"
     }
    ],
    "shots": {
@@ -861,37 +861,37 @@
     {
      "title": "Wyszukiwanie i filtry",
      "desc": "Wyszukiwanie według zwierzęcia/gatunku; filtrowanie według lokalizacji, daty, priorytetu.",
-     "alt": "Lista sekcji zwłok: Przychodzące, Oczekujące, Wersje robocze, Zakończone, z kartami zleceń"
+     "alt": "Lista sekcji: Przychodzące, Oczekujące, Wersja robocza, Zakończone, z wyróżnionymi kartami Według zwierząt/Według gatunków i paskiem wyszukiwania"
     },
     {
      "title": "Śledzenie statusu",
      "desc": "Monitorowanie etapów: Przychodzące, Oczekujące, Wersja robocza i Zakończone.",
-     "alt": "Lista sekcji zwłok z kartami statusów Przychodzące, Oczekujące, Wersje robocze, Zakończone"
+     "alt": "Lista sekcji z kartami statusu Przychodzące, Oczekujące, Wersja robocza, Zakończone, wybrane Oczekujące"
     },
     {
      "title": "Karta zwierzęcia i dane zlecenia",
      "desc": "AID, gatunek, miejsce, przyczyna, zlecający, priorytet.",
-     "alt": "Lista sekcji zwłok według zwierząt ze szczegółami karty zlecenia"
+     "alt": "Lista sekcji z wyróżnioną pierwszą kartą zgłoszenia"
     },
     {
      "title": "Przekazanie zwłok",
      "desc": "Podgląd wniosków o przekazanie: Oczekuje na przyjęcie, Odebrane.",
-     "alt": "Lista przekazań zwłok (Carcass Transfers): Oczekuje na przyjęcie, Odebrane"
+     "alt": "Przeniesienia zwłok: karty Oczekuje na przyjęcie i Przyjęte, z kartami zgłoszeń"
     },
     {
      "title": "Szczegółowy widok zlecenia",
      "desc": "Podgląd pełnego zlecenia sekcji zwłok z danymi zwierzęcia i zgonu (przyczyna, stan zwłok, notatki), aktualizacja wpisów, zapis wersji roboczej lub przesłanie po ukończeniu.",
-     "alt": "Szczegóły zlecenia sekcji zwłok: zgłoszenie zgonu, przyczyna, stan zwłok, status"
+     "alt": "Szczegóły zgłoszenia sekcji: raport o padnięciu, podejrzewana przyczyna, stan zwłok i status Oczekujące"
     },
     {
      "title": "Pobieranie raportu",
      "desc": "Eksport raportów lub wersji roboczych do PDF na potrzeby dokumentacji lub pracy offline.",
-     "alt": "Raport sekcji zwłok NPS29-00034 z opcją pobrania — przydatność zwłok i szczegóły"
+     "alt": "Raport z sekcji NPS29-00033 z wyróżnioną ikoną pobierania, przydatność zwłok i szczegóły"
     },
     {
      "title": "Oś czasu",
      "desc": "Każde działanie zapisane z użytkownikiem i znacznikiem czasu.",
-     "alt": "Oś czasu historii sekcji zwłok: sekcja zakończona przez Mayur Bendre"
+     "alt": "Historia: Sekcja zakończona, Wersja robocza odrzucona, Zapisano jako wersję roboczą, każda pozycja z użytkownikiem i czasem"
     }
    ]
   },

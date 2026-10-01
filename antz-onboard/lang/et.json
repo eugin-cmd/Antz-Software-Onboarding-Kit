@@ -816,37 +816,37 @@
     {
      "title": "Suremuse töölaud",
      "desc": "Surmajuhtumite, mõjutatud liikide ja põhjuste koguarvud.",
-     "alt": "Suremuse töölaud: 2 looma, 2 liiki, 2 põhjust"
+     "alt": "Suremuse ülevaade: 49 looma, 16 liiki ja 6 põhjust, esiletõstetud arvudega"
     },
     {
      "title": "Mitu loendivaadet",
      "desc": "Kirjed looma, liigi või põhjuse järgi, seotud profiilidega.",
-     "alt": "Suremuse kirjed loomade kaupa"
+     "alt": "Suremuse kirjed liikide kaupa, arvudega soo järgi"
     },
     {
      "title": "Täpsem otsing ja filtrid",
      "desc": "Otsige liigi, põhjuse, asukoha, kuupäeva või märksõna järgi.",
-     "alt": "Suremuse otsing ja filtrid"
+     "alt": "Suremuse ülevaade, kus on esile tõstetud Kõik andmed, Kõik asukohad, otsing ja filtri ikoon"
     },
     {
      "title": "Surnud loomade kirjed",
      "desc": "Surma täielikud andmed: põhjus, ID, aedik, asukoht, sugu.",
-     "alt": "Surnud looma kirje üksikasjad"
+     "alt": "Suremuse ülevaade esiletõstetud esimese looma kaardiga"
     },
     {
      "title": "Kirjete muutmine",
      "desc": "Muutke suremusaruandeid pärast sisestamist, et need püsiksid täpsed.",
-     "alt": "Suremusaruande üksikasjad muutmisvalikuga"
+     "alt": "Suremuse aruanne esiletõstetud muutmise pliiatsiikooniga"
     },
     {
      "title": "Kirjete tühistamine",
      "desc": "Tühistage ekslikud kirjed, et taastada looma aktiivne olek.",
-     "alt": "Suremusaruanne valikuga „Tühista surm“ (\"Revoke Mortality\")"
+     "alt": "Suremuse aruanne esiletõstetud nupuga Tühista suremus"
     },
     {
      "title": "Korjuste üleviimine",
      "desc": "Vaadake ja jälgige korjuste liikumist asukohtade vahel.",
-     "alt": "Korjuste üleviimiste loend: ootel, teel, lõpetatud"
+     "alt": "Korjuste üleviimiste loend: 3 ootel, 1 teel, 8 lõpetatud"
     }
    ],
    "shots": {
@@ -861,37 +861,37 @@
     {
      "title": "Otsing ja filtrid",
      "desc": "Otsige looma/liigi järgi; filtreerige asukoha, kuupäeva ja prioriteedi järgi.",
-     "alt": "Lahangute loend: saabuvad, ootel, mustandid, lõpetatud, taotluste kaartidega"
+     "alt": "Lahangute loend: Saabuvad, Ootel, Mustand, Lõpetatud, esiletõstetud vahekaartidega Loomade kaupa/Liikide kaupa ja otsinguribaga"
     },
     {
      "title": "Oleku jälgimine",
      "desc": "Jälgige etappe: saabuvad, ootel, mustand ja lõpetatud.",
-     "alt": "Lahangute loend olekuvahekaartidega: saabuvad, ootel, mustand, lõpetatud"
+     "alt": "Lahangute loend olekute vahekaartidega Saabuvad, Ootel, Mustand, Lõpetatud, valitud Ootel"
     },
     {
      "title": "Looma kaart ja taotluse teave",
      "desc": "AID, liik, asukoht, põhjus, taotleja, prioriteet.",
-     "alt": "Lahangute loend loomade kaupa koos taotluse kaardi üksikasjadega"
+     "alt": "Lahangute loend esiletõstetud esimese taotluse kaardiga"
     },
     {
      "title": "Korjuste üleviimine",
      "desc": "Vaadake üleviimistaotlusi: ootab vastuvõtmist, vastu võetud.",
-     "alt": "Korjuste üleviimiste loend: ootab vastuvõtmist, vastu võetud"
+     "alt": "Korjuste üleviimised: vahekaardid Ootab vastuvõtmist ja Vastu võetud, taotluste kaartidega"
     },
     {
      "title": "Taotluse üksikasjalik vaade",
      "desc": "Vaadake kogu lahangutaotlust koos looma ja surma andmetega (põhjus, korjuse seisund, märkmed), uuendage kirjeid, salvestage mustandina või esitage lõplikult.",
-     "alt": "Lahangutaotluse üksikasjad: suremusaruanne, põhjus, korjuse seisund, olek"
+     "alt": "Lahangu taotluse üksikasjad: suremuse aruanne, oletatav põhjus, korjuse seisund ja olek Ootel"
     },
     {
      "title": "Aruande allalaadimine",
      "desc": "Eksportige aruanded või mustandid PDF-failidena arhiveerimiseks või võrguühenduseta kasutamiseks.",
-     "alt": "Lahanguaruanne NPS29-00034 allalaadimisega – korjuse sobivus ja üksikasjad"
+     "alt": "Lahanguaruanne NPS29-00033 esiletõstetud allalaadimisikooniga, korjuse sobivus ja üksikasjad"
     },
     {
      "title": "Ajatelg",
      "desc": "Iga toiming salvestatakse koos kasutaja ja ajatempliga.",
-     "alt": "Lahangu ajaloo ajatelg: lahangu lõpetas Mayur Bendre"
+     "alt": "Ajalugu: Lahang lõpetatud, Mustand loobutud, Salvestatud mustandina, igaüks koos kasutaja ja ajaga"
     }
    ]
   },

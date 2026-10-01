@@ -816,37 +816,37 @@
     {
      "title": "Mirstības informācijas panelis",
      "desc": "Kopējais nāves gadījumu, skarto sugu un cēloņu skaits.",
-     "alt": "Mirstības informācijas panelis: 2 dzīvnieki, 2 sugas, 2 iemesli"
+     "alt": "Mirstības pārskats: 49 dzīvnieki, 16 sugas un 6 cēloņi, ar izceltiem skaitļiem"
     },
     {
      "title": "Saraksti vairākos skatos",
      "desc": "Ieraksti pēc dzīvnieka, sugas vai cēloņa, sasaistīti ar profiliem.",
-     "alt": "Mirstības ieraksti, sakārtoti pēc dzīvnieka"
+     "alt": "Mirstības ieraksti pa sugām, ar skaitu pēc dzimuma"
     },
     {
      "title": "Paplašināta meklēšana un filtri",
      "desc": "Meklējiet pēc sugas, cēloņa, atrašanās vietas, datuma vai atslēgvārda.",
-     "alt": "Mirstības meklēšana un filtri"
+     "alt": "Mirstības pārskats ar izceltiem laukiem Visi dati, Visas vietas, meklēšanu un filtra ikonu"
     },
     {
      "title": "Mirušo dzīvnieku ieraksti",
      "desc": "Pilna informācija par nāvi, cēlonis, ID, aploks, vieta, dzimums.",
-     "alt": "Mirušā dzīvnieka ieraksta informācija"
+     "alt": "Mirstības pārskats ar izceltu pirmo dzīvnieka kartīti"
     },
     {
      "title": "Ierakstu rediģēšana",
      "desc": "Rediģējiet mirstības ziņojumus pēc ievades, lai tie būtu precīzi.",
-     "alt": "Mirstības ziņojuma informācija ar rediģēšanas iespēju"
+     "alt": "Mirstības atskaite ar izceltu rediģēšanas zīmuļa ikonu"
     },
     {
      "title": "Ierakstu atsaukšana",
      "desc": "Atsauciet kļūdainus ierakstus, lai atjaunotu aktīvo statusu.",
-     "alt": "Mirstības ziņojums ar iespēju „Revoke Mortality”"
+     "alt": "Mirstības atskaite ar izceltu pogu Atsaukt mirstību"
     },
     {
      "title": "Līķu pārvietošana",
      "desc": "Skatiet un izsekojiet līķu pārvietošanu starp vietām.",
-     "alt": "Līķu pārvietošanas saraksts (Carcass Transfers): gaida, ceļā, pabeigts"
+     "alt": "Līķu pārvietošanas saraksts: 3 gaida, 1 ceļā, 8 pabeigtas"
     }
    ],
    "shots": {
@@ -861,37 +861,37 @@
     {
      "title": "Meklēšana un filtri",
      "desc": "Meklējiet pēc dzīvnieka/sugas; filtrējiet pēc vietas, datuma, prioritātes.",
-     "alt": "Nekropsiju saraksts: Incoming, Pending, Draft, Completed ar pieprasījumu kartītēm"
+     "alt": "Autopsiju saraksts: Ienākošās, Gaidošās, Melnraksts, Pabeigtās, ar izceltām cilnēm Pēc dzīvniekiem/Pēc sugām un meklēšanas joslu"
     },
     {
      "title": "Statusa izsekošana",
      "desc": "Uzraugiet posmus: ienākošie, gaidošie, melnraksti un pabeigtie.",
-     "alt": "Nekropsiju saraksts ar statusa cilnēm Incoming, Pending, Draft, Completed"
+     "alt": "Autopsiju saraksts ar statusa cilnēm Ienākošās, Gaidošās, Melnraksts, Pabeigtās, atlasīta Gaidošās"
     },
     {
      "title": "Dzīvnieka kartīte un pieprasījuma informācija",
      "desc": "AID, suga, atrašanās vieta, cēlonis, pieprasītājs, prioritāte.",
-     "alt": "Nekropsiju saraksts pēc dzīvniekiem ar pieprasījuma kartītes informāciju"
+     "alt": "Autopsiju saraksts ar izceltu pirmo pieprasījuma kartīti"
     },
     {
      "title": "Līķu pārvietošana",
      "desc": "Skatiet pārvietošanas pieprasījumus: gaida pieņemšanu, saņemts.",
-     "alt": "Līķu pārvietošanas saraksts (Carcass Transfers): Pending Acceptance, Received"
+     "alt": "Līķu pārvietošana: cilnes Gaida pieņemšanu un Saņemtās, ar pieprasījumu kartītēm"
     },
     {
      "title": "Detalizēts pieprasījuma skats",
      "desc": "Skatiet pilnu nekropsijas pieprasījumu ar dzīvnieka un mirstības informāciju (cēlonis, līķa stāvoklis, piezīmes), atjauniniet ierakstus, saglabājiet kā melnrakstu vai iesniedziet, kad pabeigts.",
-     "alt": "Nekropsijas pieprasījuma informācija: mirstības ziņojums, cēlonis, līķa stāvoklis, statuss"
+     "alt": "Autopsijas pieprasījuma informācija: mirstības atskaite, iespējamais cēlonis, līķa stāvoklis un statuss Gaida"
     },
     {
      "title": "Ziņojuma lejupielāde",
      "desc": "Eksportējiet ziņojumus vai melnrakstus PDF formātā uzskaitei/lietošanai bezsaistē.",
-     "alt": "Nekropsijas ziņojums NPS29-00034 ar lejupielādi — līķa piemērotība un informācija"
+     "alt": "Autopsijas atskaite NPS29-00033 ar izceltu lejupielādes ikonu, līķa piemērotība un informācija"
     },
     {
      "title": "Laika josla",
      "desc": "Katra darbība tiek izsekota ar lietotāju un laika zīmogu.",
-     "alt": "Nekropsijas vēstures laika josla: nekropsiju pabeidza Mayur Bendre"
+     "alt": "Vēsture: Autopsija pabeigta, Melnraksts atmests, Saglabāts kā melnraksts, katrs ar lietotāju un laiku"
     }
    ]
   },

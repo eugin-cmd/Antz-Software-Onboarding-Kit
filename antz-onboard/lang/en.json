@@ -825,42 +825,39 @@
     {
      "title": "Mortality dashboard",
      "desc": "Totals for deaths, affected species, and causes.",
-     "alt": "Mortality dashboard: 2 animals, 2 species, 2 reasons"
+     "alt": "Mortality dashboard: 49 animals, 16 species, 6 reasons with counts highlighted"
     },
     {
      "title": "Multi-view listings",
      "desc": "Records by animal, species, or cause, linked to profiles.",
-     "alt": "Mortality records listed by animal"
+     "alt": "Mortality records listed by species, with counts by sex"
     },
     {
      "title": "Advanced search & filters",
      "desc": "Search by species, cause, location, date, or keyword.",
-     "alt": "Mortality search and filters"
+     "alt": "Mortality dashboard with All Time Data, All Sites, search, and filter icon highlighted"
     },
     {
      "title": "Deceased animal records",
      "desc": "Full death detail, cause, ID, enclosure, site, sex.",
-     "alt": "Deceased animal record detail"
+     "alt": "Mortality dashboard with first animal record card highlighted"
     },
     {
      "title": "Edit records",
      "desc": "Edit mortality reports after entry to keep them accurate.",
-     "alt": "Mortality report detail with edit option"
+     "alt": "Mortality report with edit pencil icon highlighted"
     },
     {
      "title": "Revoke records",
      "desc": "Revoke incorrect records to restore active status.",
-     "alt": "Mortality report with Revoke Mortality option"
+     "alt": "Mortality report with Revoke Mortality button highlighted"
     },
     {
      "title": "Carcass transfer",
      "desc": "View and track carcass movement between locations.",
-     "alt": "Carcass Transfers list: pending, in transit, completed"
+     "alt": "Carcass Transfers list: 3 pending, 1 in transit, 8 completed"
     }
-   ],
-   "shots": {
-    "assets/shots/p27-mortality-4.jpg": "Mortality record card — edit and revoke"
-   }
+   ]
   },
   "necropsy": {
    "title": "Necropsy",
@@ -870,37 +867,37 @@
     {
      "title": "Search & filters",
      "desc": "Search by animal/species; filter by site, date, priority.",
-     "alt": "Necropsy list: Incoming, Pending, Draft, Completed with request cards"
+     "alt": "Necropsy list: Incoming, Pending, Draft, Completed with By Animals/By Species tabs and search bar highlighted"
     },
     {
      "title": "Status tracking",
      "desc": "Monitor transfer stages, Incoming, Pending, Draft, and Completed.",
-     "alt": "Necropsy list with Incoming, Pending, Draft, Completed status tabs"
+     "alt": "Necropsy list with Incoming, Pending, Draft, Completed status tabs, Pending selected"
     },
     {
      "title": "Animal card & request info",
      "desc": "AID, species, location, cause, requester, priority.",
-     "alt": "Necropsy by-animals list with request card detail"
+     "alt": "Necropsy list with first request card highlighted"
     },
     {
      "title": "Carcass transfer",
      "desc": "View transfer requests, Pending Acceptance, Received.",
-     "alt": "Carcass Transfers list: Pending Acceptance, Received"
+     "alt": "Carcass Transfers: Pending Acceptance and Received tabs with transfer request cards"
     },
     {
      "title": "Detailed request view",
      "desc": "View the full necropsy request with animal and mortality details(cause, carcass condition, notes), update records, save as draft, or submit once finalized",
-     "alt": "Necropsy Request detail: mortality report, cause, carcass condition, status"
+     "alt": "Necropsy Request detail: mortality report, suspected cause, carcass condition, and status Pending"
     },
     {
      "title": "Download report",
      "desc": "Export reports or drafts as PDFs for records/offline.",
-     "alt": "Necropsy report NPS29-00034 with download — carcass suitability and details"
+     "alt": "Necropsy report NPS29-00033 with download icon highlighted, carcass suitability and details"
     },
     {
      "title": "Timeline",
      "desc": "Every action tracked with user and timestamp.",
-     "alt": "Necropsy History timeline: Necropsy completed by Mayur Bendre"
+     "alt": "History timeline: Necropsy completed, Draft discarded, Saved as draft, each with user and timestamp"
     }
    ]
   },

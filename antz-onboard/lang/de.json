@@ -816,37 +816,37 @@
     {
      "title": "Mortalitäts-Dashboard",
      "desc": "Gesamtzahlen zu Todesfällen, betroffenen Arten und Ursachen.",
-     "alt": "Mortalitäts-Dashboard: 2 Tiere, 2 Arten, 2 Ursachen"
+     "alt": "Mortalitäts-Dashboard: 49 Tiere, 16 Arten und 6 Ursachen, mit hervorgehobenen Zahlen"
     },
     {
      "title": "Listen in mehreren Ansichten",
      "desc": "Einträge nach Tier, Art oder Ursache, mit den Profilen verknüpft.",
-     "alt": "Mortalitätseinträge nach Tier aufgelistet"
+     "alt": "Mortalitätseinträge nach Art, mit Anzahl nach Geschlecht"
     },
     {
      "title": "Erweiterte Suche & Filter",
      "desc": "Suche nach Art, Ursache, Ort, Datum oder Stichwort.",
-     "alt": "Suche und Filter für Mortalität"
+     "alt": "Mortalitäts-Dashboard mit hervorgehobenen Feldern Alle Daten, Alle Standorte, Suche und Filtersymbol"
     },
     {
      "title": "Akten verstorbener Tiere",
      "desc": "Vollständige Angaben zum Tod: Ursache, ID, Gehege, Standort, Geschlecht.",
-     "alt": "Detail der Akte eines verstorbenen Tieres"
+     "alt": "Mortalitäts-Dashboard mit hervorgehobener erster Tierkarte"
     },
     {
      "title": "Einträge bearbeiten",
      "desc": "Mortalitätsberichte nach der Erfassung bearbeiten, damit sie korrekt bleiben.",
-     "alt": "Detail eines Mortalitätsberichts mit Bearbeitungsoption"
+     "alt": "Mortalitätsbericht mit hervorgehobenem Bearbeiten-Stift"
     },
     {
      "title": "Einträge widerrufen",
      "desc": "Fehlerhafte Einträge widerrufen, um den aktiven Status wiederherzustellen.",
-     "alt": "Mortalitätsbericht mit Option „Revoke Mortality“"
+     "alt": "Mortalitätsbericht mit hervorgehobener Schaltfläche Mortalität widerrufen"
     },
     {
      "title": "Kadavertransfer",
      "desc": "Den Transport von Tierkörpern zwischen Orten einsehen und verfolgen.",
-     "alt": "Liste „Carcass Transfers“: ausstehend, unterwegs, abgeschlossen"
+     "alt": "Liste der Kadavertransfers: 3 ausstehend, 1 unterwegs, 8 abgeschlossen"
     }
    ],
    "shots": {
@@ -861,37 +861,37 @@
     {
      "title": "Suche & Filter",
      "desc": "Nach Tier/Art suchen; nach Standort, Datum und Priorität filtern.",
-     "alt": "Nekropsieliste: Eingehend, Ausstehend, Entwurf, Abgeschlossen mit Anforderungskarten"
+     "alt": "Nekropsieliste: Eingehend, Ausstehend, Entwurf, Abgeschlossen, mit hervorgehobenen Reitern Nach Tieren/Nach Arten und Suchleiste"
     },
     {
      "title": "Statusverfolgung",
      "desc": "Die Phasen überwachen: Eingehend, Ausstehend, Entwurf und Abgeschlossen.",
-     "alt": "Nekropsieliste mit den Statusregisterkarten Eingehend, Ausstehend, Entwurf, Abgeschlossen"
+     "alt": "Nekropsieliste mit den Statusreitern Eingehend, Ausstehend, Entwurf, Abgeschlossen, Ausstehend ausgewählt"
     },
     {
      "title": "Tierkarte & Anforderungsdaten",
      "desc": "AID, Art, Ort, Ursache, anfordernde Person, Priorität.",
-     "alt": "Nekropsieliste nach Tieren mit Details der Anforderungskarte"
+     "alt": "Nekropsieliste mit hervorgehobener erster Anfragekarte"
     },
     {
      "title": "Kadavertransfer",
      "desc": "Transferanfragen einsehen: Annahme ausstehend, Erhalten.",
-     "alt": "Liste „Carcass Transfers“: Annahme ausstehend, Erhalten"
+     "alt": "Kadavertransfers: Reiter Annahme ausstehend und Erhalten, mit Anfragekarten"
     },
     {
      "title": "Detailansicht der Anforderung",
      "desc": "Die vollständige Nekropsieanforderung mit Tier- und Mortalitätsdaten (Ursache, Zustand des Tierkörpers, Notizen) ansehen, Einträge aktualisieren, als Entwurf speichern oder nach Fertigstellung absenden.",
-     "alt": "Detail der Nekropsieanforderung: Mortalitätsbericht, Ursache, Zustand des Tierkörpers, Status"
+     "alt": "Detail der Nekropsieanfrage: Mortalitätsbericht, vermutete Ursache, Zustand des Kadavers und Status Ausstehend"
     },
     {
      "title": "Bericht herunterladen",
      "desc": "Berichte oder Entwürfe als PDF für die Akte oder zur Offline-Nutzung exportieren.",
-     "alt": "Nekropsiebericht NPS29-00034 mit Download – Eignung des Tierkörpers und Details"
+     "alt": "Nekropsiebericht NPS29-00033 mit hervorgehobenem Download-Symbol, Eignung des Kadavers und Details"
     },
     {
      "title": "Zeitleiste",
      "desc": "Jede Maßnahme mit Nutzer und Zeitstempel protokolliert.",
-     "alt": "Zeitleiste des Nekropsieverlaufs: Nekropsie abgeschlossen von Mayur Bendre"
+     "alt": "Verlauf: Nekropsie abgeschlossen, Entwurf verworfen, Als Entwurf gespeichert, jeweils mit Benutzer und Zeitstempel"
     }
    ]
   },

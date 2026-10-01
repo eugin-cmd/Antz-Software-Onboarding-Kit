@@ -816,37 +816,37 @@
     {
      "title": "Painel de mortalidade",
      "desc": "Totais de óbitos, espécies afetadas e causas.",
-     "alt": "Painel de mortalidade: 2 animais, 2 espécies, 2 causas"
+     "alt": "Painel de mortalidade: 49 animais, 16 espécies e 6 causas, com os totais destacados"
     },
     {
      "title": "Listagens em várias visualizações",
      "desc": "Registros por animal, espécie ou causa, vinculados aos perfis.",
-     "alt": "Registros de mortalidade listados por animal"
+     "alt": "Registos de mortalidade por espécie, com contagens por sexo"
     },
     {
      "title": "Pesquisa avançada e filtros",
      "desc": "Pesquise por espécie, causa, local, data ou palavra-chave.",
-     "alt": "Pesquisa e filtros de mortalidade"
+     "alt": "Painel de mortalidade com Todos os dados, Todos os locais, pesquisa e ícone de filtro destacados"
     },
     {
      "title": "Registros de animais mortos",
      "desc": "Detalhes completos do óbito: causa, ID, recinto, unidade, sexo.",
-     "alt": "Detalhe do registro de animal morto"
+     "alt": "Painel de mortalidade com o primeiro cartão de animal destacado"
     },
     {
      "title": "Editar registros",
      "desc": "Edite os relatórios de mortalidade após o lançamento para mantê-los precisos.",
-     "alt": "Detalhe do relatório de mortalidade com a opção de editar"
+     "alt": "Relatório de mortalidade com o ícone de lápis de edição destacado"
     },
     {
      "title": "Revogar registros",
      "desc": "Revogue registros incorretos para restaurar o status ativo.",
-     "alt": "Relatório de mortalidade com a opção Revogar mortalidade (“Revoke Mortality”)"
+     "alt": "Relatório de mortalidade com o botão Revogar mortalidade destacado"
     },
     {
      "title": "Transferência de carcaça",
      "desc": "Veja e acompanhe a movimentação de carcaças entre locais.",
-     "alt": "Lista de transferências de carcaça (“Carcass Transfers”): pendentes, em trânsito, concluídas"
+     "alt": "Lista de transferências de carcaças: 3 pendentes, 1 em trânsito, 8 concluídas"
     }
    ],
    "shots": {
@@ -861,37 +861,37 @@
     {
      "title": "Pesquisa e filtros",
      "desc": "Pesquise por animal/espécie; filtre por unidade, data e prioridade.",
-     "alt": "Lista de necropsias: A receber, Pendentes, Rascunho, Concluídas, com cartões de solicitação"
+     "alt": "Lista de necropsias: Recebidas, Pendentes, Rascunho e Concluídas, com os separadores Por animais/Por espécies e a barra de pesquisa destacados"
     },
     {
      "title": "Acompanhamento de status",
      "desc": "Acompanhe as etapas: A receber, Pendente, Rascunho e Concluída.",
-     "alt": "Lista de necropsias com as abas de status A receber, Pendentes, Rascunho, Concluídas"
+     "alt": "Lista de necropsias com os separadores de estado Recebidas, Pendentes, Rascunho e Concluídas, com Pendentes selecionado"
     },
     {
      "title": "Cartão do animal e dados da solicitação",
      "desc": "AID, espécie, local, causa, solicitante, prioridade.",
-     "alt": "Lista de necropsias por animal com detalhe do cartão de solicitação"
+     "alt": "Lista de necropsias com o primeiro cartão de pedido destacado"
     },
     {
      "title": "Transferência de carcaça",
      "desc": "Veja as solicitações de transferência: Aguardando aceite, Recebidas.",
-     "alt": "Lista de transferências de carcaça: Aguardando aceite, Recebidas"
+     "alt": "Transferências de carcaças: separadores Aceitação pendente e Recebidas, com cartões de pedidos"
     },
     {
      "title": "Visualização detalhada da solicitação",
      "desc": "Veja a solicitação de necropsia completa com os dados do animal e do óbito (causa, condição da carcaça, observações), atualize os registros, salve como rascunho ou envie quando estiver finalizada.",
-     "alt": "Detalhe da solicitação de necropsia: relatório de mortalidade, causa, condição da carcaça, status"
+     "alt": "Detalhe do pedido de necropsia: relatório de mortalidade, causa suspeita, estado da carcaça e estado Pendente"
     },
     {
      "title": "Baixar relatório",
      "desc": "Exporte relatórios ou rascunhos em PDF para arquivo ou uso offline.",
-     "alt": "Relatório de necropsia NPS29-00034 com download — adequação da carcaça e detalhes"
+     "alt": "Relatório de necropsia NPS29-00033 com o ícone de transferência destacado, adequação da carcaça e detalhes"
     },
     {
      "title": "Linha do tempo",
      "desc": "Cada ação registrada com usuário, data e hora.",
-     "alt": "Linha do tempo do histórico da necropsia: necropsia concluída por Mayur Bendre"
+     "alt": "Cronologia: Necropsia concluída, Rascunho descartado, Guardado como rascunho, cada um com utilizador e hora"
     }
    ]
   },

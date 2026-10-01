@@ -816,37 +816,37 @@
     {
      "title": "Panel de mortalidad",
      "desc": "Totales de muertes, especies afectadas y causas.",
-     "alt": "Panel de mortalidad: 2 animales, 2 especies, 2 motivos"
+     "alt": "Panel de mortalidad: 49 animales, 16 especies y 6 causas, con los totales resaltados"
     },
     {
      "title": "Listados con varias vistas",
      "desc": "Registros por animal, especie o causa, vinculados a los perfiles.",
-     "alt": "Registros de mortalidad listados por animal"
+     "alt": "Registros de mortalidad por especie, con recuentos por sexo"
     },
     {
      "title": "Búsqueda avanzada y filtros",
      "desc": "Busque por especie, causa, ubicación, fecha o palabra clave.",
-     "alt": "Búsqueda y filtros de mortalidad"
+     "alt": "Panel de mortalidad con Todos los datos, Todas las sedes, búsqueda e icono de filtro resaltados"
     },
     {
      "title": "Registros de animales fallecidos",
      "desc": "Detalle completo de la muerte: causa, ID, recinto, sede y sexo.",
-     "alt": "Detalle del registro de un animal fallecido"
+     "alt": "Panel de mortalidad con la primera ficha de animal resaltada"
     },
     {
      "title": "Editar registros",
      "desc": "Edite los informes de mortalidad después de introducirlos para mantenerlos exactos.",
-     "alt": "Detalle del informe de mortalidad con la opción de editar"
+     "alt": "Informe de mortalidad con el icono de lápiz para editar resaltado"
     },
     {
      "title": "Revocar registros",
      "desc": "Revoque los registros incorrectos para restablecer el estado activo.",
-     "alt": "Informe de mortalidad con la opción Revocar mortalidad"
+     "alt": "Informe de mortalidad con el botón Revocar mortalidad resaltado"
     },
     {
      "title": "Traslado de cadáveres",
      "desc": "Consulte y siga el movimiento de cadáveres entre ubicaciones.",
-     "alt": "Lista de traslados de cadáveres: pendientes, en tránsito, completados"
+     "alt": "Lista de traslados de cadáveres: 3 pendientes, 1 en tránsito, 8 completados"
     }
    ],
    "shots": {
@@ -861,37 +861,37 @@
     {
      "title": "Búsqueda y filtros",
      "desc": "Busque por animal/especie; filtre por sede, fecha y prioridad.",
-     "alt": "Lista de necropsias: Entrantes, Pendientes, Borrador, Completadas, con tarjetas de solicitud"
+     "alt": "Lista de necropsias: Entrantes, Pendientes, Borrador y Completadas, con las pestañas Por animales/Por especies y la barra de búsqueda resaltadas"
     },
     {
      "title": "Seguimiento del estado",
      "desc": "Supervise las etapas: Entrantes, Pendientes, Borrador y Completadas.",
-     "alt": "Lista de necropsias con las pestañas de estado Entrantes, Pendientes, Borrador, Completadas"
+     "alt": "Lista de necropsias con las pestañas de estado Entrantes, Pendientes, Borrador y Completadas, con Pendientes seleccionada"
     },
     {
      "title": "Tarjeta del animal e información de la solicitud",
      "desc": "AID, especie, ubicación, causa, solicitante y prioridad.",
-     "alt": "Lista de necropsias por animal con el detalle de la tarjeta de solicitud"
+     "alt": "Lista de necropsias con la primera ficha de solicitud resaltada"
     },
     {
      "title": "Traslado de cadáveres",
      "desc": "Consulte las solicitudes de traslado: Pendiente de aceptación, Recibido.",
-     "alt": "Lista de traslados de cadáveres: Pendiente de aceptación, Recibido"
+     "alt": "Traslados de cadáveres: pestañas Pendiente de aceptación y Recibidos, con fichas de solicitudes"
     },
     {
      "title": "Vista detallada de la solicitud",
      "desc": "Consulte la solicitud de necropsia completa con los datos del animal y de la mortalidad (causa, estado del cadáver, notas), actualice los registros, guárdela como borrador o envíela una vez finalizada.",
-     "alt": "Detalle de la solicitud de necropsia: informe de mortalidad, causa, estado del cadáver, estado"
+     "alt": "Detalle de la solicitud de necropsia: informe de mortalidad, causa sospechada, estado del cadáver y estado Pendiente"
     },
     {
      "title": "Descargar informe",
      "desc": "Exporte informes o borradores en PDF para el archivo o para consultarlos sin conexión.",
-     "alt": "Informe de necropsia NPS29-00034 con descarga: idoneidad del cadáver y detalles"
+     "alt": "Informe de necropsia NPS29-00033 con el icono de descarga resaltado, idoneidad del cadáver y detalles"
     },
     {
      "title": "Cronología",
      "desc": "Cada acción queda registrada con el usuario, la fecha y la hora.",
-     "alt": "Cronología del historial de necropsia: necropsia completada por Mayur Bendre"
+     "alt": "Cronología: Necropsia completada, Borrador descartado, Guardado como borrador, cada uno con usuario y hora"
     }
    ]
   },
