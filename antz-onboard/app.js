@@ -730,8 +730,11 @@
   function fitBorder(el, opts) {
     const cs = getComputedStyle(el);
     const bw = parseFloat(cs.borderTopWidth) || 0;
-    const w = opts.over ? el.offsetWidth : el.clientWidth;
-    const h = opts.over ? el.offsetHeight : el.clientHeight;
+    /* Unrounded sizes: offsetHeight rounds a 76.3px tab down to 76, leaving a sliver of fill below the line */
+    const bx = opts.over ? 0 : bw + (parseFloat(cs.borderRightWidth) || 0);
+    const by = opts.over ? 0 : bw + (parseFloat(cs.borderBottomWidth) || 0);
+    const w = parseFloat(cs.width) - bx;
+    const h = parseFloat(cs.height) - by;
     if (!w || !h) return;
     const outerR = parseFloat(cs.borderTopLeftRadius) || 0;
     const r = Math.min(opts.over ? outerR : outerR - bw, h / 2, w / 2);
