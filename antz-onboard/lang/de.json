@@ -761,7 +761,7 @@
     },
     {
      "title": "Transferstatus",
-     "desc": "Jeden Transfer durch seine Phasen verfolgen: Ausstehend, Unterwegs, Angenommen.",
+     "desc": "Jeden Transfer auf Standortebene durch seine Phasen verfolgen: Ausstehend, Unterwegs, Angenommen, Storniert und Abgelehnt.",
      "alt": "Registerkarte Kliniktransfer im Standortprofil: Reiter Unterwegs, Angenommen und Storniert, mit Anfragen wie HT29-00069, die auf Annahme warten"
     },
     {

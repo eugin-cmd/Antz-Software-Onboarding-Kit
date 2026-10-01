@@ -761,7 +761,7 @@
     },
     {
      "title": "Statut du transfert",
-     "desc": "Suivez chaque transfert à travers ses étapes : En attente, En transit, Accepté.",
+     "desc": "Suivez chaque transfert à travers ses étapes au niveau du site : En attente, En transit, Accepté, Annulé et Rejeté.",
      "alt": "Onglet Transfert vers l’hôpital du profil du site : onglets En transit, Acceptés et Annulés, avec des demandes comme HT29-00069 en attente d’acceptation"
     },
     {

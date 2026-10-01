@@ -761,7 +761,7 @@
     },
     {
      "title": "Status da transferência",
-     "desc": "Acompanhe cada transferência por suas etapas: Pendente, Em trânsito, Aceita.",
+     "desc": "Acompanhe cada transferência por suas etapas ao nível do local: Pendente, Em trânsito, Aceita, Cancelada e Rejeitada.",
      "alt": "Separador Transferência para o hospital no perfil do local: separadores Em trânsito, Aceites e Cancelados, com pedidos como HT29-00069 a aguardar aceitação"
     },
     {

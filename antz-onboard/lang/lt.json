@@ -761,7 +761,7 @@
     },
     {
      "title": "Perkėlimo būsena",
-     "desc": "Sekite kiekvieną perkėlimą per jo etapus: laukia, vežamas, priimtas.",
+     "desc": "Sekite kiekvieną perkėlimą per jo etapus vietos lygiu: laukia, vežamas, priimtas, atšauktas ir atmestas.",
      "alt": "Vietos profilio skirtukas Perkėlimas į ligoninę: skirtukai Kelyje, Priimti ir Atšaukti, su prašymais, pvz., HT29-00069, laukiančiais priėmimo"
     },
     {

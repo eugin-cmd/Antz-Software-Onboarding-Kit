@@ -2258,7 +2258,7 @@ window.ANTZ_CONTENT = {
     },
     {
      "title": "Transfer status",
-     "desc": "Track each transfer through its stages — Pending, In Transit, Accepted.",
+     "desc": "Track each transfer through its stages at Site level — Pending, In Transit, Accepted, Canceled and Rejected.",
      "shot": "assets/shots/p24-transfer-status-tabs.jpg",
      "alt": "Hospital Transfer tab on the site profile: In Transit, Accepted and Canceled tabs, with transfer requests such as HT29-00069 awaiting acceptance",
      "device": "phone",

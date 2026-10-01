@@ -761,7 +761,7 @@
     },
     {
      "title": "Üleviimise olek",
-     "desc": "Jälgige iga üleviimise etappe: ootel, teel, vastu võetud.",
+     "desc": "Jälgige iga üleviimise etappe asukoha tasandil: ootel, teel, vastu võetud, tühistatud ja tagasi lükatud.",
      "alt": "Asukoha profiili vahekaart Haiglasse üleviimine: vahekaardid Teel, Vastu võetud ja Tühistatud, taotlustega nagu HT29-00069, mis ootavad vastuvõtmist"
     },
     {

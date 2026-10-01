@@ -761,7 +761,7 @@
     },
     {
      "title": "Estado del traslado",
-     "desc": "Siga cada traslado a través de sus etapas: Pendiente, En tránsito, Aceptado.",
+     "desc": "Siga cada traslado a través de sus etapas a nivel de sede: Pendiente, En tránsito, Aceptado, Cancelado y Rechazado.",
      "alt": "Pestaña Traslado al hospital en el perfil de la sede: pestañas En tránsito, Aceptados y Cancelados, con solicitudes como HT29-00069 pendientes de aceptación"
     },
     {

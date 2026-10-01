@@ -761,7 +761,7 @@
     },
     {
      "title": "Stav převozu",
-     "desc": "Sledujte každý převoz v jednotlivých fázích: Čeká, Na cestě, Přijato.",
+     "desc": "Sledujte každý převoz v jednotlivých fázích na úrovni areálu: Čeká, Na cestě, Přijato, Zrušeno a Zamítnuto.",
      "alt": "Karta Převoz do nemocnice v profilu areálu: karty Na cestě, Přijaté a Zrušené, s žádostmi jako HT29-00069 čekajícími na přijetí"
     },
     {

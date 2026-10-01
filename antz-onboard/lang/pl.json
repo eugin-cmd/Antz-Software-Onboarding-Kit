@@ -761,7 +761,7 @@
     },
     {
      "title": "Status przeniesienia",
-     "desc": "Śledzenie każdego przeniesienia na kolejnych etapach: Oczekujące, W transporcie, Przyjęte.",
+     "desc": "Śledzenie każdego przeniesienia na kolejnych etapach na poziomie lokalizacji: Oczekujące, W transporcie, Przyjęte, Anulowane i Odrzucone.",
      "alt": "Karta Przeniesienie do szpitala w profilu lokalizacji: karty W drodze, Przyjęte i Anulowane, ze zgłoszeniami takimi jak HT29-00069 oczekującymi na przyjęcie"
     },
     {

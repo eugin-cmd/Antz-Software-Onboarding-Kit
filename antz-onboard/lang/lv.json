@@ -761,7 +761,7 @@
     },
     {
      "title": "Pārvietošanas statuss",
-     "desc": "Izsekojiet katras pārvietošanas posmus: gaida, ceļā, pieņemts.",
+     "desc": "Izsekojiet katras pārvietošanas posmus vietas līmenī: gaida, ceļā, pieņemts, atcelts un noraidīts.",
      "alt": "Vietas profila cilne Pārvietošana uz slimnīcu: cilnes Ceļā, Pieņemtās un Atceltās, ar pieprasījumiem, piemēram, HT29-00069, kas gaida pieņemšanu"
     },
     {
