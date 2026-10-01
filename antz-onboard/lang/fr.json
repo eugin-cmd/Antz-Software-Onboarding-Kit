@@ -428,7 +428,7 @@
     {
      "title": "Entités étiquetées",
      "desc": "Affichez tous les sites, sections, enclos, espèces et animaux associés à une étiquette sélectionnée.",
-     "alt": "Entités étiquetées pour Entretien des enclos : onglets Animaux / Sections / Site, Site (1) affichant le site de Bangalore"
+     "alt": "Onglet Entités de l’étiquette Vermifugation à faire : 12 entités étiquetées, une liste consultable d’enclos, de sections, d’espèces et d’animaux"
     }
    ]
   },
@@ -440,32 +440,32 @@
     {
      "title": "Types de transfert",
      "desc": "Transferts internes, inter-sites et externes.",
-     "alt": "Boîte de dialogue de choix du type de transfert"
+     "alt": "Boîte de dialogue de choix du type de transfert : interne, inter-sites et externe"
     },
     {
      "title": "Approbation",
      "desc": "Autorisation par les responsables désignés du site.",
-     "alt": "Transfert inter-sites en attente d’approbation"
+     "alt": "Transfert inter-sites en attente d’approbation, avec Approuver et Rejeter"
     },
     {
      "title": "Annuler / rejeter",
      "desc": "Annulez ou rejetez des demandes et relancez-les si nécessaire.",
-     "alt": "Option d’annulation du transfert"
+     "alt": "Option Annuler le transfert dans le menu du transfert"
     },
     {
      "title": "Contrôle d’entrée / de sortie par la sécurité",
-     "desc": "Entrée et sortie contrôlées pour les déplacements inter-sites et externes.",
-     "alt": "Autorisation de sécurité et sortie pour le transfert"
+     "desc": "Entrée et sortie contrôlées pour les transferts inter-sites et externes.",
+     "alt": "Autorisation de sécurité en attente, avec l’action Sortie de sécurité"
     },
     {
      "title": "Affectation",
      "desc": "À l’arrivée, affectez l’animal à un enclos et notifiez le personnel.",
-     "alt": "Transfert approuvé, affectation des enclos"
+     "alt": "Statut Animaux reçus, avec l’action Affecter les enclos"
     },
     {
      "title": "Journal des transferts",
      "desc": "Historique complet des statuts avec horodatages et utilisateurs.",
-     "alt": "Chronologie des statuts du transfert, transfert terminé"
+     "alt": "Chronologie du transfert se terminant par Transfert terminé"
     }
    ]
   },
@@ -528,7 +528,7 @@
     },
     {
      "title": "Visibilité",
-     "desc": "Signalé comme disparu sur la fiche ; mises à jour rapides par QR code.",
+     "desc": "Signalé comme disparu sur la fiche de l’animal.",
      "alt": "Fiche de l’animal avec badge Disparu et QR code"
     }
    ]
@@ -540,7 +540,7 @@
    "features": [
     {
      "title": "Création de dossiers",
-     "desc": "Plusieurs processus pour ajouter des dossiers individuels, par lot, de groupe, planifiés (vaccination, vermifugation, supplément) ou directs (administration, prescription, vaccination, vermifugation, supplément), avec saisie exacte de la date et de l’heure et demandes d’analyses.",
+     "desc": "Plusieurs processus pour ajouter des dossiers individuels, par lot, de groupe, planifiés (vaccination, vermifugation, supplément) ou directs (administration, prescription, vaccination, vermifugation, supplément) et des demandes d’analyses, avec saisie exacte de la date et de l’heure.",
      "alt": "Menu de création de dossier : individuel, groupe, dossier médical par lot, demande d’analyse groupée, administration directe, prescription, vaccination, vermifugation, suppléments"
     },
     {
@@ -560,7 +560,7 @@
     },
     {
      "title": "Réattribuer des dossiers",
-     "desc": "Les vétérinaires disposant des droits de modification peuvent se réattribuer des dossiers créés à l’origine par un autre vétérinaire.",
+     "desc": "Les vétérinaires peuvent se réattribuer des dossiers créés à l’origine par un autre vétérinaire.",
      "alt": "Confirmation de réattribution : Voulez-vous vous réattribuer ce dossier médical ? Oui / Non"
     }
    ]
@@ -630,7 +630,7 @@
     {
      "title": "Aperçu sur l’écran d’accueil",
      "desc": "Voyez le nombre de traitements en attente directement sur l’écran d’accueil pour agir plus vite.",
-     "alt": "Écran d’accueil de l’application : indicateurs clés et une carte Administration en attente affichant 1028 processus en attente"
+     "alt": "Écran Administrations en attente : 847 doses en attente au total pour les animaux, médicaments et substances contrôlées, réparties par site"
     }
    ],
    "shots": {
@@ -645,7 +645,7 @@
    "features": [
     {
      "title": "Vues par statut",
-     "desc": "Vaccinations classées en À venir, En attente, Sautées et Terminées pour un suivi facile.",
+     "desc": "Vaccinations classées en À venir, En attente, Sautées, Terminées et Arrêtées pour un suivi facile.",
      "alt": "Menu Vaccination : À venir, En attente, Terminées, Sautées, Vaccins arrêtés, Administration directe, Planifier une vaccination"
     },
     {
@@ -682,7 +682,7 @@
    "features": [
     {
      "title": "Vues par statut",
-     "desc": "Vermifugations classées en À venir, En attente, Sautées et Terminées pour un suivi facile.",
+     "desc": "Vermifugations classées en À venir, En attente, Sautées, Terminées et Arrêtées pour un suivi facile.",
      "alt": "Menu Vermifugation : À venir, En attente, Terminées, Sautées, Vermifugations arrêtées, Administration directe, Planifier une vermifugation"
     },
     {
@@ -719,7 +719,7 @@
    "features": [
     {
      "title": "Vues par statut",
-     "desc": "Suppléments classés en À venir, En attente, Sautés et Terminés.",
+     "desc": "Suppléments classés en À venir, En attente, Sautés, Terminés et Arrêtés pour un suivi facile.",
      "alt": "Menu Suppléments : À venir, En attente, Terminés, Sautés, Suppléments arrêtés, Administration directe, Planifier des suppléments"
     },
     {
@@ -756,23 +756,23 @@
    "features": [
     {
      "title": "Demandes de transfert",
-     "desc": "Créez des transferts d’animaux de l’enclos vers l’hôpital avec identifiant médical, type de visite, motif et pièces jointes.",
+     "desc": "Créez des demandes d’hospitalisation d’animaux, du site vers l’hôpital, avec identifiant médical, type de visite, motif et pièces jointes.",
      "alt": "Formulaire d’hospitalisation : animal sélectionné, identifiant médical (Créer), champs Hôpital et Type de visite, Envoyer"
     },
     {
      "title": "Statut du transfert",
      "desc": "Suivez chaque transfert à travers ses étapes : En attente, En transit, Accepté.",
-     "alt": "Transfert HT29-00038 : itinéraire, initiateur, animal sélectionné, statut Transfert terminé et bouton Sortie sécurité"
+     "alt": "Onglet Transfert vers l’hôpital du profil du site : onglets En transit, Acceptés et Annulés, avec des demandes comme HT29-00069 en attente d’acceptation"
     },
     {
      "title": "Contrôle d’entrée / de sortie par la sécurité",
      "desc": "Déplacement contrôlé des patients avec contrôle d’entrée et de sortie par la sécurité au site et à l’hôpital.",
-     "alt": "Transfert HT29-00038 : itinéraire, initiateur, animal sélectionné, statut Transfert terminé et bouton Sortie sécurité"
+     "alt": "Transfert HT29-00068 : sortie de sécurité en attente, avec le bouton Entrée de sécurité"
     },
     {
      "title": "Consulter les comptes rendus de sortie",
      "desc": "Accédez aux comptes rendus de sortie et à l’historique d’hospitalisation directement depuis l’application.",
-     "alt": "Formulaire d’hospitalisation : animal sélectionné, identifiant médical (Créer), champs Hôpital et Type de visite, Envoyer"
+     "alt": "Dossier médical MED29-18889 d’un crocodile marin : type de cas et pièce jointe Discharge_Summary.pdf ajoutée par le vétérinaire"
     }
    ]
   },

@@ -428,7 +428,7 @@
     {
      "title": "Sildistatud objektid",
      "desc": "Vaadake kõiki valitud sildiga seotud asukohti, sektsioone, aedikuid, liike ja loomi.",
-     "alt": "Sildi Enclosure Maintenance sildistatud objektid: vahekaardid loomad / sektsioonid / asukoht, asukoht (1) näitab Bangalore’i asukohta"
+     "alt": "Sildi „Ussirohu andmise aeg“ vahekaart Objektid: 12 sildistatud objekti, otsitav aedikute, sektsioonide, liikide ja loomade loend"
     }
    ]
   },
@@ -440,32 +440,32 @@
     {
      "title": "Üleviimise tüübid",
      "desc": "Asutusesisesed, asukohtadevahelised ja välised üleviimised.",
-     "alt": "Üleviimise tüübi valiku dialoog"
+     "alt": "Üleviimise tüübi valimise aken: sisemine, asukohtade vaheline ja väline"
     },
     {
      "title": "Kinnitamine",
      "desc": "Asukoha määratud vastutajate luba.",
-     "alt": "Kinnitamist ootav asukohtadevaheline üleviimine"
+     "alt": "Asukohtade vaheline üleviimine ootab kinnitamist, nuppudega Kinnita ja Lükka tagasi"
     },
     {
      "title": "Tühistamine / tagasilükkamine",
      "desc": "Tühistage või lükake taotlusi tagasi ja algatage need vajadusel uuesti.",
-     "alt": "Üleviimise tühistamise valik"
+     "alt": "Üleviimise menüü valik Tühista üleviimine"
     },
     {
      "title": "Turvakontrolliga sisse- ja väljaregistreerimine",
      "desc": "Kontrollitud sisse- ja väljaregistreerimine asukohtadevaheliste ja väliste üleviimiste korral.",
-     "alt": "Üleviimise turvakontroll ja väljaregistreerimine"
+     "alt": "Ootel turvakontroll toiminguga Turvaväljaregistreerimine"
     },
     {
      "title": "Paigutamine",
      "desc": "Saabumisel paigutage loom aedikusse ja teavitage töötajaid.",
-     "alt": "Kinnitatud üleviimine, aedikute määramine"
+     "alt": "Olek Loomad vastu võetud toiminguga Määra aedikud"
     },
     {
      "title": "Üleviimiste logi",
      "desc": "Täielik oleku ajalugu koos ajatemplite ja kasutajatega.",
-     "alt": "Üleviimise oleku ajatelg, üleviimine lõpetatud"
+     "alt": "Üleviimise ajajoon, mis lõpeb olekuga Üleviimine lõpetatud"
     }
    ]
   },
@@ -528,7 +528,7 @@
     },
     {
      "title": "Nähtavus",
-     "desc": "Profiilil on märge „kadunud“; kiired uuendused QR-koodi abil.",
+     "desc": "Looma profiilil on märge „kadunud“.",
      "alt": "Looma profiil kadunud looma märgi ja QR-koodiga"
     }
    ]
@@ -540,7 +540,7 @@
    "features": [
     {
      "title": "Kirje loomine",
-     "desc": "Mitu töövoogu üksik-, partii-, rühma-, plaaniliste (vaktsineerimine, ussitõrje, lisandid) või otseste (manustamine, retsept, vaktsineerimine, ussitõrje, lisandid) kirjete lisamiseks koos täpse kuupäeva ja kellaaja ning laboritaotlustega.",
+     "desc": "Mitu töövoogu üksik-, partii-, rühma-, plaaniliste (vaktsineerimine, ussitõrje, lisandid) või otseste (manustamine, retsept, vaktsineerimine, ussitõrje, lisandid) kirjete ja laboritaotluste lisamiseks koos täpse kuupäeva ja kellaajaga.",
      "alt": "Kirje loomise menüü: üksik-, rühma- ja partii tervisekirje, ühendatud laboritaotlus, otsene manustamine, retsept, vaktsineerimine, ussitõrje, lisandid"
     },
     {
@@ -560,7 +560,7 @@
     },
     {
      "title": "Kirjete ümbermääramine",
-     "desc": "Muutmisõigustega arstid saavad teise veterinaari loodud kirjed endale ümber määrata.",
+     "desc": "Arstid saavad teise veterinaari loodud kirjed endale ümber määrata.",
      "alt": "Ümbermääramise kinnitus: kas soovite selle tervisekirje endale ümber määrata? Jah / Ei"
     }
    ]
@@ -630,7 +630,7 @@
     {
      "title": "Avakuva ülevaade",
      "desc": "Näete ootel ravide arvu otse avakuval, et saaksite kiiremini tegutseda.",
-     "alt": "Rakenduse avakuva: peamised näitajad ja ootel manustamiste kaart, millel on 1028 ootel toimingut"
+     "alt": "Ekraan Ootel manustamised: kokku 847 ootel annust loomade, ravimite ja kontrollitavate ainete lõikes, jaotatud asukohtade kaupa"
     }
    ],
    "shots": {
@@ -645,7 +645,7 @@
    "features": [
     {
      "title": "Olekupõhised vaated",
-     "desc": "Vaktsineerimised on hõlpsaks jälgimiseks jaotatud: eelseisvad, ootel, vahele jäetud ja tehtud.",
+     "desc": "Vaktsineerimised on hõlpsaks jälgimiseks jaotatud: eelseisvad, ootel, vahele jäetud, tehtud ja peatatud.",
      "alt": "Vaktsineerimise menüü: eelseisvad, ootel, tehtud, vahele jäetud, lõpetatud vaktsiinid, otsene manustamine, vaktsineerimise plaanimine"
     },
     {
@@ -682,7 +682,7 @@
    "features": [
     {
      "title": "Olekupõhised vaated",
-     "desc": "Ussitõrjed on hõlpsaks jälgimiseks jaotatud: eelseisvad, ootel, vahele jäetud ja tehtud.",
+     "desc": "Ussitõrjed on hõlpsaks jälgimiseks jaotatud: eelseisvad, ootel, vahele jäetud, tehtud ja peatatud.",
      "alt": "Ussitõrje menüü: eelseisvad, ootel, tehtud, vahele jäetud, lõpetatud ussitõrjed, otsene manustamine, ussitõrje plaanimine"
     },
     {
@@ -719,7 +719,7 @@
    "features": [
     {
      "title": "Olekupõhised vaated",
-     "desc": "Lisandid on jaotatud: eelseisvad, ootel, vahele jäetud ja tehtud.",
+     "desc": "Lisandid on hõlpsaks jälgimiseks jaotatud: eelseisvad, ootel, vahele jäetud, tehtud ja peatatud.",
      "alt": "Lisandite menüü: eelseisvad, ootel, tehtud, vahele jäetud, lõpetatud lisandid, otsene manustamine, lisandite plaanimine"
     },
     {
@@ -756,23 +756,23 @@
    "features": [
     {
      "title": "Üleviimistaotlused",
-     "desc": "Algatage looma üleviimine aedikust haiglasse koos meditsiinilise ID, visiidi tüübi, eesmärgi ja manustega.",
+     "desc": "Esitage taotlusi loomade hospitaliseerimiseks asukohast haiglasse koos meditsiinilise ID, visiidi tüübi, eesmärgi ja manustega.",
      "alt": "Looma haiglasse paigutamise vorm: valitud loom, meditsiiniline ID (loo uus), haigla ja visiidi tüübi väljad, esita"
     },
     {
      "title": "Üleviimise olek",
      "desc": "Jälgige iga üleviimise etappe: ootel, teel, vastu võetud.",
-     "alt": "Üleviimine HT29-00038: marsruut, algataja, valitud loom, olek „Üleviimine lõpetatud“ ja turvakontrolliga väljaregistreerimise nupp"
+     "alt": "Asukoha profiili vahekaart Haiglasse üleviimine: vahekaardid Teel, Vastu võetud ja Tühistatud, taotlustega nagu HT29-00069, mis ootavad vastuvõtmist"
     },
     {
      "title": "Turvakontrolliga sisse- ja väljaregistreerimine",
      "desc": "Patsientide kontrollitud liikumine turvakontrolliga sisse- ja väljaregistreerimisega asukohas ja haiglas.",
-     "alt": "Üleviimine HT29-00038: marsruut, algataja, valitud loom, olek „Üleviimine lõpetatud“ ja turvakontrolliga väljaregistreerimise nupp"
+     "alt": "Üleviimine HT29-00068: turvaväljaregistreerimine ootel, nupuga Turvasisseregistreerimine"
     },
     {
      "title": "Väljakirjutamise aruannete vaatamine",
      "desc": "Avage väljakirjutamise kokkuvõtted ja haiglaravi ajalugu otse rakendusest.",
-     "alt": "Looma haiglasse paigutamise vorm: valitud loom, meditsiiniline ID (loo uus), haigla ja visiidi tüübi väljad, esita"
+     "alt": "Soolase vee krokodilli meditsiiniline kirje MED29-18889: juhtumi tüüp ja veterinaari lisatud manus Discharge_Summary.pdf"
     }
    ]
   },

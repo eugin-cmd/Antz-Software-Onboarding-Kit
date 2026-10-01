@@ -954,12 +954,12 @@
     {
      "title": "Tagged entities",
      "desc": "View all Sites, Sections, Enclosures, Species and Animals associated with a selected tag.",
-     "shot": "assets/shots/p14-tagged-entities.png",
-     "alt": "Tagged entities for Enclosure Maintenance: Animals / Sections / Site tabs, Site (1) showing Bangalore site",
+     "shot": "assets/shots/p14-tagged-entities-list.png",
+     "alt": "Entities tab of the tag Deworming Due: 12 tagged entities, a searchable list of enclosures, sections, species and animals",
      "device": "phone",
      "size": [
-      1170,
-      2532
+      853,
+      1844
      ],
      "icon": "manage"
     }
@@ -1011,12 +1011,12 @@
      ]
     },
     {
-     "src": "assets/shots/p14-tagged-entities.png",
-     "alt": "Tagged entities for Enclosure Maintenance: Animals / Sections / Site tabs, Site (1) showing Bangalore site",
+     "src": "assets/shots/p14-tagged-entities-list.png",
+     "alt": "Entities tab of the tag Deworming Due: 12 tagged entities, a searchable list of enclosures, sections, species and animals",
      "device": "phone",
      "size": [
-      1170,
-      2532
+      853,
+      1844
      ]
     },
     {
@@ -1044,129 +1044,129 @@
     {
      "title": "Transfer types",
      "desc": "In-house, inter-site, and external transfers.",
-     "shot": "assets/shots/p14-transfer-1.jpg",
-     "alt": "Choose transfer type dialog",
+     "shot": "assets/shots/p14-transfer-transfer-types.png",
+     "alt": "Choose transfer type dialog: in-house, inter-site, and external transfer",
      "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "transfer"
     },
     {
      "title": "Approval",
      "desc": "Authorisation from designated site authorities.",
-     "shot": "assets/shots/p14-transfer-2.jpg",
-     "alt": "Inter-site transfer awaiting approval",
-     "device": "phone",
+     "shot": "assets/shots/p14-transfer-approval.png",
+     "alt": "Inter-site transfer awaiting approval with Approve and Reject",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "approve"
     },
     {
      "title": "Cancel / reject",
      "desc": "Cancel or reject requests and reinitiate as needed.",
-     "shot": "assets/shots/p14-transfer-3.jpg",
-     "alt": "Cancel transfer option",
-     "device": "phone",
+     "shot": "assets/shots/p14-transfer-cancel.png",
+     "alt": "Cancel Transfer option in the transfer menu",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "alert"
     },
     {
      "title": "Security check-in / out",
-     "desc": "Controlled check-in/out for inter-site & external moves.",
-     "shot": "assets/shots/p14-security.jpg",
-     "alt": "Security clearance and checkout for transfer",
-     "device": "phone",
+     "desc": "Controlled check-in/out for inter-site & external transfers.",
+     "shot": "assets/shots/p14-transfer-security.png",
+     "alt": "Security clearance pending with Security Checkout action",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "shield"
     },
     {
      "title": "Allocation",
      "desc": "On arrival, allocate to enclosure and notify staff.",
-     "shot": "assets/shots/p14-transfer-4.jpg",
-     "alt": "Approved transfer, allocate enclosures",
-     "device": "phone",
+     "shot": "assets/shots/p14-transfer-allocation.png",
+     "alt": "Received animals status with Allocate Enclosures action",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "transfer"
     },
     {
      "title": "Transfer log",
      "desc": "Full status history with timestamps and users.",
-     "shot": "assets/shots/p14-transfer-5.jpg",
-     "alt": "Transfer status timeline, transfer completed",
-     "device": "phone",
+     "shot": "assets/shots/p14-transfer-transfer-log.png",
+     "alt": "Transfer log timeline ending in Transfer Completed",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ],
      "icon": "manage"
     }
    ],
    "shots": [
     {
-     "src": "assets/shots/p14-transfer-1.jpg",
-     "alt": "Choose transfer type dialog",
+     "src": "assets/shots/p14-transfer-transfer-types.png",
+     "alt": "Choose transfer type dialog: in-house, inter-site, and external transfer",
      "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p14-transfer-2.jpg",
-     "alt": "Inter-site transfer awaiting approval",
-     "device": "phone",
+     "src": "assets/shots/p14-transfer-approval.png",
+     "alt": "Inter-site transfer awaiting approval with Approve and Reject",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p14-transfer-3.jpg",
-     "alt": "Cancel transfer option",
-     "device": "phone",
+     "src": "assets/shots/p14-transfer-cancel.png",
+     "alt": "Cancel Transfer option in the transfer menu",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p14-security.jpg",
-     "alt": "Security clearance and checkout for transfer",
-     "device": "phone",
+     "src": "assets/shots/p14-transfer-security.png",
+     "alt": "Security clearance pending with Security Checkout action",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p14-transfer-4.jpg",
-     "alt": "Approved transfer, allocate enclosures",
-     "device": "phone",
+     "src": "assets/shots/p14-transfer-allocation.png",
+     "alt": "Received animals status with Allocate Enclosures action",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     },
     {
-     "src": "assets/shots/p14-transfer-5.jpg",
-     "alt": "Transfer status timeline, transfer completed",
-     "device": "phone",
+     "src": "assets/shots/p14-transfer-transfer-log.png",
+     "alt": "Transfer log timeline ending in Transfer Completed",
+     "device": "prefr",
      "size": [
-      600,
-      1298
+      502,
+      1035
      ]
     }
    ],
@@ -1352,7 +1352,7 @@
     },
     {
      "title": "Visibility",
-     "desc": "Flagged as missing on the profile; quick QR updates.",
+     "desc": "Flagged as missing on the Animal profile.",
      "shot": "assets/shots/p16-missing-5.jpg",
      "alt": "Animal profile with missing badge and QR",
      "device": "prefr",
@@ -1424,7 +1424,7 @@
    "features": [
     {
      "title": "Record creation",
-     "desc": "Multiple workflows to add single, batch, group, scheduled (vaccination, deworming, supplement) or direct (administer, prescription, vaccination, deworming, supplement) records — with exact date and time logging and lab requests.",
+     "desc": "Multiple workflows to add single, batch, group, scheduled (vaccination, deworming, supplement) or direct (administer, prescription, vaccination, deworming, supplement) records and lab requests, with exact date and time logging.",
      "shot": "assets/shots/p18-create.png",
      "alt": "Record creation menu: Single, Group, Batch medical record, Pool Lab Request, Direct Administer, Prescription, Vaccination, Deworming, Supplements",
      "device": "prefr",
@@ -1472,7 +1472,7 @@
     },
     {
      "title": "Reassign records",
-     "desc": "Doctors with edit permissions can reassign records originally created by another vet to yourself.",
+     "desc": "Doctors can reassign records originally created by another vet to yourself.",
      "shot": "assets/shots/p18-reassign.png",
      "alt": "Reassign confirmation: Do you want to reassign this medical record to yourself? Yes / No",
      "device": "prefr",
@@ -1716,8 +1716,8 @@
     {
      "title": "Home screen overview",
      "desc": "See the count of pending treatments right on the home screen for faster action.",
-     "shot": "assets/shots/p20-home.png",
-     "alt": "App home screen: Key Insights, and a Pending Administration card showing 1028 pending processes",
+     "shot": "assets/shots/p20-home-screen.png",
+     "alt": "Pending Administration screen: 847 total pending doses across animals, medicines and controlled substances, broken down by site",
      "device": "prefr",
      "size": [
       502,
@@ -1755,8 +1755,8 @@
      ]
     },
     {
-     "src": "assets/shots/p20-home.png",
-     "alt": "App home screen: Key Insights, and a Pending Administration card showing 1028 pending processes",
+     "src": "assets/shots/p20-home-screen.png",
+     "alt": "Pending Administration screen: 847 total pending doses across animals, medicines and controlled substances, broken down by site",
      "device": "prefr",
      "size": [
       502,
@@ -1823,7 +1823,7 @@
    "features": [
     {
      "title": "Status-based views",
-     "desc": "Vaccinations organised into Upcoming, Pending, Skipped, and Completed for easy monitoring.",
+     "desc": "Vaccinations organised into Upcoming, Pending, Skipped, Completed and Stopped for easy monitoring.",
      "shot": "assets/shots/p21-status.png",
      "alt": "Vaccination menu: Upcoming, Pending, Completed, Skipped, Stopped Vaccine, Direct Administer, Schedule Vaccination",
      "device": "prefr",
@@ -1964,7 +1964,7 @@
    "features": [
     {
      "title": "Status-based views",
-     "desc": "Deworming organised into Upcoming, Pending, Skipped, and Completed for easy monitoring.",
+     "desc": "Deworming organised into Upcoming, Pending, Skipped, Completed and Stopped for easy monitoring.",
      "shot": "assets/shots/p22-menu.png",
      "alt": "Deworming menu: Upcoming, Pending, Completed, Skipped, Stopped Deworming, Direct Administer, Schedule Deworming",
      "device": "prefr",
@@ -2105,7 +2105,7 @@
    "features": [
     {
      "title": "Status-based views",
-     "desc": "Supplements organised into Upcoming, Pending, Skipped, and Completed.",
+     "desc": "Supplements organised into Upcoming, Pending, Skipped, Completed and Stopped for easy monitoring.",
      "shot": "assets/shots/p23-menu.png",
      "alt": "Supplements menu: Upcoming, Pending, Completed, Skipped, Stopped Supplements, Direct Administer, Schedule Supplements",
      "device": "phone",
@@ -2246,7 +2246,7 @@
    "features": [
     {
      "title": "Transfer requests",
-     "desc": "Raise animal transfers from enclosure to hospital with medical ID, visit type, purpose, and attachments.",
+     "desc": "Raise requests to hospitalize animals from site to hospital with medical ID, visit type, purpose, and attachments.",
      "shot": "assets/shots/p24-hospitalize.png",
      "alt": "Hospitalize animal form: selected animal, Medical ID (Create new), Hospital and Visit type fields, Submit",
      "device": "phone",
@@ -2259,36 +2259,36 @@
     {
      "title": "Transfer status",
      "desc": "Track each transfer through its stages — Pending, In Transit, Accepted.",
-     "shot": "assets/shots/p24-security.png",
-     "alt": "Transfer HT29-00038: route, initiator, selected animal, status Transfer Completed and Security Checkout button",
+     "shot": "assets/shots/p24-transfer-status-tabs.jpg",
+     "alt": "Hospital Transfer tab on the site profile: In Transit, Accepted and Canceled tabs, with transfer requests such as HT29-00069 awaiting acceptance",
      "device": "phone",
      "size": [
-      1170,
-      2532
+      739,
+      1600
      ],
      "icon": "transfer"
     },
     {
      "title": "Security check-in / out",
      "desc": "Controlled patient movement with security-based check-in and check-out at site and hospital.",
-     "shot": "assets/shots/p24-security.png",
-     "alt": "Transfer HT29-00038: route, initiator, selected animal, status Transfer Completed and Security Checkout button",
-     "device": "phone",
+     "shot": "assets/shots/p24-security-checkin.png",
+     "alt": "Transfer HT29-00068: security checkout pending status with Security Checkin button",
+     "device": "prefr",
      "size": [
-      1170,
-      2532
+      502,
+      1035
      ],
      "icon": "shield"
     },
     {
      "title": "View discharge reports",
      "desc": "Access discharge summaries and hospitalisation history directly from the app.",
-     "shot": "assets/shots/p24-hospitalize.png",
-     "alt": "Hospitalize animal form: selected animal, Medical ID (Create new), Hospital and Visit type fields, Submit",
+     "shot": "assets/shots/p24-discharge-summary.jpg",
+     "alt": "Medical record MED29-18889 for a saltwater crocodile: case type, and a Discharge_Summary.pdf attachment added by the vet",
      "device": "phone",
      "size": [
-      1170,
-      2532
+      739,
+      1600
      ],
      "icon": "report"
     }
@@ -2304,12 +2304,30 @@
      ]
     },
     {
-     "src": "assets/shots/p24-security.png",
-     "alt": "Transfer HT29-00038: route, initiator, selected animal, status Transfer Completed and Security Checkout button",
+     "src": "assets/shots/p24-transfer-status-tabs.jpg",
+     "alt": "Hospital Transfer tab on the site profile: In Transit, Accepted and Canceled tabs, with transfer requests such as HT29-00069 awaiting acceptance",
      "device": "phone",
      "size": [
-      1170,
-      2532
+      739,
+      1600
+     ]
+    },
+    {
+     "src": "assets/shots/p24-security-checkin.png",
+     "alt": "Transfer HT29-00068: security checkout pending status with Security Checkin button",
+     "device": "prefr",
+     "size": [
+      502,
+      1035
+     ]
+    },
+    {
+     "src": "assets/shots/p24-discharge-summary.jpg",
+     "alt": "Medical record MED29-18889 for a saltwater crocodile: case type, and a Discharge_Summary.pdf attachment added by the vet",
+     "device": "phone",
+     "size": [
+      739,
+      1600
      ]
     }
    ],

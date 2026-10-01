@@ -428,7 +428,7 @@
     {
      "title": "Oznaczone obiekty",
      "desc": "Podgląd wszystkich lokalizacji, sekcji, wybiegów, gatunków i zwierząt powiązanych z wybranym tagiem.",
-     "alt": "Oznaczone obiekty dla tagu Enclosure Maintenance: karty Zwierzęta / Sekcje / Lokalizacja, Lokalizacja (1) pokazuje lokalizację Bangalore"
+     "alt": "Karta Encje tagu Odrobaczanie do wykonania: 12 otagowanych encji, przeszukiwalna lista wybiegów, sekcji, gatunków i zwierząt"
     }
    ]
   },
@@ -440,32 +440,32 @@
     {
      "title": "Rodzaje przeniesień",
      "desc": "Przeniesienia wewnętrzne, między lokalizacjami i zewnętrzne.",
-     "alt": "Okno wyboru rodzaju przeniesienia"
+     "alt": "Okno wyboru rodzaju przeniesienia: wewnętrzne, między lokalizacjami i zewnętrzne"
     },
     {
      "title": "Zatwierdzanie",
      "desc": "Autoryzacja przez wyznaczone osoby odpowiedzialne w lokalizacji.",
-     "alt": "Przeniesienie między lokalizacjami oczekujące na zatwierdzenie"
+     "alt": "Przeniesienie między lokalizacjami oczekuje na zatwierdzenie, z przyciskami Zatwierdź i Odrzuć"
     },
     {
      "title": "Anulowanie / odrzucenie",
      "desc": "Anulowanie lub odrzucanie wniosków i ponowne ich składanie w razie potrzeby.",
-     "alt": "Opcja anulowania przeniesienia"
+     "alt": "Opcja Anuluj przeniesienie w menu przeniesienia"
     },
     {
      "title": "Kontrola wjazdu / wyjazdu przez ochronę",
      "desc": "Kontrolowane odprawy wjazdowe i wyjazdowe przy przeniesieniach między lokalizacjami i zewnętrznych.",
-     "alt": "Zgoda ochrony i odprawa wyjazdowa przeniesienia"
+     "alt": "Oczekująca kontrola bezpieczeństwa z akcją Wyjście przez ochronę"
     },
     {
      "title": "Przydział",
      "desc": "Po przybyciu przydzielenie zwierzęcia do wybiegu i powiadomienie personelu.",
-     "alt": "Zatwierdzone przeniesienie, przydział wybiegów"
+     "alt": "Status Zwierzęta przyjęte z akcją Przydziel wybiegi"
     },
     {
      "title": "Dziennik przeniesień",
      "desc": "Pełna historia statusów ze znacznikami czasu i użytkownikami.",
-     "alt": "Oś czasu statusu przeniesienia, przeniesienie zakończone"
+     "alt": "Oś czasu przeniesienia zakończona statusem Przeniesienie zakończone"
     }
    ]
   },
@@ -528,7 +528,7 @@
     },
     {
      "title": "Widoczność",
-     "desc": "Oznaczenie zaginięcia w profilu; szybkie aktualizacje za pomocą kodu QR.",
+     "desc": "Oznaczenie zaginięcia w profilu zwierzęcia.",
      "alt": "Profil zwierzęcia z oznaczeniem zaginięcia i kodem QR"
     }
    ]
@@ -540,7 +540,7 @@
    "features": [
     {
      "title": "Tworzenie wpisów",
-     "desc": "Różne sposoby dodawania wpisów: pojedynczych, zbiorczych, grupowych, zaplanowanych (szczepienie, odrobaczanie, suplementacja) lub bezpośrednich (podanie leku, recepta, szczepienie, odrobaczanie, suplementacja), z rejestracją dokładnej daty i godziny oraz zleceniami badań laboratoryjnych.",
+     "desc": "Różne sposoby dodawania wpisów: pojedynczych, zbiorczych, grupowych, zaplanowanych (szczepienie, odrobaczanie, suplementacja) lub bezpośrednich (podanie leku, recepta, szczepienie, odrobaczanie, suplementacja) oraz zleceń badań laboratoryjnych, z rejestracją dokładnej daty i godziny.",
      "alt": "Menu tworzenia wpisu: pojedynczy, grupowy, zbiorczy wpis medyczny, zbiorcze zlecenie laboratoryjne, bezpośrednie podanie, recepta, szczepienie, odrobaczanie, suplementy"
     },
     {
@@ -560,7 +560,7 @@
     },
     {
      "title": "Ponowne przypisywanie wpisów",
-     "desc": "Lekarze z uprawnieniami do edycji mogą przypisać sobie wpisy utworzone pierwotnie przez innego lekarza weterynarii.",
+     "desc": "Lekarze mogą przypisać sobie wpisy utworzone pierwotnie przez innego lekarza weterynarii.",
      "alt": "Potwierdzenie ponownego przypisania: Czy przypisać ten wpis medyczny do siebie? Tak / Nie"
     }
    ]
@@ -630,7 +630,7 @@
     {
      "title": "Podgląd na ekranie głównym",
      "desc": "Liczba oczekujących zabiegów widoczna bezpośrednio na ekranie głównym, co przyspiesza działanie.",
-     "alt": "Ekran główny aplikacji: kluczowe wskaźniki i karta oczekujących podań leków z 1028 oczekującymi procesami"
+     "alt": "Ekran Oczekujące podania: łącznie 847 oczekujących dawek dla zwierząt, leków i substancji kontrolowanych, z podziałem na lokalizacje"
     }
    ],
    "shots": {
@@ -645,7 +645,7 @@
    "features": [
     {
      "title": "Widoki według statusu",
-     "desc": "Szczepienia podzielone na Nadchodzące, Oczekujące, Pominięte i Wykonane dla łatwego monitorowania.",
+     "desc": "Szczepienia podzielone na Nadchodzące, Oczekujące, Pominięte, Wykonane i Wstrzymane dla łatwego monitorowania.",
      "alt": "Menu szczepień: Nadchodzące, Oczekujące, Wykonane, Pominięte, Wstrzymane szczepionki, Bezpośrednie podanie, Zaplanuj szczepienie"
     },
     {
@@ -682,7 +682,7 @@
    "features": [
     {
      "title": "Widoki według statusu",
-     "desc": "Odrobaczanie podzielone na Nadchodzące, Oczekujące, Pominięte i Wykonane dla łatwego monitorowania.",
+     "desc": "Odrobaczanie podzielone na Nadchodzące, Oczekujące, Pominięte, Wykonane i Wstrzymane dla łatwego monitorowania.",
      "alt": "Menu odrobaczania: Nadchodzące, Oczekujące, Wykonane, Pominięte, Wstrzymane odrobaczanie, Bezpośrednie podanie, Zaplanuj odrobaczanie"
     },
     {
@@ -719,7 +719,7 @@
    "features": [
     {
      "title": "Widoki według statusu",
-     "desc": "Suplementy podzielone na Nadchodzące, Oczekujące, Pominięte i Wykonane.",
+     "desc": "Suplementy podzielone na Nadchodzące, Oczekujące, Pominięte, Wykonane i Wstrzymane dla łatwego monitorowania.",
      "alt": "Menu suplementów: Nadchodzące, Oczekujące, Wykonane, Pominięte, Wstrzymane suplementy, Bezpośrednie podanie, Zaplanuj suplementy"
     },
     {
@@ -756,23 +756,23 @@
    "features": [
     {
      "title": "Wnioski o przeniesienie",
-     "desc": "Zgłaszanie przeniesienia zwierzęcia z wybiegu do szpitala z ID medycznym, rodzajem wizyty, celem i załącznikami.",
+     "desc": "Zgłaszanie hospitalizacji zwierząt z lokalizacji do szpitala z ID medycznym, rodzajem wizyty, celem i załącznikami.",
      "alt": "Formularz hospitalizacji zwierzęcia: wybrane zwierzę, ID medyczne (utwórz nowe), pola szpitala i rodzaju wizyty, przycisk Wyślij"
     },
     {
      "title": "Status przeniesienia",
      "desc": "Śledzenie każdego przeniesienia na kolejnych etapach: Oczekujące, W transporcie, Przyjęte.",
-     "alt": "Przeniesienie HT29-00038: trasa, inicjator, wybrane zwierzę, status „Przeniesienie zakończone” i przycisk odprawy wyjazdowej przez ochronę"
+     "alt": "Karta Przeniesienie do szpitala w profilu lokalizacji: karty W drodze, Przyjęte i Anulowane, ze zgłoszeniami takimi jak HT29-00069 oczekującymi na przyjęcie"
     },
     {
      "title": "Kontrola wjazdu / wyjazdu przez ochronę",
      "desc": "Kontrolowane przemieszczanie pacjentów z odprawą wjazdową i wyjazdową przez ochronę w lokalizacji i w szpitalu.",
-     "alt": "Przeniesienie HT29-00038: trasa, inicjator, wybrane zwierzę, status „Przeniesienie zakończone” i przycisk odprawy wyjazdowej przez ochronę"
+     "alt": "Przeniesienie HT29-00068: oczekuje na wyjście przez ochronę, z przyciskiem Wejście przez ochronę"
     },
     {
      "title": "Podgląd wypisów",
      "desc": "Dostęp do kart wypisowych i historii hospitalizacji bezpośrednio w aplikacji.",
-     "alt": "Formularz hospitalizacji zwierzęcia: wybrane zwierzę, ID medyczne (utwórz nowe), pola szpitala i rodzaju wizyty, przycisk Wyślij"
+     "alt": "Wpis medyczny MED29-18889 krokodyla różańcowego: rodzaj przypadku i załącznik Discharge_Summary.pdf dodany przez lekarza weterynarii"
     }
    ]
   },

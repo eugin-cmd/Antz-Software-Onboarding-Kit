@@ -428,7 +428,7 @@
     {
      "title": "Entitas bertag",
      "desc": "Lihat semua Lokasi, Seksi, Kandang, Spesies, dan Satwa yang terkait dengan tag yang dipilih.",
-     "alt": "Entitas bertag untuk Enclosure Maintenance: tab Animals / Sections / Site, Site (1) menampilkan lokasi Bangalore"
+     "alt": "Tab Entitas pada tag Waktunya obat cacing: 12 entitas bertag, daftar kandang, seksi, spesies, dan hewan yang dapat dicari"
     }
    ]
   },
@@ -440,32 +440,32 @@
     {
      "title": "Jenis pemindahan",
      "desc": "Pemindahan internal, antarlokasi, dan eksternal.",
-     "alt": "Dialog pilih jenis pemindahan"
+     "alt": "Dialog pilih jenis pemindahan: internal, antarlokasi, dan eksternal"
     },
     {
      "title": "Persetujuan",
      "desc": "Otorisasi dari pihak berwenang lokasi yang ditunjuk.",
-     "alt": "Pemindahan antarlokasi menunggu persetujuan"
+     "alt": "Pemindahan antarlokasi menunggu persetujuan, dengan Setujui dan Tolak"
     },
     {
      "title": "Batalkan / tolak",
      "desc": "Batalkan atau tolak permintaan dan ajukan ulang sesuai kebutuhan.",
-     "alt": "Opsi batalkan pemindahan"
+     "alt": "Opsi Batalkan pemindahan di menu pemindahan"
     },
     {
      "title": "Check-in / out keamanan",
      "desc": "Check-in/out terkontrol untuk pemindahan antarlokasi & eksternal.",
-     "alt": "Izin keamanan dan checkout untuk pemindahan"
+     "alt": "Izin keamanan tertunda, dengan tindakan Checkout keamanan"
     },
     {
      "title": "Alokasi",
      "desc": "Saat tiba, alokasikan ke kandang dan beri tahu staf.",
-     "alt": "Pemindahan disetujui, alokasikan kandang"
+     "alt": "Status Hewan diterima, dengan tindakan Alokasikan kandang"
     },
     {
      "title": "Log pemindahan",
      "desc": "Riwayat status lengkap dengan cap waktu dan pengguna.",
-     "alt": "Linimasa status pemindahan, pemindahan selesai"
+     "alt": "Linimasa pemindahan yang berakhir pada Pemindahan selesai"
     }
    ]
   },
@@ -528,7 +528,7 @@
     },
     {
      "title": "Visibilitas",
-     "desc": "Ditandai hilang pada profil; pembaruan cepat melalui QR.",
+     "desc": "Ditandai hilang pada profil hewan.",
      "alt": "Profil satwa dengan lencana hilang dan QR"
     }
    ]
@@ -540,7 +540,7 @@
    "features": [
     {
      "title": "Pembuatan catatan",
-     "desc": "Berbagai alur kerja untuk menambahkan catatan tunggal, batch, kelompok, terjadwal (vaksinasi, pemberian obat cacing, suplemen) atau langsung (pemberian, resep, vaksinasi, pemberian obat cacing, suplemen), dengan pencatatan tanggal dan waktu yang tepat serta permintaan laboratorium.",
+     "desc": "Berbagai alur kerja untuk menambahkan catatan tunggal, batch, kelompok, terjadwal (vaksinasi, pemberian obat cacing, suplemen) atau langsung (pemberian, resep, vaksinasi, pemberian obat cacing, suplemen) serta permintaan laboratorium, dengan pencatatan tanggal dan waktu yang tepat.",
      "alt": "Menu pembuatan catatan: Single, Group, Batch medical record, Pool Lab Request, Direct Administer, Prescription, Vaccination, Deworming, Supplements"
     },
     {
@@ -560,7 +560,7 @@
     },
     {
      "title": "Alihkan catatan",
-     "desc": "Dokter dengan izin edit dapat mengalihkan kepada dirinya sendiri catatan yang semula dibuat oleh dokter hewan lain.",
+     "desc": "Dokter dapat mengalihkan kepada dirinya sendiri catatan yang semula dibuat oleh dokter hewan lain.",
      "alt": "Konfirmasi pengalihan: Apakah Anda ingin mengalihkan rekam medis ini kepada diri Anda? Yes / No"
     }
    ]
@@ -630,7 +630,7 @@
     {
      "title": "Ringkasan layar beranda",
      "desc": "Lihat jumlah pengobatan tertunda langsung di layar beranda untuk tindakan lebih cepat.",
-     "alt": "Layar beranda aplikasi: Key Insights, dan kartu Pending Administration yang menampilkan 1028 proses tertunda"
+     "alt": "Layar Pemberian tertunda: total 847 dosis tertunda di seluruh hewan, obat, dan zat terkontrol, dirinci per lokasi"
     }
    ],
    "shots": {
@@ -645,7 +645,7 @@
    "features": [
     {
      "title": "Tampilan berbasis status",
-     "desc": "Vaksinasi dikelompokkan menjadi Akan Datang, Tertunda, Dilewati, dan Selesai agar mudah dipantau.",
+     "desc": "Vaksinasi dikelompokkan menjadi Akan Datang, Tertunda, Dilewati, Selesai, dan Dihentikan agar mudah dipantau.",
      "alt": "Menu Vaccination: Upcoming, Pending, Completed, Skipped, Stopped Vaccine, Direct Administer, Schedule Vaccination"
     },
     {
@@ -682,7 +682,7 @@
    "features": [
     {
      "title": "Tampilan berbasis status",
-     "desc": "Pemberian obat cacing dikelompokkan menjadi Akan Datang, Tertunda, Dilewati, dan Selesai agar mudah dipantau.",
+     "desc": "Pemberian obat cacing dikelompokkan menjadi Akan Datang, Tertunda, Dilewati, Selesai, dan Dihentikan agar mudah dipantau.",
      "alt": "Menu Deworming: Upcoming, Pending, Completed, Skipped, Stopped Deworming, Direct Administer, Schedule Deworming"
     },
     {
@@ -719,7 +719,7 @@
    "features": [
     {
      "title": "Tampilan berbasis status",
-     "desc": "Suplemen dikelompokkan menjadi Akan Datang, Tertunda, Dilewati, dan Selesai.",
+     "desc": "Suplemen dikelompokkan menjadi Akan Datang, Tertunda, Dilewati, Selesai, dan Dihentikan agar mudah dipantau.",
      "alt": "Menu Supplements: Upcoming, Pending, Completed, Skipped, Stopped Supplements, Direct Administer, Schedule Supplements"
     },
     {
@@ -756,23 +756,23 @@
    "features": [
     {
      "title": "Permintaan pemindahan",
-     "desc": "Ajukan pemindahan satwa dari kandang ke rumah sakit dengan ID medis, jenis kunjungan, tujuan, dan lampiran.",
+     "desc": "Ajukan permintaan rawat inap satwa dari lokasi ke rumah sakit dengan ID medis, jenis kunjungan, tujuan, dan lampiran.",
      "alt": "Formulir Hospitalize animal: satwa terpilih, Medical ID (Create new), kolom Hospital dan Visit type, Submit"
     },
     {
      "title": "Status pemindahan",
      "desc": "Lacak setiap pemindahan melalui tahapannya: Tertunda, Dalam Perjalanan, Diterima.",
-     "alt": "Pemindahan HT29-00038: rute, pengaju, satwa terpilih, status Transfer Completed, dan tombol Security Checkout"
+     "alt": "Tab Pemindahan ke rumah sakit di profil lokasi: tab Dalam perjalanan, Diterima, dan Dibatalkan, dengan permintaan seperti HT29-00069 yang menunggu penerimaan"
     },
     {
      "title": "Check-in / out keamanan",
      "desc": "Pergerakan pasien terkontrol dengan check-in dan check-out berbasis keamanan di lokasi dan rumah sakit.",
-     "alt": "Pemindahan HT29-00038: rute, pengaju, satwa terpilih, status Transfer Completed, dan tombol Security Checkout"
+     "alt": "Pemindahan HT29-00068: checkout keamanan tertunda, dengan tombol Check-in keamanan"
     },
     {
      "title": "Lihat laporan kepulangan",
      "desc": "Akses ringkasan kepulangan dan riwayat rawat inap langsung dari aplikasi.",
-     "alt": "Formulir Hospitalize animal: satwa terpilih, Medical ID (Create new), kolom Hospital dan Visit type, Submit"
+     "alt": "Catatan medis MED29-18889 untuk buaya muara: jenis kasus dan lampiran Discharge_Summary.pdf yang ditambahkan dokter hewan"
     }
    ]
   },

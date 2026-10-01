@@ -428,7 +428,7 @@
     {
      "title": "Entidades etiquetadas",
      "desc": "Veja todas as unidades, setores, recintos, espécies e animais associados a uma etiqueta selecionada.",
-     "alt": "Entidades etiquetadas para Manutenção de recinto: abas Animais / Setores / Unidade, Unidade (1) mostrando a unidade Bangalore"
+     "alt": "Separador Entidades da etiqueta Desparasitação pendente: 12 entidades etiquetadas, uma lista pesquisável de recintos, secções, espécies e animais"
     }
    ]
   },
@@ -440,32 +440,32 @@
     {
      "title": "Tipos de transferência",
      "desc": "Transferências internas, entre unidades e externas.",
-     "alt": "Caixa de diálogo para escolher o tipo de transferência"
+     "alt": "Caixa de diálogo para escolher o tipo de transferência: interna, entre locais e externa"
     },
     {
      "title": "Aprovação",
      "desc": "Autorização das autoridades designadas da unidade.",
-     "alt": "Transferência entre unidades aguardando aprovação"
+     "alt": "Transferência entre locais a aguardar aprovação, com Aprovar e Rejeitar"
     },
     {
      "title": "Cancelar / rejeitar",
      "desc": "Cancele ou rejeite solicitações e reinicie-as quando necessário.",
-     "alt": "Opção de cancelar a transferência"
+     "alt": "Opção Cancelar transferência no menu da transferência"
     },
     {
      "title": "Entrada / saída pela segurança",
-     "desc": "Entrada e saída controladas para movimentações entre unidades e externas.",
-     "alt": "Liberação e saída pela segurança para a transferência"
+     "desc": "Entrada e saída controladas para transferências entre unidades e externas.",
+     "alt": "Autorização de segurança pendente, com a ação Saída de segurança"
     },
     {
      "title": "Alocação",
      "desc": "Na chegada, aloque o animal em um recinto e notifique a equipe.",
-     "alt": "Transferência aprovada, alocar recintos"
+     "alt": "Estado Animais recebidos, com a ação Atribuir recintos"
     },
     {
      "title": "Registro de transferências",
      "desc": "Histórico completo de status com data, hora e usuários.",
-     "alt": "Linha do tempo do status da transferência, transferência concluída"
+     "alt": "Cronologia da transferência que termina em Transferência concluída"
     }
    ]
   },
@@ -528,7 +528,7 @@
     },
     {
      "title": "Visibilidade",
-     "desc": "Marcado como desaparecido no perfil; atualizações rápidas por QR.",
+     "desc": "Marcado como desaparecido no perfil do animal.",
      "alt": "Perfil do animal com selo de desaparecido e QR"
     }
    ]
@@ -540,7 +540,7 @@
    "features": [
     {
      "title": "Criação de registros",
-     "desc": "Vários fluxos para adicionar registros individuais, em lote, em grupo, programados (vacinação, vermifugação, suplemento) ou diretos (administração, prescrição, vacinação, vermifugação, suplemento), com registro exato de data e hora e solicitações de exames laboratoriais.",
+     "desc": "Vários fluxos para adicionar registros individuais, em lote, em grupo, programados (vacinação, vermifugação, suplemento) ou diretos (administração, prescrição, vacinação, vermifugação, suplemento) e solicitações de exames laboratoriais, com registro exato de data e hora.",
      "alt": "Menu de criação de registros: registro médico individual, em grupo, em lote, solicitação de exame em pool, administração direta, prescrição, vacinação, vermifugação, suplementos"
     },
     {
@@ -560,7 +560,7 @@
     },
     {
      "title": "Reatribuir registros",
-     "desc": "Médicos com permissão de edição podem reatribuir a si mesmos registros criados originalmente por outro veterinário.",
+     "desc": "Médicos podem reatribuir a si mesmos registros criados originalmente por outro veterinário.",
      "alt": "Confirmação de reatribuição: Deseja reatribuir este registro médico a você? Sim / Não"
     }
    ]
@@ -630,7 +630,7 @@
     {
      "title": "Visão geral na tela inicial",
      "desc": "Veja o número de tratamentos pendentes diretamente na tela inicial, para agir mais rápido.",
-     "alt": "Tela inicial do aplicativo: principais análises e um cartão de administração pendente mostrando 1028 processos pendentes"
+     "alt": "Ecrã Administração pendente: 847 doses pendentes no total entre animais, medicamentos e substâncias controladas, por local"
     }
    ],
    "shots": {
@@ -645,7 +645,7 @@
    "features": [
     {
      "title": "Visualizações por status",
-     "desc": "Vacinações organizadas em Próximas, Pendentes, Puladas e Concluídas, para facilitar o acompanhamento.",
+     "desc": "Vacinações organizadas em Próximas, Pendentes, Puladas, Concluídas e Interrompidas, para facilitar o acompanhamento.",
      "alt": "Menu de vacinação: Próximas, Pendentes, Concluídas, Puladas, Vacinas interrompidas, Administração direta, Agendar vacinação"
     },
     {
@@ -682,7 +682,7 @@
    "features": [
     {
      "title": "Visualizações por status",
-     "desc": "Vermifugações organizadas em Próximas, Pendentes, Puladas e Concluídas, para facilitar o acompanhamento.",
+     "desc": "Vermifugações organizadas em Próximas, Pendentes, Puladas, Concluídas e Interrompidas, para facilitar o acompanhamento.",
      "alt": "Menu de vermifugação: Próximas, Pendentes, Concluídas, Puladas, Vermifugações interrompidas, Administração direta, Agendar vermifugação"
     },
     {
@@ -719,7 +719,7 @@
    "features": [
     {
      "title": "Visualizações por status",
-     "desc": "Suplementos organizados em Próximos, Pendentes, Pulados e Concluídos.",
+     "desc": "Suplementos organizados em Próximos, Pendentes, Pulados, Concluídos e Interrompidos, para facilitar o acompanhamento.",
      "alt": "Menu de suplementos: Próximos, Pendentes, Concluídos, Pulados, Suplementos interrompidos, Administração direta, Agendar suplementos"
     },
     {
@@ -756,23 +756,23 @@
    "features": [
     {
      "title": "Solicitações de transferência",
-     "desc": "Solicite transferências de animais do recinto para o hospital com ID médico, tipo de visita, finalidade e anexos.",
+     "desc": "Solicite a hospitalização de animais, do local para o hospital, com ID médico, tipo de visita, finalidade e anexos.",
      "alt": "Formulário de internação do animal: animal selecionado, ID médico (criar novo), campos Hospital e Tipo de visita, Enviar"
     },
     {
      "title": "Status da transferência",
      "desc": "Acompanhe cada transferência por suas etapas: Pendente, Em trânsito, Aceita.",
-     "alt": "Transferência HT29-00038: trajeto, solicitante, animal selecionado, status Transferência concluída e botão Saída pela segurança (“Security Checkout”)"
+     "alt": "Separador Transferência para o hospital no perfil do local: separadores Em trânsito, Aceites e Cancelados, com pedidos como HT29-00069 a aguardar aceitação"
     },
     {
      "title": "Entrada / saída pela segurança",
      "desc": "Movimentação controlada dos pacientes, com entrada e saída registradas pela segurança na unidade e no hospital.",
-     "alt": "Transferência HT29-00038: trajeto, solicitante, animal selecionado, status Transferência concluída e botão Saída pela segurança (“Security Checkout”)"
+     "alt": "Transferência HT29-00068: saída de segurança pendente, com o botão Entrada de segurança"
     },
     {
      "title": "Ver relatórios de alta",
      "desc": "Acesse os resumos de alta e o histórico de internações diretamente no aplicativo.",
-     "alt": "Formulário de internação do animal: animal selecionado, ID médico (criar novo), campos Hospital e Tipo de visita, Enviar"
+     "alt": "Registo médico MED29-18889 de um crocodilo-de-água-salgada: tipo de caso e um anexo Discharge_Summary.pdf adicionado pelo veterinário"
     }
    ]
   },

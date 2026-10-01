@@ -428,7 +428,7 @@
     {
      "title": "Entidades etiquetadas",
      "desc": "Vea todas las sedes, secciones, recintos, especies y animales asociados a una etiqueta seleccionada.",
-     "alt": "Entidades etiquetadas con Mantenimiento de recintos: pestañas Animales / Secciones / Sede, Sede (1) muestra la sede de Bangalore"
+     "alt": "Pestaña Entidades de la etiqueta Desparasitación pendiente: 12 entidades etiquetadas, una lista con búsqueda de recintos, secciones, especies y animales"
     }
    ]
   },
@@ -440,32 +440,32 @@
     {
      "title": "Tipos de traslado",
      "desc": "Traslados internos, entre sedes y externos.",
-     "alt": "Cuadro de diálogo para elegir el tipo de traslado"
+     "alt": "Diálogo para elegir el tipo de traslado: interno, entre sedes y externo"
     },
     {
      "title": "Aprobación",
      "desc": "Autorización de las autoridades designadas de la sede.",
-     "alt": "Traslado entre sedes pendiente de aprobación"
+     "alt": "Traslado entre sedes pendiente de aprobación, con Aprobar y Rechazar"
     },
     {
      "title": "Cancelar / rechazar",
      "desc": "Cancele o rechace solicitudes y vuelva a iniciarlas si es necesario.",
-     "alt": "Opción de cancelar el traslado"
+     "alt": "Opción Cancelar traslado en el menú del traslado"
     },
     {
      "title": "Entrada / salida de seguridad",
      "desc": "Control de entrada y salida en los traslados entre sedes y externos.",
-     "alt": "Autorización de seguridad y salida del traslado"
+     "alt": "Autorización de seguridad pendiente, con la acción Salida de seguridad"
     },
     {
      "title": "Asignación",
      "desc": "A la llegada, asigne el animal a un recinto y notifique al personal.",
-     "alt": "Traslado aprobado, asignar recintos"
+     "alt": "Estado Animales recibidos, con la acción Asignar recintos"
     },
     {
      "title": "Registro de traslados",
      "desc": "Historial completo de estados con fecha, hora y usuarios.",
-     "alt": "Cronología del estado del traslado, traslado completado"
+     "alt": "Cronología del traslado que termina en Traslado completado"
     }
    ]
   },
@@ -528,7 +528,7 @@
     },
     {
      "title": "Visibilidad",
-     "desc": "Marcado como desaparecido en el perfil; actualizaciones rápidas mediante QR.",
+     "desc": "Marcado como desaparecido en el perfil del animal.",
      "alt": "Perfil del animal con la insignia de desaparecido y el código QR"
     }
    ]
@@ -540,7 +540,7 @@
    "features": [
     {
      "title": "Creación de registros",
-     "desc": "Varios flujos para añadir registros individuales, por lotes, de grupo, programados (vacunación, desparasitación, suplemento) o directos (administración, receta, vacunación, desparasitación, suplemento), con registro exacto de fecha y hora y solicitudes de laboratorio.",
+     "desc": "Varios flujos para añadir registros individuales, por lotes, de grupo, programados (vacunación, desparasitación, suplemento) o directos (administración, receta, vacunación, desparasitación, suplemento) y solicitudes de laboratorio, con registro exacto de fecha y hora.",
      "alt": "Menú de creación de registros: registro médico individual, de grupo o por lotes, solicitud de laboratorio agrupada, administración directa, receta, vacunación, desparasitación, suplementos"
     },
     {
@@ -560,7 +560,7 @@
     },
     {
      "title": "Reasignar registros",
-     "desc": "Los veterinarios con permisos de edición pueden reasignarse registros creados originalmente por otro veterinario.",
+     "desc": "Los veterinarios pueden reasignarse registros creados originalmente por otro veterinario.",
      "alt": "Confirmación de reasignación: ¿Desea reasignarse este registro médico? Sí / No"
     }
    ]
@@ -630,7 +630,7 @@
     {
      "title": "Resumen en la pantalla de inicio",
      "desc": "Vea el número de tratamientos pendientes directamente en la pantalla de inicio para actuar con más rapidez.",
-     "alt": "Pantalla de inicio de la app: Datos clave y una tarjeta de Administración pendiente con 1028 procesos pendientes"
+     "alt": "Pantalla Administración pendiente: 847 dosis pendientes en total entre animales, medicamentos y sustancias controladas, desglosadas por sede"
     }
    ],
    "shots": {
@@ -645,7 +645,7 @@
    "features": [
     {
      "title": "Vistas por estado",
-     "desc": "Vacunas organizadas en Próximas, Pendientes, Omitidas y Completadas para facilitar su seguimiento.",
+     "desc": "Vacunas organizadas en Próximas, Pendientes, Omitidas, Completadas y Detenidas para facilitar su seguimiento.",
      "alt": "Menú de vacunación: Próximas, Pendientes, Completadas, Omitidas, Vacunas suspendidas, Administración directa, Programar vacunación"
     },
     {
@@ -682,7 +682,7 @@
    "features": [
     {
      "title": "Vistas por estado",
-     "desc": "Desparasitaciones organizadas en Próximas, Pendientes, Omitidas y Completadas para facilitar su seguimiento.",
+     "desc": "Desparasitaciones organizadas en Próximas, Pendientes, Omitidas, Completadas y Detenidas para facilitar su seguimiento.",
      "alt": "Menú de desparasitación: Próximas, Pendientes, Completadas, Omitidas, Desparasitaciones suspendidas, Administración directa, Programar desparasitación"
     },
     {
@@ -719,7 +719,7 @@
    "features": [
     {
      "title": "Vistas por estado",
-     "desc": "Suplementos organizados en Próximos, Pendientes, Omitidos y Completados.",
+     "desc": "Suplementos organizados en Próximos, Pendientes, Omitidos, Completados y Detenidos para facilitar su seguimiento.",
      "alt": "Menú de suplementos: Próximos, Pendientes, Completados, Omitidos, Suplementos suspendidos, Administración directa, Programar suplementos"
     },
     {
@@ -756,23 +756,23 @@
    "features": [
     {
      "title": "Solicitudes de traslado",
-     "desc": "Solicite traslados de animales del recinto al hospital con ID médico, tipo de visita, motivo y adjuntos.",
+     "desc": "Solicite la hospitalización de animales, del sitio al hospital, con ID médico, tipo de visita, motivo y adjuntos.",
      "alt": "Formulario de hospitalización: animal seleccionado, ID médico (crear nuevo), campos Hospital y Tipo de visita, Enviar"
     },
     {
      "title": "Estado del traslado",
      "desc": "Siga cada traslado a través de sus etapas: Pendiente, En tránsito, Aceptado.",
-     "alt": "Traslado HT29-00038: ruta, iniciador, animal seleccionado, estado Traslado completado y botón Salida de seguridad"
+     "alt": "Pestaña Traslado al hospital en el perfil de la sede: pestañas En tránsito, Aceptados y Cancelados, con solicitudes como HT29-00069 pendientes de aceptación"
     },
     {
      "title": "Entrada / salida de seguridad",
      "desc": "Movimiento controlado de pacientes con entrada y salida gestionadas por seguridad en la sede y en el hospital.",
-     "alt": "Traslado HT29-00038: ruta, iniciador, animal seleccionado, estado Traslado completado y botón Salida de seguridad"
+     "alt": "Traslado HT29-00068: salida de seguridad pendiente, con el botón Entrada de seguridad"
     },
     {
      "title": "Ver informes de alta",
      "desc": "Acceda a los resúmenes de alta y al historial de hospitalización directamente desde la app.",
-     "alt": "Formulario de hospitalización: animal seleccionado, ID médico (crear nuevo), campos Hospital y Tipo de visita, Enviar"
+     "alt": "Registro médico MED29-18889 de un cocodrilo marino: tipo de caso y un adjunto Discharge_Summary.pdf añadido por el veterinario"
     }
    ]
   },

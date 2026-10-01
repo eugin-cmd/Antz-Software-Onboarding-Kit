@@ -428,7 +428,7 @@
     {
      "title": "Vipengele vilivyowekwa lebo",
      "desc": "Tazama Vituo, Sehemu, Vizimba, Spishi na Wanyama wote wanaohusishwa na lebo uliyochagua.",
-     "alt": "Vipengele vilivyowekwa lebo ya Enclosure Maintenance: vichupo vya Animals / Sections / Site, Site (1) ikionyesha kituo cha Bangalore"
+     "alt": "Kichupo cha Vitu vya lebo ya Dawa ya minyoo inahitajika: vitu 12 vilivyowekwa lebo, orodha inayotafutika ya mabanda, sehemu, spishi na wanyama"
     }
    ]
   },
@@ -440,32 +440,32 @@
     {
      "title": "Aina za uhamisho",
      "desc": "Uhamisho wa ndani, kati ya vituo, na wa nje.",
-     "alt": "Kidirisha cha kuchagua aina ya uhamisho"
+     "alt": "Kidirisha cha kuchagua aina ya uhamisho: wa ndani, kati ya maeneo na wa nje"
     },
     {
      "title": "Idhini",
      "desc": "Uidhinishaji kutoka kwa mamlaka zilizoteuliwa za kituo.",
-     "alt": "Uhamisho kati ya vituo unaosubiri idhini"
+     "alt": "Uhamisho kati ya maeneo unasubiri idhini, pamoja na Idhinisha na Kataa"
     },
     {
      "title": "Ghairi / kataa",
      "desc": "Ghairi au kataa maombi na uanzishe upya inapohitajika.",
-     "alt": "Chaguo la kughairi uhamisho"
+     "alt": "Chaguo la Ghairi uhamisho kwenye menyu ya uhamisho"
     },
     {
      "title": "Ukaguzi wa usalama wa kuingia / kutoka",
      "desc": "Kuingia/kutoka kunakodhibitiwa kwa uhamisho kati ya vituo na wa nje.",
-     "alt": "Kibali cha usalama na ukaguzi wa kutoka kwa uhamisho"
+     "alt": "Idhini ya usalama inasubiriwa, pamoja na kitendo cha Kutoka kwa ukaguzi wa usalama"
     },
     {
      "title": "Ugawaji",
      "desc": "Mnyama anapowasili, mgawie kizimba na uwajulishe wafanyakazi.",
-     "alt": "Uhamisho ulioidhinishwa, gawa vizimba"
+     "alt": "Hali ya Wanyama wamepokelewa, pamoja na kitendo cha Gawa mabanda"
     },
     {
      "title": "Kumbukumbu ya uhamisho",
      "desc": "Historia kamili ya hali pamoja na muda na watumiaji.",
-     "alt": "Ratiba ya hali ya uhamisho, uhamisho umekamilika"
+     "alt": "Ratiba ya matukio ya uhamisho inayoishia kwenye Uhamisho umekamilika"
     }
    ]
   },
@@ -528,7 +528,7 @@
     },
     {
      "title": "Mwonekano",
-     "desc": "Alama ya kupotea kwenye wasifu; masasisho ya haraka kwa QR.",
+     "desc": "Alama ya kupotea kwenye wasifu wa mnyama.",
      "alt": "Wasifu wa mnyama pamoja na beji ya kupotea na QR"
     }
    ]
@@ -540,7 +540,7 @@
    "features": [
     {
      "title": "Kuunda kumbukumbu",
-     "desc": "Mitiririko mbalimbali ya kuongeza kumbukumbu za mnyama mmoja, bechi, kundi, zilizopangwa (chanjo, dawa ya minyoo, virutubisho) au za moja kwa moja (utoaji dawa, maagizo ya dawa, chanjo, dawa ya minyoo, virutubisho), pamoja na kurekodi tarehe na muda kamili na maombi ya maabara.",
+     "desc": "Mitiririko mbalimbali ya kuongeza kumbukumbu za mnyama mmoja, bechi, kundi, zilizopangwa (chanjo, dawa ya minyoo, virutubisho) au za moja kwa moja (utoaji dawa, maagizo ya dawa, chanjo, dawa ya minyoo, virutubisho) na maombi ya maabara, pamoja na kurekodi tarehe na muda kamili.",
      "alt": "Menyu ya kuunda kumbukumbu: Single, Group, Batch medical record, Pool Lab Request, Direct Administer, Prescription, Vaccination, Deworming, Supplements"
     },
     {
@@ -560,7 +560,7 @@
     },
     {
      "title": "Hamisha umiliki wa kumbukumbu",
-     "desc": "Madaktari wenye ruhusa ya kuhariri wanaweza kujihamishia kumbukumbu zilizoundwa awali na daktari mwingine wa mifugo.",
+     "desc": "Madaktari wanaweza kujihamishia kumbukumbu zilizoundwa awali na daktari mwingine wa mifugo.",
      "alt": "Uthibitisho wa kuhamisha: Unataka kujihamishia kumbukumbu hii ya matibabu? Yes / No"
     }
    ]
@@ -630,7 +630,7 @@
     {
      "title": "Muhtasari wa skrini ya mwanzo",
      "desc": "Ona idadi ya matibabu yanayosubiri moja kwa moja kwenye skrini ya mwanzo kwa hatua za haraka.",
-     "alt": "Skrini ya mwanzo ya programu: Key Insights, na kadi ya Pending Administration ikionyesha michakato 1028 inayosubiri"
+     "alt": "Skrini ya Utoaji unaosubiriwa: jumla ya dozi 847 zinazosubiriwa kwa wanyama, dawa na dawa zinazodhibitiwa, zimegawanywa kwa kila eneo"
     }
    ],
    "shots": {
@@ -645,7 +645,7 @@
    "features": [
     {
      "title": "Mwonekano kwa hali",
-     "desc": "Chanjo zimepangwa katika Zijazo, Zinazosubiri, Zilizorukwa, na Zilizokamilika kwa ufuatiliaji rahisi.",
+     "desc": "Chanjo zimepangwa katika Zijazo, Zinazosubiri, Zilizorukwa, Zilizokamilika, na Zilizositishwa kwa ufuatiliaji rahisi.",
      "alt": "Menyu ya Vaccination: Upcoming, Pending, Completed, Skipped, Stopped Vaccine, Direct Administer, Schedule Vaccination"
     },
     {
@@ -682,7 +682,7 @@
    "features": [
     {
      "title": "Mwonekano kwa hali",
-     "desc": "Dawa ya minyoo imepangwa katika Zijazo, Zinazosubiri, Zilizorukwa, na Zilizokamilika kwa ufuatiliaji rahisi.",
+     "desc": "Dawa ya minyoo imepangwa katika Zijazo, Zinazosubiri, Zilizorukwa, Zilizokamilika, na Zilizositishwa kwa ufuatiliaji rahisi.",
      "alt": "Menyu ya Deworming: Upcoming, Pending, Completed, Skipped, Stopped Deworming, Direct Administer, Schedule Deworming"
     },
     {
@@ -719,7 +719,7 @@
    "features": [
     {
      "title": "Mwonekano kwa hali",
-     "desc": "Virutubisho vimepangwa katika Vijavyo, Vinavyosubiri, Vilivyorukwa, na Vilivyokamilika.",
+     "desc": "Virutubisho vimepangwa katika Vijavyo, Vinavyosubiri, Vilivyorukwa, Vilivyokamilika, na Vilivyositishwa kwa ufuatiliaji rahisi.",
      "alt": "Menyu ya Supplements: Upcoming, Pending, Completed, Skipped, Stopped Supplements, Direct Administer, Schedule Supplements"
     },
     {
@@ -756,23 +756,23 @@
    "features": [
     {
      "title": "Maombi ya uhamisho",
-     "desc": "Anzisha uhamisho wa wanyama kutoka kizimba kwenda hospitali pamoja na namba ya matibabu, aina ya ziara, madhumuni, na viambatisho.",
+     "desc": "Wasilisha maombi ya kulaza wanyama hospitalini kutoka eneo kwenda hospitali pamoja na namba ya matibabu, aina ya ziara, madhumuni, na viambatisho.",
      "alt": "Fomu ya kulaza mnyama hospitalini: mnyama aliyechaguliwa, Medical ID (Create new), sehemu za Hospital na Visit type, Submit"
     },
     {
      "title": "Hali ya uhamisho",
      "desc": "Fuatilia kila uhamisho katika hatua zake, Inasubiri, Njiani, Umepokelewa.",
-     "alt": "Uhamisho HT29-00038: njia, aliyeanzisha, mnyama aliyechaguliwa, hali Transfer Completed na kitufe cha Security Checkout"
+     "alt": "Kichupo cha Uhamisho wa hospitali kwenye wasifu wa eneo: vichupo vya Safarini, Vilivyokubaliwa na Vilivyoghairiwa, pamoja na maombi kama HT29-00069 yanayosubiri kukubaliwa"
     },
     {
      "title": "Ukaguzi wa usalama wa kuingia / kutoka",
      "desc": "Uhamisho wa wagonjwa unaodhibitiwa kwa ukaguzi wa usalama wa kuingia na kutoka kituoni na hospitalini.",
-     "alt": "Uhamisho HT29-00038: njia, aliyeanzisha, mnyama aliyechaguliwa, hali Transfer Completed na kitufe cha Security Checkout"
+     "alt": "Uhamisho HT29-00068: ukaguzi wa usalama wa kutoka unasubiriwa, pamoja na kitufe cha Kuingia kwa ukaguzi wa usalama"
     },
     {
      "title": "Tazama ripoti za kuruhusiwa",
      "desc": "Pata muhtasari wa kuruhusiwa kutoka hospitali na historia ya kulazwa moja kwa moja kutoka kwenye programu.",
-     "alt": "Fomu ya kulaza mnyama hospitalini: mnyama aliyechaguliwa, Medical ID (Create new), sehemu za Hospital na Visit type, Submit"
+     "alt": "Kumbukumbu ya matibabu MED29-18889 ya mamba wa maji ya chumvi: aina ya kesi, na kiambatisho Discharge_Summary.pdf kilichoongezwa na daktari wa mifugo"
     }
    ]
   },

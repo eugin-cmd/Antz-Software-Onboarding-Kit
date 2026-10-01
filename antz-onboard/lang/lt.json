@@ -428,7 +428,7 @@
     {
      "title": "Pažymėti objektai",
      "desc": "Peržiūrėkite visas su pasirinkta žyma susietas vietas, sekcijas, aptvarus, rūšis ir gyvūnus.",
-     "alt": "Žymos „Enclosure Maintenance“ pažymėti objektai: skirtukai „Animals“ / „Sections“ / „Site“, „Site (1)“ rodo Bangalore vietą"
+     "alt": "Žymos „Laikas dehelmintizuoti“ skirtukas Objektai: 12 pažymėtų objektų, ieškomas aptvarų, skyrių, rūšių ir gyvūnų sąrašas"
     }
    ]
   },
@@ -440,32 +440,32 @@
     {
      "title": "Perkėlimo tipai",
      "desc": "Vidiniai, tarp vietų ir išoriniai perkėlimai.",
-     "alt": "Perkėlimo tipo pasirinkimo langas"
+     "alt": "Perkėlimo tipo pasirinkimo langas: vidinis, tarp vietų ir išorinis"
     },
     {
      "title": "Patvirtinimas",
      "desc": "Paskirtų vietos atsakingų asmenų leidimas.",
-     "alt": "Perkėlimas tarp vietų, laukiantis patvirtinimo"
+     "alt": "Perkėlimas tarp vietų laukia patvirtinimo, su mygtukais Patvirtinti ir Atmesti"
     },
     {
      "title": "Atšaukimas / atmetimas",
      "desc": "Atšaukite ar atmeskite užklausas ir prireikus inicijuokite iš naujo.",
-     "alt": "Perkėlimo atšaukimo parinktis"
+     "alt": "Perkėlimo meniu parinktis Atšaukti perkėlimą"
     },
     {
      "title": "Apsaugos įregistravimas / išregistravimas",
      "desc": "Kontroliuojamas įregistravimas ir išregistravimas perkeliant tarp vietų ir už organizacijos ribų.",
-     "alt": "Apsaugos leidimas ir išregistravimas perkėlimui"
+     "alt": "Laukiama apsaugos patikra su veiksmu Apsaugos išvykimas"
     },
     {
      "title": "Paskirstymas",
      "desc": "Atvykus paskirkite į aptvarą ir praneškite darbuotojams.",
-     "alt": "Patvirtintas perkėlimas, aptvarų paskirstymas"
+     "alt": "Būsena Gyvūnai gauti su veiksmu Priskirti aptvarus"
     },
     {
      "title": "Perkėlimų žurnalas",
      "desc": "Visa būsenų istorija su laiko žymomis ir naudotojais.",
-     "alt": "Perkėlimo būsenų laiko juosta, perkėlimas baigtas"
+     "alt": "Perkėlimo laiko juosta, kuri baigiasi būsena Perkėlimas baigtas"
     }
    ]
   },
@@ -528,7 +528,7 @@
     },
     {
      "title": "Matomumas",
-     "desc": "Profilyje pažymėta kaip dingęs; greiti atnaujinimai per QR kodą.",
+     "desc": "Gyvūno profilyje pažymėta kaip dingęs.",
      "alt": "Gyvūno profilis su dingusio ženkliuku ir QR kodu"
     }
    ]
@@ -540,7 +540,7 @@
    "features": [
     {
      "title": "Įrašų kūrimas",
-     "desc": "Kelios darbo eigos pavieniams, partijos, grupės, suplanuotiems (vakcinacija, dehelmintizacija, papildai) arba tiesioginiams (skyrimas, receptas, vakcinacija, dehelmintizacija, papildai) įrašams pridėti, su tikslia data ir laiku bei laboratorinių tyrimų užklausomis.",
+     "desc": "Kelios darbo eigos pavieniams, partijos, grupės, suplanuotiems (vakcinacija, dehelmintizacija, papildai) arba tiesioginiams (skyrimas, receptas, vakcinacija, dehelmintizacija, papildai) įrašams ir laboratorinių tyrimų užklausoms pridėti, su tikslia data ir laiku.",
      "alt": "Įrašų kūrimo meniu: pavienis, grupės, partijos medicininis įrašas, jungtinė laboratorinė užklausa, tiesioginis skyrimas, receptas, vakcinacija, dehelmintizacija, papildai"
     },
     {
@@ -560,7 +560,7 @@
     },
     {
      "title": "Įrašų perskyrimas",
-     "desc": "Gydytojai, turintys redagavimo leidimus, gali perskirti sau įrašus, kuriuos iš pradžių sukūrė kitas veterinaras.",
+     "desc": "Gydytojai gali perskirti sau įrašus, kuriuos iš pradžių sukūrė kitas veterinaras.",
      "alt": "Perskyrimo patvirtinimas: ar norite perskirti šį medicininį įrašą sau? Taip / Ne"
     }
    ]
@@ -630,7 +630,7 @@
     {
      "title": "Pradžios ekrano apžvalga",
      "desc": "Laukiančių gydymo procedūrų skaičius rodomas tiesiog pradžios ekrane, kad galėtumėte greičiau imtis veiksmų.",
-     "alt": "Programėlės pradžios ekranas: pagrindinės įžvalgos ir kortelė „Pending Administration“, rodanti 1028 laukiančius procesus"
+     "alt": "Ekranas Laukiami skyrimai: iš viso 847 laukiančios dozės pagal gyvūnus, vaistus ir kontroliuojamas medžiagas, suskirstytos pagal vietą"
     }
    ],
    "shots": {
@@ -645,7 +645,7 @@
    "features": [
     {
      "title": "Rodiniai pagal būseną",
-     "desc": "Vakcinacijos suskirstytos į būsimas, laukiančias, praleistas ir atliktas, kad būtų lengva stebėti.",
+     "desc": "Vakcinacijos suskirstytos į būsimas, laukiančias, praleistas, atliktas ir sustabdytas, kad būtų lengva stebėti.",
      "alt": "Vakcinacijos meniu: „Upcoming“, „Pending“, „Completed“, „Skipped“, „Stopped Vaccine“, „Direct Administer“, „Schedule Vaccination“"
     },
     {
@@ -682,7 +682,7 @@
    "features": [
     {
      "title": "Rodiniai pagal būseną",
-     "desc": "Dehelmintizacijos suskirstytos į būsimas, laukiančias, praleistas ir atliktas, kad būtų lengva stebėti.",
+     "desc": "Dehelmintizacijos suskirstytos į būsimas, laukiančias, praleistas, atliktas ir sustabdytas, kad būtų lengva stebėti.",
      "alt": "Dehelmintizacijos meniu: „Upcoming“, „Pending“, „Completed“, „Skipped“, „Stopped Deworming“, „Direct Administer“, „Schedule Deworming“"
     },
     {
@@ -719,7 +719,7 @@
    "features": [
     {
      "title": "Rodiniai pagal būseną",
-     "desc": "Papildai suskirstyti į būsimus, laukiančius, praleistus ir atliktus.",
+     "desc": "Papildai suskirstyti į būsimus, laukiančius, praleistus, atliktus ir sustabdytus, kad būtų lengva stebėti.",
      "alt": "Papildų meniu: „Upcoming“, „Pending“, „Completed“, „Skipped“, „Stopped Supplements“, „Direct Administer“, „Schedule Supplements“"
     },
     {
@@ -756,23 +756,23 @@
    "features": [
     {
      "title": "Perkėlimo užklausos",
-     "desc": "Inicijuokite gyvūnų perkėlimą iš aptvaro į ligoninę su medicininiu ID, vizito tipu, tikslu ir priedais.",
+     "desc": "Teikite prašymus hospitalizuoti gyvūnus iš vietos į ligoninę su medicininiu ID, vizito tipu, tikslu ir priedais.",
      "alt": "Gyvūno hospitalizavimo forma: pasirinktas gyvūnas, medicininis ID (sukurti naują), ligoninės ir vizito tipo laukai, „Submit“"
     },
     {
      "title": "Perkėlimo būsena",
      "desc": "Sekite kiekvieną perkėlimą per jo etapus: laukia, vežamas, priimtas.",
-     "alt": "Perkėlimas HT29-00038: maršrutas, iniciatorius, pasirinktas gyvūnas, būsena „Transfer Completed“ ir mygtukas „Security Checkout“"
+     "alt": "Vietos profilio skirtukas Perkėlimas į ligoninę: skirtukai Kelyje, Priimti ir Atšaukti, su prašymais, pvz., HT29-00069, laukiančiais priėmimo"
     },
     {
      "title": "Apsaugos įregistravimas / išregistravimas",
      "desc": "Kontroliuojamas pacientų judėjimas su apsaugos įregistravimu ir išregistravimu vietoje ir ligoninėje.",
-     "alt": "Perkėlimas HT29-00038: maršrutas, iniciatorius, pasirinktas gyvūnas, būsena „Transfer Completed“ ir mygtukas „Security Checkout“"
+     "alt": "Perkėlimas HT29-00068: laukiama apsaugos išvykimo, su mygtuku Apsaugos atvykimas"
     },
     {
      "title": "Išrašymo ataskaitų peržiūra",
      "desc": "Išrašymo santraukas ir hospitalizavimo istoriją pasiekite tiesiai programėlėje.",
-     "alt": "Gyvūno hospitalizavimo forma: pasirinktas gyvūnas, medicininis ID (sukurti naują), ligoninės ir vizito tipo laukai, „Submit“"
+     "alt": "Jūrinio krokodilo medicininis įrašas MED29-18889: atvejo tipas ir veterinaro pridėtas priedas Discharge_Summary.pdf"
     }
    ]
   },

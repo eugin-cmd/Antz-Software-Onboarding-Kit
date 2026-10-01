@@ -428,7 +428,7 @@
     {
      "title": "Markierte Einheiten",
      "desc": "Alle Standorte, Bereiche, Gehege, Arten und Tiere ansehen, die einem ausgewählten Tag zugeordnet sind.",
-     "alt": "Markierte Einheiten für den Tag Enclosure Maintenance: Registerkarten Tiere / Bereiche / Standort, Standort (1) zeigt Standort Bangalore"
+     "alt": "Registerkarte Entitäten des Tags „Entwurmung fällig“: 12 getaggte Entitäten, eine durchsuchbare Liste von Gehegen, Bereichen, Arten und Tieren"
     }
    ]
   },
@@ -440,32 +440,32 @@
     {
      "title": "Transferarten",
      "desc": "Interne, standortübergreifende und externe Transfers.",
-     "alt": "Dialog zur Auswahl der Transferart"
+     "alt": "Dialog zur Auswahl der Transferart: intern, standortübergreifend und extern"
     },
     {
      "title": "Genehmigung",
      "desc": "Freigabe durch die zuständigen Verantwortlichen am Standort.",
-     "alt": "Standortübergreifender Transfer wartet auf Genehmigung"
+     "alt": "Standortübergreifender Transfer wartet auf Genehmigung, mit Genehmigen und Ablehnen"
     },
     {
      "title": "Stornieren / ablehnen",
      "desc": "Anfragen stornieren oder ablehnen und bei Bedarf neu anstoßen.",
-     "alt": "Option zum Stornieren eines Transfers"
+     "alt": "Option Transfer stornieren im Transfermenü"
     },
     {
      "title": "Sicherheits-Check-in / -out",
      "desc": "Kontrollierter Check-in/-out bei standortübergreifenden und externen Transfers.",
-     "alt": "Sicherheitsfreigabe und Check-out für einen Transfer"
+     "alt": "Sicherheitsfreigabe ausstehend, mit der Aktion Sicherheits-Check-out"
     },
     {
      "title": "Zuweisung",
      "desc": "Bei Ankunft einem Gehege zuweisen und das Personal benachrichtigen.",
-     "alt": "Genehmigter Transfer, Gehege zuweisen"
+     "alt": "Status Tiere erhalten, mit der Aktion Gehege zuweisen"
     },
     {
      "title": "Transferprotokoll",
      "desc": "Vollständiger Statusverlauf mit Zeitstempeln und Nutzenden.",
-     "alt": "Status-Zeitleiste des Transfers, Transfer abgeschlossen"
+     "alt": "Transferverlauf, der mit Transfer abgeschlossen endet"
     }
    ]
   },
@@ -528,7 +528,7 @@
     },
     {
      "title": "Sichtbarkeit",
-     "desc": "Im Profil als vermisst gekennzeichnet; schnelle Aktualisierung per QR-Code.",
+     "desc": "Im Tierprofil als vermisst gekennzeichnet.",
      "alt": "Tierprofil mit Vermisst-Badge und QR-Code"
     }
    ]
@@ -540,7 +540,7 @@
    "features": [
     {
      "title": "Akte anlegen",
-     "desc": "Mehrere Abläufe, um Einzel-, Sammel-, Gruppen-, geplante (Impfung, Entwurmung, Ergänzungsmittel) oder direkte (Verabreichung, Verschreibung, Impfung, Entwurmung, Ergänzungsmittel) Einträge anzulegen, mit genauer Erfassung von Datum und Uhrzeit sowie Laboranforderungen.",
+     "desc": "Mehrere Abläufe, um Einzel-, Sammel-, Gruppen-, geplante (Impfung, Entwurmung, Ergänzungsmittel) oder direkte (Verabreichung, Verschreibung, Impfung, Entwurmung, Ergänzungsmittel) Einträge und Laboranforderungen anzulegen, mit genauer Erfassung von Datum und Uhrzeit.",
      "alt": "Menü zum Anlegen von Akten: Einzel-, Gruppen- und Sammelakte, Sammel-Laboranforderung, direkte Verabreichung, Verschreibung, Impfung, Entwurmung, Ergänzungsmittel"
     },
     {
@@ -560,7 +560,7 @@
     },
     {
      "title": "Akten neu zuweisen",
-     "desc": "Tierärzte mit Bearbeitungsrechten können Akten, die ursprünglich von einem anderen Tierarzt angelegt wurden, sich selbst zuweisen.",
+     "desc": "Tierärzte können Akten, die ursprünglich von einem anderen Tierarzt angelegt wurden, sich selbst zuweisen.",
      "alt": "Bestätigung der Neuzuweisung: Möchten Sie diese medizinische Akte sich selbst zuweisen? Ja / Nein"
     }
    ]
@@ -630,7 +630,7 @@
     {
      "title": "Übersicht auf dem Startbildschirm",
      "desc": "Die Anzahl ausstehender Behandlungen direkt auf dem Startbildschirm sehen und schneller handeln.",
-     "alt": "Startbildschirm der App: Kennzahlen und eine Karte „Ausstehende Verabreichungen“ mit 1028 ausstehenden Vorgängen"
+     "alt": "Bildschirm Ausstehende Verabreichungen: insgesamt 847 ausstehende Dosen über Tiere, Medikamente und kontrollierte Substanzen, aufgeschlüsselt nach Standort"
     }
    ],
    "shots": {
@@ -645,7 +645,7 @@
    "features": [
     {
      "title": "Ansichten nach Status",
-     "desc": "Impfungen gegliedert in Anstehend, Ausstehend, Übersprungen und Abgeschlossen für eine einfache Überwachung.",
+     "desc": "Impfungen gegliedert in Anstehend, Ausstehend, Übersprungen, Abgeschlossen und Gestoppt für eine einfache Überwachung.",
      "alt": "Impfmenü: Anstehend, Ausstehend, Abgeschlossen, Übersprungen, Abgebrochene Impfungen, Direkte Verabreichung, Impfung planen"
     },
     {
@@ -682,7 +682,7 @@
    "features": [
     {
      "title": "Ansichten nach Status",
-     "desc": "Entwurmungen gegliedert in Anstehend, Ausstehend, Übersprungen und Abgeschlossen für eine einfache Überwachung.",
+     "desc": "Entwurmungen gegliedert in Anstehend, Ausstehend, Übersprungen, Abgeschlossen und Gestoppt für eine einfache Überwachung.",
      "alt": "Entwurmungsmenü: Anstehend, Ausstehend, Abgeschlossen, Übersprungen, Abgebrochene Entwurmungen, Direkte Verabreichung, Entwurmung planen"
     },
     {
@@ -719,7 +719,7 @@
    "features": [
     {
      "title": "Ansichten nach Status",
-     "desc": "Ergänzungsmittel gegliedert in Anstehend, Ausstehend, Übersprungen und Abgeschlossen.",
+     "desc": "Ergänzungsmittel gegliedert in Anstehend, Ausstehend, Übersprungen, Abgeschlossen und Gestoppt für eine einfache Überwachung.",
      "alt": "Menü Ergänzungsmittel: Anstehend, Ausstehend, Abgeschlossen, Übersprungen, Abgebrochene Ergänzungsmittel, Direkte Verabreichung, Ergänzungsmittel planen"
     },
     {
@@ -756,23 +756,23 @@
    "features": [
     {
      "title": "Transferanfragen",
-     "desc": "Tiertransfers vom Gehege in die Klinik mit medizinischer ID, Besuchsart, Zweck und Anhängen veranlassen.",
+     "desc": "Anfragen zur Einweisung von Tieren vom Standort in die Klinik stellen, mit medizinischer ID, Besuchsart, Zweck und Anhängen.",
      "alt": "Formular zur stationären Aufnahme: ausgewähltes Tier, medizinische ID (neu anlegen), Felder für Klinik und Besuchsart, Absenden"
     },
     {
      "title": "Transferstatus",
      "desc": "Jeden Transfer durch seine Phasen verfolgen: Ausstehend, Unterwegs, Angenommen.",
-     "alt": "Transfer HT29-00038: Route, Auftraggeber, ausgewähltes Tier, Status „Transfer Completed“ und Schaltfläche „Security Checkout“"
+     "alt": "Registerkarte Kliniktransfer im Standortprofil: Reiter Unterwegs, Angenommen und Storniert, mit Anfragen wie HT29-00069, die auf Annahme warten"
     },
     {
      "title": "Sicherheits-Check-in / -out",
      "desc": "Kontrollierte Patientenverlegung mit sicherheitsgestütztem Check-in und Check-out am Standort und in der Klinik.",
-     "alt": "Transfer HT29-00038: Route, Auftraggeber, ausgewähltes Tier, Status „Transfer Completed“ und Schaltfläche „Security Checkout“"
+     "alt": "Transfer HT29-00068: Sicherheits-Check-out ausstehend, mit der Schaltfläche Sicherheits-Check-in"
     },
     {
      "title": "Entlassungsberichte ansehen",
      "desc": "Entlassungsberichte und den Verlauf stationärer Aufenthalte direkt in der App aufrufen.",
-     "alt": "Formular zur stationären Aufnahme: ausgewähltes Tier, medizinische ID (neu anlegen), Felder für Klinik und Besuchsart, Absenden"
+     "alt": "Krankenakte MED29-18889 eines Leistenkrokodils: Fallart und ein vom Tierarzt hinzugefügter Anhang Discharge_Summary.pdf"
     }
    ]
   },

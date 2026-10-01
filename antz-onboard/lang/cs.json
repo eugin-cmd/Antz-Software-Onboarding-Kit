@@ -428,7 +428,7 @@
     {
      "title": "Označené entity",
      "desc": "Zobrazte všechny areály, sekce, výběhy, druhy a zvířata spojené s vybraným štítkem.",
-     "alt": "Označené entity pro štítek Údržba výběhu: karty Zvířata / Sekce / Areál, Areál (1) zobrazuje areál Bangalore"
+     "alt": "Karta Entity štítku Odčervení k provedení: 12 označených entit, prohledávatelný seznam výběhů, sekcí, druhů a zvířat"
     }
    ]
   },
@@ -440,32 +440,32 @@
     {
      "title": "Typy přesunů",
      "desc": "Interní přesuny, přesuny mezi areály a externí přesuny.",
-     "alt": "Dialog výběru typu přesunu"
+     "alt": "Dialog pro výběr typu přesunu: interní, mezi lokalitami a externí"
     },
     {
      "title": "Schválení",
      "desc": "Povolení od určených odpovědných osob areálu.",
-     "alt": "Přesun mezi areály čekající na schválení"
+     "alt": "Přesun mezi lokalitami čeká na schválení, s tlačítky Schválit a Zamítnout"
     },
     {
      "title": "Zrušení / zamítnutí",
      "desc": "Zrušte nebo zamítněte žádosti a podle potřeby je zadejte znovu.",
-     "alt": "Možnost zrušení přesunu"
+     "alt": "Možnost Zrušit přesun v nabídce přesunu"
     },
     {
      "title": "Bezpečnostní příjem / odbavení",
      "desc": "Kontrolovaný příjem a odbavení u přesunů mezi areály a externích přesunů.",
-     "alt": "Bezpečnostní schválení a odbavení přesunu"
+     "alt": "Čekající bezpečnostní kontrola s akcí Bezpečnostní odbavení"
     },
     {
      "title": "Umístění",
      "desc": "Po příjezdu umístěte zvíře do výběhu a upozorněte pracovníky.",
-     "alt": "Schválený přesun, umístění do výběhů"
+     "alt": "Stav Přijatá zvířata s akcí Přidělit výběhy"
     },
     {
      "title": "Záznam přesunu",
      "desc": "Úplná historie stavů s časovými razítky a uživateli.",
-     "alt": "Časová osa stavu přesunu, přesun dokončen"
+     "alt": "Časová osa přesunu končící stavem Přesun dokončen"
     }
    ]
   },
@@ -528,7 +528,7 @@
     },
     {
      "title": "Viditelnost",
-     "desc": "Označení jako pohřešované v profilu; rychlé aktualizace přes QR kód.",
+     "desc": "Označení jako pohřešované v profilu zvířete.",
      "alt": "Profil zvířete s označením pohřešování a QR kódem"
     }
    ]
@@ -540,7 +540,7 @@
    "features": [
     {
      "title": "Vytvoření záznamu",
-     "desc": "Několik postupů pro přidání jednotlivých, dávkových, skupinových, plánovaných (vakcinace, odčervení, doplňky) nebo přímých (podání, předpis, vakcinace, odčervení, doplňky) záznamů s přesným datem a časem a s laboratorními žádankami.",
+     "desc": "Několik postupů pro přidání jednotlivých, dávkových, skupinových, plánovaných (vakcinace, odčervení, doplňky) nebo přímých (podání, předpis, vakcinace, odčervení, doplňky) záznamů a laboratorních žádanek s přesným datem a časem.",
      "alt": "Nabídka vytvoření záznamu: jednotlivý, skupinový, dávkový zdravotní záznam, souhrnná laboratorní žádanka, přímé podání, předpis, vakcinace, odčervení, doplňky"
     },
     {
@@ -560,7 +560,7 @@
     },
     {
      "title": "Převzetí záznamů",
-     "desc": "Lékaři s oprávněním k úpravám mohou převzít záznamy, které původně vytvořil jiný veterinář.",
+     "desc": "Lékaři mohou převzít záznamy, které původně vytvořil jiný veterinář.",
      "alt": "Potvrzení převzetí: Chcete tento zdravotní záznam převzít? Ano / Ne"
     }
    ]
@@ -630,7 +630,7 @@
     {
      "title": "Přehled na domovské obrazovce",
      "desc": "Počet čekajících léčebných úkonů vidíte přímo na domovské obrazovce a můžete rychleji jednat.",
-     "alt": "Domovská obrazovka aplikace: klíčové přehledy a karta Čekající podání s 1028 čekajícími úkony"
+     "alt": "Obrazovka Čekající podání: celkem 847 čekajících dávek u zvířat, léků a kontrolovaných látek, rozdělených podle lokality"
     }
    ],
    "shots": {
@@ -645,7 +645,7 @@
    "features": [
     {
      "title": "Zobrazení podle stavu",
-     "desc": "Vakcinace rozdělené na nadcházející, čekající, vynechané a dokončené pro snadné sledování.",
+     "desc": "Vakcinace rozdělené na nadcházející, čekající, vynechané, dokončené a zastavené pro snadné sledování.",
      "alt": "Nabídka vakcinace: nadcházející, čekající, dokončené, vynechané, ukončené vakcíny, přímé podání, naplánovat vakcinaci"
     },
     {
@@ -682,7 +682,7 @@
    "features": [
     {
      "title": "Zobrazení podle stavu",
-     "desc": "Odčervení rozdělené na nadcházející, čekající, vynechané a dokončené pro snadné sledování.",
+     "desc": "Odčervení rozdělené na nadcházející, čekající, vynechané, dokončené a zastavené pro snadné sledování.",
      "alt": "Nabídka odčervení: nadcházející, čekající, dokončené, vynechané, ukončené odčervení, přímé podání, naplánovat odčervení"
     },
     {
@@ -719,7 +719,7 @@
    "features": [
     {
      "title": "Zobrazení podle stavu",
-     "desc": "Doplňky rozdělené na nadcházející, čekající, vynechané a dokončené.",
+     "desc": "Doplňky rozdělené na nadcházející, čekající, vynechané, dokončené a zastavené pro snadné sledování.",
      "alt": "Nabídka doplňků: nadcházející, čekající, dokončené, vynechané, ukončené doplňky, přímé podání, naplánovat doplňky"
     },
     {
@@ -756,23 +756,23 @@
    "features": [
     {
      "title": "Žádosti o převoz",
-     "desc": "Zadejte převoz zvířete z výběhu do nemocnice se zdravotním ID, typem návštěvy, účelem a přílohami.",
+     "desc": "Zadejte žádost o hospitalizaci zvířete z areálu do nemocnice se zdravotním ID, typem návštěvy, účelem a přílohami.",
      "alt": "Formulář hospitalizace zvířete: vybrané zvíře, zdravotní ID (vytvořit nové), pole Nemocnice a Typ návštěvy, Odeslat"
     },
     {
      "title": "Stav převozu",
      "desc": "Sledujte každý převoz v jednotlivých fázích: Čeká, Na cestě, Přijato.",
-     "alt": "Převoz HT29-00038: trasa, zadavatel, vybrané zvíře, stav Převoz dokončen a tlačítko bezpečnostního odbavení"
+     "alt": "Karta Převoz do nemocnice v profilu areálu: karty Na cestě, Přijaté a Zrušené, s žádostmi jako HT29-00069 čekajícími na přijetí"
     },
     {
      "title": "Bezpečnostní příjem / odbavení",
      "desc": "Kontrolovaný pohyb pacientů s bezpečnostním příjmem a odbavením v areálu i v nemocnici.",
-     "alt": "Převoz HT29-00038: trasa, zadavatel, vybrané zvíře, stav Převoz dokončen a tlačítko bezpečnostního odbavení"
+     "alt": "Převoz HT29-00068: čeká na bezpečnostní odbavení, s tlačítkem Bezpečnostní příjem"
     },
     {
      "title": "Zobrazení propouštěcích zpráv",
      "desc": "Propouštěcí zprávy a historie hospitalizací přímo v aplikaci.",
-     "alt": "Formulář hospitalizace zvířete: vybrané zvíře, zdravotní ID (vytvořit nové), pole Nemocnice a Typ návštěvy, Odeslat"
+     "alt": "Zdravotní záznam MED29-18889 krokodýla mořského: typ případu a příloha Discharge_Summary.pdf přidaná veterinářem"
     }
    ]
   },

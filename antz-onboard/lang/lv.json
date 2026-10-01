@@ -428,7 +428,7 @@
     {
      "title": "Atzīmētās vienības",
      "desc": "Skatiet visas vietas, sekcijas, aplokus, sugas un dzīvniekus, kas saistīti ar izvēlēto birku.",
-     "alt": "Atzīmētās vienības birkai „Enclosure Maintenance”: cilnes Animals / Sections / Site, Site (1) rāda vietu Bangalore"
+     "alt": "Birkas “Jāveic attārpošana” cilne Vienības: 12 atzīmētas vienības, meklējams aploku, sekciju, sugu un dzīvnieku saraksts"
     }
    ]
   },
@@ -440,32 +440,32 @@
     {
      "title": "Pārvietošanas veidi",
      "desc": "Iekšējā, starp vietām un ārējā pārvietošana.",
-     "alt": "Pārvietošanas veida izvēles dialogs"
+     "alt": "Pārvietošanas veida izvēles logs: iekšēja, starp vietām un ārēja"
     },
     {
      "title": "Apstiprināšana",
      "desc": "Atļauja no norīkotajām vietas atbildīgajām personām.",
-     "alt": "Pārvietošana starp vietām gaida apstiprinājumu"
+     "alt": "Pārvietošana starp vietām gaida apstiprinājumu, ar pogām Apstiprināt un Noraidīt"
     },
     {
      "title": "Atcelšana / noraidīšana",
      "desc": "Atceliet vai noraidiet pieprasījumus un pēc vajadzības iesniedziet tos atkārtoti.",
-     "alt": "Pārvietošanas atcelšanas iespēja"
+     "alt": "Pārvietošanas izvēlnes opcija Atcelt pārvietošanu"
     },
     {
      "title": "Apsardzes reģistrēšana ienākot / izejot",
      "desc": "Kontrolēta ienākšanas/iziešanas reģistrēšana pārvietošanai starp vietām un ārējai pārvietošanai.",
-     "alt": "Apsardzes atļauja un izrakstīšana pārvietošanai"
+     "alt": "Gaida drošības pārbaudi, ar darbību Drošības izrakstīšana"
     },
     {
      "title": "Izvietošana",
      "desc": "Pēc ierašanās izvietojiet aplokā un paziņojiet darbiniekiem.",
-     "alt": "Apstiprināta pārvietošana, aploku izvietošana"
+     "alt": "Statuss Dzīvnieki saņemti, ar darbību Piešķirt aplokus"
     },
     {
      "title": "Pārvietošanas žurnāls",
      "desc": "Pilna statusu vēsture ar laika zīmogiem un lietotājiem.",
-     "alt": "Pārvietošanas statusa laika josla, pārvietošana pabeigta"
+     "alt": "Pārvietošanas laika josla, kas beidzas ar Pārvietošana pabeigta"
     }
    ]
   },
@@ -528,7 +528,7 @@
     },
     {
      "title": "Redzamība",
-     "desc": "Profilā atzīmēts kā pazudis; ātri atjauninājumi ar QR kodu.",
+     "desc": "Dzīvnieka profilā atzīmēts kā pazudis.",
      "alt": "Dzīvnieka profils ar pazušanas žetonu un QR kodu"
     }
    ]
@@ -540,7 +540,7 @@
    "features": [
     {
      "title": "Ierakstu izveide",
-     "desc": "Vairākas darba plūsmas, lai pievienotu atsevišķus, sērijas, grupas, plānotus (vakcinācija, attārpošana, uztura bagātinātāji) vai tiešus (ievadīšana, recepte, vakcinācija, attārpošana, uztura bagātinātāji) ierakstus ar precīzu datuma un laika reģistrēšanu un laboratorijas pieprasījumiem.",
+     "desc": "Vairākas darba plūsmas, lai pievienotu atsevišķus, sērijas, grupas, plānotus (vakcinācija, attārpošana, uztura bagātinātāji) vai tiešus (ievadīšana, recepte, vakcinācija, attārpošana, uztura bagātinātāji) ierakstus un laboratorijas pieprasījumus ar precīzu datuma un laika reģistrēšanu.",
      "alt": "Ierakstu izveides izvēlne: Single, Group, Batch medical record, Pool Lab Request, Direct Administer, Prescription, Vaccination, Deworming, Supplements"
     },
     {
@@ -560,7 +560,7 @@
     },
     {
      "title": "Ierakstu pārpiešķiršana",
-     "desc": "Ārsti ar rediģēšanas atļaujām var pārpiešķirt sev ierakstus, ko sākotnēji izveidojis cits veterinārārsts.",
+     "desc": "Ārsti var pārpiešķirt sev ierakstus, ko sākotnēji izveidojis cits veterinārārsts.",
      "alt": "Pārpiešķiršanas apstiprinājums: vai vēlaties pārpiešķirt šo medicīnisko ierakstu sev? Jā / Nē"
     }
    ]
@@ -630,7 +630,7 @@
     {
      "title": "Sākuma ekrāna pārskats",
      "desc": "Redziet gaidošo ārstēšanu skaitu tieši sākuma ekrānā, lai rīkotos ātrāk.",
-     "alt": "Lietotnes sākuma ekrāns: Key Insights un kartīte „Pending Administration” ar 1028 gaidošiem procesiem"
+     "alt": "Ekrāns Gaidošās ievadīšanas: kopā 847 gaidošas devas dzīvniekiem, zālēm un kontrolējamām vielām, sadalītas pa vietām"
     }
    ],
    "shots": {
@@ -645,7 +645,7 @@
    "features": [
     {
      "title": "Skati pēc statusa",
-     "desc": "Vakcinācijas sakārtotas kategorijās „Gaidāmās”, „Gaidošās”, „Izlaistās” un „Pabeigtās” ērtai uzraudzībai.",
+     "desc": "Vakcinācijas sakārtotas kategorijās „Gaidāmās”, „Gaidošās”, „Izlaistās”, „Pabeigtās” un „Apturētās” ērtai uzraudzībai.",
      "alt": "Vakcinācijas izvēlne: Upcoming, Pending, Completed, Skipped, Stopped Vaccine, Direct Administer, Schedule Vaccination"
     },
     {
@@ -682,7 +682,7 @@
    "features": [
     {
      "title": "Skati pēc statusa",
-     "desc": "Attārpošana sakārtota kategorijās „Gaidāmās”, „Gaidošās”, „Izlaistās” un „Pabeigtās” ērtai uzraudzībai.",
+     "desc": "Attārpošana sakārtota kategorijās „Gaidāmās”, „Gaidošās”, „Izlaistās”, „Pabeigtās” un „Apturētās” ērtai uzraudzībai.",
      "alt": "Attārpošanas izvēlne: Upcoming, Pending, Completed, Skipped, Stopped Deworming, Direct Administer, Schedule Deworming"
     },
     {
@@ -719,7 +719,7 @@
    "features": [
     {
      "title": "Skati pēc statusa",
-     "desc": "Uztura bagātinātāji sakārtoti kategorijās „Gaidāmie”, „Gaidošie”, „Izlaistie” un „Pabeigtie”.",
+     "desc": "Uztura bagātinātāji sakārtoti kategorijās „Gaidāmie”, „Gaidošie”, „Izlaistie”, „Pabeigtie” un „Apturētie” ērtai uzraudzībai.",
      "alt": "Uztura bagātinātāju izvēlne: Upcoming, Pending, Completed, Skipped, Stopped Supplements, Direct Administer, Schedule Supplements"
     },
     {
@@ -756,23 +756,23 @@
    "features": [
     {
      "title": "Pārvietošanas pieprasījumi",
-     "desc": "Iesniedziet dzīvnieku pārvietošanu no aploka uz slimnīcu ar medicīnisko ID, vizītes veidu, nolūku un pielikumiem.",
+     "desc": "Iesniedziet pieprasījumus hospitalizēt dzīvniekus no vietas uz slimnīcu ar medicīnisko ID, vizītes veidu, nolūku un pielikumiem.",
      "alt": "Dzīvnieka hospitalizācijas veidlapa: atlasītais dzīvnieks, medicīniskais ID (Create new), slimnīcas un vizītes veida lauki, „Submit”"
     },
     {
      "title": "Pārvietošanas statuss",
      "desc": "Izsekojiet katras pārvietošanas posmus: gaida, ceļā, pieņemts.",
-     "alt": "Pārvietošana HT29-00038: maršruts, iniciators, atlasītais dzīvnieks, statuss „Transfer Completed” un poga „Security Checkout”"
+     "alt": "Vietas profila cilne Pārvietošana uz slimnīcu: cilnes Ceļā, Pieņemtās un Atceltās, ar pieprasījumiem, piemēram, HT29-00069, kas gaida pieņemšanu"
     },
     {
      "title": "Apsardzes reģistrēšana ienākot / izejot",
      "desc": "Kontrolēta pacientu pārvietošana ar apsardzes reģistrēšanu ienākot un izejot gan vietā, gan slimnīcā.",
-     "alt": "Pārvietošana HT29-00038: maršruts, iniciators, atlasītais dzīvnieks, statuss „Transfer Completed” un poga „Security Checkout”"
+     "alt": "Pārvietošana HT29-00068: gaida drošības izrakstīšanu, ar pogu Drošības reģistrēšana"
     },
     {
      "title": "Izrakstīšanas ziņojumu skatīšana",
      "desc": "Piekļūstiet izrakstīšanas kopsavilkumiem un hospitalizācijas vēsturei tieši no lietotnes.",
-     "alt": "Dzīvnieka hospitalizācijas veidlapa: atlasītais dzīvnieks, medicīniskais ID (Create new), slimnīcas un vizītes veida lauki, „Submit”"
+     "alt": "Sālsūdens krokodila medicīniskais ieraksts MED29-18889: gadījuma veids un veterinārārsta pievienots pielikums Discharge_Summary.pdf"
     }
    ]
   },
