@@ -180,6 +180,18 @@
   /* True for mouse and trackpad pointers (used for hover-only effects) */
   const canHover = () => matchMedia('(hover: hover) and (pointer: fine)').matches;
   const icon = (name) => ICON_SET[name] || ICON_SET.note || '';
+  /* Banner titles: one span per letter, so a ripple can run through the title when it appears (as on the
+     LSET Foundation site). Words stay whole so a line never breaks inside one. Scripts whose letters join up
+     (Arabic, Devanagari) or have no spaces between words are left as plain text: splitting them would break
+     the shaping, and the holographic fill still applies. The spans are hidden; the h1 carries the real text. */
+  const WAVE_OK = /^[\p{Script=Latin}\p{Script=Greek}\p{Script=Cyrillic}\p{N}\p{P}\p{Zs}\p{S}]*$/u;
+  const waveTitle = (text) => {
+    if (!WAVE_OK.test(text)) return esc(text);
+    let i = 0;
+    return `<span class="wave" aria-hidden="true">${text.split(' ').map((w) =>
+      `<span class="wave-word">${[...w].map((ch) => `<span class="wave-ch" style="--i:${i++}">${esc(ch)}</span>`).join('')}</span>`).join(' ')}</span>`;
+  };
+  const heroTitle = (text) => `<h1 class="holo" aria-label="${esc(text)}">${waveTitle(text)}</h1>`;
   const SEARCH_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>';
   const CLOSE_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
   const ARROW = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>';
@@ -302,6 +314,7 @@
             <span class="eyebrow">${esc(t('kit.start.eyebrow'))}</span>
             <h2 class="section-title">${esc(start.title)}</h2>
             <p class="section-lede">${esc(start.intro)}</p>
+            ${GUIDE_LINKS && GUIDES['getting-started'] ? `<a class="guide-more" href="#/guide/getting-started"><span><b>${esc(t('guide.more'))}</b><small>${esc(t('guide.moreNote'))}</small></span>${ARROW}</a>` : ''}
             <h3 class="kit-label">${esc(t('kit.start.features'))}</h3>
             <ul class="kit-list">
               ${start.features.map((f) => `
@@ -361,6 +374,141 @@
     document.title = `${title(k)} · ${t('brand.title')}`;
   }
 
+  /* ---------- Guide pages: a kit's full walkthrough (guide.js), linked from its summary page ---------- */
+  /* A banner like the home page's, then the kit's parts as cards; each card opens its screens in the gallery */
+  const GUIDES = window.ANTZ_GUIDES || {};
+  /* Guide pages stay unlinked (reachable only by their #/guide/ address) until every kit has one */
+  const GUIDE_LINKS = false;
+  function renderGuide(id) {
+    const g = GUIDES[id];
+    if (!g) { location.hash = '#/'; return; }
+    const srcOf = (s) => `assets/guide/${id}/${s.src}.webp`;
+    const count = (n) => (n === 1 ? t('guide.screen1') : t('guide.screens', { n }));
+    /* Every set of screens on the page, shaped like a module (one feature per screen), so it opens in the
+       same feature window (desktop) and feature sheet (phones) as the module pages, in the guide's colours */
+    areaById.guide = { id: 'guide', label: g.title, glyph: 'note', modules: [] };
+    const sets = [];
+    const addSet = (key, title, ic, shots) => sets.push({
+      id: `guide-${id}-${key}`, track: 'guide', title,
+      features: shots.map((s) => ({ title: s.title, desc: s.desc, icon: s.icon || ic, shot: srcOf(s) })),
+      shots: shots.map((s) => ({ src: srcOf(s), alt: s.title, device: 'phone' }))
+    }) - 1;
+
+    /* At a glance: the module pages' feature cards, each opening its screen */
+    const glanceHTML = (gl) => {
+      const set = addSet('glance', gl.title, 'home', gl.shots);
+      return `
+        <div class="gfeats reveal">
+          <h3 class="gfeats-title">${esc(gl.title)}</h3>
+          <p class="gfeats-lede">${esc(gl.desc)}</p>
+          <ol class="mfeats">${gl.shots.map((s, i) => `
+            <li class="mfeat-row">
+              <button class="mfeat" type="button" data-set="${set}" data-i="${i}">
+                <span class="n" aria-hidden="true">${icon(s.icon)}</span>
+                <span class="t"><b>${esc(s.title)}</b><small>${esc(s.desc)}</small></span>
+                <span class="mfeat-open" aria-hidden="true">${EXPAND_SVG}</span>
+              </button>
+              <svg class="drawn-border" aria-hidden="true"></svg>
+            </li>`).join('')}
+          </ol>
+        </div>`;
+    };
+    const cardHTML = (c, n) => {
+      const set = addSet(c.id, c.title, c.icon, c.shots);
+      return `
+        <button class="mcard-face gcard" type="button" data-set="${set}" data-i="0">
+          <span class="gcard-thumb"${c.peek ? ` style="--peek:${c.peek}"` : ''}>${deviceHTML({ src: srcOf(c.shots[c.thumb || 0]), alt: '', device: 'phone' })}</span>
+          <span class="gcard-body">
+            <span class="gcard-top"><span class="gcard-ic" aria-hidden="true">${icon(c.icon)}</span><span class="gcard-n">${String(n).padStart(2, '0')}</span></span>
+            <b>${esc(c.title)}</b>
+            <span class="gcard-desc">${esc(c.desc)}</span>
+            <span class="gcard-foot">${esc(count(c.shots.length))} ${ARROW}</span>
+          </span>
+          <svg class="drawn-border" aria-hidden="true"></svg>
+        </button>`;
+    };
+    const actionsHTML = (qa) => {
+      const set = addSet('quick', qa.overview.title, 'add', [qa.overview, ...qa.shots]);
+      return `
+        <div class="gqa reveal">
+          <button class="gqa-stage" type="button" data-set="${set}" data-i="0" aria-label="${esc(t('guide.view'))}: ${esc(qa.overview.title)}">
+            ${deviceHTML({ src: srcOf(qa.overview), alt: '', device: 'phone' })}
+          </button>
+          <div class="gqa-side">
+            <h3>${esc(qa.overview.title)}</h3>
+            <p>${esc(qa.overview.desc)} ${esc(t('guide.qaHint'))}.</p>
+            <ul class="gqa-grid">${qa.shots.map((s, i) => `
+              <li><button type="button" data-set="${set}" data-i="${i + 1}"><b>${esc(s.title)}</b><small>${esc(s.desc)}</small></button></li>`).join('')}
+            </ul>
+          </div>
+        </div>`;
+    };
+    let n = 0;
+    const partsHTML = g.parts.map((p, pi) => `
+      <section class="section guide-part${pi % 2 ? ' section-soft' : ''}" id="g-${p.id}">
+        <div class="container">
+          <div class="guide-head reveal">
+            <span class="eyebrow">${esc(p.label)}</span>
+            <h2 class="section-title">${esc(p.title)}</h2>
+            <p class="section-lede">${esc(p.lede)}</p>
+          </div>
+          ${p.glance ? glanceHTML(p.glance) : ''}
+          ${p.cards ? `<div class="ggrid reveal" data-n="${p.cards.length}">${p.cards.map((c) => cardHTML(c, ++n)).join('')}</div>` : ''}
+          ${p.actions ? actionsHTML(p.actions) : ''}
+        </div>
+      </section>`).join('');
+    const back = g.back && KIT_PAGES.find((x) => x.id === g.back);
+
+    app.innerHTML = `
+      <div class="guidepage tint-guide">
+        <section class="hero guide-hero">
+          <div class="hero-media"><div class="hero-slides">${((b) => `<div class="hero-bg" style="background-image:url('${bannerSrc(b)}');--x:${b.x};--y:${b.y}"></div>`)(bannerNow())}</div></div>
+          <div class="container hero-inner">
+            <span class="guide-kicker">${esc(g.kicker)}</span>
+            ${heroTitle(g.title)}
+            <p class="hero-sub">${esc(g.sub)}</p>
+            <ul class="guide-aud">${g.audience.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>
+            <nav class="hero-chips guide-jump" aria-label="${esc(t('guide.jump'))}">
+              ${g.parts.map((p, i) => `<button class="chip" type="button" data-jump="g-${p.id}" style="--i:${i}"><span class="n">0${i + 1}</span>${esc(p.title)}<svg class="drawn-border" aria-hidden="true"></svg></button>`).join('')}
+            </nav>
+          </div>
+        </section>
+        ${partsHTML}
+        <section class="section guide-close" id="g-close">
+          <div class="container">
+            <div class="guide-head reveal">
+              <span class="eyebrow">${esc(g.close.label)}</span>
+              <h2 class="section-title">${esc(g.close.title)}</h2>
+              <p class="section-lede">${esc(g.close.lede)}</p>
+            </div>
+            <ol class="gclose">${g.close.items.map((x, i) => `
+              <li class="reveal"><span class="n">0${i + 1}</span><h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p></li>`).join('')}
+            </ol>
+            <nav class="mpager" aria-label="${esc(t('pager.pages'))}">
+              ${back ? pagerHTML('prev', { href: `#/kit/${back.id}`, label: t('guide.summary'), title: byId[back.module].title, url: (byId[back.module].shots[0] || {}).src || PHOTOS.hero, pos: '50% 12%' }) : '<span></span>'}
+              ${pagerHTML('next', { href: '#/', attrs: ' data-scroll="index"', label: t('pager.next'), title: t('pager.modules'), url: PHOTOS.hero, pos: '60% 30%' })}
+            </nav>
+          </div>
+        </section>
+      </div>`;
+
+    const page = app.querySelector('.guidepage');
+    page.addEventListener('click', (e) => {
+      const jump = e.target.closest('[data-jump]');
+      if (jump) { scrollToId(jump.dataset.jump); return; }
+      const b = e.target.closest('[data-set]');
+      if (!b) return;
+      const r = b.getBoundingClientRect();
+      (narrow() ? openFeatureSheet : openFeatureWindow)(sets[+b.dataset.set], +b.dataset.i || 0, {
+        origin: { x: r.left + r.width / 2, y: r.top + r.height / 2 },
+        close: () => b.focus({ preventScroll: true }), returnFocusTo: b
+      });
+    });
+    sizeBorders();
+    bindParallax();
+    document.title = `${g.title} · ${t('brand.title')}`;
+  }
+
   function renderHome(returning) {
     const about = byId['what-is-antz-systems'];
     const spot = byId[FEATURE_PICK.id];
@@ -379,7 +527,7 @@
       <section class="hero">
         <div class="hero-media"><div class="hero-slides">${((b) => `<div class="hero-bg" style="background-image:url('${bannerSrc(b)}');--x:${b.x};--y:${b.y}"></div>`)(bannerNow())}</div></div>
         <div class="container hero-inner">
-          <h1>${esc(t('hero.title'))}</h1>
+          ${heroTitle(t('hero.title'))}
           <p class="hero-sub">${esc(t('hero.sub'))}</p>
           <div class="hero-search" role="search">
             <label class="search-field">
@@ -482,7 +630,7 @@
   }
 
   /* ---------- Module cards: grouped by area, open in place ---------- */
-  const AREA_TINT = { records: 'records', animal: 'animal', medical: 'medical', mortality: 'mortality', operations: 'operations' };
+  const AREA_TINT = { records: 'records', animal: 'animal', medical: 'medical', mortality: 'mortality', operations: 'operations', guide: 'guide' };
   /* Outline gradients: the area's line colour, melting into a deeper tone of its complementary hue (matches the panel backgrounds) */
   const OUTLINE_GRADS = {
     records: ['#2FA864', '#E06C78'], animal: ['#D39B10', '#17A8A0'], medical: ['#4DB3A6', '#C8BC6A'],
@@ -1718,11 +1866,13 @@
     closeNav();
     if (closeFeatureWindow) closeFeatureWindow(true);
     if (pageTeardown) pageTeardown();
-    if ((name === 'm' || name === 'kit') && id) {
+    if ((name === 'm' || name === 'kit' || name === 'guide') && id) {
       if (onHome) homeY = window.scrollY;
       onHome = false;
       if (parallaxOff) parallaxOff();
-      if (name === 'kit') renderKit(id); else { lastKit = null; renderModule(id, Number(f) || 0, f !== undefined && f !== ''); }
+      if (name === 'kit') renderKit(id);
+      else if (name === 'guide') { lastKit = null; renderGuide(id); }
+      else { lastKit = null; renderModule(id, Number(f) || 0, f !== undefined && f !== ''); }
       window.scrollTo(0, 0);
     } else {
       document.title = t('brand.title');

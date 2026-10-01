@@ -269,6 +269,35 @@ button { font: inherit; color: inherit; }
 }
 .hero-inner { padding-top: calc(120px + var(--header-h)); padding-bottom: 88px; text-align: center; }
 .hero h1 { color: #fff; font-size: clamp(34px, 5.6vw, 60px); font-weight: 600; letter-spacing: -.02em; max-width: 820px; margin: 0 auto; text-shadow: 0 2px 24px rgba(0,0,0,.35); }
+/* Banner titles in the LSET Foundation style: Google Sans Flex at 900, capitals with 5.5% tracking, and the
+   holographic sheen (four pastel hues with white passes, on a 115deg axis) drifting one period every 9s.
+   The sheen is a background clipped to the text, so no text-shadow: it would show through the clear letters. */
+.hero h1.holo {
+  font-family: "Google Sans Flex", "Inter", "Noto Sans Arabic", "Noto Sans Devanagari", "Noto Sans SC", "Noto Sans JP", system-ui, sans-serif; font-weight: 900; font-size: clamp(30px, 4.4vw, 62px);
+  line-height: 1.12; letter-spacing: .055em; text-transform: uppercase; text-wrap: balance; max-width: 1180px; text-shadow: none;
+  background: repeating-linear-gradient(115deg, #ffffff 0px, #bff3ff 60px, #ffffff 120px, #ffc8dc 180px, #ffffff 240px, #ffd9c2 300px, #ffffff 360px, #c8ffe4 420px, #ffffff 480px);
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+  /* The banner rise, then the sheen: both are animations, so they share one list */
+  animation: heroRise 1s cubic-bezier(.33,0,.2,1) var(--rise-delay, 0ms) backwards, titleIridescence 9s linear infinite;
+}
+/* One period along the gradient's own axis: 480 / sin(115deg) */
+@keyframes titleIridescence { to { background-position: 529.62px 0; } }
+/* Scripts outside Latin, Greek and Cyrillic: no capitals or wide tracking (they have neither) */
+:lang(ar) .hero h1.holo, :lang(hi) .hero h1.holo, :lang(zh) .hero h1.holo, :lang(ja) .hero h1.holo { letter-spacing: 0; line-height: 1.3; }
+.wave { display: contents; }
+.wave-word { display: inline-block; }
+/* The letters move with top, not transform: a transformed letter leaves the clipped sheen and turns invisible */
+.wave-ch { position: relative; top: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  /* After the title has risen into place, a gentle rise and fall runs along it, 24ms a letter */
+  .wave-ch { animation: textWave 820ms cubic-bezier(.37,0,.63,1) calc(1000ms + var(--i, 0) * 24ms) both; }
+}
+@keyframes textWave { 0% { top: 0; } 50% { top: -.05em; } 100% { top: 0; } }
+/* Safari: any positioned letter drops out of the clipped sheen and the title disappears, so the letters stay
+   unpositioned there and the ripple is skipped; the sheen still runs (-webkit-hyphens matches WebKit only) */
+@supports (-webkit-hyphens: none) { .wave-ch { position: static; animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hero h1.holo { animation: none; } }
+@media (max-width: 374px) { .hero h1.holo { font-size: 25px; } }
 .hero-sub { font-size: clamp(17px, 1.8vw, 20px); margin: 20px auto 0; max-width: 640px; color: rgba(255,255,255,.92); text-shadow: 0 1px 12px rgba(0,0,0,.4); }
 .hero-search { position: relative; max-width: 760px; margin: 40px auto 0; text-align: left; }
 .search-field {
@@ -351,7 +380,9 @@ button { font: inherit; color: inherit; }
 .hero-meta-sep { opacity: .6; }
 @media (max-width: 640px) {
   .hero-inner { padding-top: 220px; padding-bottom: 48px; }
-  .hero-bg { background-position: var(--x, 68%) 0; background-size: auto 360px; background-color: #1b2a1f; }
+  /* The photo is a 360px band across the top, always the full width: wide photos are cut at the sides as before,
+     and squarer ones (the art tiger) are scaled up to fill it instead of leaving dark bars beside them */
+  .hero-bg { bottom: auto; height: 360px; background-position: var(--x, 68%) var(--y, 30%); background-size: cover; background-color: #1b2a1f; }
   .hero::after { background: linear-gradient(180deg, rgba(10,30,26,0) 0px, rgba(10,30,26,.1) 200px, rgba(18,34,26,1) 360px); }
   .search-field { height: 56px; }
   .search-field input { font-size: 16px; }
@@ -582,6 +613,7 @@ button { font: inherit; color: inherit; }
 .tint-medical    { --tint: #D3F3D7; --tint-comp: #FBF7D2; --tint-line: #4DB3A6; --tint-line2: #C8BC6A; --tint-ink: #2A6A62; --line-grad: url(#line-medical); }
 .tint-mortality  { --tint: #FFF5BF; --tint-comp: #FFD3D3; --tint-line: #D6920E; --tint-line2: #DD5F6B; --tint-ink: #8A4424; --line-grad: url(#line-mortality); }
 .tint-operations { --tint: #BFEBF5; --tint-comp: #F9CCD4; --tint-line: #2C94BC; --tint-line2: #DD647D; --tint-ink: #1E5D77; --line-grad: url(#line-operations); }
+.tint-guide      { --tint: #CFF3E0; --tint-comp: #C9F0EE; --tint-line: #2FA864; --tint-line2: #14A9A0; --tint-ink: #1D5F4F; --line-grad: url(#mcard-grad); } /* Guide pages, outside the five areas: placeholder colours */
 [class*="tint-"] {
   --tint-soft: color-mix(in srgb, var(--tint) 32%, #fff); --tint-soft2: color-mix(in srgb, var(--tint-comp) 32%, #fff);
   --tint-grad: linear-gradient(135deg, var(--tint) 0%, var(--tint-comp) 100%);
@@ -1125,37 +1157,37 @@ a.mcard-face { text-decoration: none; color: inherit; }
 /* Screens open in the feature window (desktop) or the feature sheet (phones), so the page shows the full feature list */
 .mpage .mpanel-inner { grid-template-columns: minmax(0, 1fr); }
 .mpage .mpanel-stage { display: none; }
-.mpage .mfeat .t small, .spot-feats .mfeat .t small { display: block; }
-.mpage .mfeat, .spot-feats .mfeat { grid-template-columns: 32px 1fr auto; }
+:is(.mpage, .gfeats) .mfeat .t small, .spot-feats .mfeat .t small { display: block; }
+:is(.mpage, .gfeats) .mfeat, .spot-feats .mfeat { grid-template-columns: 32px 1fr auto; }
 .mfeat-open {
   display: grid; place-items: center; align-self: center; width: 34px; height: 34px; border-radius: 50%;
   color: var(--muted-2); transition: background .2s, color .2s;
 }
 .mfeat-row:hover .mfeat-open { background: var(--tint-grad); color: var(--tint-ink); }
-@media (max-width: 760px) { .mpage .mfeat, .spot-feats .mfeat { padding-right: 4px; } .mfeat-open { width: 30px; height: 30px; } }
+@media (max-width: 760px) { :is(.mpage, .gfeats) .mfeat, .spot-feats .mfeat { padding-right: 4px; } .mfeat-open { width: 30px; height: 30px; } }
 /* Module pages: features as a grid of cards (two across; one on phones) */
-.mpage .mfeats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-@media (max-width: 1100px) { .mpage .mfeats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; } }
+:is(.mpage, .gfeats) .mfeats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1100px) { :is(.mpage, .gfeats) .mfeats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; } }
 /* Keep the intro to a comfortable reading width now the cards span the page */
 .mpage .mpanel-intro { max-width: 760px; }
 /* Cards: white washed with a faint trace of the area gradient; the hovered or open card goes almost white */
-.mpage .mfeat-row { align-items: stretch; border-radius: 16px; border: 0;
+:is(.mpage, .gfeats) .mfeat-row { align-items: stretch; border-radius: 16px; border: 0;
   background: linear-gradient(135deg, color-mix(in srgb, var(--tint-soft) 55%, rgba(255,255,255,.8)) 0%, color-mix(in srgb, var(--tint-soft2) 55%, rgba(255,255,255,.8)) 100%); }
-.mpage .mfeat-row:hover, .mpage .mfeat-row.on { background: linear-gradient(135deg, #fff 40%, var(--tint-soft2) 100%); }
-.mpage .mfeat { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; height: 100%; padding: 20px 20px 22px; }
+:is(.mpage, .gfeats) .mfeat-row:hover, :is(.mpage, .gfeats) .mfeat-row.on { background: linear-gradient(135deg, #fff 40%, var(--tint-soft2) 100%); }
+:is(.mpage, .gfeats) .mfeat { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; height: 100%; padding: 20px 20px 22px; }
 /* Every card icon sits on its area's page gradient (the colour holds, then melts into the complementary hue) */
-.mpage .mfeat .n, .mpage .mfeat-row.on .mfeat .n { width: 42px; height: 42px; border-radius: 12px; border: 0; color: var(--tint-ink);
+:is(.mpage, .gfeats) .mfeat .n, :is(.mpage, .gfeats) .mfeat-row.on .mfeat .n { width: 42px; height: 42px; border-radius: 12px; border: 0; color: var(--tint-ink);
   /* A step stronger than the page behind it, so the tiles stand out on the washed cards */
   background: linear-gradient(135deg, color-mix(in srgb, var(--tint-line) 26%, var(--tint)) 0%, color-mix(in srgb, var(--tint-line2) 26%, var(--tint-comp)) 100%); }
-.mpage .mfeat .n svg { width: 20px; height: 20px; }
-.mpage .mfeat .t b { font-size: 16px; margin-top: 0; }
-.mpage .mfeat .t small { font-size: 14px; margin-top: 5px; }
-.mpage .mfeat-open { position: absolute; top: 16px; right: 16px; }
+:is(.mpage, .gfeats) .mfeat .n svg { width: 20px; height: 20px; }
+:is(.mpage, .gfeats) .mfeat .t b { font-size: 16px; margin-top: 0; }
+:is(.mpage, .gfeats) .mfeat .t small { font-size: 14px; margin-top: 5px; }
+:is(.mpage, .gfeats) .mfeat-open { position: absolute; top: 16px; right: 16px; }
 @media (max-width: 760px) {
-  .mpage .mfeats { grid-template-columns: 1fr; gap: 10px; }
-  .mpage .mfeat { padding: 16px 16px 18px; gap: 12px; }
-  .mpage .mfeat .n { width: 38px; height: 38px; }
-  .mpage .mfeat-open { top: 12px; right: 12px; }
+  :is(.mpage, .gfeats) .mfeats { grid-template-columns: 1fr; gap: 10px; }
+  :is(.mpage, .gfeats) .mfeat { padding: 16px 16px 18px; gap: 12px; }
+  :is(.mpage, .gfeats) .mfeat .n { width: 38px; height: 38px; }
+  :is(.mpage, .gfeats) .mfeat-open { top: 12px; right: 12px; }
 }
 
 /* Header search panel */
@@ -1457,3 +1489,118 @@ body.fwin-open { overflow: hidden; }
 [dir="rtl"] .fwin-close { right: auto; left: 16px; }
 [dir="rtl"] .cta::after { background: linear-gradient(270deg, rgba(10,30,26,.82) 0%, rgba(10,30,26,.45) 60%, rgba(10,30,26,.2) 100%); }
 [dir="rtl"] .fwin-device.in-r { animation-name: fwinL; } [dir="rtl"] .fwin-device.in-l { animation-name: fwinR; }
+
+/* ---------- Guide pages: a kit's full walkthrough ---------- */
+.guidepage { --tint-line: #0B7A40; --tint-line2: #005A2C; }
+/* Banner: the home page's photo and wash, shorter, with the kit's audience and a jump to each part */
+.guide-hero .hero-inner { padding-top: calc(96px + var(--header-h)); padding-bottom: 72px; }
+.guide-kicker { display: inline-block; margin-bottom: 14px; font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #8FE3AE; text-shadow: 0 1px 10px rgba(0,0,0,.4); }
+.guide-aud { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; font-size: 14px; color: rgba(255,255,255,.8); }
+.guide-aud li { display: inline-flex; align-items: center; gap: 8px; }
+.guide-aud li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #8FE3AE; }
+.guide-jump { margin-top: 34px; }
+.guide-jump .chip .n { font-variant-numeric: tabular-nums; opacity: .7; }
+.guide-kicker, .guide-aud { animation: heroRise 1s cubic-bezier(.33,0,.2,1) var(--rise-delay, 0ms) backwards; }
+.guide-kicker { --rise-delay: 40ms; }
+.guide-aud { --rise-delay: 400ms; }
+
+.guide-part, .guide-close { padding: 88px 0; }
+/* Sections and cards fade up as they scroll into view */
+.guidepage .reveal { transition: opacity .7s var(--ease), transform .8s cubic-bezier(.22,.8,.24,1); }
+.guidepage .reveal:not(.in) { opacity: 0; transform: translateY(16px); }
+.guide-head { max-width: 760px; margin-bottom: 40px; }
+
+/* At a glance: the module pages' feature cards (shared rules under :is(.mpage, .gfeats)) */
+.gfeats { margin-bottom: 40px; }
+.gfeats-title { font-size: 22px; }
+.gfeats-lede { margin: 8px 0 20px; max-width: 760px; color: var(--muted); }
+
+/* Cards: the home cards' white face and drawn border, with the first screen peeking up from a mint stage */
+.ggrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.gcard { border: 0; font: inherit; color: inherit; }
+/* Five cards: three across, then two wider ones, so none is left alone on a row */
+@media (min-width: 1101px) {
+  .ggrid[data-n="5"] { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .ggrid[data-n="5"] > * { grid-column: span 2; }
+  .ggrid[data-n="5"] > :nth-child(n+4) { grid-column: span 3; }
+}
+.gcard-thumb {
+  position: relative; display: flex; justify-content: center; height: 210px; margin: 14px 14px 0; padding-top: 22px; overflow: hidden; border-radius: 12px;
+  background: radial-gradient(120% 100% at 50% 0%, #fff 0%, var(--mint) 100%);
+}
+/* The first screen in the phone frame, peeking up; --peek (0 to 1) slides it to the part worth showing */
+.gcard-thumb .device-phone { flex: none; width: 160px; height: auto; margin-top: calc(var(--peek, 0) * -153px); box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), 0 18px 30px -16px rgba(14,40,34,.4); transition: transform .7s cubic-bezier(.22,.8,.24,1); }
+.gcard:hover .gcard-thumb .device-phone, .gcard:focus-visible .gcard-thumb .device-phone { transform: translateY(-10px); }
+.gcard-body { display: flex; flex-direction: column; gap: 8px; flex: 1; padding: 18px 20px 20px; }
+.gcard-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px; }
+.gcard-ic { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--green-tint); color: var(--green-strong); }
+.gcard-ic svg { width: 18px; height: 18px; }
+.gcard-n { font-size: 13px; font-weight: 700; color: var(--muted-2); font-variant-numeric: tabular-nums; }
+.gcard-body > b { font-size: 17px; font-weight: 600; line-height: 1.3; color: var(--ink); }
+.gcard-desc { font-size: 14px; line-height: 1.5; color: var(--muted); }
+.gcard-foot { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 8px; font-size: 13.5px; font-weight: 600; color: var(--green-strong); }
+.gcard-foot svg { transition: transform .4s cubic-bezier(.22,.8,.24,1); }
+.gcard:hover .gcard-foot svg { transform: translate(2px, -2px); }
+
+/* Quick actions: the sheet on the left, one tile per shortcut on the right */
+.gqa { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: start; }
+.gqa-stage { position: sticky; top: calc(var(--header-h) + 24px); }
+.gqa-stage .device-phone { width: 236px; }
+.gqa-side h3 { font-size: 22px; }
+.gqa-side > p { margin-top: 8px; color: var(--muted); }
+.gqa-grid { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.gqa-grid button {
+  width: 100%; height: 100%; display: block; text-align: left; cursor: pointer; padding: 14px 16px; border-radius: 12px;
+  background: #fff; border: 1px solid var(--line);
+  transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1), border-color .3s var(--ease);
+}
+.gqa-grid button:hover, .gqa-grid button:focus-visible {
+  transform: translateY(-3px); border-color: color-mix(in srgb, var(--green) 45%, #fff);
+  box-shadow: 0 12px 22px -14px rgba(14,40,34,.4);
+  transition: transform .55s cubic-bezier(.34,1.56,.64,1), box-shadow .55s cubic-bezier(.22,.8,.24,1), border-color .3s var(--ease);
+}
+.gqa-grid b { display: block; font-size: 14.5px; font-weight: 600; color: var(--ink); }
+.gqa-grid small { display: block; margin-top: 3px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+/* Close: four numbered outcomes */
+.gclose { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.gclose li { padding: 24px; border-radius: var(--radius-lg); background: var(--surface-soft); border: 1px solid var(--line); }
+.gclose .n { display: block; font-size: 28px; font-weight: 600; letter-spacing: -.02em; background: linear-gradient(110deg, #61D3C7, #37BD69); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.gclose h3 { margin-top: 14px; font-size: 17px; }
+.gclose p { margin-top: 8px; font-size: 14px; color: var(--muted); }
+.guide-close .mpager { margin-top: 64px; }
+
+/* Summary page: the way into the full guide */
+.guide-more {
+  display: inline-flex; align-items: center; gap: 18px; margin: -8px 0 32px; padding: 12px 16px 12px 20px; border-radius: 14px; text-decoration: none;
+  background: linear-gradient(110deg, #61D3C7 0%, #37BD69 100%); color: #fff; box-shadow: 0 10px 24px -14px rgba(14,80,50,.6);
+  transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1);
+}
+.guide-more b { display: block; font-size: 16px; font-weight: 600; }
+.guide-more small { display: block; font-size: 13px; opacity: .9; }
+.guide-more svg { width: 18px; height: 18px; flex: none; transition: transform .4s cubic-bezier(.22,.8,.24,1); }
+.guide-more:hover { transform: translateY(-3px); box-shadow: 0 16px 30px -14px rgba(14,80,50,.7); transition: transform .55s cubic-bezier(.34,1.56,.64,1), box-shadow .55s cubic-bezier(.22,.8,.24,1); }
+.guide-more:hover svg { transform: translate(2px, -2px); }
+
+@media (max-width: 1100px) {
+  .gclose { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .gqa { grid-template-columns: 1fr; }
+  .gqa-stage { position: relative; top: 0; height: 440px; }
+  .gqa-stage .device-phone { width: 190px; }
+}
+@media (max-width: 560px) {
+  .guide-hero .hero-inner { padding-top: calc(56px + var(--header-h)); padding-bottom: 48px; }
+  .guide-part, .guide-close { padding: 56px 0; }
+  .guide-head { margin-bottom: 28px; }
+  .gqa-stage { height: 380px; padding: 18px; }
+  .gqa-stage .device-phone { width: 164px; }
+  .gqa-grid, .gclose { grid-template-columns: 1fr; }
+  .guide-jump .chip { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .guide-kicker, .guide-aud { animation: none; }
+  .guidepage .reveal, .guidepage .reveal:not(.in) { transition: none; transform: none; opacity: 1; }
+  .gcard-thumb .device-phone, .gqa-grid button, .guide-more { transition: none; }
+}
