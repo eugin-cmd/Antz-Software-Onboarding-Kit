@@ -599,12 +599,12 @@
         <div class="cta-bg" style="background-image:url('${PHOTOS.cta}')"></div>
         <div class="container">
           <div class="cta-inner reveal">
-            <h2>${esc(t('cta.title'))}</h2>
-            <p>${esc(t('cta.text'))}</p>
-            <div class="actions">
+            <h2 data-depth="1">${esc(t('cta.title'))}</h2>
+            <p data-depth="0.7">${esc(t('cta.text'))}</p>
+            <div class="actions" data-depth="0.45">
               <button class="btn btn-primary" type="button" data-scroll="index">${esc(t('cta.back'))}</button>
             </div>
-            <p class="or">${esc(t('cta.or', { email: '\u0000' })).replace('\u0000', '<b>hello@antz.systems</b>')}</p>
+            <p class="or" data-depth="0.3">${esc(t('cta.or', { email: '\u0000' })).replace('\u0000', '<b>hello@antz.systems</b>')}</p>
           </div>
         </div>
       </section>
@@ -1442,6 +1442,8 @@
     const stopBanners = rotateBanners(bg);
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) { parallaxOff = () => { stopBanners(); parallaxOff = null; }; return; }
     let ticking = false;
+    const cta = app.querySelector('.cta');
+    const layers = cta ? [...cta.querySelectorAll('[data-depth]')] : [];
     const update = () => {
       ticking = false;
       const h = hero.offsetHeight;
@@ -1449,6 +1451,14 @@
       bg.style.transform = `translate3d(0, ${(y * 0.45).toFixed(1)}px, 0)`;
       inner.style.opacity = String(Math.max(0, 1 - y / (h * 1.3)).toFixed(3));
       inner.style.transform = `translate3d(0, ${(y * 0.12).toFixed(1)}px, 0)`;
+      /* "Stuck on a task?": each line drifts at its own depth as the band crosses the screen */
+      if (cta) {
+        const r = cta.getBoundingClientRect(), vh = window.innerHeight;
+        if (r.bottom > 0 && r.top < vh) {
+          const p = (r.top + r.height / 2 - vh / 2) / vh;
+          layers.forEach((el) => { el.style.transform = `translate3d(0, ${(p * el.dataset.depth * 60).toFixed(1)}px, 0)`; });
+        }
+      }
     };
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -1912,6 +1922,8 @@
 
   /* ---------- Language: page shell text, the switcher and the review note ---------- */
   document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+  /* The iris button repaints its label from data-text, so it follows the translated label */
+  document.querySelectorAll('.btn-cta[data-text]').forEach((el) => { el.dataset.text = el.textContent.trim(); });
   document.querySelectorAll('[data-i18n-aria]').forEach((el) => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
   document.querySelectorAll('[data-i18n-title]').forEach((el) => el.setAttribute('title', t(el.dataset.i18nTitle)));
   const metaDesc = document.querySelector('meta[name="description"]');
