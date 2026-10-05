@@ -334,15 +334,19 @@
   /* Lens: on phones, a magnifier on each screen opens it on its own to pinch, pan and read the detail */
   const LENS_SVG = '<svg width="22" height="22" viewBox="0 -960 960 960" fill="currentColor"><path d="M350.77-550h-47.69q-12.75 0-21.38-8.63-8.62-8.63-8.62-21.38 0-12.76 8.62-21.37 8.63-8.62 21.38-8.62h47.69v-47.69q0-12.75 8.63-21.38 8.63-8.62 21.38-8.62 12.76 0 21.37 8.62 8.62 8.63 8.62 21.38V-610h47.69q12.75 0 21.38 8.63 8.62 8.63 8.62 21.38 0 12.76-8.62 21.37-8.63 8.62-21.38 8.62h-47.69v47.69q0 12.75-8.63 21.38-8.63 8.62-21.38 8.62-12.76 0-21.37-8.62-8.62-8.63-8.62-21.38V-550Zm30 214.61q-102.55 0-173.58-71.01-71.03-71.01-71.03-173.54 0-102.52 71.01-173.6 71.01-71.07 173.54-71.07 102.52 0 173.6 71.03 71.07 71.03 71.07 173.58 0 42.85-14.38 81.85-14.39 39-38.39 67.84l230.16 230.16q8.31 8.3 8.5 20.88.19 12.58-8.5 21.27t-21.08 8.69q-12.38 0-21.07-8.69L530.46-388.16q-30 24.77-69 38.77-39 14-80.69 14Zm0-59.99q77.31 0 130.96-53.66 53.66-53.65 53.66-130.96t-53.66-130.96q-53.65-53.66-130.96-53.66t-130.96 53.66Q196.15-657.31 196.15-580t53.66 130.96q53.65 53.66 130.96 53.66Z"/></svg>';
   const lensHTML = () => `<button class="lens" type="button" aria-label="${esc(t('lens.open'))}">${LENS_SVG}</button>`;
+  /* A feature marked lock (content.json) shows its screen under a dark veil with a lock: the screen stands
+     for something kept private, such as Chat's "Secure & auditable" */
+  const LOCK_SVG = '<svg viewBox="0 -960 960 960" fill="currentColor"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg>';
+  const lockHTML = () => `<span class="screen-lock" aria-hidden="true">${LOCK_SVG}</span>`;
   /* lens: false for screens that sit inside a link or button (a button can't hold another) */
   const deviceHTML = (shot, { lens = true } = {}) => {
     if (!shot) return '';
     const img = `<img src="${esc(shot.src)}" alt="${esc(shot.alt)}" loading="lazy">`;
-    const l = lens ? lensHTML() : '';
-    if (shot.device === 'web') return `<div class="device device-web"><div class="bar"><i></i><i></i><i></i></div>${img}${l}</div>`;
-    if (shot.device === 'tablet') return `<div class="device device-tablet"><div class="screen">${img}</div>${l}</div>`;
+    const l = lens ? lensHTML() : '', k = shot.lock ? lockHTML() : '';
+    if (shot.device === 'web') return `<div class="device device-web"><div class="bar"><i></i><i></i><i></i></div>${img}${k}${l}</div>`;
+    if (shot.device === 'tablet') return `<div class="device device-tablet"><div class="screen">${img}${k}</div>${l}</div>`;
     /* Every phone screen gets the same green frame, drawn in CSS (the frames once baked into some captures are cropped off) */
-    return `<div class="device device-phone"><div class="screen">${img}</div>${l}</div>`;
+    return `<div class="device device-phone"><div class="screen">${img}${k}</div>${l}</div>`;
   };
 
   /* ---------- Home ---------- */
@@ -957,13 +961,15 @@
       const f = m.features[i];
       const src = f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src);
       const holder = stage.querySelector('.mpanel-device');
-      const shot = src ? shotFor(m, src) : null;
+      const shot = src ? { ...shotFor(m, src), lock: !!f.lock } : null;
       const cur = holder.firstElementChild;
       const kind = shot ? deviceHTML(shot).match(/class="device ([\w-]+)/)[1] : '';
       if (cur && shot && cur.classList.contains(kind)) {
         /* Same device: swap the screen and replay the rise, so every feature selection feels the same */
         const img = cur.querySelector('img');
         img.src = shot.src; img.alt = shot.alt || '';
+        cur.querySelector('.screen-lock')?.remove();
+        if (shot.lock) (cur.querySelector('.screen') || cur).insertAdjacentHTML('beforeend', lockHTML());
         cur.classList.remove('rise'); void cur.offsetWidth; cur.classList.add('rise');
       } else {
         /* First view (or a different device): the device rises from below and settles */
@@ -1806,7 +1812,7 @@
       w.querySelector('.fwin-desc').textContent = tidy(f.desc);
       /* The wash starts a little below the text, however long this feature's description is */
       setAnimal(w.querySelector('.fwin-info'), animals[i % animals.length], () => text.offsetTop + text.offsetHeight);
-      dev.innerHTML = shot ? deviceHTML(shot) : `<p class="fwin-empty">${esc(t('win.soon'))}</p>`;
+      dev.innerHTML = shot ? deviceHTML({ ...shot, lock: !!f.lock }) : `<p class="fwin-empty">${esc(t('win.soon'))}</p>`;
       /* The screen slides in from the side being moved to; the text fades up */
       [dev, text].forEach((el) => { el.classList.remove('in-l', 'in-r', 'in-up'); void el.offsetWidth; });
       dev.classList.add(dir > 0 ? 'in-r' : dir < 0 ? 'in-l' : 'in-up');
@@ -1952,6 +1958,9 @@
       img.src = sl.src; img.alt = sl.alt;
       /* Phone and tablet screens sit in the area-coloured bezel (sheet only); web screens stay bare */
       img.parentNode.classList.toggle('web', sl.device === 'web');
+      /* A locked feature's screen sits under the dark veil with its lock */
+      img.parentNode.querySelector('.screen-lock')?.remove();
+      if (sl.lock) img.parentNode.insertAdjacentHTML('beforeend', lockHTML());
       g.querySelector('.g-count').textContent = `${idx + 1} / ${slides.length}`;
       g.querySelector('.g-ft').textContent = sl.title;
       g.querySelector('.g-fd').textContent = sl.desc;
@@ -2118,7 +2127,7 @@
       const src = f.shot || (x.shots[i] && x.shots[i].src) || (x.shots[0] && x.shots[0].src);
       const shot = src ? shotFor(x, src) : null;
       return { src: src || '', alt: (shot && shot.alt) || f.title, title: tidyTitle(f.title), desc: tidy(f.desc), icon: f.icon, device: shot && shot.device,
-        group, groupTitle: x.title, local: i };
+        lock: !!f.lock, group, groupTitle: x.title, local: i };
     });
     if (!chain) { openGallery(m, slidesOf(m), start, returnFocusTo, { sheet: true, origin, step, close }); return; }
     const slides = chain.sets.flatMap((x, k) => slidesOf(x, k));

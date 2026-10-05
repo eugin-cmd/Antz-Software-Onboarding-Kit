@@ -464,7 +464,8 @@ window.ANTZ_CONTENT = {
       502,
       1035
      ],
-     "icon": "shield"
+     "icon": "shield",
+     "lock": true
     },
     {
      "title": "Search & filters",
@@ -4242,4 +4243,5 @@ window.ANTZ_CONTENT = {
    "status": "hidden"
   }
  ]
-};
+}
+;

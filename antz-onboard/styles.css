@@ -487,6 +487,14 @@ button { font: inherit; color: inherit; }
   transition: transform .55s cubic-bezier(.34,1.56,.64,1), box-shadow .55s cubic-bezier(.22,.8,.24,1), border-color .3s var(--ease); }
 .kit-more:hover .go svg { transform: translate(2px, -2px); }
 @media (prefers-reduced-motion: reduce) { .kit-list .kit-more, .kit-more .go svg { transition: none; } .kit-list .kit-more:hover { transform: none; } }
+/* Saturated like the module pages' Know more card, in Getting Started's colours (the Records & Communication gradient) */
+.kit-list .kit-more { border-color: transparent;
+  background: linear-gradient(135deg, color-mix(in srgb, #2FA864 14%, #BFF3D2) 0%, color-mix(in srgb, #E06C78 14%, #FFD3D3) 100%); }
+.kit-list .kit-more:hover, .kit-list .kit-more:focus-within { border-color: transparent; }
+.kit-more .ic { color: #fff; background: linear-gradient(135deg, #2FA864 0%, #2FA864 25%, #E06C78 100%); }
+.kit-more b { color: #1D6B43; }
+.kit-more a > span:nth-child(2) { color: color-mix(in srgb, #1D6B43 70%, var(--muted)); }
+.kit-more .go { color: #fff; background: linear-gradient(135deg, #2FA864 0%, #E06C78 100%); }
 @media (max-width: 900px) {
   .kit-split, .kit-photo-left { grid-template-columns: 1fr; gap: 32px; }
   .kit-photo img { min-height: 0; aspect-ratio: 4 / 3; max-height: none; }
@@ -1572,6 +1580,16 @@ body.fwin-open { overflow: hidden; }
 .gallery.sheet .g-hint { color: var(--muted-2); }
 @media (prefers-reduced-motion: reduce) { .gallery.sheet, .gallery.sheet.in { transition: none; clip-path: none; } .gallery.sheet .g-info.in-up { animation: none; } }
 
+/* Locked screen: a 50% black veil over the app screen (inside the bezel), with a lock in the middle */
+.screen-lock {
+  position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; pointer-events: none;
+  background: rgba(0,0,0,.5); color: #fff; border-radius: inherit;
+}
+.screen-lock svg { width: 30%; max-width: 88px; min-width: 40px; height: auto; filter: drop-shadow(0 4px 14px rgba(0,0,0,.35)); }
+.device-web { position: relative; }
+/* Phone sheet: the frame holds the bezel padding, so the veil sits inside it, on the screen only */
+.gallery.sheet .g-frame { position: relative; }
+.gallery.sheet .g-frame > .screen-lock { inset: 7px; border-radius: 20px; }
 /* Lens: phones only. A round magnifier (no outline) on the screen's lower corner opens the screen on its own to zoom into */
 .lens { display: none; }
 @media (max-width: 760px) {
