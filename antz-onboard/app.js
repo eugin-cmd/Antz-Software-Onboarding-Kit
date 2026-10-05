@@ -407,11 +407,15 @@
     /* Every set of screens on the page, shaped like a module (one feature per screen), so it opens in the
        same feature window (desktop) and feature sheet (phones) as the module pages, in the guide's colours */
     areaById.guide = { id: 'guide', label: g.title, glyph: 'note', modules: [] };
+    /* A module's guide takes its area's colours, and its windows and sheets are labelled with the area */
+    const track = g.area && areaById[g.area] ? g.area : 'guide';
+    const backModule = byId[g.back] && visible.includes(byId[g.back]) ? byId[g.back] : null;
     const sets = [];
     const addSet = (key, title, ic, shots) => sets.push({
-      id: `guide-${id}-${key}`, track: 'guide', title,
+      id: `guide-${id}-${key}`, track, title,
       features: shots.map((s) => ({ title: s.title, desc: s.desc, icon: s.icon || ic, shot: srcOf(s) })),
-      shots: shots.map((s) => ({ src: srcOf(s), alt: s.title, device: 'phone' }))
+      /* A screen is a phone unless it says otherwise (device: 'tablet' or 'web' for web modules) */
+      shots: shots.map((s) => ({ src: srcOf(s), alt: s.title, device: s.device || 'phone' }))
     }) - 1;
 
     /* At a glance: the module pages' feature cards, each opening its screen */
@@ -437,7 +441,7 @@
       const set = addSet(c.id, c.title, c.icon, c.shots);
       return `
         <button class="mcard-face gcard" type="button" data-set="${set}" data-i="0">
-          <span class="gcard-thumb"${c.peek ? ` style="--peek:${c.peek}"` : ''}>${deviceHTML({ src: srcOf(c.shots[c.thumb || 0]), alt: '', device: 'phone' }, { lens: false })}</span>
+          <span class="gcard-thumb"${c.peek ? ` style="--peek:${c.peek}"` : ''}>${deviceHTML({ src: srcOf(c.shots[c.thumb || 0]), alt: '', device: c.shots[c.thumb || 0].device || 'phone' }, { lens: false })}</span>
           <span class="gcard-body">
             <span class="gcard-top"><span class="gcard-ic" aria-hidden="true">${icon(c.icon)}</span><span class="gcard-n">${String(n).padStart(2, '0')}</span></span>
             <b>${esc(c.title)}</b>
@@ -447,22 +451,45 @@
           <svg class="drawn-border" aria-hidden="true"></svg>
         </button>`;
     };
-    const actionsHTML = (qa) => {
-      const set = addSet('quick', qa.overview.title, 'add', [qa.overview, ...qa.shots]);
+    /* A phone beside a grid of tiles, each opening its screen. With an overview, the phone shows it and the
+       tiles follow it in the set; without one, the phone shows the first tile's screen, and pointing at a tile
+       (numbered when qa.numbered) brings its screen up on the phone. */
+    const actionsHTML = (qa, key) => {
+      const head = qa.overview || qa;
+      const first = qa.overview ? 1 : 0;
+      const items = qa.overview ? [qa.overview, ...qa.shots] : qa.shots;
+      const set = addSet(key, head.title, qa.overview ? 'add' : 'note', items);
       return `
-        <div class="gqa reveal">
-          <button class="gqa-stage" type="button" data-set="${set}" data-i="0" aria-label="${esc(t('guide.view'))}: ${esc(qa.overview.title)}">
-            ${deviceHTML({ src: srcOf(qa.overview), alt: '', device: 'phone' }, { lens: false })}
+        <div class="gqa reveal${qa.overview ? '' : ' gqa-tour'}">
+          <button class="gqa-stage" type="button" data-set="${set}" data-i="0" aria-label="${esc(t('guide.view'))}: ${esc(head.title)}">
+            ${deviceHTML({ src: srcOf(items[0]), alt: '', device: items[0].device || 'phone' }, { lens: false })}
           </button>
           <div class="gqa-side">
-            <h3>${esc(qa.overview.title)}</h3>
-            <p>${esc(qa.overview.desc)} ${esc(t('guide.qaHint'))}.</p>
-            <ul class="gqa-grid">${qa.shots.map((s, i) => `
-              <li><button type="button" data-set="${set}" data-i="${i + 1}"><b>${esc(s.title)}</b><small>${esc(s.desc)}</small></button></li>`).join('')}
+            <h3>${esc(head.title)}</h3>
+            <p>${esc(head.desc)} ${esc(t(qa.overview ? 'guide.qaHint' : canHover() ? 'guide.tourHint' : 'guide.tourHintTap'))}.</p>
+            <ul class="gqa-grid${qa.numbered ? ' numbered' : ''}">${qa.shots.map((s, i) => `
+              <li><button type="button" data-set="${set}" data-i="${i + first}" data-src="${esc(srcOf(s))}">${qa.numbered ? `<span class="n">${i + 1}</span>` : ''}<span><b>${esc(s.title)}</b><small>${esc(s.desc)}</small></span></button></li>`).join('')}
             </ul>
           </div>
         </div>`;
     };
+    /* Numbered steps in order, joined by a line */
+    const flowHTML = (steps) => `
+      <ol class="gflow reveal">${steps.map((s, i) => `
+        <li><span class="n">${i + 1}</span><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p></li>`).join('')}
+      </ol>`;
+    /* Capabilities by type: a table on wide screens, one card per capability on phones */
+    const compareHTML = (c) => `
+      <div class="gcmp reveal">
+        <table>
+          <thead><tr><th scope="col" class="gcmp-corner">${esc(c.corner)}</th>${c.types.map((x) => `
+            <th scope="col" class="tone-${x.tone}"><b>${esc(x.title)}</b><span>${esc(x.sub)}</span></th>`).join('')}</tr></thead>
+          <tbody>${c.rows.map((r) => `
+            <tr><th scope="row"><span class="ic" aria-hidden="true">${icon(r.icon)}</span><span><b>${esc(r.title)}</b><small>${esc(r.desc)}</small></span></th>${r.cells.map((x, j) => `
+              <td data-type="${esc(c.types[j].title)}"><span class="stat ${x.ok ? 'yes' : 'no'}">${esc(x.text)}</span>${x.note ? `<small>${esc(x.note)}</small>` : ''}</td>`).join('')}</tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
     let n = 0;
     const partsHTML = g.parts.map((p, pi) => `
       <section class="section guide-part${pi % 2 ? ' section-soft' : ''}" id="g-${p.id}">
@@ -474,17 +501,19 @@
           </div>
           ${p.glance ? glanceHTML(p.glance) : ''}
           ${p.cards ? `<div class="ggrid reveal" data-n="${p.cards.length}">${p.cards.map((c) => cardHTML(c, ++n)).join('')}</div>` : ''}
-          ${p.actions ? actionsHTML(p.actions) : ''}
+          ${p.actions ? actionsHTML(p.actions, p.id) : ''}
+          ${p.flow ? flowHTML(p.flow) : ''}
+          ${p.compare ? compareHTML(p.compare) : ''}
         </div>
       </section>`).join('');
     const back = g.back && KIT_PAGES.find((x) => x.id === g.back);
 
     app.innerHTML = `
-      <div class="guidepage tint-guide">
+      <div class="guidepage tint-${AREA_TINT[track]}">
         <section class="hero guide-hero">
           <div class="hero-media"><div class="hero-slides">${((b) => `<div class="hero-bg" style="background-image:url('${bannerSrc(b)}');--x:${b.x};--y:${b.y}"></div>`)(bannerNow())}</div></div>
           <div class="container hero-inner">
-            <span class="guide-kicker">${esc(g.kicker)}</span>
+            <span class="guide-kicker">${esc(backModule ? `${areaById[backModule.track].label} · ${numberOf[backModule.id]}` : g.kicker)}</span>
             ${LEAVES_SVG}
             ${heroTitle(g.title)}
             <p class="hero-sub">${esc(g.sub)}</p>
@@ -502,11 +531,12 @@
               <h2 class="section-title">${esc(g.close.title)}</h2>
               <p class="section-lede">${esc(g.close.lede)}</p>
             </div>
-            <ol class="gclose">${g.close.items.map((x, i) => `
+            ${g.close.items ? `<ol class="gclose">${g.close.items.map((x, i) => `
               <li class="reveal"><span class="n">0${i + 1}</span><h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p></li>`).join('')}
-            </ol>
+            </ol>` : ''}
             <nav class="mpager" aria-label="${esc(t('pager.pages'))}">
-              ${back ? pagerHTML('prev', { href: `#/kit/${back.id}`, label: t('guide.summary'), title: byId[back.module].title, url: (byId[back.module].shots[0] || {}).src || PHOTOS.hero, pos: '50% 12%' }) : '<span></span>'}
+              ${back ? pagerHTML('prev', { href: `#/kit/${back.id}`, label: t('guide.summary'), title: byId[back.module].title, url: (byId[back.module].shots[0] || {}).src || PHOTOS.hero, pos: '50% 12%' })
+                : backModule ? pagerHTML('prev', { href: `#/m/${backModule.id}`, label: t('guide.module'), title: backModule.title, ...photoOf(backModule) }) : '<span></span>'}
               ${pagerHTML('next', { href: '#/', attrs: ' data-scroll="index"', label: t('pager.next'), title: t('pager.modules'), url: PHOTOS.hero, pos: '60% 30%' })}
             </nav>
           </div>
@@ -514,6 +544,14 @@
       </div>`;
 
     const page = app.querySelector('.guidepage');
+    /* Record tour: pointing at (or focusing) a numbered tile brings its screen up on the phone beside it */
+    page.querySelectorAll('.gqa-tour').forEach((tour) => {
+      const img = tour.querySelector('.gqa-stage img');
+      const tiles = [...tour.querySelectorAll('.gqa-grid button')];
+      const show = (b) => { tiles.forEach((x) => x.classList.toggle('on', x === b)); if (img.getAttribute('src') !== b.dataset.src) img.src = b.dataset.src; };
+      tiles.forEach((b) => { b.addEventListener('pointerenter', () => { if (canHover()) show(b); }); b.addEventListener('focus', () => show(b)); });
+      if (tiles[0]) tiles[0].classList.add('on');
+    });
     page.addEventListener('click', (e) => {
       const jump = e.target.closest('[data-jump]');
       if (jump) { scrollToId(jump.dataset.jump); return; }
@@ -655,10 +693,7 @@
   /* ---------- Module cards: grouped by area, open in place ---------- */
   const AREA_TINT = { records: 'records', animal: 'animal', medical: 'medical', mortality: 'mortality', operations: 'operations', guide: 'guide' };
   /* Outline gradients: the area's line colour, melting into a deeper tone of its complementary hue (matches the panel backgrounds) */
-  const OUTLINE_GRADS = {
-    records: ['#2FA864', '#E06C78'], animal: ['#D39B10', '#17A8A0'], medical: ['#4DB3A6', '#C8BC6A'],
-    mortality: ['#D6920E', '#DD5F6B'], operations: ['#2C94BC', '#DD647D']
-  };
+  /* The cards' drawn-border gradients, one per area (line-<area>), are defined once in index.html */
   /* One short line per card, derived from the intro until real taglines exist */
   const summary = (m) => {
     if (m.sum) return m.sum;
@@ -748,9 +783,6 @@
   function modulesHTML() {
     const total = areas.reduce((t, a) => t + a.modules.length, 0);
     return `
-      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-        ${Object.entries(OUTLINE_GRADS).map(([k, [a, b]]) => `<linearGradient id="line-${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset=".3" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>`).join('')}
-      </defs></svg>
       <div class="mfilters" role="toolbar" aria-label="${esc(t('modules.filter'))}">
         <button class="mfilter" type="button" data-area="all" aria-pressed="true">${esc(t('modules.all'))} <span>${total}</span><svg class="drawn-border" aria-hidden="true"></svg></button>
         ${areas.map((a) => `<button class="mfilter" type="button" data-area="${a.id}" aria-pressed="false">${icon(a.glyph)}${esc(a.label)} <span>${a.modules.length}</span><svg class="drawn-border" aria-hidden="true"></svg></button>`).join('')}
@@ -787,7 +819,7 @@
   function bindFeatures(root, m, start = 0, openNow = false) {
     const inner = root.querySelector('.mpanel-inner');
     const stage = root.querySelector('.mpanel-stage');
-    const feats = [...root.querySelectorAll('.mfeat')];
+    const feats = [...root.querySelectorAll('.mfeat:not(.mfeat-link)')];
     const current = () => feats.findIndex((b) => b.getAttribute('aria-pressed') === 'true');
     const mark = (i) => feats.forEach((b, j) => { b.setAttribute('aria-pressed', String(i === j)); b.parentElement.classList.toggle('on', i === j); });
     /* Desktop and laptop: a feature's screen opens in a window with arrows either side */
@@ -1249,7 +1281,8 @@
 
   /* A module's features as a list: icon, title, description and an "open" mark. Used on module pages
      and for the featured workflow on the home page. */
-  const featureListHTML = (m, hasShots) => `
+  /* more: on module pages with a full guide, a last card that leads into it (a link, not a feature) */
+  const featureListHTML = (m, hasShots, more) => `
     <ol class="mfeats" aria-label="${esc(t('mod.features'))}">
       ${m.features.map((f, i) => `
         <li class="mfeat-row">
@@ -1260,12 +1293,21 @@
           </button>
           <svg class="drawn-border" aria-hidden="true"></svg>
         </li>`).join('')}
+      ${more ? `
+        <li class="mfeat-row mfeat-more">
+          <a class="mfeat mfeat-link" href="#/guide/${m.id}">
+            <span class="n" aria-hidden="true">${icon('compass')}</span>
+            <span class="t"><b>${esc(t('guide.more'))}</b><small>${esc(t('guide.moreNote'))}</small></span>
+            <span class="mfeat-open" aria-hidden="true">${ARROW}</span>
+          </a>
+          <svg class="drawn-border" aria-hidden="true"></svg>
+        </li>` : ''}
     </ol>`;
 
   /* Home page featured workflow: its feature rows open the same window (desktop) or sheet (phones)
      as a module page, without changing the address */
   function bindSpotFeatures(root, m) {
-    const feats = [...root.querySelectorAll('.mfeat')];
+    const feats = [...root.querySelectorAll('.mfeat:not(.mfeat-link)')];
     const mark = (i) => feats.forEach((b, j) => { b.setAttribute('aria-pressed', String(i === j)); b.parentElement.classList.toggle('on', i === j); });
     const originOf = (i) => { const r = (feats[i].querySelector('.mfeat-open') || feats[i]).getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; };
     const open = (i) => (narrow() ? openFeatureSheet : openFeatureWindow)(m, i, {
@@ -1309,7 +1351,7 @@
               <h1 class="mpanel-title"><span class="mpanel-icon"><img src="assets/icons/${iconOf(m)}_icon.svg" alt=""></span>${esc(m.title)}</h1>
               ${LANG !== 'en' && m.enTitle !== m.title ? `<p class="mpanel-inapp">${esc(t('lang.inApp', { x: m.enTitle }))}</p>` : ''}
               <p class="mpanel-intro">${esc(m.intro)}</p>
-              ${featureListHTML(m, hasShots)}
+              ${featureListHTML(m, hasShots, !!GUIDES[m.id])}
               <p class="mpanel-hint">${esc(hasShots ? (canHover() ? t('mod.hintClick') : t('mod.hintTap')) : t('mod.soon'))}</p>
             </div>
             ${hasShots ? `<div class="mpanel-stage"><div class="mpanel-device"></div><p class="cap"></p><p class="zoom-hint">${esc(t('mod.zoom'))}</p></div>` : ''}

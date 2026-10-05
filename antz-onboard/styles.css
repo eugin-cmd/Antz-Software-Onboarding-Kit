@@ -453,6 +453,11 @@ button { font: inherit; color: inherit; }
 .kit-list .ic svg { width: 19px; height: 19px; }
 .kit-list b { display: block; color: var(--ink); font-weight: 600; font-size: 15px; margin-bottom: 2px; }
 /* The last card on the Getting Started page leads into the full guide: the same card, as a link, with an arrow */
+/* Module pages: the last feature card leads into the module's full guide */
+.mfeat-link { text-decoration: none; color: inherit; }
+.mfeat-more .mfeat .t b { color: var(--tint-ink); }
+.mfeat-more .mfeat-open svg { width: 14px; height: 14px; transition: transform .4s cubic-bezier(.22,.8,.24,1); }
+.mfeat-more:hover .mfeat-open svg { transform: translate(2px, -2px); }
 .kit-list .kit-more { display: block; padding: 0; transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1), border-color .3s var(--ease); }
 .kit-more a { display: grid; grid-template-columns: 38px 1fr auto; gap: 14px; align-items: center; padding: 14px 16px; border-radius: inherit; color: inherit; text-decoration: none; }
 .kit-more b { color: var(--green-strong); }
@@ -657,7 +662,7 @@ button { font: inherit; color: inherit; }
 .tint-medical    { --tint: #D3F3D7; --tint-comp: #FBF7D2; --tint-line: #4DB3A6; --tint-line2: #C8BC6A; --tint-ink: #2A6A62; --line-grad: url(#line-medical); }
 .tint-mortality  { --tint: #FFF5BF; --tint-comp: #FFD3D3; --tint-line: #D6920E; --tint-line2: #DD5F6B; --tint-ink: #8A4424; --line-grad: url(#line-mortality); }
 .tint-operations { --tint: #BFEBF5; --tint-comp: #F9CCD4; --tint-line: #2C94BC; --tint-line2: #DD647D; --tint-ink: #1E5D77; --line-grad: url(#line-operations); }
-.tint-guide      { --tint: #BFF3D2; --tint-comp: #FFD3D3; --tint-line: #2FA864; --tint-line2: #E06C78; --tint-ink: #1D6B43; --line-grad: url(#mcard-grad); } /* The Getting Started guide: the Records & Communication gradient, as on its home card */
+.tint-guide      { --tint: #BFF3D2; --tint-comp: #FFD3D3; --tint-line: #2FA864; --tint-line2: #E06C78; --tint-ink: #1D6B43; --line-grad: url(#line-records); } /* The Getting Started guide: the Records & Communication gradient, as on its home card */
 [class*="tint-"] {
   --tint-soft: color-mix(in srgb, var(--tint) 32%, #fff); --tint-soft2: color-mix(in srgb, var(--tint-comp) 32%, #fff);
   --tint-grad: linear-gradient(135deg, var(--tint) 0%, var(--tint-comp) 100%);
@@ -1682,6 +1687,13 @@ body.fwin-open { overflow: hidden; }
    --peek (0 to 1) slides it to the part worth showing */
 .gcard-thumb .device-phone { flex: none; align-self: flex-start; width: 160px; height: auto; margin-top: calc(var(--peek, 0) * -153px); box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), 0 18px 30px -16px rgba(14,40,34,.4); transition: transform .7s cubic-bezier(.22,.8,.24,1); }
 .gcard:hover .gcard-thumb .device-phone, .gcard:focus-visible .gcard-thumb .device-phone { transform: translateY(-10px); }
+/* Web screens in card thumbnails: a tablet or browser frame peeking up the same way */
+.gcard-thumb .device-tablet { flex: none; align-self: flex-start; width: 250px; height: auto; margin-top: calc(var(--peek, 0) * -120px); padding: 7px; border-radius: 18px; transition: transform .7s cubic-bezier(.22,.8,.24,1); }
+.gcard-thumb .device-tablet .screen { border-radius: 12px; }
+.gcard-thumb .device-web { flex: none; align-self: flex-start; width: 88%; margin-top: calc(var(--peek, 0) * -80px); transition: transform .7s cubic-bezier(.22,.8,.24,1); }
+.gcard:hover .gcard-thumb :is(.device-tablet, .device-web), .gcard:focus-visible .gcard-thumb :is(.device-tablet, .device-web) { transform: translateY(-10px); }
+.gqa-stage .device-tablet { width: min(420px, 100%); }
+.gqa-stage .device-web { width: 100%; }
 .gcard-body { display: flex; flex-direction: column; gap: 8px; flex: 1; padding: 18px 20px 20px; }
 .gcard-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px; }
 .gcard-ic { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--green-tint); color: var(--green-strong); }
@@ -1717,6 +1729,87 @@ body.fwin-open { overflow: hidden; }
 }
 .gqa-grid b { display: block; font-size: 14.5px; font-weight: 600; color: var(--ink); }
 .gqa-grid small { display: block; margin-top: 3px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+/* Module guides take their area's colours where the Getting Started guide uses the brand green */
+.guidepage:not(.tint-guide) .gcard-ic { background: var(--tint-soft); color: var(--tint-ink); }
+.guidepage:not(.tint-guide) .gcard-foot { color: var(--tint-ink); }
+.guidepage:not(.tint-guide) .gqa-grid button:hover, .guidepage:not(.tint-guide) .gqa-grid button:focus-visible { border-color: color-mix(in srgb, var(--tint-line) 50%, #fff); }
+/* Two, three or six cards: spread across the row instead of leaving an empty column (six run three across) */
+@media (min-width: 1101px) {
+  .ggrid[data-n="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ggrid[data-n="3"], .ggrid[data-n="6"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Record tour: numbered tiles in one column; the tile on show is marked, and its screen is on the phone */
+.gqa-grid.numbered { grid-template-columns: 1fr; }
+.gqa-grid.numbered button { display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: start; }
+.gqa-grid.numbered .n {
+  width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; font-weight: 700;
+  background: var(--tint-soft); color: var(--tint-ink); transition: background .3s, color .3s;
+}
+.gqa-tour .gqa-grid button.on { border-color: color-mix(in srgb, var(--tint-line) 55%, #fff); box-shadow: 0 12px 22px -14px rgba(14,40,34,.35); }
+.gqa-tour .gqa-grid button.on .n { background: linear-gradient(135deg, var(--tint-line) 0%, var(--tint-line2) 100%); color: #fff; }
+.gqa-tour .gqa-stage img { transition: opacity .25s var(--ease); }
+
+/* Flow: numbered steps joined by a line in the area's colours (across on wide screens, down on phones) */
+.gflow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 16px; position: relative; }
+.gflow li { position: relative; padding: 22px 20px 24px; border-radius: var(--radius-lg); background: #fff; border: 1px solid var(--line); }
+.gflow .n {
+  position: relative; z-index: 1; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-size: 16px; font-weight: 700; color: #fff;
+  background: linear-gradient(135deg, var(--tint-line) 0%, var(--tint-line2) 100%); box-shadow: 0 0 0 5px #fff;
+}
+/* The joining line runs from each step's number to the next one's */
+.gflow li:not(:last-child)::after {
+  content: ""; position: absolute; top: 42px; left: 60px; right: -36px; height: 2px; z-index: 0;
+  background: linear-gradient(90deg, var(--tint-line), var(--tint-line2)); opacity: .45;
+}
+.gflow h3 { margin-top: 16px; font-size: 17px; }
+.gflow p { margin-top: 6px; font-size: 14px; color: var(--muted); }
+
+/* Compare: capabilities down the side, one coloured column per type */
+.gcmp { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: #fff; }
+.gcmp table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.gcmp th, .gcmp td { padding: 16px 20px; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--line); }
+.gcmp tbody tr:last-child > * { border-bottom: 0; }
+.gcmp thead th { color: #fff; font-weight: 400; }
+.gcmp thead th b { display: block; font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+.gcmp thead th span { display: block; font-size: 13px; opacity: .85; }
+.gcmp .gcmp-corner { width: 34%; color: var(--muted); background: var(--surface-soft); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; vertical-align: bottom; }
+.gcmp .tone-green { background: #2A9D55; } .gcmp .tone-clay { background: #C46B3F; } .gcmp .tone-yellow { background: #A87E22; }
+.gcmp tbody th { display: flex; gap: 14px; align-items: center; background: var(--surface-soft); font-weight: 400; }
+.gcmp tbody th .ic { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--tint-soft); color: var(--tint-ink); }
+.gcmp tbody th .ic svg { width: 20px; height: 20px; }
+.gcmp tbody th b { display: block; font-size: 15.5px; font-weight: 600; color: var(--ink); }
+.gcmp tbody th small { display: block; margin-top: 2px; font-size: 13.5px; color: var(--muted); }
+.gcmp td { border-left: 1px solid var(--line); text-align: center; }
+.gcmp .stat { display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; }
+.gcmp .stat::before { content: ""; width: 20px; height: 20px; border-radius: 50%; flex: none; background: center / 12px no-repeat; }
+.gcmp .stat.yes { color: #1F7A45; }
+.gcmp .stat.yes::before { background-color: #DDF3E5; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231F7A45' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E"); }
+.gcmp .stat.no { color: var(--muted-2); }
+.gcmp .stat.no::before { background-color: #EEF1F0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237A8684' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E"); }
+.gcmp td small { display: block; margin-top: 4px; font-size: 12.5px; color: var(--muted); }
+@media (max-width: 900px) {
+  .gflow { grid-template-columns: 1fr; gap: 12px; }
+  .gflow li { display: grid; grid-template-columns: 40px 1fr; column-gap: 16px; padding: 18px; }
+  .gflow .n { grid-row: span 2; }
+  .gflow h3 { margin-top: 0; align-self: end; }
+  .gflow p { margin-top: 2px; }
+  .gflow li:not(:last-child)::after { top: 58px; bottom: -32px; left: 37px; right: auto; width: 2px; height: auto; background: linear-gradient(180deg, var(--tint-line), var(--tint-line2)); }
+}
+/* Phones: each capability becomes a card listing the three types */
+@media (max-width: 760px) {
+  .gcmp { border: 0; background: none; border-radius: 0; overflow: visible; }
+  .gcmp thead { display: none; }
+  .gcmp table, .gcmp tbody, .gcmp tr, .gcmp th, .gcmp td { display: block; width: auto; }
+  .gcmp tr { margin-bottom: 12px; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: #fff; }
+  .gcmp tbody th { border-bottom: 1px solid var(--line); }
+  .gcmp tbody tr:last-child > * { border-bottom: 1px solid var(--line); }
+  .gcmp tbody tr > :last-child { border-bottom: 0 !important; }
+  .gcmp td { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 12px; border-left: 0; text-align: left; padding: 12px 18px; }
+  .gcmp td::before { content: attr(data-type); font-size: 14px; font-weight: 600; color: var(--ink); }
+  .gcmp td small { grid-column: 1 / -1; margin-top: 2px; }
+}
 
 /* Close: four numbered outcomes */
 .gclose { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
