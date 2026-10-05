@@ -334,11 +334,12 @@
             <span class="eyebrow">${esc(t('kit.start.eyebrow'))}</span>
             <h2 class="section-title">${esc(start.title)}</h2>
             <p class="section-lede">${esc(start.intro)}</p>
-            ${GUIDES['getting-started'] ? `<a class="guide-more" href="#/guide/getting-started"><span><b>${esc(t('guide.more'))}</b><small>${esc(t('guide.moreNote'))}</small></span>${ARROW}</a>` : ''}
             <h3 class="kit-label">${esc(t('kit.start.features'))}</h3>
             <ul class="kit-list">
               ${start.features.map((f) => `
                 <li><span class="ic">${icon(f.icon)}</span><span><b>${esc(f.title)}</b>${esc(tidy(f.desc))}</span></li>`).join('')}
+              ${GUIDES['getting-started'] ? `
+                <li class="kit-more"><a href="#/guide/getting-started"><span class="ic">${icon('compass')}</span><span><b>${esc(t('guide.more'))}</b>${esc(t('guide.moreNote'))}</span><span class="go" aria-hidden="true">${ARROW}</span></a></li>` : ''}
             </ul>
           </div>
         </div>

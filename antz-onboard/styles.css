@@ -452,6 +452,16 @@ button { font: inherit; color: inherit; }
 .kit-list .ic { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: var(--green-tint); color: var(--green-strong); }
 .kit-list .ic svg { width: 19px; height: 19px; }
 .kit-list b { display: block; color: var(--ink); font-weight: 600; font-size: 15px; margin-bottom: 2px; }
+/* The last card on the Getting Started page leads into the full guide: the same card, as a link, with an arrow */
+.kit-list .kit-more { display: block; padding: 0; transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1), border-color .3s var(--ease); }
+.kit-more a { display: grid; grid-template-columns: 38px 1fr auto; gap: 14px; align-items: center; padding: 14px 16px; border-radius: inherit; color: inherit; text-decoration: none; }
+.kit-more b { color: var(--green-strong); }
+.kit-more .go { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--green-strong); background: var(--green-tint); }
+.kit-more .go svg { transition: transform .4s cubic-bezier(.22,.8,.24,1); }
+.kit-list .kit-more:hover, .kit-list .kit-more:focus-within { transform: translateY(-3px); border-color: color-mix(in srgb, var(--green) 45%, #fff); box-shadow: 0 12px 22px -14px rgba(14,40,34,.4);
+  transition: transform .55s cubic-bezier(.34,1.56,.64,1), box-shadow .55s cubic-bezier(.22,.8,.24,1), border-color .3s var(--ease); }
+.kit-more:hover .go svg { transform: translate(2px, -2px); }
+@media (prefers-reduced-motion: reduce) { .kit-list .kit-more, .kit-more .go svg { transition: none; } .kit-list .kit-more:hover { transform: none; } }
 @media (max-width: 900px) {
   .kit-split, .kit-photo-left { grid-template-columns: 1fr; gap: 32px; }
   .kit-photo img { min-height: 0; aspect-ratio: 4 / 3; max-height: none; }
@@ -1716,17 +1726,6 @@ body.fwin-open { overflow: hidden; }
 .gclose p { margin-top: 8px; font-size: 14px; color: var(--muted); }
 .guide-close .mpager { margin-top: 64px; }
 
-/* Summary page: the way into the full guide */
-.guide-more {
-  display: inline-flex; align-items: center; gap: 18px; margin: -8px 0 32px; padding: 12px 16px 12px 20px; border-radius: 14px; text-decoration: none;
-  background: linear-gradient(110deg, #61D3C7 0%, #37BD69 100%); color: #fff; box-shadow: 0 10px 24px -14px rgba(14,80,50,.6);
-  transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1);
-}
-.guide-more b { display: block; font-size: 16px; font-weight: 600; }
-.guide-more small { display: block; font-size: 13px; opacity: .9; }
-.guide-more svg { width: 18px; height: 18px; flex: none; transition: transform .4s cubic-bezier(.22,.8,.24,1); }
-.guide-more:hover { transform: translateY(-3px); box-shadow: 0 16px 30px -14px rgba(14,80,50,.7); transition: transform .55s cubic-bezier(.34,1.56,.64,1), box-shadow .55s cubic-bezier(.22,.8,.24,1); }
-.guide-more:hover svg { transform: translate(2px, -2px); }
 
 @media (max-width: 1100px) {
   .gclose { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1748,5 +1747,5 @@ body.fwin-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .guide-kicker, .guide-aud { animation: none; }
   .guidepage .reveal, .guidepage .reveal:not(.in) { transition: none; transform: none; opacity: 1; }
-  .gcard-thumb .device-phone, .gqa-grid button, .guide-more { transition: none; }
+  .gcard-thumb .device-phone, .gqa-grid button { transition: none; }
 }
