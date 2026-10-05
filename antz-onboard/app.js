@@ -295,9 +295,9 @@
       `<span class="wave-word">${[...w].map((ch) => `<span class="wave-ch" style="--i:${i++}">${esc(ch)}</span>`).join('')}</span>`).join(' ')}</span>`;
   };
   const heroTitle = (text) => `<h1 class="holo" aria-label="${esc(text)}">${waveTitle(text)}</h1>`;
-  const SEARCH_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>';
-  const CLOSE_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
-  const ARROW = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+  const SEARCH_SVG = '<svg viewBox="0 -960 960 960" fill="currentColor"><path d="M380.77-335.39q-102.46 0-173.54-71.07-71.07-71.08-71.07-173.54t71.07-173.54q71.08-71.07 173.54-71.07t173.54 71.07q71.07 71.08 71.07 173.54 0 42.85-14.38 81.85-14.39 39-38.39 67.84l230.16 230.16q8.31 8.3 8.5 20.88.19 12.58-8.5 21.27t-21.08 8.69q-12.38 0-21.07-8.69L530.46-388.16q-30 24.77-69 38.77-39 14-80.69 14Zm0-59.99q77.31 0 130.96-53.66 53.66-53.65 53.66-130.96t-53.66-130.96q-53.65-53.66-130.96-53.66t-130.96 53.66Q196.15-657.31 196.15-580t53.66 130.96q53.65 53.66 130.96 53.66Z"/></svg>';
+  const CLOSE_SVG = '<svg width="20" height="20" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-437.85 277.08-234.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L437.85-480 234.92-682.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69L480-522.15l202.92-202.93q8.31-8.3 20.89-8.5 12.57-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L522.15-480l202.93 202.92q8.3 8.31 8.5 20.89.19 12.57-8.5 21.27-8.7 8.69-21.08 8.69-12.38 0-21.08-8.69L480-437.85Z"/></svg>';
+  const ARROW = '<svg width="14" height="14" viewBox="0 -960 960 960" fill="currentColor"><path d="M645.77-647.85 272.46-274.92q-8.31 8.3-20.88 8.11-12.58-.19-20.89-8.5-8.3-8.31-8.3-20.69t8.3-20.69L603.62-690H275.77q-12.75 0-21.38-8.63-8.62-8.63-8.62-21.38 0-12.76 8.62-21.37 8.63-8.62 21.38-8.62h393.84q15.37 0 25.76 10.39 10.4 10.4 10.4 25.76V-320q0 12.75-8.63 21.37-8.63 8.63-21.38 8.63-12.76 0-21.38-8.63-8.61-8.62-8.61-21.37v-327.85Z"/></svg>';
   /* The search cue ("Search {x}") with the rotating word where {x} sits in this language */
   const cueHTML = () => {
     const [before, after = ''] = t('search.cue', { x: '{x}' }).split('{x}');
@@ -332,7 +332,7 @@
 
   const shotFor = (m, src) => m.shots.find((s) => s.src === src) || { src, device: 'phone', alt: '' };
   /* Lens: on phones, a magnifier on each screen opens it on its own to pinch, pan and read the detail */
-  const LENS_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M10.5 7.5v6M7.5 10.5h6"/></svg>';
+  const LENS_SVG = '<svg width="22" height="22" viewBox="0 -960 960 960" fill="currentColor"><path d="M350.77-550h-47.69q-12.75 0-21.38-8.63-8.62-8.63-8.62-21.38 0-12.76 8.62-21.37 8.63-8.62 21.38-8.62h47.69v-47.69q0-12.75 8.63-21.38 8.63-8.62 21.38-8.62 12.76 0 21.37 8.62 8.62 8.63 8.62 21.38V-610h47.69q12.75 0 21.38 8.63 8.62 8.63 8.62 21.38 0 12.76-8.62 21.37-8.63 8.62-21.38 8.62h-47.69v47.69q0 12.75-8.63 21.38-8.63 8.62-21.38 8.62-12.76 0-21.37-8.62-8.62-8.63-8.62-21.38V-550Zm30 214.61q-102.55 0-173.58-71.01-71.03-71.01-71.03-173.54 0-102.52 71.01-173.6 71.01-71.07 173.54-71.07 102.52 0 173.6 71.03 71.07 71.03 71.07 173.58 0 42.85-14.38 81.85-14.39 39-38.39 67.84l230.16 230.16q8.31 8.3 8.5 20.88.19 12.58-8.5 21.27t-21.08 8.69q-12.38 0-21.07-8.69L530.46-388.16q-30 24.77-69 38.77-39 14-80.69 14Zm0-59.99q77.31 0 130.96-53.66 53.66-53.65 53.66-130.96t-53.66-130.96q-53.65-53.66-130.96-53.66t-130.96 53.66Q196.15-657.31 196.15-580t53.66 130.96q53.65 53.66 130.96 53.66Z"/></svg>';
   const lensHTML = () => `<button class="lens" type="button" aria-label="${esc(t('lens.open'))}">${LENS_SVG}</button>`;
   /* lens: false for screens that sit inside a link or button (a button can't hold another) */
   const deviceHTML = (shot, { lens = true } = {}) => {
@@ -489,10 +489,14 @@
   /* Guide banner icons: Material Symbols Rounded, light weight, from a subset font holding only these glyphs
      (assets/fonts/material-symbols-rounded-guide.woff2). A new guide needs its glyph added here and to the font:
      re-download the subset from Google Fonts with the glyph added to icon_names. Missing ones fall back to explore. */
+  /* Icons composed from the set's shapes, for modules the font has no glyph for (same art as assets/icons) */
+  const GUIDE_DRAWN = {
+    'medical-records': '<path d="M264.62-120q-27.62 0-46.12-18.5Q200-157 200-184.62v-590.76q0-27.62 18.5-46.12Q237-840 264.62-840h288.53q12.93 0 25.12 5.23 12.19 5.23 20.88 13.92l141.7 141.7q8.69 8.69 13.92 20.88t5.23 25.12v448.53q0 27.62-18.5 46.12Q723-120 695.38-120H264.62ZM560-672.31V-800H264.62q-9.24 0-16.93 7.69-7.69 7.69-7.69 16.93v590.76q0 9.24 7.69 16.93 7.69 7.69 16.93 7.69h430.76q9.24 0 16.93-7.69 7.69-7.69 7.69-16.93V-640H592.31q-13.93 0-23.12-9.19-9.19-9.19-9.19-23.12ZM240-800v160-160 640-640Z"/><path d="M330-630.0h140a20.0 20.0 0 0 1 0 40h-140a20.0 20.0 0 0 1 0-40ZM330-520.0h300a20.0 20.0 0 0 1 0 40h-300a20.0 20.0 0 0 1 0-40Z"/><path transform="translate(480 -265) scale(.36) translate(-480 480)" d="M180.04-495q-33.58 0-56.81-23.19Q100-541.37 100-574.96q0-33.58 23.19-56.81Q146.37-655 179.96-655q33.58 0 56.81 23.19Q260-608.63 260-575.04q0 33.58-23.19 56.81Q213.63-495 180.04-495Zm123.19-183.19Q280-701.37 280-734.96q0-33.58 23.19-56.81Q326.37-815 359.96-815q33.58 0 56.81 23.19Q440-768.63 440-735.04q0 33.58-23.19 56.81Q393.63-655 360.04-655q-33.58 0-56.81-23.19Zm240 0Q520-701.37 520-734.96q0-33.58 23.19-56.81Q566.37-815 599.96-815q33.58 0 56.81 23.19Q680-768.63 680-735.04q0 33.58-23.19 56.81Q633.63-655 600.04-655q-33.58 0-56.81-23.19ZM780.04-495q-33.58 0-56.81-23.19Q700-541.37 700-574.96q0-33.58 23.19-56.81Q746.37-655 779.96-655q33.58 0 56.81 23.19Q860-608.63 860-575.04q0 33.58-23.19 56.81Q813.63-495 780.04-495ZM266-95q-37.31 0-61.65-28.55Q180-152.1 180-191q0-48.92 34.35-83.69 34.34-34.77 67.03-70.46 29-31.77 50.39-67.89 21.38-36.11 49.61-68.11 19.7-22.16 44.57-38Q450.83-535 480-535q30.02 0 55.63 15.23 25.6 15.23 44.52 38.15 28 32 49.12 68.24 21.11 36.23 49.35 68.23 32.69 35.69 67.03 70.46Q780-239.92 780-191q0 38.9-24.35 67.45Q731.31-95 694-95q-54 0-107-9t-107-9q-54 0-107 9t-107 9Z"/>'
+  };
   const GUIDE_GLYPH = {
-    'getting-started': 'explore', 'notes-module': 'chat', 'user-management': 'account_circle', collection: 'pets',
+    'getting-started': 'explore', 'notes-module': 'sticky_note_2', 'user-management': 'account_circle', collection: 'pets',
     housing: 'house_siding', 'animal-management': 'cruelty_free', 'animal-transfer': 'local_shipping',
-    'medical-records': 'home_health', 'symptoms-clinical-assessment-prescription': 'stethoscope', vaccination: 'vaccines',
+    'medical-records': 'description', 'symptoms-clinical-assessment-prescription': 'stethoscope', vaccination: 'vaccines',
     deworming: 'pest_control', supplements: 'nutrition', 'hospital-information-management-system-app': 'home_health',
     mortality: 'heart_minus', necropsy: 'content_paste_search', 'egg-management-web': 'egg',
     'helpdesk-module': 'support_agent', security: 'verified_user', 'reports-web': 'summarize'
@@ -612,7 +616,11 @@
     do bannerOffset = Math.floor(Math.random() * GUIDE_ORDER.length);
     while (GUIDE_ORDER.length > 1 && bannerNow(GUIDE_ORDER, bannerOffset) === lastGuideBanner);
     lastGuideBanner = bannerNow(GUIDE_ORDER, bannerOffset);
-    const heroIcon = `<span class="hero-leaf hero-icon" aria-hidden="true">${GUIDE_GLYPH[backModule ? backModule.id : id] || 'explore'}</span>`;
+    /* A module whose icon is drawn (no font glyph) shows that drawing instead */
+    const glyphFor = backModule ? backModule.id : id;
+    const heroIcon = GUIDE_DRAWN[glyphFor]
+      ? `<span class="hero-leaf hero-icon drawn" aria-hidden="true"><svg viewBox="60 -900 840 840" fill="currentColor">${GUIDE_DRAWN[glyphFor]}</svg></span>`
+      : `<span class="hero-leaf hero-icon" aria-hidden="true">${GUIDE_GLYPH[glyphFor] || 'explore'}</span>`;
 
     app.innerHTML = `
       <div class="guidepage tint-${AREA_TINT[track]}">
@@ -813,8 +821,8 @@
   /* Brand icons from References/icons */
   const BRAND_ICONS = ['announcement', 'collections', 'communication', 'compliance', 'diet', 'egg', 'housing', 'lab_research', 'medical', 'necropsy', 'pharmacy', 'users'];
   const MODULE_ICON = {
-    'notes-module': 'communication', 'user-management': 'users', collection: 'collections', housing: 'housing',
-    'medical-records': 'medical', 'hospital-information-management-system-app': 'medical', 'hospital-information-management-system-web': 'medical',
+    'notes-module': 'notes', 'chat-module': 'communication', 'focus-hub': 'focus_hub', 'user-management': 'users', collection: 'collections', housing: 'housing',
+    'medical-records': 'medical_records', 'hospital-information-management-system-app': 'medical', 'hospital-information-management-system-web': 'hospital',
     necropsy: 'necropsy', 'egg-management-app': 'egg', 'egg-management-web': 'egg', announcement: 'announcement',
     lab: 'lab_research', diet: 'diet', 'pharmacy-app': 'pharmacy', 'pharmacy-web': 'pharmacy', compliance: 'compliance',
     /* Added to match: Material Symbols Outlined, weight 600, same 50px framing as the set above */
@@ -878,7 +886,7 @@
         <span class="mcard-body">
           <span class="mcard-title">${esc(m.title)}</span>
           <span class="mcard-sum">${esc(summary(m))}</span>
-          <span class="mcard-foot"><span>${esc(t('modules.features', { n: m.features.length }))}</span><span class="mcard-plus" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+          <span class="mcard-foot"><span>${esc(t('modules.features', { n: m.features.length }))}</span><span class="mcard-plus" aria-hidden="true"><svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor"><path d="M665.08-450H210q-12.77 0-21.38-8.62Q180-467.23 180-480t8.62-21.38Q197.23-510 210-510h455.08L458.31-716.77q-8.92-8.92-8.81-20.88.12-11.96 9.42-21.27 9.31-8.69 21.08-9 11.77-.31 21.08 9l253.61 253.61q5.62 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.3 6.23-7.92 11.85L501.08-201.08q-8.31 8.31-20.58 8.5-12.27.19-21.58-8.5-9.3-9.31-9.3-21.38 0-12.08 9.3-21.39L665.08-450Z"/></svg></span></span>
         </span>
         <svg class="drawn-border" aria-hidden="true"></svg>
       </a>
@@ -1212,7 +1220,7 @@
   }));
   /* Module chips look and behave like the home page's filter chips (.mfilter): rise and drawn border on hover,
      gradient fill sweeping in when selected. mark = false renders none selected, so the fill can sweep in after. */
-  const PIN_CHEVRON = '<svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+  const PIN_CHEVRON = '<svg class="chev" width="16" height="16" viewBox="0 -960 960 960" fill="currentColor"><path d="M466.54-375.85q-6.23-2.3-11.85-7.92L274.92-563.54q-8.3-8.31-8.5-20.88-.19-12.58 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69L480-442.77l162.92-162.92q8.31-8.31 20.89-8.5 12.57-.19 21.27 8.5 8.69 8.69 8.69 21.07 0 12.39-8.69 21.08L505.31-383.77q-5.62 5.62-11.85 7.92-6.23 2.31-13.46 2.31t-13.46-2.31Z"/></svg>';
   const subTabsHTML = (cur, mark = true) => areaById[cur.track].modules.map((x) => `
     <a class="msubtab mfilter" href="#/m/${x.id}"${mark && x === cur ? ' aria-current="page"' : ''}><span class="ic" style="--ic:url('assets/icons/${iconOf(x)}_icon.svg')" aria-hidden="true"></span>${esc(x.title)}<svg class="drawn-border" aria-hidden="true"></svg></a>`).join('');
   const markSubTab = (sub, cur) => sub.querySelectorAll('.msubtab').forEach((x) => {
@@ -1726,9 +1734,9 @@
   /* ---------- Feature window (desktop and laptop) ----------
      One feature at a time: its screen beside its title and description, with arrows either side
      stepping through the module's features. Left/right keys step, Esc or a click outside closes. */
-  const EXPAND_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>';
-  const CHEV_L = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
-  const CHEV_R = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+  const EXPAND_SVG = '<svg width="16" height="16" viewBox="0 -960 960 960" fill="currentColor"><path d="M176.16-140q-15.37 0-25.76-10.4-10.4-10.39-10.4-25.76V-410q0-12.75 8.63-21.38 8.63-8.62 21.38-8.62 12.76 0 21.37 8.62Q200-422.75 200-410v168.23L718.23-760H550q-12.75 0-21.38-8.63-8.62-8.63-8.62-21.38 0-12.76 8.62-21.37Q537.25-820 550-820h233.84q15.37 0 25.76 10.4 10.4 10.39 10.4 25.76V-550q0 12.75-8.63 21.38-8.63 8.62-21.38 8.62-12.76 0-21.37-8.62Q760-537.25 760-550v-168.23L241.77-200H410q12.75 0 21.38 8.63 8.62 8.63 8.62 21.38 0 12.76-8.62 21.37Q422.75-140 410-140H176.16Z"/></svg>';
+  const CHEV_L = '<svg width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="m418.15-480 162.93 162.92q8.3 8.31 8.5 20.89.19 12.57-8.5 21.27-8.7 8.69-21.08 8.69-12.38 0-21.08-8.69L359.15-454.69q-5.61-5.62-7.92-11.85-2.31-6.23-2.31-13.46t2.31-13.46q2.31-6.23 7.92-11.85l179.77-179.77q8.31-8.3 20.89-8.5 12.57-.19 21.27 8.5 8.69 8.7 8.69 21.08 0 12.38-8.69 21.08L418.15-480Z"/></svg>';
+  const CHEV_R = '<svg width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M517.85-480 354.92-642.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69l179.77 179.77q5.61 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.31 6.23-7.92 11.85L397.08-274.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L517.85-480Z"/></svg>';
   /* The LSET Foundation banner's leaf flourish (its components/icons/Leaves), under the banner text */
   const LEAVES_SVG = '<svg class="hero-leaf" width="114" height="60" viewBox="0 0 114 60" fill="none" aria-hidden="true" focusable="false"><path d="M2.87042 41.151C9.84427 42.2953 16.9777 42.0151 23.8403 40.3272C21.2324 39.0356 18.7205 37.5585 16.3241 35.9073C15.5719 35.3815 14.8724 32.6546 15.63 33.1841C19.0249 35.6013 22.6176 37.7278 26.3701 39.5409C28.3959 38.9382 31.2637 38.1164 33.3629 37.3151C34.8384 36.7518 36.2972 36.1518 37.7394 35.5152C39.7426 30.0413 46.0782 13.7805 48.733 19.3843C50.8472 23.8472 45.0164 30.2708 40.8713 34.0752C43.7887 32.6746 46.6426 31.1434 49.4414 29.5135L49.4269 29.5086L49.4898 29.4851C49.7488 29.3342 50.0073 29.1826 50.2654 29.0302C52.1283 23.9011 58.6661 6.86762 61.374 12.5837C63.3668 16.7903 58.3008 22.7393 54.2411 26.5946C57.0266 24.8318 59.7607 22.9874 62.4515 21.0943C63.0903 20.6449 63.727 20.1926 64.3617 19.7374C64.5324 15.8793 65.3768 3.48095 69.1102 6.60833C72.155 9.15894 68.69 15.0031 66.2686 18.359C68.4118 16.7977 70.5362 15.2106 72.6525 13.6127C73.6032 12.895 74.4153 12.0103 75.0492 11.0019C78.3819 5.69948 85.7422 -4.73149 88.0801 2.43099C90.306 9.25017 81.5286 12.1511 76.569 13.227C75.5994 13.4393 74.6877 13.86 73.8969 14.4599C71.5872 16.2052 69.2672 17.9387 66.9259 19.642C71.0431 18.2774 77.8777 16.6402 80.1336 19.8468C82.9239 23.813 69.2448 21.7951 64.9412 21.075C61.6655 23.4188 58.3402 25.691 54.9373 27.8442C60.1099 26.5855 67.2794 25.7311 68.836 30.0874C70.8894 35.8341 56.4643 31.7461 51.2545 30.1055C51.0959 30.1998 50.9386 30.2964 50.7795 30.3902C47.8626 32.1102 44.8733 33.7266 41.8171 35.2033C47.014 33.8879 54.5605 32.8524 56.1623 37.3356C58.3436 43.4403 41.9297 38.4469 37.721 37.0786C34.896 38.2982 31.1569 39.5991 28.228 40.5311C34.6511 43.3832 41.4349 45.3413 48.3899 46.3506C49.954 46.5701 51.5212 46.7493 53.0915 46.8884C57.4892 43.0626 70.8905 31.884 70.5086 38.073C70.2044 43.0021 61.9963 45.8107 56.5293 47.14C59.7603 47.3227 62.9989 47.3602 66.2368 47.2848L66.2265 47.2734L66.2929 47.2832C66.5925 47.2762 66.8922 47.2683 67.1918 47.2595C71.3001 43.668 85.2515 31.9104 84.862 38.2235C84.5754 42.8694 77.2661 45.6318 71.8493 47.0469C75.1398 46.8487 78.4246 46.5541 81.6951 46.196C82.4715 46.111 83.2475 46.0225 84.0231 45.9304C86.036 42.6347 92.7633 32.186 94.522 36.7276C95.9563 40.4315 90.0996 43.8754 86.3586 45.6445C88.9893 45.3124 91.6168 44.9548 94.2409 44.5716C95.42 44.4024 96.5584 44.02 97.6005 43.4431C103.08 40.4097 114.562 34.8308 113.15 42.2317C111.806 49.2778 102.719 47.5788 97.8565 46.1255C96.905 45.8432 95.9035 45.7711 94.9214 45.9145C92.0559 46.3272 89.187 46.7175 86.3145 47.0854C90.5788 47.8789 97.3542 49.7463 97.7807 53.6437C98.3084 58.4642 87.3052 50.0907 83.8845 47.3816C79.8841 47.8519 75.8751 48.2355 71.8553 48.4774C76.9926 49.8735 83.6832 52.588 82.9423 57.1543C81.9648 63.178 71.308 52.6316 67.5385 48.6788C67.354 48.6848 67.1697 48.6934 66.9851 48.6987C63.6002 48.796 60.2019 48.7677 56.8126 48.5847C61.9985 49.9428 69.1066 52.6808 68.344 57.3801C67.3056 63.779 55.3447 51.4793 52.3201 48.2484C46.0281 47.6768 39.8193 46.4069 33.8081 44.4623C31.0847 43.5563 28.4158 42.4941 25.8146 41.2809C23.7922 41.8341 21.7493 42.3166 19.6824 42.7041C13.2712 44.0086 6.70964 44.4139 0.186651 43.9084C-0.725917 43.8113 1.95691 41.0095 2.87042 41.151Z" fill="currentColor"/></svg>';
   let closeFeatureWindow = null;
