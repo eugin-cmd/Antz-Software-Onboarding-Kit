@@ -258,8 +258,8 @@
   const kitScreen = (m) => (m.shots[0] ? deviceHTML({ ...m.shots[0], device: m.shots[0].device || 'phone' }) : '');
   const KIT_PAGES = [
     { id: 'objective', module: 'objective-of-this-kit', eyebrow: t('kit.objective.eyebrow'), more: t('kit.objective.more'), photo: 'objective', pos: '50% 35%' },
-    { id: 'platform', module: 'what-is-antz-systems', eyebrow: t('kit.platform.eyebrow'), more: t('kit.platform.more'), photo: 'platform', pos: '72% 50%' },
-    { id: 'getting-started', module: 'getting-started', eyebrow: t('kit.start.eyebrow'), more: t('kit.start.more') }
+    { id: 'getting-started', module: 'getting-started', eyebrow: t('kit.start.eyebrow'), more: t('kit.start.more') },
+    { id: 'platform', module: 'what-is-antz-systems', eyebrow: t('kit.platform.eyebrow'), more: t('kit.platform.more'), photo: 'platform', pos: '72% 50%' }
   ];
   const KIT_SECTIONS = {
     objective: () => {

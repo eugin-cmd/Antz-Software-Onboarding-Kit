@@ -527,7 +527,7 @@ button { font: inherit; color: inherit; }
 
 /* ---------- "Start here" cards (under the hero), each opening its own page ---------- */
 .bento-section { padding: 64px 0; }
-.bento { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+.bento { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .bento-card {
   position: relative; display: flex; align-items: center; min-height: 300px; padding: 44px 48px; border-radius: 24px; overflow: hidden;
   text-decoration: none; color: var(--text); isolation: isolate; box-shadow: 0 1px 2px rgba(14,23,21,.04);
@@ -559,9 +559,10 @@ button { font: inherit; color: inherit; }
 /* The platform: soft mint */
 .bento-platform { background: linear-gradient(135deg, #EEF6F7 0%, #DDF0E6 100%); }
 .bento-platform .bento-copy { max-width: 56%; }
-/* Getting started: soft grey, with the app's home screen rising from the corner */
-.bento-getting-started { align-items: flex-start; background: linear-gradient(160deg, #F3F5F4 0%, #E7EEEB 100%); }
+/* Getting started: a subdued tint of the Antz orange so it stands out, with the app's home screen rising from the corner */
+.bento-getting-started { align-items: flex-start; background: linear-gradient(160deg, #FBF6F2 0%, #F4E6DE 100%); }
 .bento-getting-started .bento-copy { max-width: 62%; }
+.bento-getting-started .bento-more { color: #B4573C; }
 .bento-phone { position: absolute; right: -28px; bottom: -150px; width: 176px; z-index: 0; transform: rotate(-8deg); transition: transform .6s cubic-bezier(.22,.8,.24,1); }
 .bento-phone .device-phone, .bento-phone .device-framed { width: 176px; }
 .bento-card:hover .bento-phone { transform: rotate(-5deg) translateY(-14px); }
@@ -569,6 +570,7 @@ button { font: inherit; color: inherit; }
   width: fit-content; background: linear-gradient(135deg, #37BD69 0%, #1F415B 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
+.bento-getting-started .bento-title { background-image: linear-gradient(135deg, #D9775A 0%, #8C4A37 100%); }
 @media (max-width: 1000px) {
   .bento-card { padding: 36px; }
   .bento-getting-started .bento-copy { max-width: 70%; }
