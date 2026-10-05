@@ -497,6 +497,9 @@ button { font: inherit; color: inherit; }
 /* Bare screens: no bezel, just rounded corners, a hairline edge and the lift shadow */
 /* Places with no area (start-here pages and cards) frame their screens in the brand green */
 .kitpage, .bento { --tint-line: #0B7A40; --tint-line2: #005A2C; }
+/* Getting Started (home card, summary page, guide) sits on the Records & Communication gradient, so its bezels take that gradient's deeper tones */
+.bento-getting-started, #first-day { --tint-line: #2FA864; --tint-line2: #E06C78; }
+#first-day .kit-device { background: linear-gradient(to bottom right, #BFF3D2 0%, #FFD3D3 100%); }
 /* Screens without a frame of their own get the same green phone body as the framed captures:
    a coloured rim around a thin dark edge. The rim is a fixed 7px (10px on tablets): padding percentages
    follow the surrounding box, which made frames thicker in wider panels */
@@ -559,8 +562,8 @@ button { font: inherit; color: inherit; }
 /* The platform: soft mint */
 .bento-platform { background: linear-gradient(135deg, #EEF6F7 0%, #DDF0E6 100%); }
 .bento-platform .bento-copy { max-width: 56%; }
-/* Getting started: a subdued tint of the Antz orange so it stands out, with the app's home screen rising from the corner */
-.bento-getting-started { align-items: flex-start; background: linear-gradient(160deg, #FBF6F2 0%, #F4E6DE 100%); }
+/* Getting started: the Records & Communication diagonal (mint to blush) so it stands out, with the app's home screen rising from the corner */
+.bento-getting-started { align-items: flex-start; background: linear-gradient(to bottom right, #BFF3D2 0%, #FFD3D3 100%); }
 .bento-getting-started .bento-copy { max-width: 62%; }
 .bento-getting-started .bento-more { color: #B4573C; }
 .bento-phone { position: absolute; right: -28px; bottom: -150px; width: 176px; z-index: 0; transform: rotate(-8deg); transition: transform .6s cubic-bezier(.22,.8,.24,1); }
@@ -644,7 +647,7 @@ button { font: inherit; color: inherit; }
 .tint-medical    { --tint: #D3F3D7; --tint-comp: #FBF7D2; --tint-line: #4DB3A6; --tint-line2: #C8BC6A; --tint-ink: #2A6A62; --line-grad: url(#line-medical); }
 .tint-mortality  { --tint: #FFF5BF; --tint-comp: #FFD3D3; --tint-line: #D6920E; --tint-line2: #DD5F6B; --tint-ink: #8A4424; --line-grad: url(#line-mortality); }
 .tint-operations { --tint: #BFEBF5; --tint-comp: #F9CCD4; --tint-line: #2C94BC; --tint-line2: #DD647D; --tint-ink: #1E5D77; --line-grad: url(#line-operations); }
-.tint-guide      { --tint: #CFF3E0; --tint-comp: #C9F0EE; --tint-line: #2FA864; --tint-line2: #14A9A0; --tint-ink: #1D5F4F; --line-grad: url(#mcard-grad); } /* Guide pages, outside the five areas: placeholder colours */
+.tint-guide      { --tint: #BFF3D2; --tint-comp: #FFD3D3; --tint-line: #2FA864; --tint-line2: #E06C78; --tint-ink: #1D6B43; --line-grad: url(#mcard-grad); } /* The Getting Started guide: the Records & Communication gradient, as on its home card */
 [class*="tint-"] {
   --tint-soft: color-mix(in srgb, var(--tint) 32%, #fff); --tint-soft2: color-mix(in srgb, var(--tint-comp) 32%, #fff);
   --tint-grad: linear-gradient(135deg, var(--tint) 0%, var(--tint-comp) 100%);
@@ -1603,7 +1606,6 @@ body.fwin-open { overflow: hidden; }
 [dir="rtl"] .fwin-device.in-r { animation-name: fwinL; } [dir="rtl"] .fwin-device.in-l { animation-name: fwinR; }
 
 /* ---------- Guide pages: a kit's full walkthrough ---------- */
-.guidepage { --tint-line: #0B7A40; --tint-line2: #005A2C; }
 /* Banner: the home page's photo and wash, shorter, with the kit's audience and a jump to each part */
 .guide-hero .hero-inner { padding-top: calc(96px + var(--header-h)); padding-bottom: 72px; }
 .guide-kicker { display: inline-block; margin-bottom: 14px; font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #8FE3AE; text-shadow: 0 1px 10px rgba(0,0,0,.4); }
@@ -1627,7 +1629,7 @@ body.fwin-open { overflow: hidden; }
 .gfeats-title { font-size: 22px; }
 .gfeats-lede { margin: 8px 0 20px; max-width: 760px; color: var(--muted); }
 
-/* Cards: the home cards' white face and drawn border, with the first screen peeking up from a mint stage */
+/* Cards: the home cards' white face and drawn border, with the first screen peeking up from the guide's gradient */
 .ggrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
 .gcard { border: 0; font: inherit; color: inherit; }
 /* Five cards: three across, then two wider ones, so none is left alone on a row */
@@ -1638,10 +1640,12 @@ body.fwin-open { overflow: hidden; }
 }
 .gcard-thumb {
   position: relative; display: flex; justify-content: center; height: 210px; margin: 14px 14px 0; padding-top: 22px; overflow: hidden; border-radius: 12px;
-  background: radial-gradient(120% 100% at 50% 0%, #fff 0%, var(--mint) 100%);
+  background: linear-gradient(to bottom right, var(--tint) 0%, var(--tint-comp) 100%);
 }
-/* The first screen in the phone frame, peeking up; --peek (0 to 1) slides it to the part worth showing */
-.gcard-thumb .device-phone { flex: none; width: 160px; height: auto; margin-top: calc(var(--peek, 0) * -153px); box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), 0 18px 30px -16px rgba(14,40,34,.4); transition: transform .7s cubic-bezier(.22,.8,.24,1); }
+/* The first screen in the phone frame, peeking up: only its top half shows, cut off by the stage's bottom edge.
+   align-self keeps the flex row from stretching it to the stage's height (which squashed the phone).
+   --peek (0 to 1) slides it to the part worth showing */
+.gcard-thumb .device-phone { flex: none; align-self: flex-start; width: 160px; height: auto; margin-top: calc(var(--peek, 0) * -153px); box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), 0 18px 30px -16px rgba(14,40,34,.4); transition: transform .7s cubic-bezier(.22,.8,.24,1); }
 .gcard:hover .gcard-thumb .device-phone, .gcard:focus-visible .gcard-thumb .device-phone { transform: translateY(-10px); }
 .gcard-body { display: flex; flex-direction: column; gap: 8px; flex: 1; padding: 18px 20px 20px; }
 .gcard-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px; }
@@ -1656,7 +1660,12 @@ body.fwin-open { overflow: hidden; }
 
 /* Quick actions: the sheet on the left, one tile per shortcut on the right */
 .gqa { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: start; }
-.gqa-stage { position: sticky; top: calc(var(--header-h) + 24px); }
+/* The sheet on the guide's gradient, rounded like the module pages' screen stage */
+.gqa-stage {
+  position: sticky; top: calc(var(--header-h) + 24px); display: grid; place-items: center; width: 100%; padding: 40px 24px;
+  border: 0; border-radius: var(--radius-lg); cursor: pointer; font: inherit;
+  background: linear-gradient(to bottom right, var(--tint) 0%, var(--tint-comp) 100%);
+}
 .gqa-stage .device-phone { width: 236px; }
 .gqa-side h3 { font-size: 22px; }
 .gqa-side > p { margin-top: 8px; color: var(--muted); }

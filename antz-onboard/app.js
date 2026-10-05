@@ -329,7 +329,7 @@
             <span class="eyebrow">${esc(t('kit.start.eyebrow'))}</span>
             <h2 class="section-title">${esc(start.title)}</h2>
             <p class="section-lede">${esc(start.intro)}</p>
-            ${GUIDE_LINKS && GUIDES['getting-started'] ? `<a class="guide-more" href="#/guide/getting-started"><span><b>${esc(t('guide.more'))}</b><small>${esc(t('guide.moreNote'))}</small></span>${ARROW}</a>` : ''}
+            ${GUIDES['getting-started'] ? `<a class="guide-more" href="#/guide/getting-started"><span><b>${esc(t('guide.more'))}</b><small>${esc(t('guide.moreNote'))}</small></span>${ARROW}</a>` : ''}
             <h3 class="kit-label">${esc(t('kit.start.features'))}</h3>
             <ul class="kit-list">
               ${start.features.map((f) => `
@@ -392,8 +392,7 @@
   /* ---------- Guide pages: a kit's full walkthrough (guide.js), linked from its summary page ---------- */
   /* A banner like the home page's, then the kit's parts as cards; each card opens its screens in the gallery */
   const GUIDES = window.ANTZ_GUIDES || {};
-  /* Guide pages stay unlinked (reachable only by their #/guide/ address) until every kit has one */
-  const GUIDE_LINKS = false;
+  /* A guide is linked only from inside its kit page (never from the home page) */
   function renderGuide(id) {
     const g = GUIDES[id];
     if (!g) { location.hash = '#/'; return; }
@@ -578,6 +577,7 @@
               ${k.id === 'getting-started'
                 ? `<span class="bento-phone" aria-hidden="true">${kitScreen(m)}</span>`
                 : `<span class="bento-media" style="background-image:url('${PHOTOS[k.photo]}')${k.pos ? `;background-position:${k.pos}` : ''}" aria-hidden="true"></span>`}
+              <svg class="drawn-border" aria-hidden="true"></svg>
             </a>`;
           }).join('')}
         </div>
@@ -931,7 +931,8 @@
   function sizeBorders() {
     if (borderObserver) borderObserver.disconnect();
     const targets = [
-      ...[...app.querySelectorAll('.mcard-face')].map((el) => [el, { ...CARD_BORDER,
+      /* Start-here cards under the hero: the module cards' border, in the brand gradient (they have no area) */
+      ...[...app.querySelectorAll('.mcard-face, .bento-card')].map((el) => [el, { ...CARD_BORDER,
         isOn: () => (el.matches(':hover') && canHover()) || el.matches(':focus-visible') }]),
       /* Feature rows on module pages draw the same border as the home cards, in the area colour */
       ...[...app.querySelectorAll('.mfeat-row')].map((el) => [el, { ...CARD_BORDER, stroke: 1, bleed: 0, over: true,
