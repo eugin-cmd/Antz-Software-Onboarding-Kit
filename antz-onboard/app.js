@@ -1751,7 +1751,11 @@
       tx = Math.max(Math.min(0, -mx - cx), Math.min(Math.max(0, mx - cx), tx));
       ty = Math.max(Math.min(0, -my - cy), Math.min(Math.max(0, my - cy), ty));
     };
-    const resetZoom = (anim) => { scale = 1; tx = 0; ty = 0; apply(anim); g.classList.remove('zoomed'); };
+    /* The lens view keeps its scroll position when zoom resets; elsewhere the screen recentres */
+    const resetZoom = (anim) => { scale = 1; tx = 0; if (lens && baseH) clampPan(); else ty = 0; apply(anim); g.classList.remove('zoomed'); };
+    /* Drags pan once zoomed in, and in the lens view also whenever the screen is taller than the stage
+       (it opens at full width, so a tall screen scrolls up and down without a pinch) */
+    const canPan = () => scale > 1.01 || (lens && baseH * scale > stageEl.clientHeight + 1);
     const go = (i, dir = 0) => {
       /* The feature sheet stops at the first and last feature; the plain gallery wraps round */
       if (sheet && (i < 0 || i >= slides.length)) {
@@ -1787,7 +1791,11 @@
       });
       [idx + 1, idx - 1].forEach((j) => { const n = slides[(j + slides.length) % slides.length]; if (n) new Image().src = n.src; });
     };
-    img.addEventListener('load', measure);
+    img.addEventListener('load', () => {
+      measure();
+      /* The lens view opens at the top of the screen */
+      if (lens && scale === 1) { ty = 1e6; clampPan(); apply(false); }
+    });
     /* Sheet: fit the screen inside the space its area actually has, with room above and below */
     const fitSheet = () => {
       if (!sheet) return;
@@ -1824,7 +1832,7 @@
       } else if (drag) {
         const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
         if (Math.abs(dx) + Math.abs(dy) > 6) drag.moved = true;
-        if (scale > 1.01) { tx = drag.tx + dx; ty = drag.ty + dy; clampPan(); apply(false); }
+        if (canPan()) { tx = drag.tx + dx; ty = drag.ty + dy; clampPan(); apply(false); }
         else if (Math.abs(dy) > Math.abs(dx) && dy > 0) { track.style.transition = 'none'; track.style.transform = `translateY(${dy}px)`; track.style.opacity = String(Math.max(.3, 1 - dy / 400)); }
         else { track.style.transition = 'none'; track.style.transform = `translateX(${dx}px)`; }
       }
@@ -1849,7 +1857,7 @@
         } else lastTap = now;
         return;
       }
-      if (scale > 1.01) return;
+      if (canPan()) return;
       track.style.transition = 'transform .28s cubic-bezier(.22,.8,.24,1), opacity .2s ease';
       if (dy > 110 && Math.abs(dy) > Math.abs(dx)) return close();
       const fwd = RTL ? -dx : dx;

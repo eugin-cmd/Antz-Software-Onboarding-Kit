@@ -1538,8 +1538,10 @@ body.fwin-open { overflow: hidden; }
 /* The lens view: the plain dark gallery with a single screen, so no dots, swipes or captions */
 .gallery.lens-view .g-info, .gallery.lens-view .g-nav, .gallery.lens-view .g-count { display: none; }
 .gallery.lens-view .g-title { grid-column: 1 / 3; text-align: left; padding-left: 8px; }
-.gallery.lens-view .g-track { padding: 8px 12px; }
-.gallery.lens-view .g-hint { margin-bottom: 6px; }
+/* The screen opens at full width; a tall one runs past the stage and scrolls with a drag */
+.gallery.lens-view .g-track { padding: 0; }
+.gallery.lens-view .g-img { width: 100%; max-width: none; max-height: none; border-radius: 0; box-shadow: none; }
+.gallery.lens-view .g-hint { margin: 8px 0 6px; }
 
 /* ---------- Footer ---------- */
 /* Footer: the Antz Systems website's closing band. Green to navy, the logo, "See Antz in Action",

@@ -143,7 +143,7 @@
     'gal.screen': 'Screen {i}',
     'gal.hint': 'Pinch or double-tap to zoom · Swipe to browse',
     'lens.open': 'Zoom into this screen',
-    'lens.hint': 'Pinch or double-tap to zoom · Drag to look around'
+    'lens.hint': 'Drag to scroll · Pinch or double-tap to zoom'
   };
 
   /* Choose the language: ?lang= wins (and is remembered), then the saved choice, else English */
