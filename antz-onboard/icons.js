@@ -43,3 +43,12 @@ const ICONS = {
 };
 
 ICONS._listen = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2a4 4 0 00-4 4v2a4 4 0 008 0V6a4 4 0 00-4-4z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 9v0a5 5 0 0010 0M8 13.5V15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+/* Step icons for the guides' numbered flows */
+ICONS.history  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 12a8.2 8.2 0 1 0 2.4-5.8"/><path d="M3.5 3.8v4.6h4.6"/><path d="M12 7.6V12l3 2"/></svg>';
+ICONS.done     = '<svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2a10 10 0 110 20 10 10 0 010-20zm-1.4 14.2l6.4-6.4-1.6-1.6-4.8 4.8-2.2-2.2-1.6 1.6 3.8 3.8z"/></svg>';
+ICONS.discard  = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 3h6l1 1.5h4V7H4V4.5h4L9 3z"/><path fill-rule="evenodd" d="M5.5 8.5h13l-1 12.5h-11l-1-12.5zm4 2.5v7.5h1.6V11H9.5zm3.4 0v7.5h1.6V11h-1.6z"/></svg>';
+ICONS.cost     = '<svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M5 2h14v20l-2.3-1.6L14.3 22 12 20.4 9.7 22l-2.4-1.6L5 22V2zm3 5v1.8h8V7H8zm0 4v1.8h8V11H8zm0 4v1.8h5V15H8z"/></svg>';
+ICONS.hatch    = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.6 2 5.6 7 5.3 11.2l2.4-1.6 2.2 1.8 2.1-1.8 2.1 1.8 2.2-1.8 2.4 1.6C18.4 7 15.4 2 12 2z"/><path d="M5.2 13.6C5.4 18.4 8.3 22 12 22s6.6-3.6 6.8-8.4l-2.5-1.6-2.2 1.8-2.1-1.8-2.1 1.8-2.2-1.8-2.5 1.6z"/></svg>';
+ICONS.incubate = '<svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2a3 3 0 013 3v8.3a5 5 0 11-6 0V5a3 3 0 013-3zm-1 5v7.6l-.4.3a3 3 0 103 0l-.6-.3V7h-2z"/></svg>';
+ICONS.progress = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 6.5a5.5 5.5 0 010 11z" fill="currentColor"/></svg>';
+ICONS.undo     = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 010 12h-3"/></svg>';

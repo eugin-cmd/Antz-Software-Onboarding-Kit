@@ -162,10 +162,10 @@ window.ANTZ_GUIDES = {
       title: 'You are up and running',
       lede: 'Four things mark the end of getting started, each one something you can now do on your own.',
       items: [
-        { title: 'Get in & oriented', desc: 'Log in to your workspace and read the home screen at a glance: insights, what is pending, and the latest from your team.' },
-        { title: 'Move with confidence', desc: 'Use search, the Focus Hub and the navigation bar to reach any record or module in a couple of taps.' },
-        { title: 'Take your first actions', desc: 'Add records, log notes, raise medical entries and start transfers from the quick actions behind the + button.' },
-        { title: 'Make it yours', desc: 'Set up your profile, manage your journal and media, choose your language, and understand the permissions behind your role.' }
+        { icon: 'signin', title: 'Get in & oriented', desc: 'Log in to your workspace and read the home screen at a glance: insights, what is pending, and the latest from your team.' },
+        { icon: 'compass', title: 'Move with confidence', desc: 'Use search, the Focus Hub and the navigation bar to reach any record or module in a couple of taps.' },
+        { icon: 'add', title: 'Take your first actions', desc: 'Add records, log notes, raise medical entries and start transfers from the quick actions behind the + button.' },
+        { icon: 'edit', title: 'Make it yours', desc: 'Set up your profile, manage your journal and media, choose your language, and understand the permissions behind your role.' }
       ]
     }
   },
@@ -223,11 +223,11 @@ window.ANTZ_GUIDES = {
         title: 'The transfer lifecycle',
         lede: 'Every transfer follows one consistent path, so each request stays accountable from the moment it is raised to the moment the animal is settled in its new enclosure.',
         flow: [
-          { title: 'Request', desc: 'A keeper raises a request with the reason, animals and destination.' },
-          { title: 'Approval', desc: 'The site authority authorises the move before it proceeds.' },
-          { title: 'Check-out / Check-in', desc: 'Security logs the animal leaving its location and arriving at the next.' },
-          { title: 'Allocation', desc: 'On arrival the animal is checked in and allocated to an enclosure.' },
-          { title: 'Log', desc: 'Every action is recorded with timestamps and users.' }
+          { icon: 'add', title: 'Request', desc: 'A keeper raises a request with the reason, animals and destination.' },
+          { icon: 'approve', title: 'Approval', desc: 'The site authority authorises the move before it proceeds.' },
+          { icon: 'shield', title: 'Check-out / Check-in', desc: 'Security logs the animal leaving its location and arriving at the next.' },
+          { icon: 'home', title: 'Allocation', desc: 'On arrival the animal is checked in and allocated to an enclosure.' },
+          { icon: 'history', title: 'Log', desc: 'Every action is recorded with timestamps and users.' }
         ]
       },
       {
@@ -350,10 +350,10 @@ window.ANTZ_GUIDES = {
       title: 'Four things to remember',
       lede: 'Good data plus good insights equals healthy animals, and it starts with a well-kept note.',
       items: [
-        { title: 'One feed for everything', desc: 'Daily updates, observations and incidents, all time-stamped and split into My Notes and All Notes.' },
-        { title: 'Find any note fast', desc: 'Filter by type, priority, who noted it or what it is tagged to, and search by keyword or tag.' },
-        { title: 'Capture it properly', desc: 'Categorise, link to a record, attach evidence, set priority and notify the right people.' },
-        { title: 'Keep the team aligned', desc: 'Notes surface on linked records, and likes and comments keep the conversation in context.' }
+        { icon: 'note', title: 'One feed for everything', desc: 'Daily updates, observations and incidents, all time-stamped and split into My Notes and All Notes.' },
+        { icon: 'filter', title: 'Find any note fast', desc: 'Filter by type, priority, who noted it or what it is tagged to, and search by keyword or tag.' },
+        { icon: 'edit', title: 'Capture it properly', desc: 'Categorise, link to a record, attach evidence, set priority and notify the right people.' },
+        { icon: 'users', title: 'Keep the team aligned', desc: 'Notes surface on linked records, and likes and comments keep the conversation in context.' }
       ]
     }
   },
@@ -477,10 +477,10 @@ window.ANTZ_GUIDES = {
       title: 'One record beneath every teammate',
       lede: 'Secure accounts, the right access, a full record per person, and an activity trail you can trust: from a teammate\'s first day to the audit trail behind their last action.',
       items: [
-        { title: 'Onboard in one form', desc: 'Create an account with identity, contact and staff details, and a secure auto-generated password, in a single pass.' },
-        { title: 'Right access, every role', desc: 'Assign a role, tune module permissions, and map access to the exact sites, pharmacies and centres a user should reach.' },
-        { title: 'A complete record', desc: 'Education, work history, ID proofs, signed-in devices and the animals each user is in charge of, all on one profile.' },
-        { title: 'Accountability built in', desc: 'Last login, device details and a date-filtered activity journal keep every action traceable across the directory.' }
+        { icon: 'add', title: 'Onboard in one form', desc: 'Create an account with identity, contact and staff details, and a secure auto-generated password, in a single pass.' },
+        { icon: 'access', title: 'Right access, every role', desc: 'Assign a role, tune module permissions, and map access to the exact sites, pharmacies and centres a user should reach.' },
+        { icon: 'note', title: 'A complete record', desc: 'Education, work history, ID proofs, signed-in devices and the animals each user is in charge of, all on one profile.' },
+        { icon: 'shield', title: 'Accountability built in', desc: 'Last login, device details and a date-filtered activity journal keep every action traceable across the directory.' }
       ]
     }
   },
@@ -501,11 +501,11 @@ window.ANTZ_GUIDES = {
         lede: 'The Collection module manages and documents every aspect of an institution\'s animal collection. Every species sits on one ladder of five ranks, here for the ring-tailed lemur.',
         /* The deck's tap-a-rank taxonomy chain, shown as ordered steps */
         flow: [
-          { title: 'Class', desc: 'The broadest grouping, here Mammalia, the mammals.' },
-          { title: 'Order', desc: 'A group of related families within the class, here Primates.' },
-          { title: 'Family', desc: 'Related genera that share defining traits, here Lemuridae.' },
-          { title: 'Genus', desc: 'A cluster of very closely related species, here Lemur.' },
-          { title: 'Species', desc: 'A single distinct animal type, the record you manage: here Lemur catta.' }
+          { icon: 'areas', title: 'Class', desc: 'The broadest grouping, here Mammalia, the mammals.' },
+          { icon: 'manage', title: 'Order', desc: 'A group of related families within the class, here Primates.' },
+          { icon: 'users', title: 'Family', desc: 'Related genera that share defining traits, here Lemuridae.' },
+          { icon: 'link', title: 'Genus', desc: 'A cluster of very closely related species, here Lemur.' },
+          { icon: 'pets', title: 'Species', desc: 'A single distinct animal type, the record you manage: here Lemur catta.' }
         ]
       },
       {
@@ -582,10 +582,10 @@ window.ANTZ_GUIDES = {
       title: 'One module, one collection',
       lede: 'From a single species to the whole institution: recorded, classified and assessed in one place.',
       items: [
-        { title: 'See the whole collection', desc: 'Species lists, gender-wise population and accession and birth counts across all five taxonomic ranks, searchable by common, scientific or local name.' },
-        { title: 'Manage every species', desc: 'Population, morph or breed, location, medical, taxonomy, diet, mortality and necropsy, each tracked against the species.' },
-        { title: 'Assess in batches', desc: 'Collective assessments with group data input and smart sequential navigation, filtered by site, gender or life stage.' },
-        { title: 'Keep it accurate and private', desc: 'Role-based permissions for Insights, Location Access and the Animal Module, with Hide Insight to keep figures off shared screens.' }
+        { icon: 'eye', title: 'See the whole collection', desc: 'Species lists, gender-wise population and accession and birth counts across all five taxonomic ranks, searchable by common, scientific or local name.' },
+        { icon: 'pets', title: 'Manage every species', desc: 'Population, morph or breed, location, medical, taxonomy, diet, mortality and necropsy, each tracked against the species.' },
+        { icon: 'batch', title: 'Assess in batches', desc: 'Collective assessments with group data input and smart sequential navigation, filtered by site, gender or life stage.' },
+        { icon: 'shield', title: 'Keep it accurate and private', desc: 'Role-based permissions for Insights, Location Access and the Animal Module, with Hide Insight to keep figures off shared screens.' }
       ]
     }
   },
@@ -606,10 +606,10 @@ window.ANTZ_GUIDES = {
         lede: 'A site contains sections, and each section contains enclosures. An enclosure can hold a single animal, a batch or a group of animals.',
         /* The deck's hierarchy slide plus its "An enclosure may contain" slide, shown as one containment path */
         flow: [
-          { title: 'Site', desc: 'The top level: an entire facility such as a zoo or reserve. It holds sections, species and every animal record.' },
-          { title: 'Section', desc: 'A themed grouping inside a site, such as Big Cats, that gathers related enclosures together for easier management.' },
-          { title: 'Enclosure', desc: 'The individual habitat where animals live: the most granular level for records and daily care.' },
-          { title: 'Animals', desc: 'A single animal on its own record, a batch of the same species managed as one record, or a larger group of one species monitored as a single group.' }
+          { icon: 'compass', title: 'Site', desc: 'The top level: an entire facility such as a zoo or reserve. It holds sections, species and every animal record.' },
+          { icon: 'areas', title: 'Section', desc: 'A themed grouping inside a site, such as Big Cats, that gathers related enclosures together for easier management.' },
+          { icon: 'home', title: 'Enclosure', desc: 'The individual habitat where animals live: the most granular level for records and daily care.' },
+          { icon: 'pets', title: 'Animals', desc: 'A single animal on its own record, a batch of the same species managed as one record, or a larger group of one species monitored as a single group.' }
         ]
       },
       {
@@ -850,9 +850,9 @@ window.ANTZ_GUIDES = {
       title: 'That\'s the Housing module',
       lede: 'You now know how habitats are organised and how to work at every level of the hierarchy.',
       items: [
-        { title: 'Site', desc: 'The whole facility: its sections, species and every animal record in one place.' },
-        { title: 'Section', desc: 'A themed grouping of enclosures for easier day-to-day management.' },
-        { title: 'Enclosure', desc: 'The individual habitat: the most granular level for records and care.' }
+        { icon: 'compass', title: 'Site', desc: 'The whole facility: its sections, species and every animal record in one place.' },
+        { icon: 'areas', title: 'Section', desc: 'A themed grouping of enclosures for easier day-to-day management.' },
+        { icon: 'home', title: 'Enclosure', desc: 'The individual habitat: the most granular level for records and care.' }
       ]
     }
   },
@@ -946,10 +946,10 @@ window.ANTZ_GUIDES = {
       title: 'One record, kept well',
       lede: 'Good data, good insights, healthy animals. The Animals Module is where that chain begins.',
       items: [
-        { title: 'One record, five lists', desc: 'Recently added, all animals, transferred, deleted and missing: every animal in exactly one state, switchable in place.' },
-        { title: 'The card, then the profile', desc: 'Identity, favourites, QR and quick actions on the card; the full tabbed profile one tap deeper.' },
-        { title: 'Care kept as one thread', desc: 'Overview, taxonomy, assessment, journal, medical, media, history and lineage, all hung off the same animal.' },
-        { title: 'Moved and accounted for', desc: 'Transfers carry their status and the incharge chain travels with the animal, gated by clear role permissions.' }
+        { icon: 'manage', title: 'One record, five lists', desc: 'Recently added, all animals, transferred, deleted and missing: every animal in exactly one state, switchable in place.' },
+        { icon: 'eye', title: 'The card, then the profile', desc: 'Identity, favourites, QR and quick actions on the card; the full tabbed profile one tap deeper.' },
+        { icon: 'medical', title: 'Care kept as one thread', desc: 'Overview, taxonomy, assessment, journal, medical, media, history and lineage, all hung off the same animal.' },
+        { icon: 'transfer', title: 'Moved and accounted for', desc: 'Transfers carry their status and the incharge chain travels with the animal, gated by clear role permissions.' }
       ]
     }
   },
@@ -1246,10 +1246,10 @@ window.ANTZ_GUIDES = {
       title: 'One complete lifecycle',
       lede: 'Four capabilities carry a vaccination from planned to permanent record: timely, accurate and fully traceable.',
       items: [
-        { title: 'Track by status', desc: 'Upcoming, Pending, Completed, Skipped and Stopped keep every dose visible and nothing missed.' },
-        { title: 'Schedule or administer', desc: 'Plan a dose for later or record one given now, both defined by medicine, date and site.' },
-        { title: 'Record accurately', desc: 'Dosage, batch, route, notes and follow-up captured on administration for full compliance.' },
-        { title: 'Skip, stop & trace', desc: 'Postpone or halt with a mandatory reason, and reach every record from Animal, Housing or Medical.' }
+        { icon: 'filter', title: 'Track by status', desc: 'Upcoming, Pending, Completed, Skipped and Stopped keep every dose visible and nothing missed.' },
+        { icon: 'vaccine', title: 'Schedule or administer', desc: 'Plan a dose for later or record one given now, both defined by medicine, date and site.' },
+        { icon: 'edit', title: 'Record accurately', desc: 'Dosage, batch, route, notes and follow-up captured on administration for full compliance.' },
+        { icon: 'history', title: 'Skip, stop & trace', desc: 'Postpone or halt with a mandatory reason, and reach every record from Animal, Housing or Medical.' }
       ]
     }
   },
@@ -1350,10 +1350,10 @@ window.ANTZ_GUIDES = {
       title: 'One complete lifecycle',
       lede: 'Four capabilities carry a deworming from planned to permanent record: timely, accurate and fully traceable.',
       items: [
-        { title: 'Track by status', desc: 'Upcoming, Pending, Completed, Skipped and Stopped keep every dose visible and nothing missed.' },
-        { title: 'Schedule or administer', desc: 'Plan a dose for later or record one given now, both defined by medicine, date and site.' },
-        { title: 'Record accurately', desc: 'Dosage, batch, route, notes and follow-up captured on administration for full compliance.' },
-        { title: 'Skip, stop & trace', desc: 'Postpone or halt with a mandatory reason, and reach every record from Animal, Housing or Medical.' }
+        { icon: 'filter', title: 'Track by status', desc: 'Upcoming, Pending, Completed, Skipped and Stopped keep every dose visible and nothing missed.' },
+        { icon: 'medicine', title: 'Schedule or administer', desc: 'Plan a dose for later or record one given now, both defined by medicine, date and site.' },
+        { icon: 'edit', title: 'Record accurately', desc: 'Dosage, batch, route, notes and follow-up captured on administration for full compliance.' },
+        { icon: 'history', title: 'Skip, stop & trace', desc: 'Postpone or halt with a mandatory reason, and reach every record from Animal, Housing or Medical.' }
       ]
     }
   },
@@ -1455,10 +1455,10 @@ window.ANTZ_GUIDES = {
       title: 'One complete lifecycle',
       lede: 'Four capabilities carry a supplement from planned to permanent record: timely, accurate and fully traceable.',
       items: [
-        { title: 'Track by status', desc: 'Upcoming, Pending, Completed, Skipped and Stopped keep every dose visible and nothing missed.' },
-        { title: 'Schedule or administer', desc: 'Plan a dose for later or record one given now, both defined by medicine, date and site.' },
-        { title: 'Record accurately', desc: 'Dose type, dosage, batch, route, notes and follow-up captured on administration for full compliance.' },
-        { title: 'Skip, stop & trace', desc: 'Postpone or halt with a mandatory reason, and reach every record from Animal, Housing or Medical.' }
+        { icon: 'filter', title: 'Track by status', desc: 'Upcoming, Pending, Completed, Skipped and Stopped keep every dose visible and nothing missed.' },
+        { icon: 'diet', title: 'Schedule or administer', desc: 'Plan a dose for later or record one given now, both defined by medicine, date and site.' },
+        { icon: 'edit', title: 'Record accurately', desc: 'Dose type, dosage, batch, route, notes and follow-up captured on administration for full compliance.' },
+        { icon: 'history', title: 'Skip, stop & trace', desc: 'Postpone or halt with a mandatory reason, and reach every record from Animal, Housing or Medical.' }
       ]
     }
   },
@@ -1479,9 +1479,9 @@ window.ANTZ_GUIDES = {
         title: 'The hospital journey',
         lede: 'Every hospitalisation follows the same shape: three stages, one path.',
         flow: [
-          { title: 'Transfer', desc: 'Request and move the animal from the enclosure.' },
-          { title: 'Track', desc: 'Follow the request status.' },
-          { title: 'Security', desc: 'Check in and out at each gate.' }
+          { icon: 'transfer', title: 'Transfer', desc: 'Request and move the animal from the enclosure.' },
+          { icon: 'focus', title: 'Track', desc: 'Follow the request status.' },
+          { icon: 'shield', title: 'Security', desc: 'Check in and out at each gate.' }
         ]
       },
       {
@@ -1539,8 +1539,8 @@ window.ANTZ_GUIDES = {
       title: 'Stuck on a step? Getting help',
       lede: 'Keep this guide handy on day one. When you need a hand with a live case, reach the team through the app: help is one tap from any screen.',
       items: [
-        { title: 'In-app helpdesk', desc: 'Menu, then Helpdesk.' },
-        { title: 'Team chat', desc: 'Ask your site admin.' }
+        { icon: 'help', title: 'In-app helpdesk', desc: 'Menu, then Helpdesk.' },
+        { icon: 'chat', title: 'Team chat', desc: 'Ask your site admin.' }
       ]
     }
   },
@@ -1619,10 +1619,10 @@ window.ANTZ_GUIDES = {
       title: 'You can run the full loop',
       lede: 'That is the Mortality Module and Carcass Transfer end to end: four tasks you can now carry out on your own, from the moment of a death to a signed-off transfer.',
       items: [
-        { title: 'Record a death', desc: 'Open the module, read the dashboard, and file a complete deceased-animal record with cause, location and evidence.' },
-        { title: 'Find anything fast', desc: 'Read records by animal, species or cause, and use advanced search and filters to isolate exactly what you need.' },
-        { title: 'Keep records honest', desc: 'Edit a report after entry as findings come in, or revoke an incorrect record to restore the animal to active status.' },
-        { title: 'Move it safely', desc: 'Raise a carcass transfer, fill the loading checklist, and track it through every status to completion.' }
+        { icon: 'note', title: 'Record a death', desc: 'Open the module, read the dashboard, and file a complete deceased-animal record with cause, location and evidence.' },
+        { icon: 'filter', title: 'Find anything fast', desc: 'Read records by animal, species or cause, and use advanced search and filters to isolate exactly what you need.' },
+        { icon: 'edit', title: 'Keep records honest', desc: 'Edit a report after entry as findings come in, or revoke an incorrect record to restore the animal to active status.' },
+        { icon: 'transfer', title: 'Move it safely', desc: 'Raise a carcass transfer, fill the loading checklist, and track it through every status to completion.' }
       ]
     }
   },
@@ -1711,10 +1711,10 @@ window.ANTZ_GUIDES = {
       title: 'You can run the whole flow',
       lede: 'From a logged mortality to an accepted carcass at the necropsy centre, four moves carry the work, each one something the two modules let you do on your own.',
       items: [
-        { title: 'Document a necropsy', desc: 'Open a record, complete the mortality report, save as draft and submit once finalised, with organ-level findings and conclusions.' },
-        { title: 'Find & track records', desc: 'Search, filter and group by centre, then follow each record across Incoming, Pending, Draft and Completed.' },
-        { title: 'Move a carcass to a centre', desc: 'Raise and monitor transfer requests by route and status, with full transparency from origin to destination.' },
-        { title: 'Accept & coordinate', desc: 'Accept incoming transfers for necropsy and keep the hand-off on record with comments for coordination.' }
+        { icon: 'lab', title: 'Document a necropsy', desc: 'Open a record, complete the mortality report, save as draft and submit once finalised, with organ-level findings and conclusions.' },
+        { icon: 'filter', title: 'Find & track records', desc: 'Search, filter and group by centre, then follow each record across Incoming, Pending, Draft and Completed.' },
+        { icon: 'transfer', title: 'Move a carcass to a centre', desc: 'Raise and monitor transfer requests by route and status, with full transparency from origin to destination.' },
+        { icon: 'approve', title: 'Accept & coordinate', desc: 'Accept incoming transfers for necropsy and keep the hand-off on record with comments for coordination.' }
       ]
     }
   },
@@ -1847,11 +1847,11 @@ window.ANTZ_GUIDES = {
            ordered path here. In the nest chart, "Hatch, Create an Animal ID" and "Fertile, Hatch, Create an Animal" are two
            near-identical branches, and the nursery chart says "transfer egg to nursery" for an egg already there */
         flow: [
-          { title: 'Egg in nest or nursery', desc: 'The egg is recorded in the nest, or in the nursery for artificial incubation.' },
-          { title: 'Incubate', desc: 'Incubate the egg and set its status: fertile or infertile.' },
-          { title: 'Hatch', desc: 'A fertile egg hatches. Create an Animal ID for the chick.' },
-          { title: 'To be discarded', desc: 'A ruined egg is marked To Be Discarded.' },
-          { title: 'Egg discarded summary', desc: 'Discarded eggs are recorded in the egg discarded summary.' }
+          { icon: 'egg', title: 'Egg in nest or nursery', desc: 'The egg is recorded in the nest, or in the nursery for artificial incubation.' },
+          { icon: 'incubate', title: 'Incubate', desc: 'Incubate the egg and set its status: fertile or infertile.' },
+          { icon: 'hatch', title: 'Hatch', desc: 'A fertile egg hatches. Create an Animal ID for the chick.' },
+          { icon: 'alert', title: 'To be discarded', desc: 'A ruined egg is marked To Be Discarded.' },
+          { icon: 'discard', title: 'Egg discarded summary', desc: 'Discarded eggs are recorded in the egg discarded summary.' }
         ]
       }
     ],
@@ -1956,12 +1956,12 @@ window.ANTZ_GUIDES = {
         title: 'The request lifecycle',
         lede: 'Every request moves along one path, from raised to completed. Approval, costing and fulfilment are the gates between stages. A rejected request can be corrected and resubmitted; a cancelled one needs a new request; a completed one can be reverted to finish or fix the work.',
         flow: [
-          { title: 'Raise Request', desc: 'A new request is created with full details.' },
-          { title: 'Add Costing', desc: 'Estimates are added for the items and services.' },
-          { title: 'Approve / Reject', desc: 'Approvers review and approve or reject it.' },
-          { title: 'Move to In-progress', desc: 'The approved request moves into active work.' },
-          { title: 'Completed', desc: 'Work is done and the request is closed.' },
-          { title: 'Move back to In-progress', desc: 'Sent back to In Progress when more work is needed.' }
+          { icon: 'add', title: 'Raise Request', desc: 'A new request is created with full details.' },
+          { icon: 'cost', title: 'Add Costing', desc: 'Estimates are added for the items and services.' },
+          { icon: 'approve', title: 'Approve / Reject', desc: 'Approvers review and approve or reject it.' },
+          { icon: 'progress', title: 'Move to In-progress', desc: 'The approved request moves into active work.' },
+          { icon: 'done', title: 'Completed', desc: 'Work is done and the request is closed.' },
+          { icon: 'undo', title: 'Move back to In-progress', desc: 'Sent back to In Progress when more work is needed.' }
         ]
       }
     ],
@@ -1970,10 +1970,10 @@ window.ANTZ_GUIDES = {
       title: 'Run the Help Desk',
       lede: 'Raise it, route it, resolve it: every request accounted for, from the first tap to the final tick. Good data, good coordination, better care.',
       items: [
-        { title: 'View requests by status', desc: 'One transparent list across pending, approved, rejected, cancelled, in-progress and completed, with My Approvals, Awaiting Costing and All filters on top.' },
-        { title: 'Request management', desc: 'Raise, edit, cancel or reject. Every request carries its details and priority, and a clear reason when it is declined.' },
-        { title: 'Cost management', desc: 'Add, edit, duplicate or delete estimates so the budget for items and services is set before the work begins.' },
-        { title: 'Fulfilment & reversion', desc: 'Mark work completed when it is done, or revert it to in-progress when more work or a correction is needed.' }
+        { icon: 'filter', title: 'View requests by status', desc: 'One transparent list across pending, approved, rejected, cancelled, in-progress and completed, with My Approvals, Awaiting Costing and All filters on top.' },
+        { icon: 'manage', title: 'Request management', desc: 'Raise, edit, cancel or reject. Every request carries its details and priority, and a clear reason when it is declined.' },
+        { icon: 'cost', title: 'Cost management', desc: 'Add, edit, duplicate or delete estimates so the budget for items and services is set before the work begins.' },
+        { icon: 'done', title: 'Fulfilment & reversion', desc: 'Mark work completed when it is done, or revert it to in-progress when more work or a correction is needed.' }
       ]
     }
   },
@@ -2089,10 +2089,10 @@ window.ANTZ_GUIDES = {
       title: 'What to remember',
       lede: 'That\'s the Reports module on the web: categorised, filterable and downloadable insight on every animal event.',
       items: [
-        { title: '10 reports, one sidebar', desc: 'Stock, activity, observations, diaries and site reports all live under Reports. Switch with a click.' },
-        { title: 'Filter to what matters', desc: 'Date range, site and species narrow every report; gender-wise and show / hide columns reshape the view.' },
-        { title: 'Download anything', desc: 'Every report exports for offline use, sharing or compliance in a click.' },
-        { title: 'Open to all roles', desc: 'Available to every role; individual reports appear as their permissions are enabled.' }
+        { icon: 'report', title: '10 reports, one sidebar', desc: 'Stock, activity, observations, diaries and site reports all live under Reports. Switch with a click.' },
+        { icon: 'filter', title: 'Filter to what matters', desc: 'Date range, site and species narrow every report; gender-wise and show / hide columns reshape the view.' },
+        { icon: 'database', title: 'Download anything', desc: 'Every report exports for offline use, sharing or compliance in a click.' },
+        { icon: 'users', title: 'Open to all roles', desc: 'Available to every role; individual reports appear as their permissions are enabled.' }
       ]
     }
   }

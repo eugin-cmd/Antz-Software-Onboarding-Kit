@@ -398,6 +398,17 @@
   /* ---------- Guide pages: a kit's full walkthrough (guide.js), linked from its summary page ---------- */
   /* A banner like the home page's, then the kit's parts as cards; each card opens its screens in the gallery */
   const GUIDES = window.ANTZ_GUIDES || {};
+  /* Guide banner icons: Material Symbols Rounded, light weight, from a subset font holding only these glyphs
+     (assets/fonts/material-symbols-rounded-guide.woff2). A new guide needs its glyph added here and to the font:
+     re-download the subset from Google Fonts with the glyph added to icon_names. Missing ones fall back to explore. */
+  const GUIDE_GLYPH = {
+    'getting-started': 'explore', 'notes-module': 'chat', 'user-management': 'account_circle', collection: 'pets',
+    housing: 'house_siding', 'animal-management': 'cruelty_free', 'animal-transfer': 'local_shipping',
+    'medical-records': 'home_health', 'symptoms-clinical-assessment-prescription': 'stethoscope', vaccination: 'vaccines',
+    deworming: 'pest_control', supplements: 'nutrition', 'hospital-information-management-system-app': 'home_health',
+    mortality: 'heart_minus', necropsy: 'content_paste_search', 'egg-management-web': 'egg',
+    'helpdesk-module': 'support_agent', security: 'verified_user', 'reports-web': 'summarize'
+  };
   /* A guide is linked only from inside its kit page (never from the home page) */
   function renderGuide(id) {
     const g = GUIDES[id];
@@ -473,10 +484,10 @@
           </div>
         </div>`;
     };
-    /* Numbered steps in order, joined by a line */
+    /* Steps in order, joined by a line: each step's icon in its circle, its number beside the title */
     const flowHTML = (steps) => `
       <ol class="gflow reveal">${steps.map((s, i) => `
-        <li><span class="n">${i + 1}</span><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p></li>`).join('')}
+        <li><span class="ic" aria-hidden="true">${icon(s.icon || 'note')}</span><h3><span class="n">${String(i + 1).padStart(2, '0')}</span>${esc(s.title)}</h3><p>${esc(s.desc)}</p></li>`).join('')}
       </ol>`;
     /* Capabilities by type: a table on wide screens, one card per capability on phones */
     const compareHTML = (c) => `
@@ -485,7 +496,7 @@
           <thead><tr><th scope="col" class="gcmp-corner">${esc(c.corner)}</th>${c.types.map((x) => `
             <th scope="col" class="tone-${x.tone}"><b>${esc(x.title)}</b><span>${esc(x.sub)}</span></th>`).join('')}</tr></thead>
           <tbody>${c.rows.map((r) => `
-            <tr><th scope="row"><span class="ic" aria-hidden="true">${icon(r.icon)}</span><span><b>${esc(r.title)}</b><small>${esc(r.desc)}</small></span></th>${r.cells.map((x, j) => `
+            <tr><th scope="row"><span class="cap"><span class="ic" aria-hidden="true">${icon(r.icon)}</span><span><b>${esc(r.title)}</b><small>${esc(r.desc)}</small></span></span></th>${r.cells.map((x, j) => `
               <td data-type="${esc(c.types[j].title)}"><span class="stat ${x.ok ? 'yes' : 'no'}">${esc(x.text)}</span>${x.note ? `<small>${esc(x.note)}</small>` : ''}</td>`).join('')}</tr>`).join('')}
           </tbody>
         </table>
@@ -507,14 +518,16 @@
         </div>
       </section>`).join('');
     const back = g.back && KIT_PAGES.find((x) => x.id === g.back);
+    /* The banner shows the module's icon above its area label, with the home leaf's rise and sway */
+    const heroIcon = `<span class="hero-leaf hero-icon" aria-hidden="true">${GUIDE_GLYPH[backModule ? backModule.id : id] || 'explore'}</span>`;
 
     app.innerHTML = `
       <div class="guidepage tint-${AREA_TINT[track]}">
         <section class="hero guide-hero">
           <div class="hero-media"><div class="hero-slides">${((b) => `<div class="hero-bg" style="background-image:url('${bannerSrc(b)}');--x:${b.x};--y:${b.y}"></div>`)(bannerNow())}</div></div>
           <div class="container hero-inner">
+            ${heroIcon}
             <span class="guide-kicker">${esc(backModule ? `${areaById[backModule.track].label} · ${numberOf[backModule.id]}` : g.kicker)}</span>
-            ${LEAVES_SVG}
             ${heroTitle(g.title)}
             <p class="hero-sub">${esc(g.sub)}</p>
             <ul class="guide-aud">${g.audience.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>
@@ -531,9 +544,7 @@
               <h2 class="section-title">${esc(g.close.title)}</h2>
               <p class="section-lede">${esc(g.close.lede)}</p>
             </div>
-            ${g.close.items ? `<ol class="gclose">${g.close.items.map((x, i) => `
-              <li class="reveal"><span class="n">0${i + 1}</span><h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p></li>`).join('')}
-            </ol>` : ''}
+            ${g.close.items ? flowHTML(g.close.items) : ''}
             <nav class="mpager" aria-label="${esc(t('pager.pages'))}">
               ${back ? pagerHTML('prev', { href: `#/kit/${back.id}`, label: t('guide.summary'), title: byId[back.module].title, url: (byId[back.module].shots[0] || {}).src || PHOTOS.hero, pos: '50% 12%' })
                 : backModule ? pagerHTML('prev', { href: `#/m/${backModule.id}`, label: t('guide.module'), title: backModule.title, ...photoOf(backModule) }) : '<span></span>'}
