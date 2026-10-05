@@ -71,8 +71,79 @@
     ['tiger-portrait', '35%', '40%', '#B86A2A'],
     ['deer', '45%', '35%', '#9A7048']
   ].map(([f, x, y, c]) => ({ name: f, x, y, c }));
+  /* Module guide banner photos (References/Modules Details Page Banner Imagess), their own set: the guide pages
+     never show the home photos. Same fields as BANNERS; files are assets/photos/guide-<name>(-sm).webp */
+  const GUIDE_BANNERS = [
+    ['horse-eye', '55%', '40%', '#5A3A28'],
+    ['macaque', '50%', '40%', '#C89A5A'],
+    ['gorilla', '50%', '35%', '#6A3A3A'],
+    ['macaque-family', '35%', '45%', '#A88A5A'],
+    ['brown-bear', '50%', '50%', '#7A5A3A'],
+    ['stag-face', '50%', '50%', '#8A6A4A'],
+    ['gibbon', '50%', '45%', '#8A8A86'],
+    ['hornbill', '55%', '35%', '#D8402A'],
+    ['penguin', '45%', '45%', '#D87A8A'],
+    ['monkey-gaze', '55%', '45%', '#8A9A4A'],
+    ['robin', '50%', '55%', '#D8702A'],
+    ['cheetah', '55%', '55%', '#C8903A'],
+    ['koala-face', '30%', '45%', '#9A9A9A'],
+    ['lioness-profile', '60%', '45%', '#C8A060'],
+    ['owl-eyes', '50%', '50%', '#E0501A'],
+    ['pelican', '50%', '45%', '#D8B8A8'],
+    ['wolf-gaze', '50%', '50%', '#8A8A86'],
+    ['wolf-profile', '60%', '50%', '#8A8A8A'],
+    ['panda', '40%', '45%', '#3A3A3A'],
+    ['tiger-close', '50%', '45%', '#D8782A'],
+    ['turtle', '45%', '45%', '#8A6A3A'],
+    ['monkey-forest', '50%', '45%', '#2E4A4A'],
+    ['pygmy-owl', '50%', '50%', '#3A5A7A'],
+    ['seal-water', '45%', '50%', '#2A8A9A'],
+    ['snow-leopards', '35%', '40%', '#B89A6A'],
+    ['slider-turtle', '50%', '40%', '#9A8A4A'],
+    ['thick-knee', '55%', '40%', '#8A6A4A'],
+    ['jaguar-profile', '60%', '40%', '#C88A3A'],
+    ['great-grey-owl', '30%', '45%', '#8A8A8A'],
+    ['polar-bear', '55%', '50%', '#C8C8C0'],
+    ['ostrich', '50%', '40%', '#9A7A5A'],
+    ['swan', '70%', '45%', '#E8B820'],
+    ['eagle-owl', '45%', '45%', '#E0801A'],
+    ['macaw-close', '45%', '45%', '#E8701A'],
+    ['mongoose', '50%', '40%', '#B8783A'],
+    ['seal-close', '40%', '30%', '#8A9A9A'],
+    ['iguana-branch', '50%', '40%', '#C88A3A'],
+    ['horse-close', '40%', '40%', '#6A3A2A'],
+    ['mandrill', '45%', '45%', '#C8783A'],
+    ['kangaroo', '45%', '45%', '#8A7A6A'],
+    ['elephant-eye', '45%', '50%', '#8A8A80'],
+    ['toucanet', '60%', '45%', '#3A9A2A'],
+    ['fish-shoal', '50%', '50%', '#3A8AB8'],
+    ['flamingo-curl', '45%', '50%', '#E8501A'],
+    ['horse-eye-2', '30%', '50%', '#4A3A30'],
+    ['ferret', '50%', '45%', '#6A6A6A'],
+    ['lizard-rock', '30%', '40%', '#8A7A4A'],
+    ['geladas', '50%', '40%', '#B8783A'],
+    ['lion-mane', '55%', '45%', '#A87A3A'],
+    ['elephant-skin', '50%', '50%', '#A8603A'],
+    ['crested-gecko', '25%', '35%', '#C8903A'],
+    ['seriema', '60%', '50%', '#E0402A'],
+    ['lioness', '40%', '45%', '#C8A070'],
+    ['white-lion', '50%', '45%', '#B8B0A0'],
+    ['lion-dusk', '60%', '45%', '#A8703A'],
+    ['feathers', '50%', '50%', '#20A8C0'],
+    ['rhea', '45%', '40%', '#8A9AAA'],
+    ['cheetah-face', '50%', '50%', '#C8903A'],
+    ['ground-squirrel', '40%', '40%', '#A8885A']
+  ].map(([f, x, y, c]) => ({ name: f, x, y, c, file: 'guide' }));
+  /* Shuffled once per visit, so the rotation order differs from visit to visit */
+  /* The photo the last guide page opened on, so the next one opens on a different animal */
+  let lastGuideBanner = null;
+  const GUIDE_ORDER = (() => {
+    const list = GUIDE_BANNERS.slice();
+    for (let i = list.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [list[i], list[j]] = [list[j], list[i]]; }
+    return list;
+  })();
   /* Banner photos are WebP: 1920px wide for larger screens, 1400px for phones (where the photo is a band across the top) */
-  const bannerSrc = (b) => `assets/photos/banner-${b.name}${matchMedia('(max-width: 760px)').matches ? '-sm' : ''}.webp`;
+  const bannerSrc = (b) => `assets/photos/${b.file || 'banner'}-${b.name}${matchMedia('(max-width: 760px)').matches ? '-sm' : ''}.webp`;
   const BANNER_EVERY = 9000;
   /* The feature window's animal wash uses the same photos: which way each animal looks (r/l, or f for straight at the
      camera) and where its face sits across and down the photo (0 to 1; given for the face close-ups).
@@ -93,12 +164,28 @@
   };
   /* The photos that are close-ups of a face: only these go into the feature window */
   const FACES = new Set(['lion', 'golden-pheasant', 'bald-eagle', 'tiger-face', 'fox', 'macaw', 'chameleon', 'jaguar', 'otter', 'fawn', 'alpaca', 'mouflon', 'giraffe', 'bear', 'baboon', 'red-panda', 'wolf', 'llama', 'lorikeet', 'pigeon', 'chameleon-2', 'deer', 'langur-baby', 'rhino', 'flamingo']);
+  /* The guide photos that are face close-ups, for the screen windows on guide pages (as FACING: way it looks, face x, y) */
+  const GUIDE_FACING = {
+    'horse-eye': ['l', 0.55, 0.4], 'macaque': ['f', 0.5, 0.4], 'gorilla': ['f', 0.5, 0.4], 'brown-bear': ['f', 0.5, 0.55],
+    'stag-face': ['f', 0.5, 0.55], 'gibbon': ['f', 0.5, 0.5], 'hornbill': ['r', 0.45, 0.2], 'penguin': ['r', 0.5, 0.45],
+    'monkey-gaze': ['l', 0.5, 0.45], 'cheetah': ['f', 0.55, 0.55], 'koala-face': ['f', 0.3, 0.45], 'lioness-profile': ['r', 0.6, 0.5],
+    'owl-eyes': ['f', 0.5, 0.5], 'pelican': ['r', 0.5, 0.45], 'wolf-gaze': ['f', 0.5, 0.5], 'wolf-profile': ['l', 0.4, 0.55],
+    'panda': ['f', 0.4, 0.45], 'tiger-close': ['f', 0.5, 0.4], 'turtle': ['l', 0.4, 0.4], 'slider-turtle': ['r', 0.55, 0.35],
+    'thick-knee': ['l', 0.55, 0.4], 'jaguar-profile': ['r', 0.6, 0.4], 'great-grey-owl': ['f', 0.35, 0.5], 'polar-bear': ['r', 0.6, 0.55],
+    'ostrich': ['l', 0.45, 0.35], 'swan': ['l', 0.65, 0.45], 'eagle-owl': ['l', 0.4, 0.45], 'macaw-close': ['l', 0.4, 0.5],
+    'mongoose': ['f', 0.5, 0.4], 'seal-close': ['l', 0.35, 0.35], 'iguana-branch': ['r', 0.5, 0.35], 'horse-close': ['l', 0.3, 0.35],
+    'mandrill': ['f', 0.5, 0.45], 'kangaroo': ['f', 0.45, 0.45], 'elephant-eye': ['f', 0.45, 0.5], 'flamingo-curl': ['l', 0.3, 0.45],
+    'horse-eye-2': ['l', 0.3, 0.5], 'ferret': ['f', 0.5, 0.5], 'lion-mane': ['r', 0.55, 0.4], 'elephant-skin': ['f', 0.5, 0.5],
+    'crested-gecko': ['f', 0.25, 0.3], 'seriema': ['l', 0.6, 0.55], 'lioness': ['l', 0.3, 0.5], 'white-lion': ['f', 0.5, 0.45],
+    'lion-dusk': ['f', 0.6, 0.45], 'rhea': ['r', 0.45, 0.45], 'cheetah-face': ['f', 0.5, 0.5], 'ground-squirrel': ['l', 0.4, 0.4]
+  };
   /* A different animal for each feature of a module: the face close-ups in an order of their own for that module (seeded by its id) */
   const animalsFor = (m) => {
     let h = 2166136261;
     for (const ch of m.id) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
     const rnd = () => ((h = Math.imul(h ^ (h >>> 15), 2246822507) ^ Math.imul(h ^ (h >>> 13), 3266489909)) >>> 0) / 4294967296;
-    const list = BANNERS.filter((b) => FACES.has(b.name));
+    /* Guide pages (their screen sets have ids starting guide-) use the guide photos' faces, like their banners */
+    const list = m.id.startsWith('guide-') ? GUIDE_BANNERS.filter((b) => GUIDE_FACING[b.name]) : BANNERS.filter((b) => FACES.has(b.name));
     for (let i = list.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [list[i], list[j]] = [list[j], list[i]]; }
     return list;
   };
@@ -108,7 +195,7 @@
      Positions are worked out from the photo's own size once it has loaded, and again whenever the panel changes size
      (the window settles its height after it opens, and a tablet or web screen makes it shorter than a phone does). */
   const setAnimal = (el, b, textBottom) => {
-    const [look, fx, fy = .45] = FACING[b.name] || ['f', .5];
+    const [look, fx, fy = .45] = (b.file === 'guide' ? GUIDE_FACING[b.name] : FACING[b.name]) || ['f', .5];
     const flip = look === 'l';
     const src = bannerSrc(b);
     const img = new Image();
@@ -156,7 +243,8 @@
     }
     return Math.floor((Date.now() - bannerStart) / BANNER_EVERY);
   };
-  const bannerNow = () => BANNERS[bannerSlot() % BANNERS.length];
+  /* list and offset: the module guides rotate through their own photos (GUIDE_BANNERS), from a random start */
+  const bannerNow = (list = BANNERS, offset = 0) => list[(bannerSlot() + offset) % list.length];
   const PHOTOS = {
     hero: 'assets/photos/tiger.jpg',
     spotlight: 'assets/photos/img-lemur.jpg',
@@ -519,12 +607,17 @@
       </section>`).join('');
     const back = g.back && KIT_PAGES.find((x) => x.id === g.back);
     /* The banner shows the module's icon above its area label, with the home leaf's rise and sway */
+    /* Each guide page opens on a random photo of the guide set, and carries on through it from there */
+    let bannerOffset;
+    do bannerOffset = Math.floor(Math.random() * GUIDE_ORDER.length);
+    while (GUIDE_ORDER.length > 1 && bannerNow(GUIDE_ORDER, bannerOffset) === lastGuideBanner);
+    lastGuideBanner = bannerNow(GUIDE_ORDER, bannerOffset);
     const heroIcon = `<span class="hero-leaf hero-icon" aria-hidden="true">${GUIDE_GLYPH[backModule ? backModule.id : id] || 'explore'}</span>`;
 
     app.innerHTML = `
       <div class="guidepage tint-${AREA_TINT[track]}">
-        <section class="hero guide-hero">
-          <div class="hero-media"><div class="hero-slides">${((b) => `<div class="hero-bg" style="background-image:url('${bannerSrc(b)}');--x:${b.x};--y:${b.y}"></div>`)(bannerNow())}</div></div>
+        <section class="hero guide-hero" data-banners="guide" data-offset="${bannerOffset}">
+          <div class="hero-media"><div class="hero-slides">${((b) => `<div class="hero-bg" style="background-image:url('${bannerSrc(b)}');--x:${b.x};--y:${b.y}"></div>`)(bannerNow(GUIDE_ORDER, bannerOffset))}</div></div>
           <div class="container hero-inner">
             ${heroIcon}
             <span class="guide-kicker">${esc(backModule ? `${areaById[backModule.track].label} · ${numberOf[backModule.id]}` : g.kicker)}</span>
@@ -1519,7 +1612,9 @@
     const bg = hero && hero.querySelector('.hero-slides');
     const inner = hero && hero.querySelector('.hero-inner');
     if (!bg) return;
-    const stopBanners = rotateBanners(bg);
+    /* Module guide banners rotate through their own photos, from the start the page was given */
+    const own = hero.dataset.banners === 'guide';
+    const stopBanners = own ? rotateBanners(bg, GUIDE_ORDER, +hero.dataset.offset || 0) : rotateBanners(bg);
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) { parallaxOff = () => { stopBanners(); parallaxOff = null; }; return; }
     let ticking = false;
     const cta = app.querySelector('.cta');
@@ -1549,8 +1644,9 @@
   /* At each turn (next photo loaded first): the current photo blurs while a wash of the next photo's key colour
      rises over it; the next photo then appears through the wash, still soft, and sharpens as the wash clears.
      Returns a stop function. */
-  function rotateBanners(box) {
-    let shown = bannerSlot() % BANNERS.length, timer = 0;
+  function rotateBanners(box, list = BANNERS, offset = 0) {
+    const at = () => (bannerSlot() + offset) % list.length;
+    let shown = at(), timer = 0;
     const schedule = () => {
       const wait = BANNER_EVERY - ((Date.now() - bannerStart) % BANNER_EVERY);
       timer = setTimeout(turn, wait + 30);
@@ -1558,9 +1654,9 @@
     const turn = () => {
       if (!box.isConnected) return;
       schedule();
-      const i = bannerSlot() % BANNERS.length;
+      const i = at();
       if (document.hidden || i === shown) return;
-      const b = BANNERS[i];
+      const b = list[i];
       const img = new Image();
       img.onload = () => {
         if (!box.isConnected) return;
@@ -1581,7 +1677,7 @@
     };
     /* Back on the home page with a photo not yet loaded: it fades in once it arrives, rather than popping in */
     const first = box.querySelector('.hero-bg'), probe = new Image();
-    probe.src = bannerSrc(BANNERS[shown]);
+    probe.src = bannerSrc(list[shown]);
     if (first && !probe.complete) {
       first.style.opacity = '0';
       probe.onload = () => { first.style.opacity = ''; first.classList.add('enter'); first.addEventListener('animationend', () => first.classList.remove('enter'), { once: true }); };
