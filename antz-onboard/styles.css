@@ -1480,7 +1480,7 @@ body.fwin-open { overflow: hidden; }
   background:
     linear-gradient(to bottom right, var(--tint) 0%, var(--tint-comp) 100%);
 }
-.gallery.sheet .g-track { padding: 18px 24px 34px; align-items: start; }
+.gallery.sheet .g-track { padding: 12px 20px 16px; align-items: start; }
 .g-frame { display: contents; }
 /* Phone sheet: the screen sits in the same bezel as the desktop frames, in the area's colours */
 .gallery.sheet .g-frame {
@@ -1493,7 +1493,10 @@ body.fwin-open { overflow: hidden; }
 /* Web screens stay bare, with rounded corners */
 .gallery.sheet .g-frame.web { padding: 0; background: none; border-radius: 14px; box-shadow: 0 24px 50px -24px rgba(14,40,34,.45); }
 .gallery.sheet .g-frame.web .g-img { border-radius: 14px; box-shadow: none; }
-.gallery.sheet .g-info { padding: 18px 22px 6px; min-height: 0; }
+/* Phone sheet: the feature's icon on the title's line, the description below both */
+.gallery.sheet .g-info { padding: 14px 22px 4px; min-height: 0; display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: center; }
+.gallery.sheet .g-head { display: contents; }
+.gallery.sheet .g-info .g-fd { grid-column: 1 / -1; margin-top: 8px; }
 .gallery.sheet .g-info.in-up { animation: fwinUp .45s cubic-bezier(.22,.8,.24,1) both; }
 .g-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
 .g-ic {
@@ -1501,10 +1504,9 @@ body.fwin-open { overflow: hidden; }
   background: linear-gradient(135deg, var(--tint-line) 0%, var(--tint-line) 25%, var(--tint-line2) 100%);
 }
 .g-ic svg { width: 18px; height: 18px; }
-.g-fcount { font-size: 12.5px; font-weight: 600; letter-spacing: .04em; color: var(--muted-2); }
-.gallery.sheet .g-info b { font-size: 21px; font-weight: 800; letter-spacing: -.01em; line-height: 1.2; margin-bottom: 6px; }
+.gallery.sheet .g-info b { font-size: 21px; font-weight: 800; letter-spacing: -.01em; line-height: 1.2; margin-bottom: 0; }
 .gallery.sheet .g-info p { font-size: 15px; color: var(--muted); }
-.gallery.sheet .g-nav { padding: 12px 16px 2px; }
+.gallery.sheet .g-nav { padding: 10px 16px 2px; }
 .gallery.sheet .g-dots { padding: 0; }
 .gallery.sheet .g-dots button { background: color-mix(in srgb, var(--tint-line) 30%, #fff); }
 .gallery.sheet .g-dots button[aria-current="true"] { background: var(--tint-line); }

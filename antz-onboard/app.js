@@ -1718,7 +1718,7 @@
         <button class="g-close" type="button" aria-label="${esc(t('gal.close'))}">${CLOSE_SVG}</button>
       </div>
       <div class="g-stage"><div class="g-track"><span class="g-frame"><img class="g-img" alt="" draggable="false"></span></div>${sheet ? lensHTML() : ''}</div>
-      <div class="g-info"><div class="g-head"><span class="g-ic" aria-hidden="true"></span><span class="g-fcount"></span></div><b class="g-ft"></b><p class="g-fd"></p></div>
+      <div class="g-info"><div class="g-head"><span class="g-ic" aria-hidden="true"></span></div><b class="g-ft"></b><p class="g-fd"></p></div>
       <div class="g-nav">
         <button class="g-arrow g-prev" type="button" aria-label="${esc(t('win.prev'))}">${CHEV_L}</button>
         <div class="g-dots">${slides.map((sl, i) => `<button type="button" aria-label="${esc(sl.title || t('gal.screen', { i: i + 1 }))}" data-i="${i}"></button>`).join('')}</div>
@@ -1773,7 +1773,6 @@
       g.querySelector('.g-fd').textContent = sl.desc;
       if (sheet) {
         g.querySelector('.g-ic').innerHTML = icon(sl.icon);
-        g.querySelector('.g-fcount').textContent = t('win.count', { i: idx + 1, n: slides.length });
         g.querySelector('.g-prev').disabled = idx === 0;
         g.querySelector('.g-next').disabled = idx === slides.length - 1;
         const info = g.querySelector('.g-info');
@@ -1792,7 +1791,7 @@
     /* Sheet: fit the screen inside the space its area actually has, with room above and below */
     const fitSheet = () => {
       if (!sheet) return;
-      requestAnimationFrame(() => { img.style.maxHeight = `${Math.max(160, stageEl.clientHeight - 18 - 34 - 14)}px`; });
+      requestAnimationFrame(() => { img.style.maxHeight = `${Math.max(160, stageEl.clientHeight - 12 - 16 - 14)}px`; });
     };
     if (sheet) window.addEventListener('resize', fitSheet);
 
