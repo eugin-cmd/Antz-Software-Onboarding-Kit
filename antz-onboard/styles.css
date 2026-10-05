@@ -1518,6 +1518,27 @@ body.fwin-open { overflow: hidden; }
 .gallery.sheet .g-hint { color: var(--muted-2); }
 @media (prefers-reduced-motion: reduce) { .gallery.sheet, .gallery.sheet.in { transition: none; clip-path: none; } .gallery.sheet .g-info.in-up { animation: none; } }
 
+/* Lens: phones only. A round magnifier on the screen's lower corner opens the screen on its own to zoom into */
+.lens { display: none; }
+@media (max-width: 760px) {
+  .lens {
+    position: absolute; z-index: 2; right: -12px; bottom: 22px; width: 44px; height: 44px; padding: 0; border-radius: 50%;
+    display: grid; place-items: center; cursor: zoom-in; border: 0; color: #fff;
+    background: linear-gradient(145deg, var(--tint-line, #0B7A40) 0%, var(--tint-line2, #005A2C) 100%);
+    box-shadow: 0 0 0 3px #fff, 0 10px 22px -8px rgba(14,40,34,.55);
+    transition: transform .45s cubic-bezier(.34,1.56,.64,1);
+  }
+  .lens:active { transform: scale(.92); }
+  /* In the feature sheet it sits in the stage's lower corner, clear of the zooming phone, and steps aside while zoomed */
+  .gallery.sheet .g-stage > .lens { right: 16px; bottom: 14px; transition: transform .45s cubic-bezier(.34,1.56,.64,1), opacity .2s; }
+  .gallery.sheet.zoomed .g-stage > .lens { opacity: 0; pointer-events: none; }
+}
+/* The lens view: the plain dark gallery with a single screen, so no dots, swipes or captions */
+.gallery.lens-view .g-info, .gallery.lens-view .g-nav, .gallery.lens-view .g-count { display: none; }
+.gallery.lens-view .g-title { grid-column: 1 / 3; text-align: left; padding-left: 8px; }
+.gallery.lens-view .g-track { padding: 8px 12px; }
+.gallery.lens-view .g-hint { margin-bottom: 6px; }
+
 /* ---------- Footer ---------- */
 /* Footer: the Antz Systems website's closing band. Green to navy, the logo, "See Antz in Action",
    the Book a Demo pill (white, with a green panel irising over it on hover), the store badges and the legal row */

@@ -243,19 +243,24 @@
   const areaById = Object.fromEntries(areas.map((a) => [a.id, a]));
 
   const shotFor = (m, src) => m.shots.find((s) => s.src === src) || { src, device: 'phone', alt: '' };
-  const deviceHTML = (shot) => {
+  /* Lens: on phones, a magnifier on each screen opens it on its own to pinch, pan and read the detail */
+  const LENS_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M10.5 7.5v6M7.5 10.5h6"/></svg>';
+  const lensHTML = () => `<button class="lens" type="button" aria-label="${esc(t('lens.open'))}">${LENS_SVG}</button>`;
+  /* lens: false for screens that sit inside a link or button (a button can't hold another) */
+  const deviceHTML = (shot, { lens = true } = {}) => {
     if (!shot) return '';
     const img = `<img src="${esc(shot.src)}" alt="${esc(shot.alt)}" loading="lazy">`;
-    if (shot.device === 'web') return `<div class="device device-web"><div class="bar"><i></i><i></i><i></i></div>${img}</div>`;
-    if (shot.device === 'tablet') return `<div class="device device-tablet"><div class="screen">${img}</div></div>`;
+    const l = lens ? lensHTML() : '';
+    if (shot.device === 'web') return `<div class="device device-web"><div class="bar"><i></i><i></i><i></i></div>${img}${l}</div>`;
+    if (shot.device === 'tablet') return `<div class="device device-tablet"><div class="screen">${img}</div>${l}</div>`;
     /* Every phone screen gets the same green frame, drawn in CSS (the frames once baked into some captures are cropped off) */
-    return `<div class="device device-phone"><div class="screen">${img}</div></div>`;
+    return `<div class="device device-phone"><div class="screen">${img}</div>${l}</div>`;
   };
 
   /* ---------- Home ---------- */
   /* ---------- Kit pages: the three "start here" sections, each on its own page ---------- */
   /* Content from content.json (Edition 01, pages 3 to 5) */
-  const kitScreen = (m) => (m.shots[0] ? deviceHTML({ ...m.shots[0], device: m.shots[0].device || 'phone' }) : '');
+  const kitScreen = (m, opts) => (m.shots[0] ? deviceHTML({ ...m.shots[0], device: m.shots[0].device || 'phone' }, opts) : '');
   const KIT_PAGES = [
     { id: 'objective', module: 'objective-of-this-kit', eyebrow: t('kit.objective.eyebrow'), more: t('kit.objective.more'), photo: 'objective', pos: '50% 35%' },
     { id: 'getting-started', module: 'getting-started', eyebrow: t('kit.start.eyebrow'), more: t('kit.start.more') },
@@ -431,7 +436,7 @@
       const set = addSet(c.id, c.title, c.icon, c.shots);
       return `
         <button class="mcard-face gcard" type="button" data-set="${set}" data-i="0">
-          <span class="gcard-thumb"${c.peek ? ` style="--peek:${c.peek}"` : ''}>${deviceHTML({ src: srcOf(c.shots[c.thumb || 0]), alt: '', device: 'phone' })}</span>
+          <span class="gcard-thumb"${c.peek ? ` style="--peek:${c.peek}"` : ''}>${deviceHTML({ src: srcOf(c.shots[c.thumb || 0]), alt: '', device: 'phone' }, { lens: false })}</span>
           <span class="gcard-body">
             <span class="gcard-top"><span class="gcard-ic" aria-hidden="true">${icon(c.icon)}</span><span class="gcard-n">${String(n).padStart(2, '0')}</span></span>
             <b>${esc(c.title)}</b>
@@ -446,7 +451,7 @@
       return `
         <div class="gqa reveal">
           <button class="gqa-stage" type="button" data-set="${set}" data-i="0" aria-label="${esc(t('guide.view'))}: ${esc(qa.overview.title)}">
-            ${deviceHTML({ src: srcOf(qa.overview), alt: '', device: 'phone' })}
+            ${deviceHTML({ src: srcOf(qa.overview), alt: '', device: 'phone' }, { lens: false })}
           </button>
           <div class="gqa-side">
             <h3>${esc(qa.overview.title)}</h3>
@@ -575,7 +580,7 @@
                 <span class="bento-more">${esc(k.more)} ${ARROW}</span>
               </span>
               ${k.id === 'getting-started'
-                ? `<span class="bento-phone" aria-hidden="true">${kitScreen(m)}</span>`
+                ? `<span class="bento-phone" aria-hidden="true">${kitScreen(m, { lens: false })}</span>`
                 : `<span class="bento-media" style="background-image:url('${PHOTOS[k.photo]}')${k.pos ? `;background-position:${k.pos}` : ''}" aria-hidden="true"></span>`}
               <svg class="drawn-border" aria-hidden="true"></svg>
             </a>`;
@@ -1703,7 +1708,8 @@
   function openGallery(m, slides, start, returnFocusTo, opts = {}) {
     const sheet = !!opts.sheet;
     const g = document.createElement('div');
-    g.className = sheet ? `gallery sheet tint-${AREA_TINT[m.track]}` : 'gallery';
+    const lens = !!opts.lens;
+    g.className = sheet ? `gallery sheet tint-${AREA_TINT[m.track]}` : `gallery${lens ? ' lens-view' : ''}`;
     g.setAttribute('role', 'dialog'); g.setAttribute('aria-modal', 'true'); g.setAttribute('aria-label', t('gal.label', { x: m.title }));
     g.innerHTML = `
       <div class="g-top">
@@ -1711,14 +1717,14 @@
         <span class="g-title">${sheet ? `${esc(areaById[m.track].label)} · ` : ''}${esc(m.title)}</span>
         <button class="g-close" type="button" aria-label="${esc(t('gal.close'))}">${CLOSE_SVG}</button>
       </div>
-      <div class="g-stage"><div class="g-track"><span class="g-frame"><img class="g-img" alt="" draggable="false"></span></div></div>
+      <div class="g-stage"><div class="g-track"><span class="g-frame"><img class="g-img" alt="" draggable="false"></span></div>${sheet ? lensHTML() : ''}</div>
       <div class="g-info"><div class="g-head"><span class="g-ic" aria-hidden="true"></span><span class="g-fcount"></span></div><b class="g-ft"></b><p class="g-fd"></p></div>
       <div class="g-nav">
         <button class="g-arrow g-prev" type="button" aria-label="${esc(t('win.prev'))}">${CHEV_L}</button>
         <div class="g-dots">${slides.map((sl, i) => `<button type="button" aria-label="${esc(sl.title || t('gal.screen', { i: i + 1 }))}" data-i="${i}"></button>`).join('')}</div>
         <button class="g-arrow g-next" type="button" aria-label="${esc(t('win.next'))}">${CHEV_R}</button>
       </div>
-      <p class="g-hint">${esc(t('gal.hint'))}</p>`;
+      <p class="g-hint">${esc(t(lens ? 'lens.hint' : 'gal.hint'))}</p>`;
     document.body.append(g);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -1856,6 +1862,8 @@
     stageEl.addEventListener('pointercancel', end);
 
     const onKey = (e) => {
+      const open = document.querySelectorAll('.gallery:not(.out)');
+      if (open[open.length - 1] !== g) return;
       if (e.key === 'Escape') close();
       if (e.key === (RTL ? 'ArrowLeft' : 'ArrowRight')) go(idx + 1, 1);
       if (e.key === (RTL ? 'ArrowRight' : 'ArrowLeft')) go(idx - 1, -1);
@@ -1874,6 +1882,12 @@
       if (returnFocusTo && returnFocusTo.focus) returnFocusTo.focus({ preventScroll: true });
     }
     g.querySelector('.g-close').addEventListener('click', close);
+    /* The sheet's lens opens the screen on show in the lens view, over the sheet */
+    const sheetLens = g.querySelector('.g-stage > .lens');
+    if (sheetLens) {
+      sheetLens.addEventListener('pointerdown', (e) => e.stopPropagation());
+      sheetLens.addEventListener('click', () => { const sl = slides[idx]; if (sl.src) openLens(sl.src, sl.alt, sl.title || m.title, sheetLens); });
+    }
     go(start);
     if (sheet) {
       /* Radial opening from the tapped feature, as on desktop */
@@ -1887,6 +1901,23 @@
     requestAnimationFrame(() => g.classList.add('in'));
     g.querySelector('.g-close').focus({ preventScroll: true });
   }
+  /* Lens view: one screen on its own, dark and full-screen, to pinch, pan and double-tap into */
+  function openLens(src, alt, title, returnFocusTo) {
+    openGallery({ title }, [{ src, alt, title: '', desc: '' }], 0, returnFocusTo, { lens: true });
+  }
+  /* Lens buttons on in-page screens. Capture phase, so the tap opens only the lens view and not also the
+     gallery or feature behind the screen. */
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('.device > .lens');
+    if (!b) return;
+    e.stopPropagation(); e.preventDefault();
+    const img = b.parentElement.querySelector('img');
+    const head = b.closest('section, .mpanel, .mfeat-row');
+    const title = (b.closest('.mfeat-row') || {}).querySelector?.('.t b')?.textContent
+      || head?.querySelector('h1, h2, .section-title, .mpanel-title')?.textContent || '';
+    if (img) openLens(img.currentSrc || img.src, img.alt, title.trim(), b);
+  }, true);
+
   /* Phones: a feature's screen and details open in the full-screen sheet */
   function openFeatureSheet(m, start, { origin, step, close, returnFocusTo } = {}) {
     const slides = m.features.map((f, i) => {

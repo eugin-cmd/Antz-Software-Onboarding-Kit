@@ -141,7 +141,9 @@
     'gal.label': '{x} screens',
     'gal.close': 'Close gallery',
     'gal.screen': 'Screen {i}',
-    'gal.hint': 'Pinch or double-tap to zoom · Swipe to browse'
+    'gal.hint': 'Pinch or double-tap to zoom · Swipe to browse',
+    'lens.open': 'Zoom into this screen',
+    'lens.hint': 'Pinch or double-tap to zoom · Drag to look around'
   };
 
   /* Choose the language: ?lang= wins (and is remembered), then the saved choice, else English */
