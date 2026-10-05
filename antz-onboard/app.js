@@ -670,9 +670,11 @@
       const b = e.target.closest('[data-set]');
       if (!b) return;
       const r = b.getBoundingClientRect();
+      /* The window runs on through every card's screens on the page; closing it returns focus to the card last shown */
       (narrow() ? openFeatureSheet : openFeatureWindow)(sets[+b.dataset.set], +b.dataset.i || 0, {
         origin: { x: r.left + r.width / 2, y: r.top + r.height / 2 },
-        close: () => b.focus({ preventScroll: true }), returnFocusTo: b
+        chain: { sets, at: +b.dataset.set },
+        close: (i, k) => (page.querySelector(`[data-set="${k}"]`) || b).focus({ preventScroll: true }), returnFocusTo: b
       });
     });
     sizeBorders();
@@ -1740,10 +1742,12 @@
   /* The LSET Foundation banner's leaf flourish (its components/icons/Leaves), under the banner text */
   const LEAVES_SVG = '<svg class="hero-leaf" width="114" height="60" viewBox="0 0 114 60" fill="none" aria-hidden="true" focusable="false"><path d="M2.87042 41.151C9.84427 42.2953 16.9777 42.0151 23.8403 40.3272C21.2324 39.0356 18.7205 37.5585 16.3241 35.9073C15.5719 35.3815 14.8724 32.6546 15.63 33.1841C19.0249 35.6013 22.6176 37.7278 26.3701 39.5409C28.3959 38.9382 31.2637 38.1164 33.3629 37.3151C34.8384 36.7518 36.2972 36.1518 37.7394 35.5152C39.7426 30.0413 46.0782 13.7805 48.733 19.3843C50.8472 23.8472 45.0164 30.2708 40.8713 34.0752C43.7887 32.6746 46.6426 31.1434 49.4414 29.5135L49.4269 29.5086L49.4898 29.4851C49.7488 29.3342 50.0073 29.1826 50.2654 29.0302C52.1283 23.9011 58.6661 6.86762 61.374 12.5837C63.3668 16.7903 58.3008 22.7393 54.2411 26.5946C57.0266 24.8318 59.7607 22.9874 62.4515 21.0943C63.0903 20.6449 63.727 20.1926 64.3617 19.7374C64.5324 15.8793 65.3768 3.48095 69.1102 6.60833C72.155 9.15894 68.69 15.0031 66.2686 18.359C68.4118 16.7977 70.5362 15.2106 72.6525 13.6127C73.6032 12.895 74.4153 12.0103 75.0492 11.0019C78.3819 5.69948 85.7422 -4.73149 88.0801 2.43099C90.306 9.25017 81.5286 12.1511 76.569 13.227C75.5994 13.4393 74.6877 13.86 73.8969 14.4599C71.5872 16.2052 69.2672 17.9387 66.9259 19.642C71.0431 18.2774 77.8777 16.6402 80.1336 19.8468C82.9239 23.813 69.2448 21.7951 64.9412 21.075C61.6655 23.4188 58.3402 25.691 54.9373 27.8442C60.1099 26.5855 67.2794 25.7311 68.836 30.0874C70.8894 35.8341 56.4643 31.7461 51.2545 30.1055C51.0959 30.1998 50.9386 30.2964 50.7795 30.3902C47.8626 32.1102 44.8733 33.7266 41.8171 35.2033C47.014 33.8879 54.5605 32.8524 56.1623 37.3356C58.3436 43.4403 41.9297 38.4469 37.721 37.0786C34.896 38.2982 31.1569 39.5991 28.228 40.5311C34.6511 43.3832 41.4349 45.3413 48.3899 46.3506C49.954 46.5701 51.5212 46.7493 53.0915 46.8884C57.4892 43.0626 70.8905 31.884 70.5086 38.073C70.2044 43.0021 61.9963 45.8107 56.5293 47.14C59.7603 47.3227 62.9989 47.3602 66.2368 47.2848L66.2265 47.2734L66.2929 47.2832C66.5925 47.2762 66.8922 47.2683 67.1918 47.2595C71.3001 43.668 85.2515 31.9104 84.862 38.2235C84.5754 42.8694 77.2661 45.6318 71.8493 47.0469C75.1398 46.8487 78.4246 46.5541 81.6951 46.196C82.4715 46.111 83.2475 46.0225 84.0231 45.9304C86.036 42.6347 92.7633 32.186 94.522 36.7276C95.9563 40.4315 90.0996 43.8754 86.3586 45.6445C88.9893 45.3124 91.6168 44.9548 94.2409 44.5716C95.42 44.4024 96.5584 44.02 97.6005 43.4431C103.08 40.4097 114.562 34.8308 113.15 42.2317C111.806 49.2778 102.719 47.5788 97.8565 46.1255C96.905 45.8432 95.9035 45.7711 94.9214 45.9145C92.0559 46.3272 89.187 46.7175 86.3145 47.0854C90.5788 47.8789 97.3542 49.7463 97.7807 53.6437C98.3084 58.4642 87.3052 50.0907 83.8845 47.3816C79.8841 47.8519 75.8751 48.2355 71.8553 48.4774C76.9926 49.8735 83.6832 52.588 82.9423 57.1543C81.9648 63.178 71.308 52.6316 67.5385 48.6788C67.354 48.6848 67.1697 48.6934 66.9851 48.6987C63.6002 48.796 60.2019 48.7677 56.8126 48.5847C61.9985 49.9428 69.1066 52.6808 68.344 57.3801C67.3056 63.779 55.3447 51.4793 52.3201 48.2484C46.0281 47.6768 39.8193 46.4069 33.8081 44.4623C31.0847 43.5563 28.4158 42.4941 25.8146 41.2809C23.7922 41.8341 21.7493 42.3166 19.6824 42.7041C13.2712 44.0086 6.70964 44.4139 0.186651 43.9084C-0.725917 43.8113 1.95691 41.0095 2.87042 41.151Z" fill="currentColor"/></svg>';
   let closeFeatureWindow = null;
-  function openFeatureWindow(m, start, { step, close, origin } = {}) {
+  /* chain: { sets, at } on guide pages, where each card is its own set: stepping past a set's last (or first)
+     screen carries on into the next (or previous) card's screens, in the same window */
+  function openFeatureWindow(m, start, { step, close, origin, chain } = {}) {
     if (closeFeatureWindow) closeFeatureWindow(true);
     const area = areaById[m.track];
-    const n = m.features.length;
+    let n = m.features.length;
     const shotOf = (i) => {
       const f = m.features[i];
       const src = f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src);
@@ -1758,12 +1762,12 @@
         <button class="fwin-close" type="button" data-close aria-label="${esc(t('win.close'))}">${CLOSE_SVG}</button>
         <div class="fwin-stage"><div class="fwin-device"></div></div>
         <div class="fwin-info">
-          <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · ${esc(m.title)}</span>
+          <span class="mpanel-area">${icon(area.glyph)}${esc(area.label)} · <span class="fwin-set">${esc(m.title)}</span></span>
           <div class="fwin-text">
             <div class="fwin-head"><span class="fwin-ic" aria-hidden="true"></span><p class="fwin-count" aria-live="polite"></p></div>
             <h2 class="fwin-title" id="fwin-title"></h2><p class="fwin-desc"></p>
           </div>
-          <div class="fwin-dots">${m.features.map((f, i) => `<button type="button" data-i="${i}" aria-label="${esc(tidyTitle(f.title))}"></button>`).join('')}</div>
+          <div class="fwin-dots"></div>
         </div>
       </div>
       <button class="fwin-arrow next" type="button" aria-label="${esc(t('win.next'))}">${CHEV_R}</button>`;
@@ -1771,10 +1775,28 @@
     document.body.classList.add('fwin-open');
     const dev = w.querySelector('.fwin-device'), text = w.querySelector('.fwin-text');
     const prev = w.querySelector('.fwin-arrow.prev'), next = w.querySelector('.fwin-arrow.next');
-    const dots = [...w.querySelectorAll('.fwin-dots button')];
-    const animals = animalsFor(m);
+    const dotBox = w.querySelector('.fwin-dots');
+    let dots = [], animals = [];
+    /* (Re)build what belongs to the current set: its title, dots and animal wash */
+    const useSet = () => {
+      n = m.features.length;
+      w.querySelector('.fwin-set').textContent = m.title;
+      dotBox.innerHTML = m.features.map((f, i) => `<button type="button" data-i="${i}" aria-label="${esc(tidyTitle(f.title))}"></button>`).join('');
+      dots = [...dotBox.children];
+      animals = animalsFor(m);
+    };
+    useSet();
+    const hasSet = (d) => !!(chain && chain.sets[chain.at + d]);
     let idx = -1;
     const go = (i, dir = 0) => {
+      /* Past either end: on into the neighbouring card's screens (guide pages), otherwise stop */
+      if ((i < 0 || i >= n) && hasSet(i < 0 ? -1 : 1)) {
+        chain.at += i < 0 ? -1 : 1;
+        m = chain.sets[chain.at];
+        useSet();
+        idx = -1;
+        i = i < 0 ? n - 1 : 0;
+      }
       if (i < 0 || i >= n || i === idx) return;
       idx = i;
       const f = m.features[i], shot = shotOf(i);
@@ -1790,7 +1812,7 @@
       dev.classList.add(dir > 0 ? 'in-r' : dir < 0 ? 'in-l' : 'in-up');
       text.classList.add('in-up');
       const had = document.activeElement;
-      prev.disabled = i === 0; next.disabled = i === n - 1;
+      prev.disabled = i === 0 && !hasSet(-1); next.disabled = i === n - 1 && !hasSet(1);
       /* An arrow that just became disabled drops focus; hand it to the other arrow */
       if (had && had.disabled) (had === next ? prev : next).focus({ preventScroll: true });
       dots.forEach((d, j) => d.setAttribute('aria-current', String(j === i)));
@@ -1816,13 +1838,13 @@
       closeFeatureWindow = null;
       if (instant || reducedMotion()) w.remove();
       else { w.classList.remove('in'); w.classList.add('out'); setTimeout(() => w.remove(), 460); }
-      if (!instant && close) close(idx);
+      if (!instant && close) close(idx, chain ? chain.at : 0);
     };
     closeFeatureWindow = shut;
     document.addEventListener('keydown', onKey);
     prev.addEventListener('click', () => go(idx - 1, -1));
     next.addEventListener('click', () => go(idx + 1, 1));
-    dots.forEach((d) => d.addEventListener('click', () => go(+d.dataset.i, +d.dataset.i > idx ? 1 : -1)));
+    dotBox.addEventListener('click', (e) => { const d = e.target.closest('button'); if (d) go(+d.dataset.i, +d.dataset.i > idx ? 1 : -1); });
     w.addEventListener('click', (e) => { if (e.target.closest('[data-close]')) shut(); });
     go(start);
     /* Radial opening: a circle grows from the clicked feature until it covers the whole card */
@@ -1933,6 +1955,11 @@
       g.querySelector('.g-count').textContent = `${idx + 1} / ${slides.length}`;
       g.querySelector('.g-ft').textContent = sl.title;
       g.querySelector('.g-fd').textContent = sl.desc;
+      if (sheet && sl.group != null) {
+        /* A sheet across a guide page's cards: the top line names this screen's card, and only its dots show */
+        g.querySelector('.g-title').textContent = `${areaById[m.track].label} · ${sl.groupTitle}`;
+        dots.forEach((d) => { d.hidden = slides[+d.dataset.i].group !== sl.group; });
+      }
       if (sheet) {
         g.querySelector('.g-ic').innerHTML = icon(sl.icon);
         g.querySelector('.g-prev').disabled = idx === 0;
@@ -2084,13 +2111,20 @@
   }, true);
 
   /* Phones: a feature's screen and details open in the full-screen sheet */
-  function openFeatureSheet(m, start, { origin, step, close, returnFocusTo } = {}) {
-    const slides = m.features.map((f, i) => {
-      const src = f.shot || (m.shots[i] && m.shots[i].src) || (m.shots[0] && m.shots[0].src);
-      const shot = src ? shotFor(m, src) : null;
-      return { src: src || '', alt: (shot && shot.alt) || f.title, title: tidyTitle(f.title), desc: tidy(f.desc), icon: f.icon, device: shot && shot.device };
+  /* chain ({ sets, at }, guide pages): the sheet holds every card's screens in page order, so swiping or the
+     arrows run on from one card into the next; the top line and the dots follow the card on show */
+  function openFeatureSheet(m, start, { origin, step, close, returnFocusTo, chain } = {}) {
+    const slidesOf = (x, group) => x.features.map((f, i) => {
+      const src = f.shot || (x.shots[i] && x.shots[i].src) || (x.shots[0] && x.shots[0].src);
+      const shot = src ? shotFor(x, src) : null;
+      return { src: src || '', alt: (shot && shot.alt) || f.title, title: tidyTitle(f.title), desc: tidy(f.desc), icon: f.icon, device: shot && shot.device,
+        group, groupTitle: x.title, local: i };
     });
-    openGallery(m, slides, start, returnFocusTo, { sheet: true, origin, step, close });
+    if (!chain) { openGallery(m, slidesOf(m), start, returnFocusTo, { sheet: true, origin, step, close }); return; }
+    const slides = chain.sets.flatMap((x, k) => slidesOf(x, k));
+    const first = slides.findIndex((s) => s.group === chain.at);
+    openGallery(m, slides, first + start, returnFocusTo, { sheet: true, origin, step,
+      close: close && ((i) => close(slides[i].local, slides[i].group)) });
   }
 
   /* ---------- Routing, scrolling, reveal ---------- */
