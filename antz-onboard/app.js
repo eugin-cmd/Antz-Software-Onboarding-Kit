@@ -847,7 +847,7 @@
   /* Module photos from References/icon_backgrounds/card images (web copies in assets/cards).
      chat-module and focus-hub use banner animals as stand-ins until their own photos arrive.
      Modules without their own photo fall back to a PHOTO_VARIANTS crop. */
-  const CARD_PHOTOS = new Set(['notes-module', 'chat-module', 'focus-hub', 'user-management', 'housing', 'animal-transfer', 'approvals', 'missing-escaped-animal',
+  const CARD_PHOTOS = new Set(['notes-module', 'chat-module', 'focus-hub', 'user-management', 'housing', 'animal-management', 'animal-transfer', 'approvals', 'missing-escaped-animal',
     'medical-records', 'symptoms-clinical-assessment-prescription', 'administer-medicine', 'vaccination', 'deworming', 'supplements',
     'hospital-information-management-system-app', 'hospital-information-management-system-web', 'mortality', 'necropsy', 'fetal-death',
     'egg-management-app', 'egg-management-web', 'announcement', 'helpdesk-module', 'security', 'reports-app', 'reports-web', 'lab', 'diet',
