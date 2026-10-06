@@ -677,7 +677,32 @@ window.ANTZ_CONTENT = {
      ]
     }
    ],
-   "status": "complete"
+   "status": "complete",
+   "flow": {
+    "label": "How a user gets access",
+    "steps": [
+     {
+      "icon": "add",
+      "title": "Create account",
+      "desc": "Add the user’s details and staff ID."
+     },
+     {
+      "icon": "tag",
+      "title": "Assign role",
+      "desc": "Admin, Vet, Caretaker and more."
+     },
+     {
+      "icon": "access",
+      "title": "Set permissions",
+      "desc": "Module and site or section access."
+     },
+     {
+      "icon": "done",
+      "title": "Active user",
+      "desc": "Secure login via OTP."
+     }
+    ]
+   }
   },
   {
    "id": "collection",

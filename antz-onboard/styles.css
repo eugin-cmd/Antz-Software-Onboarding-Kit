@@ -1842,6 +1842,18 @@ body.fwin-open { overflow: hidden; }
 .gflow h3 .n { font-size: 13px; font-weight: 700; letter-spacing: .04em; color: var(--tint-ink); font-variant-numeric: tabular-nums; }
 .gflow p { margin-top: 6px; font-size: 14px; color: var(--muted); max-width: 260px; }
 
+/* Module pages: a module's own process as the stepper, between the intro and the features, in the area's colours */
+.mflow { margin: 4px 0 32px; padding: 26px 26px 24px; border-radius: 18px; background: rgba(255,255,255,.6); box-shadow: 0 1px 2px rgba(14,23,21,.04); }
+.mflow-label { margin: 0 0 22px; font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--tint-ink); }
+.mflow .gflow { gap: 20px; }
+.mflow .gflow .ic { width: 48px; height: 48px; }
+.mflow .gflow .ic svg { width: 23px; height: 23px; }
+@media (min-width: 901px) { .mflow .gflow li:not(:last-child)::after { top: 23px; left: 58px; right: -12px; } }
+@media (max-width: 900px) { .mflow .gflow { gap: 22px; } .mflow .gflow li:not(:last-child)::after { top: 54px; bottom: -18px; left: 23px; } }
+.mflow .gflow h3 { margin-top: 14px; font-size: 15.5px; }
+.mflow .gflow p { font-size: 13.5px; }
+@media (max-width: 760px) { .mflow { padding: 20px 18px; } }
+
 /* Compare: capabilities down the side, one coloured column per type */
 .gcmp { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: #fff; }
 .gcmp table { width: 100%; border-collapse: collapse; table-layout: fixed; }

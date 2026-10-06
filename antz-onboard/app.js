@@ -1413,6 +1413,15 @@
 
   /* A module's features as a list: icon, title, description and an "open" mark. Used on module pages
      and for the featured workflow on the home page. */
+  /* A module's own process, when content.json gives one (flow: { label, steps }): the guides' stepper, with each
+     step's icon in its circle and its number beside the title */
+  const moduleFlowHTML = (fl) => `
+    <div class="mflow">
+      <h2 class="mflow-label">${esc(fl.label)}</h2>
+      <ol class="gflow">${fl.steps.map((s, i) => `
+        <li><span class="ic" aria-hidden="true">${icon(s.icon)}</span><h3><span class="n">${String(i + 1).padStart(2, '0')}</span>${esc(s.title)}</h3><p>${esc(s.desc)}</p></li>`).join('')}
+      </ol>
+    </div>`;
   /* more: on module pages with a full guide, a last card that leads into it (a link, not a feature) */
   const featureListHTML = (m, hasShots, more) => `
     <ol class="mfeats" aria-label="${esc(t('mod.features'))}">
@@ -1483,6 +1492,7 @@
               <h1 class="mpanel-title"><span class="mpanel-icon"><img src="assets/icons/${iconOf(m)}_icon.svg" alt=""></span>${esc(m.title)}</h1>
               ${LANG !== 'en' && m.enTitle !== m.title ? `<p class="mpanel-inapp">${esc(t('lang.inApp', { x: m.enTitle }))}</p>` : ''}
               <p class="mpanel-intro">${esc(m.intro)}</p>
+              ${m.flow ? moduleFlowHTML(m.flow) : ''}
               ${featureListHTML(m, hasShots, !!GUIDES[m.id])}
               <p class="mpanel-hint">${esc(hasShots ? (canHover() ? t('mod.hintClick') : t('mod.hintTap')) : t('mod.soon'))}</p>
             </div>
