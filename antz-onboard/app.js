@@ -614,6 +614,17 @@
         </div>
       </section>`).join('');
     const back = g.back && KIT_PAGES.find((x) => x.id === g.back);
+    /* Module guides step through each other in module order (skipping modules without a guide), carrying on
+       into the next area at the end of one. At the very ends: back to this module's page, or on to the modules. */
+    const withGuides = allModules.filter((x) => GUIDES[x.id]);
+    const guideStep = (dir) => {
+      const k = withGuides.indexOf(backModule), x = withGuides[k + (dir === 'prev' ? -1 : 1)];
+      if (x) return pagerHTML(dir, { href: `#/guide/${x.id}`, title: x.title, ...photoOf(x),
+        label: `${t(dir === 'prev' ? 'pager.prev' : 'pager.next')}${x.track !== backModule.track ? ` · ${esc(areaById[x.track].label)}` : ''}` });
+      return dir === 'prev'
+        ? pagerHTML('prev', { href: `#/m/${backModule.id}`, label: t('guide.module'), title: backModule.title, ...photoOf(backModule) })
+        : pagerHTML('next', { href: '#/', attrs: ' data-scroll="index"', label: t('pager.next'), title: t('pager.modules'), url: PHOTOS.hero, pos: '60% 30%' });
+    };
     /* The banner shows the module's icon above its area label, with the home leaf's rise and sway */
     /* Each guide page opens on a random photo of the guide set, and carries on through it from there */
     let bannerOffset;
@@ -631,6 +642,7 @@
         <section class="hero guide-hero" data-banners="guide" data-offset="${bannerOffset}">
           <div class="hero-media"><div class="hero-slides">${((b) => `<div class="hero-bg" style="background-image:url('${bannerSrc(b)}');--x:${b.x};--y:${b.y}"></div>`)(bannerNow(GUIDE_ORDER, bannerOffset))}</div></div>
           <div class="container hero-inner">
+            ${backModule ? `<a class="guide-back" href="#/m/${backModule.id}">${CHEV_L}<span>${esc(t('guide.back', { x: backModule.title }))}</span></a>` : ''}
             ${heroIcon}
             <span class="guide-kicker">${esc(backModule ? `${areaById[backModule.track].label} · ${numberOf[backModule.id]}` : g.kicker)}</span>
             ${heroTitle(g.title)}
@@ -652,8 +664,8 @@
             ${g.close.items ? flowHTML(g.close.items) : ''}
             <nav class="mpager" aria-label="${esc(t('pager.pages'))}">
               ${back ? pagerHTML('prev', { href: `#/kit/${back.id}`, label: t('guide.summary'), title: byId[back.module].title, url: (byId[back.module].shots[0] || {}).src || PHOTOS.hero, pos: '50% 12%' })
-                : backModule ? pagerHTML('prev', { href: `#/m/${backModule.id}`, label: t('guide.module'), title: backModule.title, ...photoOf(backModule) }) : '<span></span>'}
-              ${pagerHTML('next', { href: '#/', attrs: ' data-scroll="index"', label: t('pager.next'), title: t('pager.modules'), url: PHOTOS.hero, pos: '60% 30%' })}
+                : backModule ? guideStep('prev') : '<span></span>'}
+              ${backModule ? guideStep('next') : pagerHTML('next', { href: '#/', attrs: ' data-scroll="index"', label: t('pager.next'), title: t('pager.modules'), url: PHOTOS.hero, pos: '60% 30%' })}
             </nav>
           </div>
         </section>

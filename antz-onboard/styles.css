@@ -1711,6 +1711,20 @@ body.fwin-open { overflow: hidden; }
 .guide-jump .chip .n { font-variant-numeric: tabular-nums; opacity: .7; }
 .guide-kicker, .guide-aud { animation: heroRise 1s cubic-bezier(.33,0,.2,1) var(--rise-delay, 0ms) backwards; }
 .guide-kicker { --rise-delay: 40ms; }
+/* Module guides: a way back to the module's own page, at the top left of the banner */
+.guide-back {
+  position: absolute; z-index: 2; top: calc(var(--header-h) + 24px); left: var(--gutter);
+  display: inline-flex; align-items: center; gap: 4px; height: 36px; padding: 0 14px 0 8px; border-radius: 999px;
+  font-size: 13.5px; font-weight: 600; color: #fff; text-decoration: none;
+  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  transition: background .25s, border-color .25s;
+}
+.guide-back svg { width: 20px; height: 20px; }
+.guide-back:hover, .guide-back:focus-visible { background: rgba(255,255,255,.26); border-color: rgba(255,255,255,.5); }
+.guide-hero .hero-inner { position: relative; }
+[dir="rtl"] .guide-back { left: auto; right: var(--gutter); }
+[dir="rtl"] .guide-back svg { transform: scaleX(-1); }
+@media (max-width: 560px) { .guide-back { top: calc(var(--header-h) + 12px); height: 32px; font-size: 12.5px; } }
 .guide-aud { --rise-delay: 400ms; }
 
 .guide-part, .guide-close { padding: 88px 0; }
@@ -1885,6 +1899,8 @@ body.fwin-open { overflow: hidden; }
 }
 @media (max-width: 560px) {
   .guide-hero .hero-inner { padding-top: calc(56px + var(--header-h)); padding-bottom: 48px; }
+  /* Room for the back link above the banner text */
+  .guidepage:has(.guide-back) .guide-hero .hero-inner { padding-top: calc(76px + var(--header-h)); }
   .guide-part, .guide-close { padding: 56px 0; }
   .guide-head { margin-bottom: 28px; }
   .gqa-stage { height: 380px; padding: 18px; }
