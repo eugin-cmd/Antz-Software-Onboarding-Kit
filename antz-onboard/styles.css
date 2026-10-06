@@ -547,22 +547,23 @@ button { font: inherit; color: inherit; }
    a coloured rim around a thin dark edge. The rim is a fixed 7px (10px on tablets): padding percentages
    follow the surrounding box, which made frames thicker in wider panels */
 .device-phone {
-  width: 272px; aspect-ratio: 9 / 19.2; padding: 7px; border-radius: 15% / 7%;
+  width: 272px; aspect-ratio: 9 / 19.2; padding: 8px; border-radius: 15% / 7%;
   /* The area's own colours (as on its icon badges); pages without an area keep the brand green */
   background: linear-gradient(145deg, var(--tint-line, #0B7A40) 0%, var(--tint-line, #006D35) 40%, var(--tint-line2, #005A2C) 100%);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), inset 0 1px 1px rgba(255,255,255,.18), var(--shadow-lg);
 }
-.device-phone .screen { position: relative; width: 100%; height: 100%; border-radius: 13.5% / 6.3%; overflow: hidden; background: #fff; box-shadow: 0 0 0 3px color-mix(in srgb, var(--tint-line, #006D35) 38%, #000); }
+/* A 4px black gutter between the coloured bezel and the screen, on every app screen */
+.device-phone .screen { position: relative; width: 100%; height: 100%; border-radius: 13.5% / 6.3%; overflow: hidden; background: #000; box-shadow: 0 0 0 4px #000; }
 
 .device-framed { width: 272px; filter: drop-shadow(0 30px 40px rgba(14,23,21,.3)); }
 .device-framed img { height: auto; border-radius: 34px; }
 .device-tablet {
-  width: min(460px, 100%); aspect-ratio: 3 / 4; padding: 10px; border-radius: 28px;
+  width: min(460px, 100%); aspect-ratio: 3 / 4; padding: 11px; border-radius: 28px;
   /* The area's own colours (as on its icon badges); pages without an area keep the brand green */
   background: linear-gradient(145deg, var(--tint-line, #0B7A40) 0%, var(--tint-line, #006D35) 40%, var(--tint-line2, #005A2C) 100%);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), inset 0 1px 1px rgba(255,255,255,.18), var(--shadow-lg);
 }
-.device-tablet .screen { position: relative; width: 100%; height: 100%; border-radius: 18px; overflow: hidden; background: #fff; box-shadow: 0 0 0 3px color-mix(in srgb, var(--tint-line, #006D35) 38%, #000); }
+.device-tablet .screen { position: relative; width: 100%; height: 100%; border-radius: 18px; overflow: hidden; background: #000; box-shadow: 0 0 0 4px #000; }
 .device-web { width: min(620px, 100%); border-radius: 12px; overflow: hidden; background: #fff; box-shadow: var(--shadow-lg); border: 1px solid var(--line); }
 .device-web .bar { height: 30px; background: var(--surface-soft); border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 6px; padding: 0 12px; }
 .device-web .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--outline); }
@@ -1544,12 +1545,12 @@ body.fwin-open { overflow: hidden; }
 .g-frame { display: contents; }
 /* Phone sheet: the screen sits in the same bezel as the desktop frames, in the area's colours */
 .gallery.sheet .g-frame {
-  display: block; max-width: 100%; padding: 7px; border-radius: 27px; overflow: hidden;
+  display: block; max-width: 100%; padding: 8px; border-radius: 27px; overflow: hidden;
   transform-origin: center center; will-change: transform; user-select: none;
   background: linear-gradient(145deg, var(--tint-line) 0%, var(--tint-line) 40%, var(--tint-line2) 100%);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), inset 0 1px 1px rgba(255,255,255,.18), 0 24px 50px -24px rgba(14,40,34,.45);
 }
-.gallery.sheet .g-img { display: block; border-radius: 20px; box-shadow: 0 0 0 3px color-mix(in srgb, var(--tint-line) 38%, #000); width: auto; max-width: 100%; }
+.gallery.sheet .g-img { display: block; border-radius: 20px; background: #000; box-shadow: 0 0 0 4px #000; width: auto; max-width: 100%; }
 /* Web screens stay bare, with rounded corners */
 .gallery.sheet .g-frame.web { padding: 0; background: none; border-radius: 14px; box-shadow: 0 24px 50px -24px rgba(14,40,34,.45); }
 .gallery.sheet .g-frame.web .g-img { border-radius: 14px; box-shadow: none; }
@@ -1589,7 +1590,7 @@ body.fwin-open { overflow: hidden; }
 .device-web { position: relative; }
 /* Phone sheet: the frame holds the bezel padding, so the veil sits inside it, on the screen only */
 .gallery.sheet .g-frame { position: relative; }
-.gallery.sheet .g-frame > .screen-lock { inset: 7px; border-radius: 20px; }
+.gallery.sheet .g-frame > .screen-lock { inset: 8px; border-radius: 20px; }
 /* Lens: phones only. A round magnifier (no outline) on the screen's lower corner opens the screen on its own to zoom into */
 .lens { display: none; }
 @media (max-width: 760px) {
@@ -1760,7 +1761,7 @@ body.fwin-open { overflow: hidden; }
 .gcard-thumb .device-phone { flex: none; align-self: flex-start; width: 160px; height: auto; margin-top: calc(var(--peek, 0) * -153px); box-shadow: inset 0 0 0 1px rgba(0,0,0,.28), 0 18px 30px -16px rgba(14,40,34,.4); transition: transform .7s cubic-bezier(.22,.8,.24,1); }
 .gcard:hover .gcard-thumb .device-phone, .gcard:focus-visible .gcard-thumb .device-phone { transform: translateY(-10px); }
 /* Web screens in card thumbnails: a tablet or browser frame peeking up the same way */
-.gcard-thumb .device-tablet { flex: none; align-self: flex-start; width: 250px; height: auto; margin-top: calc(var(--peek, 0) * -120px); padding: 7px; border-radius: 18px; transition: transform .7s cubic-bezier(.22,.8,.24,1); }
+.gcard-thumb .device-tablet { flex: none; align-self: flex-start; width: 250px; height: auto; margin-top: calc(var(--peek, 0) * -120px); padding: 8px; border-radius: 18px; transition: transform .7s cubic-bezier(.22,.8,.24,1); }
 .gcard-thumb .device-tablet .screen { border-radius: 12px; }
 .gcard-thumb .device-web { flex: none; align-self: flex-start; width: 88%; margin-top: calc(var(--peek, 0) * -80px); transition: transform .7s cubic-bezier(.22,.8,.24,1); }
 .gcard:hover .gcard-thumb :is(.device-tablet, .device-web), .gcard:focus-visible .gcard-thumb :is(.device-tablet, .device-web) { transform: translateY(-10px); }
