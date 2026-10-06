@@ -409,48 +409,48 @@
     {
      "title": "1-on-1 messaging",
      "desc": "Enables one-to-one chats between team members for seamless communication and collaboration.",
-     "shot": "assets/shots/p8-chat-thread.png",
-     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur",
+     "shot": "assets/shots/p8-chat-one-to-one.webp",
+     "alt": "One-to-one chat with Dr. Neha about collecting Bruno's blood samples",
      "device": "prefr",
      "size": [
-      502,
-      1035
+      475,
+      1018
      ],
      "icon": "chat"
     },
     {
      "title": "Group messaging",
      "desc": "Create a group for any team, shift, or task and chat in one place.",
-     "shot": "assets/shots/p8-chat-thread.png",
-     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur",
+     "shot": "assets/shots/p8-chat-group.webp",
+     "alt": "Animal Care Team group chat, 65 members, sharing a meeting link and replies",
      "device": "prefr",
      "size": [
-      502,
-      1035
+      475,
+      1018
      ],
      "icon": "users"
     },
     {
      "title": "Media & document sharing",
      "desc": "Send photos, videos, lab reports and PDFs in-thread; no external apps required.",
-     "shot": "assets/shots/p8-chat-thread.png",
-     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur",
+     "shot": "assets/shots/p8-chat-media.webp",
+     "alt": "Group chat with shared elephant photos, a voice note and an audio file",
      "device": "prefr",
      "size": [
-      502,
-      1035
+      475,
+      1018
      ],
      "icon": "link"
     },
     {
      "title": "Real-time notifications",
      "desc": "Receive instant notifications directly within the app for important updates.",
-     "shot": "assets/shots/p8-chat-thread.png",
-     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur",
+     "shot": "assets/shots/p8-chat-notification.webp",
+     "alt": "In-app chat notification from Dr. Medi over the chat list",
      "device": "prefr",
      "size": [
-      502,
-      1035
+      475,
+      1005
      ],
      "icon": "bell"
     },
@@ -470,12 +470,12 @@
     {
      "title": "Search & filters",
      "desc": "Find messages by keyword, sender, or linked entity.",
-     "shot": "assets/shots/p8-chat-thread.png",
-     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur",
+     "shot": "assets/shots/p8-chat-list.webp",
+     "alt": "Communication list with search and All, Unread and Groups filters",
      "device": "prefr",
      "size": [
-      502,
-      1035
+      475,
+      1018
      ],
      "icon": "filter"
     }
@@ -488,6 +488,51 @@
      "size": [
       502,
       1035
+     ]
+    },
+    {
+     "src": "assets/shots/p8-chat-one-to-one.webp",
+     "alt": "One-to-one chat with Dr. Neha about collecting Bruno's blood samples",
+     "device": "prefr",
+     "size": [
+      475,
+      1018
+     ]
+    },
+    {
+     "src": "assets/shots/p8-chat-group.webp",
+     "alt": "Animal Care Team group chat, 65 members, sharing a meeting link and replies",
+     "device": "prefr",
+     "size": [
+      475,
+      1018
+     ]
+    },
+    {
+     "src": "assets/shots/p8-chat-media.webp",
+     "alt": "Group chat with shared elephant photos, a voice note and an audio file",
+     "device": "prefr",
+     "size": [
+      475,
+      1018
+     ]
+    },
+    {
+     "src": "assets/shots/p8-chat-notification.webp",
+     "alt": "In-app chat notification from Dr. Medi over the chat list",
+     "device": "prefr",
+     "size": [
+      475,
+      1005
+     ]
+    },
+    {
+     "src": "assets/shots/p8-chat-list.webp",
+     "alt": "Communication list with search and All, Unread and Groups filters",
+     "device": "prefr",
+     "size": [
+      475,
+      1018
      ]
     }
    ],
