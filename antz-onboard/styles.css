@@ -1719,9 +1719,7 @@ body.fwin-open { overflow: hidden; }
   transition: color .2s;
 }
 .guide-back svg { width: 20px; height: 20px; margin-left: -5px; filter: drop-shadow(0 1px 6px rgba(0,0,0,.4)); transition: transform .3s cubic-bezier(.22,.8,.24,1); }
-.guide-back span { text-decoration: underline; text-decoration-color: rgba(255,255,255,.4); text-underline-offset: 4px; text-decoration-thickness: 1px; transition: text-decoration-color .2s; }
 .guide-back:hover, .guide-back:focus-visible { color: #fff; }
-.guide-back:hover span, .guide-back:focus-visible span { text-decoration-color: #fff; }
 .guide-back:hover svg { transform: translateX(-3px); }
 .guide-hero .hero-inner { position: relative; }
 [dir="rtl"] .guide-back { left: auto; right: var(--gutter); }
