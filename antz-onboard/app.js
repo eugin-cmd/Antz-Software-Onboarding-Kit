@@ -1134,7 +1134,10 @@
     if (borderObserver) borderObserver.disconnect();
     const targets = [
       /* Start-here cards under the hero: the module cards' border, in the brand gradient (they have no area) */
-      ...[...app.querySelectorAll('.mcard-face, .bento-card, .ghier-level')].map((el) => [el, { ...CARD_BORDER,
+      /* Housing's level cards draw a finer 1px border */
+      ...[...app.querySelectorAll('.ghier-level')].map((el) => [el, { ...CARD_BORDER, stroke: 1, bleed: 0,
+        isOn: () => (el.matches(':hover') && canHover()) || el.matches(':focus-visible') }]),
+      ...[...app.querySelectorAll('.mcard-face, .bento-card')].map((el) => [el, { ...CARD_BORDER,
         isOn: () => (el.matches(':hover') && canHover()) || el.matches(':focus-visible') }]),
       /* Feature rows on module pages draw the same border as the home cards, in the area colour */
       ...[...app.querySelectorAll('.mfeat-row')].map((el) => [el, { ...CARD_BORDER, stroke: 1, bleed: 0, over: true,
