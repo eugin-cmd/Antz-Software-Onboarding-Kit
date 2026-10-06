@@ -604,13 +604,20 @@ window.ANTZ_GUIDES = {
         label: 'Part 01 · The housing model',
         title: 'How housing is organised',
         lede: 'A site contains sections, and each section contains enclosures. An enclosure can hold a single animal, a batch or a group of animals.',
-        /* The deck's hierarchy slide plus its "An enclosure may contain" slide, shown as one containment path */
-        flow: [
-          { icon: 'compass', title: 'Site', desc: 'The top level: an entire facility such as a zoo or reserve. It holds sections, species and every animal record.' },
-          { icon: 'areas', title: 'Section', desc: 'A themed grouping inside a site, such as Big Cats, that gathers related enclosures together for easier management.' },
-          { icon: 'home', title: 'Enclosure', desc: 'The individual habitat where animals live: the most granular level for records and daily care.' },
-          { icon: 'pets', title: 'Animals', desc: 'A single animal on its own record, a batch of the same species managed as one record, or a larger group of one species monitored as a single group.' }
-        ]
+        /* The deck's hierarchy slide plus its "An enclosure may contain" slide, as one unit: each level is a button
+           to its part of this page, beside a diagram of the containment path */
+        hierarchy: {
+          levels: [
+            { icon: 'compass', title: 'Site', jump: 'site', desc: 'The top level: an entire facility such as a zoo or reserve. It holds sections, species and every animal record.' },
+            { icon: 'areas', title: 'Section', jump: 'section', desc: 'A themed grouping inside a site, such as Big Cats, that gathers related enclosures together for easier management.' },
+            { icon: 'home', title: 'Enclosure', jump: 'enclosure', desc: 'The individual habitat where animals live: the most granular level for records and daily care.' }
+          ],
+          holds: { title: 'Each enclosure holds', items: [
+            { icon: 'pets', title: 'Single animal', desc: 'One animal on its own record' },
+            { icon: 'batch', title: 'Batch of animals', desc: 'One species, managed as one record' },
+            { icon: 'users', title: 'Group of animals', desc: 'A larger group of one species' }
+          ] }
+        }
       },
       {
         id: 'site',

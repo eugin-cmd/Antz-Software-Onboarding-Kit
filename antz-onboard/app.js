@@ -585,6 +585,28 @@
       <ol class="gflow reveal">${steps.map((s, i) => `
         <li><span class="ic" aria-hidden="true">${icon(s.icon || 'note')}</span><h3><span class="n">${String(i + 1).padStart(2, '0')}</span>${esc(s.title)}</h3><p>${esc(s.desc)}</p></li>`).join('')}
       </ol>`;
+    /* Hierarchy: each level a card that jumps to its part of the page, stacked on a spine, beside a diagram of the
+       containment path that ends in what an enclosure holds. Pointing at a card lights its node in the diagram. */
+    const hierarchyHTML = (h) => `
+      <div class="ghier reveal">
+        <ol class="ghier-levels">${h.levels.map((l, i) => `
+          <li><button class="ghier-level" type="button" data-jump="g-${esc(l.jump)}" data-k="${i}">
+            <span class="ic" aria-hidden="true">${icon(l.icon)}</span>
+            <span class="t"><small>${esc(t('guide.level', { n: i + 1 }))}</small><b>${esc(l.title)}</b><span>${esc(l.desc)}</span></span>
+            <span class="go" aria-hidden="true">${ARROW}</span>
+            <svg class="drawn-border" aria-hidden="true"></svg>
+          </button></li>`).join('')}
+        </ol>
+        <div class="ghier-map" aria-hidden="true">
+          <div class="ghier-path">${h.levels.map((l, i) => `
+            <button class="ghier-node" type="button" tabindex="-1" data-jump="g-${esc(l.jump)}" data-k="${i}"><span class="ic">${icon(l.icon)}</span><b>${esc(l.title)}</b></button>`).join('<span class="ghier-link"></span>')}
+          </div>
+          <div class="ghier-holds">
+            <small>${esc(h.holds.title)}</small>
+            <ul>${h.holds.items.map((x) => `<li><span class="ic">${icon(x.icon)}</span><span><b>${esc(x.title)}</b><em>${esc(x.desc)}</em></span></li>`).join('')}</ul>
+          </div>
+        </div>
+      </div>`;
     /* Capabilities by type: a table on wide screens, one card per capability on phones */
     const compareHTML = (c) => `
       <div class="gcmp reveal">
@@ -611,6 +633,7 @@
           ${p.actions ? actionsHTML(p.actions, p.id) : ''}
           ${p.flow ? flowHTML(p.flow) : ''}
           ${p.compare ? compareHTML(p.compare) : ''}
+          ${p.hierarchy ? hierarchyHTML(p.hierarchy) : ''}
         </div>
       </section>`).join('');
     const back = g.back && KIT_PAGES.find((x) => x.id === g.back);
@@ -672,6 +695,15 @@
       </div>`;
 
     const page = app.querySelector('.guidepage');
+    /* Hierarchy: pointing at (or focusing) a level lights its node in the diagram, and the nodes up to it */
+    page.querySelectorAll('.ghier').forEach((hi) => {
+      const nodes = [...hi.querySelectorAll('.ghier-node')];
+      const light = (k) => { hi.classList.toggle('lit', k != null); nodes.forEach((n) => { n.classList.toggle('on', +n.dataset.k === k); n.classList.toggle('path', k != null && +n.dataset.k < k); }); };
+      hi.querySelectorAll('.ghier-level, .ghier-node').forEach((b) => {
+        b.addEventListener('pointerenter', () => light(+b.dataset.k)); b.addEventListener('focus', () => light(+b.dataset.k));
+        b.addEventListener('pointerleave', () => light(null)); b.addEventListener('blur', () => light(null));
+      });
+    });
     /* Record tour: pointing at (or focusing) a numbered tile brings its screen up on the phone beside it */
     page.querySelectorAll('.gqa-tour').forEach((tour) => {
       const img = tour.querySelector('.gqa-stage img');
@@ -1102,7 +1134,7 @@
     if (borderObserver) borderObserver.disconnect();
     const targets = [
       /* Start-here cards under the hero: the module cards' border, in the brand gradient (they have no area) */
-      ...[...app.querySelectorAll('.mcard-face, .bento-card')].map((el) => [el, { ...CARD_BORDER,
+      ...[...app.querySelectorAll('.mcard-face, .bento-card, .ghier-level')].map((el) => [el, { ...CARD_BORDER,
         isOn: () => (el.matches(':hover') && canHover()) || el.matches(':focus-visible') }]),
       /* Feature rows on module pages draw the same border as the home cards, in the area colour */
       ...[...app.querySelectorAll('.mfeat-row')].map((el) => [el, { ...CARD_BORDER, stroke: 1, bleed: 0, over: true,

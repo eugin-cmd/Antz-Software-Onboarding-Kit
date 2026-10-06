@@ -1870,6 +1870,93 @@ body.fwin-open { overflow: hidden; }
 /* Phones: the branch lines up with the steps' text, below the joining line */
 @media (max-width: 900px) { .mflow .gflow > li.mflow-branch { display: block; padding-left: 64px; } }
 
+/* Hierarchy (guides): level cards on a spine beside a diagram of the containment path, as one unit */
+.ghier { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 28px; align-items: stretch; }
+.ghier-levels { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; position: relative; }
+/* The spine joining the three levels, behind the cards' icon tiles */
+.ghier-levels::before { content: ""; position: absolute; left: 47px; top: 40px; bottom: 40px; width: 2px; border-radius: 2px;
+  background: linear-gradient(180deg, var(--tint-line), var(--tint-line2)); opacity: .45; }
+.ghier-level {
+  position: relative; width: 100%; display: grid; grid-template-columns: 56px 1fr 36px; gap: 18px; align-items: center; text-align: left;
+  padding: 20px 20px 20px 20px; border: 0; border-radius: 18px; cursor: pointer; font: inherit; color: inherit;
+  background: linear-gradient(135deg, #fff 40%, var(--tint-soft2) 100%); box-shadow: 0 1px 2px rgba(14,23,21,.05), 0 8px 24px -18px rgba(14,40,34,.35);
+  transition: transform .5s cubic-bezier(.22,.8,.24,1), box-shadow .5s cubic-bezier(.22,.8,.24,1);
+}
+.ghier-level .ic { position: relative; z-index: 1; width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; color: #fff;
+  background: linear-gradient(135deg, var(--tint-line) 0%, var(--tint-line) 25%, var(--tint-line2) 100%);
+  box-shadow: 0 10px 22px -12px color-mix(in srgb, var(--tint-line) 70%, #000); transition: transform .55s cubic-bezier(.34,1.56,.64,1); }
+.ghier-level .ic svg { width: 26px; height: 26px; }
+.ghier-level .t small { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--tint-ink); opacity: .8; }
+.ghier-level .t b { display: block; margin-top: 2px; font-size: 22px; font-weight: 700; letter-spacing: -.01em; color: var(--ink); }
+.ghier-level .t > span { display: block; margin-top: 4px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.ghier-level .go { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: var(--tint-ink);
+  background: var(--tint-soft); transition: background .3s, color .3s; }
+.ghier-level .go svg { width: 16px; height: 16px; transform: rotate(90deg); transition: transform .4s cubic-bezier(.22,.8,.24,1); }
+@media (hover: hover) and (pointer: fine) {
+  .ghier-level:hover { transform: translateY(-4px); box-shadow: 0 22px 44px -22px rgba(14,40,34,.38), 0 2px 6px rgba(14,23,21,.05); }
+  .ghier-level:hover .ic { transform: scale(1.06); }
+  .ghier-level:hover .go { color: #fff; background: linear-gradient(135deg, var(--tint-line), var(--tint-line2)); }
+  .ghier-level:hover .go svg { transform: rotate(90deg) translateX(2px); }
+}
+.ghier-level:focus-visible .go { color: #fff; background: linear-gradient(135deg, var(--tint-line), var(--tint-line2)); }
+
+/* The diagram: the area's gradient, the path across the top, what an enclosure holds below */
+.ghier-map { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 30px; padding: 34px 30px;
+  border-radius: 22px; overflow: hidden; background: linear-gradient(to bottom right, var(--tint) 0%, var(--tint-comp) 100%); }
+.ghier-map::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(70% 60% at 0% 0%, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 60%); }
+.ghier-path { position: relative; display: flex; align-items: flex-start; }
+.ghier-node { flex: none; width: 92px; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 0; border: 0; background: none;
+  cursor: pointer; font: inherit; color: var(--ink); }
+.ghier-node .ic { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; color: var(--tint-ink);
+  background: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.55), 0 10px 24px -14px rgba(14,40,34,.5);
+  transition: transform .55s cubic-bezier(.34,1.56,.64,1), background .35s, color .35s, box-shadow .35s; }
+.ghier-node .ic svg { width: 26px; height: 26px; }
+.ghier-node b { font-size: 14.5px; font-weight: 700; }
+.ghier-link { flex: 1; height: 2px; margin-top: 28px; border-radius: 2px; background: linear-gradient(90deg, var(--tint-line), var(--tint-line2)); opacity: .5; }
+/* Lit: the pointed-at level's node fills with the area colours and grows; the ones before it tint */
+.ghier-node.on .ic { color: #fff; transform: scale(1.12); background: linear-gradient(135deg, var(--tint-line) 0%, var(--tint-line2) 100%);
+  box-shadow: 0 0 0 6px rgba(255,255,255,.7), 0 14px 28px -12px color-mix(in srgb, var(--tint-line) 70%, #000); }
+.ghier-node.path .ic { color: var(--tint-line); }
+.ghier.lit .ghier-node:not(.on):not(.path) { opacity: .55; }
+.ghier-node { transition: opacity .3s; }
+/* What an enclosure holds: hanging from the enclosure node by a bracket */
+.ghier-holds { position: relative; margin-left: auto; width: min(100%, 330px); }
+.ghier-holds small { display: block; margin: 0 0 12px 22px; font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--tint-ink); }
+.ghier-holds ul { list-style: none; margin: 0; padding: 0 0 0 22px; display: grid; gap: 10px; position: relative; }
+.ghier-holds ul::before { content: ""; position: absolute; left: 0; top: 22px; bottom: 22px; width: 2px; border-radius: 2px;
+  background: linear-gradient(180deg, var(--tint-line), var(--tint-line2)); opacity: .5; }
+.ghier-holds li { position: relative; display: flex; align-items: center; gap: 12px; padding: 9px 16px 9px 9px; border-radius: 16px;
+  background: rgba(255,255,255,.82); box-shadow: 0 1px 2px rgba(14,23,21,.05); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.ghier-holds li::before { content: ""; position: absolute; left: -22px; top: 50%; width: 22px; height: 2px; background: var(--tint-line); opacity: .5; }
+.ghier-holds .ic { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; color: #fff;
+  background: linear-gradient(135deg, var(--tint-line) 0%, var(--tint-line2) 100%); }
+.ghier-holds .ic svg { width: 18px; height: 18px; }
+.ghier-holds b { display: block; font-size: 14px; font-weight: 700; color: var(--ink); }
+.ghier-holds em { display: block; font-style: normal; font-size: 12.5px; color: var(--muted); }
+/* The bracket's stem: down from the enclosure node (centre 46px in from the right), then round to the bracket */
+.ghier-holds { padding-top: 16px; }
+.ghier-holds::before { content: ""; position: absolute; right: 45px; top: -30px; height: 31px; width: 2px; background: var(--tint-line2); opacity: .5; }
+.ghier-holds::after { content: ""; position: absolute; left: 0; right: 45px; top: 0; height: 40px; border-top: 2px solid var(--tint-line); border-left: 2px solid var(--tint-line);
+  border-top-left-radius: 12px; opacity: .5; pointer-events: none; }
+.ghier-holds ul::before { top: 0; }
+@media (max-width: 1000px) {
+  .ghier { grid-template-columns: 1fr; }
+  .ghier-holds { margin-left: 0; width: 100%; }
+  .ghier-holds::before, .ghier-holds::after { display: none; }
+  .ghier-holds { padding-top: 0; }
+  .ghier-holds ul::before { top: 22px; }
+}
+@media (max-width: 560px) {
+  .ghier-level { grid-template-columns: 48px 1fr 32px; gap: 14px; padding: 16px; }
+  .ghier-level .ic { width: 48px; height: 48px; border-radius: 14px; }
+  .ghier-levels::before { left: 39px; }
+  .ghier-level .t b { font-size: 19px; }
+  .ghier-map { padding: 24px 18px; gap: 24px; }
+  .ghier-node { width: 72px; } .ghier-node .ic { width: 48px; height: 48px; } .ghier-link { margin-top: 23px; }
+}
+@media (prefers-reduced-motion: reduce) { .ghier-level, .ghier-level .ic, .ghier-node .ic { transition: none; } }
+
 /* Compare: capabilities down the side, one coloured column per type */
 .gcmp { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: #fff; }
 .gcmp table { width: 100%; border-collapse: collapse; table-layout: fixed; }

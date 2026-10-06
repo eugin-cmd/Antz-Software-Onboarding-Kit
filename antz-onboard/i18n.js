@@ -86,6 +86,7 @@
     'guide.summary': 'Summary',
     'guide.module': 'Module',
     'guide.back': 'Back to {x}',
+    'guide.level': 'Level {n}',
     'guide.tourHint': 'Point at a part to see it on the screen, or pick it to open the screen',
     'guide.tourHintTap': 'Tap a part to open its screen',
     'day.title': 'What your first day on Antz looks like',
