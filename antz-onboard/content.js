@@ -858,7 +858,44 @@ window.ANTZ_CONTENT = {
      ]
     }
    ],
-   "status": "complete"
+   "status": "complete",
+   "flow": {
+    "label": "Housing hierarchy · how animals are recorded",
+    "steps": [
+     {
+      "icon": "compass",
+      "title": "Site",
+      "desc": "An entire facility, such as a zoo or reserve."
+     },
+     {
+      "icon": "areas",
+      "title": "Section",
+      "desc": "A themed grouping of enclosures, such as Big Cats."
+     },
+     {
+      "icon": "home",
+      "title": "Enclosure",
+      "desc": "The habitat where animals live and are cared for."
+     }
+    ],
+    "branch": {
+     "title": "Animals",
+     "items": [
+      {
+       "icon": "pets",
+       "title": "Single animal"
+      },
+      {
+       "icon": "batch",
+       "title": "Batch of animals"
+      },
+      {
+       "icon": "users",
+       "title": "Group of animals"
+      }
+     ]
+    }
+   }
   },
   {
    "id": "animal-management",

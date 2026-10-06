@@ -1853,6 +1853,22 @@ body.fwin-open { overflow: hidden; }
 .mflow .gflow h3 { margin-top: 14px; font-size: 15.5px; }
 .mflow .gflow p { font-size: 13.5px; }
 @media (max-width: 760px) { .mflow { padding: 20px 18px; } }
+/* The branch: the last step's options as small chips, each joined to one bracket line */
+.mflow .gflow > li.mflow-branch { position: relative; }
+.mflow-branch h3 { margin-top: 0 !important; }
+.mflow-branch ul { list-style: none; margin: 12px 0 0; padding: 0 0 0 18px; display: grid; gap: 8px; position: relative; }
+.mflow-branch ul::before { content: ""; position: absolute; left: 0; top: 16px; bottom: 16px; width: 2px; border-radius: 2px;
+  background: linear-gradient(180deg, var(--tint-line), var(--tint-line2)); opacity: .45; }
+.mflow-branch ul li { position: relative; display: flex; align-items: center; gap: 10px; padding: 6px 12px 6px 6px; border-radius: 999px;
+  font-size: 13.5px; font-weight: 600; color: var(--ink); background: #fff; box-shadow: 0 1px 2px rgba(14,23,21,.06); width: fit-content; }
+.mflow-branch ul li::before { content: ""; position: absolute; left: -18px; top: 50%; width: 18px; height: 2px;
+  background: var(--tint-line); opacity: .45; }
+.mflow .gflow .mflow-branch .ic { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; color: #fff;
+  background: linear-gradient(135deg, var(--tint-line) 0%, var(--tint-line2) 100%); }
+.mflow .gflow .mflow-branch .ic svg { width: 15px; height: 15px; }
+.mflow .gflow .mflow-branch ul li::after { content: none; }
+/* Phones: the branch lines up with the steps' text, below the joining line */
+@media (max-width: 900px) { .mflow .gflow > li.mflow-branch { display: block; padding-left: 64px; } }
 
 /* Compare: capabilities down the side, one coloured column per type */
 .gcmp { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: #fff; }
