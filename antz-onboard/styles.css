@@ -1711,20 +1711,22 @@ body.fwin-open { overflow: hidden; }
 .guide-jump .chip .n { font-variant-numeric: tabular-nums; opacity: .7; }
 .guide-kicker, .guide-aud { animation: heroRise 1s cubic-bezier(.33,0,.2,1) var(--rise-delay, 0ms) backwards; }
 .guide-kicker { --rise-delay: 40ms; }
-/* Module guides: a way back to the module's own page, at the top left of the banner */
+/* Module guides: a plain text link back to the module's own page, at the top left of the banner */
 .guide-back {
   position: absolute; z-index: 2; top: calc(var(--header-h) + 24px); left: var(--gutter);
-  display: inline-flex; align-items: center; gap: 4px; height: 36px; padding: 0 14px 0 8px; border-radius: 999px;
-  font-size: 13.5px; font-weight: 600; color: #fff; text-decoration: none;
-  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  transition: background .25s, border-color .25s;
+  display: inline-flex; align-items: center; gap: 2px; padding: 4px 0;
+  font-size: 14px; font-weight: 500; color: rgba(255,255,255,.88); text-decoration: none; text-shadow: 0 1px 8px rgba(0,0,0,.45);
+  transition: color .2s;
 }
-.guide-back svg { width: 20px; height: 20px; }
-.guide-back:hover, .guide-back:focus-visible { background: rgba(255,255,255,.26); border-color: rgba(255,255,255,.5); }
+.guide-back svg { width: 20px; height: 20px; margin-left: -5px; filter: drop-shadow(0 1px 6px rgba(0,0,0,.4)); transition: transform .3s cubic-bezier(.22,.8,.24,1); }
+.guide-back span { text-decoration: underline; text-decoration-color: rgba(255,255,255,.4); text-underline-offset: 4px; text-decoration-thickness: 1px; transition: text-decoration-color .2s; }
+.guide-back:hover, .guide-back:focus-visible { color: #fff; }
+.guide-back:hover span, .guide-back:focus-visible span { text-decoration-color: #fff; }
+.guide-back:hover svg { transform: translateX(-3px); }
 .guide-hero .hero-inner { position: relative; }
 [dir="rtl"] .guide-back { left: auto; right: var(--gutter); }
 [dir="rtl"] .guide-back svg { transform: scaleX(-1); }
-@media (max-width: 560px) { .guide-back { top: calc(var(--header-h) + 12px); height: 32px; font-size: 12.5px; } }
+@media (max-width: 560px) { .guide-back { top: calc(var(--header-h) + 14px); font-size: 13px; } }
 .guide-aud { --rise-delay: 400ms; }
 
 .guide-part, .guide-close { padding: 88px 0; }
