@@ -463,7 +463,7 @@ window.ANTZ_GUIDES = {
         title: 'Users directory',
         lede: 'The directory opens on a live count of your team and lets you reach anyone in a tap. Search by name, role or staff number, call or chat a teammate without leaving the list, and see each person\'s last active time.',
         cards: [
-          { id: 'people', title: 'By people', icon: 'users', desc: 'Total, active today and blocked, then the full searchable list.',
+          { id: 'people', title: 'By users', icon: 'users', desc: 'Total, active today and blocked — then the full searchable list.',
             shots: [{ src: 'directory-people', title: 'Users by people', desc: 'Team totals above a searchable list of users, each with call and chat.' }] },
           { id: 'sites', title: 'By site', icon: 'areas', desc: 'The same counts rolled up per facility, site by site.',
             shots: [{ src: 'directory-sites', title: 'Users by site', desc: 'Total users, active today and blocked, rolled up for each site.' }] }
