@@ -802,6 +802,27 @@
         </div>
       </section>
 
+      <section class="section" id="outcomes">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">${esc(t('outcomes.eyebrow'))}</span>
+            <h2 class="section-title">${esc(t('outcomes.title'))}</h2>
+            <p class="section-lede">${esc(t('outcomes.lede'))}</p>
+          </div>
+          <div class="outcome-grid">
+            ${['pets', 'devices', 'shield', 'progress'].map((ic, i) => [i + 1, ic]).map(([n, ic]) => `
+              <div class="outcome-card reveal">
+                <span class="outcome-ic" aria-hidden="true">${icon(ic)}</span>
+                <span class="outcome-no">${String(n).padStart(2, '0')}</span>
+                <div>
+                  <h3>${esc(t(`outcomes.${n}`))}</h3>
+                  <p>${esc(t(`outcomes.${n}.desc`))}</p>
+                </div>
+              </div>`).join('')}
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="spotlight">
         <div class="container spotlight">
           <div class="reveal">

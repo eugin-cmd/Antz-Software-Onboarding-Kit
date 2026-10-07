@@ -443,6 +443,28 @@ button { font: inherit; color: inherit; }
 @media (max-width: 900px) { .value-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .value-grid { grid-template-columns: 1fr; gap: 12px; } .value-card { padding: 22px; } }
 
+/* ---------- Outcomes: four tinted cards, a big number beside each ---------- */
+.outcome-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.outcome-card { position: relative; display: flex; gap: 28px; padding: 32px 84px 32px 28px; min-height: 220px; border-radius: var(--radius-lg); background: linear-gradient(135deg, #F4FBF6 0%, #E3F5EA 55%, #D9F3EF 100%); }
+.outcome-card:nth-child(2) { background: linear-gradient(135deg, #DDF4E4 0%, #C6EBD2 50%, #B8E6DF 100%); }
+.outcome-card:nth-child(3) { background: linear-gradient(135deg, #EEF3F5 0%, #E1EAEE 50%, #D7E6EC 100%); }
+.outcome-card:nth-child(4) { background: linear-gradient(135deg, #FDF2EE 0%, #FBE5DD 55%, #F8DCD6 100%); }
+.outcome-ic { position: absolute; top: 24px; right: 24px; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,255,255,.7); color: #1F415B; }
+.outcome-ic svg { width: 24px; height: 24px; }
+.outcome-no {
+  flex: none; width: 76px; font-size: 48px; font-weight: 800; line-height: 1.06; letter-spacing: -.03em; color: #1F415B;
+  background: linear-gradient(135deg, #37BD69 0%, #1F415B 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; align-self: flex-start;
+}
+.outcome-card h3 { font-size: 20px; color: #1F415B; margin: 4px 0 10px; }
+.outcome-card p { color: var(--muted); font-size: 15px; }
+@media (max-width: 760px) {
+  .outcome-grid { grid-template-columns: 1fr; gap: 12px; }
+  .outcome-card { min-height: 0; padding: 24px 68px 24px 20px; gap: 18px; }
+  .outcome-ic { top: 20px; right: 16px; width: 38px; height: 38px; border-radius: 10px; }
+  .outcome-ic svg { width: 21px; height: 21px; }
+  .outcome-no { width: 52px; font-size: 36px; }
+}
+
 /* ---------- Kit sections: Objective, What is Antz, Getting Started ---------- */
 .kit-split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: start; }
 .kit-photo-left { grid-template-columns: .85fr 1.15fr; }
