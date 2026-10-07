@@ -333,6 +333,8 @@
   const shotFor = (m, src) => m.shots.find((s) => s.src === src) || { src, device: 'phone', alt: '' };
   /* Lens: on phones, a magnifier on each screen opens it on its own to pinch, pan and read the detail */
   const LENS_SVG = '<svg width="22" height="22" viewBox="0 -960 960 960" fill="currentColor"><path d="M350.77-550h-47.69q-12.75 0-21.38-8.63-8.62-8.63-8.62-21.38 0-12.76 8.62-21.37 8.63-8.62 21.38-8.62h47.69v-47.69q0-12.75 8.63-21.38 8.63-8.62 21.38-8.62 12.76 0 21.37 8.62 8.62 8.63 8.62 21.38V-610h47.69q12.75 0 21.38 8.63 8.62 8.63 8.62 21.38 0 12.76-8.62 21.37-8.63 8.62-21.38 8.62h-47.69v47.69q0 12.75-8.63 21.38-8.63 8.62-21.38 8.62-12.76 0-21.37-8.62-8.62-8.63-8.62-21.38V-550Zm30 214.61q-102.55 0-173.58-71.01-71.03-71.01-71.03-173.54 0-102.52 71.01-173.6 71.01-71.07 173.54-71.07 102.52 0 173.6 71.03 71.07 71.03 71.07 173.58 0 42.85-14.38 81.85-14.39 39-38.39 67.84l230.16 230.16q8.31 8.3 8.5 20.88.19 12.58-8.5 21.27t-21.08 8.69q-12.38 0-21.07-8.69L530.46-388.16q-30 24.77-69 38.77-39 14-80.69 14Zm0-59.99q77.31 0 130.96-53.66 53.66-53.65 53.66-130.96t-53.66-130.96q-53.65-53.66-130.96-53.66t-130.96 53.66Q196.15-657.31 196.15-580t53.66 130.96q53.65 53.66 130.96 53.66Z"/></svg>';
+  const ZOOM_IN_SVG = '<svg width="22" height="22" viewBox="0 -960 960 960" fill="currentColor"><path d="M450-450H230v-60h220v-220h60v220h220v60H510v220h-60v-220Z"/></svg>';
+  const ZOOM_OUT_SVG = '<svg width="22" height="22" viewBox="0 -960 960 960" fill="currentColor"><path d="M230-450v-60h500v60H230Z"/></svg>';
   const lensHTML = () => `<button class="lens" type="button" aria-label="${esc(t('lens.open'))}">${LENS_SVG}</button>`;
   /* A feature marked lock (content.json) shows its screen under a dark veil with a lock: the screen stands
      for something kept private, such as Chat's "Secure & auditable" */
@@ -343,7 +345,7 @@
     if (!shot) return '';
     const img = `<img src="${esc(shot.src)}" alt="${esc(shot.alt)}" loading="lazy">`;
     const l = lens ? lensHTML() : '', k = shot.lock ? lockHTML() : '';
-    if (shot.device === 'web') return `<div class="device device-web"><div class="bar"><i></i><i></i><i></i></div>${img}${k}${l}</div>`;
+    if (shot.device === 'web') return `<div class="device device-web"><div class="screen"><div class="bar"><i></i><i></i><i></i></div>${img}${k}</div>${l}</div>`;
     if (shot.device === 'tablet') return `<div class="device device-tablet"><div class="screen">${img}${k}</div>${l}</div>`;
     /* Every phone screen gets the same green frame, drawn in CSS (the frames once baked into some captures are cropped off) */
     return `<div class="device device-phone"><div class="screen">${img}${k}</div>${l}</div>`;
@@ -718,11 +720,10 @@
       const b = e.target.closest('[data-set]');
       if (!b) return;
       const r = b.getBoundingClientRect();
-      /* The window runs on through every card's screens on the page; closing it returns focus to the card last shown */
+      /* The window holds only this card's screens and stops at its first and last; closing it returns focus to the card */
       (narrow() ? openFeatureSheet : openFeatureWindow)(sets[+b.dataset.set], +b.dataset.i || 0, {
         origin: { x: r.left + r.width / 2, y: r.top + r.height / 2 },
-        chain: { sets, at: +b.dataset.set },
-        close: (i, k) => (page.querySelector(`[data-set="${k}"]`) || b).focus({ preventScroll: true }), returnFocusTo: b
+        close: () => b.focus({ preventScroll: true }), returnFocusTo: b
       });
     });
     sizeBorders();
@@ -1909,6 +1910,8 @@
       if (step) step(i);
     };
     const onKey = (e) => {
+      /* A lens view open over the window takes the keys */
+      if (document.querySelector('.gallery:not(.out)')) return;
       if (e.key === 'Escape') { e.preventDefault(); shut(); }
       /* In right-to-left reading, the next feature is to the left */
       else if (e.key === (RTL ? 'ArrowLeft' : 'ArrowRight')) { e.preventDefault(); go(idx + 1, 1); }
@@ -1993,7 +1996,12 @@
         <div class="g-dots">${slides.map((sl, i) => `<button type="button" aria-label="${esc(sl.title || t('gal.screen', { i: i + 1 }))}" data-i="${i}"></button>`).join('')}</div>
         <button class="g-arrow g-next" type="button" aria-label="${esc(t('win.next'))}">${CHEV_R}</button>
       </div>
-      <p class="g-hint">${esc(t(lens ? 'lens.hint' : 'gal.hint'))}</p>`;
+      ${lens ? `<div class="g-zoom">
+        <button type="button" data-zoom="-1" aria-label="${esc(t('lens.out'))}">${ZOOM_OUT_SVG}</button>
+        <span class="g-zoom-pct" aria-live="polite">100%</span>
+        <button type="button" data-zoom="1" aria-label="${esc(t('lens.in'))}">${ZOOM_IN_SVG}</button>
+      </div>` : ''}
+      <p class="g-hint">${esc(t(lens ? (canHover() ? 'lens.hintMouse' : 'lens.hint') : 'gal.hint'))}</p>`;
     document.body.append(g);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -2003,9 +2011,11 @@
     let idx = start, scale = 1, tx = 0, ty = 0, baseW = 0, baseH = 0, cx = 0, cy = 0;
     /* What zooms: in the sheet the whole phone, bezel and all; in the plain gallery the bare screen */
     const zt = sheet ? img.parentNode : img;
+    const pct = g.querySelector('.g-zoom-pct');
     const apply = (anim) => {
       zt.style.transition = anim ? 'transform .28s cubic-bezier(.22,.8,.24,1)' : 'none';
       zt.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+      if (pct) pct.textContent = `${Math.round(scale * 100)}%`;
     };
     /* Size and resting centre (from the stage centre) of the zoomed element; the sheet sits it near the top */
     const measure = () => {
@@ -2039,7 +2049,7 @@
       track.style.transform = dir ? `translateX(${dir * (RTL ? -40 : 40)}px)` : 'none';
       track.style.opacity = dir ? '0' : '1';
       img.src = sl.src; img.alt = sl.alt;
-      /* Phone and tablet screens sit in the area-coloured bezel (sheet only); web screens stay bare */
+      /* Every screen sits in the area-coloured bezel (sheet only); web screens get the flatter browser corners */
       img.parentNode.classList.toggle('web', sl.device === 'web');
       /* A locked feature's screen sits under the dark veil with its lock */
       img.parentNode.querySelector('.screen-lock')?.remove();
@@ -2142,6 +2152,27 @@
       if (fwd > 60 && slides.length > 1) return go(idx - 1, -1);
       track.style.transform = 'none'; track.style.opacity = '1';
     };
+    /* Zoom to a scale, keeping the stage point (x, y) where it is */
+    const zoomAt = (to, x, y, anim) => {
+      measure();
+      const s0 = scale, s1 = Math.max(1, Math.min(ZOOM_MAX, to));
+      const ux = (x - cx - tx) / s0, uy = (y - cy - ty) / s0;
+      scale = s1; tx = x - cx - ux * s1; ty = y - cy - uy * s1;
+      clampPan(); apply(anim); g.classList.toggle('zoomed', scale > 1.01);
+    };
+    if (lens) {
+      /* Mouse and trackpad: the wheel pans, a pinch (or ctrl + wheel) zooms at the pointer */
+      stageEl.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        if (e.ctrlKey) { const p = toStage(e.clientX, e.clientY); zoomAt(scale * Math.exp(-e.deltaY / 100), p.x, p.y, false); return; }
+        if (!canPan()) return;
+        tx -= e.deltaX; ty -= e.deltaY; clampPan(); apply(false);
+      }, { passive: false });
+      g.querySelectorAll('[data-zoom]').forEach((b) => b.addEventListener('click', () => {
+        const up = +b.dataset.zoom > 0;
+        zoomAt(up ? scale * 1.5 : scale / 1.5, 0, 0, true);
+      }));
+    }
     stageEl.addEventListener('pointerup', end);
     stageEl.addEventListener('pointercancel', end);
 
@@ -2149,6 +2180,10 @@
       const open = document.querySelectorAll('.gallery:not(.out)');
       if (open[open.length - 1] !== g) return;
       if (e.key === 'Escape') close();
+      if (lens && (e.key === '+' || e.key === '=')) zoomAt(scale * 1.5, 0, 0, true);
+      if (lens && e.key === '-') zoomAt(scale / 1.5, 0, 0, true);
+      if (lens && e.key === '0') resetZoom(true);
+      if (lens) return;
       if (e.key === (RTL ? 'ArrowLeft' : 'ArrowRight')) go(idx + 1, 1);
       if (e.key === (RTL ? 'ArrowRight' : 'ArrowLeft')) go(idx - 1, -1);
     };
@@ -2196,9 +2231,9 @@
     if (!b) return;
     e.stopPropagation(); e.preventDefault();
     const img = b.parentElement.querySelector('img');
-    const head = b.closest('section, .mpanel, .mfeat-row');
+    const head = b.closest('.fwin-card, section, .mpanel, .mfeat-row');
     const title = (b.closest('.mfeat-row') || {}).querySelector?.('.t b')?.textContent
-      || head?.querySelector('h1, h2, .section-title, .mpanel-title')?.textContent || '';
+      || head?.querySelector('.fwin-title, h1, h2, .section-title, .mpanel-title')?.textContent || '';
     if (img) openLens(img.currentSrc || img.src, img.alt, title.trim(), b);
   }, true);
 
