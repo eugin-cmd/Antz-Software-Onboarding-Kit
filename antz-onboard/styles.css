@@ -599,6 +599,25 @@ button { font: inherit; color: inherit; }
 .device-web .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--outline); }
 .device-web img { height: auto; }
 .screen img, .device-framed img, .device-web img { animation: fade .24s var(--ease); }
+/* A scrolling screen: the top bar fixed, the rest scrolling beneath it (no visible scrollbar), a soft fade at
+   the bottom while there is more below, and a small "Scroll" cue until the reader scrolls */
+.screen.screen-scroll { display: flex; flex-direction: column; background: #fff; }
+.screen-scroll .screen-head { flex: none; width: 100%; height: auto; position: relative; z-index: 1; }
+.screen-scroll .screen-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; outline: none; }
+.screen-scroll .screen-body::-webkit-scrollbar { display: none; }
+.screen-scroll .screen-body img { width: 100%; height: auto; }
+.screen-scroll::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 56px; pointer-events: none; background: linear-gradient(rgba(255,255,255,0), #fff 85%); transition: opacity .3s; }
+.screen-scroll.at-end::after { opacity: 0; }
+.screen-cue {
+  position: absolute; z-index: 2; left: 50%; bottom: 14px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px 5px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600; letter-spacing: .02em; pointer-events: none;
+  color: #fff; background: rgba(16,42,48,.72); backdrop-filter: blur(6px); transition: opacity .35s, transform .35s;
+}
+.screen-cue::before { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-2px) rotate(45deg); animation: cueNudge 1.6s ease-in-out infinite; }
+.screen-cue.gone, .screen-scroll.at-end .screen-cue { opacity: 0; transform: translate(-50%, 6px); }
+@keyframes cueNudge { 50% { transform: translateY(1px) rotate(45deg); } }
+.screen-scroll .screen-body:focus-visible { box-shadow: inset 0 0 0 3px var(--green); }
+@media (prefers-reduced-motion: reduce) { .screen-cue::before { animation: none; } }
 @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (max-width: 560px) { .device-phone, .device-framed { width: 232px; } }
 

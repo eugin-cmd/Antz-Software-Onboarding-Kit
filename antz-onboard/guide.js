@@ -387,7 +387,7 @@ window.ANTZ_GUIDES = {
            The deck lists two different sets of example roles (overview and roles slide), so the card names only roles common to both and the app. */
         cards: [
           { id: 'profile', title: 'Profile creation & management', icon: 'users', desc: 'Store user details: name, contact, staff ID, date of birth and blood group.',
-            shots: [{ src: 'add-identity', title: 'Add User Basic Info', desc: 'The form that captures a new user\'s identity, contact and personal details.' }] },
+            shots: [{ src: 'add-identity', scroll: { head: 'form-head', body: 'form-identity', full: 'form-identity-full', at: 238 }, title: 'Add User Basic Info', desc: 'The form that captures a new user\'s identity, contact and personal details.' }] },
           { id: 'roles', title: 'Roles & permissions', icon: 'access', desc: 'Assign roles, such as Curator or Vet, and set their access rights per module.',
             shots: [{ src: 'role-permissions', title: 'Role permissions', desc: 'Choose a role and see the rights it holds in each module.' }] },
           { id: 'access', title: 'Access control', icon: 'shield', desc: 'Restrict by site or section, activate or deactivate accounts, with auto-timeout.',
@@ -410,17 +410,18 @@ window.ANTZ_GUIDES = {
         label: 'Part 02 · Add a user',
         title: 'Onboarding a user',
         lede: 'Adding a teammate starts with one form. Capture who they are, and the account is created with a secure password out of the box.',
-        /* The deck draws this form in HTML rather than as a capture; these screens are renders of that form */
+        /* The deck draws this form in HTML rather than as a capture; these screens are renders of that form.
+           scroll: in the screen window the form scrolls under its fixed top bar (head), opening at `at` (image px) */
         actions: {
           title: 'The Add User form', numbered: true,
           desc: 'Six parts of the Add User Basic Info form, each highlighted on the screen.',
           shots: [
-            { src: 'add-photo', title: 'Profile picture', desc: 'Add a photo so the user is easy to recognise in lists.' },
-            { src: 'add-identity', title: 'Identity', desc: 'Full name, email and address.' },
-            { src: 'add-password', title: 'Auto-generated password', desc: 'A secure password is created automatically when the user is added.' },
-            { src: 'add-mobile', title: 'Country code & mobile', desc: 'The international dialling code with the contact number.' },
-            { src: 'add-staff-id', title: 'Staff ID', desc: 'Tie the account to the facility\'s own staff number.' },
-            { src: 'add-personal', title: 'Personal', desc: 'Date of birth, gender, marital status, age and blood group.' }
+            { src: 'add-photo', scroll: { head: 'form-head', body: 'form-photo', full: 'form-photo-full', at: 0 }, title: 'Profile picture', desc: 'Add a photo so the user is easy to recognise in lists.' },
+            { src: 'add-identity', scroll: { head: 'form-head', body: 'form-identity', full: 'form-identity-full', at: 238 }, title: 'Identity', desc: 'Full name, email and address.' },
+            { src: 'add-password', scroll: { head: 'form-head', body: 'form-password', full: 'form-password-full', at: 766 }, title: 'Auto-generated password', desc: 'A secure password is created automatically when the user is added.' },
+            { src: 'add-mobile', scroll: { head: 'form-head', body: 'form-mobile', full: 'form-mobile-full', at: 948 }, title: 'Country code & mobile', desc: 'The international dialling code with the contact number.' },
+            { src: 'add-staff-id', scroll: { head: 'form-head', body: 'form-staff-id', full: 'form-staff-id-full', at: 1080 }, title: 'Staff ID', desc: 'Tie the account to the facility\'s own staff number.' },
+            { src: 'add-personal', scroll: { head: 'form-head', body: 'form-personal', full: 'form-personal-full', at: 1212 }, title: 'Personal', desc: 'Date of birth, gender, marital status, age and blood group.' }
           ]
         }
       },

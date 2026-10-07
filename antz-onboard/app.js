@@ -358,6 +358,12 @@
     const z = shot.zoom || shot.device === 'web' ? ' zoomable' : '';
     if (shot.device === 'web') return `<div class="device device-web${z}"><div class="screen"><div class="bar"><i></i><i></i><i></i></div>${img}${k}</div>${l}</div>`;
     if (shot.device === 'tablet') return `<div class="device device-tablet${z}"><div class="screen">${img}${k}</div>${l}</div>`;
+    /* A scrolling screen (shot.scroll): the app's top bar stays put while the rest scrolls beneath it, as in the app.
+       data-full is the whole screen in one image, for the lens */
+    if (shot.scroll) {
+      const sc = shot.scroll;
+      return `<div class="device device-phone${z}" data-full="${esc(sc.full)}"><div class="screen screen-scroll"><img class="screen-head" src="${esc(sc.head)}" alt=""><div class="screen-body" tabindex="0" data-at="${sc.at}" aria-label="${esc(shot.alt)}"><img src="${esc(sc.body)}" alt="${esc(shot.alt)}"></div><span class="screen-cue" aria-hidden="true">${esc(t('screen.scroll'))}</span>${k}</div>${l}</div>`;
+    }
     /* Every phone screen gets the same green frame, drawn in CSS (the frames once baked into some captures are cropped off) */
     return `<div class="device device-phone${z}"><div class="screen">${img}${k}</div>${l}</div>`;
   };
@@ -538,7 +544,8 @@
       id: `guide-${id}-${key}`, track, title, web: /-web$/.test(id), flow,
       features: shots.map((s) => ({ title: s.title, desc: s.desc, icon: s.icon || ic, shot: srcOf(s) })),
       /* A screen is a phone unless it says otherwise (device: 'tablet' or 'web' for web modules) */
-      shots: shots.map((s) => ({ src: srcOf(s), alt: s.title, device: s.device || 'phone' }))
+      shots: shots.map((s) => ({ src: srcOf(s), alt: s.title, device: s.device || 'phone',
+        scroll: s.scroll && { head: srcOf({ src: s.scroll.head }), body: srcOf({ src: s.scroll.body }), full: srcOf({ src: s.scroll.full }), at: s.scroll.at } }))
     }) - 1;
 
     /* At a glance: the module pages' feature cards, each opening its screen */
@@ -1850,6 +1857,25 @@
   const CHEV_R = '<svg width="24" height="24" viewBox="0 -960 960 960" fill="currentColor"><path d="M517.85-480 354.92-642.92q-8.3-8.31-8.5-20.89-.19-12.57 8.5-21.27 8.7-8.69 21.08-8.69 12.38 0 21.08 8.69l179.77 179.77q5.61 5.62 7.92 11.85 2.31 6.23 2.31 13.46t-2.31 13.46q-2.31 6.23-7.92 11.85L397.08-274.92q-8.31 8.3-20.89 8.5-12.57.19-21.27-8.5-8.69-8.7-8.69-21.08 0-12.38 8.69-21.08L517.85-480Z"/></svg>';
   /* The LSET Foundation banner's leaf flourish (its components/icons/Leaves), under the banner text */
   const LEAVES_SVG = '<svg class="hero-leaf" width="114" height="60" viewBox="0 0 114 60" fill="none" aria-hidden="true" focusable="false"><path d="M2.87042 41.151C9.84427 42.2953 16.9777 42.0151 23.8403 40.3272C21.2324 39.0356 18.7205 37.5585 16.3241 35.9073C15.5719 35.3815 14.8724 32.6546 15.63 33.1841C19.0249 35.6013 22.6176 37.7278 26.3701 39.5409C28.3959 38.9382 31.2637 38.1164 33.3629 37.3151C34.8384 36.7518 36.2972 36.1518 37.7394 35.5152C39.7426 30.0413 46.0782 13.7805 48.733 19.3843C50.8472 23.8472 45.0164 30.2708 40.8713 34.0752C43.7887 32.6746 46.6426 31.1434 49.4414 29.5135L49.4269 29.5086L49.4898 29.4851C49.7488 29.3342 50.0073 29.1826 50.2654 29.0302C52.1283 23.9011 58.6661 6.86762 61.374 12.5837C63.3668 16.7903 58.3008 22.7393 54.2411 26.5946C57.0266 24.8318 59.7607 22.9874 62.4515 21.0943C63.0903 20.6449 63.727 20.1926 64.3617 19.7374C64.5324 15.8793 65.3768 3.48095 69.1102 6.60833C72.155 9.15894 68.69 15.0031 66.2686 18.359C68.4118 16.7977 70.5362 15.2106 72.6525 13.6127C73.6032 12.895 74.4153 12.0103 75.0492 11.0019C78.3819 5.69948 85.7422 -4.73149 88.0801 2.43099C90.306 9.25017 81.5286 12.1511 76.569 13.227C75.5994 13.4393 74.6877 13.86 73.8969 14.4599C71.5872 16.2052 69.2672 17.9387 66.9259 19.642C71.0431 18.2774 77.8777 16.6402 80.1336 19.8468C82.9239 23.813 69.2448 21.7951 64.9412 21.075C61.6655 23.4188 58.3402 25.691 54.9373 27.8442C60.1099 26.5855 67.2794 25.7311 68.836 30.0874C70.8894 35.8341 56.4643 31.7461 51.2545 30.1055C51.0959 30.1998 50.9386 30.2964 50.7795 30.3902C47.8626 32.1102 44.8733 33.7266 41.8171 35.2033C47.014 33.8879 54.5605 32.8524 56.1623 37.3356C58.3436 43.4403 41.9297 38.4469 37.721 37.0786C34.896 38.2982 31.1569 39.5991 28.228 40.5311C34.6511 43.3832 41.4349 45.3413 48.3899 46.3506C49.954 46.5701 51.5212 46.7493 53.0915 46.8884C57.4892 43.0626 70.8905 31.884 70.5086 38.073C70.2044 43.0021 61.9963 45.8107 56.5293 47.14C59.7603 47.3227 62.9989 47.3602 66.2368 47.2848L66.2265 47.2734L66.2929 47.2832C66.5925 47.2762 66.8922 47.2683 67.1918 47.2595C71.3001 43.668 85.2515 31.9104 84.862 38.2235C84.5754 42.8694 77.2661 45.6318 71.8493 47.0469C75.1398 46.8487 78.4246 46.5541 81.6951 46.196C82.4715 46.111 83.2475 46.0225 84.0231 45.9304C86.036 42.6347 92.7633 32.186 94.522 36.7276C95.9563 40.4315 90.0996 43.8754 86.3586 45.6445C88.9893 45.3124 91.6168 44.9548 94.2409 44.5716C95.42 44.4024 96.5584 44.02 97.6005 43.4431C103.08 40.4097 114.562 34.8308 113.15 42.2317C111.806 49.2778 102.719 47.5788 97.8565 46.1255C96.905 45.8432 95.9035 45.7711 94.9214 45.9145C92.0559 46.3272 89.187 46.7175 86.3145 47.0854C90.5788 47.8789 97.3542 49.7463 97.7807 53.6437C98.3084 58.4642 87.3052 50.0907 83.8845 47.3816C79.8841 47.8519 75.8751 48.2355 71.8553 48.4774C76.9926 49.8735 83.6832 52.588 82.9423 57.1543C81.9648 63.178 71.308 52.6316 67.5385 48.6788C67.354 48.6848 67.1697 48.6934 66.9851 48.6987C63.6002 48.796 60.2019 48.7677 56.8126 48.5847C61.9985 49.9428 69.1066 52.6808 68.344 57.3801C67.3056 63.779 55.3447 51.4793 52.3201 48.2484C46.0281 47.6768 39.8193 46.4069 33.8081 44.4623C31.0847 43.5563 28.4158 42.4941 25.8146 41.2809C23.7922 41.8341 21.7493 42.3166 19.6824 42.7041C13.2712 44.0086 6.70964 44.4139 0.186651 43.9084C-0.725917 43.8113 1.95691 41.0095 2.87042 41.151Z" fill="currentColor"/></svg>';
+  /* A scrolling screen opens scrolled to its feature (data-at, in image pixels); the cue fades once the reader scrolls */
+  function bindScrollScreen(root) {
+    root.querySelectorAll('.screen-body').forEach((body) => {
+      const img = body.querySelector('img');
+      const screen = body.parentElement, cue = screen.querySelector('.screen-cue');
+      let placed = false;
+      const atEnd = () => body.scrollTop + body.clientHeight >= body.scrollHeight - 4;
+      const place = () => {
+        body.scrollTop = (+body.dataset.at || 0) * (img.clientWidth / (img.naturalWidth || 1));
+        screen.classList.toggle('at-end', atEnd());
+        requestAnimationFrame(() => { placed = true; });
+      };
+      if (img.complete && img.naturalWidth) place(); else img.addEventListener('load', place, { once: true });
+      body.addEventListener('scroll', () => {
+        screen.classList.toggle('at-end', atEnd());
+        if (placed && cue) cue.classList.add('gone');
+      }, { passive: true });
+    });
+  }
   let closeFeatureWindow = null;
   /* chain: { sets, at } on guide pages, where each card is its own set: stepping past a set's last (or first)
      screen carries on into the next (or previous) card's screens, in the same window */
@@ -1919,6 +1945,7 @@
       /* The wash starts a little below the text, however long this feature's description is */
       setAnimal(w.querySelector('.fwin-info'), animals[i % animals.length], () => text.offsetTop + text.offsetHeight);
       dev.innerHTML = shot ? deviceHTML({ ...shot, lock: !!f.lock }) : `<p class="fwin-empty">${esc(t('win.soon'))}</p>`;
+      bindScrollScreen(dev);
       /* The screen slides in from the side being moved to; the text fades up */
       [dev, text].forEach((el) => { el.classList.remove('in-l', 'in-r', 'in-up'); void el.offsetWidth; });
       dev.classList.add(dir > 0 ? 'in-r' : dir < 0 ? 'in-l' : 'in-up');
@@ -2228,7 +2255,7 @@
     const sheetLens = g.querySelector('.g-stage > .lens');
     if (sheetLens) {
       sheetLens.addEventListener('pointerdown', (e) => e.stopPropagation());
-      sheetLens.addEventListener('click', () => { const sl = slides[idx]; if (sl.src) openLens(sl.src, sl.alt, sl.title || m.title, sheetLens); });
+      sheetLens.addEventListener('click', () => { const sl = slides[idx]; if (sl.src) openLens(sl.full || sl.src, sl.alt, sl.title || m.title, sheetLens); });
     }
     go(start);
     if (sheet) {
@@ -2254,11 +2281,13 @@
     if (!b) return;
     e.stopPropagation(); e.preventDefault();
     /* An outside lens opens the screen its card or stage shows now (a tour swaps it as tiles are pointed at) */
-    const img = b.parentElement.querySelector('img');
+    const img = b.parentElement.querySelector('.screen-body img') || b.parentElement.querySelector('img');
+    const full = b.parentElement.dataset.full;
     const head = b.closest('.fwin-card, section, .mpanel, .mfeat-row');
     const title = b.dataset.title || (b.closest('.mfeat-row') || {}).querySelector?.('.t b')?.textContent
       || head?.querySelector('.fwin-title, h1, h2, .section-title, .mpanel-title')?.textContent || '';
-    if (img) openLens(img.currentSrc || img.src, img.alt, title.trim(), b);
+    if (full) openLens(full, img ? img.alt : '', title.trim(), b);
+    else if (img) openLens(img.currentSrc || img.src, img.alt, title.trim(), b);
   }, true);
 
   /* Phones: a feature's screen and details open in the full-screen sheet */
@@ -2268,7 +2297,7 @@
     const slidesOf = (x, group) => x.features.map((f, i) => {
       const src = f.shot || (x.shots[i] && x.shots[i].src) || (x.shots[0] && x.shots[0].src);
       const shot = src ? shotFor(x, src) : null;
-      return { src: src || '', alt: (shot && shot.alt) || f.title, title: tidyTitle(f.title), desc: tidy(f.desc), icon: f.icon, device: shot && shot.device,
+      return { src: src || '', full: shot && shot.scroll && shot.scroll.full, alt: (shot && shot.alt) || f.title, title: tidyTitle(f.title), desc: tidy(f.desc), icon: f.icon, device: shot && shot.device,
         lock: !!f.lock, group, groupTitle: x.title, local: i };
     });
     if (!chain) { openGallery(m, slidesOf(m), start, returnFocusTo, { sheet: true, origin, step, close }); return; }

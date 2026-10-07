@@ -160,6 +160,7 @@
     'gal.screen': 'Screen {i}',
     'gal.hint': 'Pinch or double-tap to zoom · Swipe to browse',
     'lens.open': 'Zoom into this screen',
+    'screen.scroll': 'Scroll',
     'lens.hint': 'Drag to scroll · Pinch or double-tap to zoom',
     'lens.hintMouse': 'Drag or scroll to move around · Double-click, pinch or use + and − to zoom',
     'lens.in': 'Zoom in',
