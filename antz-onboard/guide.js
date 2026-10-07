@@ -28,7 +28,7 @@ window.ANTZ_GUIDES = {
           shots: [
             { src: 'home-top', icon: 'focus', title: 'Profile, Search, QR, Focus Hub & Notifications', desc: 'Everything at the top of the home screen: open your profile, search or scan to find any enclosure or animal, jump to bookmarked favourites and check alerts.' },
             { src: 'home-pending', icon: 'priority', title: 'Pending To-Do', desc: 'What needs your attention: animal audit score, allocations, necropsy and administration.' },
-            { src: 'home-insights', icon: 'report', title: 'Key Insights', desc: 'Natality, mortality and new arrivals for this month.' },
+            { src: 'home-insights', icon: 'report', title: 'Key Insights', desc: 'View natality and mortality stats for this month.' },
             { src: 'home-media', icon: 'announce', title: 'Media Feed', desc: 'Announcements and notes, with images and documents attached.' },
             { src: 'home-nav', icon: 'home', title: 'Navigation Bar', desc: 'Home, Menu, Help Desk, Notes and Chat, always one tap away.' },
             { src: 'home-quick', icon: 'add', title: 'Quick Actions', desc: 'A shortcut menu for the actions and workflows you use most.' }
