@@ -1750,15 +1750,12 @@ body.fwin-open { overflow: hidden; }
 [dir="rtl"] .fwin-device.in-r { animation-name: fwinL; } [dir="rtl"] .fwin-device.in-l { animation-name: fwinR; }
 
 /* ---------- Guide pages: a kit's full walkthrough ---------- */
-/* Banner: the home page's photo and wash, shorter, with the kit's audience and a jump to each part */
+/* Banner: the home page's photo and wash, shorter, with a jump to each part */
 .guide-hero .hero-inner { padding-top: calc(96px + var(--header-h)); padding-bottom: 72px; }
 .guide-kicker { display: inline-block; margin-bottom: 14px; font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #8FE3AE; text-shadow: 0 1px 10px rgba(0,0,0,.4); }
-.guide-aud { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; font-size: 14px; color: rgba(255,255,255,.8); }
-.guide-aud li { display: inline-flex; align-items: center; gap: 8px; }
-.guide-aud li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #8FE3AE; }
 .guide-jump { margin-top: 34px; }
 .guide-jump .chip .n { font-variant-numeric: tabular-nums; opacity: .7; }
-.guide-kicker, .guide-aud { animation: heroRise 1s cubic-bezier(.33,0,.2,1) var(--rise-delay, 0ms) backwards; }
+.guide-kicker { animation: heroRise 1s cubic-bezier(.33,0,.2,1) var(--rise-delay, 0ms) backwards; }
 .guide-kicker { --rise-delay: 40ms; }
 /* Module guides: a plain text link back to the module's own page, at the top left of the banner */
 .guide-back {
@@ -1777,7 +1774,6 @@ body.fwin-open { overflow: hidden; }
 [dir="rtl"] .guide-back { left: auto; right: var(--gutter); }
 [dir="rtl"] .guide-back svg { transform: scaleX(-1); }
 @media (max-width: 560px) { .guide-back { top: calc(var(--header-h) + 14px); font-size: 13px; } }
-.guide-aud { --rise-delay: 400ms; }
 
 .guide-part, .guide-close { padding: 88px 0; }
 /* Sections and cards fade up as they scroll into view */
@@ -2077,7 +2073,7 @@ body.fwin-open { overflow: hidden; }
   .guide-jump .chip { font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .guide-kicker, .guide-aud { animation: none; }
+  .guide-kicker { animation: none; }
   .guidepage .reveal, .guidepage .reveal:not(.in) { transition: none; transform: none; opacity: 1; }
   .gcard-thumb .device-phone, .gqa-grid button { transition: none; }
 }

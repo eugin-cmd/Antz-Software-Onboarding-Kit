@@ -253,14 +253,16 @@
     /* The kit's slide-4 'welcome screen' is byte-identical to the Getting Started home screen, so the platform section uses this photo */
     platform: 'assets/photos/img-cta-new.jpg'
   };
-  /* Featured workflow: one everyday module, picked at random on each page load (kept while the visitor moves
-     around, so returning home does not swap it). `shot` is the feature whose screen is clearest as the picture
-     (no pop-up dimming it). Modules whose screens are stand-ins or dimmed are left out. */
+  /* Featured workflow: one module, picked at random on each page load (kept while the visitor moves around, so
+     returning home does not swap it). Only these: every Medical & Treatment module, Animal Transfer, Notes, Housing
+     and Animal Management. `shot` is the feature whose screen is clearest as the picture (no pop-up dimming it). */
   const FEATURED = [
-    { id: 'animal-transfer', shot: 1 }, { id: 'medical-records', shot: 1 }, { id: 'vaccination', shot: 2 },
-    { id: 'housing', shot: 0 }, { id: 'animal-management', shot: 2 }, { id: 'mortality', shot: 1 },
-    { id: 'egg-management-app', shot: 0 }, { id: 'approvals', shot: 0 }, { id: 'missing-escaped-animal', shot: 0 },
-    { id: 'announcement', shot: 1 }, { id: 'tags-hub', shot: 0 }
+    { id: 'medical-records', shot: 1 }, { id: 'symptoms-clinical-assessment-prescription', shot: 0 },
+    { id: 'administer-medicine', shot: 3 }, { id: 'vaccination', shot: 2 }, { id: 'deworming', shot: 3 },
+    { id: 'supplements', shot: 3 }, { id: 'hospital-information-management-system-app', shot: 1 },
+    { id: 'hospital-information-management-system-web', shot: 0 }, { id: 'focus-hub', shot: 1 },
+    { id: 'animal-transfer', shot: 1 }, { id: 'notes-module', shot: 4 }, { id: 'housing', shot: 0 },
+    { id: 'animal-management', shot: 2 }
   ];
   const FEATURE_PICK = FEATURED[Math.floor(Math.random() * FEATURED.length)];
   /* Screens that already carry a device frame in the image itself */
@@ -688,7 +690,6 @@
             <span class="guide-kicker">${esc(backModule ? `${areaById[backModule.track].label} · ${numberOf[backModule.id]}` : g.kicker)}</span>
             ${heroTitle(g.title)}
             <p class="hero-sub">${esc(g.sub)}</p>
-            <ul class="guide-aud">${g.audience.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>
             <nav class="hero-chips guide-jump" aria-label="${esc(t('guide.jump'))}">
               ${g.parts.map((p, i) => `<button class="chip" type="button" data-jump="g-${p.id}" style="--i:${i}"><span class="n">0${i + 1}</span>${esc(p.title)}<svg class="drawn-border" aria-hidden="true"></svg></button>`).join('')}
             </nav>
