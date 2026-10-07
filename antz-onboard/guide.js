@@ -142,26 +142,27 @@ window.ANTZ_GUIDES = {
         label: 'Part 03 · The green + button',
         title: 'Quick actions',
         lede: 'Tap [fab] and a sheet of shortcuts slides up: every record, note, medical entry and transfer you will create on a shift, started from one place, wherever you are in the app.',
-        /* One overview screen, then one tile per shortcut; every tile opens the same gallery at its own screen */
+        /* One overview screen, then one tile per shortcut, in the sheet's own order (left to right, row by row);
+           every tile opens the same gallery at its own screen */
         actions: {
           overview: { src: 'quick-actions', title: 'The Quick Actions sheet', desc: 'Sixteen shortcuts in all, split across three screens of the sheet.' },
           shots: [
             { src: 'qa-site', title: '+ Site', desc: 'Register a new facility or location.' },
             { src: 'qa-section', title: '+ Section', desc: 'Create a section within a site.' },
+            { src: 'qa-request', title: '+ Request', desc: 'Raise a help desk request.' },
+            { src: 'qa-note', title: '+ Note', desc: 'Log a quick observation.' },
             { src: 'qa-enclosure', title: '+ Enclosure', desc: 'Create an enclosure under a section.' },
             { src: 'qa-accession', title: '+ Accession', desc: 'Add a single animal, a batch or a group to an enclosure.' },
-            { src: 'qa-master', title: 'Master', desc: 'Foundational data setup.' },
             { src: 'qa-user', title: '+ User', desc: 'Create a user account and set its access.' },
-            { src: 'qa-note', title: '+ Note', desc: 'Log a quick observation.' },
-            { src: 'qa-request', title: '+ Request', desc: 'Raise a help desk request.' },
-            { src: 'qa-announcement', title: 'Announcement', desc: 'Broadcast an update to sites, roles or users.' },
             { src: 'qa-medical', title: '+ Medical', desc: 'Create single, batch and group records, direct or scheduled.' },
-            { src: 'qa-dispense', title: 'Dispense Medicine', desc: 'Issue prescribed medicines to vets.' },
-            { src: 'qa-hospitalize', title: '+ Hospitalize', desc: 'Raise a request to hospitalise an animal for treatment.' },
+            { src: 'qa-master', title: 'Master', desc: 'Foundational data setup.' },
             { src: 'qa-transfer', title: 'Transfer Animal', desc: 'In-house, inter-site and external transfers.' },
+            { src: 'qa-dispense', title: 'Dispense Medicine', desc: 'Issue prescribed medicines to vets.' },
             { src: 'qa-missing', title: '+ Missing / Escaped', desc: 'Log a critical incident.' },
+            { src: 'qa-announcement', title: 'Announcement', desc: 'Broadcast an update to sites, roles or users.' },
             { src: 'qa-fetaldeath', title: '+ Fetal Death', desc: 'Record offspring loss.' },
-            { src: 'qa-addeggs', title: '+ Add Eggs', desc: 'Log eggs for incubation tracking.' }
+            { src: 'qa-addeggs', title: '+ Add Eggs', desc: 'Log eggs for incubation tracking.' },
+            { src: 'qa-hospitalize', title: '+ Hospitalize', desc: 'Raise a request to hospitalise an animal for treatment.' }
           ]
         }
       }
