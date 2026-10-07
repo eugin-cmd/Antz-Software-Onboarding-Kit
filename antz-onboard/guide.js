@@ -400,8 +400,8 @@ window.ANTZ_GUIDES = {
           { id: 'info', title: 'Additional info', icon: 'note', desc: 'Record education and work history, and upload ID proofs to the profile.',
             shots: [
               { src: 'profile-education', title: 'Education', desc: 'Institute name, course, year of passing out and marks.' },
-              { src: 'profile-work', title: 'Work experience', desc: 'Company name, join and end dates, location, designation and industry type.' },
-              { src: 'profile-idproofs', title: 'ID proofs', desc: 'An identity document number with its attachment.' }
+              { src: 'profile-idproofs', title: 'ID proofs', desc: 'An identity document number with its attachment.' },
+              { src: 'profile-work', title: 'Work experience', desc: 'Company name, join and end dates, location, designation and industry type.' }
             ] }
         ]
       },
