@@ -330,7 +330,12 @@
     .filter((a) => a.modules.length);
   const areaById = Object.fromEntries(areas.map((a) => [a.id, a]));
 
-  const shotFor = (m, src) => m.shots.find((s) => s.src === src) || { src, device: 'phone', alt: '' };
+  /* Web modules (ids ending -web, and their guides' card sets) show web console screens, whatever the frame */
+  const isWebModule = (m) => !!(m && (m.web || /-web$/.test(m.id || '')));
+  const shotFor = (m, src) => {
+    const shot = m.shots.find((s) => s.src === src) || { src, device: 'phone', alt: '' };
+    return isWebModule(m) ? { ...shot, zoom: true } : shot;
+  };
   /* Lens: on phones, a magnifier on each screen opens it on its own to pinch, pan and read the detail */
   const LENS_SVG = '<svg width="22" height="22" viewBox="0 -960 960 960" fill="currentColor"><path d="M350.77-550h-47.69q-12.75 0-21.38-8.63-8.62-8.63-8.62-21.38 0-12.76 8.62-21.37 8.63-8.62 21.38-8.62h47.69v-47.69q0-12.75 8.63-21.38 8.63-8.62 21.38-8.62 12.76 0 21.37 8.62 8.62 8.63 8.62 21.38V-610h47.69q12.75 0 21.38 8.63 8.62 8.63 8.62 21.38 0 12.76-8.62 21.37-8.63 8.62-21.38 8.62h-47.69v47.69q0 12.75-8.63 21.38-8.63 8.62-21.38 8.62-12.76 0-21.37-8.62-8.62-8.63-8.62-21.38V-550Zm30 214.61q-102.55 0-173.58-71.01-71.03-71.01-71.03-173.54 0-102.52 71.01-173.6 71.01-71.07 173.54-71.07 102.52 0 173.6 71.03 71.07 71.03 71.07 173.58 0 42.85-14.38 81.85-14.39 39-38.39 67.84l230.16 230.16q8.31 8.3 8.5 20.88.19 12.58-8.5 21.27t-21.08 8.69q-12.38 0-21.07-8.69L530.46-388.16q-30 24.77-69 38.77-39 14-80.69 14Zm0-59.99q77.31 0 130.96-53.66 53.66-53.65 53.66-130.96t-53.66-130.96q-53.65-53.66-130.96-53.66t-130.96 53.66Q196.15-657.31 196.15-580t53.66 130.96q53.65 53.66 130.96 53.66Z"/></svg>';
   const ZOOM_IN_SVG = '<svg width="22" height="22" viewBox="0 -960 960 960" fill="currentColor"><path d="M450-450H230v-60h220v-220h60v220h220v60H510v220h-60v-220Z"/></svg>';
@@ -345,10 +350,12 @@
     if (!shot) return '';
     const img = `<img src="${esc(shot.src)}" alt="${esc(shot.alt)}" loading="lazy">`;
     const l = lens ? lensHTML() : '', k = shot.lock ? lockHTML() : '';
-    if (shot.device === 'web') return `<div class="device device-web"><div class="screen"><div class="bar"><i></i><i></i><i></i></div>${img}${k}</div>${l}</div>`;
-    if (shot.device === 'tablet') return `<div class="device device-tablet"><div class="screen">${img}${k}</div>${l}</div>`;
+    /* Web screens (and every screen of a web module) keep the magnifier at every size, for their small detail */
+    const z = shot.zoom || shot.device === 'web' ? ' zoomable' : '';
+    if (shot.device === 'web') return `<div class="device device-web${z}"><div class="screen"><div class="bar"><i></i><i></i><i></i></div>${img}${k}</div>${l}</div>`;
+    if (shot.device === 'tablet') return `<div class="device device-tablet${z}"><div class="screen">${img}${k}</div>${l}</div>`;
     /* Every phone screen gets the same green frame, drawn in CSS (the frames once baked into some captures are cropped off) */
-    return `<div class="device device-phone"><div class="screen">${img}${k}</div>${l}</div>`;
+    return `<div class="device device-phone${z}"><div class="screen">${img}${k}</div>${l}</div>`;
   };
 
   /* ---------- Home ---------- */
@@ -512,6 +519,9 @@
     const g = GUIDES[id];
     if (!g) { location.hash = '#/'; return; }
     const srcOf = (s) => `assets/guide/${id}/${s.src}.webp`;
+    const webGuide = /-web$/.test(id);
+    /* Card and tour screens sit inside buttons, so their magnifier sits beside the button, over the screen's corner */
+    const outerLens = (title) => (webGuide ? `<button class="lens lens-out" type="button" data-title="${esc(title)}" aria-label="${esc(t('lens.open'))}">${LENS_SVG}</button>` : '');
     const count = (n) => (n === 1 ? t('guide.screen1') : t('guide.screens', { n }));
     /* Every set of screens on the page, shaped like a module (one feature per screen), so it opens in the
        same feature window (desktop) and feature sheet (phones) as the module pages, in the guide's colours */
@@ -521,7 +531,7 @@
     const backModule = byId[g.back] && visible.includes(byId[g.back]) ? byId[g.back] : null;
     const sets = [];
     const addSet = (key, title, ic, shots) => sets.push({
-      id: `guide-${id}-${key}`, track, title,
+      id: `guide-${id}-${key}`, track, title, web: /-web$/.test(id),
       features: shots.map((s) => ({ title: s.title, desc: s.desc, icon: s.icon || ic, shot: srcOf(s) })),
       /* A screen is a phone unless it says otherwise (device: 'tablet' or 'web' for web modules) */
       shots: shots.map((s) => ({ src: srcOf(s), alt: s.title, device: s.device || 'phone' }))
@@ -549,6 +559,7 @@
     const cardHTML = (c, n) => {
       const set = addSet(c.id, c.title, c.icon, c.shots);
       return `
+        <div class="gcard-wrap${webGuide ? ' has-lens' : ''}">
         <button class="mcard-face gcard" type="button" data-set="${set}" data-i="0">
           <span class="gcard-thumb"${c.peek ? ` style="--peek:${c.peek}"` : ''}>${deviceHTML({ src: srcOf(c.shots[c.thumb || 0]), alt: '', device: c.shots[c.thumb || 0].device || 'phone' }, { lens: false })}</span>
           <span class="gcard-body">
@@ -558,7 +569,9 @@
             <span class="gcard-foot">${esc(count(c.shots.length))} ${ARROW}</span>
           </span>
           <svg class="drawn-border" aria-hidden="true"></svg>
-        </button>`;
+        </button>
+        ${outerLens(c.title)}
+        </div>`;
     };
     /* A phone beside a grid of tiles, each opening its screen. With an overview, the phone shows it and the
        tiles follow it in the set; without one, the phone shows the first tile's screen, and pointing at a tile
@@ -570,9 +583,12 @@
       const set = addSet(key, head.title, qa.overview ? 'add' : 'note', items);
       return `
         <div class="gqa reveal${qa.overview ? '' : ' gqa-tour'}">
+          <div class="gqa-stage-wrap">
           <button class="gqa-stage" type="button" data-set="${set}" data-i="0" aria-label="${esc(t('guide.view'))}: ${esc(head.title)}">
             ${deviceHTML({ src: srcOf(items[0]), alt: '', device: items[0].device || 'phone' }, { lens: false })}
           </button>
+          ${outerLens(head.title)}
+          </div>
           <div class="gqa-side">
             <h3>${esc(head.title)}</h3>
             <p>${esc(head.desc)} ${esc(t(qa.overview ? 'guide.qaHint' : canHover() ? 'guide.tourHint' : 'guide.tourHintTap'))}.</p>
@@ -2227,12 +2243,13 @@
   /* Lens buttons on in-page screens. Capture phase, so the tap opens only the lens view and not also the
      gallery or feature behind the screen. */
   document.addEventListener('click', (e) => {
-    const b = e.target.closest('.device > .lens');
+    const b = e.target.closest('.device > .lens, .lens-out');
     if (!b) return;
     e.stopPropagation(); e.preventDefault();
+    /* An outside lens opens the screen its card or stage shows now (a tour swaps it as tiles are pointed at) */
     const img = b.parentElement.querySelector('img');
     const head = b.closest('.fwin-card, section, .mpanel, .mfeat-row');
-    const title = (b.closest('.mfeat-row') || {}).querySelector?.('.t b')?.textContent
+    const title = b.dataset.title || (b.closest('.mfeat-row') || {}).querySelector?.('.t b')?.textContent
       || head?.querySelector('.fwin-title, h1, h2, .section-title, .mpanel-title')?.textContent || '';
     if (img) openLens(img.currentSrc || img.src, img.alt, title.trim(), b);
   }, true);

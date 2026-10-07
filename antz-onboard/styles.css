@@ -1630,11 +1630,19 @@ body.fwin-open { overflow: hidden; }
   transition: transform .45s cubic-bezier(.34,1.56,.64,1);
 }
 .lens:active { transform: scale(.92); }
-.device-web > .lens { display: grid; right: 18px; bottom: 18px; outline: 3px solid rgba(255,255,255,.85); }
-@media (hover: hover) { .device-web > .lens:hover { transform: scale(1.08); } }
+.device.zoomable > .lens, .lens-out { display: grid; right: 18px; bottom: 18px; outline: 3px solid rgba(255,255,255,.85); }
+.device-phone.zoomable > .lens { right: -12px; bottom: 22px; }
+@media (hover: hover) { .device.zoomable > .lens:hover, .lens-out:hover { transform: scale(1.08); } }
+/* Guide cards and tour stages: the lens sits beside the button, over the screen's lower corner */
+.gcard-wrap { position: relative; display: grid; }
+.gcard-wrap > .gcard { height: 100%; }
+.gcard-wrap > .lens-out { top: 182px; bottom: auto; right: 26px; width: 40px; height: 40px; }
+.gqa-stage-wrap { position: sticky; top: calc(var(--header-h) + 24px); align-self: start; }
+.gqa-stage-wrap > .gqa-stage { position: relative; top: 0; }
+.gqa-stage-wrap > .lens-out { right: 16px; bottom: 16px; }
 @media (max-width: 760px) {
   .lens { display: grid; }
-  .device-web > .lens { right: 12px; bottom: 12px; width: 40px; height: 40px; }
+  .device-web > .lens, .device-tablet.zoomable > .lens { right: 12px; bottom: 12px; width: 40px; height: 40px; }
   /* In the feature sheet it sits in the stage's lower corner, clear of the zooming phone, and steps aside while zoomed */
   .gallery.sheet .g-stage > .lens { right: 16px; bottom: 14px; transition: transform .45s cubic-bezier(.34,1.56,.64,1), opacity .2s; }
   .gallery.sheet.zoomed .g-stage > .lens { opacity: 0; pointer-events: none; }
@@ -2054,6 +2062,7 @@ body.fwin-open { overflow: hidden; }
 @media (max-width: 900px) {
   .gqa { grid-template-columns: 1fr; }
   .gqa-stage { position: relative; top: 0; height: 440px; }
+  .gqa-stage-wrap { position: relative; top: 0; }
   .gqa-stage .device-phone { width: 190px; }
 }
 @media (max-width: 560px) {
