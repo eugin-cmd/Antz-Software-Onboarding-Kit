@@ -217,6 +217,8 @@ button { font: inherit; color: inherit; }
 .eyebrow { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #FA6140; margin-bottom: 12px; } /* Antz orange section labels */
 .section-title { font-size: clamp(28px, 3.6vw, 40px); }
 .section-lede { font-size: 18px; color: var(--muted); margin-top: 14px; }
+/* The app's green quick-action button, inline in a sentence: as tall as a capital, its drop shadow hanging below */
+.inline-fab { display: inline-block; width: auto; height: 2em; margin: -.5em -.05em -.84em; vertical-align: baseline; }
 @media (max-width: 640px) { .section { padding: 64px 0; } .section-head { margin-bottom: 32px; } .section-lede { font-size: 16px; } }
 
 /* ---------- Hero ---------- */
@@ -1419,6 +1421,30 @@ body.fwin-open { overflow: hidden; }
 .fwin-title { font-size: clamp(26px, 2.6vw, 34px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; color: var(--ink); }
 .fwin-desc { margin-top: 14px; font-size: 17px; line-height: 1.6; color: var(--muted); }
 .fwin-dots { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 32px; }
+/* A card's process stepper in the window: the module pages' stepper, a little smaller, under the description */
+.fwin-flow:empty { display: none; }
+.fwin-flow .mflow { margin: 32px 0 0; padding: 20px 20px 18px; background: rgba(255,255,255,.75); box-shadow: 0 1px 2px rgba(14,23,21,.05), 0 0 0 1px color-mix(in srgb, var(--tint-line) 14%, transparent); }
+.fwin-flow .mflow-label { margin-bottom: 16px; font-size: 11.5px; }
+.fwin-flow .mflow .gflow { grid-auto-flow: column; grid-template-columns: none; gap: 16px; }
+.fwin-flow .mflow .gflow li { display: block; }
+.fwin-flow .mflow .gflow .ic { width: 42px; height: 42px; }
+.fwin-flow .mflow .gflow .ic svg { width: 20px; height: 20px; }
+.fwin-flow .mflow .gflow li:not(:last-child)::after { top: 20px; bottom: auto; left: 52px; right: -10px; width: auto; height: 2px; background: linear-gradient(90deg, var(--tint-line), var(--tint-line2)); }
+.fwin-flow .mflow .gflow h3 { margin-top: 12px; font-size: 14px; }
+.fwin-flow .mflow .gflow h3 .n { font-size: 11.5px; }
+.fwin-flow .mflow .gflow p { margin-top: 4px; font-size: 12.5px; line-height: 1.45; }
+/* Phone sheet: the same steps across, icons and titles only */
+.g-flow { padding: 6px 22px 0; }
+.g-flow .mflow { margin: 0; padding: 14px 14px 12px; border-radius: 14px; background: color-mix(in srgb, var(--tint-line) 7%, #fff); box-shadow: none; }
+.g-flow .mflow-label { margin-bottom: 10px; font-size: 10.5px; }
+.g-flow .mflow .gflow { grid-auto-flow: column; grid-template-columns: none; gap: 8px; }
+.g-flow .mflow .gflow li { display: block; text-align: center; }
+.g-flow .mflow .gflow .ic { width: 34px; height: 34px; margin: 0 auto; }
+.g-flow .mflow .gflow .ic svg { width: 17px; height: 17px; }
+.g-flow .mflow .gflow li:not(:last-child)::after { top: 16px; bottom: auto; left: calc(50% + 24px); right: calc(-50% + 20px); width: auto; height: 2px; background: linear-gradient(90deg, var(--tint-line), var(--tint-line2)); }
+.g-flow .mflow .gflow h3 { display: block; margin-top: 7px; font-size: 12px; line-height: 1.25; }
+.g-flow .mflow .gflow h3 .n { display: none; }
+.g-flow .mflow .gflow p { display: none; }
 .fwin-dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 5px; cursor: pointer; background: color-mix(in srgb, var(--tint-line) 30%, #fff); transition: width .3s cubic-bezier(.22,.8,.24,1), background .3s; }
 .fwin-dots button[aria-current="true"] { width: 26px; background: var(--tint-line); }
 .fwin-close {

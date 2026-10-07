@@ -278,6 +278,8 @@
   /* ---------- Helpers ---------- */
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   /* House rule: no em-dashes in rendered copy */
+  /* [fab] in a lede is the app's green quick-action button, shown as the button itself (assets/icons/fab.svg) */
+  const withFab = (s) => esc(s).replace(/\[fab\]/g, `<img class="inline-fab" src="assets/icons/fab.svg" alt="+" width="64" height="70">`);
   const tidy = (s) => String(s ?? '').replace(/\s*—\s*/g, ', ').replace(/\s+-\s+/g, ', ');
   const tidyTitle = (s) => String(s ?? '').replace(/\s*—\s*|\s+-\s+/g, ' · ').replace(/\s*\((App|Web)\)/, ' · $1');
   /* icons.js declares a top-level const, so it is a global binding, not a window property */
@@ -532,8 +534,8 @@
     const track = g.area && areaById[g.area] ? g.area : 'guide';
     const backModule = byId[g.back] && visible.includes(byId[g.back]) ? byId[g.back] : null;
     const sets = [];
-    const addSet = (key, title, ic, shots) => sets.push({
-      id: `guide-${id}-${key}`, track, title, web: /-web$/.test(id),
+    const addSet = (key, title, ic, shots, flow) => sets.push({
+      id: `guide-${id}-${key}`, track, title, web: /-web$/.test(id), flow,
       features: shots.map((s) => ({ title: s.title, desc: s.desc, icon: s.icon || ic, shot: srcOf(s) })),
       /* A screen is a phone unless it says otherwise (device: 'tablet' or 'web' for web modules) */
       shots: shots.map((s) => ({ src: srcOf(s), alt: s.title, device: s.device || 'phone' }))
@@ -559,7 +561,7 @@
         </div>`;
     };
     const cardHTML = (c, n) => {
-      const set = addSet(c.id, c.title, c.icon, c.shots);
+      const set = addSet(c.id, c.title, c.icon, c.shots, c.flow);
       return `
         <div class="gcard-wrap${webGuide ? ' has-lens' : ''}">
         <button class="mcard-face gcard" type="button" data-set="${set}" data-i="0">
@@ -646,7 +648,7 @@
           <div class="guide-head reveal">
             <span class="eyebrow">${esc(p.label)}</span>
             <h2 class="section-title">${esc(p.title)}</h2>
-            <p class="section-lede">${esc(p.lede)}</p>
+            <p class="section-lede">${withFab(p.lede)}</p>
           </div>
           ${p.glance ? glanceHTML(p.glance) : ''}
           ${p.cards ? `<div class="ggrid reveal" data-n="${p.cards.length}">${p.cards.map((c) => cardHTML(c, ++n)).join('')}</div>` : ''}
@@ -1874,6 +1876,7 @@
             <div class="fwin-head"><span class="fwin-ic" aria-hidden="true"></span><p class="fwin-count" aria-live="polite"></p></div>
             <h2 class="fwin-title" id="fwin-title"></h2><p class="fwin-desc"></p>
           </div>
+          <div class="fwin-flow"></div>
           <div class="fwin-dots"></div>
         </div>
       </div>
@@ -1890,6 +1893,8 @@
       w.querySelector('.fwin-set').textContent = m.title;
       dotBox.innerHTML = m.features.map((f, i) => `<button type="button" data-i="${i}" aria-label="${esc(tidyTitle(f.title))}"></button>`).join('');
       dots = [...dotBox.children];
+      /* A card's own process (flow), the same for each of its screens, as the module pages' stepper */
+      w.querySelector('.fwin-flow').innerHTML = m.flow ? moduleFlowHTML(m.flow) : '';
       animals = animalsFor(m);
     };
     useSet();
@@ -2008,6 +2013,7 @@
       </div>
       <div class="g-stage"><div class="g-track"><span class="g-frame"><img class="g-img" alt="" draggable="false"></span></div>${sheet ? lensHTML() : ''}</div>
       <div class="g-info"><div class="g-head"><span class="g-ic" aria-hidden="true"></span></div><b class="g-ft"></b><p class="g-fd"></p></div>
+      ${sheet && m.flow ? `<div class="g-flow">${moduleFlowHTML(m.flow)}</div>` : ''}
       <div class="g-nav">
         <button class="g-arrow g-prev" type="button" aria-label="${esc(t('win.prev'))}">${CHEV_L}</button>
         <div class="g-dots">${slides.map((sl, i) => `<button type="button" aria-label="${esc(sl.title || t('gal.screen', { i: i + 1 }))}" data-i="${i}"></button>`).join('')}</div>

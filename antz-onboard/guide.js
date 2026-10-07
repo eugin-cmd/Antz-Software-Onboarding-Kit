@@ -48,6 +48,15 @@ window.ANTZ_GUIDES = {
           {
             id: 'pending', title: 'Pending To-Do', icon: 'priority',
             desc: 'Counts of animals and records still waiting on you. Every pending type follows the same three steps: home count, site-wise breakdown, then the module with the site filter applied.',
+            /* Shown in the card's screen window, under every one of its screens */
+            flow: {
+              label: 'How every pending card works',
+              steps: [
+                { icon: 'home', title: 'Homepage overview', desc: 'A live count on the home screen for the records still pending.' },
+                { icon: 'areas', title: 'Site-wise breakdown', desc: 'Open the summary to see counts split by each site.' },
+                { icon: 'filter', title: 'Filtered redirection', desc: 'Tap through to the module with the site filter already applied.' }
+              ]
+            },
             shots: [
               { src: 'pending-audit', title: 'Animal Audit score', desc: 'Audit the animal count in every enclosure periodically.' },
               { src: 'pending-admin', title: 'Pending Administration', desc: 'Medical administration processes yet to be completed.' },
@@ -132,7 +141,7 @@ window.ANTZ_GUIDES = {
         id: 'quick',
         label: 'Part 03 · The green + button',
         title: 'Quick actions',
-        lede: 'Tap the green + and a sheet of shortcuts slides up: every record, note, medical entry and transfer you will create on a shift, started from one place, wherever you are in the app.',
+        lede: 'Tap [fab] and a sheet of shortcuts slides up: every record, note, medical entry and transfer you will create on a shift, started from one place, wherever you are in the app.',
         /* One overview screen, then one tile per shortcut; every tile opens the same gallery at its own screen */
         actions: {
           overview: { src: 'quick-actions', title: 'The Quick Actions sheet', desc: 'Sixteen shortcuts in all, split across three screens of the sheet.' },
