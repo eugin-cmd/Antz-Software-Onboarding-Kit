@@ -58,6 +58,11 @@
   "guide.preview": "Point at a surface to preview it · click to open",
   "guide.qaHint": "Pick a shortcut to see its screen",
   "guide.summary": "Summary",
+  "guide.module": "Module",
+  "guide.back": "Back to {x}",
+  "guide.level": "Level {n}",
+  "guide.tourHint": "Point at a part to see it on the screen, or pick it to open the screen",
+  "guide.tourHintTap": "Tap a part to open its screen",
   "day.title": "What your first day on Antz looks like",
   "day.lede": "Four steps take your team from first login to everyday use.",
   "day.1": "Sign in to your workspace",
@@ -119,7 +124,12 @@
   "gal.label": "{x} screens",
   "gal.close": "Close gallery",
   "gal.screen": "Screen {i}",
-  "gal.hint": "Pinch or double-tap to zoom · Swipe to browse"
+  "gal.hint": "Pinch or double-tap to zoom · Swipe to browse",
+  "lens.open": "Zoom into this screen",
+  "lens.hint": "Drag to scroll · Pinch or double-tap to zoom",
+  "lens.hintMouse": "Drag or scroll to move around · Double-click, pinch or use + and − to zoom",
+  "lens.in": "Zoom in",
+  "lens.out": "Zoom out"
  },
  "tracks": {
   "records": {
@@ -272,12 +282,12 @@
     },
     {
      "title": "Visibility",
-     "desc": "Notes appear automatically on the relevant animal, site, or section pages.",
+     "desc": "Notes appear automatically on the relevant site, section, enclosure or animal pages.",
      "alt": "Site page Notes tab: Hygiene note showing on Central Reserve Kingdom"
     },
     {
      "title": "Notifications & collaboration",
-     "desc": "Notify tagged members; likes and comments keep it focused.",
+     "desc": "Notify tagged members; like and add comments.",
      "alt": "Note with thumbs up, tagged member Dr. Cloomy Fernandes, 1 comment"
     },
     {
@@ -295,22 +305,22 @@
     {
      "title": "1-on-1 messaging",
      "desc": "Enables one-to-one chats between team members for seamless communication and collaboration.",
-     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur"
+     "alt": "One-to-one chat with Dr. Neha about collecting Bruno's blood samples"
     },
     {
      "title": "Group messaging",
      "desc": "Create a group for any team, shift, or task and chat in one place.",
-     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur"
+     "alt": "Animal Care Team group chat, 65 members, sharing a meeting link and replies"
     },
     {
      "title": "Media & document sharing",
      "desc": "Send photos, videos, lab reports and PDFs in-thread; no external apps required.",
-     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur"
+     "alt": "Group chat with shared elephant photos, a voice note and an audio file"
     },
     {
      "title": "Real-time notifications",
      "desc": "Receive instant notifications directly within the app for important updates.",
-     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur"
+     "alt": "In-app chat notification from Dr. Medi over the chat list"
     },
     {
      "title": "Secure & auditable",
@@ -320,7 +330,7 @@
     {
      "title": "Search & filters",
      "desc": "Find messages by keyword, sender, or linked entity.",
-     "alt": "Antz Systems chat thread: blood sample collection coordination between Dr. Neha and Biologist Mayur"
+     "alt": "Communication list with search and All, Unread and Groups filters"
     }
    ]
   },

@@ -294,7 +294,7 @@ window.ANTZ_CONTENT = {
     },
     {
      "title": "Visibility",
-     "desc": "Notes appear automatically on the relevant animal, site, or section pages.",
+     "desc": "Notes appear automatically on the relevant site, section, enclosure or animal pages.",
      "shot": "assets/shots/p7-notes-5.jpg",
      "alt": "Site page Notes tab: Hygiene note showing on Central Reserve Kingdom",
      "device": "prefr",
@@ -306,7 +306,7 @@ window.ANTZ_CONTENT = {
     },
     {
      "title": "Notifications & collaboration",
-     "desc": "Notify tagged members; likes and comments keep it focused.",
+     "desc": "Notify tagged members; like and add comments.",
      "shot": "assets/shots/p7-notes-7.jpg",
      "alt": "Note with thumbs up, tagged member Dr. Cloomy Fernandes, 1 comment",
      "device": "prefr",

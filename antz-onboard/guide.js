@@ -321,7 +321,7 @@ window.ANTZ_GUIDES = {
         id: 'create',
         label: 'Part 03 · Logging the work',
         title: 'Create a note',
-        lede: 'The + button opens New Notes. Choose a purpose, write what you saw, link it to the right record and add evidence. Every field is there to keep entries consistent.',
+        lede: 'The [fab] button opens New Notes. Choose a purpose, write what you saw, link it to the right record and add evidence. Every field is there to keep entries consistent.',
         actions: {
           title: 'The New Notes form', numbered: true,
           desc: 'Seven fields on the New Notes form, each highlighted on the screen.',
