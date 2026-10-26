@@ -362,7 +362,7 @@
        data-full is the whole screen in one image, for the lens */
     if (shot.scroll) {
       const sc = shot.scroll;
-      return `<div class="device device-phone${z}" data-full="${esc(sc.full)}"><div class="screen screen-scroll"><img class="screen-head" src="${esc(sc.head)}" alt=""><div class="screen-body" tabindex="0" data-at="${sc.at}" aria-label="${esc(shot.alt)}"><img src="${esc(sc.body)}" alt="${esc(shot.alt)}"></div><span class="screen-cue" aria-hidden="true">${esc(t('screen.scroll'))}</span>${k}</div>${l}</div>`;
+      return `<div class="device device-phone${z}" data-full="${esc(sc.full)}"><div class="screen screen-scroll"><img class="screen-head" src="${esc(sc.head)}" alt=""><div class="screen-body" tabindex="0" data-at="${sc.at}"${sc.auto ? ' data-auto' : ''} aria-label="${esc(shot.alt)}"><img src="${esc(sc.body)}" alt="${esc(shot.alt)}"></div>${sc.auto ? '' : `<span class="screen-cue" aria-hidden="true">${esc(t('screen.scroll'))}</span>`}${k}</div>${l}</div>`;
     }
     /* Every phone screen gets the same green frame, drawn in CSS (the frames once baked into some captures are cropped off) */
     return `<div class="device device-phone${z}"><div class="screen">${img}${k}</div>${l}</div>`;
@@ -540,12 +540,13 @@
     const track = g.area && areaById[g.area] ? g.area : 'guide';
     const backModule = byId[g.back] && visible.includes(byId[g.back]) ? byId[g.back] : null;
     const sets = [];
-    const addSet = (key, title, ic, shots, flow) => sets.push({
-      id: `guide-${id}-${key}`, track, title, web: /-web$/.test(id), flow,
-      features: shots.map((s) => ({ title: s.title, desc: s.desc, icon: s.icon || ic, shot: srcOf(s) })),
+    const addSet = (key, title, ic, shots, winFlow, winNotes) => sets.push({
+      id: `guide-${id}-${key}`, track, title, web: /-web$/.test(id), winFlow, winNotes,
+      /* keep: the text is shown exactly as written (it keeps a dash the house style would otherwise turn into a comma) */
+      features: shots.map((s) => ({ title: s.title, desc: s.desc, icon: s.icon || ic, shot: srcOf(s), keep: !!s.keep })),
       /* A screen is a phone unless it says otherwise (device: 'tablet' or 'web' for web modules) */
       shots: shots.map((s) => ({ src: srcOf(s), alt: s.title, device: s.device || 'phone',
-        scroll: s.scroll && { head: srcOf({ src: s.scroll.head }), body: srcOf({ src: s.scroll.body }), full: srcOf({ src: s.scroll.full }), at: s.scroll.at } }))
+        scroll: s.scroll && { head: srcOf({ src: s.scroll.head }), body: srcOf({ src: s.scroll.body }), full: srcOf({ src: s.scroll.full }), at: s.scroll.at, auto: !!s.scroll.auto } }))
     }) - 1;
 
     /* At a glance: the module pages' feature cards, each opening its screen */
@@ -567,8 +568,9 @@
           </ol>
         </div>`;
     };
-    const cardHTML = (c, n) => {
-      const set = addSet(c.id, c.title, c.icon, c.shots, c.flow);
+    /* notes: a part's points (part.notes) shown in the window of each of its cards */
+    const cardHTML = (c, n, notes) => {
+      const set = addSet(c.id, c.title, c.icon, c.shots, c.flow, notes);
       return `
         <div class="gcard-wrap${webGuide ? ' has-lens' : ''}">
         <button class="mcard-face gcard" type="button" data-set="${set}" data-i="0">
@@ -658,7 +660,7 @@
             <p class="section-lede">${withFab(p.lede)}</p>
           </div>
           ${p.glance ? glanceHTML(p.glance) : ''}
-          ${p.cards ? `<div class="ggrid reveal" data-n="${p.cards.length}">${p.cards.map((c) => cardHTML(c, ++n)).join('')}</div>` : ''}
+          ${p.cards ? `<div class="ggrid reveal" data-n="${p.cards.length}"${p.chain ? ' data-chain' : ''}>${p.cards.map((c) => cardHTML(c, ++n, p.notes)).join('')}</div>` : ''}
           ${p.actions ? actionsHTML(p.actions, p.id) : ''}
           ${p.flow ? flowHTML(p.flow) : ''}
           ${p.compare ? compareHTML(p.compare) : ''}
@@ -746,10 +748,14 @@
       const b = e.target.closest('[data-set]');
       if (!b) return;
       const r = b.getBoundingClientRect();
-      /* The window holds only this card's screens and stops at its first and last; closing it returns focus to the card */
+      /* The window holds only this card's screens and stops at its first and last. In a grid marked chain
+         (part.chain), it runs on through every card of that grid instead. Closing returns focus to the card last shown */
+      const grid = b.closest('.ggrid[data-chain]');
+      const ids = grid ? [...grid.querySelectorAll('.gcard[data-set]')].map((x) => +x.dataset.set) : null;
       (narrow() ? openFeatureSheet : openFeatureWindow)(sets[+b.dataset.set], +b.dataset.i || 0, {
         origin: { x: r.left + r.width / 2, y: r.top + r.height / 2 },
-        close: () => b.focus({ preventScroll: true }), returnFocusTo: b
+        chain: ids ? { sets: ids.map((k) => sets[k]), at: ids.indexOf(+b.dataset.set) } : undefined,
+        close: (i, k) => ((ids && page.querySelector(`.gcard[data-set="${ids[k]}"]`)) || b).focus({ preventScroll: true }), returnFocusTo: b
       });
     });
     sizeBorders();
@@ -1874,6 +1880,26 @@
         screen.classList.toggle('at-end', atEnd());
         if (placed && cue) cue.classList.add('gone');
       }, { passive: true });
+      /* data-auto: the screen scrolls itself slowly down and back up, as on the deck's page; scrolling it by hand
+         pauses that for a few seconds. It stops once the screen leaves the page */
+      if ('auto' in body.dataset && !reducedMotion()) {
+        let pos = 0, dir = 1, last = performance.now(), hold = 0;
+        const pause = () => { hold = performance.now() + 2600; };
+        ['wheel', 'pointerdown', 'touchstart', 'keydown'].forEach((ev) => body.addEventListener(ev, pause, { passive: true }));
+        const tick = (now) => {
+          if (!body.isConnected) return;
+          const dt = Math.min(0.05, (now - last) / 1000); last = now;
+          const max = body.scrollHeight - body.clientHeight;
+          if (now < hold) pos = body.scrollTop;
+          else if (max > 0) {
+            pos += dir * 34 * dt;
+            if (pos >= max) { pos = max; dir = -1; } else if (pos <= 0) { pos = 0; dir = 1; }
+            body.scrollTop = pos;
+          }
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
     });
   }
   let closeFeatureWindow = null;
@@ -1902,6 +1928,7 @@
             <div class="fwin-head"><span class="fwin-ic" aria-hidden="true"></span><p class="fwin-count" aria-live="polite"></p></div>
             <h2 class="fwin-title" id="fwin-title"></h2><p class="fwin-desc"></p>
           </div>
+          <div class="fwin-notes"></div>
           <div class="fwin-flow"></div>
           <div class="fwin-dots"></div>
         </div>
@@ -1914,16 +1941,35 @@
     const dotBox = w.querySelector('.fwin-dots');
     let dots = [], animals = [];
     /* (Re)build what belongs to the current set: its title, dots and animal wash */
+    /* A chained window counts and dots every screen of every card in the chain, so a run of one-screen cards reads "3 of 5" */
+    const before = (k) => (chain ? chain.sets.slice(0, k).reduce((a, x) => a + x.features.length, 0) : 0);
+    const total = chain ? before(chain.sets.length) : 0;
     const useSet = () => {
       n = m.features.length;
       w.querySelector('.fwin-set').textContent = m.title;
-      dotBox.innerHTML = m.features.map((f, i) => `<button type="button" data-i="${i}" aria-label="${esc(tidyTitle(f.title))}"></button>`).join('');
-      dots = [...dotBox.children];
-      /* A card's own process (flow), the same for each of its screens, as the module pages' stepper */
-      w.querySelector('.fwin-flow').innerHTML = m.flow ? moduleFlowHTML(m.flow) : '';
+      if (!chain || !dots.length) {
+        dotBox.innerHTML = (chain ? chain.sets : [m]).map((x, k) => x.features.map((f, i) =>
+          `<button type="button" data-k="${k}" data-i="${i}" aria-label="${esc(tidyTitle(f.title))}"></button>`).join('')).join('');
+        dots = [...dotBox.children];
+      }
+      /* A guide card's own process (winFlow), the same for each of its screens, as the module pages' stepper.
+         Only cards whose process is not already on the page behind (a module's own flow is shown there) */
+      w.querySelector('.fwin-flow').innerHTML = m.winFlow ? moduleFlowHTML(m.winFlow) : '';
+      /* A part's points (winNotes), such as what every row of the directory offers: a label, then one line each */
+      const nt = m.winNotes;
+      w.querySelector('.fwin-notes').innerHTML = nt ? `
+        <p class="fwin-notes-label">${esc(nt.label)}</p>
+        <ul>${nt.items.map((x) => `<li><span class="ic" aria-hidden="true">${x.icon === 'search' ? SEARCH_SVG : icon(x.icon)}</span><span><b>${esc(x.lead)}</b> ${esc(x.text)}</span></li>`).join('')}</ul>` : '';
       animals = animalsFor(m);
     };
     useSet();
+    /* Move to another card of the chain (a dot on another card) */
+    const toSet = (k, i = 0) => {
+      if (!chain || k === chain.at) return;
+      const dir = k > chain.at ? 1 : -1;
+      chain.at = k; m = chain.sets[k]; useSet(); idx = -1;
+      go(i, dir);
+    };
     const hasSet = (d) => !!(chain && chain.sets[chain.at + d]);
     let idx = -1;
     const go = (i, dir = 0) => {
@@ -1938,10 +1984,10 @@
       if (i < 0 || i >= n || i === idx) return;
       idx = i;
       const f = m.features[i], shot = shotOf(i);
-      w.querySelector('.fwin-count').textContent = t('win.count', { i: i + 1, n });
+      w.querySelector('.fwin-count').textContent = chain ? t('win.count', { i: before(chain.at) + i + 1, n: total }) : t('win.count', { i: i + 1, n });
       w.querySelector('.fwin-ic').innerHTML = icon(f.icon);
       w.querySelector('.fwin-title').textContent = tidyTitle(f.title);
-      w.querySelector('.fwin-desc').textContent = tidy(f.desc);
+      w.querySelector('.fwin-desc').textContent = f.keep ? f.desc : tidy(f.desc);
       /* The wash starts a little below the text, however long this feature's description is */
       setAnimal(w.querySelector('.fwin-info'), animals[i % animals.length], () => text.offsetTop + text.offsetHeight);
       dev.innerHTML = shot ? deviceHTML({ ...shot, lock: !!f.lock }) : `<p class="fwin-empty">${esc(t('win.soon'))}</p>`;
@@ -1954,7 +2000,7 @@
       prev.disabled = i === 0 && !hasSet(-1); next.disabled = i === n - 1 && !hasSet(1);
       /* An arrow that just became disabled drops focus; hand it to the other arrow */
       if (had && had.disabled) (had === next ? prev : next).focus({ preventScroll: true });
-      dots.forEach((d, j) => d.setAttribute('aria-current', String(j === i)));
+      dots.forEach((d) => d.setAttribute('aria-current', String(+d.dataset.i === i && +d.dataset.k === (chain ? chain.at : 0))));
       [i - 1, i + 1].forEach((j) => { const s2 = j >= 0 && j < n && shotOf(j); if (s2) new Image().src = s2.src; });
       if (step) step(i);
     };
@@ -1985,7 +2031,13 @@
     document.addEventListener('keydown', onKey);
     prev.addEventListener('click', () => go(idx - 1, -1));
     next.addEventListener('click', () => go(idx + 1, 1));
-    dotBox.addEventListener('click', (e) => { const d = e.target.closest('button'); if (d) go(+d.dataset.i, +d.dataset.i > idx ? 1 : -1); });
+    dotBox.addEventListener('click', (e) => {
+      const d = e.target.closest('button');
+      if (!d) return;
+      const k = +d.dataset.k, i = +d.dataset.i;
+      if (chain && k !== chain.at) toSet(k, i);
+      else go(i, i > idx ? 1 : -1);
+    });
     w.addEventListener('click', (e) => { if (e.target.closest('[data-close]')) shut(); });
     go(start);
     /* Radial opening: a circle grows from the clicked feature until it covers the whole card */
@@ -2040,7 +2092,7 @@
       </div>
       <div class="g-stage"><div class="g-track"><span class="g-frame"><img class="g-img" alt="" draggable="false"></span></div>${sheet ? lensHTML() : ''}</div>
       <div class="g-info"><div class="g-head"><span class="g-ic" aria-hidden="true"></span></div><b class="g-ft"></b><p class="g-fd"></p></div>
-      ${sheet && m.flow ? `<div class="g-flow">${moduleFlowHTML(m.flow)}</div>` : ''}
+      ${sheet && m.winFlow ? `<div class="g-flow">${moduleFlowHTML(m.winFlow)}</div>` : ''}
       <div class="g-nav">
         <button class="g-arrow g-prev" type="button" aria-label="${esc(t('win.prev'))}">${CHEV_L}</button>
         <div class="g-dots">${slides.map((sl, i) => `<button type="button" aria-label="${esc(sl.title || t('gal.screen', { i: i + 1 }))}" data-i="${i}"></button>`).join('')}</div>
@@ -2297,7 +2349,7 @@
     const slidesOf = (x, group) => x.features.map((f, i) => {
       const src = f.shot || (x.shots[i] && x.shots[i].src) || (x.shots[0] && x.shots[0].src);
       const shot = src ? shotFor(x, src) : null;
-      return { src: src || '', full: shot && shot.scroll && shot.scroll.full, alt: (shot && shot.alt) || f.title, title: tidyTitle(f.title), desc: tidy(f.desc), icon: f.icon, device: shot && shot.device,
+      return { src: src || '', full: shot && shot.scroll && shot.scroll.full, alt: (shot && shot.alt) || f.title, title: tidyTitle(f.title), desc: f.keep ? f.desc : tidy(f.desc), icon: f.icon, device: shot && shot.device,
         lock: !!f.lock, group, groupTitle: x.title, local: i };
     });
     if (!chain) { openGallery(m, slidesOf(m), start, returnFocusTo, { sheet: true, origin, step, close }); return; }
@@ -2339,8 +2391,24 @@
       goTop = false;
     }
     syncHeader();
+    syncTopFab();
     observeReveal();
   }
+
+  /* Every page: a floating button back to the top, in the app's FAB gradient, once the banner is scrolled past */
+  const topFab = document.createElement('button');
+  topFab.className = 'top-fab';
+  topFab.type = 'button';
+  topFab.setAttribute('aria-label', t('top.back'));
+  topFab.title = t('top.back');
+  topFab.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>';
+  document.body.append(topFab);
+  function syncTopFab() { topFab.classList.toggle('show', window.scrollY > window.innerHeight * 0.8); }
+  window.addEventListener('scroll', syncTopFab, { passive: true });
+  topFab.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    topFab.blur();
+  });
   function observeReveal() {
     const els = app.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('in')); return; }

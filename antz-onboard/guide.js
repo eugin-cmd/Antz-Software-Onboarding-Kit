@@ -381,6 +381,8 @@ window.ANTZ_GUIDES = {
         id: 'capabilities',
         label: 'Part 01 · The module',
         title: 'What the module does',
+        /* One screen per card: the window steps on through all five cards rather than stopping at each */
+        chain: true,
         lede: 'Create and manage every account, set what each role can reach, and keep a record of who signed in and from where. Users also get secure login with OTP recovery delivered over SMS or WhatsApp.',
         /* The overview slide has no screens: each card opens the matching screen from the walkthrough slides.
            Login & Recovery has no screen anywhere in the deck, so it is kept in the lede rather than as a card.
@@ -388,10 +390,10 @@ window.ANTZ_GUIDES = {
         cards: [
           { id: 'profile', title: 'Profile creation & management', icon: 'users', desc: 'Store user details: name, contact, staff ID, date of birth and blood group.',
             shots: [{ src: 'add-identity', scroll: { head: 'form-head', body: 'form-identity', full: 'form-identity-full', at: 238 }, title: 'Add User Basic Info', desc: 'The form that captures a new user\'s identity, contact and personal details.' }] },
-          { id: 'roles', title: 'Roles & permissions', icon: 'access', desc: 'Assign roles, such as Curator or Vet, and set their access rights per module.',
-            shots: [{ src: 'role-permissions', title: 'Role permissions', desc: 'Choose a role and see the rights it holds in each module.' }] },
           { id: 'access', title: 'Access control', icon: 'shield', desc: 'Restrict by site or section, activate or deactivate accounts, with auto-timeout.',
             shots: [{ src: 'access-scope', title: 'Access permissions', desc: 'Location, pharmacy, organisation, nursery, necropsy centre and hospital access for one user.' }] },
+          { id: 'roles', title: 'Roles & permissions', icon: 'access', desc: 'Assign roles, such as Curator or Vet, and set their access rights per module.',
+            shots: [{ src: 'role-permissions', scroll: { head: 'perm-head', body: 'perm-body', full: 'perm-full', at: 0, auto: true }, title: 'Role permissions', desc: 'Choose a role and see the rights it holds in each module.' }] },
           { id: 'activity', title: 'Activity tracking', icon: 'devices', desc: 'See last login and device details, and deactivate a device if needed.',
             shots: [
               { src: 'profile-devices', title: 'Devices', desc: 'Signed-in devices, each with its device ID and last active time.' },
@@ -429,12 +431,15 @@ window.ANTZ_GUIDES = {
         id: 'roles',
         label: 'Part 03 · Who can do what',
         title: 'Roles, permissions & access',
+        /* The window steps between both cards with its arrows; the permissions screen scrolls on its own, up and down,
+           under its fixed status bar, as on the deck's page */
+        chain: true,
         lede: 'Pick a role, then tune exactly what it can reach. Permissions run per module; access runs per place. Grant or modify view, add, edit or delete rights, applied per module, per role or per individual user.',
         cards: [
           { id: 'scope', title: 'Access scope mapping', icon: 'areas', desc: 'Map the user to sites, pharmacies, nurseries, hospitals and necropsy centres.',
             shots: [{ src: 'access-scope', title: 'Access permissions', desc: 'Location, pharmacy, organisation, nursery, necropsy centre and hospital access on the Edit Permissions screen.' }] },
           { id: 'modules', title: 'Roles & module permissions', icon: 'access', desc: 'Choose a role, then grant View, Add, Edit or Delete per module.',
-            shots: [{ src: 'role-permissions', title: 'Role permissions', desc: 'A Zoologist role with its module permissions for collection, housing, mortality and more.' }] }
+            shots: [{ src: 'role-permissions', scroll: { head: 'perm-head', body: 'perm-body', full: 'perm-full', at: 0, auto: true }, title: 'Role permissions', desc: 'A Zoologist role with its module permissions for collection, housing, mortality and more.' }] }
         ]
       },
       {
@@ -461,17 +466,30 @@ window.ANTZ_GUIDES = {
         id: 'directory',
         label: 'Part 05 · Everyone, at a glance',
         title: 'Users directory',
+        /* The window steps between both cards with its arrows and shows, under each screen's text, what every row
+           of the list offers, as on the deck's directory page */
+        chain: true,
+        notes: {
+          label: 'On every row',
+          items: [
+            { icon: 'search', lead: 'Search', text: 'by name, role or staff number.' },
+            { icon: 'chat', lead: 'Call & chat', text: 'a teammate without leaving the list.' },
+            { icon: 'history', lead: 'Last active', text: 'time, so you know who\'s online.' }
+          ]
+        },
         lede: 'The directory opens on a live count of your team and lets you reach anyone in a tap. Search by name, role or staff number, call or chat a teammate without leaving the list, and see each person\'s last active time.',
         cards: [
           { id: 'people', title: 'By users', icon: 'users', desc: 'Total, active today and blocked — then the full searchable list.',
-            shots: [{ src: 'directory-people', title: 'Users by people', desc: 'Team totals above a searchable list of users, each with call and chat.' }] },
+            shots: [{ src: 'directory-people', title: 'Users by people', keep: true, desc: 'Total, active today and blocked — then the full searchable list.' }] },
           { id: 'sites', title: 'By site', icon: 'areas', desc: 'The same counts rolled up per facility, site by site.',
-            shots: [{ src: 'directory-sites', title: 'Users by site', desc: 'Total users, active today and blocked, rolled up for each site.' }] }
+            shots: [{ src: 'directory-sites', title: 'Users by site', desc: 'The same counts rolled up per facility, site by site.' }] }
         ]
       },
       {
         id: 'filters',
         label: 'Part 06 · Narrow it down',
+        /* One screen per card: the window steps between both with its arrows */
+        chain: true,
         title: 'Filters & activity logs',
         lede: 'Narrow the directory down by role or status, and read the activity trail for anyone. The activity log filters actions by user and time range, covering logins, animal and medical records, facility, diet, notes and breeding.',
         /* The deck says the directory can be sliced "four ways" but shows only two filters (role and status), so the count is left out */
