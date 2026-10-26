@@ -700,9 +700,10 @@ window.ANTZ_GUIDES = {
           { id: 'site-quick', title: 'Quick actions', icon: 'add', desc: 'Tap the green + and a sheet slides up: tap any action to jump straight to it.',
             shots: [
               { src: 'site-quick', title: 'Quick actions sheet', desc: 'The site\'s quick actions sheet, opened from the green + button.' },
+              { src: 'site-quick-batch', title: 'Batch Assessment', desc: 'Record assessments for species belonging to a selected site.' },
               { src: 'site-quick-tag', title: 'Add Tags', desc: 'Create and assign tags to organise and categorise the site.' },
               { src: 'site-quick-note', title: 'Add Note', desc: 'Quickly create and save notes for the selected entity.' },
-              { src: 'site-quick-section', title: 'Add Section', desc: 'Create new sections within the site to organise and manage enclosures.' },
+              { src: 'site-quick-section', title: 'Add Section', desc: 'Create new sections within the site to organise and manage enclosures efficiently.' },
               { src: 'site-quick-home', title: 'Home', desc: 'Return to the Home dashboard.' }
             ] }
         ]
@@ -757,6 +758,7 @@ window.ANTZ_GUIDES = {
           { id: 'section-quick', title: 'Quick actions', icon: 'add', desc: 'Tap the green + and a sheet slides up: tap any action to jump straight to it.',
             shots: [
               { src: 'section-quick', title: 'Quick actions sheet', desc: 'The section\'s quick actions sheet, opened from the green + button.' },
+              { src: 'section-quick-batch', title: 'Batch Assessment', desc: 'Record assessments for species belonging to a selected section.' },
               { src: 'section-quick-tag', title: 'Add Tags', desc: 'Create and assign tags to organise and categorise records.' },
               { src: 'section-quick-note', title: 'Add Note', desc: 'Quickly create and save notes for animals, enclosures or other entities.' },
               { src: 'section-quick-enclosure', title: 'Add Enclosure', desc: 'Create a new enclosure and assign it to the right site and section.' },
@@ -813,6 +815,7 @@ window.ANTZ_GUIDES = {
           { id: 'enclosure-quick', title: 'Quick actions', icon: 'add', desc: 'Tap the green + and a sheet slides up: tap any action to jump straight to it.',
             shots: [
               { src: 'enclosure-quick', title: 'Quick actions sheet', desc: 'The enclosure\'s quick actions sheet, opened from the green + button.' },
+              { src: 'enclosure-quick-batch', title: 'Batch Assessment', desc: 'Record assessments for species belonging to a selected enclosure.' },
               { src: 'enclosure-quick-tag', title: 'Add Tag', desc: 'Create and assign tags to organise and categorise records.' },
               { src: 'enclosure-quick-note', title: 'Add Note', desc: 'Create and save notes related to the enclosure.' },
               { src: 'enclosure-quick-sub', title: 'Add Sub Enclosure', desc: 'Create a sub-enclosure nested within this enclosure.' },
@@ -876,6 +879,8 @@ window.ANTZ_GUIDES = {
             { title: 'Favourites & bookmark', desc: 'Quick access from the Focus Hub.', icon: 'focus',
               cells: [{ ok: true, text: 'Available' }, { ok: true, text: 'Available' }, { ok: true, text: 'Available' }] },
             { title: 'Tags', desc: 'Organise, categorise and identify.', icon: 'tag',
+              cells: [{ ok: true, text: 'Available' }, { ok: true, text: 'Available' }, { ok: true, text: 'Available' }] },
+            { title: 'Batch assessment', desc: 'Record assessments for the species at that level.', icon: 'approve',
               cells: [{ ok: true, text: 'Available' }, { ok: true, text: 'Available' }, { ok: true, text: 'Available' }] }
           ]
         }
