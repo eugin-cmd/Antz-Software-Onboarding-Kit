@@ -194,6 +194,7 @@ window.ANTZ_GUIDES = {
         label: 'Part 01 · The module',
         title: 'Six core capabilities',
         lede: 'Records and manages all animal movements within and outside the organisation, tracking requests, approvals and allocations for secure, well-documented relocation between enclosures, sites and institutions.',
+        chain: true,
         cards: [
           { id: 'types', title: 'Transfer types', icon: 'transfer', desc: 'In-house, inter-site and external transfers.',
             shots: [{ src: 'transfer-types', title: 'Choose transfer type', desc: 'Pick in-house, inter-site or external when you start a transfer.' }] },
