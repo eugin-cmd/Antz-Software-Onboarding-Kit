@@ -642,12 +642,9 @@ window.ANTZ_GUIDES = {
             { icon: 'home', title: 'Enclosure', jump: 'enclosure', desc: 'The individual habitat where animals live: the most granular level for records and daily care.' }
           ],
           holds: { title: 'Each enclosure holds', items: [
-            { icon: 'pets', title: 'Single animal', desc: 'One animal on its own record', src: 'holds-single',
-              shot: 'Add Animal with Single selected: species, accession type and date, ownership term, enclosure and sex type.' },
-            { icon: 'batch', title: 'Batch of animals', desc: 'One species, managed as one record', src: 'holds-batch',
-              shot: 'Add Animal with Batch selected: a count each of male, female, undetermined and indeterminate, then the basic information.' },
-            { icon: 'users', title: 'Group of animals', desc: 'A larger group of one species', src: 'holds-group',
-              shot: 'Add Group of Animals: a total count, accession details, species, enclosure, sex type and collection type.' }
+            { icon: 'pets', title: 'Single animal', desc: 'One animal on its own record' },
+            { icon: 'batch', title: 'Batch of animals', desc: 'One species, managed as one record' },
+            { icon: 'users', title: 'Group of animals', desc: 'A larger group of one species' }
           ] }
         }
       },
@@ -828,8 +825,24 @@ window.ANTZ_GUIDES = {
         ]
       },
       {
+        id: 'contents',
+        label: 'Part 08 · What lives inside',
+        title: 'An enclosure may contain',
+        lede: 'Depending on how the animals are housed and tracked, every enclosure holds one of three record types.',
+        /* The deck's "An enclosure may contain" slide, with the Add screen for each record type */
+        chain: true,
+        cards: [
+          { id: 'contents-single', title: 'Single animal', icon: 'pets', desc: 'One animal on its own record.',
+            shots: [{ src: 'holds-single', title: 'Single animal', desc: 'Add Animal with Single selected: species, accession type and date, ownership term, enclosure and sex type.' }] },
+          { id: 'contents-batch', title: 'Batch of animals', icon: 'batch', desc: 'One species, managed as one record.',
+            shots: [{ src: 'holds-batch', title: 'Batch of animals', desc: 'Add Animal with Batch selected: a count each of male, female, undetermined and indeterminate, then the basic information.' }] },
+          { id: 'contents-group', title: 'Group of animals', icon: 'users', desc: 'A larger group of one species.',
+            shots: [{ src: 'holds-group', title: 'Group of animals', desc: 'Add Group of Animals: a total count, accession details, species, enclosure, sex type and collection type.' }] }
+        ]
+      },
+      {
         id: 'features',
-        label: 'Part 08 · Compared',
+        label: 'Part 09 · Compared',
         title: 'Feature availability',
         lede: 'Most features work at every level of housing. Transfers, teams and hospital tracking live at the site; treatment tracking and user access stop at the section.',
         /* Rows and marks as in the deck's matrix. Three marks do not match the deck's own tab lists: Mortality is marked for
