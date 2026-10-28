@@ -1067,7 +1067,7 @@ window.ANTZ_GUIDES = {
           title: 'Add Medical Record', numbered: true,
           desc: 'Each section of the form, highlighted in turn. Templates save time: frequently used symptoms, assessments and prescriptions can be stored and reapplied to the next record in a couple of taps.',
           shots: [
-            { src: 'clinical-notes', title: 'Clinical notes', desc: 'Free-text observations or instructions for caretakers and team members, for clear communication.' },
+            { src: 'clinical-notes', title: 'Clinical notes', desc: 'Record and manage clinical observations for caretakers and team members, for clear communication.' },
             { src: 'assessments', title: 'Assessments', desc: 'Animal-specific metrics, such as weight, beak length and enclosure details, for accurate health tracking.' },
             { src: 'symptoms', title: 'Symptoms', desc: 'Search a list of common symptoms or reuse custom templates, and record duration and severity for each.' },
             { src: 'clinical-assessment', title: 'Clinical assessments', desc: 'Select an assessment from a searchable list or a saved template, with duration and severity captured.' },
