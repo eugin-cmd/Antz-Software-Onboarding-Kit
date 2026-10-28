@@ -1249,15 +1249,15 @@ window.ANTZ_GUIDES = {
         chain: true,
         cards: [
           { id: 'upcoming', title: 'Upcoming', icon: 'bell', desc: 'All upcoming vaccinations by date and site, so nothing is missed.',
-            shots: [{ src: 'status-upcoming', title: 'Upcoming Vaccination', desc: 'The Upcoming Vaccination screen, listing species with their animal counts.' }] },
+            shots: [{ src: 'status-upcoming', title: 'Upcoming', desc: 'All upcoming vaccinations by date and site, so nothing is missed.' }] },
           { id: 'pending', title: 'Pending', icon: 'priority', desc: 'Scheduled vaccinations awaiting administration, by date and site.',
-            shots: [{ src: 'status-pending', title: 'Pending Vaccination', desc: 'The Pending Vaccination screen, listing species with their animal counts.' }] },
+            shots: [{ src: 'status-pending', title: 'Pending', desc: 'Scheduled vaccinations awaiting administration, by date and site.' }] },
           { id: 'completed', title: 'Completed', icon: 'approve', desc: 'All administered vaccinations, with full dosage and batch history.',
-            shots: [{ src: 'status-completed', title: 'Completed Vaccination', desc: 'The Completed Vaccination screen, listing species with their animal counts.' }] },
+            shots: [{ src: 'status-completed', title: 'Completed', desc: 'All administered vaccinations, with full dosage and batch history.' }] },
           { id: 'skipped', title: 'Skipped', icon: 'edit', desc: 'Postponed vaccinations, each with a reason and reschedule date.',
-            shots: [{ src: 'status-skipped', title: 'Skipped Vaccination', desc: 'The Skipped Vaccination screen, listing species with their animal counts.' }] },
+            shots: [{ src: 'status-skipped', title: 'Skipped', desc: 'Postponed vaccinations, each with a reason and reschedule date.' }] },
           { id: 'stopped', title: 'Stopped', icon: 'alert', desc: 'Halted vaccinations, kept on record and re-schedulable.',
-            shots: [{ src: 'status-stopped', title: 'Stopped Vaccination', desc: 'The Stopped Vaccination screen, listing species with their animal counts.' }] }
+            shots: [{ src: 'status-stopped', title: 'Stopped', desc: 'Halted vaccinations, kept on record and re-schedulable.' }] }
         ]
       },
       {
