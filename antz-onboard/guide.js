@@ -642,9 +642,12 @@ window.ANTZ_GUIDES = {
             { icon: 'home', title: 'Enclosure', jump: 'enclosure', desc: 'The individual habitat where animals live: the most granular level for records and daily care.' }
           ],
           holds: { title: 'Each enclosure holds', items: [
-            { icon: 'pets', title: 'Single animal', desc: 'One animal on its own record' },
-            { icon: 'batch', title: 'Batch of animals', desc: 'One species, managed as one record' },
-            { icon: 'users', title: 'Group of animals', desc: 'A larger group of one species' }
+            { icon: 'pets', title: 'Single animal', desc: 'One animal on its own record', src: 'holds-single',
+              shot: 'Add Animal with Single selected: species, accession type and date, ownership term, enclosure and sex type.' },
+            { icon: 'batch', title: 'Batch of animals', desc: 'One species, managed as one record', src: 'holds-batch',
+              shot: 'Add Animal with Batch selected: a count each of male, female, undetermined and indeterminate, then the basic information.' },
+            { icon: 'users', title: 'Group of animals', desc: 'A larger group of one species', src: 'holds-group',
+              shot: 'Add Group of Animals: a total count, accession details, species, enclosure, sex type and collection type.' }
           ] }
         }
       },

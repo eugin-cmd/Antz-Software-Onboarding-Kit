@@ -617,8 +617,11 @@
         <li><span class="ic" aria-hidden="true">${icon(s.icon || 'note')}</span><h3><span class="n">${String(i + 1).padStart(2, '0')}</span>${esc(s.title)}</h3><p>${esc(s.desc)}</p></li>`).join('')}
       </ol>`;
     /* Hierarchy: each level a card that jumps to its part of the page, stacked on a spine, beside a diagram of the
-       containment path that ends in what an enclosure holds. Pointing at a card lights its node in the diagram. */
-    const hierarchyHTML = (h) => `
+       containment path that ends in what an enclosure holds. Pointing at a card lights its node in the diagram.
+       Each kind of record an enclosure holds opens its screen, all three in one window. */
+    const hierarchyHTML = (h) => {
+      const set = addSet('holds', h.holds.title, 'home', h.holds.items.map((x) => ({ src: x.src, title: x.title, desc: x.shot, icon: x.icon })));
+      return `
       <div class="ghier reveal">
         <ol class="ghier-levels">${h.levels.map((l, i) => `
           <li><button class="ghier-level" type="button" data-jump="g-${esc(l.jump)}" data-k="${i}">
@@ -628,16 +631,17 @@
             <svg class="drawn-border" aria-hidden="true"></svg>
           </button></li>`).join('')}
         </ol>
-        <div class="ghier-map" aria-hidden="true">
-          <div class="ghier-path">${h.levels.map((l, i) => `
+        <div class="ghier-map">
+          <div class="ghier-path" aria-hidden="true">${h.levels.map((l, i) => `
             <button class="ghier-node" type="button" tabindex="-1" data-jump="g-${esc(l.jump)}" data-k="${i}"><span class="ic">${icon(l.icon)}</span><b>${esc(l.title)}</b></button>`).join('<span class="ghier-link"></span>')}
           </div>
           <div class="ghier-holds">
             <small>${esc(h.holds.title)}</small>
-            <ul>${h.holds.items.map((x) => `<li><span class="ic">${icon(x.icon)}</span><span><b>${esc(x.title)}</b><em>${esc(x.desc)}</em></span></li>`).join('')}</ul>
+            <ul>${h.holds.items.map((x, i) => `<li><button type="button" data-set="${set}" data-i="${i}"><span class="ic" aria-hidden="true">${icon(x.icon)}</span><span class="t"><b>${esc(x.title)}</b><em>${esc(x.desc)}</em></span><span class="open" aria-hidden="true">${EXPAND_SVG}</span></button></li>`).join('')}</ul>
           </div>
         </div>
       </div>`;
+    };
     /* Capabilities by type: a table on wide screens, one card per capability on phones */
     const compareHTML = (c) => `
       <div class="gcmp reveal">

@@ -2098,8 +2098,20 @@ body.fwin-open { overflow: hidden; }
 .ghier-holds ul { list-style: none; margin: 0; padding: 0 0 0 22px; display: grid; gap: 10px; position: relative; }
 .ghier-holds ul::before { content: ""; position: absolute; left: 0; top: 22px; bottom: 22px; width: 2px; border-radius: 2px;
   background: linear-gradient(180deg, var(--tint-line), var(--tint-line2)); opacity: .5; }
-.ghier-holds li { position: relative; display: flex; align-items: center; gap: 12px; padding: 9px 16px 9px 9px; border-radius: 16px;
-  background: rgba(255,255,255,.82); box-shadow: 0 1px 2px rgba(14,23,21,.05); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.ghier-holds li { position: relative; }
+/* Each record type opens its Add screen */
+.ghier-holds li button { width: 100%; display: flex; align-items: center; gap: 12px; padding: 9px 12px 9px 9px; border: 0; border-radius: 16px;
+  font: inherit; text-align: left; cursor: pointer; background: rgba(255,255,255,.82); box-shadow: 0 1px 2px rgba(14,23,21,.05);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: transform .3s cubic-bezier(.22,.8,.24,1), box-shadow .3s, background .3s; }
+.ghier-holds li .t { flex: 1; min-width: 0; }
+.ghier-holds li .open { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; color: var(--tint-ink);
+  background: var(--tint-soft); transition: background .3s, color .3s; }
+.ghier-holds li .open svg { width: 13px; height: 13px; }
+@media (hover: hover) and (pointer: fine) {
+  .ghier-holds li button:hover { transform: translateX(3px); background: #fff; box-shadow: 0 12px 26px -16px rgba(14,40,34,.45); }
+  .ghier-holds li button:hover .open { color: #fff; background: linear-gradient(135deg, var(--tint-line), var(--tint-line2)); }
+}
+.ghier-holds li button:focus-visible { outline: 2px solid var(--tint-line); outline-offset: 2px; }
 .ghier-holds li::before { content: ""; position: absolute; left: -22px; top: 50%; width: 22px; height: 2px; background: var(--tint-line); opacity: .5; }
 .ghier-holds .ic { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; color: #fff;
   background: linear-gradient(135deg, var(--tint-line) 0%, var(--tint-line2) 100%); }
