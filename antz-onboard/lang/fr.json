@@ -502,7 +502,7 @@
     },
     {
      "title": "Journal des transferts",
-     "desc": "Historique complet des statuts avec horodatages et utilisateurs.",
+     "desc": "Historique complet des statuts avec horodatages.",
      "alt": "Chronologie du transfert se terminant par Transfert terminé"
     }
    ]

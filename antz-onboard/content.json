@@ -1284,7 +1284,7 @@
     },
     {
      "title": "Transfer log",
-     "desc": "Full status history with timestamps and users.",
+     "desc": "Full status history with timestamps.",
      "shot": "assets/shots/p14-transfer-transfer-log.png",
      "alt": "Transfer log timeline ending in Transfer Completed",
      "device": "prefr",

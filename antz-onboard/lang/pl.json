@@ -502,7 +502,7 @@
     },
     {
      "title": "Dziennik przeniesień",
-     "desc": "Pełna historia statusów ze znacznikami czasu i użytkownikami.",
+     "desc": "Pełna historia statusów ze znacznikami czasu.",
      "alt": "Oś czasu przeniesienia zakończona statusem Przeniesienie zakończone"
     }
    ]

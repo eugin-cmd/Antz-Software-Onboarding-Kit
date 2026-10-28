@@ -205,7 +205,7 @@ window.ANTZ_GUIDES = {
             shots: [{ src: 'security', title: 'Security clearance & checkout', desc: 'Security clears and checks out an inter-site transfer.' }] },
           { id: 'allocation', title: 'Allocation', icon: 'home', desc: 'On arrival, allocate to an enclosure and notify staff.',
             shots: [{ src: 'allocation', title: 'Allocate enclosures', desc: 'On arrival, allocate the animals to enclosures for an inter-site transfer.' }] },
-          { id: 'log', title: 'Transfer log', icon: 'report', desc: 'Full status history with timestamps and users.',
+          { id: 'log', title: 'Transfer log', icon: 'report', desc: 'Full status history with timestamps.',
             shots: [{ src: 'transfer-log', title: 'Transfer log', desc: 'The full, timestamped status history of the transfer.' }] }
         ]
       },

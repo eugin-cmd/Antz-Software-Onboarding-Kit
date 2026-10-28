@@ -502,7 +502,7 @@
     },
     {
      "title": "Transferprotokoll",
-     "desc": "Vollständiger Statusverlauf mit Zeitstempeln und Nutzenden.",
+     "desc": "Vollständiger Statusverlauf mit Zeitstempeln.",
      "alt": "Transferverlauf, der mit Transfer abgeschlossen endet"
     }
    ]

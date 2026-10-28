@@ -502,7 +502,7 @@
     },
     {
      "title": "Registro de transferências",
-     "desc": "Histórico completo de status com data, hora e usuários.",
+     "desc": "Histórico completo de status com data e hora.",
      "alt": "Cronologia da transferência que termina em Transferência concluída"
     }
    ]

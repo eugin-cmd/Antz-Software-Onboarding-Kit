@@ -502,7 +502,7 @@
     },
     {
      "title": "Registro de traslados",
-     "desc": "Historial completo de estados con fecha, hora y usuarios.",
+     "desc": "Historial completo de estados con fecha y hora.",
      "alt": "Cronología del traslado que termina en Traslado completado"
     }
    ]
