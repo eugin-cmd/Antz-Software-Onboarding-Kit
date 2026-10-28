@@ -980,7 +980,7 @@ window.ANTZ_GUIDES = {
               { src: 'notes', title: 'Notes', desc: 'All notes for the animal across its site, section and enclosure.' },
               { src: 'media', title: 'Media', desc: 'Manage animal-related images, videos and documents.' }
             ] },
-          { id: 'identity', title: 'Identity, history & lineage', icon: 'tag', desc: 'Identifiers, housing history, incidents, diet, lineage and offspring: the tabs that situate an animal in its world.',
+          { id: 'identity', title: 'Identity, history & lineage', icon: 'history', desc: 'Identifiers, housing history, incidents, diet, lineage and offspring: the tabs that situate an animal in its world.',
             shots: [
               { src: 'identifier', title: 'Identifier', desc: 'Add, edit or delete a local identifier: set its type and name, mark it primary and upload images.' },
               { src: 'history', title: 'History', desc: 'Current and past enclosure details.' },
@@ -989,11 +989,14 @@ window.ANTZ_GUIDES = {
               { src: 'lineage', title: 'Lineage', desc: 'Track the genetic and breeding history of the animal.' },
               { src: 'offspring', title: 'Offspring', desc: 'Record and manage the progeny of the selected animal.' }
             ] },
-          /* The deck's Tags screen is a placeholder (a copy of the Incharges screen), so Tags has no screen of its own */
-          { id: 'handover', title: 'Transfer & incharge', icon: 'transfer', desc: 'Hospital transfer status and the chain of responsibility travel with the record. Tags label an animal for quick filtering by group, condition or care priority.',
+          { id: 'handover', title: 'Transfer & incharge', icon: 'transfer', desc: 'Hospital transfer status and the chain of responsibility travel with the record.',
             shots: [
               { src: 'hospital', title: 'Hospital transfer', desc: 'Track requests through Pending, In-transit, Accepted, Cancelled or Rejected.' },
               { src: 'incharge', title: 'Incharges', desc: 'Who is currently assigned, with a timeline of current and previous incharges for accountability.' }
+            ] },
+          { id: 'tags', title: 'Tags', icon: 'tag', desc: 'Label an animal for quick filtering by group, condition or care priority.',
+            shots: [
+              { src: 'tags', title: 'Tags', desc: 'The animal\'s tags, shown on its profile header too. Search and filter them, switch between Public and Private tags, and add one with the green +.' }
             ] }
         ]
       }
