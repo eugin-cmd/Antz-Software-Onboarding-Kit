@@ -1029,6 +1029,7 @@ window.ANTZ_GUIDES = {
         label: 'Part 01 · The module',
         title: 'The Medical module',
         lede: 'Record, track and manage animal health, including diagnoses, prescriptions and treatments, with organised histories and coordination across the vet team.',
+        chain: true,
         cards: [
           { id: 'create', title: 'Record creation', icon: 'add', desc: 'Single, batch, group, scheduled or direct workflows, with lab requests and exact date and time logging.',
             shots: [{ src: 'create', title: 'Record creation', desc: 'Quick actions for Single, Group and Batch records, Pool Lab Request, Direct Administer, Prescription, Vaccination and Deworming, and Schedule Vaccination.' }] },
