@@ -1246,6 +1246,7 @@ window.ANTZ_GUIDES = {
         label: 'Part 02 · Status views',
         title: 'Status-based views',
         lede: 'Every vaccination lives in exactly one status. The five views make monitoring simple: you always know what is coming, what is waiting, and what is done.',
+        chain: true,
         cards: [
           { id: 'upcoming', title: 'Upcoming', icon: 'bell', desc: 'All upcoming vaccinations by date and site, so nothing is missed.',
             shots: [{ src: 'status-upcoming', title: 'Upcoming Vaccination', desc: 'The Upcoming Vaccination screen, listing species with their animal counts.' }] },
