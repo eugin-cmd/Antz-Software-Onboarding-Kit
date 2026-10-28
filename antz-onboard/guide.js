@@ -1265,11 +1265,12 @@ window.ANTZ_GUIDES = {
         label: 'Part 03 · Add',
         title: 'Schedule or direct administer',
         lede: 'Adding a vaccination gives you two paths. Plan one for later, or record one you are giving right now: both capture the same medicine and date details. Direct administer adds the recording step covered next.',
+        chain: true,
         cards: [
           { id: 'schedule', title: 'Schedule vaccination', icon: 'add', desc: 'Plan ahead: set the medicine, date and site. It lands in Upcoming and moves to Pending as it comes due.',
-            shots: [{ src: 'add-schedule', title: 'Schedule Vaccination', desc: 'The Schedule Vaccination form, with the selected animal, prescription and clinical notes.' }] },
+            shots: [{ src: 'add-schedule', title: 'Schedule vaccination', desc: 'Plan ahead: set the medicine, date and site. It lands in Upcoming and moves to Pending as it comes due.' }] },
           { id: 'direct', title: 'Direct administer', icon: 'vaccine', desc: 'Record a vaccine you are giving now or gave in the past, and capture dosage and batch on the spot. It goes straight to Completed.',
-            shots: [{ src: 'add-administer', title: 'Direct Vaccination', desc: 'The Direct Vaccination form, with the selected animals, prescription and clinical notes.' }] }
+            shots: [{ src: 'add-administer', title: 'Direct administer', desc: 'Record a vaccine you are giving now or gave in the past, and capture dosage and batch on the spot. It goes straight to Completed.' }] }
         ]
       },
       {
